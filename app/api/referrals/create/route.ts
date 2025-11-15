@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { supabase } from "@/lib/supabase";
+import { getAppUrl } from "@/lib/app-url";
 
 export async function POST(request: NextRequest) {
   try {
@@ -47,7 +48,7 @@ export async function POST(request: NextRequest) {
     if (existingCode) {
       return NextResponse.json({
         code: existingCode.code,
-        referralLink: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/assessment/intro?ref=${existingCode.code}`,
+        referralLink: `${getAppUrl()}/assessment/intro?ref=${existingCode.code}`,
       });
     }
 

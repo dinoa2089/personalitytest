@@ -53,8 +53,16 @@ export default function JobPostingDetailPage() {
     }
   }, [jobId]);
 
+  // For client components, use window.location or fallback
+  const getBaseUrl = () => {
+    if (typeof window !== 'undefined') {
+      return window.location.origin;
+    }
+    return process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  };
+  
   const assessmentLink = jobPosting
-    ? `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/assessment/intro?job=${jobPosting.assessment_link_token}`
+    ? `${getBaseUrl()}/assessment/intro?job=${jobPosting.assessment_link_token}`
     : "";
 
   const copyAssessmentLink = () => {

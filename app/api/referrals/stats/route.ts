@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { supabase } from "@/lib/supabase";
+import { getAppUrl } from "@/lib/app-url";
 
 const REFERRAL_UNLOCK_THRESHOLD = 3; // Number of completions needed to unlock premium
 
@@ -77,7 +78,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       hasCode: true,
       code: referralCode.code,
-      referralLink: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/assessment/intro?ref=${referralCode.code}`,
+      referralLink: `${getAppUrl()}/assessment/intro?ref=${referralCode.code}`,
       completedReferrals: completedCount,
       threshold: REFERRAL_UNLOCK_THRESHOLD,
       progress: Math.min((completedCount / REFERRAL_UNLOCK_THRESHOLD) * 100, 100),

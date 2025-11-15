@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { supabase } from "@/lib/supabase";
+import { getAppUrl } from "@/lib/app-url";
 
 export async function GET(request: NextRequest) {
   try {
@@ -102,7 +103,7 @@ export async function POST(request: NextRequest) {
       // Calculate fit score
       try {
         const fitResponse = await fetch(
-          `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/business/applicants/score`,
+          `${getAppUrl()}/api/business/applicants/score`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

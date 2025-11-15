@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { calculateScores } from "@/lib/scoring-api";
+import { getAppUrl } from "@/lib/app-url";
 
 export async function POST(request: NextRequest) {
   try {
@@ -81,7 +82,7 @@ export async function POST(request: NextRequest) {
           const referralCode = body.referralCode;
           if (referralCode) {
             try {
-              await fetch(`${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/referrals/track`, {
+              await fetch(`${getAppUrl()}/api/referrals/track`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -108,7 +109,7 @@ export async function POST(request: NextRequest) {
 
               if (jobPosting) {
                 // Create applicant assessment (this will calculate fit score automatically)
-                const applicantResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/business/applicants`, {
+                const applicantResponse = await fetch(`${getAppUrl()}/api/business/applicants`, {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify({
