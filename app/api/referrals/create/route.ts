@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       code: referralCode.code,
-      referralLink: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/assessment/intro?ref=${referralCode.code}`,
+      referralLink: `${getAppUrl()}/assessment/intro?ref=${referralCode.code}`,
     });
   } catch (error) {
     console.error("Error in referral creation:", error);
