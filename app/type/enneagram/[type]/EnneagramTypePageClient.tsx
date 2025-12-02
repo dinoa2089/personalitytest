@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/seo/StructuredData";
 import {
   Star,
   TrendingUp,
@@ -55,9 +56,21 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
 
   const bgColor = typeColors[content.number] || "from-primary to-purple-600";
 
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Personality Types", url: "/type" },
+    { name: "Enneagram", url: `/type/enneagram/${typeNum}` },
+    { name: content.name, url: `/type/enneagram/${typeNum}` },
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
       <Header />
+
+      {/* Breadcrumbs */}
+      <div className="container mx-auto px-4 pt-4">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">

@@ -1,0 +1,4 @@
+# This directory stores AI-generated infographics
+# Run: npx tsx scripts/generate-infographics.ts all
+# to generate all infographics
+

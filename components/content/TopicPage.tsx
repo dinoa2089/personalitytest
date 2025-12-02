@@ -91,7 +91,7 @@ export function TopicPage({
 
   const breadcrumbs = [
     { name: "Home", url: "/" },
-    { name: framework === "prism" ? "Personality Types" : framework.toUpperCase(), url: getBaseUrl() },
+    { name: "Personality Types", url: "/type" },
     { name: typeName, url: getBaseUrl() },
     { name: TOPIC_NAMES[content.topic], url: `${getBaseUrl()}/${content.topic}` }
   ];

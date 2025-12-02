@@ -42,7 +42,7 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
 
   const breadcrumbItems = [
     { name: "Home", url: "/" },
-    { name: "Personality Types", url: "/type/innovator" },
+    { name: "Personality Types", url: "/type" },
     { name: archetype.name, url: `/type/${archetype.id}` },
   ];
 

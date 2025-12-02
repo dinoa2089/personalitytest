@@ -1,6 +1,7 @@
 "use client";
 
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { cn } from "@/lib/utils";
 
 interface MarkdownTextProps {
@@ -38,6 +39,7 @@ export function MarkdownText({
   return (
     <div className={cn("markdown-content", className)}>
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
           // Headers - properly structured for SEO
           h1: ({ children }) => (
