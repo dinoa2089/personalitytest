@@ -22,6 +22,10 @@ import { PersonalityRadarChart } from "./RadarChart";
 import { PersonalityConstellation } from "./PersonalityConstellation";
 import { SimpleJobAnalysis } from "./SimpleJobAnalysis";
 import { ShareableInfographic } from "./ShareableInfographic";
+import { ExploreYourType } from "./ExploreYourType";
+import { PersonalizedContent } from "./PersonalizedContent";
+import { JourneyNavigator } from "./JourneyNavigator";
+import { PersonalizedEmailCapture } from "./PersonalizedEmailCapture";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import { CompactMarkdown } from "@/components/ui/markdown-text";
 import type { DimensionScore } from "@/types";
@@ -89,6 +93,9 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
       >
         <PersonalityConstellation scores={scores} sessionId={sessionId} />
       </motion.div>
+
+      {/* Explore Your Type - Deep Dive Link */}
+      <ExploreYourType archetype={primary} />
 
       {/* Famous Examples - Pulled out for better visibility */}
       <motion.div
@@ -235,6 +242,9 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
         </Card>
       </motion.div>
 
+      {/* Personalized Content Recommendations */}
+      <PersonalizedContent archetype={primary} scores={scores} />
+
       {/* Shareable Infographic Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -248,17 +258,21 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
         />
       </motion.div>
 
+      {/* Journey Navigator - What's Next */}
+      <JourneyNavigator archetype={primary} sessionId={sessionId} />
+
       {/* Compatibility CTA - Viral Hook */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9 }}
       >
-        <Card className="rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-purple-500/5">
-          <CardContent className="p-8">
+        <Card className="rounded-2xl border-2 border-pink-500/30 bg-gradient-to-br from-pink-950/20 to-rose-950/20 overflow-hidden relative">
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl" />
+          <CardContent className="p-8 relative">
             <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/20">
-                <Users className="h-8 w-8 text-primary" />
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500/20 to-rose-500/20 border border-pink-500/20">
+                <Users className="h-8 w-8 text-pink-400" />
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-2xl font-bold mb-2">Check Your Compatibility</h3>
@@ -267,11 +281,11 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
                   See your communication styles, potential conflicts, and how to work better together.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                  <Button size="lg" className="gap-2">
+                  <Button size="lg" className="gap-2 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 border-0">
                     <UserPlus className="h-4 w-4" />
                     Invite Someone to Compare
                   </Button>
-                  <Button variant="outline" size="lg" className="gap-2">
+                  <Button variant="outline" size="lg" className="gap-2 border-pink-500/30 hover:bg-pink-500/10">
                     <MessageSquare className="h-4 w-4" />
                     Challenge: Guess My Type
                   </Button>
@@ -282,41 +296,44 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
         </Card>
       </motion.div>
 
+      {/* Personalized Email Capture */}
+      <PersonalizedEmailCapture archetype={primary} />
+
       {/* Premium Upgrade CTA */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.0 }}
       >
-        <Card className="rounded-2xl border-2 border-dashed border-primary/50 bg-gradient-to-br from-primary/5 to-purple-500/5">
+        <Card className="rounded-2xl border-2 border-dashed border-violet-500/50 bg-gradient-to-br from-violet-950/10 to-fuchsia-950/10">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20">
-                <Lock className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20">
+                <Lock className="h-6 w-6 text-violet-400" />
               </div>
               <div className="flex-1">
                 <CardTitle className="text-2xl md:text-3xl font-bold">
-                  Go Deeper with Premium
+                  Go Even Deeper
                 </CardTitle>
                 <CardDescription className="text-base mt-1">
-                  Unlock your complete personality analysis
+                  Unlock detailed analysis and personalized insights
                 </CardDescription>
               </div>
             </div>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-background/50">
-                <Sparkles className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
+                <Sparkles className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="font-semibold mb-1">All Framework Mappings</div>
+                  <div className="font-semibold mb-1">Deep Framework Analysis</div>
                   <div className="text-sm text-muted-foreground">
-                    MBTI, DISC, and Enneagram with detailed breakdowns
+                    Cognitive functions, wings, tritype details & more
                   </div>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-background/50">
-                <Briefcase className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
+                <Briefcase className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <div className="font-semibold mb-1">15+ Career Matches</div>
                   <div className="text-sm text-muted-foreground">
@@ -324,8 +341,8 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
                   </div>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-background/50">
-                <Users className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
+                <Users className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <div className="font-semibold mb-1">Full Compatibility</div>
                   <div className="text-sm text-muted-foreground">
@@ -333,8 +350,8 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
                   </div>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-background/50">
-                <Zap className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
+                <Zap className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <div className="font-semibold mb-1">Dark Triad Analysis</div>
                   <div className="text-sm text-muted-foreground">
@@ -342,8 +359,8 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
                   </div>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-background/50">
-                <TrendingUp className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
+                <TrendingUp className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <div className="font-semibold mb-1">30-Day Growth Plan</div>
                   <div className="text-sm text-muted-foreground">
@@ -351,8 +368,8 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
                   </div>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-background/50">
-                <Download className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
+                <Download className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <div className="font-semibold mb-1">PDF Export</div>
                   <div className="text-sm text-muted-foreground">
@@ -363,13 +380,13 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <Button asChild size="lg" className="flex-1">
+              <Button asChild size="lg" className="flex-1 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 border-0">
                 <Link href="/pricing">
                   Unlock Premium - $14.99
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="flex-1">
+              <Button asChild variant="outline" size="lg" className="flex-1 border-violet-500/30 text-violet-300 hover:bg-violet-500/10">
                 <Link href={`/referrals?session=${sessionId}`}>
                   Unlock Free via Referrals
                   <Users className="ml-2 h-4 w-4" />

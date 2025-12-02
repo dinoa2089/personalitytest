@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CompatibilityHeatmap } from "@/components/visualizations";
 import Link from "next/link";
 
 function CompareContent() {
@@ -191,6 +192,11 @@ function CompareContent() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            {/* Compatibility Heatmap Preview */}
+            <div className="py-8">
+              <CompatibilityHeatmap showTitle={true} />
             </div>
 
             {/* CTA */}

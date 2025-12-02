@@ -24,6 +24,9 @@ import {
   AlertCircle,
   Lightbulb,
   MessageSquare,
+  Lock,
+  DollarSign,
+  Zap,
 } from "lucide-react";
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import { ExpandableText } from "@/components/ui/ExpandableText";
@@ -240,6 +243,36 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                 </CardContent>
               </Card>
             </div>
+
+            {/* Compatibility CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-8"
+            >
+              <Card className="rounded-2xl border-2 border-dashed border-pink-500/30 bg-gradient-to-br from-pink-500/5 to-rose-500/5">
+                <CardContent className="p-6">
+                  <div className="flex flex-col sm:flex-row items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-pink-500/20 flex-shrink-0">
+                      <Heart className="h-6 w-6 text-pink-500" />
+                    </div>
+                    <div className="flex-1 text-center sm:text-left">
+                      <h4 className="font-bold mb-1">See Your Compatibility with Other Types</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Discover which types are most compatible with {archetype.name} in romance, friendship, and work.
+                      </p>
+                    </div>
+                    <Button asChild variant="outline" className="border-pink-500/30 hover:bg-pink-500/10">
+                      <Link href="/assessment/intro">
+                        Take the Test
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </motion.section>
 
           {/* Career Matches */}
@@ -250,19 +283,24 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
           >
             <Card className="rounded-2xl border border-border/50">
               <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20">
-                    <Briefcase className="h-5 w-5 text-blue-600" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20">
+                      <Briefcase className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl">Career Paths</CardTitle>
+                      <CardDescription>
+                        Roles where {archetype.name}s naturally excel
+                      </CardDescription>
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-2xl">Career Paths</CardTitle>
-                    <CardDescription>
-                      Roles where {archetype.name}s naturally excel
-                    </CardDescription>
-                  </div>
+                  <Badge variant="outline" className="hidden md:flex">
+                    6 of 15+ shown
+                  </Badge>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   {archetype.careerMatches.slice(0, 6).map((career, index) => (
                     <div
@@ -273,6 +311,38 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                       <CompactMarkdown>{career.explanation}</CompactMarkdown>
                     </div>
                   ))}
+                </div>
+
+                {/* Premium Career Upsell */}
+                <div className="rounded-xl border-2 border-dashed border-amber-500/30 bg-gradient-to-br from-amber-500/5 to-orange-500/5 p-5">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/20 flex-shrink-0">
+                      <Sparkles className="h-6 w-6 text-amber-500" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold mb-1">Get Your Personalized Career Report</h4>
+                      <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
+                        <span className="flex items-center gap-1">
+                          <DollarSign className="h-3 w-3 text-emerald-500" />
+                          Salary ranges
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <TrendingUp className="h-3 w-3 text-blue-500" />
+                          Fit scores
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Zap className="h-3 w-3 text-purple-500" />
+                          Interview tips
+                        </span>
+                      </div>
+                    </div>
+                    <Button asChild className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 border-0 whitespace-nowrap">
+                      <Link href="/assessment/intro">
+                        Take the Assessment
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>

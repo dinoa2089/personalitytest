@@ -18,6 +18,7 @@ import {
   BookOpen
 } from "lucide-react";
 import { archetypes } from "@/lib/archetypes";
+import { ArchetypeDistribution } from "@/components/visualizations";
 
 // MBTI type data
 const mbtiTypes = [
@@ -139,6 +140,11 @@ export default function TypeHubPage() {
                     </Link>
                   ))}
                 </div>
+                {/* Archetype Distribution Visualization */}
+                <div className="mt-6 mb-6">
+                  <ArchetypeDistribution showTitle={false} variant="donut" />
+                </div>
+
                 <div className="flex flex-wrap gap-3">
                   <Button asChild variant="outline" className="border-violet-500/50 text-violet-300 hover:bg-violet-500/20">
                     <Link href="/assessment/intro">

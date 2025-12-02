@@ -18,6 +18,7 @@ import {
 import Link from "next/link";
 import type { DimensionScore } from "@/types";
 import { calculateArchetype } from "@/lib/archetypes";
+import { DimensionsWheel } from "@/components/visualizations";
 
 interface PersonalityConstellationProps {
   scores: DimensionScore[];
@@ -630,6 +631,16 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
           <Zap className="w-4 h-4 text-orange-400" />
           <span className="text-sm font-medium text-orange-300">{discType} - {discInfo.title}</span>
         </div>
+      </motion.div>
+
+      {/* Interactive Dimensions Wheel */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+        className="mt-6"
+      >
+        <DimensionsWheel showTitle={false} className="border-violet-500/20" />
       </motion.div>
     </div>
   );

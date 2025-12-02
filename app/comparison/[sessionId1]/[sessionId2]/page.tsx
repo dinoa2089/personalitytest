@@ -9,6 +9,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PersonalityRadarChart } from "@/components/results/RadarChart";
+import { DualRadarChart } from "@/components/visualizations";
+import { calculateArchetype } from "@/lib/archetypes";
 import type { AssessmentResult, DimensionScore } from "@/types";
 import { ArrowLeft, Users } from "lucide-react";
 
@@ -159,18 +161,24 @@ export default function ComparisonPage() {
             </div>
           </div>
 
-          {/* Comparison Overview */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Comparison Overview</CardTitle>
-              <CardDescription>
-                See how these profiles align and differ across dimensions
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <PersonalityRadarChart scores={combinedScores} />
-            </CardContent>
-          </Card>
+          {/* Comparison Overview with Dual Radar */}
+          <DualRadarChart 
+            personA={{
+              name: "Profile 1",
+              archetype: calculateArchetype(result1.dimensional_scores).primary.name,
+              icon: calculateArchetype(result1.dimensional_scores).primary.icon,
+              scores: result1.dimensional_scores,
+              color: "#3b82f6",
+            }}
+            personB={{
+              name: "Profile 2",
+              archetype: calculateArchetype(result2.dimensional_scores).primary.name,
+              icon: calculateArchetype(result2.dimensional_scores).primary.icon,
+              scores: result2.dimensional_scores,
+              color: "#a855f7",
+            }}
+            showOverlapAnalysis={true}
+          />
 
           {/* Dimension-by-Dimension Comparison */}
           <Card>

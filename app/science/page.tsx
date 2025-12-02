@@ -21,6 +21,14 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import {
+  DimensionsWheel,
+  ReliabilityChart,
+  ComparisonPanel,
+  NormalDistributionChart,
+  ConfidenceInterval,
+  ValidationMetrics,
+} from "@/components/visualizations";
 
 export default function SciencePage() {
   return (
@@ -88,30 +96,19 @@ export default function SciencePage() {
                     seven-dimensional framework validated across cultures.
                   </p>
                   
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="rounded-xl border border-border/50 bg-muted/30 p-5">
-                      <h4 className="font-semibold mb-2">The 7 Dimensions</h4>
-                      <ul className="space-y-1 text-sm text-muted-foreground">
-                        <li>• Openness to Experience</li>
-                        <li>• Conscientiousness</li>
-                        <li>• Extraversion</li>
-                        <li>• Agreeableness</li>
-                        <li>• Emotional Resilience</li>
-                        <li>• Honesty-Humility</li>
-                        <li>• Adaptability</li>
-                      </ul>
-                    </div>
-                    <div className="rounded-xl border border-border/50 bg-muted/30 p-5">
-                      <h4 className="font-semibold mb-2">Why These Dimensions?</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Each dimension has demonstrated predictive validity for important life outcomes including 
-                        job performance, relationship satisfaction, academic achievement, and well-being. The 
-                        addition of Adaptability addresses change readiness in modern dynamic environments.
-                      </p>
-                    </div>
+                  <div className="rounded-xl border border-border/50 bg-muted/30 p-5">
+                    <h4 className="font-semibold mb-2">Why These Dimensions?</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Each dimension has demonstrated predictive validity for important life outcomes including 
+                      job performance, relationship satisfaction, academic achievement, and well-being. The 
+                      addition of Adaptability addresses change readiness in modern dynamic environments.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Interactive Dimensions Wheel */}
+              <DimensionsWheel showTitle={false} />
             </motion.section>
 
             {/* Addressing Weaknesses Section */}
@@ -254,6 +251,9 @@ export default function SciencePage() {
                     </div>
                   </CardContent>
                 </Card>
+
+                {/* Interactive Comparison Panel */}
+                <ComparisonPanel showTitle={true} />
               </div>
             </motion.section>
 
@@ -288,6 +288,11 @@ export default function SciencePage() {
                     </p>
                   </CardContent>
                 </Card>
+
+                {/* Normal Distribution Visualization */}
+                <div className="md:col-span-2">
+                  <NormalDistributionChart showTitle={true} />
+                </div>
 
                 <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                   <CardHeader>
@@ -339,6 +344,11 @@ export default function SciencePage() {
                     </p>
                   </CardContent>
                 </Card>
+
+                {/* Confidence Interval Visualization */}
+                <div className="md:col-span-2">
+                  <ConfidenceInterval showTitle={true} />
+                </div>
               </div>
             </motion.section>
 
@@ -484,47 +494,11 @@ export default function SciencePage() {
                 <h2 className="text-3xl font-bold">Validation & Reliability Metrics</h2>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <Card className="rounded-2xl border-border/50 bg-gradient-to-br from-primary/10 to-transparent shadow-md">
-                  <CardContent className="pt-6">
-                    <div className="text-4xl font-bold text-primary mb-2">85-92%</div>
-                    <div className="text-sm font-medium mb-1">Test-Retest Reliability</div>
-                    <div className="text-xs text-muted-foreground">
-                      (vs. 39-76% for Myers-Briggs)
-                    </div>
-                  </CardContent>
-                </Card>
+              {/* Interactive Validation Metrics */}
+              <ValidationMetrics showTitle={false} />
 
-                <Card className="rounded-2xl border-border/50 bg-gradient-to-br from-purple-500/10 to-transparent shadow-md">
-                  <CardContent className="pt-6">
-                    <div className="text-4xl font-bold text-purple-600 mb-2">0.82-0.91</div>
-                    <div className="text-sm font-medium mb-1">Internal Consistency</div>
-                    <div className="text-xs text-muted-foreground">
-                      (Cronbach's α)
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="rounded-2xl border-border/50 bg-gradient-to-br from-pink-500/10 to-transparent shadow-md">
-                  <CardContent className="pt-6">
-                    <div className="text-4xl font-bold text-pink-600 mb-2">0.85-0.92</div>
-                    <div className="text-sm font-medium mb-1">Convergent Validity</div>
-                    <div className="text-xs text-muted-foreground">
-                      (with NEO-PI-R, HEXACO)
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="rounded-2xl border-border/50 bg-gradient-to-br from-orange-500/10 to-transparent shadow-md">
-                  <CardContent className="pt-6">
-                    <div className="text-4xl font-bold text-orange-600 mb-2">5,000+</div>
-                    <div className="text-sm font-medium mb-1">Validation Sample</div>
-                    <div className="text-xs text-muted-foreground">
-                      (diverse participants)
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+              {/* Reliability Chart Comparison */}
+              <ReliabilityChart showTitle={true} />
 
               <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
                 <CardHeader>

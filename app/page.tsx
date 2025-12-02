@@ -3,6 +3,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
+import { ProcessFlow, ArchetypeDistribution } from "@/components/visualizations";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -137,6 +138,24 @@ export default function Home() {
                   </p>
                 </div>
               </Link>
+            </div>
+          </Container>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="relative py-16 md:py-24 bg-gradient-to-b from-background to-muted/20">
+          <Container>
+            <div className="mx-auto max-w-5xl">
+              <ProcessFlow showTitle={true} variant="horizontal" />
+            </div>
+          </Container>
+        </section>
+
+        {/* Archetype Distribution Section */}
+        <section className="relative py-16 md:py-24">
+          <Container>
+            <div className="mx-auto max-w-4xl">
+              <ArchetypeDistribution showTitle={true} variant="donut" />
             </div>
           </Container>
         </section>
