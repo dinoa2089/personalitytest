@@ -27,6 +27,7 @@ import {
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import { ExpandableText } from "@/components/ui/ExpandableText";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
+import { SectionedDescription } from "@/components/personality/SectionedDescription";
 import { CognitiveFunctionStack, PopulationRarity } from "@/components/visualizations";
 import type { MBTIType } from "@/lib/mbti-content";
 import { getRelatedMBTITypes, getTopicLinksForType, TOPIC_METADATA } from "@/lib/internal-links";
@@ -106,12 +107,12 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                 <CardTitle className="text-3xl">Understanding the {content.code}</CardTitle>
                 <CardDescription className="text-lg">{content.nickname}</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                {content.description.map((paragraph, index) => (
-                  <MarkdownText key={index} variant="full" className="text-lg">
-                    {paragraph}
-                  </MarkdownText>
-                ))}
+              <CardContent>
+                <SectionedDescription 
+                  paragraphs={content.description}
+                  typeName={content.code}
+                  framework="mbti"
+                />
               </CardContent>
             </Card>
           </motion.section>
