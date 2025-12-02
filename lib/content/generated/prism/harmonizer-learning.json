@@ -37,10 +37,7 @@
       "subsections": [
         {
           "heading": "Sensory Details for Your Space",
-          "content": {
-            "title": "Visual:",
-            "description": "Use warm, soft lighting (lamps over overheads). Incorporate plants or natural wood textures to ground yourself. Keep visual clutter to a minimum, but keep meaningful tokens (like a photo of a loved one) visible to remind you of your 'why.'\n**Auditory:** High-fidelity noise-canceling headphones are a must. Listen to instrumental scores, lo-fi beats, or nature sounds (rain or flowing water). Avoid lyrical music, as your brain will try to process the human voice, distracting you from deep work.\n**Tactile:** Wear comfortable, non-restrictive clothing. Have a stress ball or a smooth stone to hold while reading—tactile grounding helps you process abstract concepts."
-          }
+          "content": "**Visual:** Use warm, soft lighting (lamps over overheads). Incorporate plants or natural wood textures to ground yourself. Keep visual clutter to a minimum, but keep meaningful tokens (like a photo of a loved one) visible to remind you of your 'why.'\n**Auditory:** High-fidelity noise-canceling headphones are a must. Listen to instrumental scores, lo-fi beats, or nature sounds (rain or flowing water). Avoid lyrical music, as your brain will try to process the human voice, distracting you from deep work.\n**Tactile:** Wear comfortable, non-restrictive clothing. Have a stress ball or a smooth stone to hold while reading—tactile grounding helps you process abstract concepts."
         },
         {
           "heading": "The Digital Environment",
@@ -54,17 +51,11 @@
       "subsections": [
         {
           "heading": "A Sample 'Slow-Flow' Study Routine",
-          "content": {
-            "title": "09:00 AM - The Soft Start:",
-            "description": "Do not dive straight into the hardest material. Spend 15 minutes journaling about your goals for the day or reading something inspiring. This primes your emotional state.\n**09:15 AM - Deep Dive Block (45 mins):** Focus on one single topic. No multitasking. Use the Narrative Chaining method to write out notes in full sentences, not just bullet points.\n**10:00 AM - The Restoration Break:** Step away from screens. Water your plants, stretch, or make tea. Do not scroll social media; it disrupts your peace.\n**10:15 AM - The Teaching Block (45 mins):** Record a voice memo explaining what you just learned as if you were talking to a friend. Listen back to hear where you hesitate—that's where you need to review."
-          }
+          "content": "**09:00 AM - The Soft Start:** Do not dive straight into the hardest material. Spend 15 minutes journaling about your goals for the day or reading something inspiring. This primes your emotional state.\n**09:15 AM - Deep Dive Block (45 mins):** Focus on one single topic. No multitasking. Use the Narrative Chaining method to write out notes in full sentences, not just bullet points.\n**10:00 AM - The Restoration Break:** Step away from screens. Water your plants, stretch, or make tea. Do not scroll social media; it disrupts your peace.\n**10:15 AM - The Teaching Block (45 mins):** Record a voice memo explaining what you just learned as if you were talking to a friend. Listen back to hear where you hesitate—that's where you need to review."
         },
         {
           "heading": "Format Recommendations",
-          "content": {
-            "title": "Books:",
-            "description": "You likely prefer physical books over e-books. The tactile experience and the ability to physically highlight or annotate feels more 'real' and honest to you.\n**Courses:** Look for cohort-based courses with small discussion groups rather than massive open online courses (MOOCs). You need the accountability of a small community, not the anonymity of a crowd."
-          }
+          "content": "**Books:** You likely prefer physical books over e-books. The tactile experience and the ability to physically highlight or annotate feels more 'real' and honest to you.\n**Courses:** Look for cohort-based courses with small discussion groups rather than massive open online courses (MOOCs). You need the accountability of a small community, not the anonymity of a crowd."
         }
       ]
     },
@@ -118,30 +109,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Connect to Values:",
-      "description": "You learn best when you understand the human impact or ethical implication of the subject."
-    },
-    {
-      "title": "Curate Your Space:",
-      "description": "Create a sensory-friendly, cozy, and private 'sanctuary' for deep work."
-    },
-    {
-      "title": "Story over Stats:",
-      "description": "Use narrative techniques to memorize facts; turn data into stories with characters."
-    },
-    {
-      "title": "Quality over Quantity:",
-      "description": "Focus on mastering fewer subjects deeply rather than skimming many surface-level topics."
-    },
-    {
-      "title": "Reframe Assertiveness:",
-      "description": "In groups, view setting boundaries as a way to ensure fairness, not as creating conflict."
-    },
-    {
-      "title": "Use the 'Mentor Method':",
-      "description": "Study by imagining you are preparing to teach the material to a friend who needs your help."
-    }
+    "**Connect to Values:** You learn best when you understand the human impact or ethical implication of the subject.",
+    "**Curate Your Space:** Create a sensory-friendly, cozy, and private 'sanctuary' for deep work.",
+    "**Story over Stats:** Use narrative techniques to memorize facts; turn data into stories with characters.",
+    "**Quality over Quantity:** Focus on mastering fewer subjects deeply rather than skimming many surface-level topics.",
+    "**Reframe Assertiveness:** In groups, view setting boundaries as a way to ensure fairness, not as creating conflict.",
+    "**Use the 'Mentor Method':** Study by imagining you are preparing to teach the material to a friend who needs your help."
   ],
   "relatedTopics": [
     "careers",

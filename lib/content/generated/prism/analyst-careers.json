@@ -116,34 +116,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Leverage Deep Work:",
-      "description": "Your ability to focus is your greatest economic asset; protect it fiercely."
-    },
-    {
-      "title": "Seek Autonomy:",
-      "description": "You thrive when given a goal and left alone to solve it; avoid micromanagers."
-    },
-    {
-      "title": "Avoid Emotional Labor:",
-      "description": "Steer clear of careers that require constant social performance or sales."
-    },
-    {
-      "title": "Communicate Logic:",
-      "description": "Learn to translate your complex analysis into simple business value for stakeholders."
-    },
-    {
-      "title": "Value Expertise:",
-      "description": "Aim for \"Distinguished Individual Contributor\" tracks rather than traditional management."
-    },
-    {
-      "title": "Negotiate with Data:",
-      "description": "Use your research skills to objectively prove your market value."
-    },
-    {
-      "title": "Trust Your Skepticism:",
-      "description": "Your ability to spot flaws is a safety mechanism for your company; use it constructively."
-    }
+    "**Leverage Deep Work:** Your ability to focus is your greatest economic asset; protect it fiercely.",
+    "**Seek Autonomy:** You thrive when given a goal and left alone to solve it; avoid micromanagers.",
+    "**Avoid Emotional Labor:** Steer clear of careers that require constant social performance or sales.",
+    "**Communicate Logic:** Learn to translate your complex analysis into simple business value for stakeholders.",
+    "**Value Expertise:** Aim for \"Distinguished Individual Contributor\" tracks rather than traditional management.",
+    "**Negotiate with Data:** Use your research skills to objectively prove your market value.",
+    "**Trust Your Skepticism:** Your ability to spot flaws is a safety mechanism for your company; use it constructively."
   ],
   "relatedTopics": [
     "learning",

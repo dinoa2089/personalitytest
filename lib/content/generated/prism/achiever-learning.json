@@ -103,34 +103,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Gamify Everything:",
-      "description": "Use timers, scores, and trackers to turn dry studying into a competitive sport."
-    },
-    {
-      "title": "Socialize Your Learning:",
-      "description": "Teach others, debate concepts, and lead study groups to leverage your Extraversion."
-    },
-    {
-      "title": "Environment Matters:",
-      "description": "Create a high-energy, organized \"war room\" with whiteboards and minimal clutter."
-    },
-    {
-      "title": "Focus on Application:",
-      "description": "prioritize practice tests and project-based learning over passive reading."
-    },
-    {
-      "title": "Beware of Burnout:",
-      "description": "Schedule rest as a strategic necessity, not a luxury."
-    },
-    {
-      "title": "Reverse Engineer:",
-      "description": "Start with the exam/goal and work backward to create your study plan."
-    },
-    {
-      "title": "Lead, Don't Carry:",
-      "description": "In groups, assume the role of Project Manager to organize others rather than doing their work."
-    }
+    "**Gamify Everything:** Use timers, scores, and trackers to turn dry studying into a competitive sport.",
+    "**Socialize Your Learning:** Teach others, debate concepts, and lead study groups to leverage your Extraversion.",
+    "**Environment Matters:** Create a high-energy, organized \"war room\" with whiteboards and minimal clutter.",
+    "**Focus on Application:** prioritize practice tests and project-based learning over passive reading.",
+    "**Beware of Burnout:** Schedule rest as a strategic necessity, not a luxury.",
+    "**Reverse Engineer:** Start with the exam/goal and work backward to create your study plan.",
+    "**Lead, Don't Carry:** In groups, assume the role of Project Manager to organize others rather than doing their work."
   ],
   "relatedTopics": [
     "careers",

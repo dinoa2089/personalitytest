@@ -85,10 +85,7 @@
       "subsections": [
         {
           "heading": "Dos and Don'ts for Teachers",
-          "content": {
-            "title": "Do:",
-            "description": "provide high-level overviews before diving into details. **Do:** allow for independent study projects. **Do:** be precise with your language and logic.\n**Don't:** use emotional appeals to motivate them. **Don't:** force them to 'show their work' on simple problems they solved mentally, unless you explain the pedagogical reason. **Don't:** put them on the spot socially without warning."
-          }
+          "content": "**Do:** provide high-level overviews before diving into details. **Do:** allow for independent study projects. **Do:** be precise with your language and logic.\n**Don't:** use emotional appeals to motivate them. **Don't:** force them to 'show their work' on simple problems they solved mentally, unless you explain the pedagogical reason. **Don't:** put them on the spot socially without warning."
         }
       ]
     },
@@ -122,34 +119,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Prioritize the 'Big Picture'",
-      "description": "Understand the system and theory before diving into details."
-    },
-    {
-      "title": "Control Your Environment",
-      "description": "Create a minimalist, low-sensory 'Fortress of Solitude' for deep work."
-    },
-    {
-      "title": "Active Interrogation",
-      "description": "Don't just read; debate the text and challenge the logic to retain it."
-    },
-    {
-      "title": "Leverage Autonomy",
-      "description": "Design your own syllabi and learning paths whenever possible."
-    },
-    {
-      "title": "Use Systems",
-      "description": "Employ tools like Notion or Obsidian to map connections between disparate ideas."
-    },
-    {
-      "title": "Focus on Application",
-      "description": "Always ask 'How does this work in reality?' to engage your Extraverted Thinking."
-    },
-    {
-      "title": "Manage Perfectionism",
-      "description": "Recognize when research has reached diminishing returns and switch to execution."
-    }
+    "**Prioritize the 'Big Picture'** Understand the system and theory before diving into details.",
+    "**Control Your Environment** Create a minimalist, low-sensory 'Fortress of Solitude' for deep work.",
+    "**Active Interrogation** Don't just read; debate the text and challenge the logic to retain it.",
+    "**Leverage Autonomy** Design your own syllabi and learning paths whenever possible.",
+    "**Use Systems** Employ tools like Notion or Obsidian to map connections between disparate ideas.",
+    "**Focus on Application** Always ask 'How does this work in reality?' to engage your Extraverted Thinking.",
+    "**Manage Perfectionism** Recognize when research has reached diminishing returns and switch to execution."
   ],
   "relatedTopics": [
     "careers",

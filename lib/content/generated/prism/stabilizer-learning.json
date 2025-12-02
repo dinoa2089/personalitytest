@@ -67,10 +67,7 @@
         },
         {
           "heading": "Sample Study Routine (Saturday Session)",
-          "content": {
-            "title": "10:00 AM - 10:30 AM: Low-Friction Start.",
-            "description": "Review flashcards or watch a short video while having coffee. Do not start with the hardest task.\n**10:30 AM - 12:00 PM: Deep Synthesis.** Move to the desk. Work on the primary essay or problem set using the Flow-modoro method.\n**12:00 PM - 1:00 PM: Complete Disconnect.** Lunch away from screens. A walk outside is crucial to reset your adaptability.\n**1:00 PM - 2:30 PM: Application Mode.** Do practice exams or teach the material to an imaginary audience. (Active Recall).\n**2:30 PM - 3:00 PM: The 'Future Self' Setup.** Organize your materials for tomorrow so you can slide back into work easily."
-          }
+          "content": "**10:00 AM - 10:30 AM: Low-Friction Start.** Review flashcards or watch a short video while having coffee. Do not start with the hardest task.\n**10:30 AM - 12:00 PM: Deep Synthesis.** Move to the desk. Work on the primary essay or problem set using the Flow-modoro method.\n**12:00 PM - 1:00 PM: Complete Disconnect.** Lunch away from screens. A walk outside is crucial to reset your adaptability.\n**1:00 PM - 2:30 PM: Application Mode.** Do practice exams or teach the material to an imaginary audience. (Active Recall).\n**2:30 PM - 3:00 PM: The 'Future Self' Setup.** Organize your materials for tomorrow so you can slide back into work easily."
         }
       ]
     },
@@ -132,37 +129,16 @@
     },
     {
       "question": "I feel like I'm a 'Jack of all trades, master of none.' Is this bad?",
-      "answer": {
-        "title": "This is the classic Stabilizer insecurity. Reframe this",
-        "description": "You are a 'Master of Integration.' In the modern workforce, the ability to connect specialized silos (e.g., talking to engineers and sales teams) is rare and highly compensated. Lean into your generalist nature—it's your competitive advantage."
-      }
+      "answer": "**This is the classic Stabilizer insecurity. Reframe this** You are a 'Master of Integration.' In the modern workforce, the ability to connect specialized silos (e.g., talking to engineers and sales teams) is rare and highly compensated. Lean into your generalist nature—it's your competitive advantage."
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Leverage Multimodality:",
-      "description": "Don't stick to one format. Mix video, text, and discussion to keep your adaptable brain engaged."
-    },
-    {
-      "title": "Create Artificial Urgency:",
-      "description": "You won't feel stressed naturally, so use timers and social accountability to drive performance."
-    },
-    {
-      "title": "Be the Synthesizer:",
-      "description": "In groups and essays, focus on bridging gaps and connecting opposing ideas—this is your cognitive peak."
-    },
-    {
-      "title": "Active Over Passive:",
-      "description": "Fight the urge to just 'absorb.' Write, map, speak, and teach to truly retain information."
-    },
-    {
-      "title": "Environment Matters:",
-      "description": "Use the 'Coffee Shop Effect'—moderate noise and visual stimulation help you focus better than total silence."
-    },
-    {
-      "title": "Avoid the Middle-Ground Trap:",
-      "description": "Force yourself to argue extreme positions during study sessions to deepen your critical thinking skills."
-    }
+    "**Leverage Multimodality:** Don't stick to one format. Mix video, text, and discussion to keep your adaptable brain engaged.",
+    "**Create Artificial Urgency:** You won't feel stressed naturally, so use timers and social accountability to drive performance.",
+    "**Be the Synthesizer:** In groups and essays, focus on bridging gaps and connecting opposing ideas—this is your cognitive peak.",
+    "**Active Over Passive:** Fight the urge to just 'absorb.' Write, map, speak, and teach to truly retain information.",
+    "**Environment Matters:** Use the 'Coffee Shop Effect'—moderate noise and visual stimulation help you focus better than total silence.",
+    "**Avoid the Middle-Ground Trap:** Force yourself to argue extreme positions during study sessions to deepen your critical thinking skills."
   ],
   "relatedTopics": [
     "careers",

@@ -92,30 +92,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "The Architect's Burden:",
-      "description": "Your stress often comes from the gap between your clear vision of the future and the messy, inefficient reality of the present."
-    },
-    {
-      "title": "Cognitive Offloading:",
-      "description": "You cannot relax until your mental loops are closed. Use writing, diagramming, and systems to get ideas out of your head."
-    },
-    {
-      "title": "Active Recovery:",
-      "description": "Passive rest often fails you. Engage in low-stakes, structured hobbies (like cooking or gaming) to rest your brain while keeping it occupied."
-    },
-    {
-      "title": "The Input Fast:",
-      "description": "Regularly disconnect from all information sources to clear your mental cache and prevent cognitive overload."
-    },
-    {
-      "title": "Decision-Free Zones:",
-      "description": "Reduce decision fatigue by automating routine choices or allowing partners to handle the logistics of leisure time."
-    },
-    {
-      "title": "Iterative Resilience:",
-      "description": "Treat failures and stress not as system crashes, but as data points for the next improved iteration of your life."
-    }
+    "**The Architect's Burden:** Your stress often comes from the gap between your clear vision of the future and the messy, inefficient reality of the present.",
+    "**Cognitive Offloading:** You cannot relax until your mental loops are closed. Use writing, diagramming, and systems to get ideas out of your head.",
+    "**Active Recovery:** Passive rest often fails you. Engage in low-stakes, structured hobbies (like cooking or gaming) to rest your brain while keeping it occupied.",
+    "**The Input Fast:** Regularly disconnect from all information sources to clear your mental cache and prevent cognitive overload.",
+    "**Decision-Free Zones:** Reduce decision fatigue by automating routine choices or allowing partners to handle the logistics of leisure time.",
+    "**Iterative Resilience:** Treat failures and stress not as system crashes, but as data points for the next improved iteration of your life."
   ],
   "relatedTopics": [
     "learning",

@@ -22,10 +22,7 @@
       "subsections": [
         {
           "heading": "Core Professional Assets",
-          "content": {
-            "title": "Operational Excellence:",
-            "description": "You naturally optimize workflows. If a process is inefficient, you don't just complain about it; you redesign it to remove friction.\n\n**Crisis Management:** Your calm demeanor allows you to make rational decisions when emotions are running high, preventing small fires from becoming infernos.\n\n**Resource Allocation:** You have an intuitive sense for budgeting—whether it's money, time, or manpower. You rarely overextend because you calculate the cost before committing.\n\n**Detailed Foresight:** You practice 'pre-mortem' thinking. You anticipate where a plan might fail and install safeguards before the project even begins."
-          }
+          "content": "**Operational Excellence:** You naturally optimize workflows. If a process is inefficient, you don't just complain about it; you redesign it to remove friction.\n\n**Crisis Management:** Your calm demeanor allows you to make rational decisions when emotions are running high, preventing small fires from becoming infernos.\n\n**Resource Allocation:** You have an intuitive sense for budgeting—whether it's money, time, or manpower. You rarely overextend because you calculate the cost before committing.\n\n**Detailed Foresight:** You practice 'pre-mortem' thinking. You anticipate where a plan might fail and install safeguards before the project even begins."
         }
       ]
     },
@@ -35,10 +32,7 @@
       "subsections": [
         {
           "heading": "Recommended Career Paths",
-          "content": {
-            "title": "Operations Management:",
-            "description": "Overseeing the day-to-day functions of a business to ensure efficiency and quality control.\n\n**Project & Program Management:** Leading complex initiatives where timeline adherence and resource management are critical.\n\n**Financial Analysis & Accounting:** Roles that require precision, adherence to strict standards, and long-term forecasting.\n\n**Supply Chain & Logistics:** Managing intricate webs of movement where one small error can cause a cascade of failures.\n\n**Quality Assurance & Compliance:** Ensuring that products and services meet rigorous standards before reaching the market."
-          }
+          "content": "**Operations Management:** Overseeing the day-to-day functions of a business to ensure efficiency and quality control.\n\n**Project & Program Management:** Leading complex initiatives where timeline adherence and resource management are critical.\n\n**Financial Analysis & Accounting:** Roles that require precision, adherence to strict standards, and long-term forecasting.\n\n**Supply Chain & Logistics:** Managing intricate webs of movement where one small error can cause a cascade of failures.\n\n**Quality Assurance & Compliance:** Ensuring that products and services meet rigorous standards before reaching the market."
         }
       ]
     },
@@ -48,26 +42,17 @@
       "subsections": [
         {
           "heading": "How You Elevate the Team",
-          "content": {
-            "title": "The Reality Check:",
-            "description": "You ground the team's optimism in reality, ensuring that promises made to clients or stakeholders are actually keepable.\n\n**The Memory Bank:** You document decisions and history. When the team argues about what was decided three months ago, you have the notes.\n\n**The Pace Setter:** Your consistent work ethic sets a standard. You show others what professional dedication looks like, often raising the bar for the whole group."
-          }
+          "content": "**The Reality Check:** You ground the team's optimism in reality, ensuring that promises made to clients or stakeholders are actually keepable.\n\n**The Memory Bank:** You document decisions and history. When the team argues about what was decided three months ago, you have the notes.\n\n**The Pace Setter:** Your consistent work ethic sets a standard. You show others what professional dedication looks like, often raising the bar for the whole group."
         }
       ]
     },
     {
       "heading": "Meeting and Collaboration Style",
-      "content": {
-        "title": "Let’s set the scene",
-        "description": "It’s a brainstorming meeting. The whiteboard is covered in scribbles, three people are talking over each other, and the meeting has already run ten minutes over without a clear conclusion. While others might be energized by this chaos, you are likely checking your watch and calculating the opportunity cost of being in this room. For The Strategist, a meeting without an agenda is a personal affront. You view time as a non-renewable resource. You prepare for meetings by reading the pre-reads. You arrive on time. You expect actionable outcomes.\n\nYour communication style in these settings is economical and precise. You usually wait until the flurry of conversation dies down before interjecting with a synthesizing statement. You are the master of the 'wrap-up.' You excel at saying, 'It sounds like we have three main options. Let’s evaluate the risks of each.' You don't speak to hear your own voice; you speak to move the needle. This can sometimes be intimidating to others who process verbally. They might mistake your silence for disapproval, when in reality, you are just processing the data.\n\n**Email and Digital Communication Patterns:**\nYour digital correspondence is a thing of beauty—at least to other organized people. You likely use bolding for action items and bullet points for lists. You rarely send 'wall of text' emails. \n\n*Example of a 'Strategist' Slack exchange:*\n> **Colleague:** \"Hey, do you have a sec to look at that thing for the client?\"\n> **You:** \"I'm in deep work until 11:00 AM. Is this regarding the Alpha Proposal or the Beta Report? If it's the Alpha, I can review it at 11:15. If it's Beta, that’s scheduled for Thursday.\"\n\nThis exchange highlights your boundaries. You are helpful, but you protect your time and require specificity to engage."
-      },
+      "content": "**Let’s set the scene** It’s a brainstorming meeting. The whiteboard is covered in scribbles, three people are talking over each other, and the meeting has already run ten minutes over without a clear conclusion. While others might be energized by this chaos, you are likely checking your watch and calculating the opportunity cost of being in this room. For The Strategist, a meeting without an agenda is a personal affront. You view time as a non-renewable resource. You prepare for meetings by reading the pre-reads. You arrive on time. You expect actionable outcomes.\n\nYour communication style in these settings is economical and precise. You usually wait until the flurry of conversation dies down before interjecting with a synthesizing statement. You are the master of the 'wrap-up.' You excel at saying, 'It sounds like we have three main options. Let’s evaluate the risks of each.' You don't speak to hear your own voice; you speak to move the needle. This can sometimes be intimidating to others who process verbally. They might mistake your silence for disapproval, when in reality, you are just processing the data.\n\n**Email and Digital Communication Patterns:**\nYour digital correspondence is a thing of beauty—at least to other organized people. You likely use bolding for action items and bullet points for lists. You rarely send 'wall of text' emails. \n\n*Example of a 'Strategist' Slack exchange:*\n> **Colleague:** \"Hey, do you have a sec to look at that thing for the client?\"\n> **You:** \"I'm in deep work until 11:00 AM. Is this regarding the Alpha Proposal or the Beta Report? If it's the Alpha, I can review it at 11:15. If it's Beta, that’s scheduled for Thursday.\"\n\nThis exchange highlights your boundaries. You are helpful, but you protect your time and require specificity to engage.",
       "subsections": [
         {
           "heading": "Collaboration Best Practices",
-          "content": {
-            "title": "Agenda Advocacy:",
-            "description": "If a meeting invite lacks an agenda, ask for one. 'What is the desired outcome of this session?' is a powerful question.\n\n**The Follow-Up:** Leverage your strength by sending the post-meeting summary. 'Here is what we agreed upon, and here are the owners.' This ensures your need for structure is met without you having to be authoritarian during the meeting.\n\n**Asynchronous Preference:** Champion tools like Asana, Trello, or Jira. You work best when information is documented and status is visible, reducing the need for constant 'check-in' interruptions."
-          }
+          "content": "**Agenda Advocacy:** If a meeting invite lacks an agenda, ask for one. 'What is the desired outcome of this session?' is a powerful question.\n\n**The Follow-Up:** Leverage your strength by sending the post-meeting summary. 'Here is what we agreed upon, and here are the owners.' This ensures your need for structure is met without you having to be authoritarian during the meeting.\n\n**Asynchronous Preference:** Champion tools like Asana, Trello, or Jira. You work best when information is documented and status is visible, reducing the need for constant 'check-in' interruptions."
         }
       ]
     },
@@ -77,10 +62,7 @@
       "subsections": [
         {
           "heading": "Navigating the Pitfalls",
-          "content": {
-            "title": "Embrace 'Version 1.0':",
-            "description": "Train yourself to release imperfect work. Remind yourself that iteration is part of the plan. A perfect plan executed too late is worse than a good plan executed today.\n\n**Schedule Spontaneity:** It sounds paradoxical, but you can plan for chaos. Build 'buffer time' or 'innovation blocks' into your schedule. This frames the unexpected as part of the structure, rather than a disruption to it.\n\n**Soft Skills Investment:** Your focus on tasks can sometimes overshadow relationships. Make a conscious effort to engage in small talk or team bonding, even if it feels inefficient. Social lubrication makes execution smoother."
-          }
+          "content": "**Embrace 'Version 1.0':** Train yourself to release imperfect work. Remind yourself that iteration is part of the plan. A perfect plan executed too late is worse than a good plan executed today.\n\n**Schedule Spontaneity:** It sounds paradoxical, but you can plan for chaos. Build 'buffer time' or 'innovation blocks' into your schedule. This frames the unexpected as part of the structure, rather than a disruption to it.\n\n**Soft Skills Investment:** Your focus on tasks can sometimes overshadow relationships. Make a conscious effort to engage in small talk or team bonding, even if it feels inefficient. Social lubrication makes execution smoother."
         }
       ]
     },
@@ -94,10 +76,7 @@
       "subsections": [
         {
           "heading": "Actionable Steps to Promotion",
-          "content": {
-            "title": "Delegate the 'How':",
-            "description": "Stop doing the work yourself. Define the 'What' and the 'When,' and let your team figure out the 'How.' This proves you can manage people, not just tasks.\n\n**Speak the Language of Vision:** In meetings, don't just talk about timelines. Talk about how those timelines impact revenue, market share, and long-term strategy. Connect your execution to the company's 'Why.'\n\n**Mentor Your Replacement:** actively train someone to handle your operational duties. You cannot move up until you are replaceable in your current role."
-          }
+          "content": "**Delegate the 'How':** Stop doing the work yourself. Define the 'What' and the 'When,' and let your team figure out the 'How.' This proves you can manage people, not just tasks.\n\n**Speak the Language of Vision:** In meetings, don't just talk about timelines. Talk about how those timelines impact revenue, market share, and long-term strategy. Connect your execution to the company's 'Why.'\n\n**Mentor Your Replacement:** actively train someone to handle your operational duties. You cannot move up until you are replaceable in your current role."
         }
       ]
     }
@@ -117,26 +96,11 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "You are the Anchor:",
-      "description": "Your combination of planning and emotional stability makes you the psychological bedrock of your team."
-    },
-    {
-      "title": "Bridge the Gap:",
-      "description": "Your primary value is converting abstract ideas into concrete, finished realities."
-    },
-    {
-      "title": "Beware of Rigidity:",
-      "description": "Your strength is planning, but your weakness is adapting. consciously practice flexibility when variables change."
-    },
-    {
-      "title": "Communicate Context:",
-      "description": "Don't just give orders; explain the 'why' behind your systems to get buy-in from less organized types."
-    },
-    {
-      "title": "Escape the Competence Trap:",
-      "description": "To get promoted, you must build systems that work without your constant intervention."
-    }
+    "**You are the Anchor:** Your combination of planning and emotional stability makes you the psychological bedrock of your team.",
+    "**Bridge the Gap:** Your primary value is converting abstract ideas into concrete, finished realities.",
+    "**Beware of Rigidity:** Your strength is planning, but your weakness is adapting. consciously practice flexibility when variables change.",
+    "**Communicate Context:** Don't just give orders; explain the 'why' behind your systems to get buy-in from less organized types.",
+    "**Escape the Competence Trap:** To get promoted, you must build systems that work without your constant intervention."
   ],
   "relatedTopics": [
     "learning",

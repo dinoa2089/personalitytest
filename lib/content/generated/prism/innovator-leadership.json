@@ -42,10 +42,7 @@
     },
     {
       "heading": "How They Motivate Others",
-      "content": {
-        "title": "You've probably had an interaction like this",
-        "description": "You have an employee, let's call him Marcus, who is competent but clearly bored. He’s doing the job, hitting the metrics, but the light behind his eyes is dim. A traditional manager might offer Marcus a bonus or a slightly better title. You, however, take a different approach. You sit down with Marcus and you don't talk about his current tasks. You ask him what he hates about his workflow. You ask him what project he would build if he had zero budget constraints. When he hesitantly shares a wild idea, you don't shut it down—you lean in. You say, \"Okay, take Friday afternoons for the next month. Build a prototype. Show me what you can do.\"\n\nThis is the superpower of The Innovator team leadership: you motivate through **Intellectual Stimulation** and **Autonomy**. You understand intuitively that for many high-performers, the work itself is the reward, provided the work is meaningful. You motivate by removing the ceiling. You make your team feel like they are part of an elite skunkworks project, even if they are just the accounting department. You validate their intelligence by asking for their input on complex problems, not just their labor on simple ones. You treat your team members as co-creators rather than subordinates.\n\nHowever, you also motivate by modeling resilience. When the team fails, they look to you to see how they should react. Because you view failure as data rather than a character flaw, you destigmatize mistakes. You tell stories of your own past blunders, laughing about them, which lowers the collective anxiety of the group. This psychological safety allows your team to take risks, knowing that you have their back if the experiment doesn't pay off. You motivate not by pushing from behind, but by pulling from the front with an infectious enthusiasm that makes people want to run to keep up."
-      },
+      "content": "**You've probably had an interaction like this** You have an employee, let's call him Marcus, who is competent but clearly bored. He’s doing the job, hitting the metrics, but the light behind his eyes is dim. A traditional manager might offer Marcus a bonus or a slightly better title. You, however, take a different approach. You sit down with Marcus and you don't talk about his current tasks. You ask him what he hates about his workflow. You ask him what project he would build if he had zero budget constraints. When he hesitantly shares a wild idea, you don't shut it down—you lean in. You say, \"Okay, take Friday afternoons for the next month. Build a prototype. Show me what you can do.\"\n\nThis is the superpower of The Innovator team leadership: you motivate through **Intellectual Stimulation** and **Autonomy**. You understand intuitively that for many high-performers, the work itself is the reward, provided the work is meaningful. You motivate by removing the ceiling. You make your team feel like they are part of an elite skunkworks project, even if they are just the accounting department. You validate their intelligence by asking for their input on complex problems, not just their labor on simple ones. You treat your team members as co-creators rather than subordinates.\n\nHowever, you also motivate by modeling resilience. When the team fails, they look to you to see how they should react. Because you view failure as data rather than a character flaw, you destigmatize mistakes. You tell stories of your own past blunders, laughing about them, which lowers the collective anxiety of the group. This psychological safety allows your team to take risks, knowing that you have their back if the experiment doesn't pay off. You motivate not by pushing from behind, but by pulling from the front with an infectious enthusiasm that makes people want to run to keep up.",
       "subsections": [
         {
           "heading": "Motivational Levers",
@@ -109,30 +106,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Embrace Your Visionary Nature:",
-      "description": "Your ability to see the future is your greatest asset; trust your intuition but verify it with data."
-    },
-    {
-      "title": "Bridge the Gap:",
-      "description": "Consciously translate your abstract ideas into concrete steps your team can execute."
-    },
-    {
-      "title": "Hire for Balance:",
-      "description": "Surround yourself with \"Guardians\" and \"Implementers\" who can handle the details you miss."
-    },
-    {
-      "title": "Protect the Team:",
-      "description": "Shield your team from your own \"idea whiplash\" by filtering your thoughts before sharing them."
-    },
-    {
-      "title": "Context Matters:",
-      "description": "Position yourself in roles that value change and agility (R&D, Crisis, Startups) rather than maintenance and compliance."
-    },
-    {
-      "title": "Delegate the How:",
-      "description": "Give your team the \"Why\" and the \"What,\" but give them total autonomy on the \"How.\""
-    }
+    "**Embrace Your Visionary Nature:** Your ability to see the future is your greatest asset; trust your intuition but verify it with data.",
+    "**Bridge the Gap:** Consciously translate your abstract ideas into concrete steps your team can execute.",
+    "**Hire for Balance:** Surround yourself with \"Guardians\" and \"Implementers\" who can handle the details you miss.",
+    "**Protect the Team:** Shield your team from your own \"idea whiplash\" by filtering your thoughts before sharing them.",
+    "**Context Matters:** Position yourself in roles that value change and agility (R&D, Crisis, Startups) rather than maintenance and compliance.",
+    "**Delegate the How:** Give your team the \"Why\" and the \"What,\" but give them total autonomy on the \"How.\""
   ],
   "relatedTopics": [
     "learning",

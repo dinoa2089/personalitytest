@@ -67,30 +67,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Bring your unique 'soul' to work",
-      "description": "Your ability to humanize data and aestheticize projects is your competitive advantage."
-    },
-    {
-      "title": "Beware the comparison trap",
-      "description": "Envy is a distraction. Focus on your own craft and contribution rather than what others are receiving."
-    },
-    {
-      "title": "Discipline is self-love",
-      "description": "Moving toward Type 1 (structure and routine) actually frees you to be more creative and effective."
-    },
-    {
-      "title": "Translate intuition into strategy",
-      "description": "Learn to explain your 'feelings' about a project using business logic and objectives."
-    },
-    {
-      "title": "Don't wait for the mood",
-      "description": "Action creates inspiration, not the other way around. Start the work, and the creative flow will follow."
-    },
-    {
-      "title": "Separate criticism from identity",
-      "description": "Your work is what you do, not who you are. Feedback is about the output, not your worth."
-    }
+    "**Bring your unique 'soul' to work** Your ability to humanize data and aestheticize projects is your competitive advantage.",
+    "**Beware the comparison trap** Envy is a distraction. Focus on your own craft and contribution rather than what others are receiving.",
+    "**Discipline is self-love** Moving toward Type 1 (structure and routine) actually frees you to be more creative and effective.",
+    "**Translate intuition into strategy** Learn to explain your 'feelings' about a project using business logic and objectives.",
+    "**Don't wait for the mood** Action creates inspiration, not the other way around. Start the work, and the creative flow will follow.",
+    "**Separate criticism from identity** Your work is what you do, not who you are. Feedback is about the output, not your worth."
   ],
   "relatedTopics": [
     "learning",

@@ -34,10 +34,7 @@
       "subsections": [
         {
           "heading": "Sensory Checklist for Success",
-          "content": {
-            "title": "Visual:",
-            "description": "Clear, uncluttered desk space. Use warm lighting rather than harsh clinical fluorescence which can induce subconscious stress.\n**Auditory:** Low-fi beats, brown noise, or the presence of a quiet, working study partner.\n**Physical:** Comfortable seating with good back support. Have a 'fidget' object nearby to channel nervous energy."
-          }
+          "content": "**Visual:** Clear, uncluttered desk space. Use warm lighting rather than harsh clinical fluorescence which can induce subconscious stress.\n**Auditory:** Low-fi beats, brown noise, or the presence of a quiet, working study partner.\n**Physical:** Comfortable seating with good back support. Have a 'fidget' object nearby to channel nervous energy."
         },
         {
           "heading": "The 'Bunker' Strategy",
@@ -93,10 +90,7 @@
       "subsections": [
         {
           "heading": "Dos and Don'ts",
-          "content": {
-            "title": "Do:",
-            "description": "Provide detailed syllabi, stick to your word, and answer questions patiently.\n**Don't:** Spring surprise tests (unless the routine of surprise is established), result to vague feedback like 'good job' without specifics, or be inconsistent with rules."
-          }
+          "content": "**Do:** Provide detailed syllabi, stick to your word, and answer questions patiently.\n**Don't:** Spring surprise tests (unless the routine of surprise is established), result to vague feedback like 'good job' without specifics, or be inconsistent with rules."
         }
       ]
     }
@@ -120,34 +114,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Harness Skepticism:",
-      "description": "Use your questioning nature to deepen your understanding, not to stall your progress."
-    },
-    {
-      "title": "Create a Bunker:",
-      "description": "Establish a secure, distraction-free physical environment to lower your baseline anxiety."
-    },
-    {
-      "title": "The Pre-Mortem:",
-      "description": "Use your worst-case scenario thinking to identify gaps in your knowledge and create a study plan."
-    },
-    {
-      "title": "Draft Zero:",
-      "description": "Combat analysis paralysis by giving yourself explicit permission to write a terrible first draft."
-    },
-    {
-      "title": "Limit Consultation:",
-      "description": "Avoid the 'committee in your head' by asking only one or two trusted sources for advice."
-    },
-    {
-      "title": "Simulate the Threat:",
-      "description": "Reduce test anxiety by taking practice exams under realistic, timed conditions."
-    },
-    {
-      "title": "Trust the Evidence:",
-      "description": "When self-doubt strikes, look at your track record of success rather than your feelings of fear."
-    }
+    "**Harness Skepticism:** Use your questioning nature to deepen your understanding, not to stall your progress.",
+    "**Create a Bunker:** Establish a secure, distraction-free physical environment to lower your baseline anxiety.",
+    "**The Pre-Mortem:** Use your worst-case scenario thinking to identify gaps in your knowledge and create a study plan.",
+    "**Draft Zero:** Combat analysis paralysis by giving yourself explicit permission to write a terrible first draft.",
+    "**Limit Consultation:** Avoid the 'committee in your head' by asking only one or two trusted sources for advice.",
+    "**Simulate the Threat:** Reduce test anxiety by taking practice exams under realistic, timed conditions.",
+    "**Trust the Evidence:** When self-doubt strikes, look at your track record of success rather than your feelings of fear."
   ],
   "relatedTopics": [
     "careers",

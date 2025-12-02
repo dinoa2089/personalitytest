@@ -57,17 +57,11 @@
       "subsections": [
         {
           "heading": "The Free Spirit (Low Conscientiousness, High Spontaneity)",
-          "content": {
-            "title": "The Friction:",
-            "description": "You have a five-year plan; they don't know what they're doing for lunch. You value reliability; they value freedom from constraints. **The Experience:** You will feel constantly anxious that the bills aren't paid or the plans will fall through. You may feel like you are dragging dead weight, while they feel suffocated by your spreadsheets and schedules."
-          }
+          "content": "**The Friction:** You have a five-year plan; they don't know what they're doing for lunch. You value reliability; they value freedom from constraints. **The Experience:** You will feel constantly anxious that the bills aren't paid or the plans will fall through. You may feel like you are dragging dead weight, while they feel suffocated by your spreadsheets and schedules."
         },
         {
           "heading": "The Sensitive Idealist (High Neuroticism, High Emotion)",
-          "content": {
-            "title": "The Friction:",
-            "description": "You solve problems with logic and action; they process problems through deep emotional exploration. **The Experience:** When they come to you with a problem, you immediately offer three solutions. They feel unheard and dismissed because they wanted empathy, not a fix. You feel frustrated that the problem persists despite your solutions. The cycle of invalidation can be toxic."
-          }
+          "content": "**The Friction:** You solve problems with logic and action; they process problems through deep emotional exploration. **The Experience:** When they come to you with a problem, you immediately offer three solutions. They feel unheard and dismissed because they wanted empathy, not a fix. You feel frustrated that the problem persists despite your solutions. The cycle of invalidation can be toxic."
         }
       ]
     },
@@ -151,34 +145,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Competence is attractive:",
-      "description": "You are drawn to capability and reliability more than pure romance or aesthetics."
-    },
-    {
-      "title": "Seek a 'Secure Base':",
-      "description": "Your best matches are often those who provide emotional stability to counterbalance your high-energy lifestyle."
-    },
-    {
-      "title": "Beware the 'Manager' Trap:",
-      "description": "In romantic relationships, ensure you aren't treating your partner like a subordinate or a project to be fixed."
-    },
-    {
-      "title": "Value the Intangibles:",
-      "description": "Learn to appreciate contributions that can't be measured on a spreadsheet, like emotional support and social connection."
-    },
-    {
-      "title": "Friction with Free Spirits:",
-      "description": "You will struggle with partners who lack time management skills; patience and clear boundaries are required."
-    },
-    {
-      "title": "Shared Ambition is Key:",
-      "description": "You don't need a partner with the *same* job, but you need a partner with a similar *drive* toward growth."
-    },
-    {
-      "title": "Vulnerability is Strength:",
-      "description": "Your compatibility deepens when you drop the mask of perfection and let your partner see your exhaustion and fears."
-    }
+    "**Competence is attractive:** You are drawn to capability and reliability more than pure romance or aesthetics.",
+    "**Seek a 'Secure Base':** Your best matches are often those who provide emotional stability to counterbalance your high-energy lifestyle.",
+    "**Beware the 'Manager' Trap:** In romantic relationships, ensure you aren't treating your partner like a subordinate or a project to be fixed.",
+    "**Value the Intangibles:** Learn to appreciate contributions that can't be measured on a spreadsheet, like emotional support and social connection.",
+    "**Friction with Free Spirits:** You will struggle with partners who lack time management skills; patience and clear boundaries are required.",
+    "**Shared Ambition is Key:** You don't need a partner with the *same* job, but you need a partner with a similar *drive* toward growth.",
+    "**Vulnerability is Strength:** Your compatibility deepens when you drop the mask of perfection and let your partner see your exhaustion and fears."
   ],
   "relatedTopics": [
     "learning",

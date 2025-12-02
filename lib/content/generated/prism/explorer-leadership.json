@@ -84,10 +84,7 @@
         },
         {
           "heading": "The 'One In, One Out' Rule",
-          "content": {
-            "title": "Discipline yourself",
-            "description": "for every new initiative you add to the team's plate, you must explicitly kill or deprioritize an existing one. This protects your team's bandwidth."
-          }
+          "content": "**Discipline yourself** for every new initiative you add to the team's plate, you must explicitly kill or deprioritize an existing one. This protects your team's bandwidth."
         }
       ]
     },
@@ -112,30 +109,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Embrace the Pioneer Role:",
-      "description": "Your strength lies in navigating uncertainty and inspiring others with a vision of what's possible."
-    },
-    {
-      "title": "Beware the Whiplash:",
-      "description": "Your rapid pivots can exhaust your team. Implement waiting periods before changing strategies."
-    },
-    {
-      "title": "Hire for Structure:",
-      "description": "You need a high-Conscientiousness deputy to handle logistics, closing loops, and operational details."
-    },
-    {
-      "title": "Motivate via Autonomy:",
-      "description": "Give your team the 'what' and the 'why,' but let them figure out the 'how.'"
-    },
-    {
-      "title": "Context Matters:",
-      "description": "Seek roles in startups, R&D, marketing, or crisis management where adaptability is valued over consistency."
-    },
-    {
-      "title": "Finish What You Start:",
-      "description": "Discipline yourself to close open loops before opening new ones, or delegate the finishing process explicitly."
-    }
+    "**Embrace the Pioneer Role:** Your strength lies in navigating uncertainty and inspiring others with a vision of what's possible.",
+    "**Beware the Whiplash:** Your rapid pivots can exhaust your team. Implement waiting periods before changing strategies.",
+    "**Hire for Structure:** You need a high-Conscientiousness deputy to handle logistics, closing loops, and operational details.",
+    "**Motivate via Autonomy:** Give your team the 'what' and the 'why,' but let them figure out the 'how.'",
+    "**Context Matters:** Seek roles in startups, R&D, marketing, or crisis management where adaptability is valued over consistency.",
+    "**Finish What You Start:** Discipline yourself to close open loops before opening new ones, or delegate the finishing process explicitly."
   ],
   "relatedTopics": [
     "learning",

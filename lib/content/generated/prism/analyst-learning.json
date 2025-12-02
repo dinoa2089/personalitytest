@@ -37,10 +37,7 @@
       "subsections": [
         {
           "heading": "Sensory Specifications",
-          "content": {
-            "title": "Lighting:",
-            "description": "Prefer warm, focused task lighting over harsh overhead fluorescents to reduce eye strain during long reading sessions.\n**Sound:** High-fidelity noise-canceling headphones are non-negotiable. Use binaural beats or 'Pink Noise' to improve focus.\n**Organization:** A minimalist physical space reduces mental clutter. Keep your immediate visual field clear of unrelated tasks."
-          }
+          "content": "**Lighting:** Prefer warm, focused task lighting over harsh overhead fluorescents to reduce eye strain during long reading sessions.\n**Sound:** High-fidelity noise-canceling headphones are non-negotiable. Use binaural beats or 'Pink Noise' to improve focus.\n**Organization:** A minimalist physical space reduces mental clutter. Keep your immediate visual field clear of unrelated tasks."
         },
         {
           "heading": "Digital Hygiene",
@@ -120,34 +117,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Prioritize Depth:",
-      "description": "You learn best when you can drill down into the underlying systems and 'first principles' of a topic."
-    },
-    {
-      "title": "Control Your Environment:",
-      "description": "A quiet, organized, and sensory-controlled workspace is essential for your high-focus cognitive style."
-    },
-    {
-      "title": "Use Active Interrogation:",
-      "description": "Don't just read; argue with the text. Use the Feynman Technique to test your understanding."
-    },
-    {
-      "title": "Manage Perfectionism:",
-      "description": "Recognize that 'analysis paralysis' is a trap. Use time-boxing to force yourself to move from research to action."
-    },
-    {
-      "title": "Leverage Independence:",
-      "description": "You excel at self-directed, autonomous projects. Frame your study goals around solving complex problems."
-    },
-    {
-      "title": "Synthesize, Don't Memorize:",
-      "description": "Focus on building mental models and connecting new data to existing logical frameworks."
-    },
-    {
-      "title": "Strategic Isolation:",
-      "description": "Use solitude as a tool for deep work, but define clear boundaries to prevent total social withdrawal."
-    }
+    "**Prioritize Depth:** You learn best when you can drill down into the underlying systems and 'first principles' of a topic.",
+    "**Control Your Environment:** A quiet, organized, and sensory-controlled workspace is essential for your high-focus cognitive style.",
+    "**Use Active Interrogation:** Don't just read; argue with the text. Use the Feynman Technique to test your understanding.",
+    "**Manage Perfectionism:** Recognize that 'analysis paralysis' is a trap. Use time-boxing to force yourself to move from research to action.",
+    "**Leverage Independence:** You excel at self-directed, autonomous projects. Frame your study goals around solving complex problems.",
+    "**Synthesize, Don't Memorize:** Focus on building mental models and connecting new data to existing logical frameworks.",
+    "**Strategic Isolation:** Use solitude as a tool for deep work, but define clear boundaries to prevent total social withdrawal."
   ],
   "relatedTopics": [
     "careers",

@@ -88,10 +88,7 @@
       "subsections": [
         {
           "heading": "Milestone Markers",
-          "content": {
-            "title": "Look for these indicators",
-            "description": "1) You accept a change of plans without anger. 2) You offer a compliment that isn't performance-based. 3) You admit 'I don't know' without feeling incompetent. 4) You prioritize sleep over finishing a project because you respect your biology. 5) You can sit in silence with your own feelings without needing to analyze them immediately."
-          }
+          "content": "**Look for these indicators** 1) You accept a change of plans without anger. 2) You offer a compliment that isn't performance-based. 3) You admit 'I don't know' without feeling incompetent. 4) You prioritize sleep over finishing a project because you respect your biology. 5) You can sit in silence with your own feelings without needing to analyze them immediately."
         }
       ]
     },
@@ -101,10 +98,7 @@
       "subsections": [
         {
           "heading": "Resource Recommendations",
-          "content": {
-            "title": "Books:",
-            "description": "'Thinking, Fast and Slow' by Daniel Kahneman (to understand cognitive biases), 'Atomic Habits' by James Clear (systematic self-improvement), and 'Quiet' by Susan Cain (validating the introvert's power). \n**Therapy:** Seek a therapist who challenges you intellectually. You need a practitioner who won't just nod, but who will debate your premises and force you to examine the logic of your emotional defenses."
-          }
+          "content": "**Books:** 'Thinking, Fast and Slow' by Daniel Kahneman (to understand cognitive biases), 'Atomic Habits' by James Clear (systematic self-improvement), and 'Quiet' by Susan Cain (validating the introvert's power). \n**Therapy:** Seek a therapist who challenges you intellectually. You need a practitioner who won't just nod, but who will debate your premises and force you to examine the logic of your emotional defenses."
         }
       ]
     }

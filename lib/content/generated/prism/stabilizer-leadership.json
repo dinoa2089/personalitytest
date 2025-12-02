@@ -22,10 +22,7 @@
       "subsections": [
         {
           "heading": "Core Competencies",
-          "content": {
-            "title": "Emotional Regulation:",
-            "description": "You possess the ability to decouple your internal emotional state from your external leadership behaviors. Even when you are frustrated, you present a composed front, preventing 'emotional contagion'—the phenomenon where a leader's stress infects the entire team.\n\n**Conflict De-escalation:** You are naturally skilled at mediation. You can listen to opposing viewpoints without becoming defensive, allowing you to synthesize disparate ideas into a coherent compromise that satisfies all parties.\n\n**Sustainable Pacing:** Unlike leaders who operate in bursts of manic energy followed by crashes, you maintain a consistent, sustainable velocity. You protect your team from burnout by setting realistic expectations and refusing to manufacture artificial urgency."
-          }
+          "content": "**Emotional Regulation:** You possess the ability to decouple your internal emotional state from your external leadership behaviors. Even when you are frustrated, you present a composed front, preventing 'emotional contagion'—the phenomenon where a leader's stress infects the entire team.\n\n**Conflict De-escalation:** You are naturally skilled at mediation. You can listen to opposing viewpoints without becoming defensive, allowing you to synthesize disparate ideas into a coherent compromise that satisfies all parties.\n\n**Sustainable Pacing:** Unlike leaders who operate in bursts of manic energy followed by crashes, you maintain a consistent, sustainable velocity. You protect your team from burnout by setting realistic expectations and refusing to manufacture artificial urgency."
         }
       ]
     },
@@ -117,30 +114,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "The Anchor Effect:",
-      "description": "Your greatest strength is providing psychological safety through emotional consistency."
-    },
-    {
-      "title": "Adaptability is Strategic:",
-      "description": "You treat change as a puzzle to solve, not a threat to fear, keeping your team agile."
-    },
-    {
-      "title": "Beware Passivity:",
-      "description": "Be careful not to let your tolerance for stress turn into a tolerance for mediocrity or toxicity."
-    },
-    {
-      "title": "Amplify When Needed:",
-      "description": "Learn to consciously project more intensity and emotion during critical moments to rally the team."
-    },
-    {
-      "title": "The Diplomat:",
-      "description": "You excel at navigating office politics and finding the 'third way' in conflicts."
-    },
-    {
-      "title": "Crisis Ready:",
-      "description": "You are at your best when the stakes are high and the environment is chaotic."
-    }
+    "**The Anchor Effect:** Your greatest strength is providing psychological safety through emotional consistency.",
+    "**Adaptability is Strategic:** You treat change as a puzzle to solve, not a threat to fear, keeping your team agile.",
+    "**Beware Passivity:** Be careful not to let your tolerance for stress turn into a tolerance for mediocrity or toxicity.",
+    "**Amplify When Needed:** Learn to consciously project more intensity and emotion during critical moments to rally the team.",
+    "**The Diplomat:** You excel at navigating office politics and finding the 'third way' in conflicts.",
+    "**Crisis Ready:** You are at your best when the stakes are high and the environment is chaotic."
   ],
   "relatedTopics": [
     "learning",

@@ -21,10 +21,7 @@
       "subsections": [
         {
           "heading": "Reframing Constraints",
-          "content": {
-            "title": "The Myth:",
-            "description": "Structure kills my creativity.\n**The Truth:** Constraints create the friction necessary for sparks to fly. Without a canvas, paint is just a puddle. View deadlines and limitations not as oppressors, but as the rules of a game you are trying to win."
-          }
+          "content": "**The Myth:** Structure kills my creativity.\n**The Truth:** Constraints create the friction necessary for sparks to fly. Without a canvas, paint is just a puddle. View deadlines and limitations not as oppressors, but as the rules of a game you are trying to win."
         },
         {
           "heading": "The 'Good Enough' Principle",
@@ -116,10 +113,7 @@
         },
         {
           "heading": "Recommended Resources",
-          "content": {
-            "title": "'The War of Art' by Steven Pressfield:",
-            "description": "Essential reading to understand 'Resistance'—the force that prevents you from creating.\n**'Essentialism' by Greg McKeown:** A guide to the disciplined pursuit of less, helping you combat the 'shiny object syndrome.'\n**'Refuse to Choose!' by Barbara Sher:** Validation and strategy for the 'Scanner' personality type (which is very ENFP)."
-          }
+          "content": "**'The War of Art' by Steven Pressfield:** Essential reading to understand 'Resistance'—the force that prevents you from creating.\n**'Essentialism' by Greg McKeown:** A guide to the disciplined pursuit of less, helping you combat the 'shiny object syndrome.'\n**'Refuse to Choose!' by Barbara Sher:** Validation and strategy for the 'Scanner' personality type (which is very ENFP)."
         }
       ]
     }
@@ -143,30 +137,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Finish What You Start:",
-      "description": "Growth comes from the friction of finishing, not just the joy of starting."
-    },
-    {
-      "title": "Externalize Your Brain:",
-      "description": "Use lists, calendars, and notes to handle logistics so your mind is free for creativity."
-    },
-    {
-      "title": "Embrace the 'Boring':",
-      "description": "Routine is the trellis that supports your creative vine; without it, you collapse."
-    },
-    {
-      "title": "Pause Before Committing:",
-      "description": "Combat people-pleasing by implementing a 24-hour waiting period before saying 'yes.'"
-    },
-    {
-      "title": "Value Depth Over Breadth:",
-      "description": "Moving past the initial novelty phase unlocks a deeper, richer level of creativity."
-    },
-    {
-      "title": "Honor Your Body:",
-      "description": "Use Introverted Sensing (Si) to prioritize sleep and health as the fuel for your intuition."
-    }
+    "**Finish What You Start:** Growth comes from the friction of finishing, not just the joy of starting.",
+    "**Externalize Your Brain:** Use lists, calendars, and notes to handle logistics so your mind is free for creativity.",
+    "**Embrace the 'Boring':** Routine is the trellis that supports your creative vine; without it, you collapse.",
+    "**Pause Before Committing:** Combat people-pleasing by implementing a 24-hour waiting period before saying 'yes.'",
+    "**Value Depth Over Breadth:** Moving past the initial novelty phase unlocks a deeper, richer level of creativity.",
+    "**Honor Your Body:** Use Introverted Sensing (Si) to prioritize sleep and health as the fuel for your intuition."
   ],
   "relatedTopics": [
     "learning",

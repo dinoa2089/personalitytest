@@ -64,30 +64,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "You are a Spark:",
-      "description": "Your primary value is igniting energy, vision, and motivation in others."
-    },
-    {
-      "title": "Beware the Whiplash:",
-      "description": "Your adaptability can look like inconsistency. Be mindful of 'change fatigue' in your team."
-    },
-    {
-      "title": "Hire for Structure:",
-      "description": "You need high-conscientiousness deputies to operationalize your big ideas."
-    },
-    {
-      "title": "Connection is Key:",
-      "description": "You lead through relationships and influence, not just authority."
-    },
-    {
-      "title": "Pause Before Pivoting:",
-      "description": "Implement a waiting period before announcing new directions to ensure they are strategic, not just impulsive."
-    },
-    {
-      "title": "Celebrate the Finish:",
-      "description": "consciously focus on closing loops and finishing projects to build trust in your execution."
-    }
+    "**You are a Spark:** Your primary value is igniting energy, vision, and motivation in others.",
+    "**Beware the Whiplash:** Your adaptability can look like inconsistency. Be mindful of 'change fatigue' in your team.",
+    "**Hire for Structure:** You need high-conscientiousness deputies to operationalize your big ideas.",
+    "**Connection is Key:** You lead through relationships and influence, not just authority.",
+    "**Pause Before Pivoting:** Implement a waiting period before announcing new directions to ensure they are strategic, not just impulsive.",
+    "**Celebrate the Finish:** consciously focus on closing loops and finishing projects to build trust in your execution."
   ],
   "relatedTopics": [
     "learning",

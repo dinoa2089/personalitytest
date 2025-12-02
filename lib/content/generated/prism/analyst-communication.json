@@ -31,10 +31,7 @@
       "subsections": [
         {
           "heading": "Common Phrases and What They Mean",
-          "content": {
-            "title": "'Let me think about that.'",
-            "description": "*Translation:* 'I have heard you, and the input is complex. I need to retreat to my mental workspace to run simulations and verify the logic. Do not press me for an immediate answer, or you will get a suboptimal response.'\n\n**'To be precise...'**\n*Translation:* 'The distinction you just glossed over is actually the hinge upon which this entire argument rests. I am about to correct your terminology, not to be pedantic, but because using the wrong word will lead to the wrong solution.'\n\n**'What is the evidence for that?'**\n*Translation:* 'I am skeptical of this claim. I am not rejecting it, but I cannot accept it into my framework of understanding until it passes a validation test.'"
-          }
+          "content": "**'Let me think about that.'** *Translation:* 'I have heard you, and the input is complex. I need to retreat to my mental workspace to run simulations and verify the logic. Do not press me for an immediate answer, or you will get a suboptimal response.'\n\n**'To be precise...'**\n*Translation:* 'The distinction you just glossed over is actually the hinge upon which this entire argument rests. I am about to correct your terminology, not to be pedantic, but because using the wrong word will lead to the wrong solution.'\n\n**'What is the evidence for that?'**\n*Translation:* 'I am skeptical of this claim. I am not rejecting it, but I cannot accept it into my framework of understanding until it passes a validation test.'"
         }
       ]
     },
@@ -54,10 +51,7 @@
       "subsections": [
         {
           "heading": "Scripts for Difficult Conversations",
-          "content": {
-            "title": "Scenario: Your partner is upset, and you don't know why.",
-            "description": "*Instead of saying:* 'You're being irrational, tell me the facts.'\n*Try saying:* 'I can see that you are upset, and I want to understand why. I'm having trouble reading the situation. Can you help me understand what triggered this so I can fix it?'\n\n**Scenario: You disagree with a boss's plan.**\n*Instead of saying:* 'This won't work. The data is wrong.'\n*Try saying:* 'I've been looking at the projections, and I see a risk in this specific area. I've run the numbers, and I have an alternative approach that might mitigate that risk. Can I walk you through it?'"
-          }
+          "content": "**Scenario: Your partner is upset, and you don't know why.** *Instead of saying:* 'You're being irrational, tell me the facts.'\n*Try saying:* 'I can see that you are upset, and I want to understand why. I'm having trouble reading the situation. Can you help me understand what triggered this so I can fix it?'\n\n**Scenario: You disagree with a boss's plan.**\n*Instead of saying:* 'This won't work. The data is wrong.'\n*Try saying:* 'I've been looking at the projections, and I see a risk in this specific area. I've run the numbers, and I have an alternative approach that might mitigate that risk. Can I walk you through it?'"
         }
       ]
     },

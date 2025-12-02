@@ -95,17 +95,11 @@
       "subsections": [
         {
           "heading": "The 'Shiny Object' Syndrome",
-          "content": {
-            "title": "Challenge:",
-            "description": "You start learning Python, get bored in week 2, switch to Graphic Design, then drop that for French history.\n**Solution:** Implement the **'20-Hour Rule'**. Commit to sticking with a new subject for exactly 20 hours of focused practice before you are allowed to quit. This pushes you past the initial frustration barrier but gives you a guilt-free exit ramp if you truly aren't interested."
-          }
+          "content": "**Challenge:** You start learning Python, get bored in week 2, switch to Graphic Design, then drop that for French history.\n**Solution:** Implement the **'20-Hour Rule'**. Commit to sticking with a new subject for exactly 20 hours of focused practice before you are allowed to quit. This pushes you past the initial frustration barrier but gives you a guilt-free exit ramp if you truly aren't interested."
         },
         {
           "heading": "The Detail Trap",
-          "content": {
-            "title": "Challenge:",
-            "description": "You lose points on assignments not because you didn't understand the material, but because you didn't read the formatting instructions or missed a small requirement.\n**Solution:** Create a **'Pre-Flight Checklist'**. Before submitting anything, force yourself to stop. Read the grading rubric line by line. Better yet, swap papers with a high-Conscientiousness friend and ask them to check your formatting in exchange for you brainstorming ideas for their paper."
-          }
+          "content": "**Challenge:** You lose points on assignments not because you didn't understand the material, but because you didn't read the formatting instructions or missed a small requirement.\n**Solution:** Create a **'Pre-Flight Checklist'**. Before submitting anything, force yourself to stop. Read the grading rubric line by line. Better yet, swap papers with a high-Conscientiousness friend and ask them to check your formatting in exchange for you brainstorming ideas for their paper."
         }
       ]
     },
@@ -119,10 +113,7 @@
         },
         {
           "heading": "Sample Study Routine (The 'Chaos' Block)",
-          "content": {
-            "title": "Don't schedule every minute. Try this flow",
-            "description": "*   **10:00 AM:** Change location (go to a cafe).\n*   **10:15 AM:** 45 minutes of Deep Work (Phone off, noise-canceling headphones).\n*   **11:00 AM:** 15 minutes of 'Chaos Time'—allow yourself to fall down a Wikipedia rabbit hole or scroll relevant Twitter threads.\n*   **11:15 AM:** 30 minutes of Synthesis—Mind map what you learned in the first block.\n*   **11:45 AM:** Social reward—Call a friend or grab lunch."
-          }
+          "content": "**Don't schedule every minute. Try this flow** *   **10:00 AM:** Change location (go to a cafe).\n*   **10:15 AM:** 45 minutes of Deep Work (Phone off, noise-canceling headphones).\n*   **11:00 AM:** 15 minutes of 'Chaos Time'—allow yourself to fall down a Wikipedia rabbit hole or scroll relevant Twitter threads.\n*   **11:15 AM:** 30 minutes of Synthesis—Mind map what you learned in the first block.\n*   **11:45 AM:** Social reward—Call a friend or grab lunch."
         }
       ]
     },
@@ -146,34 +137,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Embrace the Noise:",
-      "description": "Silence kills your focus. Use coffee shops, study groups, or white noise to occupy your sensory processing."
-    },
-    {
-      "title": "Learn Out Loud:",
-      "description": "You are an external processor. Teach concepts to friends, record voice notes, or debate topics to solidify understanding."
-    },
-    {
-      "title": "Gamify Everything:",
-      "description": "Use dice, timers, and rewards to turn boring tasks into immediate challenges."
-    },
-    {
-      "title": "Prioritize Variety:",
-      "description": "Switch subjects, locations, or study methods every 45-60 minutes to prevent boredom."
-    },
-    {
-      "title": "Visuals Over Lists:",
-      "description": "Use mind maps and diagrams to connect ideas rather than linear note-taking."
-    },
-    {
-      "title": "Create Artificial Urgency:",
-      "description": "Set soft deadlines with social accountability to trigger your focus without the last-minute panic."
-    },
-    {
-      "title": "Follow the Dopamine:",
-      "description": "Start with the most interesting part of the material to get the wheels turning, then fill in the boring gaps later."
-    }
+    "**Embrace the Noise:** Silence kills your focus. Use coffee shops, study groups, or white noise to occupy your sensory processing.",
+    "**Learn Out Loud:** You are an external processor. Teach concepts to friends, record voice notes, or debate topics to solidify understanding.",
+    "**Gamify Everything:** Use dice, timers, and rewards to turn boring tasks into immediate challenges.",
+    "**Prioritize Variety:** Switch subjects, locations, or study methods every 45-60 minutes to prevent boredom.",
+    "**Visuals Over Lists:** Use mind maps and diagrams to connect ideas rather than linear note-taking.",
+    "**Create Artificial Urgency:** Set soft deadlines with social accountability to trigger your focus without the last-minute panic.",
+    "**Follow the Dopamine:** Start with the most interesting part of the material to get the wheels turning, then fill in the boring gaps later."
   ],
   "relatedTopics": [
     "careers",

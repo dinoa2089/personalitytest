@@ -49,10 +49,7 @@
       "subsections": [
         {
           "heading": "Common Phrases and Context",
-          "content": {
-            "title": "\"I feel like...\"",
-            "description": "(Used instead of \"I think\" because your logic is rooted in values.)\n**\"Does that make sense?\"** (A check-in you likely use constantly, not because you are confused, but because you fear your abstract communication hasn't landed.)\n**\"I need some time to sit with this.\"** (Code for: My processing speed is deep, not fast. Don't push me for an answer right now.)"
-          }
+          "content": "**\"I feel like...\"** (Used instead of \"I think\" because your logic is rooted in values.)\n**\"Does that make sense?\"** (A check-in you likely use constantly, not because you are confused, but because you fear your abstract communication hasn't landed.)\n**\"I need some time to sit with this.\"** (Code for: My processing speed is deep, not fast. Don't push me for an answer right now.)"
         }
       ]
     },
@@ -82,17 +79,11 @@
       "subsections": [
         {
           "heading": "Quick Dos and Don'ts",
-          "content": {
-            "title": "Do:",
-            "description": "Ask open-ended questions like \"How did that impact you?\"\n**Do:** Allow for silence in the conversation.\n**Don't:** dismiss their feelings as \"irrational\" or \"oversensitive.\"\n**Don't:** use aggressive body language or raised voices."
-          }
+          "content": "**Do:** Ask open-ended questions like \"How did that impact you?\"\n**Do:** Allow for silence in the conversation.\n**Don't:** dismiss their feelings as \"irrational\" or \"oversensitive.\"\n**Don't:** use aggressive body language or raised voices."
         },
         {
           "heading": "Conflict Resolution Script",
-          "content": {
-            "title": "Instead of",
-            "description": "\"You're being too sensitive and irrational about this.\"\nTry: \"I can see that this matters deeply to you. Help me understand the values behind your reaction so I can see it from your perspective.\""
-          }
+          "content": "**Instead of** \"You're being too sensitive and irrational about this.\"\nTry: \"I can see that this matters deeply to you. Help me understand the values behind your reaction so I can see it from your perspective.\""
         }
       ]
     }

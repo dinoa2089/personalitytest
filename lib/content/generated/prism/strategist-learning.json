@@ -122,34 +122,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Leverage Structure:",
-      "description": "Don't fight your need for order. Use detailed syllabi, calendars, and hierarchies to reduce anxiety."
-    },
-    {
-      "title": "Environment Matters:",
-      "description": "Maintain a 'mise en place' desk setup to keep your mind clear and focused."
-    },
-    {
-      "title": "Active Recall:",
-      "description": "Use the modified Cornell Note-Taking system to turn your organized notes into active study tools."
-    },
-    {
-      "title": "Manage Perfectionism:",
-      "description": "Set 'stopping rules' and time limits for research to prevent analysis paralysis."
-    },
-    {
-      "title": "Lead in Groups:",
-      "description": "In group projects, take the role of Project Manager to ensure the structure you crave is implemented."
-    },
-    {
-      "title": "Backcast Deadlines:",
-      "description": "Plan backward from the due date to visualize a realistic path to completion."
-    },
-    {
-      "title": "Create Constraints:",
-      "description": "If an assignment is vague, create your own specific parameters to unlock your ability to execute."
-    }
+    "**Leverage Structure:** Don't fight your need for order. Use detailed syllabi, calendars, and hierarchies to reduce anxiety.",
+    "**Environment Matters:** Maintain a 'mise en place' desk setup to keep your mind clear and focused.",
+    "**Active Recall:** Use the modified Cornell Note-Taking system to turn your organized notes into active study tools.",
+    "**Manage Perfectionism:** Set 'stopping rules' and time limits for research to prevent analysis paralysis.",
+    "**Lead in Groups:** In group projects, take the role of Project Manager to ensure the structure you crave is implemented.",
+    "**Backcast Deadlines:** Plan backward from the due date to visualize a realistic path to completion.",
+    "**Create Constraints:** If an assignment is vague, create your own specific parameters to unlock your ability to execute."
   ],
   "relatedTopics": [
     "careers",

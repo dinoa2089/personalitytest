@@ -109,10 +109,7 @@
       "subsections": [
         {
           "heading": "What to Say vs. What NOT to Say",
-          "content": {
-            "title": "Don't Say:",
-            "description": "'You always take on too much.' 'You need to be more responsible.' 'Calm down.'\n**Do Say:** 'I'm here with you.' 'Let's take a break and just breathe for a minute.' 'You don't have to figure this all out right now.' 'I'll handle the details of [X] so you can focus on [Y].'"
-          }
+          "content": "**Don't Say:** 'You always take on too much.' 'You need to be more responsible.' 'Calm down.'\n**Do Say:** 'I'm here with you.' 'Let's take a break and just breathe for a minute.' 'You don't have to figure this all out right now.' 'I'll handle the details of [X] so you can focus on [Y].'"
         },
         {
           "heading": "The 'Freedom within Boundaries' Approach",
@@ -140,34 +137,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Stress Trigger:",
-      "description": "Loss of options and feeling trapped in negativity or boredom are the primary triggers for Type 7 anxiety."
-    },
-    {
-      "title": "The Shift:",
-      "description": "Under stress, Sevens move to Type 1, becoming critical, perfectionistic, and judgmental of themselves and others."
-    },
-    {
-      "title": "The Trap:",
-      "description": "Unhealthy coping involves 'reframing' pain too quickly, rationalizing bad behavior, and manic escapism (excessive eating, spending, or socializing)."
-    },
-    {
-      "title": "The Fix:",
-      "description": "Healthy coping requires 'Sober Joy'—learning to stay present with discomfort and using somatic grounding to get out of the head."
-    },
-    {
-      "title": "Recovery:",
-      "description": "Restoration comes from moving to Type 5 (The Investigator)—finding focus, solitude, and depth rather than scattered stimulation."
-    },
-    {
-      "title": "Resilience:",
-      "description": "Long-term growth requires making friends with boredom and realizing that commitment offers a deeper kind of freedom."
-    },
-    {
-      "title": "Support:",
-      "description": "Loved ones should offer a non-judgmental presence and freedom within boundaries, avoiding commands to 'calm down.'"
-    }
+    "**Stress Trigger:** Loss of options and feeling trapped in negativity or boredom are the primary triggers for Type 7 anxiety.",
+    "**The Shift:** Under stress, Sevens move to Type 1, becoming critical, perfectionistic, and judgmental of themselves and others.",
+    "**The Trap:** Unhealthy coping involves 'reframing' pain too quickly, rationalizing bad behavior, and manic escapism (excessive eating, spending, or socializing).",
+    "**The Fix:** Healthy coping requires 'Sober Joy'—learning to stay present with discomfort and using somatic grounding to get out of the head.",
+    "**Recovery:** Restoration comes from moving to Type 5 (The Investigator)—finding focus, solitude, and depth rather than scattered stimulation.",
+    "**Resilience:** Long-term growth requires making friends with boredom and realizing that commitment offers a deeper kind of freedom.",
+    "**Support:** Loved ones should offer a non-judgmental presence and freedom within boundaries, avoiding commands to 'calm down.'"
   ],
   "relatedTopics": [
     "learning",

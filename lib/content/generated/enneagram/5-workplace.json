@@ -22,10 +22,7 @@
       "subsections": [
         {
           "heading": "Key Professional Assets",
-          "content": {
-            "title": "Crisis Stabilization:",
-            "description": "When emotions run high, you detach. This allows you to make logical, life-saving decisions when the business is under fire.\n\n**Deep Focus:** You can enter 'flow states' easily, tackling heavy cognitive loads that would burn out other types.\n\n**Unbiased Analysis:** You separate the person from the problem, offering feedback and solutions based on merit and fact rather than popularity.\n\n**Specialized Expertise:** You naturally tend to become the 'Subject Matter Expert' (SME) in your niche, making you the go-to authority for critical information."
-          }
+          "content": "**Crisis Stabilization:** When emotions run high, you detach. This allows you to make logical, life-saving decisions when the business is under fire.\n\n**Deep Focus:** You can enter 'flow states' easily, tackling heavy cognitive loads that would burn out other types.\n\n**Unbiased Analysis:** You separate the person from the problem, offering feedback and solutions based on merit and fact rather than popularity.\n\n**Specialized Expertise:** You naturally tend to become the 'Subject Matter Expert' (SME) in your niche, making you the go-to authority for critical information."
         }
       ]
     },
@@ -35,10 +32,7 @@
       "subsections": [
         {
           "heading": "Environmental Must-Haves",
-          "content": {
-            "title": "Autonomy and Privacy:",
-            "description": "A workspace that minimizes sensory overload and interruptions is non-negotiable for your peak performance.\n\n**Asynchronous Communication:** A culture that favors Slack, email, or documentation over 'pop-up' meetings allows you to formulate precise responses.\n\n**Access to Resources:** You need the tools, data, and access rights to investigate fully without hitting bureaucratic walls.\n\n**Defined Scope:** Clear project parameters prevent the anxiety of 'scope creep,' allowing you to allocate your energy resources effectively."
-          }
+          "content": "**Autonomy and Privacy:** A workspace that minimizes sensory overload and interruptions is non-negotiable for your peak performance.\n\n**Asynchronous Communication:** A culture that favors Slack, email, or documentation over 'pop-up' meetings allows you to formulate precise responses.\n\n**Access to Resources:** You need the tools, data, and access rights to investigate fully without hitting bureaucratic walls.\n\n**Defined Scope:** Clear project parameters prevent the anxiety of 'scope creep,' allowing you to allocate your energy resources effectively."
         }
       ]
     },
@@ -48,26 +42,17 @@
       "subsections": [
         {
           "heading": "Collaboration Style",
-          "content": {
-            "title": "The Observer:",
-            "description": "You prefer to watch and analyze the group dynamic before participating, ensuring you understand the 'rules of engagement' before jumping in.\n\n**Information Hub:** You often become the team librarian or archivist, remembering the history of why decisions were made three years ago.\n\n**The Reluctant Mentor:** You enjoy teaching others one-on-one if they are genuinely curious and capable, but you dislike 'holding court' for a group.\n\n**Boundary Setter:** You are often the one to ask, 'Is this meeting necessary?' or 'Can this be an email?', protecting the team's collective time."
-          }
+          "content": "**The Observer:** You prefer to watch and analyze the group dynamic before participating, ensuring you understand the 'rules of engagement' before jumping in.\n\n**Information Hub:** You often become the team librarian or archivist, remembering the history of why decisions were made three years ago.\n\n**The Reluctant Mentor:** You enjoy teaching others one-on-one if they are genuinely curious and capable, but you dislike 'holding court' for a group.\n\n**Boundary Setter:** You are often the one to ask, 'Is this meeting necessary?' or 'Can this be an email?', protecting the team's collective time."
         }
       ]
     },
     {
       "heading": "Meeting and Communication Style: Precision over Volume",
-      "content": {
-        "title": "Let's set the scene",
-        "description": "A calendar invite pops up for a 'Brainstorming Session' with no agenda, scheduled for 4:00 PM on a Friday. For a Type 5, this is the stuff of nightmares. Your immediate physical reaction is a tightening in the chest—a sense of intrusion. You hate being put on the spot. When a boss asks, 'What do you think about this new strategy?' in front of ten people, your mind goes blank, or you scramble for a safe answer. It’s not that you don't have thoughts; it's that your thoughts are complex, multi-layered structures that require time to excavate. You prefer to take the data away, analyze it in your 'inner laboratory,' and return with a comprehensive treatise on the subject the next day.\n\nYour communication style is characterized by brevity, precision, and objectivity. You treat words like a limited resource. In emails, you likely skip the 'Hope you're having a great week!' fluff and dive straight into the bullet points. You appreciate directness and despise emotional manipulation. If a colleague comes to you with a sob story to get a deadline extended, you withdraw; if they come with a logical reason and a proposed solution, you engage. You are the master of the 'unemotional no.'\n\nHowever, this economy of words can be perilous. In a digital workplace, your brevity can be read as curtness or anger. A Slack message that simply says 'Received. Will review.' might seem efficient to you, but cold to a feeling type. You may find that you need to manually insert 'social algorithms'—consciously adding pleasantries or emojis to your messages to ensure your tone is received as neutral rather than hostile. It feels artificial, but it is a necessary lubricant for the Type 5 - The Investigator office machinery."
-      },
+      "content": "**Let's set the scene** A calendar invite pops up for a 'Brainstorming Session' with no agenda, scheduled for 4:00 PM on a Friday. For a Type 5, this is the stuff of nightmares. Your immediate physical reaction is a tightening in the chest—a sense of intrusion. You hate being put on the spot. When a boss asks, 'What do you think about this new strategy?' in front of ten people, your mind goes blank, or you scramble for a safe answer. It’s not that you don't have thoughts; it's that your thoughts are complex, multi-layered structures that require time to excavate. You prefer to take the data away, analyze it in your 'inner laboratory,' and return with a comprehensive treatise on the subject the next day.\n\nYour communication style is characterized by brevity, precision, and objectivity. You treat words like a limited resource. In emails, you likely skip the 'Hope you're having a great week!' fluff and dive straight into the bullet points. You appreciate directness and despise emotional manipulation. If a colleague comes to you with a sob story to get a deadline extended, you withdraw; if they come with a logical reason and a proposed solution, you engage. You are the master of the 'unemotional no.'\n\nHowever, this economy of words can be perilous. In a digital workplace, your brevity can be read as curtness or anger. A Slack message that simply says 'Received. Will review.' might seem efficient to you, but cold to a feeling type. You may find that you need to manually insert 'social algorithms'—consciously adding pleasantries or emojis to your messages to ensure your tone is received as neutral rather than hostile. It feels artificial, but it is a necessary lubricant for the Type 5 - The Investigator office machinery.",
       "subsections": [
         {
           "heading": "Communication Preferences",
-          "content": {
-            "title": "Written over Verbal:",
-            "description": "You prefer email or chat because it provides a paper trail and allows you to edit your tone and content to precision.\n\n**Agenda Required:** You need to know the topic of a meeting beforehand so you can prepare; surprise topics cause you to shut down.\n\n**Fact-Based:** You persuade others using data, logic, and precedent, rarely appealing to emotion or excitement.\n\n**The 'Let Me Think' Buffer:** A crucial phrase for you is, 'Let me give that some thought and get back to you.' It buys you the processing time you desperately need."
-          }
+          "content": "**Written over Verbal:** You prefer email or chat because it provides a paper trail and allows you to edit your tone and content to precision.\n\n**Agenda Required:** You need to know the topic of a meeting beforehand so you can prepare; surprise topics cause you to shut down.\n\n**Fact-Based:** You persuade others using data, logic, and precedent, rarely appealing to emotion or excitement.\n\n**The 'Let Me Think' Buffer:** A crucial phrase for you is, 'Let me give that some thought and get back to you.' It buys you the processing time you desperately need."
         }
       ]
     },
@@ -77,10 +62,7 @@
       "subsections": [
         {
           "heading": "Common Pitfalls",
-          "content": {
-            "title": "Hoarding:",
-            "description": "Keeping information, time, or resources to yourself out of a scarcity mindset, fearing that sharing will leave you depleted.\n\n**Cynicism:** When stressed, you may retreat into a nihilistic or arrogant attitude, dismissing new initiatives as 'doomed to fail' without trying.\n\n**Difficulty with Feedback:** You may intellectualize criticism, arguing the semantics of the feedback rather than accepting the spirit of it, or withdrawing completely to lick your wounds.\n\n**Inaction:** Staying in the research phase far past the point of diminishing returns to avoid the risk of implementation."
-          }
+          "content": "**Hoarding:** Keeping information, time, or resources to yourself out of a scarcity mindset, fearing that sharing will leave you depleted.\n\n**Cynicism:** When stressed, you may retreat into a nihilistic or arrogant attitude, dismissing new initiatives as 'doomed to fail' without trying.\n\n**Difficulty with Feedback:** You may intellectualize criticism, arguing the semantics of the feedback rather than accepting the spirit of it, or withdrawing completely to lick your wounds.\n\n**Inaction:** Staying in the research phase far past the point of diminishing returns to avoid the risk of implementation."
         }
       ]
     },
@@ -90,10 +72,7 @@
       "subsections": [
         {
           "heading": "Actionable Growth Steps",
-          "content": {
-            "title": "The 5-Minute Rule:",
-            "description": "If you are stuck in analysis paralysis, force yourself to take one concrete physical action on the project within 5 minutes.\n\n**Delegate to Connect:** frame delegation not as 'losing control,' but as 'teaching.' Share your knowledge to empower others, which frees you for higher-level thinking.\n\n**Embody Your Confidence:** Before a big meeting, physically ground yourself. Stand up, take up space. Access the 'gut energy' of the Eight to project authority.\n\n**Translate Your Wisdom:** Practice explaining your complex ideas to someone outside your field. If you can't explain it simply, you don't understand it well enough to lead it."
-          }
+          "content": "**The 5-Minute Rule:** If you are stuck in analysis paralysis, force yourself to take one concrete physical action on the project within 5 minutes.\n\n**Delegate to Connect:** frame delegation not as 'losing control,' but as 'teaching.' Share your knowledge to empower others, which frees you for higher-level thinking.\n\n**Embody Your Confidence:** Before a big meeting, physically ground yourself. Stand up, take up space. Access the 'gut energy' of the Eight to project authority.\n\n**Translate Your Wisdom:** Practice explaining your complex ideas to someone outside your field. If you can't explain it simply, you don't understand it well enough to lead it."
         }
       ]
     }
@@ -113,30 +92,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Leverage The 'Deep Dive':",
-      "description": "Your ability to concentrate and master complex subjects is your greatest career asset; protect your time to utilize it."
-    },
-    {
-      "title": "Manage Your Battery:",
-      "description": "View your energy as a finite resource. distinctively plan your social interactions and deep work blocks to avoid depletion."
-    },
-    {
-      "title": "Move to Action:",
-      "description": "Combat analysis paralysis by adopting a 'bias for action.' Trust that you know enough to start, and you can learn the rest along the way."
-    },
-    {
-      "title": "Bridge the Gap:",
-      "description": "consciously translate your technical insights into language that stakeholders can understand to increase your influence."
-    },
-    {
-      "title": "Connect to Lead:",
-      "description": "Growth requires stepping out of the observer role and engaging with the team. Share your work *before* it is perfect."
-    },
-    {
-      "title": "Set Clear Boundaries:",
-      "description": "Use clear, neutral communication to protect your focus time, rather than just withdrawing silently."
-    }
+    "**Leverage The 'Deep Dive':** Your ability to concentrate and master complex subjects is your greatest career asset; protect your time to utilize it.",
+    "**Manage Your Battery:** View your energy as a finite resource. distinctively plan your social interactions and deep work blocks to avoid depletion.",
+    "**Move to Action:** Combat analysis paralysis by adopting a 'bias for action.' Trust that you know enough to start, and you can learn the rest along the way.",
+    "**Bridge the Gap:** consciously translate your technical insights into language that stakeholders can understand to increase your influence.",
+    "**Connect to Lead:** Growth requires stepping out of the observer role and engaging with the team. Share your work *before* it is perfect.",
+    "**Set Clear Boundaries:** Use clear, neutral communication to protect your focus time, rather than just withdrawing silently."
   ],
   "relatedTopics": [
     "learning",

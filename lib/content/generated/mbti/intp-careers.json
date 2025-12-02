@@ -28,10 +28,7 @@
     },
     {
       "heading": "2. Ideal Work Environments",
-      "content": {
-        "title": "Let's paint a picture of your personal hell",
-        "description": "An open-plan office with fluorescent lighting where your manager stops by every hour to ask, 'What are you working on?' You are required to attend three 'team alignment' meetings a day where everyone shares their feelings about the project, and your performance is measured by how many hours your butt is in the seat rather than the quality of your output. In this environment, your energy drains faster than an old iPhone battery. You become irritable, withdrawn, and cynical. The noise prevents deep thought, the micromanagement kills your motivation, and the social performativity feels like a corset around your brain.\n\nNow, contrast that with your ideal environment. It’s likely a space where you have a high degree of autonomy—perhaps a quiet office, a lab, or a remote setup where you control the thermostat and the lighting. You are given a complex, open-ended problem: 'Figure out why our server latency spikes on Tuesdays' or 'Design a new framework for this curriculum.' You are given a deadline, but no one tells you *how* to get there. The dress code is casual, the hierarchy is flat, and meetings are rare and strictly purposeful. In this environment, you don't just work; you enter a flow state. You might work for 12 hours straight because you are fascinated by the problem, fueled by caffeine and curiosity.\n\nFor the INTP, the culture of the workplace is often more important than the specific job title. You thrive in meritocracies where ideas win, not politics. You need an environment that tolerates—and even celebrates—eccentricity and dissent. You need colleagues who are intellectually stimulating, people who can volley ideas back and forth with you without getting offended when you challenge their logic. You need the freedom to work in bursts of energy rather than a steady, monotonous grind. When you find an organization that respects your need for 'cave time' to think deeply, you become one of the most productive employees on the payroll."
-      },
+      "content": "**Let's paint a picture of your personal hell** An open-plan office with fluorescent lighting where your manager stops by every hour to ask, 'What are you working on?' You are required to attend three 'team alignment' meetings a day where everyone shares their feelings about the project, and your performance is measured by how many hours your butt is in the seat rather than the quality of your output. In this environment, your energy drains faster than an old iPhone battery. You become irritable, withdrawn, and cynical. The noise prevents deep thought, the micromanagement kills your motivation, and the social performativity feels like a corset around your brain.\n\nNow, contrast that with your ideal environment. It’s likely a space where you have a high degree of autonomy—perhaps a quiet office, a lab, or a remote setup where you control the thermostat and the lighting. You are given a complex, open-ended problem: 'Figure out why our server latency spikes on Tuesdays' or 'Design a new framework for this curriculum.' You are given a deadline, but no one tells you *how* to get there. The dress code is casual, the hierarchy is flat, and meetings are rare and strictly purposeful. In this environment, you don't just work; you enter a flow state. You might work for 12 hours straight because you are fascinated by the problem, fueled by caffeine and curiosity.\n\nFor the INTP, the culture of the workplace is often more important than the specific job title. You thrive in meritocracies where ideas win, not politics. You need an environment that tolerates—and even celebrates—eccentricity and dissent. You need colleagues who are intellectually stimulating, people who can volley ideas back and forth with you without getting offended when you challenge their logic. You need the freedom to work in bursts of energy rather than a steady, monotonous grind. When you find an organization that respects your need for 'cave time' to think deeply, you become one of the most productive employees on the payroll.",
       "subsections": []
     },
     {
@@ -84,30 +81,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Prioritize Autonomy:",
-      "description": "Seek roles that allow you to control your method and schedule. Micromanagement is your kryptonite."
-    },
-    {
-      "title": "Leverage Analysis:",
-      "description": "Your ability to spot logical flaws and systems issues is your most valuable currency. Monetize your mind, not your time."
-    },
-    {
-      "title": "Beware the Comfort Zone:",
-      "description": "Don't let your fear of failure keep you in a boring job. Analysis paralysis is the enemy of progress."
-    },
-    {
-      "title": "Bridge the Gap:",
-      "description": "Work on 'soft skills' just enough to translate your brilliant ideas to non-technical stakeholders."
-    },
-    {
-      "title": "Look for Depth:",
-      "description": "Choose careers that are constantly evolving (Tech, Science, Law) so you never run out of things to learn."
-    },
-    {
-      "title": "Value Finished over Perfect:",
-      "description": "Learn to release work that is 80% perfect rather than agonizing forever over the last 20%."
-    }
+    "**Prioritize Autonomy:** Seek roles that allow you to control your method and schedule. Micromanagement is your kryptonite.",
+    "**Leverage Analysis:** Your ability to spot logical flaws and systems issues is your most valuable currency. Monetize your mind, not your time.",
+    "**Beware the Comfort Zone:** Don't let your fear of failure keep you in a boring job. Analysis paralysis is the enemy of progress.",
+    "**Bridge the Gap:** Work on 'soft skills' just enough to translate your brilliant ideas to non-technical stakeholders.",
+    "**Look for Depth:** Choose careers that are constantly evolving (Tech, Science, Law) so you never run out of things to learn.",
+    "**Value Finished over Perfect:** Learn to release work that is 80% perfect rather than agonizing forever over the last 20%."
   ],
   "relatedTopics": [
     "learning",

@@ -31,10 +31,7 @@
       "subsections": [
         {
           "heading": "Common Phrases and Context",
-          "content": {
-            "title": "\"Imagine if...\"",
-            "description": "*Used when:* transitioning from the current reality to future possibilities. This is your signature tool for inspiring others.\n\n**\"I've got a crazy idea...\"**\n*Used when:* testing the waters for an unconventional solution. It lowers the stakes and invites collaboration.\n\n**\"How are you *really* doing?\"**\n*Used when:* cutting through small talk to establish genuine emotional connection.\n\n**\"Let's just try it and see what happens.\"**\n*Used when:* bypassing analysis paralysis to encourage action and experimentation."
-          }
+          "content": "**\"Imagine if...\"** *Used when:* transitioning from the current reality to future possibilities. This is your signature tool for inspiring others.\n\n**\"I've got a crazy idea...\"**\n*Used when:* testing the waters for an unconventional solution. It lowers the stakes and invites collaboration.\n\n**\"How are you *really* doing?\"**\n*Used when:* cutting through small talk to establish genuine emotional connection.\n\n**\"Let's just try it and see what happens.\"**\n*Used when:* bypassing analysis paralysis to encourage action and experimentation."
         }
       ]
     },
@@ -64,10 +61,7 @@
       "subsections": [
         {
           "heading": "Scripts for Difficult Moments",
-          "content": {
-            "title": "The 'Pause' Button:",
-            "description": "\"I'm feeling really passionate about this right now, and I don't want to react emotionally. Can we take a ten-minute break and come back to this?\"\n\n**Addressing the Detail Gap:**\n\"I know I missed the mark on the details here. I got caught up in the big picture. Can you walk me through the specific steps you need so I can fix this?\"\n\n**When You Feel Misunderstood:**\n\"I hear your concerns about the risks. I'm not ignoring them, I'm just trying to ensure we don't lose sight of the opportunity. Can we look at both together?\""
-          }
+          "content": "**The 'Pause' Button:** \"I'm feeling really passionate about this right now, and I don't want to react emotionally. Can we take a ten-minute break and come back to this?\"\n\n**Addressing the Detail Gap:**\n\"I know I missed the mark on the details here. I got caught up in the big picture. Can you walk me through the specific steps you need so I can fix this?\"\n\n**When You Feel Misunderstood:**\n\"I hear your concerns about the risks. I'm not ignoring them, I'm just trying to ensure we don't lose sight of the opportunity. Can we look at both together?\""
         }
       ]
     },
@@ -97,34 +91,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Energy is Information:",
-      "description": "You communicate through emotional contagion, setting the mood for every interaction."
-    },
-    {
-      "title": "Story Over Stats:",
-      "description": "You naturally persuade through narrative and metaphor rather than dry data."
-    },
-    {
-      "title": "The Feedback Loop:",
-      "description": "You require active responsiveness from listeners to function at your best; silence feels like rejection."
-    },
-    {
-      "title": "Written Challenges:",
-      "description": "You may struggle to convey your dynamic personality through text, leading to over-compensating or under-communicating."
-    },
-    {
-      "title": "Conflict Aversion:",
-      "description": "You tend to smooth over disagreements to maintain harmony, sometimes at the expense of solving root problems."
-    },
-    {
-      "title": "Active Listening:",
-      "description": "Your challenge is to listen to understand rather than listening to respond or share your next great idea."
-    },
-    {
-      "title": "Vision First:",
-      "description": "You thrive when conversations start with possibilities ('what if') before moving to logistics ('how to')."
-    }
+    "**Energy is Information:** You communicate through emotional contagion, setting the mood for every interaction.",
+    "**Story Over Stats:** You naturally persuade through narrative and metaphor rather than dry data.",
+    "**The Feedback Loop:** You require active responsiveness from listeners to function at your best; silence feels like rejection.",
+    "**Written Challenges:** You may struggle to convey your dynamic personality through text, leading to over-compensating or under-communicating.",
+    "**Conflict Aversion:** You tend to smooth over disagreements to maintain harmony, sometimes at the expense of solving root problems.",
+    "**Active Listening:** Your challenge is to listen to understand rather than listening to respond or share your next great idea.",
+    "**Vision First:** You thrive when conversations start with possibilities ('what if') before moving to logistics ('how to')."
   ],
   "relatedTopics": [
     "learning",

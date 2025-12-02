@@ -48,10 +48,7 @@
     },
     {
       "heading": "Meeting and Collaboration Style",
-      "content": {
-        "title": "Let’s set the scene",
-        "description": "It is 9:00 AM. You are seated, notebook open, pen uncapped. You have reviewed the pre-read materials. The meeting organizer arrives five minutes late, unprepared, and starts with, 'So, what are we doing today?' For a Type 1, this is physical pain. Your meeting style is defined by preparation and purpose. You believe that if you are going to take an hour of people's time, it should be structured and productive. In discussions, you are the one who keeps the conversation on the rails. When the brainstorming gets too abstract or unrealistic, you are the voice of pragmatism, asking, 'How do we actually implement this?' and 'What is the budget?'\n\nYour collaboration style is heavily influenced by your 'gut' center of intelligence. You often have an immediate, visceral reaction to ideas—instinctively knowing if something is 'right' or 'off.' In collaborative sessions, you might find yourself playing devil's advocate, pointing out potential pitfalls. While you see this as risk mitigation, others can perceive it as shooting down ideas. It is helpful to frame your feedback with, 'I want this to succeed, so we need to address this obstacle,' rather than just pointing out the obstacle.\n\nIn digital communication, your style is distinct. Your emails are likely perfectly formatted, typo-free, and concise. You might use bullet points to ensure clarity. However, you may agonize over hitting 'send.' You might re-read a simple update three times to ensure the tone isn't too harsh or that you haven't missed a detail. When receiving emails, you can be triggered by sloppiness. receiving a message in all lowercase with no punctuation might make you question the sender's competence. You value clarity above all else and expect others to treat communication with the same level of care."
-      },
+      "content": "**Let’s set the scene** It is 9:00 AM. You are seated, notebook open, pen uncapped. You have reviewed the pre-read materials. The meeting organizer arrives five minutes late, unprepared, and starts with, 'So, what are we doing today?' For a Type 1, this is physical pain. Your meeting style is defined by preparation and purpose. You believe that if you are going to take an hour of people's time, it should be structured and productive. In discussions, you are the one who keeps the conversation on the rails. When the brainstorming gets too abstract or unrealistic, you are the voice of pragmatism, asking, 'How do we actually implement this?' and 'What is the budget?'\n\nYour collaboration style is heavily influenced by your 'gut' center of intelligence. You often have an immediate, visceral reaction to ideas—instinctively knowing if something is 'right' or 'off.' In collaborative sessions, you might find yourself playing devil's advocate, pointing out potential pitfalls. While you see this as risk mitigation, others can perceive it as shooting down ideas. It is helpful to frame your feedback with, 'I want this to succeed, so we need to address this obstacle,' rather than just pointing out the obstacle.\n\nIn digital communication, your style is distinct. Your emails are likely perfectly formatted, typo-free, and concise. You might use bullet points to ensure clarity. However, you may agonize over hitting 'send.' You might re-read a simple update three times to ensure the tone isn't too harsh or that you haven't missed a detail. When receiving emails, you can be triggered by sloppiness. receiving a message in all lowercase with no punctuation might make you question the sender's competence. You value clarity above all else and expect others to treat communication with the same level of care.",
       "subsections": [
         {
           "heading": "Collaboration Tips",
@@ -99,30 +96,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Integrity is your currency:",
-      "description": "Your reliability and ethical standards are your greatest professional assets."
-    },
-    {
-      "title": "Beware the Inner Critic:",
-      "description": "Recognize that the voice demanding perfection is often lying to you about what is actually required."
-    },
-    {
-      "title": "Delegate the 'How', keep the 'What':",
-      "description": "Define the goal, but let your team figure out the method to avoid micromanagement."
-    },
-    {
-      "title": "anger serves a purpose:",
-      "description": "Instead of suppressing frustration, use it as a signal that a boundary has been crossed or a system needs fixing."
-    },
-    {
-      "title": "Growth means loosening the grip:",
-      "description": "Moving toward Type 7 brings necessary spontaneity, innovation, and joy to your work."
-    },
-    {
-      "title": "Feedback is data, not judgment:",
-      "description": "Learn to separate your work performance from your intrinsic worth as a human being."
-    }
+    "**Integrity is your currency:** Your reliability and ethical standards are your greatest professional assets.",
+    "**Beware the Inner Critic:** Recognize that the voice demanding perfection is often lying to you about what is actually required.",
+    "**Delegate the 'How', keep the 'What':** Define the goal, but let your team figure out the method to avoid micromanagement.",
+    "**anger serves a purpose:** Instead of suppressing frustration, use it as a signal that a boundary has been crossed or a system needs fixing.",
+    "**Growth means loosening the grip:** Moving toward Type 7 brings necessary spontaneity, innovation, and joy to your work.",
+    "**Feedback is data, not judgment:** Learn to separate your work performance from your intrinsic worth as a human being."
   ],
   "relatedTopics": [
     "learning",

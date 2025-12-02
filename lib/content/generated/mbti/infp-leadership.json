@@ -22,10 +22,7 @@
       "subsections": [
         {
           "heading": "Core Assets",
-          "content": {
-            "title": "The Moral Compass:",
-            "description": "You act as the ethical guardian of your organization. When profit motives threaten to overrun values, you are the one who pumps the brakes, ensuring the team stays true to its purpose.\n\n**Individualized Management:** You instinctively understand that a \"one size fits all\" management style is a fallacy. You tailor your approach to each person's unique emotional and professional needs.\n\n**Creative Problem Solving:** When logic hits a dead end, your imagination takes over. You find innovative workarounds that rigid thinkers miss, often turning constraints into creative opportunities.\n\n**Deep Listening:** Most leaders listen to reply; you listen to understand. This makes team members feel validated and heard, which drastically reduces turnover and increases engagement."
-          }
+          "content": "**The Moral Compass:** You act as the ethical guardian of your organization. When profit motives threaten to overrun values, you are the one who pumps the brakes, ensuring the team stays true to its purpose.\n\n**Individualized Management:** You instinctively understand that a \"one size fits all\" management style is a fallacy. You tailor your approach to each person's unique emotional and professional needs.\n\n**Creative Problem Solving:** When logic hits a dead end, your imagination takes over. You find innovative workarounds that rigid thinkers miss, often turning constraints into creative opportunities.\n\n**Deep Listening:** Most leaders listen to reply; you listen to understand. This makes team members feel validated and heard, which drastically reduces turnover and increases engagement."
         }
       ]
     },
@@ -45,10 +42,7 @@
       "subsections": [
         {
           "heading": "Motivational Levers",
-          "content": {
-            "title": "Purpose Alignment:",
-            "description": "Constantly reiterating the humanitarian or higher-level impact of the work.\n**Recognition of Uniqueness:** Praising specific, nuanced traits rather than generic \"good job\" compliments. (e.g., \"I really appreciated how you handled that difficult client with such patience yesterday.\")\n**Emotional Safety:** Creating an environment where it is okay to say, \"I'm struggling,\" without fear of retribution."
-          }
+          "content": "**Purpose Alignment:** Constantly reiterating the humanitarian or higher-level impact of the work.\n**Recognition of Uniqueness:** Praising specific, nuanced traits rather than generic \"good job\" compliments. (e.g., \"I really appreciated how you handled that difficult client with such patience yesterday.\")\n**Emotional Safety:** Creating an environment where it is okay to say, \"I'm struggling,\" without fear of retribution."
         }
       ]
     },
@@ -58,10 +52,7 @@
       "subsections": [
         {
           "heading": "The Fi-Te Tug of War",
-          "content": {
-            "title": "The Consensus Trap:",
-            "description": "You have a strong desire to make sure everyone is happy with a decision. You might delay moving forward until you have total buy-in, which can paralyze the team. \n**The Gut Check:** Ultimately, you cannot implement a decision that feels \"wrong\" in your gut, no matter what the data says. Learning to trust and articulate this intuition is key to your authority.\n**Factoring in the Human Element:** You are the leader who remembers to ask, \"How will the team *feel* about this change?\"—a metric often ignored but vital for change management."
-          }
+          "content": "**The Consensus Trap:** You have a strong desire to make sure everyone is happy with a decision. You might delay moving forward until you have total buy-in, which can paralyze the team. \n**The Gut Check:** Ultimately, you cannot implement a decision that feels \"wrong\" in your gut, no matter what the data says. Learning to trust and articulate this intuition is key to your authority.\n**Factoring in the Human Element:** You are the leader who remembers to ask, \"How will the team *feel* about this change?\"—a metric often ignored but vital for change management."
         }
       ]
     },
@@ -71,10 +62,7 @@
       "subsections": [
         {
           "heading": "The Danger Zones",
-          "content": {
-            "title": "The Ghosting Manager:",
-            "description": "Withdrawing into your office to avoid difficult conversations, leaving the team feeling abandoned.\n**The Martyr:** Taking on everyone else's workload because you feel bad assigning boring tasks, leading to your own burnout.\n**Perfectionism Paralysis:** Delaying the launch of a project because it doesn't yet match the idealized version in your head."
-          }
+          "content": "**The Ghosting Manager:** Withdrawing into your office to avoid difficult conversations, leaving the team feeling abandoned.\n**The Martyr:** Taking on everyone else's workload because you feel bad assigning boring tasks, leading to your own burnout.\n**Perfectionism Paralysis:** Delaying the launch of a project because it doesn't yet match the idealized version in your head."
         }
       ]
     },
@@ -84,10 +72,7 @@
       "subsections": [
         {
           "heading": "Actionable Development Strategies",
-          "content": {
-            "title": "Eat the Frog:",
-            "description": "Tackle the most emotionally draining task (usually a conflict or a boring admin task) first thing in the morning so it doesn't haunt you all day.\n**The 24-Hour Rule:** When you feel the urge to make a snap emotional decision or an impulsive promise, force a 24-hour cooling-off period to let your logic catch up with your feelings.\n**Develop Your Te:** actively practice organizing your external environment. A clean desk and a clear calendar can surprisingly lower your internal anxiety."
-          }
+          "content": "**Eat the Frog:** Tackle the most emotionally draining task (usually a conflict or a boring admin task) first thing in the morning so it doesn't haunt you all day.\n**The 24-Hour Rule:** When you feel the urge to make a snap emotional decision or an impulsive promise, force a 24-hour cooling-off period to let your logic catch up with your feelings.\n**Develop Your Te:** actively practice organizing your external environment. A clean desk and a clear calendar can surprisingly lower your internal anxiety."
         }
       ]
     },
@@ -97,10 +82,7 @@
       "subsections": [
         {
           "heading": "Where You Thrive vs. Survive",
-          "content": {
-            "title": "Thrive:",
-            "description": "Flat hierarchies, collaborative cultures, mission-first organizations, roles focused on mentorship and development.\n**Survive (with difficulty):** rigid bureaucracies, cutthroat sales environments, military-style command structures, roles requiring firing people regularly for financial reasons."
-          }
+          "content": "**Thrive:** Flat hierarchies, collaborative cultures, mission-first organizations, roles focused on mentorship and development.\n**Survive (with difficulty):** rigid bureaucracies, cutthroat sales environments, military-style command structures, roles requiring firing people regularly for financial reasons."
         }
       ]
     }
@@ -124,30 +106,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Lead with Purpose:",
-      "description": "Your greatest strength is connecting daily tasks to a deeper, meaningful vision."
-    },
-    {
-      "title": "Embrace Servant Leadership:",
-      "description": "You naturally prioritize your team's well-being, which builds immense loyalty and trust."
-    },
-    {
-      "title": "Beware of Conflict Avoidance:",
-      "description": "Unaddressed issues rot. Frame conflict as a necessary tool for clarity and growth."
-    },
-    {
-      "title": "Partner for Operations:",
-      "description": "Don't force yourself to be an admin wizard. Delegate logistics to those who enjoy them."
-    },
-    {
-      "title": "Trust Your Intuition:",
-      "description": "Your ability to read people and future possibilities is a strategic asset, not just a feeling."
-    },
-    {
-      "title": "Authenticity is Your Brand:",
-      "description": "Never try to emulate the 'tough boss' persona. Your power lies in being human."
-    }
+    "**Lead with Purpose:** Your greatest strength is connecting daily tasks to a deeper, meaningful vision.",
+    "**Embrace Servant Leadership:** You naturally prioritize your team's well-being, which builds immense loyalty and trust.",
+    "**Beware of Conflict Avoidance:** Unaddressed issues rot. Frame conflict as a necessary tool for clarity and growth.",
+    "**Partner for Operations:** Don't force yourself to be an admin wizard. Delegate logistics to those who enjoy them.",
+    "**Trust Your Intuition:** Your ability to read people and future possibilities is a strategic asset, not just a feeling.",
+    "**Authenticity is Your Brand:** Never try to emulate the 'tough boss' persona. Your power lies in being human."
   ],
   "relatedTopics": [
     "learning",

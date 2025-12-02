@@ -65,34 +65,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Execution is your superpower:",
-      "description": "You turn abstract ideas into concrete results faster than any other type."
-    },
-    {
-      "title": "Watch the 'Arrival Fallacy':",
-      "description": "Happiness is not waiting at the finish line; you must find satisfaction in the process."
-    },
-    {
-      "title": "Delegate to scale:",
-      "description": "You cannot advance if you insist on doing everything yourself. Trusting others is a skill you must practice."
-    },
-    {
-      "title": "Relationships drive results:",
-      "description": "Don't view socializing as a waste of time; it is the infrastructure that supports your work."
-    },
-    {
-      "title": "Rest is productive:",
-      "description": "You cannot run an engine at redline forever. Recovery is essential for sustainable high performance."
-    },
-    {
-      "title": "Value diversity of pace:",
-      "description": "Slower colleagues offer precision and caution that balances your need for speed."
-    },
-    {
-      "title": "Define 'Enough':",
-      "description": "Set clear boundaries for what constitutes a successful day, or you will work indefinitely."
-    }
+    "**Execution is your superpower:** You turn abstract ideas into concrete results faster than any other type.",
+    "**Watch the 'Arrival Fallacy':** Happiness is not waiting at the finish line; you must find satisfaction in the process.",
+    "**Delegate to scale:** You cannot advance if you insist on doing everything yourself. Trusting others is a skill you must practice.",
+    "**Relationships drive results:** Don't view socializing as a waste of time; it is the infrastructure that supports your work.",
+    "**Rest is productive:** You cannot run an engine at redline forever. Recovery is essential for sustainable high performance.",
+    "**Value diversity of pace:** Slower colleagues offer precision and caution that balances your need for speed.",
+    "**Define 'Enough':** Set clear boundaries for what constitutes a successful day, or you will work indefinitely."
   ],
   "relatedTopics": [
     "learning",

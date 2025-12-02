@@ -46,10 +46,7 @@
     },
     {
       "heading": "Meeting and Collaboration Style: Depth Over Breadth",
-      "content": {
-        "title": "Let's set the scene",
-        "description": "You are in a weekly strategy meeting. The agenda is packed, and the conversation is moving at a breakneck speed, bouncing from one tactic to another. You sit quietly, perhaps doodling in the margins of your notebook, your mind connecting dots that others are missing. You might feel a rising pressure to speak just to prove you're present, but you resist. You wait. Finally, when there is a lull, you speak up. \"We've been talking about how to increase user acquisition, but have we considered that our current messaging contradicts the promise we made in the launch campaign? If we fix that disconnect, the users might come naturally.\" The room pauses. You haven't just added noise; you've reframed the entire discussion.\n\nThis is the quintessential INFP meeting style. You are an observer first and a contributor second. You process information internally (Fi) before you are ready to share it externally. This can sometimes be a disadvantage in fast-paced, aggressive corporate cultures where \"he who speaks first, wins.\" You might leave meetings feeling frustrated that you didn't articulate your brilliant idea until you were walking back to your desk. To combat this, you often prefer written communication. An email or a Slack message allows you to edit your thoughts, tone, and nuance until they perfectly reflect your intent. You are the master of the \"draft\" folder.\n\nWhen you are leading a project, your style is distinctively non-authoritarian. You don't command; you inspire. You paint a vivid picture of the end goal and invite others to help you reach it. You trust your team to do their work and give them the space you crave for yourself. However, you must be wary of your tendency to avoid giving negative feedback. You might sugarcoat a critique so heavily that the recipient misses the point entirely. Learning to be direct—viewing clarity as a form of kindness—is a critical growth area for your collaboration style."
-      },
+      "content": "**Let's set the scene** You are in a weekly strategy meeting. The agenda is packed, and the conversation is moving at a breakneck speed, bouncing from one tactic to another. You sit quietly, perhaps doodling in the margins of your notebook, your mind connecting dots that others are missing. You might feel a rising pressure to speak just to prove you're present, but you resist. You wait. Finally, when there is a lull, you speak up. \"We've been talking about how to increase user acquisition, but have we considered that our current messaging contradicts the promise we made in the launch campaign? If we fix that disconnect, the users might come naturally.\" The room pauses. You haven't just added noise; you've reframed the entire discussion.\n\nThis is the quintessential INFP meeting style. You are an observer first and a contributor second. You process information internally (Fi) before you are ready to share it externally. This can sometimes be a disadvantage in fast-paced, aggressive corporate cultures where \"he who speaks first, wins.\" You might leave meetings feeling frustrated that you didn't articulate your brilliant idea until you were walking back to your desk. To combat this, you often prefer written communication. An email or a Slack message allows you to edit your thoughts, tone, and nuance until they perfectly reflect your intent. You are the master of the \"draft\" folder.\n\nWhen you are leading a project, your style is distinctively non-authoritarian. You don't command; you inspire. You paint a vivid picture of the end goal and invite others to help you reach it. You trust your team to do their work and give them the space you crave for yourself. However, you must be wary of your tendency to avoid giving negative feedback. You might sugarcoat a critique so heavily that the recipient misses the point entirely. Learning to be direct—viewing clarity as a form of kindness—is a critical growth area for your collaboration style.",
       "subsections": [
         {
           "heading": "Communication Preferences",
@@ -97,30 +94,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Authenticity is your currency:",
-      "description": "You thrive when your work aligns with your internal value system."
-    },
-    {
-      "title": "Empathy is a strategic asset:",
-      "description": "Your ability to read people and motivations can save projects and solve complex personnel issues."
-    },
-    {
-      "title": "Beware the perfectionism loop:",
-      "description": "Learn to release 'good enough' work to avoid paralysis and burnout."
-    },
-    {
-      "title": "Communicate your process:",
-      "description": "Let teams know you need time to reflect before giving feedback or ideas."
-    },
-    {
-      "title": "Seek autonomy:",
-      "description": "You do your best work when given the goal and left to design the path yourself."
-    },
-    {
-      "title": "Translate feelings into logic:",
-      "description": "To advance, learn to explain the business value of your human-centric insights."
-    }
+    "**Authenticity is your currency:** You thrive when your work aligns with your internal value system.",
+    "**Empathy is a strategic asset:** Your ability to read people and motivations can save projects and solve complex personnel issues.",
+    "**Beware the perfectionism loop:** Learn to release 'good enough' work to avoid paralysis and burnout.",
+    "**Communicate your process:** Let teams know you need time to reflect before giving feedback or ideas.",
+    "**Seek autonomy:** You do your best work when given the goal and left to design the path yourself.",
+    "**Translate feelings into logic:** To advance, learn to explain the business value of your human-centric insights."
   ],
   "relatedTopics": [
     "learning",

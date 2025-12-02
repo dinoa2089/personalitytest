@@ -137,34 +137,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Strategic Vision:",
-      "description": "ENTJs lead by mapping out the future and reverse-engineering the steps to get there."
-    },
-    {
-      "title": "Decisiveness is Key:",
-      "description": "They cure analysis paralysis by making tough calls quickly, accepting risk as the price of progress."
-    },
-    {
-      "title": "Competence over Likability:",
-      "description": "They prioritize respect and effectiveness over being liked, though they must guard against steamrolling others."
-    },
-    {
-      "title": "System Builders:",
-      "description": "They don't just solve problems; they build systems to ensure the problem never returns."
-    },
-    {
-      "title": "Growth through EQ:",
-      "description": "The most successful ENTJs integrate emotional intelligence as a tool for efficiency, learning to listen and validate to maximize team performance."
-    },
-    {
-      "title": "Direct Communication:",
-      "description": "They eliminate ambiguity, providing clear, actionable feedback that drives growth."
-    },
-    {
-      "title": "Crisis Managers:",
-      "description": "They thrive in chaos, naturally stepping up to provide direction when others are overwhelmed."
-    }
+    "**Strategic Vision:** ENTJs lead by mapping out the future and reverse-engineering the steps to get there.",
+    "**Decisiveness is Key:** They cure analysis paralysis by making tough calls quickly, accepting risk as the price of progress.",
+    "**Competence over Likability:** They prioritize respect and effectiveness over being liked, though they must guard against steamrolling others.",
+    "**System Builders:** They don't just solve problems; they build systems to ensure the problem never returns.",
+    "**Growth through EQ:** The most successful ENTJs integrate emotional intelligence as a tool for efficiency, learning to listen and validate to maximize team performance.",
+    "**Direct Communication:** They eliminate ambiguity, providing clear, actionable feedback that drives growth.",
+    "**Crisis Managers:** They thrive in chaos, naturally stepping up to provide direction when others are overwhelmed."
   ],
   "relatedTopics": [
     "learning",

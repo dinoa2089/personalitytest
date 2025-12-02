@@ -119,30 +119,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Your 'Quiet Strength' is a superpower",
-      "description": "You build psychological safety and loyalty that aggressive leaders cannot replicate."
-    },
-    {
-      "title": "Beware of Ruinous Empathy",
-      "description": "Caring for your team means addressing toxicity and poor performance directly, not avoiding it."
-    },
-    {
-      "title": "Lead through questions, not commands",
-      "description": "Use your listening skills to synthesize views and build consensus."
-    },
-    {
-      "title": "Protect your energy",
-      "description": "Your low Extraversion means you must structure your day to include recharge time."
-    },
-    {
-      "title": "Reframe conflict",
-      "description": "View conflict resolution not as a fight, but as a necessary step to restore harmony and fairness."
-    },
-    {
-      "title": "Values are your anchor",
-      "description": "In difficult decisions, lean on your ethical principles. Your integrity is your most valuable leadership asset."
-    }
+    "**Your 'Quiet Strength' is a superpower** You build psychological safety and loyalty that aggressive leaders cannot replicate.",
+    "**Beware of Ruinous Empathy** Caring for your team means addressing toxicity and poor performance directly, not avoiding it.",
+    "**Lead through questions, not commands** Use your listening skills to synthesize views and build consensus.",
+    "**Protect your energy** Your low Extraversion means you must structure your day to include recharge time.",
+    "**Reframe conflict** View conflict resolution not as a fight, but as a necessary step to restore harmony and fairness.",
+    "**Values are your anchor** In difficult decisions, lean on your ethical principles. Your integrity is your most valuable leadership asset."
   ],
   "relatedTopics": [
     "learning",

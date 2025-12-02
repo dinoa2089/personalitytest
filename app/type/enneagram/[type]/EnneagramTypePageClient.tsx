@@ -498,7 +498,7 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   <Card className="rounded-xl border border-border/50 hover:border-primary/50 transition-all h-full">
                     <CardContent className="pt-6">
                       <div className="flex items-start gap-3">
-                        <span className="text-2xl">{TOPIC_METADATA[link.title.toLowerCase().replace(' style', '').replace(' guide', '').replace(' & coping', '').replace('at ', '').replace('personal ', '') as ContentTopic]?.icon || '📖'}</span>
+                        <span className="text-2xl">{TOPIC_METADATA[(typeof link.title === 'string' ? link.title : '').toLowerCase().replace(' style', '').replace(' guide', '').replace(' & coping', '').replace('at ', '').replace('personal ', '') as ContentTopic]?.icon || '📖'}</span>
                         <div className="flex-1">
                           <h3 className="font-semibold group-hover:text-primary transition-colors">
                             Type {content.number} {link.title}

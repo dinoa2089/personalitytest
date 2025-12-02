@@ -48,10 +48,7 @@
     },
     {
       "heading": "Meeting and Collaboration Style",
-      "content": {
-        "title": "Let's be honest",
-        "description": "standard corporate meetings are your kryptonite. You are sitting there, watching the clock, physically feeling your life force drain away as the conversation circles the drain without reaching a conclusion. You might find yourself fidgeting, taking apart your pen, or mentally redesigning the office HVAC system just to stay awake. For the **ISTP - The Virtuoso at work**, a meeting without a clear agenda and a decision at the end is a failure. You operate on a principle of \"information density\"—you want high-value data transferred quickly. Small talk about the weather or lengthy check-ins feel like static noise interfering with the signal.\n\nWhen you do speak in meetings, it is usually to correct a factual error or to propose a shortcut. You are known for brevity. You might send a three-word email response to a five-paragraph query. While you see this as efficient, others might read it as cold or dismissive. You prefer asynchronous communication—Slack, Jira tickets, or email—where you can respond on your own time after you've analyzed the data. You hate being put on the spot to \"brainstorm\" out loud; you need time to process things internally before you commit to an answer.\n\nTo survive the meeting culture, you often adopt a strategy of strategic disengagement. You listen with one ear, monitoring for the moment your specific expertise is needed. However, when a crisis meeting occurs—the \"War Room\" scenario—you come alive. Suddenly, the ambiguity is gone, the stakes are real, and you become the most vocal and active participant, directing traffic and assigning tasks with a clarity that shocks those who are used to your silence."
-      },
+      "content": "**Let's be honest** standard corporate meetings are your kryptonite. You are sitting there, watching the clock, physically feeling your life force drain away as the conversation circles the drain without reaching a conclusion. You might find yourself fidgeting, taking apart your pen, or mentally redesigning the office HVAC system just to stay awake. For the **ISTP - The Virtuoso at work**, a meeting without a clear agenda and a decision at the end is a failure. You operate on a principle of \"information density\"—you want high-value data transferred quickly. Small talk about the weather or lengthy check-ins feel like static noise interfering with the signal.\n\nWhen you do speak in meetings, it is usually to correct a factual error or to propose a shortcut. You are known for brevity. You might send a three-word email response to a five-paragraph query. While you see this as efficient, others might read it as cold or dismissive. You prefer asynchronous communication—Slack, Jira tickets, or email—where you can respond on your own time after you've analyzed the data. You hate being put on the spot to \"brainstorm\" out loud; you need time to process things internally before you commit to an answer.\n\nTo survive the meeting culture, you often adopt a strategy of strategic disengagement. You listen with one ear, monitoring for the moment your specific expertise is needed. However, when a crisis meeting occurs—the \"War Room\" scenario—you come alive. Suddenly, the ambiguity is gone, the stakes are real, and you become the most vocal and active participant, directing traffic and assigning tasks with a clarity that shocks those who are used to your silence.",
       "subsections": [
         {
           "heading": "Meeting Survival Guide",
@@ -99,30 +96,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Master of the Tangible:",
-      "description": "You thrive when you can see, touch, or measure the results of your work immediately."
-    },
-    {
-      "title": "Crisis Calm:",
-      "description": "Your greatest asset is your ability to lower your heart rate and think logically when everyone else is panicking."
-    },
-    {
-      "title": "The Efficiency Engine:",
-      "description": "You naturally spot redundancies and shortcuts; frame this as 'optimization' to management."
-    },
-    {
-      "title": "Action Over Words:",
-      "description": "You communicate best through prototypes, diagrams, and finished products, not long emails."
-    },
-    {
-      "title": "Social Protocol:",
-      "description": "Viewing small talk as a necessary 'system lubricant' can help you navigate office politics without feeling fake."
-    },
-    {
-      "title": "Autonomy is Key:",
-      "description": "You will wither in a micromanaged environment; seek roles that value output over method."
-    }
+    "**Master of the Tangible:** You thrive when you can see, touch, or measure the results of your work immediately.",
+    "**Crisis Calm:** Your greatest asset is your ability to lower your heart rate and think logically when everyone else is panicking.",
+    "**The Efficiency Engine:** You naturally spot redundancies and shortcuts; frame this as 'optimization' to management.",
+    "**Action Over Words:** You communicate best through prototypes, diagrams, and finished products, not long emails.",
+    "**Social Protocol:** Viewing small talk as a necessary 'system lubricant' can help you navigate office politics without feeling fake.",
+    "**Autonomy is Key:** You will wither in a micromanaged environment; seek roles that value output over method."
   ],
   "relatedTopics": [
     "learning",

@@ -21,10 +21,7 @@
       "subsections": [
         {
           "heading": "Key Characteristics of the Executive Voice",
-          "content": {
-            "title": "Directness:",
-            "description": "You say exactly what you mean, leaving zero room for interpretation.\n**Volume and Projection:** You naturally project confidence and are rarely asked to speak up.\n**Logical Sequencing:** You use words like 'firstly,' 'consequently,' and 'therefore' frequently.\n**Fact-Centric:** You reference rules, history, and data rather than feelings or hunches."
-          }
+          "content": "**Directness:** You say exactly what you mean, leaving zero room for interpretation.\n**Volume and Projection:** You naturally project confidence and are rarely asked to speak up.\n**Logical Sequencing:** You use words like 'firstly,' 'consequently,' and 'therefore' frequently.\n**Fact-Centric:** You reference rules, history, and data rather than feelings or hunches."
         }
       ]
     },
@@ -34,10 +31,7 @@
       "subsections": [
         {
           "heading": "Why People Rely on You",
-          "content": {
-            "title": "Elimination of Ambiguity:",
-            "description": "You define expectations clearly, reducing anxiety for everyone around you.\n**Crisis Management:** Your voice remains steady and directive when things go wrong.\n**Honesty:** You are viewed as authentic because you don't manipulate people with words.\n**Detailed Recall:** You remember the specifics that others forget, ensuring accuracy."
-          }
+          "content": "**Elimination of Ambiguity:** You define expectations clearly, reducing anxiety for everyone around you.\n**Crisis Management:** Your voice remains steady and directive when things go wrong.\n**Honesty:** You are viewed as authentic because you don't manipulate people with words.\n**Detailed Recall:** You remember the specifics that others forget, ensuring accuracy."
         }
       ]
     },
@@ -47,10 +41,7 @@
       "subsections": [
         {
           "heading": "Digital Communication Habits",
-          "content": {
-            "title": "The Bullet Point King/Queen:",
-            "description": "You prefer lists over paragraphs in emails.\n**Subject Line Mastery:** Your subject lines dictate exactly what is inside (e.g., 'ACTION REQUIRED: Q3 Budget').\n**Brevity:** You often reply with single words ('Yes', 'Approved', 'Done').\n**Formatting:** You use bold text to highlight deadlines and action items."
-          }
+          "content": "**The Bullet Point King/Queen:** You prefer lists over paragraphs in emails.\n**Subject Line Mastery:** Your subject lines dictate exactly what is inside (e.g., 'ACTION REQUIRED: Q3 Budget').\n**Brevity:** You often reply with single words ('Yes', 'Approved', 'Done').\n**Formatting:** You use bold text to highlight deadlines and action items."
         }
       ]
     },
@@ -60,10 +51,7 @@
       "subsections": [
         {
           "heading": "Common Friction Points",
-          "content": {
-            "title": "The 'Fix-It' Trap:",
-            "description": "Jumping to solutions before the other person feels heard.\n**Accidental Interruption:** Cutting people off because you think you know where they are going.\n**Tone Deafness:** Using a commanding tone in sensitive personal situations.\n**Dismissiveness:** rejecting abstract or theoretical ideas too quickly."
-          }
+          "content": "**The 'Fix-It' Trap:** Jumping to solutions before the other person feels heard.\n**Accidental Interruption:** Cutting people off because you think you know where they are going.\n**Tone Deafness:** Using a commanding tone in sensitive personal situations.\n**Dismissiveness:** rejecting abstract or theoretical ideas too quickly."
         }
       ]
     },
@@ -73,10 +61,7 @@
       "subsections": [
         {
           "heading": "ESTJ Communication Cheatsheet",
-          "content": {
-            "title": "Be Prepared:",
-            "description": "Don't ask for a meeting unless you have an agenda.\n**Lead with the Headline:** State your purpose in the first sentence.\n**Use 'Think' not 'Feel':** Frame arguments around logic (Te) rather than personal sentiment (Fi).\n**Stand Your Ground:** If they challenge you, push back with facts. They respect backbone."
-          }
+          "content": "**Be Prepared:** Don't ask for a meeting unless you have an agenda.\n**Lead with the Headline:** State your purpose in the first sentence.\n**Use 'Think' not 'Feel':** Frame arguments around logic (Te) rather than personal sentiment (Fi).\n**Stand Your Ground:** If they challenge you, push back with facts. They respect backbone."
         }
       ]
     },
@@ -105,34 +90,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Directness is Respect:",
-      "description": "ESTJs speak the unvarnished truth because they value honesty and efficiency."
-    },
-    {
-      "title": "Action-Oriented:",
-      "description": "Their communication is designed to move things from 'to-do' to 'done'."
-    },
-    {
-      "title": "Ambiguity Intolerance:",
-      "description": "They struggle with vague instructions and require clear, concrete details."
-    },
-    {
-      "title": "The 'Fixer' Mentality:",
-      "description": "They naturally offer solutions rather than emotional validation."
-    },
-    {
-      "title": "Written Brevity:",
-      "description": "Expect short, transactional emails and texts; it's not personal, it's time management."
-    },
-    {
-      "title": "Respects Backbone:",
-      "description": "They respond best to people who stand their ground with facts and logic."
-    },
-    {
-      "title": "Love Language is Duty:",
-      "description": "They express care through reliability, protection, and provision rather than verbal affirmation."
-    }
+    "**Directness is Respect:** ESTJs speak the unvarnished truth because they value honesty and efficiency.",
+    "**Action-Oriented:** Their communication is designed to move things from 'to-do' to 'done'.",
+    "**Ambiguity Intolerance:** They struggle with vague instructions and require clear, concrete details.",
+    "**The 'Fixer' Mentality:** They naturally offer solutions rather than emotional validation.",
+    "**Written Brevity:** Expect short, transactional emails and texts; it's not personal, it's time management.",
+    "**Respects Backbone:** They respond best to people who stand their ground with facts and logic.",
+    "**Love Language is Duty:** They express care through reliability, protection, and provision rather than verbal affirmation."
   ],
   "relatedTopics": [
     "learning",

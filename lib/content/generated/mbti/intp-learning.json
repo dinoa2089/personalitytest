@@ -63,10 +63,7 @@
     },
     {
       "heading": "4. Common Learning Challenges: Overcoming the Slump",
-      "content": {
-        "title": "It is a familiar narrative",
-        "description": "the INTP student who aces the tests but fails the class because they didn't turn in the homework. The greatest enemy of the INTP - The Logician education journey is not a lack of ability, but a lack of executive function and sustained interest. You struggle with what psychologists call \"maintenance tasks\"—the repetitive, administrative aspects of learning. Once you have intellectually \"solved\" a problem or understood a concept, your brain releases the dopamine reward, and you lose all motivation to actually write the paper or finish the project. The implementation phase feels like drudgery because the mental discovery is already over. This can lead to a graveyard of half-finished degrees, certifications, and projects.\n\nAnalysis paralysis is another significant hurdle. When faced with an open-ended assignment, you can see so many possibilities, so many angles, and so many potential pitfalls that you freeze. You spend weeks researching and gathering data, terrified of committing to a single thesis because it means discarding all the other fascinating possibilities. You want your work to be the \"Unified Theory of Everything,\" and since that is impossible, you procrastinate until the night before the deadline. This cycle of perfectionism-induced procrastination creates immense stress and often results in work that doesn't reflect your true capability.\n\nLastly, you likely struggle with subjects that you deem \"illogical\" or \"arbitrary.\" If a teacher creates a rule that makes no sense, or if a subject relies heavily on emotional interpretation rather than logical deduction, you may experience a visceral rejection of the material. You can be stubborn, refusing to learn something simply because you don't respect the premise. This intellectual arrogance, while protective of your integrity, can close doors and lower your grades in required general education courses."
-      },
+      "content": "**It is a familiar narrative** the INTP student who aces the tests but fails the class because they didn't turn in the homework. The greatest enemy of the INTP - The Logician education journey is not a lack of ability, but a lack of executive function and sustained interest. You struggle with what psychologists call \"maintenance tasks\"—the repetitive, administrative aspects of learning. Once you have intellectually \"solved\" a problem or understood a concept, your brain releases the dopamine reward, and you lose all motivation to actually write the paper or finish the project. The implementation phase feels like drudgery because the mental discovery is already over. This can lead to a graveyard of half-finished degrees, certifications, and projects.\n\nAnalysis paralysis is another significant hurdle. When faced with an open-ended assignment, you can see so many possibilities, so many angles, and so many potential pitfalls that you freeze. You spend weeks researching and gathering data, terrified of committing to a single thesis because it means discarding all the other fascinating possibilities. You want your work to be the \"Unified Theory of Everything,\" and since that is impossible, you procrastinate until the night before the deadline. This cycle of perfectionism-induced procrastination creates immense stress and often results in work that doesn't reflect your true capability.\n\nLastly, you likely struggle with subjects that you deem \"illogical\" or \"arbitrary.\" If a teacher creates a rule that makes no sense, or if a subject relies heavily on emotional interpretation rather than logical deduction, you may experience a visceral rejection of the material. You can be stubborn, refusing to learn something simply because you don't respect the premise. This intellectual arrogance, while protective of your integrity, can close doors and lower your grades in required general education courses.",
       "subsections": [
         {
           "heading": "Combating the 'Bored Genius' Syndrome",
@@ -98,10 +95,7 @@
       "subsections": [
         {
           "heading": "Actionable Tactics",
-          "content": {
-            "title": "1. The 'Rubber Duck' Debugging:",
-            "description": "Keep a toy on your desk. Explain the concept to it out loud. If you stumble, that's where you need to study.\n**2. Sleep on the Problem:** Your brain does its best synthesis during REM sleep. Study the hardest material right before bed to prime your subconscious.\n**3. Skip the Intro:** In textbooks, skip the fluff and go straight to the diagrams or the summary questions at the end. Reverse-engineer the chapter from there.\n**4. Speed Up Audio:** Watch lectures at 1.5x or 2x speed. This forces you to focus intensely to catch the words, preventing your mind from wandering.\n**5. Use Analogies:** Connect new abstract concepts to real-world systems you already know (e.g., comparing the circulatory system to a city's plumbing).\n**6. The 'Five Whys':** When learning a fact, ask 'Why?' five times until you reach the fundamental principle.\n**7. Isolate Variables:** When stuck, break the problem down into its smallest components and solve them individually before recombining."
-          }
+          "content": "**1. The 'Rubber Duck' Debugging:** Keep a toy on your desk. Explain the concept to it out loud. If you stumble, that's where you need to study.\n**2. Sleep on the Problem:** Your brain does its best synthesis during REM sleep. Study the hardest material right before bed to prime your subconscious.\n**3. Skip the Intro:** In textbooks, skip the fluff and go straight to the diagrams or the summary questions at the end. Reverse-engineer the chapter from there.\n**4. Speed Up Audio:** Watch lectures at 1.5x or 2x speed. This forces you to focus intensely to catch the words, preventing your mind from wandering.\n**5. Use Analogies:** Connect new abstract concepts to real-world systems you already know (e.g., comparing the circulatory system to a city's plumbing).\n**6. The 'Five Whys':** When learning a fact, ask 'Why?' five times until you reach the fundamental principle.\n**7. Isolate Variables:** When stuck, break the problem down into its smallest components and solve them individually before recombining."
         }
       ]
     }
@@ -125,34 +119,13 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Prioritize 'Conceptual Scaffolding'",
-      "description": "Understand the underlying system before trying to memorize facts."
-    },
-    {
-      "title": "Use the Feynman Technique",
-      "description": "Teach the material to an imaginary audience to expose gaps in logic."
-    },
-    {
-      "title": "Design a low-sensory environment",
-      "description": "Solitude and noise cancellation are essential for your deep thinking."
-    },
-    {
-      "title": "Embrace non-linear learning",
-      "description": "Use mind maps and allow controlled 'rabbit hole' tangents to fuel curiosity."
-    },
-    {
-      "title": "Combat procrastination by lowering the bar",
-      "description": "Aim for a 'prototype' rather than perfection to get started."
-    },
-    {
-      "title": "Leverage self-directed learning",
-      "description": "You thrive when you control the pace, resources, and depth of the curriculum."
-    },
-    {
-      "title": "Gamify boring tasks",
-      "description": "Add artificial complexity or questions to mundane assignments to engage your brain."
-    }
+    "**Prioritize 'Conceptual Scaffolding'** Understand the underlying system before trying to memorize facts.",
+    "**Use the Feynman Technique** Teach the material to an imaginary audience to expose gaps in logic.",
+    "**Design a low-sensory environment** Solitude and noise cancellation are essential for your deep thinking.",
+    "**Embrace non-linear learning** Use mind maps and allow controlled 'rabbit hole' tangents to fuel curiosity.",
+    "**Combat procrastination by lowering the bar** Aim for a 'prototype' rather than perfection to get started.",
+    "**Leverage self-directed learning** You thrive when you control the pace, resources, and depth of the curriculum.",
+    "**Gamify boring tasks** Add artificial complexity or questions to mundane assignments to engage your brain."
   ],
   "relatedTopics": [
     "careers",

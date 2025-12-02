@@ -96,30 +96,12 @@
     }
   ],
   "keyTakeaways": [
-    {
-      "title": "Structure is King:",
-      "description": "You thrive on clear expectations, detailed syllabi, and sequential learning. Avoid chaotic or unstructured environments."
-    },
-    {
-      "title": "Sensory Anchors:",
-      "description": "Use color-coding, handwriting, and consistent study environments to leverage your Introverted Sensing memory."
-    },
-    {
-      "title": "Connect to Care:",
-      "description": "Motivate yourself by focusing on how your learning will help others or serve a practical purpose (Extraverted Feeling)."
-    },
-    {
-      "title": "Beware of Perfectionism:",
-      "description": "Don't let the fear of getting it wrong stop you from starting. Use drafts and templates to overcome analysis paralysis."
-    },
-    {
-      "title": "Advocate for Details:",
-      "description": "Don't be afraid to ask for examples, past projects, or clarification. Your need for context is a strength, not a weakness."
-    },
-    {
-      "title": "Review and Repeat:",
-      "description": "Your memory is your greatest asset. Use spaced repetition and flashcards to move information into long-term storage."
-    }
+    "**Structure is King:** You thrive on clear expectations, detailed syllabi, and sequential learning. Avoid chaotic or unstructured environments.",
+    "**Sensory Anchors:** Use color-coding, handwriting, and consistent study environments to leverage your Introverted Sensing memory.",
+    "**Connect to Care:** Motivate yourself by focusing on how your learning will help others or serve a practical purpose (Extraverted Feeling).",
+    "**Beware of Perfectionism:** Don't let the fear of getting it wrong stop you from starting. Use drafts and templates to overcome analysis paralysis.",
+    "**Advocate for Details:** Don't be afraid to ask for examples, past projects, or clarification. Your need for context is a strength, not a weakness.",
+    "**Review and Repeat:** Your memory is your greatest asset. Use spaced repetition and flashcards to move information into long-term storage."
   ],
   "relatedTopics": [
     "careers",
