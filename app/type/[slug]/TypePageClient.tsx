@@ -139,29 +139,29 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
           </div>
 
           {/* Strengths & Growth */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             <motion.section
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
               <Card className="rounded-2xl border border-border/50 bg-gradient-to-br from-green-500/5 to-transparent h-full">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/20">
-                      <Star className="h-5 w-5 text-green-600" />
+                <CardHeader className="pb-3 sm:pb-6">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-green-500/20">
+                      <Star className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
                     </div>
-                    <CardTitle className="text-2xl">Core Strengths</CardTitle>
+                    <CardTitle className="text-lg sm:text-2xl">Core Strengths</CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 text-sm sm:text-base">
                   {content.detailedStrengths.map((strength, index) => (
-                    <div key={index} className="space-y-2">
+                    <div key={index} className="space-y-1 sm:space-y-2">
                       <div className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-green-600 mt-1 flex-shrink-0" />
-                        <h4 className="font-semibold text-foreground">{strength.title}</h4>
+                        <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
+                        <h4 className="font-semibold text-foreground text-sm sm:text-base">{strength.title}</h4>
                       </div>
-                      <div className="pl-6">
+                      <div className="pl-6 text-muted-foreground">
                         <CompactMarkdown>{strength.description}</CompactMarkdown>
                       </div>
                     </div>
@@ -176,22 +176,22 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
               viewport={{ once: true }}
             >
               <Card className="rounded-2xl border border-border/50 bg-gradient-to-br from-amber-500/5 to-transparent h-full">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/20">
-                      <TrendingUp className="h-5 w-5 text-amber-600" />
+                <CardHeader className="pb-3 sm:pb-6">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-amber-500/20">
+                      <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-amber-600" />
                     </div>
-                    <CardTitle className="text-2xl">Growth Opportunities</CardTitle>
+                    <CardTitle className="text-lg sm:text-2xl">Growth Opportunities</CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 text-sm sm:text-base">
                   {content.detailedGrowthAreas.map((area, index) => (
-                    <div key={index} className="space-y-2">
+                    <div key={index} className="space-y-1 sm:space-y-2">
                       <div className="flex items-start gap-2">
-                        <Lightbulb className="h-4 w-4 text-amber-600 mt-1 flex-shrink-0" />
-                        <h4 className="font-semibold text-foreground">{area.title}</h4>
+                        <Lightbulb className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" />
+                        <h4 className="font-semibold text-foreground text-sm sm:text-base">{area.title}</h4>
                       </div>
-                      <div className="pl-6">
+                      <div className="pl-6 text-muted-foreground">
                         <CompactMarkdown>{area.description}</CompactMarkdown>
                       </div>
                     </div>
@@ -207,10 +207,10 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">
               {archetype.name} in Relationships
             </h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
               <Card className="rounded-2xl border border-border/50">
                 <CardHeader>
                   <div className="flex items-center gap-3">
@@ -554,21 +554,21 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center py-12"
+            className="text-center py-8 sm:py-12"
           >
             <Card className="rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-purple-500/5">
-              <CardContent className="p-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <CardContent className="p-6 sm:p-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                   Are You {archetype.name.replace("The ", "")}?
                 </h2>
-                <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto">
                   Take our scientifically-validated personality assessment to discover 
                   your true type. It's free and takes just 10 minutes.
                 </p>
-                <Button asChild size="lg" className="text-lg px-8 py-6">
+                <Button asChild size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6">
                   <Link href="/assessment/intro">
                     Discover Your Type
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </Link>
                 </Button>
               </CardContent>

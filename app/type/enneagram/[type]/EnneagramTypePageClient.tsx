@@ -27,6 +27,7 @@ import {
   Flame,
 } from "lucide-react";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
+import { SectionedDescription } from "@/components/personality/SectionedDescription";
 import { ExpandableText } from "@/components/ui/ExpandableText";
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import { EnneagramSymbol } from "@/components/visualizations";

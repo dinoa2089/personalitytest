@@ -100,7 +100,170 @@ function detectSection(paragraph: string, framework: Framework): string {
   return "general";
 }
 
-function groupParagraphsIntoSections(paragraphs: string[], typeName: string): {
+// Base section metadata (PRISM / general)
+const BASE_SECTION_META: Record<string, { title: string; icon: React.ReactNode; gradient: string; order: number }> = {
+  innerWorld: { 
+    title: "Your Inner World", 
+    icon: <Brain className="h-4 w-4" />, 
+    gradient: "from-purple-500/10 to-transparent",
+    order: 1
+  },
+  flow: { 
+    title: "Flow & Focus", 
+    icon: <Zap className="h-4 w-4" />, 
+    gradient: "from-amber-500/10 to-transparent",
+    order: 2
+  },
+  creativity: { 
+    title: "Your Unique Gifts", 
+    icon: <Sparkles className="h-4 w-4" />, 
+    gradient: "from-pink-500/10 to-transparent",
+    order: 3
+  },
+  development: { 
+    title: "How You Develop", 
+    icon: <TrendingUp className="h-4 w-4" />, 
+    gradient: "from-green-500/10 to-transparent",
+    order: 4
+  },
+  growth: { 
+    title: "Growth Opportunities", 
+    icon: <Lightbulb className="h-4 w-4" />, 
+    gradient: "from-blue-500/10 to-transparent",
+    order: 5
+  },
+  daily: { 
+    title: "A Day in Your Life", 
+    icon: <Clock className="h-4 w-4" />, 
+    gradient: "from-indigo-500/10 to-transparent",
+    order: 6
+  },
+  emotional: { 
+    title: "Emotional Landscape", 
+    icon: <Heart className="h-4 w-4" />, 
+    gradient: "from-rose-500/10 to-transparent",
+    order: 7
+  },
+  general: { 
+    title: "Deeper Insights", 
+    icon: <User className="h-4 w-4" />, 
+    gradient: "from-slate-500/10 to-transparent",
+    order: 99
+  },
+};
+
+// Enneagram-specific section metadata
+const ENNEAGRAM_SECTION_META: Record<string, { title: string; icon: React.ReactNode; gradient: string; order: number }> = {
+  ...BASE_SECTION_META,
+  innerWorld: { 
+    title: "The Inner Landscape", 
+    icon: <Brain className="h-4 w-4" />, 
+    gradient: "from-purple-500/10 to-transparent",
+    order: 1
+  },
+  bodyInstincts: { 
+    title: "Body & Instincts", 
+    icon: <Activity className="h-4 w-4" />, 
+    gradient: "from-red-500/10 to-transparent",
+    order: 2
+  },
+  identity: { 
+    title: "Identity & Self-Image", 
+    icon: <User className="h-4 w-4" />, 
+    gradient: "from-amber-500/10 to-transparent",
+    order: 3
+  },
+  emotional: { 
+    title: "Emotional Patterns", 
+    icon: <Heart className="h-4 w-4" />, 
+    gradient: "from-rose-500/10 to-transparent",
+    order: 4
+  },
+  development: { 
+    title: "Origins & Development", 
+    icon: <TrendingUp className="h-4 w-4" />, 
+    gradient: "from-green-500/10 to-transparent",
+    order: 5
+  },
+  integration: { 
+    title: "Growth & Integration", 
+    icon: <GitBranch className="h-4 w-4" />, 
+    gradient: "from-teal-500/10 to-transparent",
+    order: 6
+  },
+  relationships: { 
+    title: "In Relationships", 
+    icon: <Heart className="h-4 w-4" />, 
+    gradient: "from-pink-500/10 to-transparent",
+    order: 7
+  },
+  spiritual: { 
+    title: "The Spiritual Path", 
+    icon: <Sparkles className="h-4 w-4" />, 
+    gradient: "from-indigo-500/10 to-transparent",
+    order: 8
+  },
+};
+
+// MBTI-specific section metadata
+const MBTI_SECTION_META: Record<string, { title: string; icon: React.ReactNode; gradient: string; order: number }> = {
+  ...BASE_SECTION_META,
+  cognitiveStack: { 
+    title: "Cognitive Functions", 
+    icon: <Brain className="h-4 w-4" />, 
+    gradient: "from-purple-500/10 to-transparent",
+    order: 1
+  },
+  perceiving: { 
+    title: "How You Perceive", 
+    icon: <Compass className="h-4 w-4" />, 
+    gradient: "from-blue-500/10 to-transparent",
+    order: 2
+  },
+  judging: { 
+    title: "How You Decide", 
+    icon: <Target className="h-4 w-4" />, 
+    gradient: "from-amber-500/10 to-transparent",
+    order: 3
+  },
+  innerWorld: { 
+    title: "Your Inner World", 
+    icon: <Shield className="h-4 w-4" />, 
+    gradient: "from-indigo-500/10 to-transparent",
+    order: 4
+  },
+  outerWorld: { 
+    title: "Engaging the World", 
+    icon: <Flame className="h-4 w-4" />, 
+    gradient: "from-orange-500/10 to-transparent",
+    order: 5
+  },
+  development: { 
+    title: "Development & Growth", 
+    icon: <TrendingUp className="h-4 w-4" />, 
+    gradient: "from-green-500/10 to-transparent",
+    order: 6
+  },
+  communication: { 
+    title: "Communication Style", 
+    icon: <User className="h-4 w-4" />, 
+    gradient: "from-pink-500/10 to-transparent",
+    order: 7
+  },
+};
+
+function getSectionMetaForFramework(framework: Framework): Record<string, { title: string; icon: React.ReactNode; gradient: string; order: number }> {
+  switch (framework) {
+    case "enneagram":
+      return ENNEAGRAM_SECTION_META;
+    case "mbti":
+      return MBTI_SECTION_META;
+    default:
+      return BASE_SECTION_META;
+  }
+}
+
+function groupParagraphsIntoSections(paragraphs: string[], typeName: string, framework: Framework): {
   intro: string[];
   sections: DescriptionSection[];
 } {
@@ -116,64 +279,15 @@ function groupParagraphsIntoSections(paragraphs: string[], typeName: string): {
   const grouped: Record<string, string[]> = {};
   
   for (const para of remaining) {
-    const section = detectSection(para);
+    const section = detectSection(para, framework);
     if (!grouped[section]) {
       grouped[section] = [];
     }
     grouped[section].push(para);
   }
 
-  // Define section metadata
-  const sectionMeta: Record<string, { title: string; icon: React.ReactNode; gradient: string; order: number }> = {
-    innerWorld: { 
-      title: "Your Inner World", 
-      icon: <Brain className="h-4 w-4" />, 
-      gradient: "from-purple-500/10 to-transparent",
-      order: 1
-    },
-    flow: { 
-      title: "Flow & Focus", 
-      icon: <Zap className="h-4 w-4" />, 
-      gradient: "from-amber-500/10 to-transparent",
-      order: 2
-    },
-    creativity: { 
-      title: "Your Unique Gifts", 
-      icon: <Sparkles className="h-4 w-4" />, 
-      gradient: "from-pink-500/10 to-transparent",
-      order: 3
-    },
-    development: { 
-      title: "How You Develop", 
-      icon: <TrendingUp className="h-4 w-4" />, 
-      gradient: "from-green-500/10 to-transparent",
-      order: 4
-    },
-    growth: { 
-      title: "Growth Opportunities", 
-      icon: <Lightbulb className="h-4 w-4" />, 
-      gradient: "from-blue-500/10 to-transparent",
-      order: 5
-    },
-    daily: { 
-      title: "A Day in Your Life", 
-      icon: <Clock className="h-4 w-4" />, 
-      gradient: "from-indigo-500/10 to-transparent",
-      order: 6
-    },
-    emotional: { 
-      title: "Emotional Landscape", 
-      icon: <Heart className="h-4 w-4" />, 
-      gradient: "from-rose-500/10 to-transparent",
-      order: 7
-    },
-    general: { 
-      title: "Deeper Insights", 
-      icon: <User className="h-4 w-4" />, 
-      gradient: "from-slate-500/10 to-transparent",
-      order: 8
-    },
-  };
+  // Get framework-specific section metadata
+  const sectionMeta = getSectionMetaForFramework(framework);
 
   // Build sections array
   const sections: DescriptionSection[] = [];
@@ -256,10 +370,10 @@ function CollapsibleSection({ section, defaultOpen = false }: { section: Descrip
   );
 }
 
-export function SectionedDescription({ paragraphs, typeName, className }: SectionedDescriptionProps) {
+export function SectionedDescription({ paragraphs, typeName, className, framework = "prism" }: SectionedDescriptionProps) {
   const { intro, sections } = useMemo(
-    () => groupParagraphsIntoSections(paragraphs, typeName),
-    [paragraphs, typeName]
+    () => groupParagraphsIntoSections(paragraphs, typeName, framework),
+    [paragraphs, typeName, framework]
   );
 
   // If 3 or fewer paragraphs, just render normally
