@@ -3,6 +3,17 @@ import type { DimensionScore } from "@/types";
 // Support both string and structured format for strengths/growth areas
 export type StrengthItem = string | { title: string; description: string };
 
+// Helper function to get display text from a strength item
+export function getStrengthTitle(item: StrengthItem): string {
+  if (typeof item === 'string') return item;
+  return item.title;
+}
+
+export function getStrengthDescription(item: StrengthItem): string | undefined {
+  if (typeof item === 'string') return undefined;
+  return item.description;
+}
+
 export interface Archetype {
   id: string;
   name: string;

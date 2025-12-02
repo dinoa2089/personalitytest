@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import type { DimensionScore } from "@/types";
-import { calculateArchetype } from "@/lib/archetypes";
+import { calculateArchetype, getStrengthTitle } from "@/lib/archetypes";
 import { DimensionsWheel } from "@/components/visualizations";
 
 interface PersonalityConstellationProps {
@@ -319,7 +319,7 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                             {prismArchetype.strengths.slice(0, 4).map((s, i) => (
                               <li key={i} className="flex items-start gap-2">
                                 <span className="text-green-400 mt-1">•</span>
-                                <span>{s}</span>
+                                <span>{getStrengthTitle(s)}</span>
                               </li>
                             ))}
                           </ul>
@@ -332,7 +332,7 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                             {prismArchetype.growthAreas.slice(0, 4).map((g, i) => (
                               <li key={i} className="flex items-start gap-2">
                                 <span className="text-amber-400 mt-1">•</span>
-                                <span>{g}</span>
+                                <span>{getStrengthTitle(g)}</span>
                               </li>
                             ))}
                           </ul>

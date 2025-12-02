@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Download, Share2, Check, Copy } from "lucide-react";
 import { PersonalityRadarChart } from "@/components/results/RadarChart";
 import type { DimensionScore } from "@/types";
-import type { Archetype } from "@/lib/archetypes";
+import { type Archetype, getStrengthTitle } from "@/lib/archetypes";
 
 interface EnhancedShareableCardProps {
   archetype: Archetype;
@@ -201,7 +201,7 @@ export function EnhancedShareableCard({
                   variant="outline"
                   className="text-[9px] border-green-500/30 text-green-400 px-1.5 py-0"
                 >
-                  {strength.split(" ").slice(0, 2).join(" ")}
+                  {getStrengthTitle(strength).split(" ").slice(0, 2).join(" ")}
                 </Badge>
               ))}
             </div>

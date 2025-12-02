@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { calculateArchetype, type Archetype, type StrengthItem } from "@/lib/archetypes";
+import { calculateArchetype, type Archetype, type StrengthItem, getStrengthTitle, getStrengthDescription } from "@/lib/archetypes";
 import type { DimensionScore } from "@/types";
 import {
   Sparkles,
@@ -73,11 +73,18 @@ export function PersonalityArchetype({ scores }: PersonalityArchetypeProps) {
                   <Star className="h-5 w-5 text-green-600" />
                   <h3 className="text-xl font-bold">Your Strengths</h3>
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {primary.strengths.map((strength, index) => (
                     <li key={index} className="flex items-start gap-2 text-sm md:text-base">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span className="text-muted-foreground">{strength}</span>
+                      <span className="text-green-600 mt-1 flex-shrink-0">✓</span>
+                      <div>
+                        <h4 className="font-medium text-foreground">{getStrengthTitle(strength)}</h4>
+                        {getStrengthDescription(strength) && (
+                          <p className="text-muted-foreground text-sm mt-1 line-clamp-2">
+                            {getStrengthDescription(strength)}
+                          </p>
+                        )}
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -88,11 +95,18 @@ export function PersonalityArchetype({ scores }: PersonalityArchetypeProps) {
                   <TrendingUp className="h-5 w-5 text-amber-600" />
                   <h3 className="text-xl font-bold">Growth Areas</h3>
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {primary.growthAreas.map((area, index) => (
                     <li key={index} className="flex items-start gap-2 text-sm md:text-base">
-                      <span className="text-amber-600 mt-1">→</span>
-                      <span className="text-muted-foreground">{area}</span>
+                      <span className="text-amber-600 mt-1 flex-shrink-0">→</span>
+                      <div>
+                        <h4 className="font-medium text-foreground">{getStrengthTitle(area)}</h4>
+                        {getStrengthDescription(area) && (
+                          <p className="text-muted-foreground text-sm mt-1 line-clamp-2">
+                            {getStrengthDescription(area)}
+                          </p>
+                        )}
+                      </div>
                     </li>
                   ))}
                 </ul>

@@ -19,7 +19,7 @@ import {
   Users
 } from "lucide-react";
 import { FeatureGate } from "@/components/premium/FeatureGate";
-import type { Archetype } from "@/lib/archetypes";
+import { type Archetype, getStrengthTitle } from "@/lib/archetypes";
 import type { DimensionScore } from "@/types";
 
 interface DetailedJobMatchesProps {
