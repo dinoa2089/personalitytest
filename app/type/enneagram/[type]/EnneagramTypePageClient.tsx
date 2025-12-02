@@ -185,12 +185,12 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
               <CardHeader>
                 <CardTitle className="text-3xl">Understanding Type {content.number}: {content.name}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                {content.description.map((paragraph, index) => (
-                  <MarkdownText key={index} variant="full" className="text-lg">
-                    {paragraph}
-                  </MarkdownText>
-                ))}
+              <CardContent>
+                <SectionedDescription 
+                  paragraphs={content.description}
+                  typeName={content.name}
+                  framework="enneagram"
+                />
               </CardContent>
             </Card>
           </motion.section>
