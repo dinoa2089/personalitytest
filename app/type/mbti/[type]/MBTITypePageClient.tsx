@@ -23,6 +23,7 @@ import {
   Lightbulb,
   Zap,
 } from "lucide-react";
+import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import type { MBTIType } from "@/lib/mbti-content";
 import { getRelatedMBTITypes, getTopicLinksForType, TOPIC_METADATA } from "@/lib/internal-links";
@@ -92,9 +93,9 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
               </CardHeader>
               <CardContent className="space-y-4">
                 {content.description.map((paragraph, index) => (
-                  <p key={index} className="text-lg text-muted-foreground leading-relaxed">
+                  <MarkdownText key={index} variant="full" className="text-lg">
                     {paragraph}
-                  </p>
+                  </MarkdownText>
                 ))}
               </CardContent>
             </Card>
@@ -119,7 +120,7 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.cognitiveFunctions.dominant.description}</p>
+                  <CompactMarkdown>{content.cognitiveFunctions.dominant.description}</CompactMarkdown>
                 </CardContent>
               </Card>
 
@@ -131,7 +132,7 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.cognitiveFunctions.auxiliary.description}</p>
+                  <CompactMarkdown>{content.cognitiveFunctions.auxiliary.description}</CompactMarkdown>
                 </CardContent>
               </Card>
 
@@ -143,7 +144,7 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.cognitiveFunctions.tertiary.description}</p>
+                  <CompactMarkdown>{content.cognitiveFunctions.tertiary.description}</CompactMarkdown>
                 </CardContent>
               </Card>
 
@@ -155,7 +156,7 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.cognitiveFunctions.inferior.description}</p>
+                  <CompactMarkdown>{content.cognitiveFunctions.inferior.description}</CompactMarkdown>
                 </CardContent>
               </Card>
             </div>
@@ -179,14 +180,14 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {content.strengths.map((strength, index) => (
-                    <div key={index} className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-green-600" />
-                        <h4 className="font-semibold">{strength.title}</h4>
+                    <div key={index} className="space-y-2">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-green-600 mt-1 flex-shrink-0" />
+                        <h4 className="font-semibold text-foreground">{strength.title}</h4>
                       </div>
-                      <p className="text-sm text-muted-foreground pl-6">
-                        {strength.description}
-                      </p>
+                      <div className="pl-6">
+                        <CompactMarkdown>{strength.description}</CompactMarkdown>
+                      </div>
                     </div>
                   ))}
                 </CardContent>
@@ -209,14 +210,14 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {content.blindspots.map((blindspot, index) => (
-                    <div key={index} className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <Lightbulb className="h-4 w-4 text-amber-600" />
-                        <h4 className="font-semibold">{blindspot.title}</h4>
+                    <div key={index} className="space-y-2">
+                      <div className="flex items-start gap-2">
+                        <Lightbulb className="h-4 w-4 text-amber-600 mt-1 flex-shrink-0" />
+                        <h4 className="font-semibold text-foreground">{blindspot.title}</h4>
                       </div>
-                      <p className="text-sm text-muted-foreground pl-6">
-                        {blindspot.description}
-                      </p>
+                      <div className="pl-6">
+                        <CompactMarkdown>{blindspot.description}</CompactMarkdown>
+                      </div>
                     </div>
                   ))}
                 </CardContent>
@@ -268,9 +269,7 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {content.inRelationships.romantic}
-                  </p>
+                  <CompactMarkdown>{content.inRelationships.romantic}</CompactMarkdown>
                 </CardContent>
               </Card>
 
@@ -284,9 +283,7 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {content.inRelationships.friendship}
-                  </p>
+                  <CompactMarkdown>{content.inRelationships.friendship}</CompactMarkdown>
                 </CardContent>
               </Card>
 
@@ -300,9 +297,7 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {content.inRelationships.workplace}
-                  </p>
+                  <CompactMarkdown>{content.inRelationships.workplace}</CompactMarkdown>
                 </CardContent>
               </Card>
             </div>
@@ -368,10 +363,8 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                       key={index}
                       className="rounded-lg border border-border/50 bg-muted/30 p-4"
                     >
-                      <h4 className="font-semibold mb-1">{career.title}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {career.reason}
-                      </p>
+                      <h4 className="font-semibold mb-2">{career.title}</h4>
+                      <CompactMarkdown>{career.reason}</CompactMarkdown>
                     </div>
                   ))}
                 </div>
@@ -395,11 +388,13 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {content.growthAdvice.map((advice, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <Zap className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{advice}</span>
+                      <div className="flex-1">
+                        <CompactMarkdown>{advice}</CompactMarkdown>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -452,19 +447,23 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  If you identify as an {content.code}, you likely score <strong>{content.prismCorrelation.keyDimensions}</strong> on 
-                  the PRISM-7 dimensional assessment. You may find strong alignment with these PRISM-7 archetypes:
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {content.prismCorrelation.likelyTypes.map((type) => (
-                    <Link key={type} href={`/type/${type.toLowerCase()}`}>
-                      <Badge className="bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 cursor-pointer">
-                        {type}
-                      </Badge>
-                    </Link>
-                  ))}
+              <CardContent className="space-y-5">
+                <div>
+                  <MarkdownText variant="compact">{content.prismCorrelation.keyDimensions}</MarkdownText>
+                </div>
+                <div className="pt-2 border-t border-border/50">
+                  <p className="text-sm text-muted-foreground mb-3">
+                    You may find strong alignment with these PRISM-7 archetypes:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {content.prismCorrelation.likelyTypes.map((type) => (
+                      <Link key={type} href={`/type/${type.toLowerCase()}`}>
+                        <Badge className="bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 cursor-pointer">
+                          {type}
+                        </Badge>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </CardContent>
             </Card>

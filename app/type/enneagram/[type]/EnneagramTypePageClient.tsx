@@ -26,6 +26,8 @@ import {
   Flame,
 } from "lucide-react";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
+import { ExpandableText } from "@/components/ui/ExpandableText";
+import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import type { EnneagramType } from "@/lib/enneagram-content";
 import { getRelatedEnneagramTypes, getTopicLinksForType, TOPIC_METADATA } from "@/lib/internal-links";
 import type { ContentTopic } from "@/lib/content/types";
@@ -177,7 +179,13 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   <CardTitle className="text-xl">At Their Best</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{content.healthLevels.healthy}</p>
+                  <ExpandableText 
+                    text={content.healthLevels.healthy}
+                    previewSentences={3}
+                    expandThreshold={250}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -187,7 +195,13 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   <CardTitle className="text-xl">Typical Expression</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{content.healthLevels.average}</p>
+                  <ExpandableText 
+                    text={content.healthLevels.average}
+                    previewSentences={3}
+                    expandThreshold={250}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -197,7 +211,13 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   <CardTitle className="text-xl">Under Stress</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{content.healthLevels.unhealthy}</p>
+                  <ExpandableText 
+                    text={content.healthLevels.unhealthy}
+                    previewSentences={3}
+                    expandThreshold={250}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -216,7 +236,12 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   <CardTitle className="text-xl">{content.wings.lower.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.wings.lower.description}</p>
+                  <ExpandableText 
+                    text={content.wings.lower.description}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -225,7 +250,12 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   <CardTitle className="text-xl">{content.wings.higher.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.wings.higher.description}</p>
+                  <ExpandableText 
+                    text={content.wings.higher.description}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -252,7 +282,12 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.growthLine.description}</p>
+                  <ExpandableText 
+                    text={content.growthLine.description}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -269,7 +304,12 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.stressLine.description}</p>
+                  <ExpandableText 
+                    text={content.stressLine.description}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -368,7 +408,12 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground leading-relaxed">{content.inRelationships}</p>
+                <ExpandableText 
+                  text={content.inRelationships}
+                  previewSentences={4}
+                  expandThreshold={400}
+                  sentencesPerParagraph={3}
+                />
               </CardContent>
             </Card>
           </motion.section>
@@ -510,19 +555,27 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  If you identify as a Type {content.number}, you likely score <strong>{content.prismCorrelation.keyDimensions}</strong> on 
-                  the PRISM-7 dimensional assessment. You may find strong alignment with these PRISM-7 archetypes:
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {content.prismCorrelation.likelyTypes.map((type) => (
-                    <Link key={type} href={`/type/${type.toLowerCase()}`}>
-                      <Badge className="bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 cursor-pointer">
-                        {type}
-                      </Badge>
-                    </Link>
+              <CardContent className="space-y-5">
+                <div className="space-y-4">
+                  {content.prismCorrelation.keyDimensions.split('\n\n').map((paragraph, index) => (
+                    <p key={index} className="text-muted-foreground leading-relaxed">
+                      {paragraph}
+                    </p>
                   ))}
+                </div>
+                <div className="pt-2 border-t border-border/50">
+                  <p className="text-sm text-muted-foreground mb-3">
+                    You may find strong alignment with these PRISM-7 archetypes:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {content.prismCorrelation.likelyTypes.map((type) => (
+                      <Link key={type} href={`/type/${type.toLowerCase()}`}>
+                        <Badge className="bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 cursor-pointer">
+                          {type}
+                        </Badge>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </CardContent>
             </Card>
