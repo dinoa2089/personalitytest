@@ -25,6 +25,7 @@ import { RandomFrameworkReveal } from "./RandomFrameworkReveal";
 import { SimpleJobAnalysis } from "./SimpleJobAnalysis";
 import { ShareableInfographic } from "./ShareableInfographic";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
+import { CompactMarkdown } from "@/components/ui/markdown-text";
 import type { DimensionScore, FrameworkMappings } from "@/types";
 import Link from "next/link";
 import { useState } from "react";
@@ -130,15 +131,15 @@ export function FreeResultsView({ scores, sessionId, frameworks }: FreeResultsVi
             {/* Full Description */}
             <div className="space-y-3">
               {primary.description.map((paragraph, index) => (
-                <motion.p 
+                <motion.div 
                   key={index} 
-                  className="text-base md:text-lg leading-relaxed text-foreground"
+                  className="text-base md:text-lg leading-relaxed"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + index * 0.1 }}
                 >
-                  {paragraph}
-                </motion.p>
+                  <CompactMarkdown>{paragraph}</CompactMarkdown>
+                </motion.div>
               ))}
             </div>
 
@@ -154,11 +155,13 @@ export function FreeResultsView({ scores, sessionId, frameworks }: FreeResultsVi
                   <Star className="h-5 w-5 text-green-600" />
                   <h3 className="text-xl font-bold">Your Strengths</h3>
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {primary.strengths.slice(0, 5).map((strength, index) => (
                     <li key={index} className="flex items-start gap-2 text-sm md:text-base">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span className="text-muted-foreground">{strength}</span>
+                      <span className="text-green-600 mt-1 flex-shrink-0">✓</span>
+                      <div className="flex-1">
+                        <CompactMarkdown>{strength}</CompactMarkdown>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -174,11 +177,13 @@ export function FreeResultsView({ scores, sessionId, frameworks }: FreeResultsVi
                   <TrendingUp className="h-5 w-5 text-amber-600" />
                   <h3 className="text-xl font-bold">Growth Areas</h3>
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {primary.growthAreas.slice(0, 5).map((area, index) => (
                     <li key={index} className="flex items-start gap-2 text-sm md:text-base">
-                      <span className="text-amber-600 mt-1">→</span>
-                      <span className="text-muted-foreground">{area}</span>
+                      <span className="text-amber-600 mt-1 flex-shrink-0">→</span>
+                      <div className="flex-1">
+                        <CompactMarkdown>{area}</CompactMarkdown>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -327,7 +332,7 @@ export function FreeResultsView({ scores, sessionId, frameworks }: FreeResultsVi
             </div>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground leading-relaxed">{primary.workStyle}</p>
+            <CompactMarkdown>{primary.workStyle}</CompactMarkdown>
           </CardContent>
         </Card>
       </motion.div>

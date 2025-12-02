@@ -17,7 +17,7 @@ import {
   Sparkles
 } from "lucide-react";
 import type { GeneratedContent, ContentTopic } from "@/lib/content/types";
-import ReactMarkdown from "react-markdown";
+import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import { 
   getRelatedMBTITypes, 
   getRelatedEnneagramTypes,
@@ -164,11 +164,11 @@ export function TopicPage({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="prose prose-lg dark:prose-invert max-w-none"
+              className="max-w-none"
             >
               {/* Introduction */}
               <div className="mb-8 text-lg leading-relaxed">
-                <ReactMarkdown>{content.introduction}</ReactMarkdown>
+                <MarkdownText variant="full">{content.introduction}</MarkdownText>
               </div>
 
               {/* Sections */}
@@ -177,14 +177,14 @@ export function TopicPage({
                   <h2 className="text-2xl font-bold mb-4 text-foreground">
                     {section.heading}
                   </h2>
-                  <ReactMarkdown>{section.content}</ReactMarkdown>
+                  <MarkdownText variant="full">{section.content}</MarkdownText>
                   
                   {section.subsections?.map((sub, subIndex) => (
-                    <div key={subIndex} className="ml-4 mt-6">
+                    <div key={subIndex} className="ml-4 mt-6 border-l-2 border-primary/20 pl-4">
                       <h3 className="text-xl font-semibold mb-3 text-foreground">
                         {sub.heading}
                       </h3>
-                      <ReactMarkdown>{sub.content}</ReactMarkdown>
+                      <MarkdownText variant="compact">{sub.content}</MarkdownText>
                     </div>
                   ))}
                 </section>
@@ -209,8 +209,8 @@ export function TopicPage({
 
               {/* FAQs */}
               {content.faqs.length > 0 && (
-                <section className="mt-12">
-                  <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+                <section className="mt-12 not-prose">
+                  <h2 className="text-2xl font-bold mb-6 text-foreground">Frequently Asked Questions</h2>
                   <div className="space-y-4">
                     {content.faqs.map((faq, i) => (
                       <Card key={i} className="overflow-hidden">
@@ -218,7 +218,7 @@ export function TopicPage({
                           <CardTitle className="text-lg">{faq.question}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-muted-foreground">{faq.answer}</p>
+                          <CompactMarkdown>{faq.answer}</CompactMarkdown>
                         </CardContent>
                       </Card>
                     ))}

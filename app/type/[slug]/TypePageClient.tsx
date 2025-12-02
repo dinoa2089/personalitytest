@@ -25,6 +25,8 @@ import {
   Lightbulb,
   MessageSquare,
 } from "lucide-react";
+import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
+import { ExpandableText } from "@/components/ui/ExpandableText";
 import type { TypePageContent } from "@/lib/type-content";
 import type { Archetype } from "@/lib/archetypes";
 
@@ -97,9 +99,9 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
               </CardHeader>
               <CardContent className="space-y-4">
                 {content.longDescription.map((paragraph, index) => (
-                  <p key={index} className="text-lg text-muted-foreground leading-relaxed">
+                  <MarkdownText key={index} variant="full" className="text-lg">
                     {paragraph}
-                  </p>
+                  </MarkdownText>
                 ))}
               </CardContent>
             </Card>
@@ -123,14 +125,14 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {content.detailedStrengths.map((strength, index) => (
-                    <div key={index} className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-green-600" />
-                        <h4 className="font-semibold">{strength.title}</h4>
+                    <div key={index} className="space-y-2">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-green-600 mt-1 flex-shrink-0" />
+                        <h4 className="font-semibold text-foreground">{strength.title}</h4>
                       </div>
-                      <p className="text-sm text-muted-foreground pl-6">
-                        {strength.description}
-                      </p>
+                      <div className="pl-6">
+                        <CompactMarkdown>{strength.description}</CompactMarkdown>
+                      </div>
                     </div>
                   ))}
                 </CardContent>
@@ -153,14 +155,14 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {content.detailedGrowthAreas.map((area, index) => (
-                    <div key={index} className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <Lightbulb className="h-4 w-4 text-amber-600" />
-                        <h4 className="font-semibold">{area.title}</h4>
+                    <div key={index} className="space-y-2">
+                      <div className="flex items-start gap-2">
+                        <Lightbulb className="h-4 w-4 text-amber-600 mt-1 flex-shrink-0" />
+                        <h4 className="font-semibold text-foreground">{area.title}</h4>
                       </div>
-                      <p className="text-sm text-muted-foreground pl-6">
-                        {area.description}
-                      </p>
+                      <div className="pl-6">
+                        <CompactMarkdown>{area.description}</CompactMarkdown>
+                      </div>
                     </div>
                   ))}
                 </CardContent>
@@ -188,9 +190,13 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {content.inRelationships.romantic}
-                  </p>
+                  <ExpandableText 
+                    text={content.inRelationships.romantic}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -204,9 +210,13 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {content.inRelationships.friendship}
-                  </p>
+                  <ExpandableText 
+                    text={content.inRelationships.friendship}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -220,9 +230,13 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {content.inRelationships.professional}
-                  </p>
+                  <ExpandableText 
+                    text={content.inRelationships.professional}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -255,10 +269,8 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                       key={index}
                       className="rounded-lg border border-border/50 bg-muted/30 p-4"
                     >
-                      <h4 className="font-semibold mb-1">{career.title}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {career.explanation}
-                      </p>
+                      <h4 className="font-semibold mb-2">{career.title}</h4>
+                      <CompactMarkdown>{career.explanation}</CompactMarkdown>
                     </div>
                   ))}
                 </div>
@@ -313,11 +325,13 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
+                  <ul className="space-y-4">
                     {content.commonMisunderstandings.map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <MessageSquare className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{item}</span>
+                        <div className="flex-1">
+                          <CompactMarkdown>{item}</CompactMarkdown>
+                        </div>
                       </li>
                     ))}
                   </ul>
@@ -346,7 +360,7 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-muted-foreground">{content.frameworkCorrelations.description}</p>
+                  <CompactMarkdown>{content.frameworkCorrelations.description}</CompactMarkdown>
                   <div className="flex flex-wrap gap-4">
                     {content.frameworkCorrelations.mbtiTypes.length > 0 && (
                       <div>

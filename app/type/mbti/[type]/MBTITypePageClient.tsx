@@ -24,6 +24,7 @@ import {
   Zap,
 } from "lucide-react";
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
+import { ExpandableText } from "@/components/ui/ExpandableText";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import type { MBTIType } from "@/lib/mbti-content";
 import { getRelatedMBTITypes, getTopicLinksForType, TOPIC_METADATA } from "@/lib/internal-links";
@@ -120,7 +121,13 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CompactMarkdown>{content.cognitiveFunctions.dominant.description}</CompactMarkdown>
+                  <ExpandableText 
+                    text={content.cognitiveFunctions.dominant.description}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -132,7 +139,13 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CompactMarkdown>{content.cognitiveFunctions.auxiliary.description}</CompactMarkdown>
+                  <ExpandableText 
+                    text={content.cognitiveFunctions.auxiliary.description}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -144,7 +157,13 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CompactMarkdown>{content.cognitiveFunctions.tertiary.description}</CompactMarkdown>
+                  <ExpandableText 
+                    text={content.cognitiveFunctions.tertiary.description}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -156,7 +175,13 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CompactMarkdown>{content.cognitiveFunctions.inferior.description}</CompactMarkdown>
+                  <ExpandableText 
+                    text={content.cognitiveFunctions.inferior.description}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -269,7 +294,13 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CompactMarkdown>{content.inRelationships.romantic}</CompactMarkdown>
+                  <ExpandableText 
+                    text={content.inRelationships.romantic}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -283,7 +314,13 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CompactMarkdown>{content.inRelationships.friendship}</CompactMarkdown>
+                  <ExpandableText 
+                    text={content.inRelationships.friendship}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
 
@@ -297,7 +334,13 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CompactMarkdown>{content.inRelationships.workplace}</CompactMarkdown>
+                  <ExpandableText 
+                    text={content.inRelationships.workplace}
+                    previewSentences={3}
+                    expandThreshold={300}
+                    textClassName="text-sm"
+                    sentencesPerParagraph={3}
+                  />
                 </CardContent>
               </Card>
             </div>

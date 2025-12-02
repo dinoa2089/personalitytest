@@ -1,0 +1,229 @@
+{
+  "code": "ESTP",
+  "nickname": "The Entrepreneur",
+  "tagline": "Bold risk-takers who thrive on action and immediate results",
+  "rarity": "4.3% of the population",
+  "description": [
+    "To inhabit the mind of an ESTP is to live in a state of perpetual, high-definition immediacy. While other types are buffering—processing past traumas or buffering future anxieties—the ESTP is streaming live in 4K resolution. Their internal world is not a library of abstract concepts but a cockpit of sensory data: the precise hum of an engine, the micro-expression flickering across a client’s face, the shift in room temperature that signals a negotiation is turning. They possess a kinetic intelligence that feels less like 'thinking' and more like 'flowing.' This creates a lived experience of electric urgency; stillness feels like stagnation, and silence feels like a void that must be filled with impact. They do not watch life; they collide with it.",
+    "This orientation often stems from a childhood marked by a distinct restlessness with structured authority. Young ESTPs were likely the students who could not sit still, not because they lacked focus, but because their focus was deployed differently—scanning the environment for movement, leverage, and opportunity. They learned early on that the world rewards action faster than it rewards deliberation. Perhaps they realized that asking for forgiveness was more efficient than asking for permission, or that charm could unlock doors that rule-following could not. These formative experiences solidified a worldview where the map is never as important as the terrain, and the manual is only useful once you’ve broken the machine.",
+    "Yet, the ESTP exists within a profound paradox: they are socially magnetic yet intensely independent. They draw energy from the crowd, feeding off reactions and applause, but they refuse to be tethered by the crowd’s expectations or consensus. They are hyper-aware of social dynamics (thanks to tertiary Extraverted Feeling) but use this awareness tactically rather than sentimentally. They can be the life of the party while simultaneously calculating the most efficient exit strategy. This tension between being a 'people person' and a 'lone wolf' confuses observers who mistake their social fluency for a desire for deep emotional intimacy, only to find the ESTP has moved on to the next adventure before the conversation has finished.",
+    "The most common misunderstanding is that ESTPs are shallow or intellectually vacuous because they detest abstract theory. In reality, their intellect is razor-sharp but instrumental. They practice 'Introverted Thinking'—a ruthless internal logic that dissects how things work. They are not anti-intellectual; they are anti-academic. If a theory cannot be applied to solve a problem in the next five minutes, it is discarded as noise. This makes them brilliant troubleshooters and tacticians, capable of dismantling complex systems (mechanical, bureaucratic, or social) to find the leverage point. They are the philosophers of the concrete, finding truth only in what is actionable.",
+    "Their relationship with the future is their greatest psychological shadow. Dominated by the immediate (Se), the ESTP often views the distant future (Ni) as a foggy, threatening abstraction. Long-term planning feels like a form of imprisonment. When forced to speculate on the trajectory of their lives five years out, they may experience a distinct sense of claustrophobia or existential dread. This avoidance of the 'long game' is not an inability to plan, but a philosophical rejection of closing open loops. To decide on a path is to cut off options, and to an ESTP, options are oxygen.",
+    "Under high stress, this shadow manifests as a gripping paranoia. The usually confident, roll-with-the-punches ESTP becomes obsessed with negative outcomes, convinced that a grand, unseen pattern is conspiring against them. They lose their signature adaptability and become rigid, reading malicious intent into innocent actions. This 'grip' experience is terrifying for them because it strips them of their greatest superpower: their agency. They go from being the driver to being a passenger in a car they believe is crashing.",
+    "However, maturation brings a profound shift. As they age, healthy ESTPs integrate their intuition, learning that strategic patience is just another form of action. They move from being impulsive gamblers to calculated investors—of their time, money, and energy. They begin to appreciate the compounding interest of relationships and reputation. The frenetic energy of their youth distills into a formidable, grounded presence. They become the 'fixers' of society—the ones called when the building is on fire, the negotiations have stalled, or the company is sinking, because they are the only ones with the stomach to do what is necessary.",
+    "Ultimately, the ESTP offers the world a gift that no other type can replicate: the courage to face reality exactly as it is, without the buffer of wishful thinking. In a world paralyzed by analysis paralysis and bureaucratic caution, the ESTP acts. They remind us that life is not a rehearsal, that failure is just data, and that sometimes the smartest move is to throw out the plan and trust your gut. They are the embodiment of human resilience, proving again and again that no matter how chaotic the situation, there is always a way through if you are fast enough, brave enough, and bold enough to take it."
+  ],
+  "cognitiveFunctions": {
+    "dominant": {
+      "name": "Extraverted Sensing (Se)",
+      "description": "For the ESTP, Extraverted Sensing is not merely 'noticing things'; it is a high-bandwidth fiber-optic connection to the physical world. It functions as a continuous radar system that detects shifts in the environment—a subtle change in a client's tone, the mechanical rattle of a failing engine, or the opening in traffic—before conscious thought even occurs. This function drives their need for tactile engagement; they don't want to read about the mountain, they want to feel the burn in their calves climbing it. In daily decisions, Se manifests as an intolerance for delay. If there is a problem, the Se-dominant impulse is to physically intervene immediately. It interacts with their logic to create a 'physics engine' for reality: they instantly calculate force, velocity, and impact in social and physical realms. The misunderstanding is that Se is 'superficial'; in reality, it is deeply empirical, trusting only what can be proven through direct interaction."
+    },
+    "auxiliary": {
+      "name": "Introverted Thinking (Ti)",
+      "description": "Introverted Thinking provides the architectural blueprint behind the ESTP's action. While Se gathers the data, Ti instantly categorizes, analyzes, and deconstructs it to determine the most efficient path forward. This is an internal, subjective logic system that cares little for external rules or standard operating procedures. If an ESTP finds a shortcut that works, Ti validates it as 'correct,' regardless of the official manual. In conversation, this function shows up as a precision-seeking questioning style; they will drill down into inconsistencies, spotting logical fallacies instantly. It serves as the brake to Se's gas pedal—checking the odds before the leap. However, because this process is internal, others often miss it, assuming the ESTP is acting on pure impulse when they have actually run a rapid, complex cost-benefit analysis in their head."
+    },
+    "tertiary": {
+      "name": "Extraverted Feeling (Fe)",
+      "description": "Tertiary Fe is the ESTP's secret weapon for social maneuvering. Unlike Fe-dominants who seek harmony for its own sake, ESTPs use Fe instrumentally to charm, disarm, and persuade. It gives them the ability to 'read the room' and adjust their persona to fit the audience instantly. They can switch from the rough-around-the-edges buddy to the sophisticated professional in seconds if the situation demands it. This function softens the blunt edge of their logical Ti, allowing them to deliver hard truths in a way that is palatable, or even humorous. In the PRISM-7 context, this drives their adaptability in social hierarchies. A common pitfall is that when stressed, their Fe can become manipulative, using emotional cues to exploit others rather than connect with them, or seeking validation through superficial popularity."
+    },
+    "inferior": {
+      "name": "Introverted Intuition (Ni)",
+      "description": "Introverted Intuition represents the ESTP's blind spot—the realm of abstract patterns, long-term implications, and symbolic meaning. Because they are so wired for the 'now,' the 'later' feels like a hazy, irrelevant dream. Consequently, they may habitually ignore warning signs that don't have immediate physical consequences, such as chronic health issues or the slow erosion of trust in a relationship. When the inferior function 'grips' them, usually under extreme stress, the ESTP flips from being a pragmatist to a conspiracy theorist. They suddenly attribute grand, negative meanings to coincident events, becoming paranoid that destiny is against them. Developing this function doesn't mean becoming a philosopher; it means learning to pause just long enough to ask, 'If I do this today, where will I be in five years?' and actually listening to the answer."
+    }
+  },
+  "strengths": [
+    {
+      "title": "Quick Thinking",
+      "description": "The ESTP possesses a cognitive refresh rate that outpaces nearly every other type. In a crisis—such as a server crash during a product launch or a medical emergency—while others are frozen in shock or fumbling for the manual, the ESTP has already assessed the damage, triaged the critical failures, and initiated a fix. This is not frantic energy; it is the 'OODA Loop' (Observe, Orient, Decide, Act) in its purest form. Their brain bypasses the bureaucratic layers of 'should' and goes straight to 'is.' This strength is often mistaken for recklessness, but it is actually high-speed processing. They don't need to deliberate because they trust their reflexes to handle the variables in real-time."
+    },
+    {
+      "title": "Persuasiveness",
+      "description": "ESTPs are the masters of the 'soft sell' and the 'hard pivot.' Their persuasiveness stems from a combination of observational acuity (Se) and social adaptability (Fe). They notice the micromovements of their interlocutor—the hesitation in the voice, the glance at the clock—and adjust their pitch mid-sentence to address the unspoken objection. Unlike types that rely on emotional pleas or rigid logic alone, the ESTP builds a reality distortion field where their proposed idea seems like the *only* logical and fun option. In the workplace, they are the ones who can get a skeptical board to sign off on a risky venture simply by projecting an air of absolute, contagious certainty."
+    },
+    {
+      "title": "Pragmatism",
+      "description": "This is the ruthlessness of efficiency. An ESTP will look at a ten-step corporate process, identify that seven steps are performative nonsense, and simply skip them to get the result. They have zero sentimental attachment to 'the way things have always been done.' If a tool is broken, they use a rock; if the door is locked, they check the window. This resourcefulness makes them invaluable in startups or resource-poor environments. However, this strength can be mistaken for laziness or insubordination by high-Conscientiousness types who value the process as much as the outcome. The ESTP is not cutting corners to be lazy; they are optimizing for energy expenditure versus output."
+    },
+    {
+      "title": "Crisis Management",
+      "description": "Physiologically, ESTPs seem to have a higher threshold for arousal than other types; situations that spike cortisol in others often just wake the ESTP up. They find clarity in chaos. When the plan falls apart, the ESTP stops being bored and starts having fun. They step into the vacuum of leadership that panic creates, issuing clear, direct commands that people instinctively follow. This is the 'First Responder' gene. Whether it's navigating a PR scandal or a literal physical disaster, their ability to compartmentalize fear and focus on the immediate next step is a superpower. They don't freeze; they mobilize."
+    }
+  ],
+  "blindspots": [
+    {
+      "title": "Long-Term Thinking",
+      "description": "The ESTP's brain is a high-performance engine with a small gas tank. They are prone to 'temporal discounting,' where a small reward now is valued significantly higher than a massive reward later. This manifests in financial impulsivity (spending the bonus immediately), health neglect (skipping the checkup because they feel fine today), or career volatility (quitting a stable job over a minor annoyance). The consequence is a life that looks like a series of disconnected jagged peaks rather than a steady ascent. They often wake up in mid-life realizing they have had a thousand exciting days but haven't built a coherent year. They need to learn that 'future them' is a real person they are responsible for."
+    },
+    {
+      "title": "Emotional Depth",
+      "description": "ESTPs often treat emotions like a check engine light—a warning signal to be taped over or fixed, rather than a landscape to be explored. When a partner or colleague expresses complex, lingering sadness or vulnerability, the ESTP often responds with actionable solutions: 'Have you tried exercising? Have you talked to your boss?' They struggle to simply *sit* with pain. This can make them appear callous or dismissive, eroding intimacy in close relationships. They fear that acknowledging deep emotion will drag them into a swamp of inactivity. The irony is that by suppressing these emotions, they often suffer from explosive outbursts later."
+    },
+    {
+      "title": "Patience",
+      "description": "For an ESTP, waiting is not a passive state; it is active suffering. Whether it's waiting for a website to load, a colleague to get to the point, or a promotion to mature, delay feels like a personal insult to their agency. This impatience leads to premature abandonment of projects that just needed time to germinate. In the workplace, they may bulldoze over consensus-building processes, alienating teammates who need time to process. They often confuse 'slow' with 'stupid,' failing to recognize that some of the most valuable things in life (trust, expertise, compound interest) cannot be accelerated."
+    },
+    {
+      "title": "Commitment",
+      "description": "The ESTP suffers from chronic FOMO (Fear Of Missing Out). To commit to one path is to say no to a million others, and that feels like a loss of freedom. This blindspot shows up as a reluctance to label relationships, a hesitancy to sign long-term contracts, or a habit of keeping one foot out the door 'just in case.' While they pride themselves on adaptability, this lack of commitment can prevent them from achieving mastery or depth. They become a 'jack of all trades, master of none,' collecting experiences but never building a legacy. They must learn that true freedom often comes on the other side of discipline."
+    }
+  ],
+  "inRelationships": {
+    "romantic": "Loving an ESTP is like dating a hurricane—thrilling, destructive to stagnation, and constantly moving. They express love through kinetic energy: surprise weekend getaways, fixing your car without being asked, or challenging you to be braver than you thought possible. They are not the type to write long, introspective love letters; they are the type to pull you onto the dance floor. However, partners often misunderstand their need for autonomy as a lack of interest. The ESTP needs a 'co-conspirator,' not a dependent. If a partner demands constant emotional validation or tries to 'tame' them into a domestic routine, the ESTP will feel suffocated and likely bolt. The most successful pairings are often with partners who have their own strong sense of self and can appreciate the ESTP's competence without needing to control it. Tension arises when the honeymoon phase fades; the ESTP must learn that the 'boring' work of relationship maintenance—doing the dishes, discussing the budget—is actually the highest form of loyalty.",
+    "friendship": "In friendship, the ESTP is the ultimate activity partner. They are the ones who turn a Tuesday night taco run into an unforgettable adventure. They are fiercely loyal to their 'crew,' operating with a tribal mentality: if you are one of theirs, they will fight for you physically and socially. However, their friends must have a thick skin. ESTPs bond through banter, roasting, and competition. They may accidentally hurt the feelings of more sensitive types (like INFPs or ISFJs) with blunt jokes, genuinely confused why everyone got so serious. They are not the friends you call to weep on the phone for three hours; they are the friends you call to help you move a body (metaphorically, usually) or to distract you from your sorrow with high-octane fun. They show up when things go wrong, but they might be absent when things are just quiet.",
+    "workplace": "Colleagues view the ESTP with a mix of awe and anxiety. In meetings, they are the ones spinning in their chairs, interrupting with 'But does this actually work?' They detest bureaucracy, abstract mission statements, and micromanagement. An ESTP chained to a desk with a rigid joyful spreadsheet is an ESTP who is updating their LinkedIn profile. They thrive in chaos—sales floors, emergency rooms, trading desks—where their ability to read people and make split-second decisions is currency. Managers often misunderstand them as unmanageable rebels. In reality, an ESTP will work harder than anyone if they are given a clear goal and the autonomy to reach it their own way. They are natural troubleshooters who will bypass the chain of command to fix a problem, which earns them respect from results-oriented leaders but enmity from procedural sticklers."
+  ],
+  "careerPaths": [
+    {
+      "title": "Entrepreneur",
+      "reason": "The quintessential ESTP role. It offers the dopamine loop of risk and reward, total autonomy, and the requirement to wear many hats. The ESTP thrives in the startup phase—pitching to investors (Se/Fe charm), pivoting the product (Se/Ti adaptability), and putting out fires. They struggle with the 'scaling' phase where HR policies and rigid structures are needed, often doing best as the founder who eventually hands off operations to a COO."
+    },
+    {
+      "title": "Sales Executive",
+      "reason": "Sales is a combat sport, and the ESTP is a gladiator. The immediate feedback loop of closing a deal satisfies their need for tangible results. Their ability to mirror the client's energy and overcome objections with quick logic makes them top performers. Unlike roles that require long-term project management, sales allows them to 'hunt,' kill, and move on to the next target, perfectly aligning with their episodic focus."
+    },
+    {
+      "title": "Paramedic/EMT",
+      "reason": "A day in the life of a paramedic is 90% boredom and 10% sheer adrenaline—a rhythm the ESTP handles well. The role demands physical dexterity, the ability to suppress emotional horror to perform technical tasks (Ti), and the capacity to command a chaotic scene (Se/Fe). The ESTP's 'crisis calm' saves lives here, where hesitation is fatal."
+    },
+    {
+      "title": "Stock Trader",
+      "reason": "The financial markets are a living, breathing entity of data that changes by the second. This is pure Se/Ti processing: analyzing patterns in real-time and placing bets based on probability. The high stakes provide the necessary stimulation to keep them focused. The ESTP's ability to detach emotionally from a loss and immediately look for the next opportunity is critical for longevity in this field."
+    },
+    {
+      "title": "Sports Coach",
+      "reason": "This role combines tactical strategy with physical performance. The ESTP excels at reading the opposing team's setup and adjusting the play on the fly. Their Fe helps them motivate athletes—knowing exactly which player needs a pat on the back and which needs a kick in the pants. The competitive nature of the job aligns perfectly with their drive to win in the tangible world."
+    }
+  ],
+  "growthAdvice": [
+    {
+      "title": "The 10-10-10 Rule",
+      "content": "Before making an impulse decision, ask: How will I feel about this in 10 minutes? 10 months? 10 years? This simple cognitive brake forces your Ni (intuition) to come online without overwhelming you. You will feel resistance because it slows down the 'high' of action, but it prevents the hangover of regret. Progress looks like pausing just once a day to reconsider a purchase or a harsh word."
+    },
+    {
+      "title": "Embrace 'Boring' Consistency",
+      "content": "Your brain craves novelty, but success requires repetition. Reframe routine not as a cage, but as a launchpad—automating the basics (fitness, finance, admin) frees up your mental RAM for the exciting stuff. Start small: commit to one unexciting habit for 30 days. The resistance will be boredom; push through it to find the 'flow' state on the other side of mastery."
+    },
+    {
+      "title": "Practice Active Listening",
+      "content": "When someone vents to you, your instinct is to fix it or joke about it. Try to do neither. Set a timer for 5 minutes and just listen, reflecting back what they said. You will feel an itch to intervene—that is your ego wanting to be the hero. Suppress it. People often need to feel understood more than they need a solution. This deepens trust, which is a long-term asset."
+    },
+    {
+      "title": "Schedule 'White Space'",
+      "content": "You fill every second with noise to avoid your own thoughts. Schedule 15 minutes of doing absolutely nothing—no phone, no music, no people. You will likely feel anxious or agitated. This is good; it means you are processing the backlog of data you've ignored. This reflection time allows you to strategize rather than just react, turning you from a tactician into a strategist."
+    },
+    {
+      "title": "Calculate the Cost of Bridges Burned",
+      "content": "You move on easily, but others don't. Realize that your 'honesty' is sometimes just brutality, and your 'moving on' can feel like betrayal. Before cutting ties or delivering a harsh critique, calculate the social cost. Is winning this argument worth losing this ally? Developing this pause will increase your 'political capital,' making it easier to get what you want in the long run."
+    }
+  ],
+  "famousExamples": [
+    {
+      "name": "Ernest Hemingway",
+      "known_for": "Author, adventurer",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/ErnestHemingway.jpg/440px-ErnestHemingway.jpg"
+    },
+    {
+      "name": "Madonna",
+      "known_for": "Singer, entertainer",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Madonna_-_Rebel_Heart_Tour_2015_-_Berlin_1_%28cropped%29.jpg/440px-Madonna_-_Rebel_Heart_Tour_2015_-_Berlin_1_%28cropped%29.jpg"
+    },
+    {
+      "name": "Donald Trump",
+      "known_for": "Businessman, 45th US President",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/440px-Donald_Trump_official_portrait.jpg"
+    },
+    {
+      "name": "Eddie Murphy",
+      "known_for": "Actor, comedian",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Eddie_Murphy_by_David_Shankbone.jpg/440px-Eddie_Murphy_by_David_Shankbone.jpg"
+    },
+    {
+      "name": "Jack Nicholson",
+      "known_for": "Actor",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jack_Nicholson_2001.jpg/440px-Jack_Nicholson_2001.jpg"
+    },
+    {
+      "name": "Mick Jagger",
+      "known_for": "Rolling Stones frontman",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Mick_Jagger_Deauville_2014.jpg/440px-Mick_Jagger_Deauville_2014.jpg"
+    },
+    {
+      "name": "George Clooney",
+      "known_for": "Actor, director",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/George_Clooney_2016.jpg/440px-George_Clooney_2016.jpg"
+    },
+    {
+      "name": "Samuel L. Jackson",
+      "known_for": "Actor",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/SamuelLJackson.jpg/440px-SamuelLJackson.jpg"
+    },
+    {
+      "name": "Angelina Jolie",
+      "known_for": "Actress, humanitarian",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Angelina_jolie_by_philipp_von_ostau.jpg/440px-Angelina_jolie_by_philipp_von_ostau.jpg"
+    },
+    {
+      "name": "Nicolas Cage",
+      "known_for": "Actor",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/440px-Nicolas_Cage_2011_CC.jpg"
+    },
+    {
+      "name": "Kevin Bacon",
+      "known_for": "Actor",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Kevin_Bacon_at_San_Diego_Comic-Con_2013.jpg/440px-Kevin_Bacon_at_San_Diego_Comic-Con_2013.jpg"
+    },
+    {
+      "name": "Eva Longoria",
+      "known_for": "Actress",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Eva_Longoria_Cannes_2019_%28cropped%29.jpg/440px-Eva_Longoria_Cannes_2019_%28cropped%29.jpg"
+    },
+    {
+      "name": "Winston Churchill",
+      "known_for": "British Prime Minister",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/440px-Sir_Winston_Churchill_-_19086236948.jpg"
+    },
+    {
+      "name": "Theodore Roosevelt",
+      "known_for": "26th US President",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/President_Roosevelt_-_Pach_Bros_%28cropped%29.jpg/440px-President_Roosevelt_-_Pach_Bros_%28cropped%29.jpg"
+    },
+    {
+      "name": "Lucille Ball",
+      "known_for": "Comedian, actress",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lucille_Ball_-_1964.jpg/440px-Lucille_Ball_-_1964.jpg"
+    },
+    {
+      "name": "Bruce Willis",
+      "known_for": "Actor",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Bruce_Willis_by_Gage_Skidmore_2.jpg/440px-Bruce_Willis_by_Gage_Skidmore_2.jpg"
+    },
+    {
+      "name": "Antonio Banderas",
+      "known_for": "Actor",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Antonio_Banderas_2014_2.jpg/440px-Antonio_Banderas_2014_2.jpg"
+    },
+    {
+      "name": "Burt Reynolds",
+      "known_for": "Actor",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Burt_Reynolds_1991_cropped_portrait.jpg/440px-Burt_Reynolds_1991_cropped_portrait.jpg"
+    },
+    {
+      "name": "Helen Mirren",
+      "known_for": "Actress",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Helen_Mirren_%2821417355562%29_%28cropped%29.jpg/440px-Helen_Mirren_%2821417355562%29_%28cropped%29.jpg"
+    },
+    {
+      "name": "Sylvester Stallone",
+      "known_for": "Actor, director",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Sylvester_Stallone_by_Gage_Skidmore.jpg/440px-Sylvester_Stallone_by_Gage_Skidmore.jpg"
+    }
+  ],
+  "prismCorrelation": {
+    "likelyTypes": [
+      "Achiever",
+      "Explorer",
+      "Catalyst"
+    ],
+    "keyDimensions": "In the PRISM-7 framework, the ESTP profile is most distinctively characterized by exceptionally high Adaptability and Extraversion, combined with variable Honesty-Humility. While MBTI classifies them simply as 'Sensing,' PRISM-7 reveals that their 'Sensing' is actually a manifestation of high Adaptability—psychological flexibility that allows them to pivot instantly when circumstances change. They score high on Emotional Resilience (low Neuroticism), often displaying a 'teflon' quality where stress slides off them, a nuance often missed by the Big Five. Crucially, the HEXACO-derived Honesty-Humility dimension is the key predictor for this type's ethical trajectory. An ESTP with low Honesty-Humility may exhibit the 'dark triad' traits of manipulation and entitlement (the 'con artist' archetype), whereas an ESTP with high Honesty-Humility channels their boldness into protection and fearless truth-telling (the 'heroic responder' archetype). This distinction is invisible in MBTI but essential for understanding the ESTP's impact on their community."
+  }
+}

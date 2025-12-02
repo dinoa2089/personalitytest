@@ -111,7 +111,7 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.coreFear}</p>
+                  <CompactMarkdown>{content.coreFear}</CompactMarkdown>
                 </CardContent>
               </Card>
 
@@ -125,7 +125,7 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.coreDesire}</p>
+                  <CompactMarkdown>{content.coreDesire}</CompactMarkdown>
                 </CardContent>
               </Card>
 
@@ -139,7 +139,7 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{content.coreMotivation}</p>
+                  <CompactMarkdown>{content.coreMotivation}</CompactMarkdown>
                 </CardContent>
               </Card>
             </div>
@@ -157,9 +157,9 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
               </CardHeader>
               <CardContent className="space-y-4">
                 {content.description.map((paragraph, index) => (
-                  <p key={index} className="text-lg text-muted-foreground leading-relaxed">
+                  <MarkdownText key={index} variant="full" className="text-lg">
                     {paragraph}
-                  </p>
+                  </MarkdownText>
                 ))}
               </CardContent>
             </Card>
@@ -359,7 +359,9 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   {content.strengths.map((strength, index) => (
                     <div key={index} className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-green-600 mt-1 flex-shrink-0" />
-                      <span className="text-muted-foreground">{strength}</span>
+                      <div className="flex-1">
+                        <CompactMarkdown>{strength}</CompactMarkdown>
+                      </div>
                     </div>
                   ))}
                 </CardContent>
@@ -384,7 +386,9 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                   {content.challenges.map((challenge, index) => (
                     <div key={index} className="flex items-start gap-2">
                       <Lightbulb className="h-4 w-4 text-amber-600 mt-1 flex-shrink-0" />
-                      <span className="text-muted-foreground">{challenge}</span>
+                      <div className="flex-1">
+                        <CompactMarkdown>{challenge}</CompactMarkdown>
+                      </div>
                     </div>
                   ))}
                 </CardContent>
@@ -440,8 +444,8 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                 <div className="grid md:grid-cols-2 gap-4">
                   {content.careerPaths.map((career, index) => (
                     <div key={index} className="rounded-lg border border-border/50 bg-muted/30 p-4">
-                      <h4 className="font-semibold mb-1">{career.title}</h4>
-                      <p className="text-sm text-muted-foreground">{career.reason}</p>
+                      <h4 className="font-semibold mb-2">{career.title}</h4>
+                      <CompactMarkdown>{career.reason}</CompactMarkdown>
                     </div>
                   ))}
                 </div>
@@ -498,11 +502,13 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {content.growthAdvice.map((advice, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <Zap className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{advice}</span>
+                      <div className="flex-1">
+                        <CompactMarkdown>{advice}</CompactMarkdown>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -556,12 +562,8 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                 </div>
               </CardHeader>
               <CardContent className="space-y-5">
-                <div className="space-y-4">
-                  {content.prismCorrelation.keyDimensions.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="text-muted-foreground leading-relaxed">
-                      {paragraph}
-                    </p>
-                  ))}
+                <div>
+                  <MarkdownText variant="compact">{content.prismCorrelation.keyDimensions}</MarkdownText>
                 </div>
                 <div className="pt-2 border-t border-border/50">
                   <p className="text-sm text-muted-foreground mb-3">

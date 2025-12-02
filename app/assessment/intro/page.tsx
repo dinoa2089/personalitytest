@@ -253,7 +253,7 @@ function AssessmentIntroContent() {
                       <h3 className="font-bold text-lg">Quick Assessment</h3>
                     </div>
                     <p className="text-sm font-medium text-muted-foreground">
-                      20-25 core questions • ~5 minutes
+                      35 core questions • ~7 minutes
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       Get your basic personality profile quickly. Unlock additional modules for deeper insights.
