@@ -3,6 +3,17 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "PRISM-7 | Which of 12 Personality Types Are You?",
+  description: "Take the free 5-minute personality test that's more accurate than Myers-Briggs. Scientifically validated HEXACO+ assessment with dimensional insights, not vague categories. No signup required.",
+  keywords: ["personality test", "free personality test", "MBTI alternative", "personality types", "HEXACO", "scientific personality assessment"],
+  openGraph: {
+    title: "PRISM-7 | Which of 12 Personality Types Are You?",
+    description: "Take the free 5-minute personality test that's more accurate than Myers-Briggs. Scientifically validated with dimensional insights.",
+  },
+};
 
 export default function Home() {
   return (
