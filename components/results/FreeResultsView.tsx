@@ -9,41 +9,32 @@ import {
   Sparkles, 
   ArrowRight, 
   Users, 
-  Share2, 
   Download,
   Briefcase,
-  Heart,
-  Star,
   TrendingUp,
   Zap,
   UserPlus,
-  MessageSquare
+  MessageSquare,
+  ChevronDown
 } from "lucide-react";
 import { calculateArchetype } from "@/lib/archetypes";
 import { PersonalityRadarChart } from "./RadarChart";
-import { RandomFrameworkReveal } from "./RandomFrameworkReveal";
+import { PersonalityConstellation } from "./PersonalityConstellation";
 import { SimpleJobAnalysis } from "./SimpleJobAnalysis";
 import { ShareableInfographic } from "./ShareableInfographic";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import { CompactMarkdown } from "@/components/ui/markdown-text";
-import type { DimensionScore, FrameworkMappings } from "@/types";
+import type { DimensionScore } from "@/types";
 import Link from "next/link";
 import { useState } from "react";
 
 interface FreeResultsViewProps {
   scores: DimensionScore[];
   sessionId: string;
-  frameworks?: FrameworkMappings;
 }
 
-export function FreeResultsView({ scores, sessionId, frameworks }: FreeResultsViewProps) {
-  const { primary, matchPercentage, secondary } = calculateArchetype(scores);
-  const [showShareModal, setShowShareModal] = useState(false);
-  
-  // Get top 3 and bottom 3 dimensions
-  const sortedScores = [...scores].sort((a, b) => b.percentile - a.percentile);
-  const topDimensions = sortedScores.slice(0, 3);
-  const growthDimensions = sortedScores.slice(-3).reverse();
+export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
+  const { primary } = calculateArchetype(scores);
 
   const dimensionLabels: Record<string, string> = {
     openness: "Openness",
@@ -86,225 +77,132 @@ export function FreeResultsView({ scores, sessionId, frameworks }: FreeResultsVi
     },
   };
 
+  const [showDetailedBreakdown, setShowDetailedBreakdown] = useState(false);
+
   return (
     <div className="space-y-8">
-      {/* Primary Archetype - Full Reveal */}
+      {/* Personality Constellation - All Frameworks Overview */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        <Card className={`rounded-2xl border-2 border-border/50 bg-gradient-to-br ${primary.color} shadow-xl overflow-hidden relative`}>
-          <div className="absolute inset-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm" />
-          <CardHeader className="relative z-10 pb-4">
-            <div className="flex items-start justify-between gap-4 mb-4">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
-                  <Badge className="bg-primary/20 text-primary border-primary/30 text-sm px-3 py-1">
-                    Your Personality Type
-                  </Badge>
-                  <Badge variant="outline" className="text-xs">
-                    {primary.rarity}% of population
-                  </Badge>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-4xl">{primary.icon}</span>
-                  <div>
-                    <CardTitle className="text-4xl md:text-5xl font-bold mb-1">
-                      {primary.name}
-                    </CardTitle>
-                    <CardDescription className="text-lg md:text-xl text-muted-foreground font-medium">
-                      {primary.tagline}
-                    </CardDescription>
-                  </div>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
-                  {matchPercentage}%
-                </div>
-                <div className="text-sm text-muted-foreground">Match</div>
-              </div>
+        <PersonalityConstellation scores={scores} sessionId={sessionId} />
+      </motion.div>
+
+      {/* Famous Examples - Pulled out for better visibility */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <Card className="rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-950/10 to-fuchsia-950/10">
+          <CardHeader className="pb-4">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-yellow-500" />
+              <CardTitle className="text-xl">Famous People Like You</CardTitle>
             </div>
+            <CardDescription>
+              These well-known figures share your {primary.name} personality profile
+            </CardDescription>
           </CardHeader>
-          <CardContent className="relative z-10 space-y-6">
-            {/* Full Description */}
-            <div className="space-y-3">
-              {primary.description.map((paragraph, index) => (
-                <motion.div 
-                  key={index} 
-                  className="text-base md:text-lg leading-relaxed"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
-                >
-                  <CompactMarkdown>{paragraph}</CompactMarkdown>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Strengths & Growth Areas */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <motion.div 
-                className="rounded-xl border border-border/50 bg-green-500/5 p-6"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <Star className="h-5 w-5 text-green-600" />
-                  <h3 className="text-xl font-bold">Your Strengths</h3>
-                </div>
-                <ul className="space-y-3">
-                  {primary.strengths.slice(0, 5).map((strength, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm md:text-base">
-                      <span className="text-green-600 mt-1 flex-shrink-0">✓</span>
-                      <div className="flex-1">
-                        <CompactMarkdown>{strength}</CompactMarkdown>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              <motion.div 
-                className="rounded-xl border border-border/50 bg-amber-500/5 p-6"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <TrendingUp className="h-5 w-5 text-amber-600" />
-                  <h3 className="text-xl font-bold">Growth Areas</h3>
-                </div>
-                <ul className="space-y-3">
-                  {primary.growthAreas.slice(0, 5).map((area, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm md:text-base">
-                      <span className="text-amber-600 mt-1 flex-shrink-0">→</span>
-                      <div className="flex-1">
-                        <CompactMarkdown>{area}</CompactMarkdown>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-
-            {/* Famous Examples */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <Sparkles className="h-5 w-5 text-yellow-600" />
-                <h3 className="text-lg font-bold">Famous People Like You</h3>
-              </div>
-              <FamousExamplesGrid 
-                examples={primary.famousExamples}
-                typeName={primary.name.replace("The ", "")}
-                variant="compact"
-                maxVisible={6}
-                colorAccent="yellow"
-              />
-            </motion.div>
+          <CardContent>
+            <FamousExamplesGrid 
+              examples={primary.famousExamples}
+              typeName={primary.name.replace("The ", "")}
+              variant="compact"
+              maxVisible={8}
+              colorAccent="yellow"
+            />
           </CardContent>
         </Card>
       </motion.div>
 
-      {/* Secondary Types */}
-      {secondary.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <Card className="rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-xl">You Also Have Traits Of...</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-3">
-                {secondary.map((item) => (
-                  <div
-                    key={item.archetype.id}
-                    className="flex items-center gap-2 rounded-xl border border-border/50 bg-muted/30 px-4 py-3"
+      {/* Dimensional Profile with Radar Chart - Collapsible */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+      >
+        <Card className="rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm overflow-hidden">
+          <CardHeader 
+            className="cursor-pointer hover:bg-muted/30 transition-colors"
+            onClick={() => setShowDetailedBreakdown(!showDetailedBreakdown)}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle className="text-2xl md:text-3xl font-bold">Your Dimensional Profile</CardTitle>
+                <CardDescription>
+                  Your complete PRISM-7 breakdown across all 7 personality factors
+                </CardDescription>
+              </div>
+              <Button variant="ghost" size="icon">
+                <ChevronDown className={`h-5 w-5 transition-transform ${showDetailedBreakdown ? 'rotate-180' : ''}`} />
+              </Button>
+            </div>
+          </CardHeader>
+          
+          {showDetailedBreakdown && (
+            <CardContent className="space-y-6 pt-0">
+              {/* Radar Chart */}
+              <div className="h-[350px] w-full">
+                <PersonalityRadarChart scores={scores} />
+              </div>
+
+              {/* All 7 Dimensions */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {scores.map((score, index) => (
+                  <motion.div
+                    key={score.dimension}
+                    className="rounded-xl border border-border/50 bg-muted/30 p-4 hover:bg-muted/50 transition-colors"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
                   >
-                    <span className="text-xl">{item.archetype.icon}</span>
-                    <div>
-                      <span className="font-semibold">{item.archetype.name}</span>
-                      <Badge variant="outline" className="ml-2 text-xs">{item.matchPercentage}%</Badge>
+                    <div className="flex justify-between items-start mb-2">
+                      <div className="text-sm font-medium text-foreground">
+                        {dimensionLabels[score.dimension]}
+                      </div>
+                      <div className="text-xl font-bold text-primary">{score.percentile}%</div>
                     </div>
-                  </div>
+                    <div className="w-full bg-muted rounded-full h-2 mb-2">
+                      <motion.div
+                        className="bg-primary h-2 rounded-full"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${score.percentile}%` }}
+                        transition={{ delay: index * 0.05, duration: 0.5 }}
+                      />
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      {score.percentile > 50 
+                        ? dimensionDescriptions[score.dimension]?.high 
+                        : dimensionDescriptions[score.dimension]?.low}
+                    </p>
+                  </motion.div>
                 ))}
               </div>
             </CardContent>
-          </Card>
-        </motion.div>
-      )}
-
-      {/* Full Dimensional Profile with Radar Chart */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-      >
-        <Card className="rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl md:text-3xl font-bold">Your PRISM-7 Profile</CardTitle>
-            <CardDescription>
-              Your complete dimensional breakdown across all 7 personality factors
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            {/* Radar Chart */}
-            <div className="h-[400px] w-full">
-              <PersonalityRadarChart scores={scores} />
-            </div>
-
-            {/* All 7 Dimensions */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {scores.map((score, index) => (
-                <motion.div
-                  key={score.dimension}
-                  className="rounded-xl border border-border/50 bg-muted/30 p-4 hover:bg-muted/50 transition-colors"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + index * 0.05 }}
-                >
-                  <div className="flex justify-between items-start mb-2">
-                    <div className="text-sm font-medium text-foreground">
-                      {dimensionLabels[score.dimension]}
-                    </div>
-                    <div className="text-xl font-bold text-primary">{score.percentile}%</div>
+          )}
+          
+          {!showDetailedBreakdown && (
+            <CardContent className="pt-0">
+              {/* Quick Preview */}
+              <div className="flex flex-wrap gap-3">
+                {scores.slice(0, 4).map((score) => (
+                  <div key={score.dimension} className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-lg">
+                    <span className="text-sm font-medium">{dimensionLabels[score.dimension]}</span>
+                    <Badge variant={score.percentile > 60 ? "default" : score.percentile < 40 ? "secondary" : "outline"}>
+                      {score.percentile}%
+                    </Badge>
                   </div>
-                  <div className="w-full bg-muted rounded-full h-2 mb-2">
-                    <motion.div
-                      className="bg-primary h-2 rounded-full"
-                      initial={{ width: 0 }}
-                      animate={{ width: `${score.percentile}%` }}
-                      transition={{ delay: 0.6 + index * 0.05, duration: 0.5 }}
-                    />
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {score.percentile > 50 
-                      ? dimensionDescriptions[score.dimension]?.high 
-                      : dimensionDescriptions[score.dimension]?.low}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </CardContent>
+                ))}
+                <div className="flex items-center gap-2 px-3 py-2 text-muted-foreground text-sm">
+                  +{scores.length - 4} more dimensions
+                </div>
+              </div>
+            </CardContent>
+          )}
         </Card>
-      </motion.div>
-
-      {/* Random Framework Reveal (ONE framework shown) */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <RandomFrameworkReveal scores={scores} frameworks={frameworks} sessionId={sessionId} />
       </motion.div>
 
       {/* Simple Job Analysis (Top 3 Careers) */}
