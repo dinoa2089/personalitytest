@@ -309,6 +309,62 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
             </motion.section>
           )}
 
+          {/* Framework Correlations */}
+          {content.frameworkCorrelations && (
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="rounded-2xl border-2 border-blue-500/30 bg-gradient-to-br from-blue-500/10 to-transparent">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20">
+                      <Sparkles className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl">Framework Correlations</CardTitle>
+                      <CardDescription>How {archetype.name} maps to other systems</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">{content.frameworkCorrelations.description}</p>
+                  <div className="flex flex-wrap gap-4">
+                    {content.frameworkCorrelations.mbtiTypes.length > 0 && (
+                      <div>
+                        <p className="text-sm font-medium mb-2">Similar MBTI Types:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {content.frameworkCorrelations.mbtiTypes.map((type) => (
+                            <Link key={type} href={`/type/mbti/${type.toLowerCase()}`}>
+                              <Badge className="bg-blue-500/20 text-blue-600 border-blue-500/30 hover:bg-blue-500/30 cursor-pointer">
+                                {type}
+                              </Badge>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {content.frameworkCorrelations.enneagramTypes.length > 0 && (
+                      <div>
+                        <p className="text-sm font-medium mb-2">Similar Enneagram Types:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {content.frameworkCorrelations.enneagramTypes.map((type) => (
+                            <Link key={type} href={`/type/enneagram/${type}`}>
+                              <Badge className="bg-purple-500/20 text-purple-600 border-purple-500/30 hover:bg-purple-500/30 cursor-pointer">
+                                Type {type}
+                              </Badge>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.section>
+          )}
+
           {/* Related Types */}
           {relatedArchetypes.length > 0 && (
             <motion.section
@@ -369,6 +425,48 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
           </motion.section>
         </div>
       </main>
+
+      {/* JSON-LD Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": `${archetype.name} Personality Type`,
+            "description": archetype.tagline,
+            "author": {
+              "@type": "Organization",
+              "name": "PRISM-7"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "PRISM-7"
+            }
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      {content.faqs && content.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": content.faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": faq.answer
+                }
+              }))
+            })
+          }}
+        />
+      )}
 
       <Footer />
     </div>

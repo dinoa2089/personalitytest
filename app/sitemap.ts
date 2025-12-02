@@ -2,21 +2,32 @@ import { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://prism7test.com";
 
-// Personality type slugs for dynamic pages
-const personalityTypes = [
+// PRISM-7 personality type slugs
+const prismTypes = [
   "innovator",
   "architect", 
   "catalyst",
-  "diplomat",
-  "analyst",
-  "advocate",
-  "commander",
-  "mediator",
-  "performer",
-  "protector",
+  "strategist",
+  "connector",
+  "guardian",
   "explorer",
-  "sentinel",
+  "stabilizer",
+  "visionary",
+  "harmonizer",
+  "achiever",
+  "analyst",
 ];
+
+// MBTI types
+const mbtiTypes = [
+  "intj", "intp", "entj", "entp",
+  "infj", "infp", "enfj", "enfp",
+  "istj", "isfj", "estj", "esfj",
+  "istp", "isfp", "estp", "esfp",
+];
+
+// Enneagram types
+const enneagramTypes = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
@@ -97,14 +108,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic personality type pages
-  const typePages: MetadataRoute.Sitemap = personalityTypes.map((type) => ({
+  // PRISM-7 personality type pages (high priority - our main types)
+  const prismTypePages: MetadataRoute.Sitemap = prismTypes.map((type) => ({
     url: `${siteUrl}/type/${type}`,
     lastModified: currentDate,
     changeFrequency: "monthly" as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
 
-  return [...staticPages, ...typePages];
-}
+  // MBTI type pages (high priority - lots of search traffic)
+  const mbtiTypePages: MetadataRoute.Sitemap = mbtiTypes.map((type) => ({
+    url: `${siteUrl}/type/mbti/${type}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
+  // Enneagram type pages (high priority - lots of search traffic)
+  const enneagramTypePages: MetadataRoute.Sitemap = enneagramTypes.map((type) => ({
+    url: `${siteUrl}/type/enneagram/${type}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [
+    ...staticPages, 
+    ...prismTypePages, 
+    ...mbtiTypePages, 
+    ...enneagramTypePages
+  ];
+}

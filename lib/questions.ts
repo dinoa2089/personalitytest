@@ -68,7 +68,7 @@ export function shuffleQuestions(questions: Question[]): Question[] {
 
 /**
  * Filter questions based on assessment type
- * Quick: Only core questions (is_core = true) - approximately 20-25 questions
+ * Quick: 35 questions with at least 5 per dimension for accuracy
  * Full: All questions
  */
 export function filterQuestionsByType(
@@ -79,48 +79,99 @@ export function filterQuestionsByType(
     return questions;
   }
   
-  // For quick assessment, prioritize:
-  // 1. Core questions (is_core flag from database)
-  // 2. Highest weighted questions from each dimension
-  // 3. Ensure at least 3 questions per dimension
+  // For quick assessment:
+  // - Target: 35 questions total
+  // - Minimum: 5 questions per dimension (7 dimensions = 35 minimum)
+  // - Prioritize: Higher weighted questions and diverse question types
   
-  const coreQuestions = questions.filter((q) => {
-    // Check if question has is_core metadata (from database)
-    // For mock questions, we'll use weight and order_index as proxy
-    return (q as any).is_core === true || 
-           (q.weight && q.weight >= 1.2) || // Higher weighted questions
-           ((q as any).order_index && (q as any).order_index <= 35); // First 35 questions (core set)
-  });
+  const TARGET_TOTAL = 35;
+  const MIN_PER_DIMENSION = 5;
   
-  // If we have core questions, use them
-  if (coreQuestions.length >= 20) {
-    return coreQuestions.slice(0, 25); // Limit to 25 for quick assessment
+  const dimensions = [
+    "openness",
+    "conscientiousness", 
+    "extraversion",
+    "agreeableness",
+    "emotionalResilience",
+    "honestyHumility",
+    "adaptability",
+  ];
+  
+  // Group questions by dimension
+  const questionsByDimension: Record<string, Question[]> = {};
+  for (const dim of dimensions) {
+    questionsByDimension[dim] = questions.filter(q => q.dimension === dim);
   }
   
-  // Fallback: Select top questions from each dimension
-  const dimensionCounts: Record<string, number> = {};
+  // Sort each dimension's questions by weight and discriminating power
+  for (const dim of dimensions) {
+    questionsByDimension[dim].sort((a, b) => {
+      // Prioritize by weight first
+      const weightDiff = (b.weight || 1.0) - (a.weight || 1.0);
+      if (weightDiff !== 0) return weightDiff;
+      
+      // Then by question type (behavioral_frequency > situational_judgment > forced_choice > likert)
+      const typeOrder: Record<string, number> = {
+        behavioral_frequency: 4,
+        situational_judgment: 3,
+        forced_choice: 2,
+        likert: 1,
+      };
+      const aTypeScore = typeOrder[a.type] || 0;
+      const bTypeScore = typeOrder[b.type] || 0;
+      if (aTypeScore !== bTypeScore) return bTypeScore - aTypeScore;
+      
+      // Finally by order_index
+      const aOrder = (a as any).order_index || 999;
+      const bOrder = (b as any).order_index || 999;
+      return aOrder - bOrder;
+    });
+  }
+  
   const selected: Question[] = [];
+  const dimensionCounts: Record<string, number> = {};
   
-  // Sort by weight (descending) and order_index (ascending)
-  const sorted = [...questions].sort((a, b) => {
-    const weightDiff = (b.weight || 1.0) - (a.weight || 1.0);
-    if (weightDiff !== 0) return weightDiff;
-    const aOrder = (a as any).order_index || 999;
-    const bOrder = (b as any).order_index || 999;
-    return aOrder - bOrder;
-  });
-  
-  for (const question of sorted) {
-    const dim = question.dimension;
-    const count = dimensionCounts[dim] || 0;
+  // First pass: Ensure minimum questions per dimension
+  for (const dim of dimensions) {
+    dimensionCounts[dim] = 0;
+    const dimQuestions = questionsByDimension[dim];
     
-    // Ensure at least 3 questions per dimension, max 4 for quick assessment
-    if (count < 4 && selected.length < 25) {
-      selected.push(question);
-      dimensionCounts[dim] = count + 1;
+    for (let i = 0; i < Math.min(MIN_PER_DIMENSION, dimQuestions.length); i++) {
+      selected.push(dimQuestions[i]);
+      dimensionCounts[dim]++;
     }
   }
   
-  return selected;
+  // Second pass: Fill remaining slots with best remaining questions
+  // Prioritize dimensions that might need more differentiation
+  if (selected.length < TARGET_TOTAL) {
+    const remaining: Question[] = [];
+    
+    for (const dim of dimensions) {
+      const dimQuestions = questionsByDimension[dim];
+      // Add questions beyond the minimum that we haven't selected yet
+      for (let i = MIN_PER_DIMENSION; i < dimQuestions.length; i++) {
+        remaining.push(dimQuestions[i]);
+      }
+    }
+    
+    // Sort remaining by weight
+    remaining.sort((a, b) => (b.weight || 1.0) - (a.weight || 1.0));
+    
+    // Add best remaining questions up to target
+    for (const q of remaining) {
+      if (selected.length >= TARGET_TOTAL) break;
+      
+      // Don't add too many from one dimension (max 7 per dimension for balance)
+      const dim = q.dimension;
+      if ((dimensionCounts[dim] || 0) < 7) {
+        selected.push(q);
+        dimensionCounts[dim] = (dimensionCounts[dim] || 0) + 1;
+      }
+    }
+  }
+  
+  // Shuffle to avoid predictable ordering while maintaining selection
+  return shuffleQuestions(selected);
 }
 

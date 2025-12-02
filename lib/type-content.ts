@@ -21,13 +21,86 @@ export interface TypePageContent {
   commonMisunderstandings: string[];
   selfCareAdvice: string[];
   relatedTypes: string[]; // IDs of related archetypes
+  frameworkCorrelations: {
+    mbtiTypes: string[];
+    enneagramTypes: string[];
+    description: string;
+  };
+  faqs: Array<{
+    question: string;
+    answer: string;
+  }>;
 }
+
+// Framework correlation data for all archetypes
+const frameworkCorrelations: Record<string, { mbtiTypes: string[]; enneagramTypes: string[]; description: string }> = {
+  innovator: {
+    mbtiTypes: ["ENTP", "ENFP", "INTP"],
+    enneagramTypes: ["7", "4"],
+    description: "If you've tested as ENTP or ENFP on Myers-Briggs, or Type 7 on the Enneagram, you may find strong alignment with the Innovator archetype."
+  },
+  architect: {
+    mbtiTypes: ["INTJ", "INTP", "ENTJ"],
+    enneagramTypes: ["5", "1"],
+    description: "If you've tested as INTJ or INTP on Myers-Briggs, or Type 5 on the Enneagram, you may find strong alignment with the Architect archetype."
+  },
+  catalyst: {
+    mbtiTypes: ["ENFP", "ENTP", "ENFJ"],
+    enneagramTypes: ["7", "3"],
+    description: "If you've tested as ENFP or ENFJ on Myers-Briggs, or Type 7 or 3 on the Enneagram, you may find strong alignment with the Catalyst archetype."
+  },
+  strategist: {
+    mbtiTypes: ["ISTJ", "ESTJ", "INTJ"],
+    enneagramTypes: ["1", "6"],
+    description: "If you've tested as ISTJ or ESTJ on Myers-Briggs, or Type 1 or 6 on the Enneagram, you may find strong alignment with the Strategist archetype."
+  },
+  connector: {
+    mbtiTypes: ["ESFJ", "ENFJ", "ESFP"],
+    enneagramTypes: ["2", "7"],
+    description: "If you've tested as ESFJ or ENFJ on Myers-Briggs, or Type 2 on the Enneagram, you may find strong alignment with the Connector archetype."
+  },
+  guardian: {
+    mbtiTypes: ["ISFJ", "ESFJ", "ISTJ"],
+    enneagramTypes: ["1", "2", "6"],
+    description: "If you've tested as ISFJ or ISTJ on Myers-Briggs, or Type 1, 2, or 6 on the Enneagram, you may find strong alignment with the Guardian archetype."
+  },
+  explorer: {
+    mbtiTypes: ["ESTP", "ESFP", "ENTP"],
+    enneagramTypes: ["7", "8"],
+    description: "If you've tested as ESTP or ESFP on Myers-Briggs, or Type 7 on the Enneagram, you may find strong alignment with the Explorer archetype."
+  },
+  stabilizer: {
+    mbtiTypes: ["ISFP", "INFP", "ISFJ"],
+    enneagramTypes: ["9", "6"],
+    description: "If you've tested as ISFP or ISFJ on Myers-Briggs, or Type 9 on the Enneagram, you may find strong alignment with the Stabilizer archetype."
+  },
+  visionary: {
+    mbtiTypes: ["INTJ", "ENTJ", "INFJ"],
+    enneagramTypes: ["1", "5", "3"],
+    description: "If you've tested as INTJ or ENTJ on Myers-Briggs, or Type 1 or 3 on the Enneagram, you may find strong alignment with the Visionary archetype."
+  },
+  harmonizer: {
+    mbtiTypes: ["INFP", "INFJ", "ISFP"],
+    enneagramTypes: ["4", "9", "2"],
+    description: "If you've tested as INFP or INFJ on Myers-Briggs, or Type 4 or 9 on the Enneagram, you may find strong alignment with the Harmonizer archetype."
+  },
+  achiever: {
+    mbtiTypes: ["ENTJ", "ESTJ", "ESTP"],
+    enneagramTypes: ["3", "8"],
+    description: "If you've tested as ENTJ or ESTJ on Myers-Briggs, or Type 3 or 8 on the Enneagram, you may find strong alignment with the Achiever archetype."
+  },
+  analyst: {
+    mbtiTypes: ["INTP", "INTJ", "ISTP"],
+    enneagramTypes: ["5", "1"],
+    description: "If you've tested as INTP or INTJ on Myers-Briggs, or Type 5 on the Enneagram, you may find strong alignment with the Analyst archetype."
+  },
+};
 
 // Extended content for each archetype
 const extendedContent: Record<string, Partial<TypePageContent>> = {
   innovator: {
-    seoTitle: "The Innovator Personality Type | PRISM-7 Assessment",
-    seoDescription: "Discover if you're The Innovator - a creative visionary who thrives on possibility. Only 7.2% of people share this type. Take the free assessment.",
+    seoTitle: "Am I an Innovator? | Free Personality Test | PRISM-7",
+    seoDescription: "Discover if you're The Innovator - a creative visionary who thrives on possibility. Similar to ENTP/ENFP. Only 7.2% of people share this type. Take the free assessment.",
     longDescription: [
       "Innovators are the dreamers and creators of the world. They possess an insatiable curiosity that drives them to explore new ideas, challenge conventions, and envision possibilities that others might dismiss as impossible. This rare combination of high Openness and Adaptability, paired with a more relaxed approach to structure, creates individuals who are uniquely positioned to bring fresh perspectives to any situation.",
       "If you're an Innovator, you likely find yourself constantly generating new ideas and seeing connections that others miss. You're energized by brainstorming sessions and creative challenges, and you may struggle with routine tasks that don't engage your imagination. Your natural inclination is to ask 'What if?' and to push boundaries in pursuit of better solutions.",
@@ -61,6 +134,11 @@ const extendedContent: Record<string, Partial<TypePageContent>> = {
       "Find a 'finisher' partner or colleague who can help bring your ideas to completion",
     ],
     relatedTypes: ["architect", "catalyst", "explorer"],
+    faqs: [
+      { question: "What careers are best for Innovators?", answer: "Innovators excel in Product Design, Research, Entrepreneurship, Creative Direction, and Innovation Consulting—roles that value creativity and adaptability over routine." },
+      { question: "How do Innovators handle stress?", answer: "Under stress, Innovators may become scattered, jumping between too many ideas without completing any. They benefit from structure and partnering with detail-oriented colleagues." },
+      { question: "What's the difference between an Innovator and an Architect?", answer: "While both are creative, Architects combine creativity with systematic execution. Innovators focus more on generating ideas, while Architects focus on building them." },
+    ],
   },
   architect: {
     seoTitle: "The Architect Personality Type | PRISM-7 Assessment",
@@ -148,10 +226,31 @@ export function getTypePageContent(slug: string): TypePageContent | null {
   if (!archetype) return null;
 
   const extended = extendedContent[slug] || defaultExtendedContent(archetype);
+  const correlations = frameworkCorrelations[slug] || {
+    mbtiTypes: [],
+    enneagramTypes: [],
+    description: `Explore how ${archetype.name} maps to other personality frameworks.`
+  };
+
+  // Generate default FAQs if not provided
+  const defaultFaqs = [
+    { 
+      question: `What careers are best for ${archetype.name}s?`, 
+      answer: `${archetype.name}s often excel in ${archetype.careerMatches.slice(0, 3).map(c => c.title).join(", ")}—roles that leverage their ${archetype.strengths[0]?.toLowerCase() || 'unique strengths'}.` 
+    },
+    { 
+      question: `How do ${archetype.name}s handle relationships?`, 
+      answer: archetype.relationshipStyle 
+    },
+    { 
+      question: `What are the key strengths of ${archetype.name}s?`, 
+      answer: archetype.strengths.slice(0, 4).join(". ") + "." 
+    },
+  ];
 
   return {
     archetype,
-    seoTitle: extended.seoTitle || `${archetype.name} Personality Type`,
+    seoTitle: extended.seoTitle || `Am I ${archetype.name.replace("The ", "a")}? | Free Personality Test`,
     seoDescription: extended.seoDescription || archetype.tagline,
     longDescription: extended.longDescription || archetype.description,
     detailedStrengths: extended.detailedStrengths || [],
@@ -164,6 +263,8 @@ export function getTypePageContent(slug: string): TypePageContent | null {
     commonMisunderstandings: extended.commonMisunderstandings || [],
     selfCareAdvice: extended.selfCareAdvice || [],
     relatedTypes: extended.relatedTypes || [],
+    frameworkCorrelations: correlations,
+    faqs: extended.faqs || defaultFaqs,
   };
 }
 
