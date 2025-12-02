@@ -20,8 +20,11 @@ dotenv.config({ path: ".env.local" });
 const OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1";
 const MODEL = "google/gemini-3-pro-preview";
 
-// Rate limiting
-const DELAY_BETWEEN_REQUESTS = 5000; // 5 seconds between requests to avoid rate limits
+// Parallel execution settings
+const PARALLEL_BATCH_SIZE = 10; // Run 10 at a time
+const DELAY_BETWEEN_BATCHES = 3000; // 3 seconds between batches
+const TARGET_WORD_COUNT = 7500;
+const MAX_RETRIES = 2; // Retry up to 2 times to hit word count
 
 interface OpenRouterMessage {
   role: "system" | "user" | "assistant";
@@ -50,8 +53,8 @@ async function generateContent(messages: OpenRouterMessage[]): Promise<string> {
     body: JSON.stringify({
       model: MODEL,
       messages,
-      temperature: 0.75,
-      max_tokens: 16000,
+      temperature: 0.7,
+      max_tokens: 24000, // Allow for longer responses to hit 7500+ words
     }),
   });
 
@@ -322,175 +325,203 @@ Return ONLY valid JSON matching the original structure with no markdown formatti
 }
 
 // ============================================================================
-// MAIN EXECUTION
+// EXPANSION WITH RETRY FOR WORD COUNT
 // ============================================================================
 
-async function expandMBTITypes() {
-  console.log("\n📚 Expanding MBTI Types...\n");
-  
-  const typeKeys = Object.keys(mbtiTypes);
-  const expandedTypes: Record<string, any> = {};
-  
-  for (const typeKey of typeKeys) {
-    const existingContent = mbtiTypes[typeKey];
-    console.log(`  🔄 Expanding ${typeKey.toUpperCase()}...`);
-    
-    try {
-      const prompt = buildMBTIExpansionPrompt(typeKey.toUpperCase(), existingContent);
-      
-      const response = await generateContent([
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: prompt }
-      ]);
-      
-      // Parse the response
-      let expandedContent = response;
-      const jsonMatch = response.match(/```(?:json)?\s*([\s\S]*?)```/);
-      if (jsonMatch) {
-        expandedContent = jsonMatch[1].trim();
-      }
-      
-      try {
-        expandedTypes[typeKey] = JSON.parse(expandedContent);
-        const wordCount = JSON.stringify(expandedTypes[typeKey]).split(/\s+/).length;
-        console.log(`  ✅ ${typeKey.toUpperCase()} expanded (~${wordCount} words)`);
-      } catch (parseError) {
-        console.log(`  ❌ Failed to parse JSON for ${typeKey}, saving raw response...`);
-        // Save raw response for debugging
-        const rawPath = path.join(__dirname, `mbti-${typeKey}-raw.txt`);
-        fs.writeFileSync(rawPath, response);
-        console.log(`     Saved to ${rawPath}`);
-      }
-      
-      await sleep(DELAY_BETWEEN_REQUESTS);
-      
-    } catch (error) {
-      console.error(`  ❌ Error expanding ${typeKey}:`, error);
-    }
-  }
-  
-  // Save expanded content
-  const outputPath = path.join(__dirname, "..", "lib", "mbti-content-expanded.json");
-  fs.writeFileSync(outputPath, JSON.stringify(expandedTypes, null, 2));
-  console.log(`\n📁 Saved expanded MBTI content to ${outputPath}`);
-  
-  return expandedTypes;
+function countWords(obj: any): number {
+  const text = JSON.stringify(obj);
+  return text.split(/\s+/).length;
 }
 
-async function expandEnneagramTypes() {
-  console.log("\n📚 Expanding Enneagram Types...\n");
+function buildExtensionPrompt(currentContent: any, currentWordCount: number, targetWordCount: number, framework: string): string {
+  const wordsNeeded = targetWordCount - currentWordCount + 500; // Add buffer
   
-  const typeNums = Object.keys(enneagramTypes);
-  const expandedTypes: Record<string, any> = {};
-  
-  for (const typeNum of typeNums) {
-    const existingContent = enneagramTypes[typeNum];
-    console.log(`  🔄 Expanding Type ${typeNum} - ${existingContent.name}...`);
-    
-    try {
-      const prompt = buildEnneagramExpansionPrompt(typeNum, existingContent);
-      
-      const response = await generateContent([
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: prompt }
-      ]);
-      
-      let expandedContent = response;
-      const jsonMatch = response.match(/```(?:json)?\s*([\s\S]*?)```/);
-      if (jsonMatch) {
-        expandedContent = jsonMatch[1].trim();
-      }
-      
-      try {
-        expandedTypes[typeNum] = JSON.parse(expandedContent);
-        const wordCount = JSON.stringify(expandedTypes[typeNum]).split(/\s+/).length;
-        console.log(`  ✅ Type ${typeNum} expanded (~${wordCount} words)`);
-      } catch (parseError) {
-        console.log(`  ❌ Failed to parse JSON for Type ${typeNum}, saving raw response...`);
-        const rawPath = path.join(__dirname, `enneagram-${typeNum}-raw.txt`);
-        fs.writeFileSync(rawPath, response);
-        console.log(`     Saved to ${rawPath}`);
-      }
-      
-      await sleep(DELAY_BETWEEN_REQUESTS);
-      
-    } catch (error) {
-      console.error(`  ❌ Error expanding Type ${typeNum}:`, error);
-    }
-  }
-  
-  const outputPath = path.join(__dirname, "..", "lib", "enneagram-content-expanded.json");
-  fs.writeFileSync(outputPath, JSON.stringify(expandedTypes, null, 2));
-  console.log(`\n📁 Saved expanded Enneagram content to ${outputPath}`);
-  
-  return expandedTypes;
+  return `I have personality type content that is ${currentWordCount} words. I need you to ADD approximately ${wordsNeeded} more words of NEW content to reach ${targetWordCount}+ total.
+
+CURRENT CONTENT TO EXTEND:
+${JSON.stringify(currentContent, null, 2)}
+
+EXTENSION TASK - Add NEW paragraphs/content to these specific areas:
+
+1. **description[]**: Add 3-5 NEW paragraphs covering:
+   - A "day in the life" narrative showing how this type navigates morning routines, work challenges, and evening wind-down
+   - Their internal dialogue when facing a difficult decision
+   - How they've typically evolved from childhood to adulthood
+   - What triggers their "flow state" vs what disrupts it
+
+2. **strengths/blindspots/challenges**: For each existing item, ADD a second paragraph with:
+   - A specific real-world scenario demonstrating this trait
+   - The internal experience (what they're thinking/feeling)
+
+3. **inRelationships/relationshipStyle**: ADD new paragraphs about:
+   - How they handle conflict (specific dialogue examples)
+   - What makes them feel loved vs. what pushes them away
+   - Their attachment style tendencies
+
+4. **careerPaths/careerMatches**: For each career, ADD:
+   - A "typical Tuesday" narrative for this type in that role
+   - Specific tasks that energize vs. drain them
+
+5. **workStyle** (if exists): ADD paragraphs about:
+   - Their ideal meeting format
+   - How they handle interruptions
+   - Their relationship with deadlines
+
+CRITICAL RULES:
+- Keep ALL existing content exactly as-is
+- ADD new content to existing arrays/strings (append, don't replace)
+- For string fields, concatenate new paragraphs with "\\n\\n"
+- For arrays, append new items or expand existing items
+- Return the COMPLETE JSON with both old and new content
+- The final output MUST be ${targetWordCount}+ words
+
+Return ONLY valid JSON, no markdown code blocks.`;
 }
 
-async function expandPRISMArchetypes() {
-  console.log("\n📚 Expanding PRISM-7 Archetypes...\n");
+interface ExpansionTask {
+  id: string;
+  name: string;
+  framework: "prism" | "mbti" | "enneagram";
+  originalContent: any;
+}
+
+interface ExpansionResult {
+  task: ExpansionTask;
+  expandedContent: any;
+  wordCount: number;
+  success: boolean;
+  error?: string;
+}
+
+async function expandSingleType(task: ExpansionTask): Promise<ExpansionResult> {
+  const { id, name, framework, originalContent } = task;
   
-  const expandedArchetypes: any[] = [];
+  let currentContent = originalContent;
+  let wordCount = countWords(originalContent);
+  let attempts = 0;
   
-  for (const archetype of archetypes) {
-    console.log(`  🔄 Expanding ${archetype.name}...`);
+  while (attempts <= MAX_RETRIES) {
+    attempts++;
     
     try {
-      const prompt = buildPRISMExpansionPrompt(archetype.id, archetype);
+      let prompt: string;
+      let systemPrompt = SYSTEM_PROMPT;
+      
+      if (attempts === 1) {
+        // First attempt - use framework-specific prompt for full generation
+        if (framework === "prism") {
+          prompt = buildPRISMExpansionPrompt(id, currentContent);
+        } else if (framework === "mbti") {
+          prompt = buildMBTIExpansionPrompt(id.toUpperCase(), currentContent);
+        } else {
+          prompt = buildEnneagramExpansionPrompt(id, currentContent);
+        }
+      } else {
+        // Retry - use EXTENSION approach (add to existing, don't regenerate)
+        console.log(`  📝 ${name}: Extending existing ${wordCount} words...`);
+        prompt = buildExtensionPrompt(currentContent, wordCount, TARGET_WORD_COUNT, framework);
+        // Simpler system prompt for extension
+        systemPrompt = `You are extending existing personality psychology content. Your job is to ADD new paragraphs and details to existing content to reach a word count target. Keep all existing content intact and append new material. Return valid JSON only.`;
+      }
       
       const response = await generateContent([
-        { role: "system", content: SYSTEM_PROMPT },
+        { role: "system", content: systemPrompt },
         { role: "user", content: prompt }
       ]);
       
-      let expandedContent = response;
-      const jsonMatch = response.match(/```(?:json)?\s*([\s\S]*?)```/);
+      // Parse response - handle various formats
+      let expandedContent = response.trim();
+      
+      // Remove markdown code blocks if present
+      const jsonMatch = expandedContent.match(/```(?:json)?\s*([\s\S]*?)```/);
       if (jsonMatch) {
         expandedContent = jsonMatch[1].trim();
       }
       
-      try {
-        const parsed = JSON.parse(expandedContent);
-        // Preserve fields that shouldn't change
-        parsed.id = archetype.id;
-        parsed.pattern = archetype.pattern;
-        parsed.color = archetype.color;
-        parsed.rarity = archetype.rarity;
-        parsed.icon = archetype.icon;
-        parsed.famousExamples = archetype.famousExamples; // Keep original examples with images
-        
-        expandedArchetypes.push(parsed);
-        const wordCount = JSON.stringify(parsed).split(/\s+/).length;
-        console.log(`  ✅ ${archetype.name} expanded (~${wordCount} words)`);
-      } catch (parseError) {
-        console.log(`  ❌ Failed to parse JSON for ${archetype.id}, saving raw response...`);
-        const rawPath = path.join(__dirname, `prism-${archetype.id}-raw.txt`);
-        fs.writeFileSync(rawPath, response);
-        console.log(`     Saved to ${rawPath}`);
-        // Add original archetype as fallback
-        expandedArchetypes.push(archetype);
+      // Try to find JSON object if there's extra text
+      const jsonStart = expandedContent.indexOf('{');
+      const jsonEnd = expandedContent.lastIndexOf('}');
+      if (jsonStart !== -1 && jsonEnd !== -1 && jsonStart < jsonEnd) {
+        expandedContent = expandedContent.slice(jsonStart, jsonEnd + 1);
       }
       
-      await sleep(DELAY_BETWEEN_REQUESTS);
+      const parsed = JSON.parse(expandedContent);
       
-    } catch (error) {
-      console.error(`  ❌ Error expanding ${archetype.id}:`, error);
-      // Add original archetype as fallback
-      expandedArchetypes.push(archetype);
+      // Preserve immutable fields for PRISM types
+      if (framework === "prism") {
+        const orig = originalContent as any;
+        parsed.id = orig.id;
+        parsed.pattern = orig.pattern;
+        parsed.color = orig.color;
+        parsed.rarity = orig.rarity;
+        parsed.icon = orig.icon;
+        parsed.famousExamples = orig.famousExamples;
+      }
+      
+      const newWordCount = countWords(parsed);
+      
+      // Only accept if we made progress
+      if (newWordCount > wordCount) {
+        wordCount = newWordCount;
+        currentContent = parsed;
+      }
+      
+      if (wordCount >= TARGET_WORD_COUNT) {
+        console.log(`  ✅ ${name} expanded (~${wordCount} words) [attempt ${attempts}]`);
+        return { task, expandedContent: currentContent, wordCount, success: true };
+      } else if (attempts <= MAX_RETRIES) {
+        console.log(`  🔄 ${name} at ~${wordCount} words, extending to ${TARGET_WORD_COUNT}+...`);
+      }
+      
+    } catch (error: any) {
+      if (attempts > MAX_RETRIES) {
+        console.log(`  ❌ ${name} failed after ${attempts} attempts: ${error.message?.slice(0, 100)}`);
+        return { task, expandedContent: currentContent, wordCount, success: wordCount > countWords(originalContent), error: error.message };
+      }
+      console.log(`  ⚠️ ${name} attempt ${attempts} failed, retrying...`);
+      await sleep(2000); // Brief pause before retry on error
     }
   }
   
-  const outputPath = path.join(__dirname, "..", "lib", "archetypes-expanded.json");
-  fs.writeFileSync(outputPath, JSON.stringify(expandedArchetypes, null, 2));
-  console.log(`\n📁 Saved expanded PRISM archetypes to ${outputPath}`);
+  // Return best effort if we couldn't reach target
+  console.log(`  ⚠️ ${name} completed at ~${wordCount} words (target: ${TARGET_WORD_COUNT})`);
+  return { task, expandedContent: currentContent, wordCount, success: true };
+}
+
+async function runInBatches<T, R>(
+  items: T[],
+  batchSize: number,
+  delayMs: number,
+  processor: (item: T) => Promise<R>
+): Promise<R[]> {
+  const results: R[] = [];
   
-  return expandedArchetypes;
+  for (let i = 0; i < items.length; i += batchSize) {
+    const batch = items.slice(i, i + batchSize);
+    const batchNum = Math.floor(i / batchSize) + 1;
+    const totalBatches = Math.ceil(items.length / batchSize);
+    
+    console.log(`\n📦 Processing batch ${batchNum}/${totalBatches} (${batch.length} items)...\n`);
+    
+    const batchResults = await Promise.all(batch.map(processor));
+    results.push(...batchResults);
+    
+    if (i + batchSize < items.length) {
+      console.log(`\n⏳ Waiting ${delayMs/1000}s before next batch...`);
+      await sleep(delayMs);
+    }
+  }
+  
+  return results;
 }
 
 async function main() {
-  console.log("🚀 PRISM-7 Content Expansion Script");
-  console.log("===================================");
+  console.log("🚀 PRISM-7 Content Expansion Script (PARALLEL MODE)");
+  console.log("====================================================");
   console.log(`Model: ${MODEL}`);
-  console.log(`Target: ~7,500 words per type`);
+  console.log(`Target: ${TARGET_WORD_COUNT}+ words per type`);
+  console.log(`Batch size: ${PARALLEL_BATCH_SIZE} concurrent requests`);
+  console.log(`Max retries per type: ${MAX_RETRIES}`);
   console.log(`Types to expand: 37 (12 PRISM + 16 MBTI + 9 Enneagram)`);
   console.log();
 
@@ -501,25 +532,107 @@ async function main() {
 
   const startTime = Date.now();
 
-  try {
-    // Expand each framework
-    await expandPRISMArchetypes();
-    await expandMBTITypes();
-    await expandEnneagramTypes();
-
-    const elapsed = ((Date.now() - startTime) / 1000 / 60).toFixed(1);
-    console.log("\n===================================");
-    console.log(`✅ Content expansion complete!`);
-    console.log(`⏱️  Total time: ${elapsed} minutes`);
-    console.log();
-    console.log("Next steps:");
-    console.log("1. Review the expanded JSON files in frontend/lib/");
-    console.log("2. Integrate expanded content into TypeScript source files");
-    console.log("3. Test the pages to verify content displays correctly");
-  } catch (error) {
-    console.error("Fatal error:", error);
-    process.exit(1);
+  // Build task list
+  const tasks: ExpansionTask[] = [];
+  
+  // PRISM archetypes
+  for (const archetype of archetypes) {
+    tasks.push({
+      id: archetype.id,
+      name: archetype.name,
+      framework: "prism",
+      originalContent: archetype
+    });
   }
+  
+  // MBTI types
+  for (const typeKey of Object.keys(mbtiTypes)) {
+    tasks.push({
+      id: typeKey,
+      name: typeKey.toUpperCase(),
+      framework: "mbti",
+      originalContent: mbtiTypes[typeKey]
+    });
+  }
+  
+  // Enneagram types
+  for (const typeNum of Object.keys(enneagramTypes)) {
+    tasks.push({
+      id: typeNum,
+      name: `Type ${typeNum} - ${enneagramTypes[typeNum].name}`,
+      framework: "enneagram",
+      originalContent: enneagramTypes[typeNum]
+    });
+  }
+
+  console.log(`📋 Total tasks: ${tasks.length}`);
+
+  // Run all expansions in parallel batches
+  const results = await runInBatches(
+    tasks,
+    PARALLEL_BATCH_SIZE,
+    DELAY_BETWEEN_BATCHES,
+    expandSingleType
+  );
+
+  // Organize results by framework
+  const prismResults: any[] = [];
+  const mbtiResults: Record<string, any> = {};
+  const enneagramResults: Record<string, any> = {};
+
+  for (const result of results) {
+    if (result.task.framework === "prism") {
+      prismResults.push(result.expandedContent);
+    } else if (result.task.framework === "mbti") {
+      mbtiResults[result.task.id] = result.expandedContent;
+    } else {
+      enneagramResults[result.task.id] = result.expandedContent;
+    }
+  }
+
+  // Save all results
+  const prismPath = path.join(__dirname, "..", "lib", "archetypes-expanded.json");
+  fs.writeFileSync(prismPath, JSON.stringify(prismResults, null, 2));
+  console.log(`\n📁 Saved PRISM archetypes to ${prismPath}`);
+
+  const mbtiPath = path.join(__dirname, "..", "lib", "mbti-content-expanded.json");
+  fs.writeFileSync(mbtiPath, JSON.stringify(mbtiResults, null, 2));
+  console.log(`📁 Saved MBTI types to ${mbtiPath}`);
+
+  const enneagramPath = path.join(__dirname, "..", "lib", "enneagram-content-expanded.json");
+  fs.writeFileSync(enneagramPath, JSON.stringify(enneagramResults, null, 2));
+  console.log(`📁 Saved Enneagram types to ${enneagramPath}`);
+
+  // Summary
+  const elapsed = ((Date.now() - startTime) / 1000 / 60).toFixed(1);
+  const successful = results.filter(r => r.success).length;
+  const atTarget = results.filter(r => r.wordCount >= TARGET_WORD_COUNT).length;
+  const totalWords = results.reduce((sum, r) => sum + r.wordCount, 0);
+  const avgWords = Math.round(totalWords / results.length);
+
+  console.log("\n====================================================");
+  console.log(`✅ Content expansion complete!`);
+  console.log(`⏱️  Total time: ${elapsed} minutes`);
+  console.log(`📊 Success rate: ${successful}/${results.length}`);
+  console.log(`🎯 At target (${TARGET_WORD_COUNT}+): ${atTarget}/${results.length}`);
+  console.log(`📝 Average word count: ${avgWords}`);
+  console.log(`📝 Total words generated: ${totalWords.toLocaleString()}`);
+  console.log();
+  
+  // Show any that didn't hit target
+  const belowTarget = results.filter(r => r.wordCount < TARGET_WORD_COUNT);
+  if (belowTarget.length > 0) {
+    console.log("⚠️ Types below target word count:");
+    for (const r of belowTarget) {
+      console.log(`   - ${r.task.name}: ${r.wordCount} words`);
+    }
+  }
+  
+  console.log();
+  console.log("Next steps:");
+  console.log("1. Review the expanded JSON files in frontend/lib/");
+  console.log("2. Run: npx tsx scripts/integrate-expanded-content.ts");
+  console.log("3. Test the pages to verify content displays correctly");
 }
 
 main();
