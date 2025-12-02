@@ -31,6 +31,7 @@ import {
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import { ExpandableText } from "@/components/ui/ExpandableText";
 import { SectionedDescription } from "@/components/personality/SectionedDescription";
+import { ArchetypeRadarMini, PopulationRarity } from "@/components/visualizations";
 import type { TypePageContent } from "@/lib/type-content";
 import type { Archetype } from "@/lib/archetypes";
 
@@ -109,6 +110,32 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
               </CardContent>
             </Card>
           </motion.section>
+
+          {/* Dimensional Profile & Rarity Visualizations */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <motion.section
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <ArchetypeRadarMini
+                archetypeId={archetype.id}
+                archetypeName={archetype.name}
+                size="md"
+              />
+            </motion.section>
+            <motion.section
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <PopulationRarity
+                percentage={archetype.rarity}
+                typeName={archetype.name}
+                variant="dots"
+              />
+            </motion.section>
+          </div>
 
           {/* Strengths & Growth */}
           <div className="grid md:grid-cols-2 gap-8">

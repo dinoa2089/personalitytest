@@ -27,6 +27,7 @@ import {
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import { ExpandableText } from "@/components/ui/ExpandableText";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
+import { CognitiveFunctionStack, PopulationRarity } from "@/components/visualizations";
 import type { MBTIType } from "@/lib/mbti-content";
 import { getRelatedMBTITypes, getTopicLinksForType, TOPIC_METADATA } from "@/lib/internal-links";
 import type { ContentTopic } from "@/lib/content/types";
@@ -198,6 +199,40 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Visual Function Stack */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-8"
+            >
+              <CognitiveFunctionStack
+                mbtiType={content.code}
+                dominant={{
+                  code: content.cognitiveFunctions.dominant.name.match(/\((\w{2})\)/)?.[1] || "Ni",
+                  name: content.cognitiveFunctions.dominant.name,
+                  description: content.cognitiveFunctions.dominant.description,
+                }}
+                auxiliary={{
+                  code: content.cognitiveFunctions.auxiliary.name.match(/\((\w{2})\)/)?.[1] || "Te",
+                  name: content.cognitiveFunctions.auxiliary.name,
+                  description: content.cognitiveFunctions.auxiliary.description,
+                }}
+                tertiary={{
+                  code: content.cognitiveFunctions.tertiary.name.match(/\((\w{2})\)/)?.[1] || "Fi",
+                  name: content.cognitiveFunctions.tertiary.name,
+                  description: content.cognitiveFunctions.tertiary.description,
+                }}
+                inferior={{
+                  code: content.cognitiveFunctions.inferior.name.match(/\((\w{2})\)/)?.[1] || "Se",
+                  name: content.cognitiveFunctions.inferior.name,
+                  description: content.cognitiveFunctions.inferior.description,
+                }}
+                variant="horizontal"
+                showTitle={false}
+              />
+            </motion.div>
           </motion.section>
 
           {/* Strengths & Blindspots */}

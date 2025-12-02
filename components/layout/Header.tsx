@@ -221,11 +221,11 @@ export function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-zinc-800">
+          <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
               <Link
                 href="/assessment"
-                className="text-sm font-medium text-white transition-colors hover:text-violet-300"
+                className="text-sm font-medium text-foreground transition-colors hover:text-violet-600"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Take Assessment
@@ -233,7 +233,7 @@ export function Header() {
 
               {/* Mobile Types Accordion */}
               <details className="group">
-                <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-zinc-400">
+                <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-muted-foreground">
                   Personality Types
                   <ChevronDown className="h-4 w-4 group-open:rotate-180 transition-transform" />
                 </summary>
@@ -241,7 +241,7 @@ export function Header() {
                   {/* Explore All Link */}
                   <Link
                     href="/type"
-                    className="block text-sm font-medium text-violet-400 hover:text-violet-300"
+                    className="block text-sm font-medium text-violet-600 hover:text-violet-700"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Explore All Types →
@@ -249,13 +249,13 @@ export function Header() {
                   
                   {/* PRISM */}
                   <div>
-                    <p className="text-xs font-medium text-violet-400 mb-2">PRISM-7</p>
+                    <p className="text-xs font-medium text-violet-600 mb-2">PRISM-7</p>
                     <div className="grid grid-cols-2 gap-2">
                       {prismTypes.map((type) => (
                         <Link
                           key={type.id}
                           href={`/type/${type.id}`}
-                          className="text-sm text-zinc-400 hover:text-white"
+                          className="text-sm text-muted-foreground hover:text-foreground"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {type.icon} {type.name}
@@ -266,13 +266,13 @@ export function Header() {
 
                   {/* MBTI */}
                   <div>
-                    <p className="text-xs font-medium text-blue-400 mb-2">MBTI</p>
+                    <p className="text-xs font-medium text-blue-600 mb-2">MBTI</p>
                     <div className="grid grid-cols-4 gap-2">
                       {Object.values(mbtiTypes).flat().map((type) => (
                         <Link
                           key={type.code}
                           href={`/type/mbti/${type.code.toLowerCase()}`}
-                          className="text-sm text-zinc-400 hover:text-white"
+                          className="text-sm text-muted-foreground hover:text-foreground"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {type.code}
@@ -283,13 +283,13 @@ export function Header() {
 
                   {/* Enneagram */}
                   <div>
-                    <p className="text-xs font-medium text-emerald-400 mb-2">Enneagram</p>
+                    <p className="text-xs font-medium text-emerald-600 mb-2">Enneagram</p>
                     <div className="grid grid-cols-3 gap-2">
                       {enneagramTypes.map((type) => (
                         <Link
                           key={type.num}
                           href={`/type/enneagram/${type.num}`}
-                          className="text-sm text-zinc-400 hover:text-white"
+                          className="text-sm text-muted-foreground hover:text-foreground"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           Type {type.num}
@@ -302,7 +302,7 @@ export function Header() {
 
               <Link
                 href="/science"
-                className="text-sm font-medium text-zinc-400 hover:text-white"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Science
@@ -310,7 +310,7 @@ export function Header() {
 
               <Link
                 href="/blog"
-                className="text-sm font-medium text-zinc-400 hover:text-white"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Blog
@@ -318,7 +318,7 @@ export function Header() {
 
               <Link
                 href="/pricing"
-                className="text-sm font-medium text-zinc-400 hover:text-white"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Pricing

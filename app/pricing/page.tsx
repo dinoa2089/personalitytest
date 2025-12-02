@@ -136,6 +136,22 @@ export default function PricingPage() {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("yearly");
   const [loading, setLoading] = useState<string | null>(null);
 
+  // Show loading state while Clerk initializes
+  if (!isLoaded) {
+    return (
+      <div className="flex min-h-screen flex-col bg-gradient-to-b from-background via-background to-muted/20">
+        <Header />
+        <main className="flex-1 flex items-center justify-center">
+          <div className="text-center space-y-4">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto" />
+            <p className="text-muted-foreground">Loading pricing...</p>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   const handleCheckout = async (plan: string) => {
     if (!user?.id) {
       toast.error("Please sign in to purchase");

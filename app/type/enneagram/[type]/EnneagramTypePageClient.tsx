@@ -29,6 +29,7 @@ import {
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import { ExpandableText } from "@/components/ui/ExpandableText";
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
+import { EnneagramSymbol } from "@/components/visualizations";
 import type { EnneagramType } from "@/lib/enneagram-content";
 import { getRelatedEnneagramTypes, getTopicLinksForType, TOPIC_METADATA } from "@/lib/internal-links";
 import type { ContentTopic } from "@/lib/content/types";
@@ -156,6 +157,21 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                 </CardContent>
               </Card>
             </div>
+          </motion.section>
+
+          {/* Enneagram Symbol Visualization */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex justify-center"
+          >
+            <EnneagramSymbol
+              highlightedType={content.number}
+              showWings={true}
+              showLines={true}
+              size="lg"
+            />
           </motion.section>
 
           {/* Description */}

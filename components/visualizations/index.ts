@@ -12,6 +12,14 @@ export { ComparisonPanel } from "./ComparisonPanel";
 export { ConfidenceInterval } from "./ConfidenceInterval";
 export { CompatibilityHeatmap } from "./CompatibilityHeatmap";
 
+// Type-specific visualizations (for scattered use across pages)
+export { ArchetypeRadarMini } from "./ArchetypeRadarMini";
+export { EnneagramSymbol } from "./EnneagramSymbol";
+export { CognitiveFunctionStack } from "./CognitiveFunctionStack";
+export { SalaryRangeChart } from "./SalaryRangeChart";
+export { CompatibilityMiniChart } from "./CompatibilityMiniChart";
+export { PopulationRarity } from "./PopulationRarity";
+
 // Shareable/exportable components
 export { EnhancedShareableCard } from "./EnhancedShareableCard";
 

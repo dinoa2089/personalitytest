@@ -49,49 +49,49 @@ const topicGuides = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-800 bg-[#0a0a0f]">
+    <footer className="border-t border-border bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-6">
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1 space-y-4">
             <div>
-              <h3 className="font-bold text-lg bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400 bg-clip-text text-transparent mb-2">
+              <h3 className="font-bold text-lg bg-gradient-to-r from-violet-600 via-fuchsia-600 to-rose-600 bg-clip-text text-transparent mb-2">
                 PRISM-7
               </h3>
-              <p className="text-xs text-zinc-500 mb-1">by Authentic Self</p>
+              <p className="text-xs text-muted-foreground mb-1">by Authentic Self</p>
             </div>
-            <p className="text-sm text-zinc-400 leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Scientifically validated personality assessment based on the HEXACO+ model.
             </p>
           </div>
 
           {/* Product */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm text-white">Product</h4>
+            <h4 className="font-semibold mb-4 text-sm text-foreground">Product</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/assessment" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/assessment" className="text-muted-foreground hover:text-foreground transition-colors">
                   Take Assessment
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/science" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/science" className="text-muted-foreground hover:text-foreground transition-colors">
                   Science
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/compare" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/compare" className="text-muted-foreground hover:text-foreground transition-colors">
                   Compare Types
                 </Link>
               </li>
@@ -100,13 +100,13 @@ export function Footer() {
 
           {/* Topic Guides */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm text-white">Topic Guides</h4>
+            <h4 className="font-semibold mb-4 text-sm text-foreground">Topic Guides</h4>
             <ul className="space-y-1.5 text-xs">
               {topicGuides.map((topic) => (
                 <li key={topic.slug}>
                   <Link 
                     href={`/type/mbti/intj/${topic.slug}`}
-                    className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5"
+                    className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
                   >
                     <span>{topic.icon}</span>
                     <span>{topic.name}</span>
@@ -118,13 +118,13 @@ export function Footer() {
 
           {/* PRISM-7 Types */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm text-white">PRISM-7 Types</h4>
+            <h4 className="font-semibold mb-4 text-sm text-foreground">PRISM-7 Types</h4>
             <ul className="space-y-1.5 text-xs">
               {prismTypes.slice(0, 6).map((type) => (
                 <li key={type.id}>
                   <Link 
                     href={`/type/${type.id}`} 
-                    className="text-zinc-400 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {type.icon} {type.name}
                   </Link>
@@ -136,7 +136,7 @@ export function Footer() {
                 <li key={type.id}>
                   <Link 
                     href={`/type/${type.id}`} 
-                    className="text-zinc-400 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {type.icon} {type.name}
                   </Link>
@@ -147,13 +147,13 @@ export function Footer() {
 
           {/* MBTI Types */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm text-white">MBTI Types</h4>
+            <h4 className="font-semibold mb-4 text-sm text-foreground">MBTI Types</h4>
             <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
               {Object.values(mbtiTypes).flat().map((type) => (
                 <Link 
                   key={type}
                   href={`/type/mbti/${type.toLowerCase()}`} 
-                  className="text-zinc-400 hover:text-white transition-colors"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {type}
                 </Link>
@@ -163,13 +163,13 @@ export function Footer() {
 
           {/* Enneagram Types */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm text-white">Enneagram</h4>
+            <h4 className="font-semibold mb-4 text-sm text-foreground">Enneagram</h4>
             <ul className="space-y-1.5 text-xs">
               {enneagramTypes.map((type) => (
                 <li key={type.num}>
                   <Link 
                     href={`/type/enneagram/${type.num}`} 
-                    className="text-zinc-400 hover:text-white transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Type {type.num}: {type.name}
                   </Link>
@@ -180,25 +180,25 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm text-white">Company</h4>
+            <h4 className="font-semibold mb-4 text-sm text-foreground">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/privacy" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
                   FAQ
                 </Link>
               </li>
@@ -207,12 +207,12 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-zinc-800">
+        <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-zinc-500">
+            <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} PRISM-7 by Authentic Self. All rights reserved.
             </p>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-muted-foreground">
               Based on the HEXACO+ model of personality psychology
             </p>
           </div>

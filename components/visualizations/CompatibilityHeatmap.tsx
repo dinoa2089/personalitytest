@@ -67,12 +67,17 @@ export function CompatibilityHeatmap({
 
   const content = (
     <div ref={ref} className={`space-y-4 ${className}`}>
+      {/* Hint for mobile users */}
+      <p className="text-xs text-muted-foreground text-center sm:hidden">
+        Scroll horizontally to view full matrix →
+      </p>
+      
       {/* Grid */}
-      <div className="overflow-x-auto">
-        <div className="inline-block min-w-full">
+      <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="inline-block">
           {/* Header row */}
           <div className="flex">
-            <div className="w-10 h-10 flex-shrink-0" /> {/* Corner spacer */}
+            <div className="w-7 h-7 sm:w-10 sm:h-10 flex-shrink-0" /> {/* Corner spacer */}
             {archetypeIds.map((id, index) => {
               const archetype = archetypeMap.get(id);
               const isHighlighted = highlightType === id || hoveredCell?.col === id;
@@ -82,7 +87,7 @@ export function CompatibilityHeatmap({
                   initial={{ opacity: 0, y: -10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.02 }}
-                  className={`w-10 h-10 flex items-center justify-center text-lg flex-shrink-0
+                  className={`w-7 h-7 sm:w-10 sm:h-10 flex items-center justify-center text-sm sm:text-lg flex-shrink-0
                     ${isHighlighted ? "bg-primary/10 rounded-t-lg" : ""}`}
                   title={archetype?.name}
                 >
@@ -104,7 +109,7 @@ export function CompatibilityHeatmap({
                   initial={{ opacity: 0, x: -10 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: rowIndex * 0.02 }}
-                  className={`w-10 h-10 flex items-center justify-center text-lg flex-shrink-0
+                  className={`w-7 h-7 sm:w-10 sm:h-10 flex items-center justify-center text-sm sm:text-lg flex-shrink-0
                     ${isRowHighlighted ? "bg-primary/10 rounded-l-lg" : ""}`}
                   title={rowArchetype?.name}
                 >
@@ -127,7 +132,7 @@ export function CompatibilityHeatmap({
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={isInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ delay: (rowIndex + colIndex) * 0.01 }}
-                      className={`w-10 h-10 flex items-center justify-center text-xs font-medium
+                      className={`w-7 h-7 sm:w-10 sm:h-10 flex items-center justify-center text-[10px] sm:text-xs font-medium
                         cursor-pointer transition-all duration-150 flex-shrink-0
                         ${isHovered || isSelected ? "ring-2 ring-primary z-10" : ""}
                         ${isInHighlightedRowOrCol && !isHovered ? "opacity-100" : ""}
