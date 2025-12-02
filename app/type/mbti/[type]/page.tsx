@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { getMBTITypeContent, getAllMBTITypes } from "@/lib/mbti-content";
 import { MBTITypePageClient } from "./MBTITypePageClient";
 
+// Skip static generation to avoid build errors with expanded content
+export const dynamic = 'force-dynamic';
+
 interface MBTITypePageProps {
   params: Promise<{ type: string }>;
 }

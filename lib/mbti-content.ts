@@ -1472,12 +1472,39 @@ export function getMBTITypeContent(code: string): MBTIType | null {
         }
       }
 
+      // Normalize cognitive function descriptions - convert objects to strings if needed
+      const normalizeCognitiveFunction = (func: { name: string; description: string | { title?: string; description?: string } }) => {
+        if (!func) return func;
+        let normalizedDesc: string;
+        if (typeof func.description === 'string') {
+          normalizedDesc = func.description;
+        } else if (func.description && typeof func.description === 'object') {
+          // Handle nested object with title and/or description fields
+          const obj = func.description as { title?: string; description?: string };
+          normalizedDesc = obj.description || obj.title || '';
+        } else {
+          normalizedDesc = '';
+        }
+        return {
+          name: func.name,
+          description: normalizedDesc
+        };
+      };
+      
+      const normalizedCognitiveFunctions = expanded.cognitiveFunctions ? {
+        dominant: normalizeCognitiveFunction(expanded.cognitiveFunctions.dominant),
+        auxiliary: normalizeCognitiveFunction(expanded.cognitiveFunctions.auxiliary),
+        tertiary: normalizeCognitiveFunction(expanded.cognitiveFunctions.tertiary),
+        inferior: normalizeCognitiveFunction(expanded.cognitiveFunctions.inferior),
+      } : original.cognitiveFunctions;
+
       // Merge expanded content with original, keeping original famousExamples with images
       return {
         ...original,
         ...expanded,
         growthAdvice: normalizedGrowthAdvice || original.growthAdvice,
         famousExamples: original.famousExamples, // Keep original with image URLs
+        cognitiveFunctions: normalizedCognitiveFunctions,
       };
     }
   } catch {

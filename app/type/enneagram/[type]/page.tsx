@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { getEnneagramTypeContent, getAllEnneagramTypes } from "@/lib/enneagram-content";
 import { EnneagramTypePageClient } from "./EnneagramTypePageClient";
 
+// Skip static generation to avoid build errors with expanded content
+export const dynamic = 'force-dynamic';
+
 interface EnneagramTypePageProps {
   params: Promise<{ type: string }>;
 }

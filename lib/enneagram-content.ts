@@ -891,11 +891,25 @@ export function getEnneagramTypeContent(typeNumber: string): EnneagramType | nul
   try {
     const expanded = require("./enneagram-content-expanded.json")[typeNumber];
     if (expanded) {
+      // Normalize likelyTypes - extract just the type name without parenthetical descriptions
+      let normalizedPrismCorrelation = expanded.prismCorrelation;
+      if (expanded.prismCorrelation?.likelyTypes) {
+        normalizedPrismCorrelation = {
+          ...expanded.prismCorrelation,
+          likelyTypes: expanded.prismCorrelation.likelyTypes.map((type: string) => {
+            // Extract just the type name before any parentheses or special chars
+            const cleanType = type.split(/[\s(]/)[0];
+            return cleanType || type;
+          })
+        };
+      }
+      
       // Merge expanded content with original, keeping original famousExamples with images
       return {
         ...original,
         ...expanded,
         famousExamples: original.famousExamples, // Keep original with image URLs
+        prismCorrelation: normalizedPrismCorrelation || original.prismCorrelation,
       };
     }
   } catch {
