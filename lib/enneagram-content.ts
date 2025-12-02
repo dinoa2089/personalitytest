@@ -881,9 +881,27 @@ export function getAllEnneagramTypes(): string[] {
 }
 
 /**
- * Get Enneagram type content by number
+ * Get Enneagram type content by number (uses expanded 7500+ word content)
  */
 export function getEnneagramTypeContent(typeNumber: string): EnneagramType | null {
-  return enneagramTypes[typeNumber] || null;
+  const original = enneagramTypes[typeNumber];
+  if (!original) return null;
+  
+  // Try to load expanded content
+  try {
+    const expanded = require("./enneagram-content-expanded.json")[typeNumber];
+    if (expanded) {
+      // Merge expanded content with original, keeping original famousExamples with images
+      return {
+        ...original,
+        ...expanded,
+        famousExamples: original.famousExamples, // Keep original with image URLs
+      };
+    }
+  } catch {
+    // Fall back to original if expanded content not available
+  }
+  
+  return original;
 }
 

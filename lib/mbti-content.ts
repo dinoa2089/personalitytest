@@ -1449,10 +1449,42 @@ export function getAllMBTITypes(): string[] {
 }
 
 /**
- * Get MBTI type content by code
+ * Get MBTI type content by code (uses expanded 7500+ word content)
  */
 export function getMBTITypeContent(code: string): MBTIType | null {
-  return mbtiTypes[code.toLowerCase()] || null;
+  const original = mbtiTypes[code.toLowerCase()];
+  if (!original) return null;
+  
+  // Try to load expanded content
+  try {
+    // Dynamic import of expanded content
+    const expanded = require("./mbti-content-expanded.json")[code.toLowerCase()];
+    if (expanded) {
+      // Normalize growthAdvice - convert objects to strings if needed
+      let normalizedGrowthAdvice = expanded.growthAdvice;
+      if (Array.isArray(expanded.growthAdvice) && expanded.growthAdvice.length > 0) {
+        if (typeof expanded.growthAdvice[0] === 'object' && expanded.growthAdvice[0] !== null) {
+          // Convert objects with advice/context to strings
+          normalizedGrowthAdvice = expanded.growthAdvice.map((item: { advice?: string; context?: string } | string) => {
+            if (typeof item === 'string') return item;
+            return item.advice ? `${item.advice}${item.context ? ' ' + item.context : ''}` : '';
+          }).filter(Boolean);
+        }
+      }
+
+      // Merge expanded content with original, keeping original famousExamples with images
+      return {
+        ...original,
+        ...expanded,
+        growthAdvice: normalizedGrowthAdvice || original.growthAdvice,
+        famousExamples: original.famousExamples, // Keep original with image URLs
+      };
+    }
+  } catch {
+    // Fall back to original if expanded content not available
+  }
+  
+  return original;
 }
 
 /**

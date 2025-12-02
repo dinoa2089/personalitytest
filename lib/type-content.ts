@@ -1,4 +1,98 @@
-import { archetypes, type Archetype } from "./archetypes";
+import { archetypes as originalArchetypes, type Archetype } from "./archetypes";
+
+// Helper type for expanded content items that may use 'title' or 'label'
+interface ContentItem {
+  title?: string;
+  label?: string;
+  description?: string;
+}
+
+// Type for expanded archetype with object-based strengths/growthAreas
+interface ExpandedArchetypeData {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string[];
+  strengths: ContentItem[] | string[];
+  growthAreas: ContentItem[] | string[];
+  careerMatches: Array<{ title: string; explanation: string }>;
+  workStyle: string;
+  relationshipStyle: string;
+  famousExamples: Array<{ name: string; role: string; image_url?: string }>;
+  communicationStyle: string;
+  atYourBest: string;
+  whenStressed: string;
+  pattern: { high: string[]; low: string[] };
+  color: string;
+  rarity: number;
+  icon: string;
+}
+
+// Helper to get the title/label from a content item
+function getItemTitle(item: ContentItem): string {
+  return item.title || item.label || '';
+}
+
+// Helper to normalize strengths/growthAreas to strings
+function normalizeToStrings(arr: ContentItem[] | string[]): string[] {
+  if (!Array.isArray(arr) || arr.length === 0) return [];
+  if (typeof arr[0] === 'string') return arr as string[];
+  return (arr as ContentItem[]).map(item => {
+    const title = getItemTitle(item);
+    return title ? `${title}: ${item.description || ''}`.trim() : (item.description || '');
+  });
+}
+
+// Helper to normalize to objects with title/description
+function normalizeToObjects(arr: ContentItem[] | string[]): Array<{ title: string; description: string }> {
+  if (!Array.isArray(arr) || arr.length === 0) return [];
+  if (typeof arr[0] === 'object' && arr[0] !== null) {
+    // Handle objects with either 'title' or 'label'
+    return (arr as ContentItem[]).map(item => ({
+      title: getItemTitle(item),
+      description: item.description || ''
+    }));
+  }
+  // Convert strings to objects
+  return (arr as string[]).map(s => {
+    const parts = s.split(':');
+    if (parts.length > 1) {
+      return { title: parts[0].trim(), description: parts.slice(1).join(':').trim() };
+    }
+    return { title: s.split(' ').slice(0, 3).join(' '), description: s };
+  });
+}
+
+// Load expanded archetypes (7500+ words per type)
+let expandedArchetypes: ExpandedArchetypeData[] | null = null;
+try {
+  expandedArchetypes = require("./archetypes-expanded.json");
+} catch {
+  // Fall back to original if expanded content not available
+}
+
+// Normalize expanded archetypes to match Archetype interface
+const archetypes: Archetype[] = expandedArchetypes 
+  ? expandedArchetypes.map((exp): Archetype => {
+      const original = originalArchetypes.find(o => o.id === exp.id);
+      return {
+        ...exp,
+        // Normalize strengths and growthAreas to strings for the base archetype
+        strengths: normalizeToStrings(exp.strengths),
+        growthAreas: normalizeToStrings(exp.growthAreas),
+        // Keep famousExamples from original for images
+        famousExamples: original?.famousExamples || exp.famousExamples,
+      };
+    })
+  : originalArchetypes;
+
+// Store the object-based versions for detailed content
+const expandedArchetypesMap: Record<string, ExpandedArchetypeData> = {};
+if (expandedArchetypes) {
+  expandedArchetypes.forEach(exp => {
+    expandedArchetypesMap[exp.id] = exp;
+  });
+}
 
 export interface TypePageContent {
   archetype: Archetype;
@@ -644,12 +738,24 @@ export function getTypePageContent(slug: string): TypePageContent | null {
   const archetype = archetypes.find(a => a.id === slug);
   if (!archetype) return null;
 
+  // Check for expanded content with object-based strengths/growthAreas
+  const expandedData = expandedArchetypesMap[slug];
+  
   const extended = extendedContent[slug] || defaultExtendedContent(archetype);
   const correlations = frameworkCorrelations[slug] || {
     mbtiTypes: [],
     enneagramTypes: [],
     description: `Explore how ${archetype.name} maps to other personality frameworks.`
   };
+
+  // Use expanded content for detailed strengths/growth areas if available
+  const detailedStrengths = expandedData 
+    ? normalizeToObjects(expandedData.strengths)
+    : extended.detailedStrengths || [];
+    
+  const detailedGrowthAreas = expandedData 
+    ? normalizeToObjects(expandedData.growthAreas)
+    : extended.detailedGrowthAreas || [];
 
   // Generate default FAQs if not provided
   const defaultFaqs = [
@@ -671,9 +777,9 @@ export function getTypePageContent(slug: string): TypePageContent | null {
     archetype,
     seoTitle: extended.seoTitle || `Am I ${archetype.name.replace("The ", "a")}? | Free Personality Test`,
     seoDescription: extended.seoDescription || archetype.tagline,
-    longDescription: extended.longDescription || archetype.description,
-    detailedStrengths: extended.detailedStrengths || [],
-    detailedGrowthAreas: extended.detailedGrowthAreas || [],
+    longDescription: expandedData?.description || extended.longDescription || archetype.description,
+    detailedStrengths,
+    detailedGrowthAreas,
     inRelationships: extended.inRelationships || {
       romantic: archetype.relationshipStyle,
       friendship: "",
