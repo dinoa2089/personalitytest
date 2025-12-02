@@ -600,13 +600,16 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                     You may find strong alignment with these PRISM-7 archetypes:
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {content.prismCorrelation.likelyTypes.map((type) => (
-                      <Link key={type} href={`/type/${type.toLowerCase()}`}>
-                        <Badge className="bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 cursor-pointer">
-                          {type}
-                        </Badge>
-                      </Link>
-                    ))}
+                    {content.prismCorrelation.likelyTypes.map((type) => {
+                      const typeStr = typeof type === 'string' ? type : String(type);
+                      return (
+                        <Link key={typeStr} href={`/type/${typeStr.toLowerCase()}`}>
+                          <Badge className="bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 cursor-pointer">
+                            {typeStr}
+                          </Badge>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </CardContent>

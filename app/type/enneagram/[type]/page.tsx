@@ -15,8 +15,9 @@ export async function generateMetadata({ params }: EnneagramTypePageProps): Prom
     return { title: "Type Not Found" };
   }
 
-  const title = `Enneagram Type ${content.number}: ${content.name} | Free Test`;
-  const description = `Are you an Enneagram Type ${content.number}? ${content.tagline}. Learn about ${content.name}'s core fears, desires, growth paths, and take our scientifically-validated personality test.`;
+  const typeName = typeof content.name === 'string' ? content.name : 'Unknown';
+  const title = `Enneagram Type ${content.number}: ${typeName} | Free Test`;
+  const description = `Are you an Enneagram Type ${content.number}? ${content.tagline}. Learn about ${typeName}'s core fears, desires, growth paths, and take our scientifically-validated personality test.`;
 
   return {
     title,
@@ -24,8 +25,8 @@ export async function generateMetadata({ params }: EnneagramTypePageProps): Prom
     keywords: [
       `enneagram type ${content.number}`,
       `enneagram ${content.number}`,
-      content.name.toLowerCase(),
-      `enneagram ${content.name.toLowerCase()}`,
+      typeName.toLowerCase(),
+      `enneagram ${typeName.toLowerCase()}`,
       "enneagram test",
       "enneagram personality",
       "personality test",
