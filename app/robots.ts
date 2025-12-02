@@ -20,8 +20,45 @@ export default function robots(): MetadataRoute.Robots {
           "/sign-up/",
         ],
       },
+      {
+        // Googlebot specific rules - allow everything we want indexed
+        userAgent: "Googlebot",
+        allow: [
+          "/",
+          "/type/",
+          "/blog/",
+          "/assessment/",
+          "/science/",
+          "/pricing/",
+          "/faq/",
+        ],
+        disallow: [
+          "/api/",
+          "/dashboard/",
+          "/business/",
+          "/results/",
+          "/sign-in/",
+          "/sign-up/",
+        ],
+      },
+      {
+        // Bingbot - same rules
+        userAgent: "Bingbot",
+        allow: [
+          "/",
+          "/type/",
+          "/blog/",
+          "/assessment/",
+        ],
+        disallow: [
+          "/api/",
+          "/dashboard/",
+          "/business/",
+          "/results/",
+        ],
+      },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }
-

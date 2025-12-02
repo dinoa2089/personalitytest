@@ -78,7 +78,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mx-auto max-w-6xl grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-              <div className="group relative rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-primary/30">
+              <Link href="/science" className="group relative rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-primary/30 cursor-pointer">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative">
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -91,9 +91,9 @@ export default function Home() {
                     Based on HEXACO+ model with 7 core dimensions. Transparent methodology with confidence intervals.
                   </p>
                 </div>
-              </div>
+              </Link>
               
-              <div className="group relative rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-primary/30">
+              <Link href="/science" className="group relative rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-primary/30 cursor-pointer">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative">
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/10 text-purple-600">
@@ -106,9 +106,9 @@ export default function Home() {
                     Get precise results in 40-60 questions instead of 280. Our algorithm adapts to your responses.
                   </p>
                 </div>
-              </div>
+              </Link>
               
-              <div className="group relative rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-primary/30">
+              <Link href="/science" className="group relative rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-primary/30 cursor-pointer">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative">
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-pink-500/10 text-pink-600">
@@ -121,9 +121,9 @@ export default function Home() {
                     Practical recommendations for career, relationships, and personal growth based on your unique profile.
                   </p>
                 </div>
-              </div>
+              </Link>
               
-              <div className="group relative rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-primary/30">
+              <Link href="/science" className="group relative rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:border-primary/30 cursor-pointer">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative">
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-600">
@@ -136,7 +136,7 @@ export default function Home() {
                     See how your results map to Myers-Briggs, CliftonStrengths, and Enneagram for familiar reference points.
                   </p>
                 </div>
-              </div>
+              </Link>
             </div>
           </Container>
         </section>
