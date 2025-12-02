@@ -169,20 +169,20 @@ export default function TypeHubPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-white border-slate-200 rounded-3xl overflow-hidden shadow-sm">
-              <CardHeader className="pb-4">
+            <Card className="!bg-white border-slate-200 rounded-3xl overflow-hidden shadow-sm">
+              <CardHeader className="pb-4 !bg-white">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500">
                     <Brain className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <CardTitle className="text-3xl font-bold text-slate-900">MBTI Types</CardTitle>
-                    <CardDescription className="text-slate-500">
+                    <CardTitle className="text-3xl font-bold !text-slate-900">MBTI Types</CardTitle>
+                    <CardDescription className="!text-slate-500">
                       16 Personality Types • Cognitive Functions
                     </CardDescription>
                   </div>
                 </div>
-                <p className="text-slate-600 mt-2">
+                <p className="!text-slate-600 mt-2">
                   Explore the popular Myers-Briggs framework with 16 distinct types. 
                   Understand cognitive functions, relationships, and career paths.
                 </p>
@@ -195,11 +195,11 @@ export default function TypeHubPage() {
                       href={`/type/mbti/${type.code.toLowerCase()}`}
                       className="group"
                     >
-                      <div className="bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-lg p-3 transition-all text-center">
-                        <h3 className="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">
+                      <div className="bg-white hover:bg-blue-50 border-2 border-slate-200 hover:border-blue-400 rounded-lg p-3 transition-all text-center shadow-sm">
+                        <h3 className="font-bold text-slate-800 text-sm group-hover:text-blue-600 transition-colors">
                           {type.code}
                         </h3>
-                        <p className="text-xs text-slate-500 truncate">{type.nickname}</p>
+                        <p className="text-xs text-slate-600 truncate">{type.nickname}</p>
                       </div>
                     </Link>
                   ))}
@@ -221,20 +221,20 @@ export default function TypeHubPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-white border-slate-200 rounded-3xl overflow-hidden shadow-sm">
-              <CardHeader className="pb-4">
+            <Card className="!bg-white border-slate-200 rounded-3xl overflow-hidden shadow-sm">
+              <CardHeader className="pb-4 !bg-white">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500">
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <CardTitle className="text-3xl font-bold text-slate-900">Enneagram Types</CardTitle>
-                    <CardDescription className="text-slate-500">
+                    <CardTitle className="text-3xl font-bold !text-slate-900">Enneagram Types</CardTitle>
+                    <CardDescription className="!text-slate-500">
                       9 Core Types • Wings & Growth Paths
                     </CardDescription>
                   </div>
                 </div>
-                <p className="text-slate-600 mt-2">
+                <p className="!text-slate-600 mt-2">
                   Discover the Enneagram's nine interconnected personality types. 
                   Explore core motivations, fears, and paths to personal growth.
                 </p>
@@ -247,16 +247,16 @@ export default function TypeHubPage() {
                       href={`/type/enneagram/${type.number}`}
                       className="group"
                     >
-                      <div className="bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all text-center">
-                        <h3 className="font-bold text-2xl text-slate-900 group-hover:text-emerald-600 transition-colors">
+                      <div className="bg-white hover:bg-emerald-50 border-2 border-slate-200 hover:border-emerald-400 rounded-lg p-3 transition-all text-center shadow-sm">
+                        <h3 className="font-bold text-2xl text-slate-800 group-hover:text-emerald-600 transition-colors">
                           {type.number}
                         </h3>
-                        <p className="text-xs text-slate-500 truncate">{type.name.replace("The ", "")}</p>
+                        <p className="text-xs text-slate-600 truncate">{type.name.replace("The ", "")}</p>
                       </div>
                     </Link>
                   ))}
                 </div>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm !text-slate-600">
                   The Enneagram focuses on core motivations and paths to growth. 
                   Each type has two "wings" and lines connecting to other types during stress and growth.
                 </p>
