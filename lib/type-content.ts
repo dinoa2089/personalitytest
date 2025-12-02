@@ -36,8 +36,8 @@ function getItemTitle(item: ContentItem): string {
 // Helper to normalize strengths/growthAreas to strings
 function normalizeToStrings(arr: ContentItem[] | string[]): string[] {
   if (!Array.isArray(arr) || arr.length === 0) return [];
-  if (typeof arr[0] === 'string') return arr as string[];
-  return (arr as ContentItem[]).map(item => {
+  return arr.map(item => {
+    if (typeof item === 'string') return item;
     const title = getItemTitle(item);
     return title ? `${title}: ${item.description || ''}`.trim() : (item.description || '');
   });
@@ -46,20 +46,19 @@ function normalizeToStrings(arr: ContentItem[] | string[]): string[] {
 // Helper to normalize to objects with title/description
 function normalizeToObjects(arr: ContentItem[] | string[]): Array<{ title: string; description: string }> {
   if (!Array.isArray(arr) || arr.length === 0) return [];
-  if (typeof arr[0] === 'object' && arr[0] !== null) {
+  return arr.map(item => {
+    if (typeof item === 'string') {
+      const parts = item.split(':');
+      if (parts.length > 1) {
+        return { title: parts[0].trim(), description: parts.slice(1).join(':').trim() };
+      }
+      return { title: item.split(' ').slice(0, 3).join(' '), description: item };
+    }
     // Handle objects with either 'title' or 'label'
-    return (arr as ContentItem[]).map(item => ({
+    return {
       title: getItemTitle(item),
       description: item.description || ''
-    }));
-  }
-  // Convert strings to objects
-  return (arr as string[]).map(s => {
-    const parts = s.split(':');
-    if (parts.length > 1) {
-      return { title: parts[0].trim(), description: parts.slice(1).join(':').trim() };
-    }
-    return { title: s.split(' ').slice(0, 3).join(' '), description: s };
+    };
   });
 }
 
