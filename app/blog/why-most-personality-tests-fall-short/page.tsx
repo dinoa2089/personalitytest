@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, Calendar, User, Share2, BookOpen } from "lucide-react";
+import { NormalDistributionChart, ReliabilityChart, ComparisonPanel } from "@/components/visualizations";
 import Link from "next/link";
 
 export default function WhyMostPersonalityTestsFallShortPage() {
@@ -107,6 +108,11 @@ export default function WhyMostPersonalityTestsFallShortPage() {
               More recent meta-analyses have confirmed these concerns.
             </p>
 
+            {/* Reliability Chart Visualization */}
+            <div className="my-10 not-prose">
+              <ReliabilityChart showTitle={true} />
+            </div>
+
             <h3 className="text-xl font-semibold mt-8 mb-3">2. The False Dichotomy Problem</h3>
             
             <p>
@@ -128,6 +134,11 @@ export default function WhyMostPersonalityTestsFallShortPage() {
               under is "short." A person who is 5'7.5" would be classified as fundamentally 
               different from someone who is 5'6.5", despite being nearly identical.
             </p>
+
+            {/* Normal Distribution Chart */}
+            <div className="my-10 not-prose">
+              <NormalDistributionChart showTitle={true} />
+            </div>
 
             <h3 className="text-xl font-semibold mt-8 mb-3">3. The Barnum Effect</h3>
             
@@ -169,6 +180,11 @@ export default function WhyMostPersonalityTestsFallShortPage() {
                 without acknowledging measurement uncertainty.
               </li>
             </ul>
+
+            {/* Comparison Summary Panel */}
+            <div className="my-10 not-prose">
+              <ComparisonPanel showTitle={true} compact={true} />
+            </div>
 
             <h2 className="text-2xl font-bold mt-12 mb-4">What Does Good Personality Science Look Like?</h2>
             

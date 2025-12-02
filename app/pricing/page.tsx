@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { toast } from "react-hot-toast";
 import Link from "next/link";
+import { ReliabilityChart } from "@/components/visualizations";
 
 // Individual Pricing
 const individualPlans = [
@@ -346,6 +347,12 @@ export default function PricingPage() {
                 Get the same (or better) insights for a fraction of the price
               </p>
             </div>
+            
+            {/* Scientific Reliability Comparison */}
+            <div className="mb-8">
+              <ReliabilityChart showTitle={true} />
+            </div>
+            
             <Card className="overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">

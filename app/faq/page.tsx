@@ -1,7 +1,10 @@
+"use client";
+
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/layout/Container";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { DimensionsWheel, ProcessFlow } from "@/components/visualizations";
 
 const faqs = [
   {
@@ -54,6 +57,16 @@ export default function FAQPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Visual Aid - The 7 Dimensions */}
+          <div className="mt-12">
+            <DimensionsWheel showTitle={true} />
+          </div>
+
+          {/* How It Works */}
+          <div className="mt-8">
+            <ProcessFlow showTitle={true} variant="horizontal" />
           </div>
         </div>
       </Container>

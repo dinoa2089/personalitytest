@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAssessmentStore } from "@/store/assessment-store";
+import { ProcessFlow, DimensionsWheel } from "@/components/visualizations";
 
 type AssessmentType = "quick" | "full";
 
@@ -189,6 +190,22 @@ function AssessmentIntroContent() {
                   Receive actionable insights for your career, relationships, and personal growth.
                 </p>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* How It Works - Process Flow */}
+          <ProcessFlow showTitle={true} variant="horizontal" className="mt-8" />
+
+          {/* Dimensions Preview */}
+          <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-2xl">The 7 Dimensions You'll Discover</CardTitle>
+              <CardDescription className="text-base">
+                Click any dimension to learn more about what it measures
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <DimensionsWheel showTitle={false} />
             </CardContent>
           </Card>
 
