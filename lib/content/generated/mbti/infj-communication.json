@@ -49,7 +49,10 @@
       "subsections": [
         {
           "heading": "The INFJ Phrasebook",
-          "content": "Common phrases you likely use:\n*   **\"I have a feeling that...\"** (Code for: My intuition has spotted a pattern, but I don't have the concrete data to prove it yet.)\n*   **\"Does that make sense?\"** (Code for: I just translated a complex abstract image into words, and I need to know if the translation landed.)\n*   **\"I need to sit with that.\"** (Code for: I cannot give you an authentic answer until I process this alone.)"
+          "content": {
+            "title": "Common phrases you likely use",
+            "description": "*   **\"I have a feeling that...\"** (Code for: My intuition has spotted a pattern, but I don't have the concrete data to prove it yet.)\n*   **\"Does that make sense?\"** (Code for: I just translated a complex abstract image into words, and I need to know if the translation landed.)\n*   **\"I need to sit with that.\"** (Code for: I cannot give you an authentic answer until I process this alone.)"
+          }
         },
         {
           "heading": "Scripts for Difficult Conversations",

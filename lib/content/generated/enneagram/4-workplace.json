@@ -14,7 +14,10 @@
     "Enneagram 4 career advice",
     "Enneagram 4 leadership style"
   ],
-  "introduction": "You know the feeling intimately: walking into an office that feels sterile, surrounded by people who seem content to simply go through the motions, and feeling a quiet, persistent ache for something *more*. For the Enneagram Type 4, work is never just a transaction of time for money; it is a theater for identity, a canvas for expression, and a search for significance. You bring a profound depth to your professional life that few other types can match. While others may be satisfied with checking boxes and hitting metrics, you are constantly scanning the horizon for the meaning behind the data, the human story within the product, and the aesthetic soul of the brand. You don't just want to do a job; you want your work to be a true reflection of who you are, an extension of your authentic self that leaves a unique fingerprint on the world.\n\nHowever, this deep desire for authenticity can be a double-edged sword in the corporate world. You likely struggle with the mundane aspects of professional life—the repetitive tasks, the impersonal policies, and the requirement to show up and perform even when your internal emotional landscape feels like a stormy sea. You might find yourself looking at colleagues who seem to breeze through the day with effortless consistency and feeling a pang of envy, wondering why you feel so fundamentally different or why 'ordinary' work feels so draining to you. This sense of being an outsider is a hallmark of the Type 4 - The Individualist professional experience, but it is also the source of your greatest power.\n\nWhen you learn to harness your emotional intelligence and creative vision, you become an irreplaceable asset. You are the one who notices when a team member is silently struggling, the one who refuses to let a project lose its soul for the sake of efficiency, and the one who can articulate the emotional resonance of a vision that inspires others to action. This guide is designed to help you navigate the friction between your unique nature and the demands of the workplace, transforming your sensitivity into your most potent professional tool.",
+  "introduction": {
+    "title": "You know the feeling intimately",
+    "description": "walking into an office that feels sterile, surrounded by people who seem content to simply go through the motions, and feeling a quiet, persistent ache for something *more*. For the Enneagram Type 4, work is never just a transaction of time for money; it is a theater for identity, a canvas for expression, and a search for significance. You bring a profound depth to your professional life that few other types can match. While others may be satisfied with checking boxes and hitting metrics, you are constantly scanning the horizon for the meaning behind the data, the human story within the product, and the aesthetic soul of the brand. You don't just want to do a job; you want your work to be a true reflection of who you are, an extension of your authentic self that leaves a unique fingerprint on the world.\n\nHowever, this deep desire for authenticity can be a double-edged sword in the corporate world. You likely struggle with the mundane aspects of professional life—the repetitive tasks, the impersonal policies, and the requirement to show up and perform even when your internal emotional landscape feels like a stormy sea. You might find yourself looking at colleagues who seem to breeze through the day with effortless consistency and feeling a pang of envy, wondering why you feel so fundamentally different or why 'ordinary' work feels so draining to you. This sense of being an outsider is a hallmark of the Type 4 - The Individualist professional experience, but it is also the source of your greatest power.\n\nWhen you learn to harness your emotional intelligence and creative vision, you become an irreplaceable asset. You are the one who notices when a team member is silently struggling, the one who refuses to let a project lose its soul for the sake of efficiency, and the one who can articulate the emotional resonance of a vision that inspires others to action. This guide is designed to help you navigate the friction between your unique nature and the demands of the workplace, transforming your sensitivity into your most potent professional tool."
+  },
   "sections": [
     {
       "heading": "Workplace Strengths",
@@ -64,12 +67,30 @@
     }
   ],
   "keyTakeaways": [
-    "Bring your unique 'soul' to work: Your ability to humanize data and aestheticize projects is your competitive advantage.",
-    "Beware the comparison trap: Envy is a distraction. Focus on your own craft and contribution rather than what others are receiving.",
-    "Discipline is self-love: Moving toward Type 1 (structure and routine) actually frees you to be more creative and effective.",
-    "Translate intuition into strategy: Learn to explain your 'feelings' about a project using business logic and objectives.",
-    "Don't wait for the mood: Action creates inspiration, not the other way around. Start the work, and the creative flow will follow.",
-    "Separate criticism from identity: Your work is what you do, not who you are. Feedback is about the output, not your worth."
+    {
+      "title": "Bring your unique 'soul' to work",
+      "description": "Your ability to humanize data and aestheticize projects is your competitive advantage."
+    },
+    {
+      "title": "Beware the comparison trap",
+      "description": "Envy is a distraction. Focus on your own craft and contribution rather than what others are receiving."
+    },
+    {
+      "title": "Discipline is self-love",
+      "description": "Moving toward Type 1 (structure and routine) actually frees you to be more creative and effective."
+    },
+    {
+      "title": "Translate intuition into strategy",
+      "description": "Learn to explain your 'feelings' about a project using business logic and objectives."
+    },
+    {
+      "title": "Don't wait for the mood",
+      "description": "Action creates inspiration, not the other way around. Start the work, and the creative flow will follow."
+    },
+    {
+      "title": "Separate criticism from identity",
+      "description": "Your work is what you do, not who you are. Feedback is about the output, not your worth."
+    }
   ],
   "relatedTopics": [
     "learning",

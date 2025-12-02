@@ -13,11 +13,17 @@
     "ESFP cognitive functions",
     "ESFP career strengths"
   ],
-  "introduction": "Picture the stereotypical corporate executive: stoic, detached, hidden behind a mahogany desk, analyzing spreadsheets in silence. Now, shatter that image completely. That is not you. As an ESFP, your leadership presence is a physical force that changes the temperature of the room the moment you walk in. You don't lead from a tower; you lead from the trenches, right in the thick of the action, with your sleeves rolled up and a genuine smile that puts even the most nervous intern at ease. You possess a rare magnetic quality that draws people in, making them want to follow you not because of your title, but because of the sheer vitality you bring to the work environment.\n\nYour approach to management is fundamentally human-centric and action-oriented. While other types might get bogged down in theoretical frameworks or five-year projections, you are the master of the 'now.' You see what is happening right in front of you—the morale dip in the marketing department, the client who needs immediate reassurance, the logistical bottleneck that needs a quick fix—and you address it instantly. This ability to read the room and respond with agility is your superpower. You treat your team not as cogs in a machine, but as a cast of characters in an unfolding story, ensuring that everyone feels seen, heard, and appreciated.\n\nHowever, stepping into a leadership role can sometimes feel unnatural for the ESFP - The Entertainer. You value equality and fun, and the idea of enforcing rules or delivering harsh criticism can feel like a betrayal of your core nature. You might worry that 'being the boss' means losing your spark or becoming rigid. But the truth is, the business world is desperate for exactly what you offer: emotional intelligence, adaptability, and an infectious enthusiasm that can turn a sluggish team into a high-performing powerhouse. This guide explores how to harness your natural gifts to become the kind of leader who doesn't just manage people, but truly inspires them.",
+  "introduction": {
+    "title": "Picture the stereotypical corporate executive",
+    "description": "stoic, detached, hidden behind a mahogany desk, analyzing spreadsheets in silence. Now, shatter that image completely. That is not you. As an ESFP, your leadership presence is a physical force that changes the temperature of the room the moment you walk in. You don't lead from a tower; you lead from the trenches, right in the thick of the action, with your sleeves rolled up and a genuine smile that puts even the most nervous intern at ease. You possess a rare magnetic quality that draws people in, making them want to follow you not because of your title, but because of the sheer vitality you bring to the work environment.\n\nYour approach to management is fundamentally human-centric and action-oriented. While other types might get bogged down in theoretical frameworks or five-year projections, you are the master of the 'now.' You see what is happening right in front of you—the morale dip in the marketing department, the client who needs immediate reassurance, the logistical bottleneck that needs a quick fix—and you address it instantly. This ability to read the room and respond with agility is your superpower. You treat your team not as cogs in a machine, but as a cast of characters in an unfolding story, ensuring that everyone feels seen, heard, and appreciated.\n\nHowever, stepping into a leadership role can sometimes feel unnatural for the ESFP - The Entertainer. You value equality and fun, and the idea of enforcing rules or delivering harsh criticism can feel like a betrayal of your core nature. You might worry that 'being the boss' means losing your spark or becoming rigid. But the truth is, the business world is desperate for exactly what you offer: emotional intelligence, adaptability, and an infectious enthusiasm that can turn a sluggish team into a high-performing powerhouse. This guide explores how to harness your natural gifts to become the kind of leader who doesn't just manage people, but truly inspires them."
+  },
   "sections": [
     {
       "heading": "Natural Leadership Strengths",
-      "content": "Imagine a high-stakes scenario: a major product launch event where the technology fails ten minutes before the keynote. While the INTJ leader is frantically analyzing the root cause logs and the ISTJ is checking the contract for liability clauses, you are already in motion. You’ve grabbed a microphone to distract the crowd with humor, you’ve signaled the AV team to switch to the backup plan you intuitively knew to have ready, and you’ve poured a drink for the stressed-out keynote speaker to calm their nerves. This is the essence of the ESFP - The Entertainer leadership style. You possess a sensory intelligence—driven by your dominant Extraverted Sensing (Se)—that allows you to process chaotic environments faster than almost any other type. You don't freeze; you act.\n\nThis bias toward action is coupled with a profound emotional radar. You can walk into a Monday morning meeting and immediately sense the tension between two colleagues before a word is spoken. Because of your auxiliary Introverted Feeling (Fi), you prioritize authenticity and emotional resonance. You know that a team that feels good performs good. You aren't the leader who sends a cold email about productivity numbers; you're the one who buys lunch for the team after a hard week, sits down at their desks to ask how their kids are, and genuinely listens to the answer. This builds a reservoir of loyalty that authoritarian leaders can only dream of.\n\nFurthermore, your adaptability is a massive strategic asset in today's volatile market. Traditional leadership models often rely on rigid long-term planning that falls apart when reality hits. You, however, thrive in the pivot. You treat business like jazz improvisation rather than a classical symphony. If a client changes their mind or a supply chain breaks, you don't waste time lamenting the disruption. You immediately scan the environment for new resources and solutions, often turning the crisis into an opportunity to impress stakeholders with your responsiveness.",
+      "content": {
+        "title": "Imagine a high-stakes scenario",
+        "description": "a major product launch event where the technology fails ten minutes before the keynote. While the INTJ leader is frantically analyzing the root cause logs and the ISTJ is checking the contract for liability clauses, you are already in motion. You’ve grabbed a microphone to distract the crowd with humor, you’ve signaled the AV team to switch to the backup plan you intuitively knew to have ready, and you’ve poured a drink for the stressed-out keynote speaker to calm their nerves. This is the essence of the ESFP - The Entertainer leadership style. You possess a sensory intelligence—driven by your dominant Extraverted Sensing (Se)—that allows you to process chaotic environments faster than almost any other type. You don't freeze; you act.\n\nThis bias toward action is coupled with a profound emotional radar. You can walk into a Monday morning meeting and immediately sense the tension between two colleagues before a word is spoken. Because of your auxiliary Introverted Feeling (Fi), you prioritize authenticity and emotional resonance. You know that a team that feels good performs good. You aren't the leader who sends a cold email about productivity numbers; you're the one who buys lunch for the team after a hard week, sits down at their desks to ask how their kids are, and genuinely listens to the answer. This builds a reservoir of loyalty that authoritarian leaders can only dream of.\n\nFurthermore, your adaptability is a massive strategic asset in today's volatile market. Traditional leadership models often rely on rigid long-term planning that falls apart when reality hits. You, however, thrive in the pivot. You treat business like jazz improvisation rather than a classical symphony. If a client changes their mind or a supply chain breaks, you don't waste time lamenting the disruption. You immediately scan the environment for new resources and solutions, often turning the crisis into an opportunity to impress stakeholders with your responsiveness."
+      },
       "subsections": [
         {
           "heading": "The Crisis Manager",
@@ -137,12 +143,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Lead with Energy:** Your enthusiasm is your greatest asset; use it to infect the team with optimism and drive.",
-    "**Master the Pause:** Counteract your impulsivity by implementing a '24-hour rule' for major strategic decisions.",
-    "**Prioritize Hard Feedback:** Don't let your desire to be liked prevent you from helping your team grow through honest critique.",
-    "**Hire Your Opposites:** Surround yourself with strategic, detail-oriented types (like ISTJs or INTJs) to handle the long-term planning and logistics.",
-    "**Stay Visible:** You lead best from the floor, not the tower. Keep your management style tactile and interactive.",
-    "**Leverage Crisis:** Shine in moments of chaos; your calm, practical action during emergencies builds immense trust."
+    {
+      "title": "Lead with Energy:",
+      "description": "Your enthusiasm is your greatest asset; use it to infect the team with optimism and drive."
+    },
+    {
+      "title": "Master the Pause:",
+      "description": "Counteract your impulsivity by implementing a '24-hour rule' for major strategic decisions."
+    },
+    {
+      "title": "Prioritize Hard Feedback:",
+      "description": "Don't let your desire to be liked prevent you from helping your team grow through honest critique."
+    },
+    {
+      "title": "Hire Your Opposites:",
+      "description": "Surround yourself with strategic, detail-oriented types (like ISTJs or INTJs) to handle the long-term planning and logistics."
+    },
+    {
+      "title": "Stay Visible:",
+      "description": "You lead best from the floor, not the tower. Keep your management style tactile and interactive."
+    },
+    {
+      "title": "Leverage Crisis:",
+      "description": "Shine in moments of chaos; your calm, practical action during emergencies builds immense trust."
+    }
   ],
   "relatedTopics": [
     "learning",

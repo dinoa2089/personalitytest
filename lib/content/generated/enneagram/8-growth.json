@@ -3,7 +3,10 @@
   "type": "8",
   "framework": "enneagram",
   "topic": "growth",
-  "title": "Unleashing True Power: A Comprehensive Guide to Type 8 - The Challenger Personal Growth",
+  "title": {
+    "title": "Unleashing True Power",
+    "description": "A Comprehensive Guide to Type 8 - The Challenger Personal Growth"
+  },
   "metaDescription": "Discover the path to magnanimity with our Type 8 - The Challenger personal growth guide. Learn to harness your strength, embrace vulnerability, and lead with heart.",
   "keywords": [
     "Type 8 - The Challenger personal growth",
@@ -100,13 +103,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Redefine Strength:** True power includes the courage to be vulnerable and admit mistakes.",
-    "**The Pause is Power:** Learn to insert a gap between your gut impulse and your action to prevent destructive reactivity.",
-    "**Integrate Type 2:** Move toward growth by using your strength to serve, nurture, and empower others rather than dominate them.",
-    "**Watch the Withdrawal:** Notice when you are retreating into secrecy (Type 5 stress) and force yourself to connect.",
-    "**Somatic Awareness:** reconnect with your body to feel emotions like sadness and fear, rather than converting everything into anger.",
-    "**The 30-Day Challenge:** Practice asking questions instead of giving orders and offering specific appreciation to soften your approach.",
-    "**Legacy of Love:** Your ultimate growth is becoming a magnanimous leader who fights for others with a heart as open as it is strong."
+    {
+      "title": "Redefine Strength:",
+      "description": "True power includes the courage to be vulnerable and admit mistakes."
+    },
+    {
+      "title": "The Pause is Power:",
+      "description": "Learn to insert a gap between your gut impulse and your action to prevent destructive reactivity."
+    },
+    {
+      "title": "Integrate Type 2:",
+      "description": "Move toward growth by using your strength to serve, nurture, and empower others rather than dominate them."
+    },
+    {
+      "title": "Watch the Withdrawal:",
+      "description": "Notice when you are retreating into secrecy (Type 5 stress) and force yourself to connect."
+    },
+    {
+      "title": "Somatic Awareness:",
+      "description": "reconnect with your body to feel emotions like sadness and fear, rather than converting everything into anger."
+    },
+    {
+      "title": "The 30-Day Challenge:",
+      "description": "Practice asking questions instead of giving orders and offering specific appreciation to soften your approach."
+    },
+    {
+      "title": "Legacy of Love:",
+      "description": "Your ultimate growth is becoming a magnanimous leader who fights for others with a heart as open as it is strong."
+    }
   ],
   "relatedTopics": [
     "learning",

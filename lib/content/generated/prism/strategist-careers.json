@@ -88,11 +88,26 @@
     }
   ],
   "keyTakeaways": [
-    "**Your Superpower is Execution:** Ideas are cheap; your ability to turn them into reality is your greatest career asset.",
-    "**Seek Structure:** You thrive in environments with clear hierarchies, processes, and long-term goals. Avoid chronic chaos.",
-    "**The \"Adult in the Room\":** Your emotional resilience allows you to lead effectively during crises when others are panicking.",
-    "**Data over Drama:** Use your love for facts and preparation to negotiate salaries and promotions effectively.",
-    "**Partner with Visionaries:** In entrepreneurship or management, pair yourself with big-picture thinkers. You provide the roadmap for their destination."
+    {
+      "title": "Your Superpower is Execution:",
+      "description": "Ideas are cheap; your ability to turn them into reality is your greatest career asset."
+    },
+    {
+      "title": "Seek Structure:",
+      "description": "You thrive in environments with clear hierarchies, processes, and long-term goals. Avoid chronic chaos."
+    },
+    {
+      "title": "The \"Adult in the Room\":",
+      "description": "Your emotional resilience allows you to lead effectively during crises when others are panicking."
+    },
+    {
+      "title": "Data over Drama:",
+      "description": "Use your love for facts and preparation to negotiate salaries and promotions effectively."
+    },
+    {
+      "title": "Partner with Visionaries:",
+      "description": "In entrepreneurship or management, pair yourself with big-picture thinkers. You provide the roadmap for their destination."
+    }
   ],
   "relatedTopics": [
     "learning",

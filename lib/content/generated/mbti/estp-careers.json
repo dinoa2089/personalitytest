@@ -98,13 +98,34 @@
     }
   ],
   "keyTakeaways": [
-    "ESTPs thrive in chaos: Look for careers in crisis management, sales, or emergency services where quick thinking is rewarded.",
-    "Avoid the cage: Routine, isolation, and micromanagement are the enemies of ESTP productivity.",
-    "Leverage the 'Fixer' mentality: You excel at troubleshooting and practical solutions, not abstract theory.",
-    "Sales is a natural fit: Your ability to read people and negotiate makes you a top-tier revenue generator.",
-    "Partner up: To succeed in entrepreneurship, find a detail-oriented partner to handle the administration while you handle the growth.",
-    "Interview with stories: Win jobs by narrating specific examples of how you saved the day in previous roles.",
-    "Action over planning: You learn by doing. Don't wait for the perfect plan; take the job that lets you start experimenting immediately."
+    {
+      "title": "ESTPs thrive in chaos",
+      "description": "Look for careers in crisis management, sales, or emergency services where quick thinking is rewarded."
+    },
+    {
+      "title": "Avoid the cage",
+      "description": "Routine, isolation, and micromanagement are the enemies of ESTP productivity."
+    },
+    {
+      "title": "Leverage the 'Fixer' mentality",
+      "description": "You excel at troubleshooting and practical solutions, not abstract theory."
+    },
+    {
+      "title": "Sales is a natural fit",
+      "description": "Your ability to read people and negotiate makes you a top-tier revenue generator."
+    },
+    {
+      "title": "Partner up",
+      "description": "To succeed in entrepreneurship, find a detail-oriented partner to handle the administration while you handle the growth."
+    },
+    {
+      "title": "Interview with stories",
+      "description": "Win jobs by narrating specific examples of how you saved the day in previous roles."
+    },
+    {
+      "title": "Action over planning",
+      "description": "You learn by doing. Don't wait for the perfect plan; take the job that lets you start experimenting immediately."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -12,7 +12,10 @@
     "Type 5 - The Investigator how to learn",
     "Type 5 - The Investigator study methods"
   ],
-  "introduction": "You know the feeling well: the sudden, electric thrill of discovering a new subject that captures your imagination. It starts as a small curiosity—perhaps a footnote in a book or a passing comment in a lecture—and before you know it, you have vanished down a rabbit hole of research. Hours dissolve into minutes as you pull thread after thread, constructing a mental map of this new territory. For you, the world is not just a place to inhabit; it is a puzzle to be solved, a complex mechanism to be dismantled and understood. You are not content with surface-level summaries or convenient platitudes. You crave the source code of reality. This is the hallmark of the Type 5 - The Investigator learning style: a relentless, piercing drive for competence and mastery.\n\nHowever, you likely also know the isolation that can accompany this quest. In a traditional classroom or a bustling corporate training seminar, you might feel like an alien observer looking through a glass pane. While others are energized by group brainstorming and social learning, you feel your internal battery draining rapidly. You find yourself wishing everyone would stop talking so you could just sit alone with the data and actually *think*. You may have been told you are too quiet, too detached, or that you overthink simple tasks. These aren't flaws; they are the side effects of a mind designed for deep, vertical processing rather than broad, horizontal skimming.\n\nThis guide is designed to validate your unique cognitive architecture. We aren't going to try to force you to become a social butterfly or a group-project enthusiast. Instead, we will explore how to leverage your natural strengths—your focus, your objectivity, and your analytical prowess—while mitigating the risks of analysis paralysis and withdrawal. Whether you are navigating formal education or pursuing self-directed mastery, understanding the mechanics of your own mind is the first step toward becoming not just a learner, but a visionary expert.",
+  "introduction": {
+    "title": "You know the feeling well",
+    "description": "the sudden, electric thrill of discovering a new subject that captures your imagination. It starts as a small curiosity—perhaps a footnote in a book or a passing comment in a lecture—and before you know it, you have vanished down a rabbit hole of research. Hours dissolve into minutes as you pull thread after thread, constructing a mental map of this new territory. For you, the world is not just a place to inhabit; it is a puzzle to be solved, a complex mechanism to be dismantled and understood. You are not content with surface-level summaries or convenient platitudes. You crave the source code of reality. This is the hallmark of the Type 5 - The Investigator learning style: a relentless, piercing drive for competence and mastery.\n\nHowever, you likely also know the isolation that can accompany this quest. In a traditional classroom or a bustling corporate training seminar, you might feel like an alien observer looking through a glass pane. While others are energized by group brainstorming and social learning, you feel your internal battery draining rapidly. You find yourself wishing everyone would stop talking so you could just sit alone with the data and actually *think*. You may have been told you are too quiet, too detached, or that you overthink simple tasks. These aren't flaws; they are the side effects of a mind designed for deep, vertical processing rather than broad, horizontal skimming.\n\nThis guide is designed to validate your unique cognitive architecture. We aren't going to try to force you to become a social butterfly or a group-project enthusiast. Instead, we will explore how to leverage your natural strengths—your focus, your objectivity, and your analytical prowess—while mitigating the risks of analysis paralysis and withdrawal. Whether you are navigating formal education or pursuing self-directed mastery, understanding the mechanics of your own mind is the first step toward becoming not just a learner, but a visionary expert."
+  },
   "sections": [
     {
       "heading": "Overview of Learning Preferences: The Architect of Ideas",
@@ -90,12 +93,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace Vertical Learning:** Your strength is depth. Don't apologize for needing to understand the underlying systems before moving forward.",
-    "**Curate Your Environment:** Protect your focus with boundaries, noise cancellation, and solitude. Your environment dictates your retention.",
-    "**Beware Analysis Paralysis:** Set strict time limits on research to force yourself into the application/creation phase.",
-    "**Connect Concepts:** Use mind-mapping and system-thinking to leverage your natural ability to synthesize complex information.",
-    "**Honor Your Energy:** You have a limited social battery. Budget your energy for interaction so you don't burn out during the learning process.",
-    "**Move to Growth (Type 8):** Challenge yourself to embody your knowledge. Take action, speak up, and apply what you've learned physically and socially."
+    {
+      "title": "Embrace Vertical Learning:",
+      "description": "Your strength is depth. Don't apologize for needing to understand the underlying systems before moving forward."
+    },
+    {
+      "title": "Curate Your Environment:",
+      "description": "Protect your focus with boundaries, noise cancellation, and solitude. Your environment dictates your retention."
+    },
+    {
+      "title": "Beware Analysis Paralysis:",
+      "description": "Set strict time limits on research to force yourself into the application/creation phase."
+    },
+    {
+      "title": "Connect Concepts:",
+      "description": "Use mind-mapping and system-thinking to leverage your natural ability to synthesize complex information."
+    },
+    {
+      "title": "Honor Your Energy:",
+      "description": "You have a limited social battery. Budget your energy for interaction so you don't burn out during the learning process."
+    },
+    {
+      "title": "Move to Growth (Type 8):",
+      "description": "Challenge yourself to embody your knowledge. Take action, speak up, and apply what you've learned physically and socially."
+    }
   ],
   "relatedTopics": [
     "careers",

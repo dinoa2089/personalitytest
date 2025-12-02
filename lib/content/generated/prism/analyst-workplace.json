@@ -23,7 +23,10 @@
       "subsections": [
         {
           "heading": "Core Professional Assets",
-          "content": "**Systematic Diagnostics:** You don't just fix symptoms; you identify root causes. Whether it’s a bug in the code, a flaw in the supply chain, or a leak in the budget, you trace the error back to its source.\n\n**Objective Decision Making:** You possess the ability to decouple your ego from your work. If data proves your initial hypothesis wrong, you discard it immediately. This intellectual honesty builds immense trust over time.\n\n**High-Yield Output:** Because you detest inefficiency, you often automate or streamline processes. You are the employee who spends two days writing a script that eventually saves the department 200 hours of manual labor a year.\n\n**Crisis Calm:** When emotional contagion spreads panic through a team, your low neuroticism and analytical detachment allow you to function as the eye of the storm, focusing on logistical next steps rather than catastrophic \"what-ifs.\""
+          "content": {
+            "title": "Systematic Diagnostics:",
+            "description": "You don't just fix symptoms; you identify root causes. Whether it’s a bug in the code, a flaw in the supply chain, or a leak in the budget, you trace the error back to its source.\n\n**Objective Decision Making:** You possess the ability to decouple your ego from your work. If data proves your initial hypothesis wrong, you discard it immediately. This intellectual honesty builds immense trust over time.\n\n**High-Yield Output:** Because you detest inefficiency, you often automate or streamline processes. You are the employee who spends two days writing a script that eventually saves the department 200 hours of manual labor a year.\n\n**Crisis Calm:** When emotional contagion spreads panic through a team, your low neuroticism and analytical detachment allow you to function as the eye of the storm, focusing on logistical next steps rather than catastrophic \"what-ifs.\""
+          }
         }
       ]
     },
@@ -33,7 +36,10 @@
       "subsections": [
         {
           "heading": "Environment & Culture Fit",
-          "content": "**Autonomy Over Micromanagement:** You need a boss who says, \"Here is the goal, see you in a week,\" rather than one who asks for hourly updates. You function best when judged on output, not visibility.\n\n**Meritocratic Culture:** You struggle in organizations driven by nepotism or popularity. You thrive where the best idea wins, regardless of who proposed it.\n\n**Low-Context Communication:** You prefer cultures that value written, explicit documentation (like Amazon's memo culture) over oral, implicit, and high-context communication styles.\n\n**Quiet Spaces:** An open-plan office with constant interruptions is your kryptonite. You need access to quiet zones or a robust work-from-home policy to reach your peak cognitive performance."
+          "content": {
+            "title": "Autonomy Over Micromanagement:",
+            "description": "You need a boss who says, \"Here is the goal, see you in a week,\" rather than one who asks for hourly updates. You function best when judged on output, not visibility.\n\n**Meritocratic Culture:** You struggle in organizations driven by nepotism or popularity. You thrive where the best idea wins, regardless of who proposed it.\n\n**Low-Context Communication:** You prefer cultures that value written, explicit documentation (like Amazon's memo culture) over oral, implicit, and high-context communication styles.\n\n**Quiet Spaces:** An open-plan office with constant interruptions is your kryptonite. You need access to quiet zones or a robust work-from-home policy to reach your peak cognitive performance."
+          }
         }
       ]
     },
@@ -43,7 +49,10 @@
       "subsections": [
         {
           "heading": "How You Show Up for Others",
-          "content": "**The Knowledge Base:** You are likely the person everyone Slacks when they need a specific file, a historical data point, or a technical explanation. You are the team's external hard drive.\n\n**The Editor:** Colleagues learn to bring their work to you before showing it to the boss. They know you will spot the typos, the logic gaps, and the formatting errors.\n\n**The Stabilizer:** In high-drama situations, your lack of emotional reactivity is calming. You don't feed the rumor mill, and you don't panic."
+          "content": {
+            "title": "The Knowledge Base:",
+            "description": "You are likely the person everyone Slacks when they need a specific file, a historical data point, or a technical explanation. You are the team's external hard drive.\n\n**The Editor:** Colleagues learn to bring their work to you before showing it to the boss. They know you will spot the typos, the logic gaps, and the formatting errors.\n\n**The Stabilizer:** In high-drama situations, your lack of emotional reactivity is calming. You don't feed the rumor mill, and you don't panic."
+          }
         }
       ]
     },
@@ -53,7 +62,10 @@
       "subsections": [
         {
           "heading": "Collaboration Best Practices",
-          "content": "**The \"Let Me Think On That\" Tactic:** If pressed for an immediate answer in a meeting, buy yourself time. \"That's an interesting variable. Let me run the numbers and get back to you by EOD.\" This protects your need for accuracy.\n\n**The \"Sandwich\" Method (Modified):** You hate fluff, but others need it. When delivering critique, try to frame it constructively. Instead of \"This is wrong,\" try \"The logic in section A is solid, but the data in section B contradicts it. If we fix B, the whole thing works.\"\n\n**Agenda enforcement:** Become the person who gently asks, \"Can we clarify the desired outcome for the last 15 minutes of this call?\" Your team will secretly love you for it."
+          "content": {
+            "title": "The \"Let Me Think On That\" Tactic:",
+            "description": "If pressed for an immediate answer in a meeting, buy yourself time. \"That's an interesting variable. Let me run the numbers and get back to you by EOD.\" This protects your need for accuracy.\n\n**The \"Sandwich\" Method (Modified):** You hate fluff, but others need it. When delivering critique, try to frame it constructively. Instead of \"This is wrong,\" try \"The logic in section A is solid, but the data in section B contradicts it. If we fix B, the whole thing works.\"\n\n**Agenda enforcement:** Become the person who gently asks, \"Can we clarify the desired outcome for the last 15 minutes of this call?\" Your team will secretly love you for it."
+          }
         }
       ]
     },
@@ -63,7 +75,10 @@
       "subsections": [
         {
           "heading": "Growth Areas",
-          "content": "**Selling Your Ideas:** Logic is not enough. You must learn to wrap your data in a narrative. Why does this data matter to the human sitting across from you? What pain does it solve for *them*?\n\n**Tactical Empathy:** View social interaction not as a waste of time, but as a mechanism for gathering data about your colleagues' motivations. Understanding *why* someone is irrational is a form of analysis itself.\n\n**The \"Good Enough\" Threshold:** Set a timer for your tasks. When the timer goes off, ship the work. Exposure therapy to imperfection is necessary to increase your velocity."
+          "content": {
+            "title": "Selling Your Ideas:",
+            "description": "Logic is not enough. You must learn to wrap your data in a narrative. Why does this data matter to the human sitting across from you? What pain does it solve for *them*?\n\n**Tactical Empathy:** View social interaction not as a waste of time, but as a mechanism for gathering data about your colleagues' motivations. Understanding *why* someone is irrational is a form of analysis itself.\n\n**The \"Good Enough\" Threshold:** Set a timer for your tasks. When the timer goes off, ship the work. Exposure therapy to imperfection is necessary to increase your velocity."
+          }
         }
       ]
     },
@@ -73,7 +88,10 @@
       "subsections": [
         {
           "heading": "Strategic Moves",
-          "content": "**Document Your Wins:** Your work is often invisible (preventing disasters). You must proactively track your impact. \"Optimized database, reducing query time by 50%\" is a bullet point that gets you a raise.\n\n**Find a Sponsor:** You are bad at self-promotion. Find a slightly more extraverted leader who values your work and can advocate for you in rooms where you aren't present.\n\n**Expand Your Toolkit:** Don't just learn more technical skills. Learn the basics of behavioral economics or psychology. Understanding human bias will make you a more effective Analyst, as you can predict where human error will occur in the systems you build."
+          "content": {
+            "title": "Document Your Wins:",
+            "description": "Your work is often invisible (preventing disasters). You must proactively track your impact. \"Optimized database, reducing query time by 50%\" is a bullet point that gets you a raise.\n\n**Find a Sponsor:** You are bad at self-promotion. Find a slightly more extraverted leader who values your work and can advocate for you in rooms where you aren't present.\n\n**Expand Your Toolkit:** Don't just learn more technical skills. Learn the basics of behavioral economics or psychology. Understanding human bias will make you a more effective Analyst, as you can predict where human error will occur in the systems you build."
+          }
         }
       ]
     }
@@ -93,12 +111,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Leverage Deep Work:** Your competitive advantage is your ability to focus. Protect your time and structure your day to allow for long periods of uninterrupted analysis.",
-    "**Translate Your Data:** Being right isn't enough. You must learn to translate your analytical findings into narratives that stakeholders care about.",
-    "**Automate and Systematize:** Use your hatred of inefficiency to build systems that save time, then use that saved time for high-level strategy.",
-    "**Embrace Asynchronous Comms:** Lean into email, memos, and project management tools to communicate clearly and avoid the drain of unnecessary meetings.",
-    "**Beware the Perfection Trap:** distinguishing between 'flawless' and 'functional' is key to maintaining speed and avoiding burnout.",
-    "**Seek the Specialist Track:** Look for career paths that reward individual contribution and expertise (Principal, Architect, Strategist) rather than general management."
+    {
+      "title": "Leverage Deep Work:",
+      "description": "Your competitive advantage is your ability to focus. Protect your time and structure your day to allow for long periods of uninterrupted analysis."
+    },
+    {
+      "title": "Translate Your Data:",
+      "description": "Being right isn't enough. You must learn to translate your analytical findings into narratives that stakeholders care about."
+    },
+    {
+      "title": "Automate and Systematize:",
+      "description": "Use your hatred of inefficiency to build systems that save time, then use that saved time for high-level strategy."
+    },
+    {
+      "title": "Embrace Asynchronous Comms:",
+      "description": "Lean into email, memos, and project management tools to communicate clearly and avoid the drain of unnecessary meetings."
+    },
+    {
+      "title": "Beware the Perfection Trap:",
+      "description": "distinguishing between 'flawless' and 'functional' is key to maintaining speed and avoiding burnout."
+    },
+    {
+      "title": "Seek the Specialist Track:",
+      "description": "Look for career paths that reward individual contribution and expertise (Principal, Architect, Strategist) rather than general management."
+    }
   ],
   "relatedTopics": [
     "learning",

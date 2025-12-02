@@ -35,7 +35,10 @@
       "subsections": [
         {
           "heading": "Navigating Friction",
-          "content": "If you are in one of these pairings:\n*   **Don't Mind-Read:** Logic-dominant types rarely speak in subtext. If they say the soup is cold, they mean the soup is cold, not that they don't love you.\n*   **Ask for the \"Why\":** When they make a decision that seems cold, ask them to explain their logic. Understanding their process can reduce the emotional sting.\n*   **Teach Your Language:** Explicitly tell them, \"I need verbal affirmation to feel secure.\" They often want to succeed in the relationship and will view this as helpful data."
+          "content": {
+            "title": "If you are in one of these pairings",
+            "description": "*   **Don't Mind-Read:** Logic-dominant types rarely speak in subtext. If they say the soup is cold, they mean the soup is cold, not that they don't love you.\n*   **Ask for the \"Why\":** When they make a decision that seems cold, ask them to explain their logic. Understanding their process can reduce the emotional sting.\n*   **Teach Your Language:** Explicitly tell them, \"I need verbal affirmation to feel secure.\" They often want to succeed in the relationship and will view this as helpful data."
+          }
         }
       ]
     },

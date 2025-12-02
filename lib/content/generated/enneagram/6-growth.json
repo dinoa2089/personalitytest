@@ -85,9 +85,15 @@
     "Practice 'The Information Diet' to stop using research as a procrastination tool.",
     "Identify and adjourn the 'Inner Committee' of critics in your mind.",
     "Use somatic (body-based) practices to discharge stored anxiety.",
-    "Recognize projection: ask if the threat is real or a reflection of internal fear.",
+    {
+      "title": "Recognize projection",
+      "description": "ask if the threat is real or a reflection of internal fear."
+    },
     "Embrace the growth path to Type 9 by prioritizing relaxation and trust.",
-    "Reframe courage: it is not the absence of fear, but action in spite of it."
+    {
+      "title": "Reframe courage",
+      "description": "it is not the absence of fear, but action in spite of it."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Specific Environmental and Emotional Triggers",
-          "content": "**Professional roadblocks:** ambiguous goals, micromanagement that stifles your flow, or being attached to a failing project that threatens your reputation.\n\n**Public embarrassment:** Any situation where your lack of knowledge or competence is exposed in front of an audience you respect.\n\n**Comparison traps:** Scrolling through social media or LinkedIn and seeing a peer achieve a milestone you haven't reached yet, triggering an immediate physiological spike in cortisol.\n\n**Intimacy demands:** Relationship conflicts that require you to drop your polished persona and admit to fears, failures, or \"unattractive\" emotions."
+          "content": {
+            "title": "Professional roadblocks:",
+            "description": "ambiguous goals, micromanagement that stifles your flow, or being attached to a failing project that threatens your reputation.\n\n**Public embarrassment:** Any situation where your lack of knowledge or competence is exposed in front of an audience you respect.\n\n**Comparison traps:** Scrolling through social media or LinkedIn and seeing a peer achieve a milestone you haven't reached yet, triggering an immediate physiological spike in cortisol.\n\n**Intimacy demands:** Relationship conflicts that require you to drop your polished persona and admit to fears, failures, or \"unattractive\" emotions."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Physical and Behavioral Indicators",
-          "content": "**The \"Crash\" Phenomenon:** Oscillating between manic productivity (14-hour days) and total collapse (unable to leave the couch for a weekend).\n\n**Somatic Symptoms:** Tension headaches, throat tightness (from holding back truth), and digestive issues related to anxiety.\n\n**Procrastination through Distraction:** Binge-watching TV or scrolling social media not for enjoyment, but to numb out and avoid the pressure of performing.\n\n**Cynicism:** A sudden shift from optimism to a dark, cynical view of your work and relationships, feeling that everyone is fake or that success is a scam."
+          "content": {
+            "title": "The \"Crash\" Phenomenon:",
+            "description": "Oscillating between manic productivity (14-hour days) and total collapse (unable to leave the couch for a weekend).\n\n**Somatic Symptoms:** Tension headaches, throat tightness (from holding back truth), and digestive issues related to anxiety.\n\n**Procrastination through Distraction:** Binge-watching TV or scrolling social media not for enjoyment, but to numb out and avoid the pressure of performing.\n\n**Cynicism:** A sudden shift from optimism to a dark, cynical view of your work and relationships, feeling that everyone is fake or that success is a scam."
+          }
         }
       ]
     },
@@ -42,7 +48,10 @@
       "subsections": [
         {
           "heading": "Maladaptive Coping Mechanisms",
-          "content": "**Deceit and Image Crafting:** Exaggerating achievements or \"spinning\" failures to avoid looking incompetent.\n\n**Transactional Relationships:** Viewing friends and family as resources or obstacles to your goals, rather than human beings to connect with.\n\n**Workaholism:** Using work as a drug to numb emotional pain. If you are working, you don't have to feel.\n\n**Competitive Jealousy:** viewing peers as threats and becoming secretly hostile or undermining toward their success."
+          "content": {
+            "title": "Deceit and Image Crafting:",
+            "description": "Exaggerating achievements or \"spinning\" failures to avoid looking incompetent.\n\n**Transactional Relationships:** Viewing friends and family as resources or obstacles to your goals, rather than human beings to connect with.\n\n**Workaholism:** Using work as a drug to numb emotional pain. If you are working, you don't have to feel.\n\n**Competitive Jealousy:** viewing peers as threats and becoming secretly hostile or undermining toward their success."
+          }
         }
       ]
     },
@@ -52,7 +61,10 @@
       "subsections": [
         {
           "heading": "Actionable De-escalation Techniques",
-          "content": "**The 3-Minute Reality Check:** When you feel the urge to shapeshift or impress, stop and ask: \"What am I actually feeling right now?\" and \"Who am I trying to impress?\" Name the feeling to tame it.\n\n**The \"Good Enough\" Practice:** Deliberately do one low-stakes task at 80% quality rather than 100%. Send the email without the third proofread. Notice that no catastrophe occurs.\n\n**Physical Grounding:** When your mind races to the future, use cold water on your face or intense physical exertion (like sprinting or boxing) to snap your awareness back into your body.\n\n**Digital Detox:** Remove the metrics. Turn off notifications for likes and comments. Detach your self-worth from the digital feedback loop."
+          "content": {
+            "title": "The 3-Minute Reality Check:",
+            "description": "When you feel the urge to shapeshift or impress, stop and ask: \"What am I actually feeling right now?\" and \"Who am I trying to impress?\" Name the feeling to tame it.\n\n**The \"Good Enough\" Practice:** Deliberately do one low-stakes task at 80% quality rather than 100%. Send the email without the third proofread. Notice that no catastrophe occurs.\n\n**Physical Grounding:** When your mind races to the future, use cold water on your face or intense physical exertion (like sprinting or boxing) to snap your awareness back into your body.\n\n**Digital Detox:** Remove the metrics. Turn off notifications for likes and comments. Detach your self-worth from the digital feedback loop."
+          }
         }
       ]
     },
@@ -62,7 +74,10 @@
       "subsections": [
         {
           "heading": "The \"Anti-Achievement\" Weekend Protocol",
-          "content": "**Morning:** No screens for 2 hours. Physical movement that is non-competitive (yoga, stretching, walking).\n\n**Afternoon:** Creative expression with no audience. Journaling, sketching, or cooking, with the explicit intention of destroying or consuming the result so it cannot be judged.\n\n**Evening:** Connection time. Ask questions of others. Listen more than you speak. Allow yourself to be the \"audience\" rather than the \"star.\""
+          "content": {
+            "title": "Morning:",
+            "description": "No screens for 2 hours. Physical movement that is non-competitive (yoga, stretching, walking).\n\n**Afternoon:** Creative expression with no audience. Journaling, sketching, or cooking, with the explicit intention of destroying or consuming the result so it cannot be judged.\n\n**Evening:** Connection time. Ask questions of others. Listen more than you speak. Allow yourself to be the \"audience\" rather than the \"star.\""
+          }
         }
       ]
     },
@@ -72,7 +87,10 @@
       "subsections": [
         {
           "heading": "Growth Strategies toward Type 6",
-          "content": "**Collaborate, Don't Compete:** actively seek out group projects where credit is shared equally. Champion others' ideas.\n\n**Worst-Case Scenario Planning:** Use the Six's gift of foresight. Ask, \"If I fail at this, what is the worst that happens?\" usually, you will realize you will survive, which lowers the stakes.\n\n**Commitment to Community:** Join groups where your role is just to be a member, not a leader. A book club, a church group, or a sports league where you are just one of the gang."
+          "content": {
+            "title": "Collaborate, Don't Compete:",
+            "description": "actively seek out group projects where credit is shared equally. Champion others' ideas.\n\n**Worst-Case Scenario Planning:** Use the Six's gift of foresight. Ask, \"If I fail at this, what is the worst that happens?\" usually, you will realize you will survive, which lowers the stakes.\n\n**Commitment to Community:** Join groups where your role is just to be a member, not a leader. A book club, a church group, or a sports league where you are just one of the gang."
+          }
         }
       ]
     },
@@ -82,7 +100,10 @@
       "subsections": [
         {
           "heading": "How to Help a Stressed Achiever",
-          "content": "**Validate the Person, Not the Success:** Avoid compliments that reinforce their workaholism. compliment their character.\n\n**Create \"No-Work\" Zones:** Establish boundaries (like the dinner table or the bedroom) where work talk is banned.\n\n**Encourage Vulnerability:** Model it yourself. Share your own failures or fears to show them it's safe to do so.\n\n**Interrupt the Pattern:** Surprise them with a plan that forces them to stop working—tickets to a show, a surprise dinner, a weekend getaway."
+          "content": {
+            "title": "Validate the Person, Not the Success:",
+            "description": "Avoid compliments that reinforce their workaholism. compliment their character.\n\n**Create \"No-Work\" Zones:** Establish boundaries (like the dinner table or the bedroom) where work talk is banned.\n\n**Encourage Vulnerability:** Model it yourself. Share your own failures or fears to show them it's safe to do so.\n\n**Interrupt the Pattern:** Surprise them with a plan that forces them to stop working—tickets to a show, a surprise dinner, a weekend getaway."
+          }
         }
       ]
     }
@@ -110,7 +131,10 @@
     "Under stress, Threes disintegrate to Type 9, becoming apathetic, disengaged, and numb.",
     "A key warning sign is the \"Chameleon Effect\"—losing your authentic self to please others.",
     "Recovery requires \"unproductive\" time and separating your worth from your work.",
-    "Growth involves moving toward Type 6: embracing community, vulnerability, and shared success.",
+    {
+      "title": "Growth involves moving toward Type 6",
+      "description": "embracing community, vulnerability, and shared success."
+    },
     "Loved ones should validate the Three's character, not their achievements."
   ],
   "relatedTopics": [

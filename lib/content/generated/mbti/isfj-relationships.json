@@ -46,7 +46,10 @@
       "subsections": [
         {
           "heading": "Green Flags & Conversation Starters",
-          "content": "**Green Flags to Look For:**\n*   **Consistency:** They text when they say they will. They make plans in advance rather than last-minute \"u up?\" messages.\n*   **Memory:** They remember a detail you mentioned on the first date and bring it up on the third.\n*   **Gentleness:** They handle your quiet moments with patience rather than pushing you to be \"more fun\" or energetic.\n\n**Conversation Ideas:**\n*   Skip the abstract philosophy. Focus on shared experiences and memories.\n*   *\"What is your favorite family tradition from childhood?\"* (Appeals to Si)\n*   *\"What does a perfect weekend look like to you?\"* (Gauges lifestyle compatibility)\n*   *\"Who has been the most influential person in your life?\"* (Focuses on relationships and values)"
+          "content": {
+            "title": "Green Flags to Look For:",
+            "description": "*   **Consistency:** They text when they say they will. They make plans in advance rather than last-minute \"u up?\" messages.\n*   **Memory:** They remember a detail you mentioned on the first date and bring it up on the third.\n*   **Gentleness:** They handle your quiet moments with patience rather than pushing you to be \"more fun\" or energetic.\n\n**Conversation Ideas:**\n*   Skip the abstract philosophy. Focus on shared experiences and memories.\n*   *\"What is your favorite family tradition from childhood?\"* (Appeals to Si)\n*   *\"What does a perfect weekend look like to you?\"* (Gauges lifestyle compatibility)\n*   *\"Who has been the most influential person in your life?\"* (Focuses on relationships and values)"
+          }
         },
         {
           "heading": "Date Ideas for the ISFJ",
@@ -114,12 +117,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Loyalty is your currency:** You offer a level of dedication and steadfastness that is rare, creating a profound sense of safety for your partners.",
-    "**Beware of burnout:** Your tendency to over-give and put others first can lead to emotional exhaustion. Self-care is not selfish; it's maintenance for the relationship.",
-    "**Speak your needs:** Do not expect partners to mind-read. Explicitly stating what you need prevents resentment from building up.",
-    "**Value your memory:** Your ability to recall details and create traditions is a superpower that builds deep, lasting intimacy.",
-    "**Embrace change:** While routine is comfortable, allow space for spontaneity and growth to keep the relationship fresh.",
-    "**Watch for reciprocity:** Ensure that your relationships are a two-way street. You deserve to be taken care of just as much as you take care of others."
+    {
+      "title": "Loyalty is your currency:",
+      "description": "You offer a level of dedication and steadfastness that is rare, creating a profound sense of safety for your partners."
+    },
+    {
+      "title": "Beware of burnout:",
+      "description": "Your tendency to over-give and put others first can lead to emotional exhaustion. Self-care is not selfish; it's maintenance for the relationship."
+    },
+    {
+      "title": "Speak your needs:",
+      "description": "Do not expect partners to mind-read. Explicitly stating what you need prevents resentment from building up."
+    },
+    {
+      "title": "Value your memory:",
+      "description": "Your ability to recall details and create traditions is a superpower that builds deep, lasting intimacy."
+    },
+    {
+      "title": "Embrace change:",
+      "description": "While routine is comfortable, allow space for spontaneity and growth to keep the relationship fresh."
+    },
+    {
+      "title": "Watch for reciprocity:",
+      "description": "Ensure that your relationships are a two-way street. You deserve to be taken care of just as much as you take care of others."
+    }
   ],
   "relatedTopics": [
     "learning",

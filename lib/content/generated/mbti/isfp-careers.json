@@ -20,7 +20,10 @@
       "subsections": [
         {
           "heading": "Core Professional Assets",
-          "content": "**Aesthetic Intelligence (Se):** You possess a sophisticated grasp of style, form, and beauty. Whether you are arranging a storefront, plating a meal, or designing a user interface, you naturally make things look and feel better.\n\n**Unshakable Integrity (Fi):** You are trustworthy to the core. Employers and colleagues quickly learn that you cannot be bought or bullied into doing something that feels wrong. This moral consistency builds deep trust.\n\n**Crisis Management:** Because you live in the present moment, you are often the calmest person in an emergency. You respond to physical realities immediately rather than getting lost in panic or theory.\n\n**Observational Skills:** You notice the details others gloss over—a slight change in a client's tone, a subtle flaw in a product, or a hidden opportunity to improve a workflow."
+          "content": {
+            "title": "Aesthetic Intelligence (Se):",
+            "description": "You possess a sophisticated grasp of style, form, and beauty. Whether you are arranging a storefront, plating a meal, or designing a user interface, you naturally make things look and feel better.\n\n**Unshakable Integrity (Fi):** You are trustworthy to the core. Employers and colleagues quickly learn that you cannot be bought or bullied into doing something that feels wrong. This moral consistency builds deep trust.\n\n**Crisis Management:** Because you live in the present moment, you are often the calmest person in an emergency. You respond to physical realities immediately rather than getting lost in panic or theory.\n\n**Observational Skills:** You notice the details others gloss over—a slight change in a client's tone, a subtle flaw in a product, or a hidden opportunity to improve a workflow."
+          }
         }
       ]
     },
@@ -30,7 +33,10 @@
       "subsections": [
         {
           "heading": "Environmental Must-Haves",
-          "content": "**Autonomy:** Freedom to manage your own time and approach tasks in your own unique way.\n\n**Aesthetics:** A visually pleasing, comfortable workspace, or a role that takes you outdoors.\n\n**Low Conflict:** A harmonious atmosphere where feedback is delivered gently and colleagues support one another.\n\n**Tangible Results:** You need to see the fruit of your labor at the end of the day, rather than abstract metrics."
+          "content": {
+            "title": "Autonomy:",
+            "description": "Freedom to manage your own time and approach tasks in your own unique way.\n\n**Aesthetics:** A visually pleasing, comfortable workspace, or a role that takes you outdoors.\n\n**Low Conflict:** A harmonious atmosphere where feedback is delivered gently and colleagues support one another.\n\n**Tangible Results:** You need to see the fruit of your labor at the end of the day, rather than abstract metrics."
+          }
         }
       ]
     },
@@ -84,12 +90,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Prioritize Passion:** You cannot sustain a career that violates your values or feels meaningless.",
-    "**Seek Autonomy:** Look for roles that define the *goal* but let you choose the *method*.",
-    "**Leverage Aesthetics:** Your eye for beauty and detail is a high-value skill; don't underestimate it.",
-    "**Show, Don't Tell:** In interviews, use portfolios and physical examples to overcome shyness.",
-    "**Beware of Burnout:** Avoid high-pressure, high-conflict, or rigidly bureaucratic environments.",
-    "**Embrace the Zig-Zag:** Your career path may not be linear, and that is okay. Follow the engagement."
+    {
+      "title": "Prioritize Passion:",
+      "description": "You cannot sustain a career that violates your values or feels meaningless."
+    },
+    {
+      "title": "Seek Autonomy:",
+      "description": "Look for roles that define the *goal* but let you choose the *method*."
+    },
+    {
+      "title": "Leverage Aesthetics:",
+      "description": "Your eye for beauty and detail is a high-value skill; don't underestimate it."
+    },
+    {
+      "title": "Show, Don't Tell:",
+      "description": "In interviews, use portfolios and physical examples to overcome shyness."
+    },
+    {
+      "title": "Beware of Burnout:",
+      "description": "Avoid high-pressure, high-conflict, or rigidly bureaucratic environments."
+    },
+    {
+      "title": "Embrace the Zig-Zag:",
+      "description": "Your career path may not be linear, and that is okay. Follow the engagement."
+    }
   ],
   "relatedTopics": [
     "learning",

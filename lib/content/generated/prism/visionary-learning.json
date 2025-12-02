@@ -23,7 +23,10 @@
       "subsections": [
         {
           "heading": "Core Cognitive Functions",
-          "content": "**Systematic Synthesis:** You excel at taking a chaotic amount of information and organizing it into a coherent system. You don't just take notes; you create manuals.\n\n**Future-Oriented Application:** You learn best when you can project the utility of the information into the future. 'How will this help me build X in five years?' is a motivating question for you.\n\n**Conceptual Scaffolding:** You require a theoretical framework before handling details. You build the skeleton first, then add the muscles and skin."
+          "content": {
+            "title": "Systematic Synthesis:",
+            "description": "You excel at taking a chaotic amount of information and organizing it into a coherent system. You don't just take notes; you create manuals.\n\n**Future-Oriented Application:** You learn best when you can project the utility of the information into the future. 'How will this help me build X in five years?' is a motivating question for you.\n\n**Conceptual Scaffolding:** You require a theoretical framework before handling details. You build the skeleton first, then add the muscles and skin."
+          }
         }
       ]
     },
@@ -33,7 +36,10 @@
       "subsections": [
         {
           "heading": "Sensory Details for Success",
-          "content": "**Visuals:** Large whiteboards or glass walls for mapping. Dual monitors to separate 'Input' (source material) from 'Output' (your synthesis).\n\n**Atmosphere:** Minimalist but warm. Good lighting is non-negotiable—preferably natural light or color-adjustable smart bulbs to match your energy levels.\n\n**Tools:** Analog tools for brainstorming (high-quality pens, unlined sketchbooks) paired with sophisticated digital tools for archiving (Obsidian, Notion, Roam Research)."
+          "content": {
+            "title": "Visuals:",
+            "description": "Large whiteboards or glass walls for mapping. Dual monitors to separate 'Input' (source material) from 'Output' (your synthesis).\n\n**Atmosphere:** Minimalist but warm. Good lighting is non-negotiable—preferably natural light or color-adjustable smart bulbs to match your energy levels.\n\n**Tools:** Analog tools for brainstorming (high-quality pens, unlined sketchbooks) paired with sophisticated digital tools for archiving (Obsidian, Notion, Roam Research)."
+          }
         }
       ]
     },
@@ -43,7 +49,10 @@
       "subsections": [
         {
           "heading": "Actionable Techniques",
-          "content": "**The System-Map Technique:** Don't take linear notes. Use legal-sized paper or infinite canvas apps to draw a flowchart of the subject. Connect every new fact to a central concept. Use color-coding to denote relationships (e.g., Cause/Effect, Component/Whole).\n\n**The 'Consultant' Roleplay:** Imagine you have been hired to fix a broken system related to the topic you are studying. How would you diagnose the problem using the material? Write a 'report' rather than an essay.\n\n**Time-Blocking with a Twist:** Use the Pomodoro technique, but allocate the blocks by cognitive function. Spend 25 minutes on 'Exploration' (reading, video watching), followed immediately by 25 minutes of 'Synthesis' (summarizing, mapping, building). Don't just consume without creating."
+          "content": {
+            "title": "The System-Map Technique:",
+            "description": "Don't take linear notes. Use legal-sized paper or infinite canvas apps to draw a flowchart of the subject. Connect every new fact to a central concept. Use color-coding to denote relationships (e.g., Cause/Effect, Component/Whole).\n\n**The 'Consultant' Roleplay:** Imagine you have been hired to fix a broken system related to the topic you are studying. How would you diagnose the problem using the material? Write a 'report' rather than an essay.\n\n**Time-Blocking with a Twist:** Use the Pomodoro technique, but allocate the blocks by cognitive function. Spend 25 minutes on 'Exploration' (reading, video watching), followed immediately by 25 minutes of 'Synthesis' (summarizing, mapping, building). Don't just consume without creating."
+          }
         }
       ]
     },
@@ -53,7 +62,10 @@
       "subsections": [
         {
           "heading": "Overcoming These Hurdles",
-          "content": "**Combatting 'Systemitis':** Set a 'Setup Timer.' Give yourself exactly 15 minutes to organize your workspace and tools. When the timer rings, you must open the book/video, regardless of whether your template is perfect.\n\n**Gamifying the Mundane:** For rote memorization, use spaced repetition software (like Anki). The algorithm provides the 'system' you crave, and watching your retention stats improve appeals to your desire for optimization.\n\n**Managing Group Dynamics:** take the role of 'Project Manager' early. Define the vision and delegate the execution details to others who might enjoy them more. Frame it as 'orchestrating' rather than 'doing it all.'"
+          "content": {
+            "title": "Combatting 'Systemitis':",
+            "description": "Set a 'Setup Timer.' Give yourself exactly 15 minutes to organize your workspace and tools. When the timer rings, you must open the book/video, regardless of whether your template is perfect.\n\n**Gamifying the Mundane:** For rote memorization, use spaced repetition software (like Anki). The algorithm provides the 'system' you crave, and watching your retention stats improve appeals to your desire for optimization.\n\n**Managing Group Dynamics:** take the role of 'Project Manager' early. Define the vision and delegate the execution details to others who might enjoy them more. Frame it as 'orchestrating' rather than 'doing it all.'"
+          }
         }
       ]
     },
@@ -63,7 +75,10 @@
       "subsections": [
         {
           "heading": "Classroom Strategies",
-          "content": "**Context First:** Always explain the 'Why' before the 'What.' Connect the lesson to real-world systems or future trends.\n\n**Challenge Their Logic:** Visionaries enjoy a debate. Ask them to predict the consequences of a theory. Engage their strategic thinking.\n\n**Scaffolded Autonomy:** Provide clear checkpoints (appealing to their Conscientiousness) but allow freedom between those checkpoints (appealing to their Openness)."
+          "content": {
+            "title": "Context First:",
+            "description": "Always explain the 'Why' before the 'What.' Connect the lesson to real-world systems or future trends.\n\n**Challenge Their Logic:** Visionaries enjoy a debate. Ask them to predict the consequences of a theory. Engage their strategic thinking.\n\n**Scaffolded Autonomy:** Provide clear checkpoints (appealing to their Conscientiousness) but allow freedom between those checkpoints (appealing to their Openness)."
+          }
         }
       ]
     },
@@ -73,7 +88,10 @@
       "subsections": [
         {
           "heading": "The Autodidact's Toolkit",
-          "content": "**Curriculum Building:** Spend the first week of any new learning endeavor just gathering resources and creating a roadmap. Use tools like Trello or Asana to track your own progress through the 'modules' you create.\n\n**Capstone Projects:** Invent a final exam for yourself that involves creation. If learning history, write an alternative history short story. If learning finance, build a mock portfolio and track it for a quarter.\n\n**The 'Feynman Technique' Modification:** Teach what you learn to an imaginary audience who is skeptical of its value. This forces you to simplify and justify the utility of the information, cementing it in your strategic mind."
+          "content": {
+            "title": "Curriculum Building:",
+            "description": "Spend the first week of any new learning endeavor just gathering resources and creating a roadmap. Use tools like Trello or Asana to track your own progress through the 'modules' you create.\n\n**Capstone Projects:** Invent a final exam for yourself that involves creation. If learning history, write an alternative history short story. If learning finance, build a mock portfolio and track it for a quarter.\n\n**The 'Feynman Technique' Modification:** Teach what you learn to an imaginary audience who is skeptical of its value. This forces you to simplify and justify the utility of the information, cementing it in your strategic mind."
+          }
         }
       ]
     }
@@ -93,12 +111,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Synthesize, Don't Memorize:** You learn best by connecting new information to existing mental frameworks and 'big picture' concepts.",
-    "**Environment Matters:** Create a 'Command Center' with minimal clutter and maximum vertical space (whiteboards) for externalizing your thoughts.",
-    "**Build to Learn:** Adopt a constructionist approach. You understand concepts best when you are using them to build a project or solve a problem.",
-    "**Beware the Planning Trap:** Don't let the joy of designing a study schedule replace the actual studying. Use timers to force the transition from planning to doing.",
-    "**Systematize the Mundane:** Use spaced repetition software to handle rote memorization efficiently, freeing up your brain for high-level strategic thinking.",
-    "**Curate Your Curriculum:** In self-directed learning, act as your own Dean. Create a syllabus with clear deliverables and capstone projects."
+    {
+      "title": "Synthesize, Don't Memorize:",
+      "description": "You learn best by connecting new information to existing mental frameworks and 'big picture' concepts."
+    },
+    {
+      "title": "Environment Matters:",
+      "description": "Create a 'Command Center' with minimal clutter and maximum vertical space (whiteboards) for externalizing your thoughts."
+    },
+    {
+      "title": "Build to Learn:",
+      "description": "Adopt a constructionist approach. You understand concepts best when you are using them to build a project or solve a problem."
+    },
+    {
+      "title": "Beware the Planning Trap:",
+      "description": "Don't let the joy of designing a study schedule replace the actual studying. Use timers to force the transition from planning to doing."
+    },
+    {
+      "title": "Systematize the Mundane:",
+      "description": "Use spaced repetition software to handle rote memorization efficiently, freeing up your brain for high-level strategic thinking."
+    },
+    {
+      "title": "Curate Your Curriculum:",
+      "description": "In self-directed learning, act as your own Dean. Create a syllabus with clear deliverables and capstone projects."
+    }
   ],
   "relatedTopics": [
     "careers",

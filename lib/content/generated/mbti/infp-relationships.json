@@ -20,7 +20,10 @@
     },
     {
       "heading": "Romantic Partnerships: The Quest for the Soulmate",
-      "content": "There is a specific feeling you likely know well: the sudden, electric jolt of possibility when you meet someone who seems to vibrate on your frequency. For the INFP - The Mediator, falling in love is rarely a gradual slope; it is a skydive. Your auxiliary function, Extraverted Intuition (Ne), immediately goes to work, spinning elaborate futures, imagining conversations you haven't had yet, and seeing the best possible version of this new person. You don't just see who they are; you see who they *could* be. This creates a powerful, magnetic attraction. You are drawn to mystery, to intelligence, and often to brokenness that you feel you can heal with your love. The early stages of a relationship with you are often characterized by long, late-night conversations that span from the existence of aliens to your deepest childhood fears.\n\nHowever, this honeymoon phase is also where your greatest vulnerability lies. You are prone to 'limerence'—a state of involuntary romantic infatuation where you fall in love with the *idea* of a person rather than the reality. You may ignore red flags because they don't fit the narrative your imagination has constructed. You might excuse a partner's emotional unavailability as 'mysterious depth' or their volatility as 'passion.' The challenge for the INFP in romance is to keep one foot on the ground while your head is in the clouds. True intimacy requires seeing the partner's flaws clearly and loving them anyway, rather than loving a projection that will eventually dissolve.\n\n### Navigating Intimacy and Vulnerability\nOnce the relationship is established, you crave a level of merger that can be intimidating to more independent types. You want to share your inner worlds completely. However, you also have a paradoxical need for solitude. You might want to be in the same room as your partner, but doing your own thing—reading a book while they play video games—existing in 'parallel play.'\n\n*   **The Ideal Match:** You often thrive with partners who are grounded yet open-minded (like ENFJs or ENTJs) who can appreciate your depth but help you organize your life. Alternatively, relationships with other intuitives (INFJ, ENFP) can be magical but may lack practical grounding.\n*   **The 'Fixer' Trap:** Be wary of falling for 'projects.' Your empathy draws you to wounded souls, but you cannot love someone into mental health. Ensure the relationship is reciprocal, not a therapy session where you are the unpaid doctor.\n*   **Sexual Intimacy:** For INFPs, sex is rarely just physical; it is the ultimate expression of emotional union. Casual encounters often leave you feeling hollow. You need to feel safe and connected to truly let go in the bedroom, where you can be surprisingly passionate and giving."
+      "content": {
+        "title": "There is a specific feeling you likely know well",
+        "description": "the sudden, electric jolt of possibility when you meet someone who seems to vibrate on your frequency. For the INFP - The Mediator, falling in love is rarely a gradual slope; it is a skydive. Your auxiliary function, Extraverted Intuition (Ne), immediately goes to work, spinning elaborate futures, imagining conversations you haven't had yet, and seeing the best possible version of this new person. You don't just see who they are; you see who they *could* be. This creates a powerful, magnetic attraction. You are drawn to mystery, to intelligence, and often to brokenness that you feel you can heal with your love. The early stages of a relationship with you are often characterized by long, late-night conversations that span from the existence of aliens to your deepest childhood fears.\n\nHowever, this honeymoon phase is also where your greatest vulnerability lies. You are prone to 'limerence'—a state of involuntary romantic infatuation where you fall in love with the *idea* of a person rather than the reality. You may ignore red flags because they don't fit the narrative your imagination has constructed. You might excuse a partner's emotional unavailability as 'mysterious depth' or their volatility as 'passion.' The challenge for the INFP in romance is to keep one foot on the ground while your head is in the clouds. True intimacy requires seeing the partner's flaws clearly and loving them anyway, rather than loving a projection that will eventually dissolve.\n\n### Navigating Intimacy and Vulnerability\nOnce the relationship is established, you crave a level of merger that can be intimidating to more independent types. You want to share your inner worlds completely. However, you also have a paradoxical need for solitude. You might want to be in the same room as your partner, but doing your own thing—reading a book while they play video games—existing in 'parallel play.'\n\n*   **The Ideal Match:** You often thrive with partners who are grounded yet open-minded (like ENFJs or ENTJs) who can appreciate your depth but help you organize your life. Alternatively, relationships with other intuitives (INFJ, ENFP) can be magical but may lack practical grounding.\n*   **The 'Fixer' Trap:** Be wary of falling for 'projects.' Your empathy draws you to wounded souls, but you cannot love someone into mental health. Ensure the relationship is reciprocal, not a therapy session where you are the unpaid doctor.\n*   **Sexual Intimacy:** For INFPs, sex is rarely just physical; it is the ultimate expression of emotional union. Casual encounters often leave you feeling hollow. You need to feel safe and connected to truly let go in the bedroom, where you can be surprisingly passionate and giving."
+      }
     },
     {
       "heading": "Dating and Attraction: Navigating the Modern Minefield",
@@ -62,12 +65,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Authenticity is Non-Negotiable:** INFPs cannot sustain relationships where they must wear a mask; they need partners who value their quirkiness and depth.",
-    "**The Soulmate Search:** INFPs don't date casually; they are looking for a spiritual and emotional merger, which can lead to high expectations.",
-    "**Conflict Avoidance:** The biggest hurdle for INFPs is learning to voice dissatisfaction early rather than letting resentment build.",
-    "**Listening as a Superpower:** The INFP's ability to hold space and empathize makes them incredibly healing partners.",
-    "**Idealization vs. Reality:** Success in love requires the INFP to accept human flaws and stop comparing their partner to a fantasy ideal.",
-    "**Need for Solitude:** Partners must understand that an INFP's need to withdraw is about recharging, not rejection."
+    {
+      "title": "Authenticity is Non-Negotiable:",
+      "description": "INFPs cannot sustain relationships where they must wear a mask; they need partners who value their quirkiness and depth."
+    },
+    {
+      "title": "The Soulmate Search:",
+      "description": "INFPs don't date casually; they are looking for a spiritual and emotional merger, which can lead to high expectations."
+    },
+    {
+      "title": "Conflict Avoidance:",
+      "description": "The biggest hurdle for INFPs is learning to voice dissatisfaction early rather than letting resentment build."
+    },
+    {
+      "title": "Listening as a Superpower:",
+      "description": "The INFP's ability to hold space and empathize makes them incredibly healing partners."
+    },
+    {
+      "title": "Idealization vs. Reality:",
+      "description": "Success in love requires the INFP to accept human flaws and stop comparing their partner to a fantasy ideal."
+    },
+    {
+      "title": "Need for Solitude:",
+      "description": "Partners must understand that an INFP's need to withdraw is about recharging, not rejection."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -114,12 +114,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Redefine Efficiency:** Understand that emotional maintenance and relationship building are efficient uses of time that prevent future crises.",
-    "**The Pause Button:** Implement a mandatory pause before reacting to criticism or new ideas to disengage the autopilot judgment.",
-    "**Value over Rules:** Audit your rigid adherence to procedures to ensure they still serve your core values and the people you care about.",
-    "**Embrace the Unknown:** Actively exercise your Extraverted Intuition (Ne) by brainstorming wild ideas and engaging in unstructured play.",
-    "**Vulnerability is Leadership:** admitting you don't know the answer or expressing a feeling builds more trust than pretending to be invincible.",
-    "**Combat the Inner Critic:** Recognize that your harsh judgment of others is often a reflection of the impossible standards you hold for yourself."
+    {
+      "title": "Redefine Efficiency:",
+      "description": "Understand that emotional maintenance and relationship building are efficient uses of time that prevent future crises."
+    },
+    {
+      "title": "The Pause Button:",
+      "description": "Implement a mandatory pause before reacting to criticism or new ideas to disengage the autopilot judgment."
+    },
+    {
+      "title": "Value over Rules:",
+      "description": "Audit your rigid adherence to procedures to ensure they still serve your core values and the people you care about."
+    },
+    {
+      "title": "Embrace the Unknown:",
+      "description": "Actively exercise your Extraverted Intuition (Ne) by brainstorming wild ideas and engaging in unstructured play."
+    },
+    {
+      "title": "Vulnerability is Leadership:",
+      "description": "admitting you don't know the answer or expressing a feeling builds more trust than pretending to be invincible."
+    },
+    {
+      "title": "Combat the Inner Critic:",
+      "description": "Recognize that your harsh judgment of others is often a reflection of the impossible standards you hold for yourself."
+    }
   ],
   "relatedTopics": [
     "learning",

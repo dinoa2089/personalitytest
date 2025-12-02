@@ -107,13 +107,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Social Glue:** You are the emotional anchor of your workplace, building the trust and safety necessary for high-performing teams.",
-    "**Structure Meets Heart:** Your strength lies in combining logistical reliability (Si) with genuine care for people (Fe).",
-    "**Beware of Burnout:** Your tendency to say \"yes\" and take on others' emotional burdens can lead to exhaustion. Boundaries are essential.",
-    "**Communication Style:** You thrive on warm, specific, and frequent communication and may struggle with vague or cold interactions.",
-    "**Conflict Aversion:** Learning to view conflict as a necessary tool for growth, rather than a relationship-ender, is your biggest area for development.",
-    "**Feedback Sensitivity:** You must learn to separate your personal worth from professional critique to advance your career.",
-    "**Strategic Kindness:** To advance, shift from doing everything yourself to building systems that empower others."
+    {
+      "title": "Social Glue:",
+      "description": "You are the emotional anchor of your workplace, building the trust and safety necessary for high-performing teams."
+    },
+    {
+      "title": "Structure Meets Heart:",
+      "description": "Your strength lies in combining logistical reliability (Si) with genuine care for people (Fe)."
+    },
+    {
+      "title": "Beware of Burnout:",
+      "description": "Your tendency to say \"yes\" and take on others' emotional burdens can lead to exhaustion. Boundaries are essential."
+    },
+    {
+      "title": "Communication Style:",
+      "description": "You thrive on warm, specific, and frequent communication and may struggle with vague or cold interactions."
+    },
+    {
+      "title": "Conflict Aversion:",
+      "description": "Learning to view conflict as a necessary tool for growth, rather than a relationship-ender, is your biggest area for development."
+    },
+    {
+      "title": "Feedback Sensitivity:",
+      "description": "You must learn to separate your personal worth from professional critique to advance your career."
+    },
+    {
+      "title": "Strategic Kindness:",
+      "description": "To advance, shift from doing everything yourself to building systems that empower others."
+    }
   ],
   "relatedTopics": [
     "learning",

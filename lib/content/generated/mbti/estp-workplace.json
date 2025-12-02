@@ -28,7 +28,10 @@
     },
     {
       "heading": "2. Ideal Role and Responsibilities",
-      "content": "Picture your worst nightmare: a windowless room, a stack of compliance reports that need to be cross-referenced for the next eight hours, and a manager who micromanages your every keystroke. For an ESTP, this isn't just a job; it is a prison sentence. Your brain requires stimulus. You need a role that offers a high degree of autonomy, variety, and tangible results. You are not built to be a cog in a machine; you are built to be the pilot flying the plane through turbulence. The ideal ESTP - The Entrepreneur professional environment is one that changes day to day, if not hour to hour. You thrive in roles where the rulebook is thin and the potential for impact is high.\n\nConsider the rhythm of your workday. You function best in bursts of intense energy rather than a steady, monotonous grind. Roles that mimic this 'sprint' style suit you perfectly. Sales, emergency medicine, stock trading, entrepreneurship, field engineering, or event planning all cater to your need for immediate feedback loops. You need to see the result of your work. If you write a report that goes into a black hole for six months, you will lose interest. But if you close a sale and see the commission, or fix a server and see the lights turn green, you remain engaged. You need a scoreboard.\n\nFurthermore, physical engagement is often overlooked but vital for the ESTP. You likely think better when you are moving. A job that chains you to a desk for eight hours will drain your battery. You are better suited for roles that involve travel, site visits, client entertainment, or walking the production floor. You need to interact with the physical world, not just a digital representation of it. If you must be at a desk, you need a chaotic, multi-monitor setup where you are juggling chats, calls, and data streams simultaneously. Silence and stillness are your enemies; momentum is your fuel.",
+      "content": {
+        "title": "Picture your worst nightmare",
+        "description": "a windowless room, a stack of compliance reports that need to be cross-referenced for the next eight hours, and a manager who micromanages your every keystroke. For an ESTP, this isn't just a job; it is a prison sentence. Your brain requires stimulus. You need a role that offers a high degree of autonomy, variety, and tangible results. You are not built to be a cog in a machine; you are built to be the pilot flying the plane through turbulence. The ideal ESTP - The Entrepreneur professional environment is one that changes day to day, if not hour to hour. You thrive in roles where the rulebook is thin and the potential for impact is high.\n\nConsider the rhythm of your workday. You function best in bursts of intense energy rather than a steady, monotonous grind. Roles that mimic this 'sprint' style suit you perfectly. Sales, emergency medicine, stock trading, entrepreneurship, field engineering, or event planning all cater to your need for immediate feedback loops. You need to see the result of your work. If you write a report that goes into a black hole for six months, you will lose interest. But if you close a sale and see the commission, or fix a server and see the lights turn green, you remain engaged. You need a scoreboard.\n\nFurthermore, physical engagement is often overlooked but vital for the ESTP. You likely think better when you are moving. A job that chains you to a desk for eight hours will drain your battery. You are better suited for roles that involve travel, site visits, client entertainment, or walking the production floor. You need to interact with the physical world, not just a digital representation of it. If you must be at a desk, you need a chaotic, multi-monitor setup where you are juggling chats, calls, and data streams simultaneously. Silence and stillness are your enemies; momentum is your fuel."
+      },
       "subsections": [
         {
           "heading": "Role Checklist",
@@ -58,7 +61,10 @@
     },
     {
       "heading": "5. Meeting and Collaboration Style",
-      "content": "Let’s set the scene: It is 2:00 PM on a Tuesday. You are stuck in a 'status update' meeting. There is an agenda with six items. The presenter is reading verbatim from a PowerPoint slide. You can physically feel your legs twitching under the table. You are checking your phone, not to be rude, but because your brain is starving for stimulation. This is the ESTP hell. You despise meetings that are purely informational. If the information could have been an email, you resent the time theft. However, change the scenario: The server is down, clients are calling, and five people are huddled in a room trying to fix it. Now, you are the most engaged person there. You are standing up, pacing, asking rapid-fire questions, and assigning tasks.\n\nYour collaboration style is informal, verbal, and iterative. You prefer a quick 'huddle' to a formal sit-down. You hate 'circle back' culture. If a decision needs to be made, you want to make it *now*. You are the person who interrupts the meeting to call the vendor on speakerphone and get the answer immediately, rather than assigning someone to 'look into it' for next week. This bias for action is your superpower, but it can be disruptive. You need to be mindful that some colleagues need time to process information before deciding. When you force a snap decision, you might be steamrolling the introvert who has the correct answer but hasn't had time to formulate it.\n\nregarding digital communication, your style is equally distinct. Your emails are often one-liners. Subject: 'Update.' Body: 'It's done. Moving to phase 2.' You treat Slack or Teams like a walkie-talkie. You prefer synchronous communication. You would much rather hop on a quick video call to screen-share and fix the issue than engage in a twenty-message thread. You likely have a habit of not reading long emails, skimming for the bolded text and ignoring the nuance, which can occasionally land you in hot water.",
+      "content": {
+        "title": "Let’s set the scene",
+        "description": "It is 2:00 PM on a Tuesday. You are stuck in a 'status update' meeting. There is an agenda with six items. The presenter is reading verbatim from a PowerPoint slide. You can physically feel your legs twitching under the table. You are checking your phone, not to be rude, but because your brain is starving for stimulation. This is the ESTP hell. You despise meetings that are purely informational. If the information could have been an email, you resent the time theft. However, change the scenario: The server is down, clients are calling, and five people are huddled in a room trying to fix it. Now, you are the most engaged person there. You are standing up, pacing, asking rapid-fire questions, and assigning tasks.\n\nYour collaboration style is informal, verbal, and iterative. You prefer a quick 'huddle' to a formal sit-down. You hate 'circle back' culture. If a decision needs to be made, you want to make it *now*. You are the person who interrupts the meeting to call the vendor on speakerphone and get the answer immediately, rather than assigning someone to 'look into it' for next week. This bias for action is your superpower, but it can be disruptive. You need to be mindful that some colleagues need time to process information before deciding. When you force a snap decision, you might be steamrolling the introvert who has the correct answer but hasn't had time to formulate it.\n\nregarding digital communication, your style is equally distinct. Your emails are often one-liners. Subject: 'Update.' Body: 'It's done. Moving to phase 2.' You treat Slack or Teams like a walkie-talkie. You prefer synchronous communication. You would much rather hop on a quick video call to screen-share and fix the issue than engage in a twenty-message thread. You likely have a habit of not reading long emails, skimming for the bolded text and ignoring the nuance, which can occasionally land you in hot water."
+      },
       "subsections": [
         {
           "heading": "Optimizing Your Communication",
@@ -106,12 +112,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Crisis Management Experts:** You excel when the heat is on. Use your ability to stay calm and act decisively to solve problems that paralyze others.",
-    "**Action Over Theory:** You learn by doing. Seek roles that allow for experimentation and immediate application rather than endless planning.",
-    "**Master Negotiators:** Your ability to read body language and motivation makes you a formidable salesperson and influencer.",
-    "**Beware the Shiny Object:** Your biggest challenge is follow-through. Build systems or partner with detail-oriented colleagues to ensure projects cross the finish line.",
-    "**Direct Communication:** You value brutal honesty, but remember to soften your delivery for more sensitive personality types to maintain team harmony.",
-    "**Need for Autonomy:** You will wither under micromanagement. Fight for roles that offer independence and measure you on results, not methods."
+    {
+      "title": "Crisis Management Experts:",
+      "description": "You excel when the heat is on. Use your ability to stay calm and act decisively to solve problems that paralyze others."
+    },
+    {
+      "title": "Action Over Theory:",
+      "description": "You learn by doing. Seek roles that allow for experimentation and immediate application rather than endless planning."
+    },
+    {
+      "title": "Master Negotiators:",
+      "description": "Your ability to read body language and motivation makes you a formidable salesperson and influencer."
+    },
+    {
+      "title": "Beware the Shiny Object:",
+      "description": "Your biggest challenge is follow-through. Build systems or partner with detail-oriented colleagues to ensure projects cross the finish line."
+    },
+    {
+      "title": "Direct Communication:",
+      "description": "You value brutal honesty, but remember to soften your delivery for more sensitive personality types to maintain team harmony."
+    },
+    {
+      "title": "Need for Autonomy:",
+      "description": "You will wither under micromanagement. Fight for roles that offer independence and measure you on results, not methods."
+    }
   ],
   "relatedTopics": [
     "learning",

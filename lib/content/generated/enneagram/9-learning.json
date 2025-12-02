@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Key Learning Traits",
-          "content": "**The Osmosis Effect:** You often learn by simply being present in a rich environment, absorbing tone and nuance alongside facts.\n\n**Democratic Processing:** You value all viewpoints and learn well when you can compare and contrast different perspectives without judgment.\n\n**Visual and Kinesthetic Needs:** Abstract theory can feel like \"floating away.\" You often need to ground concepts in physical reality or visual maps to keep your attention anchored."
+          "content": {
+            "title": "The Osmosis Effect:",
+            "description": "You often learn by simply being present in a rich environment, absorbing tone and nuance alongside facts.\n\n**Democratic Processing:** You value all viewpoints and learn well when you can compare and contrast different perspectives without judgment.\n\n**Visual and Kinesthetic Needs:** Abstract theory can feel like \"floating away.\" You often need to ground concepts in physical reality or visual maps to keep your attention anchored."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Designing Your Space",
-          "content": "**Comfort with Boundaries:** Use a comfortable chair, but avoid studying in bed or on a plush sofa where the temptation to nap is too high. You need 'alert comfort.'\n\n**Natural Elements:** Incorporate plants or a window view. Nines have a strong connection to the natural world, and green space can help reset your focus when you feel overwhelmed.\n\n**The 'Body Double' Effect:** Many Nines find they focus better when someone else is working quietly nearby. The presence of another focused person creates a 'merging' effect where you adopt their productivity."
+          "content": {
+            "title": "Comfort with Boundaries:",
+            "description": "Use a comfortable chair, but avoid studying in bed or on a plush sofa where the temptation to nap is too high. You need 'alert comfort.'\n\n**Natural Elements:** Incorporate plants or a window view. Nines have a strong connection to the natural world, and green space can help reset your focus when you feel overwhelmed.\n\n**The 'Body Double' Effect:** Many Nines find they focus better when someone else is working quietly nearby. The presence of another focused person creates a 'merging' effect where you adopt their productivity."
+          }
         }
       ]
     },
@@ -60,7 +66,10 @@
       "subsections": [
         {
           "heading": "Troubleshooting the 'Fog'",
-          "content": "**The Priority Matrix:** Before starting, write down your tasks. Force yourself to number them 1 through 5 based on *impact*, not just ease. Do number 1 first, no matter how much you want to do number 5.\n\n**Discomfort Tolerance:** Acknowledge the feeling of wanting to check out. Say out loud, \"I am feeling overwhelmed, and that is okay. I will stay present for 15 more minutes.\"\n\n**Avoid Merging:** Be careful in group projects. Don't just agree to do the grunt work to keep the peace. Assert your preferences on which part of the project you want to handle."
+          "content": {
+            "title": "The Priority Matrix:",
+            "description": "Before starting, write down your tasks. Force yourself to number them 1 through 5 based on *impact*, not just ease. Do number 1 first, no matter how much you want to do number 5.\n\n**Discomfort Tolerance:** Acknowledge the feeling of wanting to check out. Say out loud, \"I am feeling overwhelmed, and that is okay. I will stay present for 15 more minutes.\"\n\n**Avoid Merging:** Be careful in group projects. Don't just agree to do the grunt work to keep the peace. Assert your preferences on which part of the project you want to handle."
+          }
         }
       ]
     },
@@ -70,7 +79,10 @@
       "subsections": [
         {
           "heading": "Strategies for the Classroom",
-          "content": "**Structured Turn-Taking:** Don't rely on \"whoever raises their hand first.\" Nines will lose that game every time. Use round-robin discussions where everyone has a protected space to speak.\n\n**Gentle Directness:** Ask them specifically, \"I'd love to hear your perspective on how these two ideas connect.\" Validate their insight immediately to build confidence.\n\n**Clear Structures:** Nines struggle to create their own structure. Provide clear rubrics, broken-down deadlines (checkpoints), and specific instructions to help them overcome inertia."
+          "content": {
+            "title": "Structured Turn-Taking:",
+            "description": "Don't rely on \"whoever raises their hand first.\" Nines will lose that game every time. Use round-robin discussions where everyone has a protected space to speak.\n\n**Gentle Directness:** Ask them specifically, \"I'd love to hear your perspective on how these two ideas connect.\" Validate their insight immediately to build confidence.\n\n**Clear Structures:** Nines struggle to create their own structure. Provide clear rubrics, broken-down deadlines (checkpoints), and specific instructions to help them overcome inertia."
+          }
         }
       ]
     },
@@ -80,7 +92,10 @@
       "subsections": [
         {
           "heading": "Building Your Curriculum",
-          "content": "**Accountability Partnerships:** You are less likely to let someone else down than yourself. Pair up with a study buddy where you simply report your progress at the end of the day.\n\n**The 'Forest' App Approach:** Use apps that gamify focus (like growing a virtual tree while you study). This taps into your growth-to-Three energy by giving you a visual representation of success.\n\n**Physical Engagement:** Don't just read. Build models, go to museums, or draw diagrams. Engaging your body helps keep your mind from drifting."
+          "content": {
+            "title": "Accountability Partnerships:",
+            "description": "You are less likely to let someone else down than yourself. Pair up with a study buddy where you simply report your progress at the end of the day.\n\n**The 'Forest' App Approach:** Use apps that gamify focus (like growing a virtual tree while you study). This taps into your growth-to-Three energy by giving you a visual representation of success.\n\n**Physical Engagement:** Don't just read. Build models, go to museums, or draw diagrams. Engaging your body helps keep your mind from drifting."
+          }
         }
       ]
     }
@@ -104,13 +119,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Break Inertia Small:** Use the 5-minute rule to overcome the initial resistance to starting. Momentum is your best friend.",
-    "**Holistic Synthesis:** You learn best when you can see the 'Big Picture' and how concepts connect, rather than memorizing isolated data.",
-    "**Comfortable Environment:** Create a study sanctuary that is aesthetically pleasing and physically comfortable, but distinct from your sleeping space.",
-    "**Externalize Accountability:** Use study buddies or body-doubling techniques to leverage your relational nature for productivity.",
-    "**Beware of Narcotization:** Recognize when you are doing 'busy work' (cleaning, scrolling) to avoid the discomfort of the real task.",
-    "**Gamify Progress:** Tap into your growth toward Type 3 by using checklists, progress bars, and rewards to stay engaged.",
-    "**Voice Your Needs:** In group settings, practice asserting your preferences early to avoid resentment and passive withdrawal."
+    {
+      "title": "Break Inertia Small:",
+      "description": "Use the 5-minute rule to overcome the initial resistance to starting. Momentum is your best friend."
+    },
+    {
+      "title": "Holistic Synthesis:",
+      "description": "You learn best when you can see the 'Big Picture' and how concepts connect, rather than memorizing isolated data."
+    },
+    {
+      "title": "Comfortable Environment:",
+      "description": "Create a study sanctuary that is aesthetically pleasing and physically comfortable, but distinct from your sleeping space."
+    },
+    {
+      "title": "Externalize Accountability:",
+      "description": "Use study buddies or body-doubling techniques to leverage your relational nature for productivity."
+    },
+    {
+      "title": "Beware of Narcotization:",
+      "description": "Recognize when you are doing 'busy work' (cleaning, scrolling) to avoid the discomfort of the real task."
+    },
+    {
+      "title": "Gamify Progress:",
+      "description": "Tap into your growth toward Type 3 by using checklists, progress bars, and rewards to stay engaged."
+    },
+    {
+      "title": "Voice Your Needs:",
+      "description": "In group settings, practice asserting your preferences early to avoid resentment and passive withdrawal."
+    }
   ],
   "relatedTopics": [
     "careers",

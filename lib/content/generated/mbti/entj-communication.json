@@ -109,12 +109,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Efficiency First:** ENTJ communication is designed to move from problem to solution in the shortest time possible.",
-    "**Thinking Out Loud:** They often process information verbally, which can sound like issuing orders but is actually drafting ideas.",
-    "**Directness is Respect:** To an ENTJ, being blunt is a sign that they trust you enough to handle the truth.",
-    "**Action-Oriented:** They show care through problem-solving and resource provision, not necessarily emotional validation.",
-    "**Debate is Healthy:** They enjoy intellectual sparring and respect those who can defend their ideas with logic.",
-    "**Structure and Clarity:** They excel at framing complex issues into clear, actionable steps."
+    {
+      "title": "Efficiency First:",
+      "description": "ENTJ communication is designed to move from problem to solution in the shortest time possible."
+    },
+    {
+      "title": "Thinking Out Loud:",
+      "description": "They often process information verbally, which can sound like issuing orders but is actually drafting ideas."
+    },
+    {
+      "title": "Directness is Respect:",
+      "description": "To an ENTJ, being blunt is a sign that they trust you enough to handle the truth."
+    },
+    {
+      "title": "Action-Oriented:",
+      "description": "They show care through problem-solving and resource provision, not necessarily emotional validation."
+    },
+    {
+      "title": "Debate is Healthy:",
+      "description": "They enjoy intellectual sparring and respect those who can defend their ideas with logic."
+    },
+    {
+      "title": "Structure and Clarity:",
+      "description": "They excel at framing complex issues into clear, actionable steps."
+    }
   ],
   "relatedTopics": [
     "learning",

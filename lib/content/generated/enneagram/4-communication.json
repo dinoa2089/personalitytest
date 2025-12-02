@@ -3,7 +3,10 @@
   "type": "4",
   "framework": "enneagram",
   "topic": "communication",
-  "title": "Type 4 Communication Style: Unlocking the Emotional Depths of The Individualist",
+  "title": {
+    "title": "Type 4 Communication Style",
+    "description": "Unlocking the Emotional Depths of The Individualist"
+  },
   "metaDescription": "Explore the nuanced Type 4 - The Individualist communication style. Learn to navigate their emotional depth, need for authenticity, and unique expression.",
   "keywords": [
     "Type 4 - The Individualist communication style",

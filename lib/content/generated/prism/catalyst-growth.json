@@ -13,7 +13,10 @@
     "PRISM framework",
     "personality type growth"
   ],
-  "introduction": "You know that specific, electrifying feeling: it’s 2:00 PM on a Tuesday, and suddenly, a conversation sparks a connection in your brain that lights up the world. The adrenaline hits. You can see the future—a new business, a community project, a way to revolutionize the office workflow. You grab your phone, you text three people, and you feel that surge of momentum that defines your existence. Being a Catalyst means living in a world where possibilities are as tangible as objects. You are the spark plug of any group, the person who walks into a stagnant room and opens the windows to let fresh air in. Your gift is rare and necessary; without you, organizations stall, relationships stagnate, and life loses its color.\n\nHowever, you also know the other side of this coin. You know the quiet, sinking feeling that comes three weeks later when the novelty has worn off, the initial enthusiasm of your team has cooled, and you are left staring at a spreadsheet or a pile of logistics that feels like quicksand. You might look back at your history and see a graveyard of half-built bridges—magnificent starts that never quite reached the other side. This disconnect between your visionary start and the grueling finish line is the central tension of your life. It can lead to a secret sense of inadequacy, a fear that perhaps you are 'all talk,' even though you know your intentions are pure gold.\n\nThis guide to The Catalyst personal growth is designed to bridge that gap. We aren't here to dim your light or force you into a box of rigid routine. Instead, we want to build a hearth for your fire so it doesn't burn out or scorch the floorboards. By understanding how to harness your high Extraversion and Openness while scaffolding your Adaptability with learned structure, you can transform from a fleeting spark into a steady, warming sun that sustains growth for the long haul.",
+  "introduction": {
+    "title": "You know that specific, electrifying feeling",
+    "description": "it’s 2:00 PM on a Tuesday, and suddenly, a conversation sparks a connection in your brain that lights up the world. The adrenaline hits. You can see the future—a new business, a community project, a way to revolutionize the office workflow. You grab your phone, you text three people, and you feel that surge of momentum that defines your existence. Being a Catalyst means living in a world where possibilities are as tangible as objects. You are the spark plug of any group, the person who walks into a stagnant room and opens the windows to let fresh air in. Your gift is rare and necessary; without you, organizations stall, relationships stagnate, and life loses its color.\n\nHowever, you also know the other side of this coin. You know the quiet, sinking feeling that comes three weeks later when the novelty has worn off, the initial enthusiasm of your team has cooled, and you are left staring at a spreadsheet or a pile of logistics that feels like quicksand. You might look back at your history and see a graveyard of half-built bridges—magnificent starts that never quite reached the other side. This disconnect between your visionary start and the grueling finish line is the central tension of your life. It can lead to a secret sense of inadequacy, a fear that perhaps you are 'all talk,' even though you know your intentions are pure gold.\n\nThis guide to The Catalyst personal growth is designed to bridge that gap. We aren't here to dim your light or force you into a box of rigid routine. Instead, we want to build a hearth for your fire so it doesn't burn out or scorch the floorboards. By understanding how to harness your high Extraversion and Openness while scaffolding your Adaptability with learned structure, you can transform from a fleeting spark into a steady, warming sun that sustains growth for the long haul."
+  },
   "sections": [
     {
       "heading": "1. Growth Mindset for This Type",
@@ -66,13 +69,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace 'Sustainable Intensity':** Shift your focus from the thrill of the start to the satisfaction of the finish.",
-    "**Structure is a Trellis:** View rules and routines not as restrictions, but as necessary supports that allow your creativity to climb higher.",
-    "**The Power of the Pause:** Combat overcommitment by implementing a mandatory waiting period before saying 'yes' to new projects.",
-    "**Social Fasting:** Practice solitude to break the dependency on external validation and build the muscle for deep work.",
-    "**Park Your Ideas:** Use an external system to capture new ideas so they don't distract you from your current priority.",
-    "**Value Depth Over Breadth:** consciously choose to go deep in fewer areas rather than skimming the surface of many.",
-    "**Celebrate the Boring:** finding the meditative value in repetitive tasks is the secret to unlocking your long-term potential."
+    {
+      "title": "Embrace 'Sustainable Intensity':",
+      "description": "Shift your focus from the thrill of the start to the satisfaction of the finish."
+    },
+    {
+      "title": "Structure is a Trellis:",
+      "description": "View rules and routines not as restrictions, but as necessary supports that allow your creativity to climb higher."
+    },
+    {
+      "title": "The Power of the Pause:",
+      "description": "Combat overcommitment by implementing a mandatory waiting period before saying 'yes' to new projects."
+    },
+    {
+      "title": "Social Fasting:",
+      "description": "Practice solitude to break the dependency on external validation and build the muscle for deep work."
+    },
+    {
+      "title": "Park Your Ideas:",
+      "description": "Use an external system to capture new ideas so they don't distract you from your current priority."
+    },
+    {
+      "title": "Value Depth Over Breadth:",
+      "description": "consciously choose to go deep in fewer areas rather than skimming the surface of many."
+    },
+    {
+      "title": "Celebrate the Boring:",
+      "description": "finding the meditative value in repetitive tasks is the secret to unlocking your long-term potential."
+    }
   ],
   "relatedTopics": [
     "learning",

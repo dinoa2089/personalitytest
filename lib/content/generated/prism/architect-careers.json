@@ -23,17 +23,26 @@
       "subsections": [
         {
           "heading": "Core Professional Assets",
-          "content": "**Systematic Innovation:** You don't wait for inspiration to strike; you build a process that generates innovation reliably.\n**Deep Focus Capability:** You can sustain attention on complex problems for long periods, achieving 'flow states' that are difficult for others to reach.\n**Strategic Foresight:** You anticipate bottlenecks and structural failures months before they happen.\n**Objective Analysis:** You tend to make decisions based on data and logic rather than office politics or emotional sway."
+          "content": {
+            "title": "Systematic Innovation:",
+            "description": "You don't wait for inspiration to strike; you build a process that generates innovation reliably.\n**Deep Focus Capability:** You can sustain attention on complex problems for long periods, achieving 'flow states' that are difficult for others to reach.\n**Strategic Foresight:** You anticipate bottlenecks and structural failures months before they happen.\n**Objective Analysis:** You tend to make decisions based on data and logic rather than office politics or emotional sway."
+          }
         }
       ]
     },
     {
       "heading": "2. Ideal Work Environments: The Sanctuary of Focus",
-      "content": "Picture your nightmare workspace: An open-plan office with fluorescent lighting, phones ringing incessantly, and a culture that demands constant, spontaneous collaboration. People stop by your desk just to 'chat,' interrupting your deep thought process every fifteen minutes. Decisions are made based on who speaks the loudest, and plans change daily without documentation. For The Architect, this isn't just annoying; it is psychologically draining. It creates a cognitive load that paralyzes your ability to function. You thrive in environments that respect the sanctity of deep work. You need a space—whether physical or cultural—that acts as a sanctuary for your intellect, a place where you can close the door (literally or metaphorically) and dive into the complexity of your tasks.\n\nThe ideal environment for 'The Architect jobs' is one that values autonomy over micromanagement. You do not need a manager hovering over your shoulder; in fact, you likely resent it. You work best when you are given a clear objective, a deadline, and the freedom to determine the 'how.' You appreciate cultures that are meritocratic and written-first. You prefer asynchronous communication—emails, detailed specs, and project management tickets—over breathless meetings. This allows you to process information, formulate a complete thought, and respond with precision. You want to work with competent peers who respect boundaries and view competence as the ultimate form of kindness.\n\nFurthermore, you need an environment that allows for 'architecting' time. This is the time spent planning, researching, and designing before execution begins. If a workplace demands immediate output without allowing for the planning phase, you will feel rush and anxious. You need a culture that understands that one hour of your planning can save ten hours of execution later. You flourish in tech companies with strong engineering cultures, research institutions, specialized consultancies, or boutique design firms where the quality of the output is prioritized over the volume of activity.",
+      "content": {
+        "title": "Picture your nightmare workspace",
+        "description": "An open-plan office with fluorescent lighting, phones ringing incessantly, and a culture that demands constant, spontaneous collaboration. People stop by your desk just to 'chat,' interrupting your deep thought process every fifteen minutes. Decisions are made based on who speaks the loudest, and plans change daily without documentation. For The Architect, this isn't just annoying; it is psychologically draining. It creates a cognitive load that paralyzes your ability to function. You thrive in environments that respect the sanctity of deep work. You need a space—whether physical or cultural—that acts as a sanctuary for your intellect, a place where you can close the door (literally or metaphorically) and dive into the complexity of your tasks.\n\nThe ideal environment for 'The Architect jobs' is one that values autonomy over micromanagement. You do not need a manager hovering over your shoulder; in fact, you likely resent it. You work best when you are given a clear objective, a deadline, and the freedom to determine the 'how.' You appreciate cultures that are meritocratic and written-first. You prefer asynchronous communication—emails, detailed specs, and project management tickets—over breathless meetings. This allows you to process information, formulate a complete thought, and respond with precision. You want to work with competent peers who respect boundaries and view competence as the ultimate form of kindness.\n\nFurthermore, you need an environment that allows for 'architecting' time. This is the time spent planning, researching, and designing before execution begins. If a workplace demands immediate output without allowing for the planning phase, you will feel rush and anxious. You need a culture that understands that one hour of your planning can save ten hours of execution later. You flourish in tech companies with strong engineering cultures, research institutions, specialized consultancies, or boutique design firms where the quality of the output is prioritized over the volume of activity."
+      },
       "subsections": [
         {
           "heading": "Environmental Checklist",
-          "content": "**High Autonomy:** Control over your schedule and methods.\n**Low Interruption Volume:** A culture that respects 'Do Not Disturb' modes.\n**Intellectual Challenge:** Problems that require complex, novel solutions.\n**Competent Colleagues:** Peers who are experts in their fields.\n**Structured Progression:** Clear metrics for success and advancement."
+          "content": {
+            "title": "High Autonomy:",
+            "description": "Control over your schedule and methods.\n**Low Interruption Volume:** A culture that respects 'Do Not Disturb' modes.\n**Intellectual Challenge:** Problems that require complex, novel solutions.\n**Competent Colleagues:** Peers who are experts in their fields.\n**Structured Progression:** Clear metrics for success and advancement."
+          }
         }
       ]
     },
@@ -62,7 +71,10 @@
       "subsections": [
         {
           "heading": "Actionable Growth Tactics",
-          "content": "**The 80/20 Rule:** Force yourself to submit work when it meets the core requirements, even if it lacks your signature polish.\n**Structured Socializing:** Schedule 'networking' or 'team building' into your calendar like any other task so you don't neglect it.\n**The 'Why' Exercise:** Before presenting a new idea, write down three reasons why it benefits the *emotions* or *career goals* of your stakeholders, not just the company bottom line.\n**Documentation as Delegation:** If you can't trust others to do it right, write a flawless SOP (Standard Operating Procedure) so they can't mess it up, then hand it off."
+          "content": {
+            "title": "The 80/20 Rule:",
+            "description": "Force yourself to submit work when it meets the core requirements, even if it lacks your signature polish.\n**Structured Socializing:** Schedule 'networking' or 'team building' into your calendar like any other task so you don't neglect it.\n**The 'Why' Exercise:** Before presenting a new idea, write down three reasons why it benefits the *emotions* or *career goals* of your stakeholders, not just the company bottom line.\n**Documentation as Delegation:** If you can't trust others to do it right, write a flawless SOP (Standard Operating Procedure) so they can't mess it up, then hand it off."
+          }
         }
       ]
     },
@@ -97,11 +109,26 @@
     }
   ],
   "keyTakeaways": [
-    "**Leverage the Dual Engine:** Your power lies in combining creative vision (Openness) with disciplined execution (Conscientiousness).",
-    "**Protect Your Focus:** Seek environments that minimize interruptions and value deep, asynchronous work.",
-    "**Beware the Trap:** Perfectionism and analysis paralysis are your biggest hurdles; learn to 'ship' imperfect work.",
-    "**Data is Your Currency:** Negotiate and advance by quantifying your value and systematizing your achievements.",
-    "**Partner for Balance:** In entrepreneurship or teams, align yourself with people who handle the social/promotional aspects so you can focus on the build."
+    {
+      "title": "Leverage the Dual Engine:",
+      "description": "Your power lies in combining creative vision (Openness) with disciplined execution (Conscientiousness)."
+    },
+    {
+      "title": "Protect Your Focus:",
+      "description": "Seek environments that minimize interruptions and value deep, asynchronous work."
+    },
+    {
+      "title": "Beware the Trap:",
+      "description": "Perfectionism and analysis paralysis are your biggest hurdles; learn to 'ship' imperfect work."
+    },
+    {
+      "title": "Data is Your Currency:",
+      "description": "Negotiate and advance by quantifying your value and systematizing your achievements."
+    },
+    {
+      "title": "Partner for Balance:",
+      "description": "In entrepreneurship or teams, align yourself with people who handle the social/promotional aspects so you can focus on the build."
+    }
   ],
   "relatedTopics": [
     "learning",

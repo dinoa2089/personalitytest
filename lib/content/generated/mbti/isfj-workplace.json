@@ -59,7 +59,10 @@
     },
     {
       "heading": "5. Meeting and Collaboration Style",
-      "content": "Let's set the scene: It's the weekly departmental all-hands meeting. You arrived five minutes early to secure a seat where you can see the screen but aren't center stage. You have a notebook, a pen, and a printed agenda (which you likely reviewed yesterday). As the meeting starts, you are the designated—or voluntary—scribe. You capture the action items that everyone else is glossing over. While the extroverts are fighting for airtime, you are cross-referencing the new proposals with current resource constraints in your head.\n\nYour challenge in meetings is the 'processing gap.' Because you use Introverted Sensing, you compare new information against a vast internal database of past experiences. This takes time. Often, by the time you have formulated a perfect, risk-averse insight, the conversation has moved on. You might leave the meeting feeling frustrated, holding onto a valuable point that went unsaid. To combat this, try the 'post-meeting follow-up.' It is perfectly acceptable for an **ISFJ - The Defender professional** to send an email afterward saying, 'I've been thinking about our discussion on X, and I realized we should consider Y.'\n\nWhen you are leading a project, your style is 'Servant Leadership.' You don't bark orders from a podium; you are in the trenches. You lead by example. If the team stays late, you stay late. You ensure everyone has the resources they need. However, you must be wary of 'saving' your team members too often. If a team member is underperforming, your instinct is to pick up their slack to avoid a confrontation or a drop in quality. This isn't collaboration; it's enabling. True collaboration requires you to let others carry their own weight, even if they stumble.",
+      "content": {
+        "title": "Let's set the scene",
+        "description": "It's the weekly departmental all-hands meeting. You arrived five minutes early to secure a seat where you can see the screen but aren't center stage. You have a notebook, a pen, and a printed agenda (which you likely reviewed yesterday). As the meeting starts, you are the designated—or voluntary—scribe. You capture the action items that everyone else is glossing over. While the extroverts are fighting for airtime, you are cross-referencing the new proposals with current resource constraints in your head.\n\nYour challenge in meetings is the 'processing gap.' Because you use Introverted Sensing, you compare new information against a vast internal database of past experiences. This takes time. Often, by the time you have formulated a perfect, risk-averse insight, the conversation has moved on. You might leave the meeting feeling frustrated, holding onto a valuable point that went unsaid. To combat this, try the 'post-meeting follow-up.' It is perfectly acceptable for an **ISFJ - The Defender professional** to send an email afterward saying, 'I've been thinking about our discussion on X, and I realized we should consider Y.'\n\nWhen you are leading a project, your style is 'Servant Leadership.' You don't bark orders from a podium; you are in the trenches. You lead by example. If the team stays late, you stay late. You ensure everyone has the resources they need. However, you must be wary of 'saving' your team members too often. If a team member is underperforming, your instinct is to pick up their slack to avoid a confrontation or a drop in quality. This isn't collaboration; it's enabling. True collaboration requires you to let others carry their own weight, even if they stumble."
+      },
       "subsections": [
         {
           "heading": "Meeting Strategy",
@@ -107,12 +110,30 @@
     }
   ],
   "keyTakeaways": [
-    "**The Unsung Hero:** You provide the stability, memory, and practical care that keeps organizations running, often behind the scenes.",
-    "**Detail-Oriented:** Your Introverted Sensing (Si) allows you to catch errors others miss and maintain high standards of quality.",
-    "**The 'Yes' Trap:** Your greatest weakness is overcommitting; learning to pause before accepting new tasks is vital for survival.",
-    "**Preparation is Power:** You excel when you have time to prepare. Use written communication and agendas to bridge the gap in fast-paced meetings.",
-    "**Make the Invisible Visible:** You must actively document your contributions, as your humble nature often hides your true value from management.",
-    "**Harmonious Environment:** You need a workplace that values respect and clarity; toxic or highly competitive environments will drain you rapidly."
+    {
+      "title": "The Unsung Hero:",
+      "description": "You provide the stability, memory, and practical care that keeps organizations running, often behind the scenes."
+    },
+    {
+      "title": "Detail-Oriented:",
+      "description": "Your Introverted Sensing (Si) allows you to catch errors others miss and maintain high standards of quality."
+    },
+    {
+      "title": "The 'Yes' Trap:",
+      "description": "Your greatest weakness is overcommitting; learning to pause before accepting new tasks is vital for survival."
+    },
+    {
+      "title": "Preparation is Power:",
+      "description": "You excel when you have time to prepare. Use written communication and agendas to bridge the gap in fast-paced meetings."
+    },
+    {
+      "title": "Make the Invisible Visible:",
+      "description": "You must actively document your contributions, as your humble nature often hides your true value from management."
+    },
+    {
+      "title": "Harmonious Environment:",
+      "description": "You need a workplace that values respect and clarity; toxic or highly competitive environments will drain you rapidly."
+    }
   ],
   "relatedTopics": [
     "learning",

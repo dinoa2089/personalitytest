@@ -47,7 +47,10 @@
       "subsections": [
         {
           "heading": "Journaling for Shadow Work",
-          "content": "Use these prompts to unearth your hidden drivers:\n1. 'Where in my life am I giving help that wasn't asked for, and why am I afraid to stop?'\n2. 'If I stopped being useful to the people I love, what do I fear would happen to our relationship?'\n3. 'What is a truth I am swallowing to keep the peace, and what is it costing me?'"
+          "content": {
+            "title": "Use these prompts to unearth your hidden drivers",
+            "description": "1. 'Where in my life am I giving help that wasn't asked for, and why am I afraid to stop?'\n2. 'If I stopped being useful to the people I love, what do I fear would happen to our relationship?'\n3. 'What is a truth I am swallowing to keep the peace, and what is it costing me?'"
+          }
         }
       ]
     },
@@ -57,7 +60,10 @@
       "subsections": [
         {
           "heading": "The Logic Check",
-          "content": "Before making a commitment, run it through a Ti-filter: Does this align with my resources? Is the timeline realistic? Am I the only person who can do this? If the logic doesn't hold, the emotion shouldn't drive the car."
+          "content": {
+            "title": "Before making a commitment, run it through a Ti-filter",
+            "description": "Does this align with my resources? Is the timeline realistic? Am I the only person who can do this? If the logic doesn't hold, the emotion shouldn't drive the car."
+          }
         }
       ]
     },
@@ -91,13 +97,34 @@
     }
   ],
   "keyTakeaways": [
-    "Shift from 'Savior' to 'Partner': Empower others to solve their own problems rather than fixing everything for them.",
-    "Develop the 'Pause': Stop the automatic 'yes.' Take time to consult your internal logic before committing to requests.",
-    "Embrace 'Compassionate Detachment': Learn to care deeply without taking responsibility for others' emotions.",
-    "Prioritize Introverted Thinking (Ti): Use logic and objective analysis to set boundaries and protect your energy.",
-    "Beware of the 'Chameleon Effect': Define your core values and stick to them, even if it creates temporary disharmony.",
-    "Schedule Solitude: Treat alone time as a non-negotiable appointment to recharge your social battery.",
-    "Prune Relationships: Distance yourself from 'energy vampires' who take without reciprocating."
+    {
+      "title": "Shift from 'Savior' to 'Partner'",
+      "description": "Empower others to solve their own problems rather than fixing everything for them."
+    },
+    {
+      "title": "Develop the 'Pause'",
+      "description": "Stop the automatic 'yes.' Take time to consult your internal logic before committing to requests."
+    },
+    {
+      "title": "Embrace 'Compassionate Detachment'",
+      "description": "Learn to care deeply without taking responsibility for others' emotions."
+    },
+    {
+      "title": "Prioritize Introverted Thinking (Ti)",
+      "description": "Use logic and objective analysis to set boundaries and protect your energy."
+    },
+    {
+      "title": "Beware of the 'Chameleon Effect'",
+      "description": "Define your core values and stick to them, even if it creates temporary disharmony."
+    },
+    {
+      "title": "Schedule Solitude",
+      "description": "Treat alone time as a non-negotiable appointment to recharge your social battery."
+    },
+    {
+      "title": "Prune Relationships",
+      "description": "Distance yourself from 'energy vampires' who take without reciprocating."
+    }
   ],
   "relatedTopics": [
     "learning",

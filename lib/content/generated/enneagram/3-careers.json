@@ -49,7 +49,10 @@
     },
     {
       "heading": "Negotiating and Advancing: The Interview Scenario",
-      "content": "Picture this: You are sitting across from a hiring manager. They ask, 'What is your greatest weakness?' Most people fumble this. You, however, have prepared a weakness that secretly sounds like a strength ('I care too much!'). Stop. The hiring manager has heard that a thousand times. To truly advance, you need to leverage your authenticity. A Type 3 excels in interviews because they can mirror the interviewer, but to land the *best* roles, you need to show depth. When negotiating, do not just sell your time; sell your *results*. You are the master of efficiency, so quantify your value.\n\nInstead of saying, 'I am a hard worker,' say, 'In my last role, I noticed the reporting process took 10 hours a week. I automated it, saving the company $15,000 annually and freeing up the team for strategy.' You speak the language of ROI (Return on Investment). When asking for a raise, bring a 'Brag Sheet'—a visual document listing your accomplishments. You are naturally good at this, but ensure you tie every accomplishment to the company's bottom line. Your challenge in negotiation is not confidence; it is coming across as *transactional*. Ensure you express genuine enthusiasm for the company's mission, not just the title it gives you.\n\n### Interview Tips for The Achiever\n*   **Show the Process, Not Just the Result:** You tend to present the polished final product. Walk them through the messy middle so they see your problem-solving resilience.\n*   **Check Your Speed:** You talk and think fast. Slow down. Pause. It projects authority rather than anxiety.\n*   **Ask Strategic Questions:** Use your research skills. Ask questions about the company's 5-year vision to show you are thinking like a future leader, not just an employee.",
+      "content": {
+        "title": "Picture this",
+        "description": "You are sitting across from a hiring manager. They ask, 'What is your greatest weakness?' Most people fumble this. You, however, have prepared a weakness that secretly sounds like a strength ('I care too much!'). Stop. The hiring manager has heard that a thousand times. To truly advance, you need to leverage your authenticity. A Type 3 excels in interviews because they can mirror the interviewer, but to land the *best* roles, you need to show depth. When negotiating, do not just sell your time; sell your *results*. You are the master of efficiency, so quantify your value.\n\nInstead of saying, 'I am a hard worker,' say, 'In my last role, I noticed the reporting process took 10 hours a week. I automated it, saving the company $15,000 annually and freeing up the team for strategy.' You speak the language of ROI (Return on Investment). When asking for a raise, bring a 'Brag Sheet'—a visual document listing your accomplishments. You are naturally good at this, but ensure you tie every accomplishment to the company's bottom line. Your challenge in negotiation is not confidence; it is coming across as *transactional*. Ensure you express genuine enthusiasm for the company's mission, not just the title it gives you.\n\n### Interview Tips for The Achiever\n*   **Show the Process, Not Just the Result:** You tend to present the polished final product. Walk them through the messy middle so they see your problem-solving resilience.\n*   **Check Your Speed:** You talk and think fast. Slow down. Pause. It projects authority rather than anxiety.\n*   **Ask Strategic Questions:** Use your research skills. Ask questions about the company's 5-year vision to show you are thinking like a future leader, not just an employee."
+      },
       "subsections": []
     },
     {
@@ -77,11 +80,26 @@
     }
   ],
   "keyTakeaways": [
-    "**Value Efficiency:** Threes thrive in environments that reward speed, results, and measurable outcomes.",
-    "**Seek Visibility:** Avoid back-office roles; look for careers with clear feedback loops and opportunities for recognition.",
-    "**Beware the Mask:** Consciously practice authenticity. Ensure you are pursuing goals you actually want, not just ones that look impressive.",
-    "**Leverage Adaptability:** Use your 'chameleon' skills to excel in sales, consulting, and leadership, but don't lose your core identity in the process.",
-    "**Define Success Internally:** To avoid burnout, create your own definition of success that includes rest, relationships, and health."
+    {
+      "title": "Value Efficiency:",
+      "description": "Threes thrive in environments that reward speed, results, and measurable outcomes."
+    },
+    {
+      "title": "Seek Visibility:",
+      "description": "Avoid back-office roles; look for careers with clear feedback loops and opportunities for recognition."
+    },
+    {
+      "title": "Beware the Mask:",
+      "description": "Consciously practice authenticity. Ensure you are pursuing goals you actually want, not just ones that look impressive."
+    },
+    {
+      "title": "Leverage Adaptability:",
+      "description": "Use your 'chameleon' skills to excel in sales, consulting, and leadership, but don't lose your core identity in the process."
+    },
+    {
+      "title": "Define Success Internally:",
+      "description": "To avoid burnout, create your own definition of success that includes rest, relationships, and health."
+    }
   ],
   "relatedTopics": [
     "learning",

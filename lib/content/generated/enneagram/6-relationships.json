@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "The Superpowers of the Loyalist",
-          "content": "**The Guardian Instinct:** You anticipate needs before they are voiced. If your partner mentions a headache, you have the aspirin, a glass of water, and the room darkened before they can ask.\n\n**Unwavering Support:** Once committed, you are an advocate for your partner's dreams. You will help them troubleshoot their business plan or rehearse their presentation until it is perfect.\n\n**Crisis Management:** When real trouble hits—a medical emergency or financial loss—your anxiety often vanishes, replaced by a cool, competent focus. You are calmest when the storm actually arrives."
+          "content": {
+            "title": "The Guardian Instinct:",
+            "description": "You anticipate needs before they are voiced. If your partner mentions a headache, you have the aspirin, a glass of water, and the room darkened before they can ask.\n\n**Unwavering Support:** Once committed, you are an advocate for your partner's dreams. You will help them troubleshoot their business plan or rehearse their presentation until it is perfect.\n\n**Crisis Management:** When real trouble hits—a medical emergency or financial loss—your anxiety often vanishes, replaced by a cool, competent focus. You are calmest when the storm actually arrives."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Love Languages for the Loyalist",
-          "content": "**Words of Affirmation (Clarification):** You don't just need compliments; you need clarity. \"I love you\" is good, but \"I am committed to you, and here is our plan for the weekend\" is better. Verbal reassurance quiets the inner noise.\n\n**Acts of Service (Security):** When a partner does something that increases your safety or reduces your mental load—like fixing a lock or handling a complex tax form—it registers as deep love."
+          "content": {
+            "title": "Words of Affirmation (Clarification):",
+            "description": "You don't just need compliments; you need clarity. \"I love you\" is good, but \"I am committed to you, and here is our plan for the weekend\" is better. Verbal reassurance quiets the inner noise.\n\n**Acts of Service (Security):** When a partner does something that increases your safety or reduces your mental load—like fixing a lock or handling a complex tax form—it registers as deep love."
+          }
         }
       ]
     },
@@ -42,7 +48,10 @@
       "subsections": [
         {
           "heading": "Ideal Date Scenarios",
-          "content": "**Activity-Based Dates:** Go bowling, hiking, or to a trivia night. Activities that require a shared focus take the pressure off intense eye contact and allow you to observe how your date handles competition, teamwork, and minor frustrations.\n\n**The \"Low-Risk\" Coffee:** A short coffee date is better than a long dinner for a first meeting. It provides a clear \"exit strategy\" if things feel off, which actually helps you relax and stay present."
+          "content": {
+            "title": "Activity-Based Dates:",
+            "description": "Go bowling, hiking, or to a trivia night. Activities that require a shared focus take the pressure off intense eye contact and allow you to observe how your date handles competition, teamwork, and minor frustrations.\n\n**The \"Low-Risk\" Coffee:** A short coffee date is better than a long dinner for a first meeting. It provides a clear \"exit strategy\" if things feel off, which actually helps you relax and stay present."
+          }
         },
         {
           "heading": "Red Flags You Might Over-Analyze",
@@ -81,7 +90,10 @@
       "subsections": [
         {
           "heading": "How to De-escalate Conflict",
-          "content": "When you feel the anxiety rising during a conflict:\n1.  **Name the Fear:** Say out loud, \"I'm in a spin right now because I'm afraid this fight means we're breaking up.\" Naming the worst-case scenario often takes the power out of it.\n2.  **Fact-Check:** Ask your partner, \"I'm telling myself a story that you're angry about X. Is that true?\" Give them a chance to clarify before you react.\n3.  **Physical Grounding:** Anxiety lives in the head. Get into your body. Hold your partner's hand or take deep breaths together to down-regulate your nervous system."
+          "content": {
+            "title": "When you feel the anxiety rising during a conflict",
+            "description": "1.  **Name the Fear:** Say out loud, \"I'm in a spin right now because I'm afraid this fight means we're breaking up.\" Naming the worst-case scenario often takes the power out of it.\n2.  **Fact-Check:** Ask your partner, \"I'm telling myself a story that you're angry about X. Is that true?\" Give them a chance to clarify before you react.\n3.  **Physical Grounding:** Anxiety lives in the head. Get into your body. Hold your partner's hand or take deep breaths together to down-regulate your nervous system."
+          }
         }
       ]
     }
@@ -105,12 +117,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Loyalty is your currency:** You offer unmatched dedication, but you require proof of reliability before investing it.",
-    "**The Radar is a tool, not the truth:** Your ability to foresee danger is a strength, but not every blip on the radar is a real threat to your relationship.",
-    "**Beware the Self-Fulfilling Prophecy:** accusing a partner of leaving can eventually drive them away. Check your projections.",
-    "**Actions over words:** You feel most loved by consistent behavior and transparency, not just romantic gestures.",
-    "**Growth is internalizing safety:** The ultimate goal is to trust yourself enough to know that even if the relationship fails, you will be okay.",
-    "**Communication is key:** Explaining your anxiety to your partner ('I'm just spinning right now') prevents them from feeling attacked."
+    {
+      "title": "Loyalty is your currency:",
+      "description": "You offer unmatched dedication, but you require proof of reliability before investing it."
+    },
+    {
+      "title": "The Radar is a tool, not the truth:",
+      "description": "Your ability to foresee danger is a strength, but not every blip on the radar is a real threat to your relationship."
+    },
+    {
+      "title": "Beware the Self-Fulfilling Prophecy:",
+      "description": "accusing a partner of leaving can eventually drive them away. Check your projections."
+    },
+    {
+      "title": "Actions over words:",
+      "description": "You feel most loved by consistent behavior and transparency, not just romantic gestures."
+    },
+    {
+      "title": "Growth is internalizing safety:",
+      "description": "The ultimate goal is to trust yourself enough to know that even if the relationship fails, you will be okay."
+    },
+    {
+      "title": "Communication is key:",
+      "description": "Explaining your anxiety to your partner ('I'm just spinning right now') prevents them from feeling attacked."
+    }
   ],
   "relatedTopics": [
     "learning",

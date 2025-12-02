@@ -100,13 +100,19 @@
       "subsections": [
         {
           "heading": "The Routine",
-          "content": "**10:00 AM - Input/Exploration (High Energy):** Watch videos, read articles, or listen to lectures on the topic. Allow yourself to follow rabbit holes for 45 minutes.\n**11:00 AM - Synthesis (The Anchor):** Spend 30 minutes mapping out what you just learned on a whiteboard. Connect it to things you already know.\n**12:00 PM - Break:** Physical movement is mandatory. Go for a run or walk.\n**2:00 PM - Deep Work Sprint:** Set a timer for 50 minutes. Focus on one specific output (writing a paragraph, solving a problem set). Turn off the internet.\n**3:00 PM - Creative Output:** Apply what you learned. Create a slide, write a blog post snippet, or teach the concept to an empty room."
+          "content": {
+            "title": "10:00 AM - Input/Exploration (High Energy):",
+            "description": "Watch videos, read articles, or listen to lectures on the topic. Allow yourself to follow rabbit holes for 45 minutes.\n**11:00 AM - Synthesis (The Anchor):** Spend 30 minutes mapping out what you just learned on a whiteboard. Connect it to things you already know.\n**12:00 PM - Break:** Physical movement is mandatory. Go for a run or walk.\n**2:00 PM - Deep Work Sprint:** Set a timer for 50 minutes. Focus on one specific output (writing a paragraph, solving a problem set). Turn off the internet.\n**3:00 PM - Creative Output:** Apply what you learned. Create a slide, write a blog post snippet, or teach the concept to an empty room."
+          }
         }
       ]
     },
     {
       "heading": "7. Quick Study Tips for The Innovator",
-      "content": "Here are 7 immediately actionable tactics for 'The Innovator study methods':\n\n1.  **Teach It to a 5-Year-Old:** Use the Feynman Technique. If you can't explain it simply, you don't understand the 'big picture' yet.\n2.  **Change Your Font:** When editing your own work, change the font to something unusual. The visual novelty forces your brain to re-read the text rather than skimming over errors.\n3.  **Use Metaphors:** Always ask, 'What is this like?' (e.g., 'A cell membrane is like a nightclub bouncer').\n4.  **Color-Code Everything:** Use color to denote themes, not just to make it look pretty.\n5.  **Stand Up:** If you are stuck on a difficult concept, stand up. A change in posture can trigger a change in perspective.\n6.  **The 'Parking Lot' Method:** Keep a notepad next to you while studying. Every time you get a distracted idea ('I should Google that actor'), write it in the 'Parking Lot' to check *after* your study session.\n7.  **Pair Novelty with Routine:** Study in a new coffee shop (novelty) but order the same drink (routine) to balance your need for stimulation and comfort."
+      "content": {
+        "title": "Here are 7 immediately actionable tactics for 'The Innovator study methods':",
+        "description": "1.  **Teach It to a 5-Year-Old:** Use the Feynman Technique. If you can't explain it simply, you don't understand the 'big picture' yet.\n2.  **Change Your Font:** When editing your own work, change the font to something unusual. The visual novelty forces your brain to re-read the text rather than skimming over errors.\n3.  **Use Metaphors:** Always ask, 'What is this like?' (e.g., 'A cell membrane is like a nightclub bouncer').\n4.  **Color-Code Everything:** Use color to denote themes, not just to make it look pretty.\n5.  **Stand Up:** If you are stuck on a difficult concept, stand up. A change in posture can trigger a change in perspective.\n6.  **The 'Parking Lot' Method:** Keep a notepad next to you while studying. Every time you get a distracted idea ('I should Google that actor'), write it in the 'Parking Lot' to check *after* your study session.\n7.  **Pair Novelty with Routine:** Study in a new coffee shop (novelty) but order the same drink (routine) to balance your need for stimulation and comfort."
+      }
     }
   ],
   "faqs": [
@@ -124,13 +130,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Leverage Associative Learning:** You learn by connecting new ideas to existing webs of knowledge, not by linear filing.",
-    "**Hack Your Environment:** Use ambient noise and visual displays (whiteboards) to externalize your thinking and maintain focus.",
-    "**Gamify the Boring Stuff:** Use challenges, role-play, and 'what if' scenarios to make dry material engaging.",
-    "**Start with the Big Picture:** Always understand the macro-concept before diving into the micro-details.",
-    "**Manage the 'Idea Freeze':** In group projects, set a deadline for new ideas so you can switch to execution mode.",
-    "**Use Multi-Modal Inputs:** Combine video, audio, and kinesthetic movement to keep your high-energy brain engaged.",
-    "**Embrace Your Style:** You aren't a disorganized student; you are a non-linear thinker in a linear system. Adapt your methods, not your personality."
+    {
+      "title": "Leverage Associative Learning:",
+      "description": "You learn by connecting new ideas to existing webs of knowledge, not by linear filing."
+    },
+    {
+      "title": "Hack Your Environment:",
+      "description": "Use ambient noise and visual displays (whiteboards) to externalize your thinking and maintain focus."
+    },
+    {
+      "title": "Gamify the Boring Stuff:",
+      "description": "Use challenges, role-play, and 'what if' scenarios to make dry material engaging."
+    },
+    {
+      "title": "Start with the Big Picture:",
+      "description": "Always understand the macro-concept before diving into the micro-details."
+    },
+    {
+      "title": "Manage the 'Idea Freeze':",
+      "description": "In group projects, set a deadline for new ideas so you can switch to execution mode."
+    },
+    {
+      "title": "Use Multi-Modal Inputs:",
+      "description": "Combine video, audio, and kinesthetic movement to keep your high-energy brain engaged."
+    },
+    {
+      "title": "Embrace Your Style:",
+      "description": "You aren't a disorganized student; you are a non-linear thinker in a linear system. Adapt your methods, not your personality."
+    }
   ],
   "relatedTopics": [
     "careers",

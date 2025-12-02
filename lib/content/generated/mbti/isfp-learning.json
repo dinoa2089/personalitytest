@@ -34,7 +34,10 @@
       "subsections": [
         {
           "heading": "Sensory Details to Consider",
-          "content": "**Lighting:** Avoid harsh overhead lights. Use warm-toned lamps, fairy lights, or maximize natural window light. The \"golden hour\" might be your peak productivity time.\n**Sound:** Silence can sometimes feel too heavy. Experiment with lo-fi beats, nature sounds (rain or ocean waves), or instrumental movie soundtracks that evoke emotion without distracting lyrics.\n**Tactile Comfort:** Wear your most comfortable clothes. Use pens that glide smoothly and paper that feels good to touch. The physical act of writing should be pleasurable."
+          "content": {
+            "title": "Lighting:",
+            "description": "Avoid harsh overhead lights. Use warm-toned lamps, fairy lights, or maximize natural window light. The \"golden hour\" might be your peak productivity time.\n**Sound:** Silence can sometimes feel too heavy. Experiment with lo-fi beats, nature sounds (rain or ocean waves), or instrumental movie soundtracks that evoke emotion without distracting lyrics.\n**Tactile Comfort:** Wear your most comfortable clothes. Use pens that glide smoothly and paper that feels good to touch. The physical act of writing should be pleasurable."
+          }
         }
       ]
     },
@@ -44,7 +47,10 @@
       "subsections": [
         {
           "heading": "Visual and Tactile Techniques",
-          "content": "**Aesthetic Note-Taking:** Use high-quality markers, washi tape, and different fonts. Make your notes beautiful enough that you want to look at them again. The visual hierarchy (colors for main points, specific shapes for definitions) helps you recall the page visually during exams.\n**Flashcards 2.0:** Don't just use words. Draw small icons or paste images onto your flashcards. The association between the image and the concept will be faster than the word-to-concept link."
+          "content": {
+            "title": "Aesthetic Note-Taking:",
+            "description": "Use high-quality markers, washi tape, and different fonts. Make your notes beautiful enough that you want to look at them again. The visual hierarchy (colors for main points, specific shapes for definitions) helps you recall the page visually during exams.\n**Flashcards 2.0:** Don't just use words. Draw small icons or paste images onto your flashcards. The association between the image and the concept will be faster than the word-to-concept link."
+          }
         },
         {
           "heading": "The \"Show Me\" Method",
@@ -72,7 +78,10 @@
       "subsections": [
         {
           "heading": "Recommended Resources",
-          "content": "**Interactive Apps:** Use tools like Duolingo, Skillshare, or MasterClass where the production value is high and the lessons are bite-sized.\n**Workshops:** Choose weekend intensives or boot camps over semester-long courses. The immersive, short-term nature suits your desire for immediate experience.\n**Mentorship:** Find a mentor who works in the field. You learn best by observing a master and mimicking their technique until you make it your own."
+          "content": {
+            "title": "Interactive Apps:",
+            "description": "Use tools like Duolingo, Skillshare, or MasterClass where the production value is high and the lessons are bite-sized.\n**Workshops:** Choose weekend intensives or boot camps over semester-long courses. The immersive, short-term nature suits your desire for immediate experience.\n**Mentorship:** Find a mentor who works in the field. You learn best by observing a master and mimicking their technique until you make it your own."
+          }
         }
       ]
     },
@@ -102,13 +111,34 @@
     }
   ],
   "keyTakeaways": [
-    "Learning must be visceral: ISFPs learn best when they can touch, see, and experience the material directly.",
-    "Environment is crucial: A chaotic or sterile environment shuts down the ISFP mind; curate a sensory-friendly study sanctuary.",
-    "Connect to values: Information sticks only when it aligns with personal interests or values (Introverted Feeling).",
-    "Create artifacts: Replace linear notes with visual mind maps, models, or artistic representations of the data.",
-    "Flexibility over rigidity: Strict schedules often fail; adopt a milestone-based or mood-based routine.",
-    "Show, don't tell: Use videos, demonstrations, and field trips to bypass abstract theory.",
-    "Context is King: ISFPs need to know the \"why\" and the human impact before they can care about the technical details."
+    {
+      "title": "Learning must be visceral",
+      "description": "ISFPs learn best when they can touch, see, and experience the material directly."
+    },
+    {
+      "title": "Environment is crucial",
+      "description": "A chaotic or sterile environment shuts down the ISFP mind; curate a sensory-friendly study sanctuary."
+    },
+    {
+      "title": "Connect to values",
+      "description": "Information sticks only when it aligns with personal interests or values (Introverted Feeling)."
+    },
+    {
+      "title": "Create artifacts",
+      "description": "Replace linear notes with visual mind maps, models, or artistic representations of the data."
+    },
+    {
+      "title": "Flexibility over rigidity",
+      "description": "Strict schedules often fail; adopt a milestone-based or mood-based routine."
+    },
+    {
+      "title": "Show, don't tell",
+      "description": "Use videos, demonstrations, and field trips to bypass abstract theory."
+    },
+    {
+      "title": "Context is King",
+      "description": "ISFPs need to know the \"why\" and the human impact before they can care about the technical details."
+    }
   ],
   "relatedTopics": [
     "careers",

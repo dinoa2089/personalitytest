@@ -37,7 +37,10 @@
       "subsections": [
         {
           "heading": "Sensory Details of the Ideal Space",
-          "content": "**Visual:** High-contrast lighting (avoid sleepy, dim rooms), large whiteboards for externalizing thoughts, multiple monitors to track various data streams simultaneously.\n**Auditory:** High-energy playlists (electronic, rock, or lo-fi beats) or ambient cafe noise. Absolute silence is often deafening to an ESTP.\n**Kinesthetic:** Standing desks, stress balls, balance boards, or simply room to pace. High-quality tactile tools like good pens and mechanical keyboards also help keep you engaged."
+          "content": {
+            "title": "Visual:",
+            "description": "High-contrast lighting (avoid sleepy, dim rooms), large whiteboards for externalizing thoughts, multiple monitors to track various data streams simultaneously.\n**Auditory:** High-energy playlists (electronic, rock, or lo-fi beats) or ambient cafe noise. Absolute silence is often deafening to an ESTP.\n**Kinesthetic:** Standing desks, stress balls, balance boards, or simply room to pace. High-quality tactile tools like good pens and mechanical keyboards also help keep you engaged."
+          }
         }
       ]
     },
@@ -105,13 +108,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Action Over Observation:** You learn best when your hands and body are involved. Avoid passive reading; engage with the material physically or verbally.",
-    "**The 20-Minute Rule:** Your focus is intense but short-lived. Use the Pomodoro technique or similar sprint-based timing to maximize efficiency.",
-    "**Gamify Everything:** Turn studying into a competition with yourself or others. Use flashcards, quizzes, and apps that track progress.",
-    "**Environment Matters:** Ditch the quiet library. Find a high-energy space like a coffee shop or a room where you can pace and play music.",
-    "**Reverse Engineer:** Start with the problem or the test question, then work backward to find the solution. This engages your logical problem-solving drive.",
-    "**Real-World Anchors:** Always connect abstract theory to a concrete example. If you can't see how it applies to real life, you won't remember it.",
-    "**Social Learning:** Use group study sessions to teach others or debate concepts. Speaking aloud helps solidify your understanding."
+    {
+      "title": "Action Over Observation:",
+      "description": "You learn best when your hands and body are involved. Avoid passive reading; engage with the material physically or verbally."
+    },
+    {
+      "title": "The 20-Minute Rule:",
+      "description": "Your focus is intense but short-lived. Use the Pomodoro technique or similar sprint-based timing to maximize efficiency."
+    },
+    {
+      "title": "Gamify Everything:",
+      "description": "Turn studying into a competition with yourself or others. Use flashcards, quizzes, and apps that track progress."
+    },
+    {
+      "title": "Environment Matters:",
+      "description": "Ditch the quiet library. Find a high-energy space like a coffee shop or a room where you can pace and play music."
+    },
+    {
+      "title": "Reverse Engineer:",
+      "description": "Start with the problem or the test question, then work backward to find the solution. This engages your logical problem-solving drive."
+    },
+    {
+      "title": "Real-World Anchors:",
+      "description": "Always connect abstract theory to a concrete example. If you can't see how it applies to real life, you won't remember it."
+    },
+    {
+      "title": "Social Learning:",
+      "description": "Use group study sessions to teach others or debate concepts. Speaking aloud helps solidify your understanding."
+    }
   ],
   "relatedTopics": [
     "careers",

@@ -21,7 +21,10 @@
       "subsections": [
         {
           "heading": "The Strategic Architect",
-          "content": "**Systemic Optimization:** You don't just solve problems; you solve the systems that created the problems. You naturally build sustainable frameworks that function without constant oversight.\n**Unflappable Composure:** In crises, your detachment is an asset. While others spiral emotionally, you detach and analyze, providing a stabilizing anchor for the team.\n**Honesty Over Comfort:** You provide the kind of raw, unfiltered truth that organizations need to grow. You are the leader who points out that the Emperor has no clothes, preventing the company from investing in doomed ventures."
+          "content": {
+            "title": "Systemic Optimization:",
+            "description": "You don't just solve problems; you solve the systems that created the problems. You naturally build sustainable frameworks that function without constant oversight.\n**Unflappable Composure:** In crises, your detachment is an asset. While others spiral emotionally, you detach and analyze, providing a stabilizing anchor for the team.\n**Honesty Over Comfort:** You provide the kind of raw, unfiltered truth that organizations need to grow. You are the leader who points out that the Emperor has no clothes, preventing the company from investing in doomed ventures."
+          }
         }
       ]
     },
@@ -31,7 +34,10 @@
       "subsections": [
         {
           "heading": "The Delegation Dynamic",
-          "content": "**Trust Through Competence:** You grant autonomy based on proven ability. Once an employee proves they can think logically, you give them the keys to the kingdom.\n**The \"Open Door\" Policy (With Conditions):** You are available for problem-solving, not venting. Your team learns to come to you with proposed solutions, not just complaints.\n**Results-Only Work Environment:** You care little for face time or performative busyness. If a team member finishes their work in four hours, you are likely to let them go home rather than forcing them to look busy."
+          "content": {
+            "title": "Trust Through Competence:",
+            "description": "You grant autonomy based on proven ability. Once an employee proves they can think logically, you give them the keys to the kingdom.\n**The \"Open Door\" Policy (With Conditions):** You are available for problem-solving, not venting. Your team learns to come to you with proposed solutions, not just complaints.\n**Results-Only Work Environment:** You care little for face time or performative busyness. If a team member finishes their work in four hours, you are likely to let them go home rather than forcing them to look busy."
+          }
         }
       ]
     },
@@ -41,7 +47,10 @@
       "subsections": [
         {
           "heading": "The INTJ Motivational Toolkit",
-          "content": "**Intellectual Challenge:** Assigning complex, puzzle-like projects that require innovation.\n**Career Architecture:** Sitting down with employees to map out their long-term trajectory, treating their career as a strategic plan to be executed.\n**Resource Provision:** Ensuring they have the best tools, software, and data available. You show love through logistics."
+          "content": {
+            "title": "Intellectual Challenge:",
+            "description": "Assigning complex, puzzle-like projects that require innovation.\n**Career Architecture:** Sitting down with employees to map out their long-term trajectory, treating their career as a strategic plan to be executed.\n**Resource Provision:** Ensuring they have the best tools, software, and data available. You show love through logistics."
+          }
         }
       ]
     },
@@ -51,7 +60,10 @@
       "subsections": [
         {
           "heading": "The Logic Engine",
-          "content": "**Evidence-Based:** You require data, not hunches. \"I feel like this will work\" is not a valid argument in your court.\n**Decisiveness:** Once the analysis is complete, you act. You rarely suffer from analysis paralysis once your internal criteria are met.\n**Long-Term Orientation:** You will willingly sacrifice short-term numbers for long-term viability, often putting you at odds with quarterly-focused stakeholders."
+          "content": {
+            "title": "Evidence-Based:",
+            "description": "You require data, not hunches. \"I feel like this will work\" is not a valid argument in your court.\n**Decisiveness:** Once the analysis is complete, you act. You rarely suffer from analysis paralysis once your internal criteria are met.\n**Long-Term Orientation:** You will willingly sacrifice short-term numbers for long-term viability, often putting you at odds with quarterly-focused stakeholders."
+          }
         }
       ]
     },
@@ -61,7 +73,10 @@
       "subsections": [
         {
           "heading": "The Efficiency Trap",
-          "content": "**Underestimating Morale:** Failing to realize that a happy team is a more productive team, even if the \"happiness\" activities seem inefficient.\n**The Communication Gap:** Assuming that because something is clear in your head, it is clear to everyone else.\n**Dismissing Social Rituals:** skipping the \"Good mornings\" and \"How was your weekends\" to get straight to work, which can make you appear cold or unapproachable."
+          "content": {
+            "title": "Underestimating Morale:",
+            "description": "Failing to realize that a happy team is a more productive team, even if the \"happiness\" activities seem inefficient.\n**The Communication Gap:** Assuming that because something is clear in your head, it is clear to everyone else.\n**Dismissing Social Rituals:** skipping the \"Good mornings\" and \"How was your weekends\" to get straight to work, which can make you appear cold or unapproachable."
+          }
         }
       ]
     },
@@ -71,7 +86,10 @@
       "subsections": [
         {
           "heading": "Growth Strategies",
-          "content": "**Active Listening:** Practice listening without formulating a response or a solution immediately. Validate the emotion before fixing the problem.\n**Vulnerability:** Admitting when you don't know the answer humanizes you and encourages your team to take ownership.\n**Praise Calibration:** Make a conscious effort to give positive reinforcement for good work, not just silence."
+          "content": {
+            "title": "Active Listening:",
+            "description": "Practice listening without formulating a response or a solution immediately. Validate the emotion before fixing the problem.\n**Vulnerability:** Admitting when you don't know the answer humanizes you and encourages your team to take ownership.\n**Praise Calibration:** Make a conscious effort to give positive reinforcement for good work, not just silence."
+          }
         }
       ]
     },
@@ -81,7 +99,10 @@
       "subsections": [
         {
           "heading": "Ideal Environments",
-          "content": "**Strategic Planning & Operations:** Roles where the primary output is a plan or a system.\n**Technical Leadership:** CTO, CIO, or Head of Product roles where competence is the primary currency.\n**Crisis Management:** Situations requiring cool logic amidst emotional chaos."
+          "content": {
+            "title": "Strategic Planning & Operations:",
+            "description": "Roles where the primary output is a plan or a system.\n**Technical Leadership:** CTO, CIO, or Head of Product roles where competence is the primary currency.\n**Crisis Management:** Situations requiring cool logic amidst emotional chaos."
+          }
         }
       ]
     }
@@ -105,13 +126,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Visionary Strategists:** INTJs lead by designing future-proof systems and anticipating market shifts long before others do.",
-    "**Competence is King:** They create meritocracies where the best ideas win, regardless of hierarchy or politics.",
-    "**Silence is Approval:** They are sparing with praise; if they aren't critiquing you, they are likely satisfied with your work.",
-    "**The Blind Spot:** They must consciously work on emotional intelligence and \"soft skills\" to avoid alienating their teams.",
-    "**Autonomy Granters:** They prefer to set the destination and let the team figure out the route, hating micromanagement.",
-    "**Crisis Anchors:** In chaotic situations, their ability to detach and analyze makes them stabilizing forces.",
-    "**Context Matters:** They thrive in turnaround, strategy, and technical roles, but struggle in maintenance or highly social environments."
+    {
+      "title": "Visionary Strategists:",
+      "description": "INTJs lead by designing future-proof systems and anticipating market shifts long before others do."
+    },
+    {
+      "title": "Competence is King:",
+      "description": "They create meritocracies where the best ideas win, regardless of hierarchy or politics."
+    },
+    {
+      "title": "Silence is Approval:",
+      "description": "They are sparing with praise; if they aren't critiquing you, they are likely satisfied with your work."
+    },
+    {
+      "title": "The Blind Spot:",
+      "description": "They must consciously work on emotional intelligence and \"soft skills\" to avoid alienating their teams."
+    },
+    {
+      "title": "Autonomy Granters:",
+      "description": "They prefer to set the destination and let the team figure out the route, hating micromanagement."
+    },
+    {
+      "title": "Crisis Anchors:",
+      "description": "In chaotic situations, their ability to detach and analyze makes them stabilizing forces."
+    },
+    {
+      "title": "Context Matters:",
+      "description": "They thrive in turnaround, strategy, and technical roles, but struggle in maintenance or highly social environments."
+    }
   ],
   "relatedTopics": [
     "learning",

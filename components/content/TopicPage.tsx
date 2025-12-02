@@ -102,7 +102,7 @@ export function TopicPage({
       <Header />
 
       {/* Breadcrumbs */}
-      <nav className="container mx-auto px-4 pt-4">
+      <nav className="container mx-auto px-4 sm:px-6 pt-6 pb-2">
         <ol className="flex items-center gap-2 text-sm text-muted-foreground">
           {breadcrumbs.map((crumb, i) => (
             <li key={crumb.url} className="flex items-center gap-2">

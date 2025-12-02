@@ -70,11 +70,26 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace Emotions as Data:** Stop filtering out feelings; treat them as critical variables in the systems you analyze.",
-    "**Bias for Action:** Combat analysis paralysis by launching partially perfect solutions and iterating based on feedback.",
-    "**Social Engineering:** View social skills as a UI update—necessary for your brilliant ideas to be accepted by others.",
-    "**Shadow Work:** Confront the arrogance that protects you from vulnerability; true strength includes the ability to connect.",
-    "**The Sage Archetype:** Move from simply being 'right' to being 'wise,' integrating logic with human values for maximum impact."
+    {
+      "title": "Embrace Emotions as Data:",
+      "description": "Stop filtering out feelings; treat them as critical variables in the systems you analyze."
+    },
+    {
+      "title": "Bias for Action:",
+      "description": "Combat analysis paralysis by launching partially perfect solutions and iterating based on feedback."
+    },
+    {
+      "title": "Social Engineering:",
+      "description": "View social skills as a UI update—necessary for your brilliant ideas to be accepted by others."
+    },
+    {
+      "title": "Shadow Work:",
+      "description": "Confront the arrogance that protects you from vulnerability; true strength includes the ability to connect."
+    },
+    {
+      "title": "The Sage Archetype:",
+      "description": "Move from simply being 'right' to being 'wise,' integrating logic with human values for maximum impact."
+    }
   ],
   "relatedTopics": [
     "learning",

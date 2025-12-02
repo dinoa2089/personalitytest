@@ -62,11 +62,26 @@
     }
   ],
   "keyTakeaways": [
-    "**Lead with Empathy:** Your greatest career asset is your ability to read and influence people. Choose roles where this is a core requirement, not a distraction.",
-    "**Avoid Isolation:** You need a collaborative, porous work environment. Solitary confinement in a cubicle is your kryptonite.",
-    "**Watch for Burnout:** You are prone to over-functioning for others. Learn to delegate emotional labor and set strict boundaries.",
-    "**Quantify Your Value:** In negotiations, learn to translate your 'soft' people skills into hard economic data (retention, sales, efficiency).",
-    "**Seek Mission:** You need to believe in what you are selling or doing. A paycheck without purpose will not sustain you long-term."
+    {
+      "title": "Lead with Empathy:",
+      "description": "Your greatest career asset is your ability to read and influence people. Choose roles where this is a core requirement, not a distraction."
+    },
+    {
+      "title": "Avoid Isolation:",
+      "description": "You need a collaborative, porous work environment. Solitary confinement in a cubicle is your kryptonite."
+    },
+    {
+      "title": "Watch for Burnout:",
+      "description": "You are prone to over-functioning for others. Learn to delegate emotional labor and set strict boundaries."
+    },
+    {
+      "title": "Quantify Your Value:",
+      "description": "In negotiations, learn to translate your 'soft' people skills into hard economic data (retention, sales, efficiency)."
+    },
+    {
+      "title": "Seek Mission:",
+      "description": "You need to believe in what you are selling or doing. A paycheck without purpose will not sustain you long-term."
+    }
   ],
   "relatedTopics": [
     "learning",

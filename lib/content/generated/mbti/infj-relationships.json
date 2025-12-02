@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Core Strengths in Action",
-          "content": "**The Emotional Barometer:** You instinctively know when to offer space and when to offer a hug. Your ability to calibrate your emotional response to your partner's needs is unparalleled.\n\n**Unwavering Loyalty:** Once you have allowed someone into your inner circle, your loyalty is fierce. You will defend your partner’s character and stand by them through crises that would cause others to flee.\n\n**Creative Romance:** You aren't satisfied with generic gestures. You express love through written letters, curated playlists, and experiences that have specific symbolic meaning to the relationship.\n\n**Growth Mindset:** You view the relationship as a living thing that must evolve. You are always willing to work on yourself and the dynamic to reach a higher level of harmony."
+          "content": {
+            "title": "The Emotional Barometer:",
+            "description": "You instinctively know when to offer space and when to offer a hug. Your ability to calibrate your emotional response to your partner's needs is unparalleled.\n\n**Unwavering Loyalty:** Once you have allowed someone into your inner circle, your loyalty is fierce. You will defend your partner’s character and stand by them through crises that would cause others to flee.\n\n**Creative Romance:** You aren't satisfied with generic gestures. You express love through written letters, curated playlists, and experiences that have specific symbolic meaning to the relationship.\n\n**Growth Mindset:** You view the relationship as a living thing that must evolve. You are always willing to work on yourself and the dynamic to reach a higher level of harmony."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Love Languages & Intimacy",
-          "content": "**Primary Language: Quality Time.** But not just any time—focused, undivided attention. Sitting on the couch scrolling through phones doesn't count. Deep conversation is your foreplay.\n\n**Secondary Language: Words of Affirmation.** Because you are often plagued by self-doubt and perfectionism, hearing genuine, specific appreciation from your partner anchors you.\n\n**Physical Intimacy:** For INFJs, sex is rarely just physical. It is the physical manifestation of an emotional bond. Without the emotional connection, the physical act feels empty or even repulsing to you. You need to feel safe and connected to open up sexually."
+          "content": {
+            "title": "Primary Language: Quality Time.",
+            "description": "But not just any time—focused, undivided attention. Sitting on the couch scrolling through phones doesn't count. Deep conversation is your foreplay.\n\n**Secondary Language: Words of Affirmation.** Because you are often plagued by self-doubt and perfectionism, hearing genuine, specific appreciation from your partner anchors you.\n\n**Physical Intimacy:** For INFJs, sex is rarely just physical. It is the physical manifestation of an emotional bond. Without the emotional connection, the physical act feels empty or even repulsing to you. You need to feel safe and connected to open up sexually."
+          }
         }
       ]
     },
@@ -42,11 +48,17 @@
       "subsections": [
         {
           "heading": "Conversation Starters for Depth",
-          "content": "Instead of asking \"What do you do?\", try: \"What is the passion that gets you out of bed in the morning?\"\n\nInstead of \"Do you have siblings?\", try: \"Who has been the most influential person in shaping your character?\"\n\nInstead of \"What kind of music do you like?\", try: \"Is there a song that always makes you cry, and why?\""
+          "content": {
+            "title": "Instead of asking \"What do you do?\", try",
+            "description": "\"What is the passion that gets you out of bed in the morning?\"\n\nInstead of \"Do you have siblings?\", try: \"Who has been the most influential person in shaping your character?\"\n\nInstead of \"What kind of music do you like?\", try: \"Is there a song that always makes you cry, and why?\""
+          }
         },
         {
           "heading": "Ideal Date Scenarios",
-          "content": "**The Bookstore Wander:** Visiting a large bookstore or library, picking out books for each other, and discussing why you chose them over coffee.\n\n**The Night Walk:** A long walk in a quiet park or by the water at dusk. The lack of direct eye contact while walking often makes it easier to discuss deep topics.\n\n**The Museum Visit:** exploring art or history allows for intellectual connection and sharing of perspectives without the pressure of constant conversation."
+          "content": {
+            "title": "The Bookstore Wander:",
+            "description": "Visiting a large bookstore or library, picking out books for each other, and discussing why you chose them over coffee.\n\n**The Night Walk:** A long walk in a quiet park or by the water at dusk. The lack of direct eye contact while walking often makes it easier to discuss deep topics.\n\n**The Museum Visit:** exploring art or history allows for intellectual connection and sharing of perspectives without the pressure of constant conversation."
+          }
         }
       ]
     },
@@ -66,7 +78,10 @@
       "subsections": [
         {
           "heading": "Friendship Qualities to Seek",
-          "content": "**Reciprocity:** Look for friends who ask you questions and remember the answers.\n\n**Depth:** Seek out types who enjoy abstract conversation (often ENFPs, ENTPs, or INTJs).\n\n**Low Maintenance:** Friends who don't require constant texting to feel secure in the bond."
+          "content": {
+            "title": "Reciprocity:",
+            "description": "Look for friends who ask you questions and remember the answers.\n\n**Depth:** Seek out types who enjoy abstract conversation (often ENFPs, ENTPs, or INTJs).\n\n**Low Maintenance:** Friends who don't require constant texting to feel secure in the bond."
+          }
         }
       ]
     },
@@ -86,7 +101,10 @@
       "subsections": [
         {
           "heading": "Red Flags to Watch For",
-          "content": "**The Love Bomber:** Someone who comes on too strong, too fast. They mirror your depth immediately. For an INFJ, this feels like finding a soulmate, but it is often a trap set by a manipulator.\n\n**The Victim:** A partner who blames all their exes and problems on others. You will feel an urge to \"save\" them. resist it.\n\n**The Steamroller:** Someone who dismisses your need for solitude as \"antisocial\" or makes you feel guilty for taking time for yourself."
+          "content": {
+            "title": "The Love Bomber:",
+            "description": "Someone who comes on too strong, too fast. They mirror your depth immediately. For an INFJ, this feels like finding a soulmate, but it is often a trap set by a manipulator.\n\n**The Victim:** A partner who blames all their exes and problems on others. You will feel an urge to \"save\" them. resist it.\n\n**The Steamroller:** Someone who dismisses your need for solitude as \"antisocial\" or makes you feel guilty for taking time for yourself."
+          }
         },
         {
           "heading": "Handling Breakups",

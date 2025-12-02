@@ -14,7 +14,10 @@
     "Enneagram 7 disintegration",
     "Enneagram 7 growth"
   ],
-  "introduction": "You know the feeling well: a subtle, creeping constriction in your chest, like a room slowly running out of oxygen. Usually, your mind is a vibrant playground of possibilities, a kaleidoscope of future plans and exciting 'what ifs.' But when stress takes hold, that playground turns into a prison. The horizon, which usually looks infinite and inviting, suddenly feels blocked by a towering wall of obligations, limitations, and emotional heaviness. For you, as an Enneagram Seven, stress isn't just about being busy or tired; it is a visceral experience of deprivation. It is the terrifying sensation that your freedom is evaporating and that you are about to be trapped in the one place you never want to be: stuck in pain with no exit door.\n\nWhen you are operating at your best, you are the embodiment of joy and resilience. You have a magical ability to metabolize setbacks into stories and turn lemons into a gourmet lemon soufflé. But even the most optimistic Enthusiast has a breaking point. When the options dry up and the walls close in, your natural buoyancy can turn into a frantic, flailing panic. You might feel a desperate need to escape—to quit the job, end the relationship, or book a flight to anywhere but here—yet find yourself paralyzed by the very commitments you once eagerly accepted. This is the unique paradox of Type 7 - The Enthusiast anxiety: the harder you run toward happiness to escape the pressure, the more exhausted and cornered you feel.\n\nThis guide is designed to help you stop running and start grounding. We aren't going to tell you to just \"calm down\" or \"be realistic,\" because we know those phrases feel like a wet blanket on your soul. Instead, we will explore how to navigate the turbulent waters of stress without losing your spark. We will look at the psychology behind why you feel trapped, how your personality shifts under pressure, and how to build a form of Type 7 - The Enthusiast resilience that allows you to experience true freedom—not just the freedom to flee, but the freedom to stay and thrive.",
+  "introduction": {
+    "title": "You know the feeling well",
+    "description": "a subtle, creeping constriction in your chest, like a room slowly running out of oxygen. Usually, your mind is a vibrant playground of possibilities, a kaleidoscope of future plans and exciting 'what ifs.' But when stress takes hold, that playground turns into a prison. The horizon, which usually looks infinite and inviting, suddenly feels blocked by a towering wall of obligations, limitations, and emotional heaviness. For you, as an Enneagram Seven, stress isn't just about being busy or tired; it is a visceral experience of deprivation. It is the terrifying sensation that your freedom is evaporating and that you are about to be trapped in the one place you never want to be: stuck in pain with no exit door.\n\nWhen you are operating at your best, you are the embodiment of joy and resilience. You have a magical ability to metabolize setbacks into stories and turn lemons into a gourmet lemon soufflé. But even the most optimistic Enthusiast has a breaking point. When the options dry up and the walls close in, your natural buoyancy can turn into a frantic, flailing panic. You might feel a desperate need to escape—to quit the job, end the relationship, or book a flight to anywhere but here—yet find yourself paralyzed by the very commitments you once eagerly accepted. This is the unique paradox of Type 7 - The Enthusiast anxiety: the harder you run toward happiness to escape the pressure, the more exhausted and cornered you feel.\n\nThis guide is designed to help you stop running and start grounding. We aren't going to tell you to just \"calm down\" or \"be realistic,\" because we know those phrases feel like a wet blanket on your soul. Instead, we will explore how to navigate the turbulent waters of stress without losing your spark. We will look at the psychology behind why you feel trapped, how your personality shifts under pressure, and how to build a form of Type 7 - The Enthusiast resilience that allows you to experience true freedom—not just the freedom to flee, but the freedom to stay and thrive."
+  },
   "sections": [
     {
       "heading": "1. Common Stress Triggers: When the Walls Close In",
@@ -106,7 +109,10 @@
       "subsections": [
         {
           "heading": "What to Say vs. What NOT to Say",
-          "content": "**Don't Say:** 'You always take on too much.' 'You need to be more responsible.' 'Calm down.'\n**Do Say:** 'I'm here with you.' 'Let's take a break and just breathe for a minute.' 'You don't have to figure this all out right now.' 'I'll handle the details of [X] so you can focus on [Y].'"
+          "content": {
+            "title": "Don't Say:",
+            "description": "'You always take on too much.' 'You need to be more responsible.' 'Calm down.'\n**Do Say:** 'I'm here with you.' 'Let's take a break and just breathe for a minute.' 'You don't have to figure this all out right now.' 'I'll handle the details of [X] so you can focus on [Y].'"
+          }
         },
         {
           "heading": "The 'Freedom within Boundaries' Approach",
@@ -134,13 +140,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Stress Trigger:** Loss of options and feeling trapped in negativity or boredom are the primary triggers for Type 7 anxiety.",
-    "**The Shift:** Under stress, Sevens move to Type 1, becoming critical, perfectionistic, and judgmental of themselves and others.",
-    "**The Trap:** Unhealthy coping involves 'reframing' pain too quickly, rationalizing bad behavior, and manic escapism (excessive eating, spending, or socializing).",
-    "**The Fix:** Healthy coping requires 'Sober Joy'—learning to stay present with discomfort and using somatic grounding to get out of the head.",
-    "**Recovery:** Restoration comes from moving to Type 5 (The Investigator)—finding focus, solitude, and depth rather than scattered stimulation.",
-    "**Resilience:** Long-term growth requires making friends with boredom and realizing that commitment offers a deeper kind of freedom.",
-    "**Support:** Loved ones should offer a non-judgmental presence and freedom within boundaries, avoiding commands to 'calm down.'"
+    {
+      "title": "Stress Trigger:",
+      "description": "Loss of options and feeling trapped in negativity or boredom are the primary triggers for Type 7 anxiety."
+    },
+    {
+      "title": "The Shift:",
+      "description": "Under stress, Sevens move to Type 1, becoming critical, perfectionistic, and judgmental of themselves and others."
+    },
+    {
+      "title": "The Trap:",
+      "description": "Unhealthy coping involves 'reframing' pain too quickly, rationalizing bad behavior, and manic escapism (excessive eating, spending, or socializing)."
+    },
+    {
+      "title": "The Fix:",
+      "description": "Healthy coping requires 'Sober Joy'—learning to stay present with discomfort and using somatic grounding to get out of the head."
+    },
+    {
+      "title": "Recovery:",
+      "description": "Restoration comes from moving to Type 5 (The Investigator)—finding focus, solitude, and depth rather than scattered stimulation."
+    },
+    {
+      "title": "Resilience:",
+      "description": "Long-term growth requires making friends with boredom and realizing that commitment offers a deeper kind of freedom."
+    },
+    {
+      "title": "Support:",
+      "description": "Loved ones should offer a non-judgmental presence and freedom within boundaries, avoiding commands to 'calm down.'"
+    }
   ],
   "relatedTopics": [
     "learning",

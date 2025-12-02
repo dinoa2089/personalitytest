@@ -34,7 +34,10 @@
       "subsections": [
         {
           "heading": "The Strategist (High Openness, High Conscientiousness)",
-          "content": "Picture this: You have a brilliant, sudden idea to renovate the living room or launch a startup. You are pacing around, waving your hands, describing the vision. The Strategist sits there, listening intently. Instead of shutting you down, they pull out a notebook and say, 'Okay, I love the vision. Here is the budget we need, the timeline to make it happen, and the three risks we need to mitigate.'\n\nThis is often your 'Power Couple' match. They share your Openness, so they value your creativity and curiosity. They don't think your ideas are crazy; they think they are puzzles to be solved. But unlike you, they possess the Conscientiousness to execute. They ground your lightning. In this pairing, you provide the spark and the destination; they build the road to get there. The friction here is minimal, provided you respect their need for a plan and they respect your need to sometimes deviate from it."
+          "content": {
+            "title": "Picture this",
+            "description": "You have a brilliant, sudden idea to renovate the living room or launch a startup. You are pacing around, waving your hands, describing the vision. The Strategist sits there, listening intently. Instead of shutting you down, they pull out a notebook and say, 'Okay, I love the vision. Here is the budget we need, the timeline to make it happen, and the three risks we need to mitigate.'\n\nThis is often your 'Power Couple' match. They share your Openness, so they value your creativity and curiosity. They don't think your ideas are crazy; they think they are puzzles to be solved. But unlike you, they possess the Conscientiousness to execute. They ground your lightning. In this pairing, you provide the spark and the destination; they build the road to get there. The friction here is minimal, provided you respect their need for a plan and they respect your need to sometimes deviate from it."
+          }
         },
         {
           "heading": "The Deep Diver (High Openness, Introversion)",

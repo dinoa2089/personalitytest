@@ -106,13 +106,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Leverage Structure:** You learn best when information is sequential and organized. Convert messy lectures into structured notes and charts.",
-    "**Control Your Environment:** Minimize sensory distractions. Create a quiet, organized 'Fortress of Focus' for deep work.",
-    "**Use Spaced Repetition:** Trust in your ability to memorize facts. Use tools like Anki to commit details to long-term memory.",
-    "**Demand Clarity:** Don't be afraid to ask for concrete examples or rubrics when faced with abstract assignments.",
-    "**Manage Group Work:** Take the role of the organizer/scheduler in groups to ensure reliability without doing all the work.",
-    "**Connect to Practice:** Always ask 'How is this applied?' to anchor theoretical concepts in reality.",
-    "**Trust Your Pace:** You may not be the fastest to guess, but your methodical approach leads to deeper, more accurate mastery."
+    {
+      "title": "Leverage Structure:",
+      "description": "You learn best when information is sequential and organized. Convert messy lectures into structured notes and charts."
+    },
+    {
+      "title": "Control Your Environment:",
+      "description": "Minimize sensory distractions. Create a quiet, organized 'Fortress of Focus' for deep work."
+    },
+    {
+      "title": "Use Spaced Repetition:",
+      "description": "Trust in your ability to memorize facts. Use tools like Anki to commit details to long-term memory."
+    },
+    {
+      "title": "Demand Clarity:",
+      "description": "Don't be afraid to ask for concrete examples or rubrics when faced with abstract assignments."
+    },
+    {
+      "title": "Manage Group Work:",
+      "description": "Take the role of the organizer/scheduler in groups to ensure reliability without doing all the work."
+    },
+    {
+      "title": "Connect to Practice:",
+      "description": "Always ask 'How is this applied?' to anchor theoretical concepts in reality."
+    },
+    {
+      "title": "Trust Your Pace:",
+      "description": "You may not be the fastest to guess, but your methodical approach leads to deeper, more accurate mastery."
+    }
   ],
   "relatedTopics": [
     "careers",

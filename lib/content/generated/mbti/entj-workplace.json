@@ -37,7 +37,10 @@
       "subsections": [
         {
           "heading": "Key Job Satisfaction Factors",
-          "content": "**Autonomy:** The ability to make decisions without bureaucratic approval.\n**Competence:** Working with smart, capable people who challenge you.\n**Measurable Results:** Clear metrics that show you are winning.\n**Scalability:** The opportunity to build systems that grow."
+          "content": {
+            "title": "Autonomy:",
+            "description": "The ability to make decisions without bureaucratic approval.\n**Competence:** Working with smart, capable people who challenge you.\n**Measurable Results:** Clear metrics that show you are winning.\n**Scalability:** The opportunity to build systems that grow."
+          }
         }
       ]
     },
@@ -53,7 +56,10 @@
     },
     {
       "heading": "Meeting and Collaboration Style",
-      "content": "Let's set the scene: You are in a weekly status meeting. The organizer has no agenda. People are sharing anecdotes about their cats. The conversation is circling the drain. You can feel your blood pressure rising. You check your watch. You calculate the hourly rate of everyone in the room and realize this meeting is costing the company thousands of dollars for zero output. This is the ENTJ nightmare. In meetings, you are the driver. If you are running the meeting, it starts on time, it has a clear purpose, and it ends early if the goals are met. You are known for phrases like, 'Let's take this offline,' 'What is the action item here?' and 'Who owns this?'\n\nYour collaboration style is intense and whiteboard-centric. You love getting up, grabbing a marker, and mapping out the strategy. You want people to poke holes in the plan. You thrive in 'war room' scenarios where the energy is high and the problem is difficult. However, you must be careful not to dominate the airtime. Because you think and speak quickly, you can accidentally silence introverts who need a moment to process before speaking. You might assume that silence means agreement, when in reality, it means intimidation. A mature ENTJ learns to pause, look around the room, and explicitly ask, 'What am I missing? Who sees a risk I haven't mentioned?'\n\nWhen collaborating, you treat the project like a military campaign. You establish the objective, survey the terrain, and deploy the troops. You are excellent at keeping the team focused on the 'North Star' when they start getting distracted by side quests. You are the one who constantly asks, 'Does this activity move us closer to the goal?' If the answer is no, you cut it mercilessly. This focus ensures that your collaborations rarely suffer from scope creep, though your collaborators might feel a bit breathless trying to keep up with your pace.",
+      "content": {
+        "title": "Let's set the scene",
+        "description": "You are in a weekly status meeting. The organizer has no agenda. People are sharing anecdotes about their cats. The conversation is circling the drain. You can feel your blood pressure rising. You check your watch. You calculate the hourly rate of everyone in the room and realize this meeting is costing the company thousands of dollars for zero output. This is the ENTJ nightmare. In meetings, you are the driver. If you are running the meeting, it starts on time, it has a clear purpose, and it ends early if the goals are met. You are known for phrases like, 'Let's take this offline,' 'What is the action item here?' and 'Who owns this?'\n\nYour collaboration style is intense and whiteboard-centric. You love getting up, grabbing a marker, and mapping out the strategy. You want people to poke holes in the plan. You thrive in 'war room' scenarios where the energy is high and the problem is difficult. However, you must be careful not to dominate the airtime. Because you think and speak quickly, you can accidentally silence introverts who need a moment to process before speaking. You might assume that silence means agreement, when in reality, it means intimidation. A mature ENTJ learns to pause, look around the room, and explicitly ask, 'What am I missing? Who sees a risk I haven't mentioned?'\n\nWhen collaborating, you treat the project like a military campaign. You establish the objective, survey the terrain, and deploy the troops. You are excellent at keeping the team focused on the 'North Star' when they start getting distracted by side quests. You are the one who constantly asks, 'Does this activity move us closer to the goal?' If the answer is no, you cut it mercilessly. This focus ensures that your collaborations rarely suffer from scope creep, though your collaborators might feel a bit breathless trying to keep up with your pace."
+      },
       "subsections": [
         {
           "heading": "The Whiteboard Commander",
@@ -101,13 +107,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Strategic Vision:** You naturally see the big picture and how to organize resources to achieve it.",
-    "**Efficiency First:** Your intolerance for inefficiency is your greatest asset, but can be a social liability if unchecked.",
-    "**Direct Communication:** You speak the language of logic and results; learning to 'translate' for other types is crucial for leadership.",
-    "**Growth Oriented:** You view criticism as data for improvement and respect those who challenge you with facts.",
-    "**The Trap of Burnout:** Your drive is relentless; you must schedule rest as a strategic necessity.",
-    "**Leadership Style:** You lead from the front, clearing obstacles and setting high standards.",
-    "**Emotional Intelligence:** Developing empathy and patience is the key unlocking executive-level success."
+    {
+      "title": "Strategic Vision:",
+      "description": "You naturally see the big picture and how to organize resources to achieve it."
+    },
+    {
+      "title": "Efficiency First:",
+      "description": "Your intolerance for inefficiency is your greatest asset, but can be a social liability if unchecked."
+    },
+    {
+      "title": "Direct Communication:",
+      "description": "You speak the language of logic and results; learning to 'translate' for other types is crucial for leadership."
+    },
+    {
+      "title": "Growth Oriented:",
+      "description": "You view criticism as data for improvement and respect those who challenge you with facts."
+    },
+    {
+      "title": "The Trap of Burnout:",
+      "description": "Your drive is relentless; you must schedule rest as a strategic necessity."
+    },
+    {
+      "title": "Leadership Style:",
+      "description": "You lead from the front, clearing obstacles and setting high standards."
+    },
+    {
+      "title": "Emotional Intelligence:",
+      "description": "Developing empathy and patience is the key unlocking executive-level success."
+    }
   ],
   "relatedTopics": [
     "learning",

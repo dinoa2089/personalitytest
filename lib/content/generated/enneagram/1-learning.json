@@ -3,7 +3,10 @@
   "type": "1",
   "framework": "enneagram",
   "topic": "learning",
-  "title": "Mastering the Mind: The Ultimate Guide to Type 1 - The Reformer Learning Style",
+  "title": {
+    "title": "Mastering the Mind",
+    "description": "The Ultimate Guide to Type 1 - The Reformer Learning Style"
+  },
   "metaDescription": "Unlock your potential with our guide to the Type 1 - The Reformer learning style. Discover study strategies, environment tips, and how to silence the inner critic.",
   "keywords": [
     "Type 1 - The Reformer learning style",
@@ -22,7 +25,10 @@
     },
     {
       "heading": "2. Optimal Learning Environments",
-      "content": "Let's visualize your nightmare study scenario: a crowded coffee shop where the music is too loud, the table is sticky, the lighting is dim, and the person next to you is chewing gum with their mouth open. In this environment, your energy is entirely consumed by managing your irritation and filtering out sensory chaos, leaving zero bandwidth for cognitive processing. Now, picture your sanctuary. It is likely a space of Zen-like minimalism. The lighting is cool and sufficient, perhaps a dedicated desk lamp illuminating your text. The temperature is controlled. Your tools—books, laptop, notebook—are arranged at right angles. There is silence, or perhaps a specific instrumental playlist that you use solely for focus. For the Type 1, the external environment is a direct reflection of the internal state. If the room is messy, your mind feels messy.\n\nCreating this 'Sanctuary of Focus' is not a luxury for you; it is a neurological necessity. Your attention is naturally drawn to what is 'wrong' or out of place. If you are trying to study for a bar exam but there is a pile of laundry in your peripheral vision, a part of your brain is constantly pinging you: *'That laundry needs to be folded.'* To learn effectively, you must neutralize these distractions. You need a space where you can lower your guard, where the only thing demanding your judgment is the material in front of you. This allows your nervous system to downregulate from its constant state of vigilance, enabling deep work.\n\n### Sensory Details for Success\n*   **Visual Order:** Keep your desk clear of everything except the current task. Use organizers, trays, or simply stack materials neatly before beginning.\n*   **Auditory Control:** Invest in high-quality noise-canceling headphones. White noise or 'binaural beats' can be particularly effective for Type 1s as they provide a consistent, non-distracting soundscape that masks irregularities in the environment.\n*   **Ergonomic Precision:** You are prone to holding tension in your body, specifically your shoulders and jaw. An ergonomic chair and proper screen height prevent physical discomfort from becoming a distraction.\n*   **Digital Hygiene:** A cluttered desktop screen is just as distracting as a messy room. Organize your digital files into clearly labeled folders before you start a project."
+      "content": {
+        "title": "Let's visualize your nightmare study scenario",
+        "description": "a crowded coffee shop where the music is too loud, the table is sticky, the lighting is dim, and the person next to you is chewing gum with their mouth open. In this environment, your energy is entirely consumed by managing your irritation and filtering out sensory chaos, leaving zero bandwidth for cognitive processing. Now, picture your sanctuary. It is likely a space of Zen-like minimalism. The lighting is cool and sufficient, perhaps a dedicated desk lamp illuminating your text. The temperature is controlled. Your tools—books, laptop, notebook—are arranged at right angles. There is silence, or perhaps a specific instrumental playlist that you use solely for focus. For the Type 1, the external environment is a direct reflection of the internal state. If the room is messy, your mind feels messy.\n\nCreating this 'Sanctuary of Focus' is not a luxury for you; it is a neurological necessity. Your attention is naturally drawn to what is 'wrong' or out of place. If you are trying to study for a bar exam but there is a pile of laundry in your peripheral vision, a part of your brain is constantly pinging you: *'That laundry needs to be folded.'* To learn effectively, you must neutralize these distractions. You need a space where you can lower your guard, where the only thing demanding your judgment is the material in front of you. This allows your nervous system to downregulate from its constant state of vigilance, enabling deep work.\n\n### Sensory Details for Success\n*   **Visual Order:** Keep your desk clear of everything except the current task. Use organizers, trays, or simply stack materials neatly before beginning.\n*   **Auditory Control:** Invest in high-quality noise-canceling headphones. White noise or 'binaural beats' can be particularly effective for Type 1s as they provide a consistent, non-distracting soundscape that masks irregularities in the environment.\n*   **Ergonomic Precision:** You are prone to holding tension in your body, specifically your shoulders and jaw. An ergonomic chair and proper screen height prevent physical discomfort from becoming a distraction.\n*   **Digital Hygiene:** A cluttered desktop screen is just as distracting as a messy room. Organize your digital files into clearly labeled folders before you start a project."
+      }
     },
     {
       "heading": "3. Study Strategies That Work",
@@ -30,7 +36,10 @@
       "subsections": [
         {
           "heading": "Sample Study Routine",
-          "content": "**The 'Structured Flow' Protocol:**\n*   **08:00 AM:** *The Setup.* Clear the desk. Fill water bottle. Open the specific app/book needed. No email checking.\n*   **08:15 AM:** *Review.* Briefly review the 'errors' or difficult concepts from the previous session. (Satisfies the need to fix mistakes).\n*   **08:30 AM:** *Deep Work Block (50 mins).* Focus on new material. Set a timer. Do not stop to look up tangential facts—write them on a 'Parking Lot' list to check later.\n*   **09:20 AM:** *The Audit (10 mins).* Review the 'Parking Lot' list. Organize notes. Tidy the workspace.\n*   **09:30 AM:** *Break.* Physical movement is crucial to release the body tension Ones accumulate while concentrating."
+          "content": {
+            "title": "The 'Structured Flow' Protocol:",
+            "description": "*   **08:00 AM:** *The Setup.* Clear the desk. Fill water bottle. Open the specific app/book needed. No email checking.\n*   **08:15 AM:** *Review.* Briefly review the 'errors' or difficult concepts from the previous session. (Satisfies the need to fix mistakes).\n*   **08:30 AM:** *Deep Work Block (50 mins).* Focus on new material. Set a timer. Do not stop to look up tangential facts—write them on a 'Parking Lot' list to check later.\n*   **09:20 AM:** *The Audit (10 mins).* Review the 'Parking Lot' list. Organize notes. Tidy the workspace.\n*   **09:30 AM:** *Break.* Physical movement is crucial to release the body tension Ones accumulate while concentrating."
+          }
         }
       ]
     },
@@ -66,12 +75,30 @@
     }
   ],
   "keyTakeaways": [
-    "Curate your environment: Silence, order, and ergonomics are prerequisites for your focus, not luxuries.",
-    "Combat perfectionism with 'Trash Drafts': Give yourself explicit permission to produce low-quality work in the early stages.",
-    "Use active recall: Replace passive highlighting with flashcards and the Cornell Note system to satisfy your need for accuracy.",
-    "Reframe mistakes: View errors as necessary data points for improvement, not as moral failings.",
-    "Leverage structure: If a course is disorganized, create your own syllabus and timeline to regain a sense of control.",
-    "Integrate play: Move toward Type 7 by focusing on the joy of the subject matter rather than just the duty of learning it."
+    {
+      "title": "Curate your environment",
+      "description": "Silence, order, and ergonomics are prerequisites for your focus, not luxuries."
+    },
+    {
+      "title": "Combat perfectionism with 'Trash Drafts'",
+      "description": "Give yourself explicit permission to produce low-quality work in the early stages."
+    },
+    {
+      "title": "Use active recall",
+      "description": "Replace passive highlighting with flashcards and the Cornell Note system to satisfy your need for accuracy."
+    },
+    {
+      "title": "Reframe mistakes",
+      "description": "View errors as necessary data points for improvement, not as moral failings."
+    },
+    {
+      "title": "Leverage structure",
+      "description": "If a course is disorganized, create your own syllabus and timeline to regain a sense of control."
+    },
+    {
+      "title": "Integrate play",
+      "description": "Move toward Type 7 by focusing on the joy of the subject matter rather than just the duty of learning it."
+    }
   ],
   "relatedTopics": [
     "careers",

@@ -71,12 +71,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Seek Catalysts, Not Projects:** You thrive with partners who bring drive and passion, not just chaos that needs fixing.",
-    "**Beware the Mirror Trap:** Relationships with other passive types require conscious effort to maintain momentum.",
-    "**Voice Your Preferences:** Use the 'Two Options Rule' to participate in decisions without losing your flexibility.",
-    "**Value Your Own Calm:** Don't let high-drama partners convince you that your stability is 'boring' or 'uncaring.'",
-    "**Set Emotional Boundaries:** You can be a supportive listener without becoming a therapist; know when to step back.",
-    "**Workplace Advantage:** Your ability to remain calm makes you indispensable in crises, but ensure you aren't overloaded with work just because you don't complain."
+    {
+      "title": "Seek Catalysts, Not Projects:",
+      "description": "You thrive with partners who bring drive and passion, not just chaos that needs fixing."
+    },
+    {
+      "title": "Beware the Mirror Trap:",
+      "description": "Relationships with other passive types require conscious effort to maintain momentum."
+    },
+    {
+      "title": "Voice Your Preferences:",
+      "description": "Use the 'Two Options Rule' to participate in decisions without losing your flexibility."
+    },
+    {
+      "title": "Value Your Own Calm:",
+      "description": "Don't let high-drama partners convince you that your stability is 'boring' or 'uncaring.'"
+    },
+    {
+      "title": "Set Emotional Boundaries:",
+      "description": "You can be a supportive listener without becoming a therapist; know when to step back."
+    },
+    {
+      "title": "Workplace Advantage:",
+      "description": "Your ability to remain calm makes you indispensable in crises, but ensure you aren't overloaded with work just because you don't complain."
+    }
   ],
   "relatedTopics": [
     "learning",

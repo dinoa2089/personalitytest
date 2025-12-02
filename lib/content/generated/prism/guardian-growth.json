@@ -76,13 +76,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace the 'Good Enough':** Perfectionism is the enemy of your peace. Aim for B+ work in low-stakes areas to build tolerance for imperfection.",
-    "**The 'Resentful Martyr' Trap:** Watch out for feelings of resentment; they are a sign you have over-functioned and failed to set boundaries.",
-    "**Schedule Spontaneity:** Plan time for unplanned activities to exercise your flexibility muscle without overwhelming your need for structure.",
-    "**Delegate to Empower:** Stop fixing everything. profound growth comes from letting others make mistakes and learn from them.",
-    "**Reframe Rest:** View self-care as essential maintenance for your reliability, not as a dereliction of duty.",
-    "**Softening the Judge:** Practice cognitive empathy. Understanding *why* people break rules helps reduce the stress of your judgment.",
-    "**Values over Rules:** Shift your focus from following strict rules to upholding the underlying values. Rules are rigid; values are flexible."
+    {
+      "title": "Embrace the 'Good Enough':",
+      "description": "Perfectionism is the enemy of your peace. Aim for B+ work in low-stakes areas to build tolerance for imperfection."
+    },
+    {
+      "title": "The 'Resentful Martyr' Trap:",
+      "description": "Watch out for feelings of resentment; they are a sign you have over-functioned and failed to set boundaries."
+    },
+    {
+      "title": "Schedule Spontaneity:",
+      "description": "Plan time for unplanned activities to exercise your flexibility muscle without overwhelming your need for structure."
+    },
+    {
+      "title": "Delegate to Empower:",
+      "description": "Stop fixing everything. profound growth comes from letting others make mistakes and learn from them."
+    },
+    {
+      "title": "Reframe Rest:",
+      "description": "View self-care as essential maintenance for your reliability, not as a dereliction of duty."
+    },
+    {
+      "title": "Softening the Judge:",
+      "description": "Practice cognitive empathy. Understanding *why* people break rules helps reduce the stress of your judgment."
+    },
+    {
+      "title": "Values over Rules:",
+      "description": "Shift your focus from following strict rules to upholding the underlying values. Rules are rigid; values are flexible."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -58,7 +58,10 @@
         },
         {
           "heading": "Resource Recommendation",
-          "content": "Read 'Essentialism: The Disciplined Pursuit of Less' by Greg McKeown. For a Stabilizer, the danger is expanding to fit every container. This book provides the narrative framework for saying 'no' to the good so you can say 'yes' to the great."
+          "content": {
+            "title": "Read 'Essentialism",
+            "description": "The Disciplined Pursuit of Less' by Greg McKeown. For a Stabilizer, the danger is expanding to fit every container. This book provides the narrative framework for saying 'no' to the good so you can say 'yes' to the great."
+          }
         }
       ]
     },
@@ -72,7 +75,10 @@
         },
         {
           "heading": "Shadow Work Prompt: The Unlived Life",
-          "content": "Journal on this question: 'If I knew that my stability was guaranteed no matter what I did, what risky, strange, or disruptive thing would I do tomorrow?' This exposes the desires you are suppressing for the sake of balance."
+          "content": {
+            "title": "Journal on this question",
+            "description": "'If I knew that my stability was guaranteed no matter what I did, what risky, strange, or disruptive thing would I do tomorrow?' This exposes the desires you are suppressing for the sake of balance."
+          }
         }
       ]
     },
@@ -144,7 +150,10 @@
     "Embrace friction and conflict as necessary tools for progress, rather than threats to be neutralized.",
     "Your long-term goal is to transition from a reliable support player to a grounded, decisive leader.",
     "Engage in Shadow Work to uncover the passions and desires you suppress for the sake of harmony.",
-    "Define your personal brand: Make sure you are known for a specific expertise, not just for being 'nice'."
+    {
+      "title": "Define your personal brand",
+      "description": "Make sure you are known for a specific expertise, not just for being 'nice'."
+    }
   ],
   "relatedTopics": [
     "learning",

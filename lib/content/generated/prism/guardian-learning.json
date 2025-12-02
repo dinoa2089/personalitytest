@@ -14,7 +14,10 @@
     "PRISM personality types",
     "conscientious learning strategies"
   ],
-  "introduction": "You approach learning the same way you approach life: with a profound sense of duty, integrity, and a desire to build a stable foundation of knowledge. As a Guardian, you don't just want to pass the test; you want to master the material so you can reliably apply it to help others or uphold standards. You view education as a contract—a commitment you’ve made to yourself and your instructors to do the work, and to do it right. While others might look for shortcuts or cram at the last minute, you find satisfaction in the methodical accumulation of competence.\n\nHowever, your high Conscientiousness and need for certainty can sometimes be a double-edged sword in modern, unstructured learning environments. You likely feel frustration when a syllabus is vague, when criteria for success are subjective, or when group members fail to pull their weight. This guide is designed to leverage your natural strengths—organization, reliability, and ethical focus—while providing concrete strategies to handle the ambiguity that often plagues the learning process.",
+  "introduction": {
+    "title": "You approach learning the same way you approach life",
+    "description": "with a profound sense of duty, integrity, and a desire to build a stable foundation of knowledge. As a Guardian, you don't just want to pass the test; you want to master the material so you can reliably apply it to help others or uphold standards. You view education as a contract—a commitment you’ve made to yourself and your instructors to do the work, and to do it right. While others might look for shortcuts or cram at the last minute, you find satisfaction in the methodical accumulation of competence.\n\nHowever, your high Conscientiousness and need for certainty can sometimes be a double-edged sword in modern, unstructured learning environments. You likely feel frustration when a syllabus is vague, when criteria for success are subjective, or when group members fail to pull their weight. This guide is designed to leverage your natural strengths—organization, reliability, and ethical focus—while providing concrete strategies to handle the ambiguity that often plagues the learning process."
+  },
   "sections": [
     {
       "heading": "1. The Guardian Learning Style Overview",
@@ -148,13 +151,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Structure is your superpower:** You don't need motivation; you need a plan. Use the Syllabus Audit to map your entire semester immediately.",
-    "**Create sensory safety:** A clean, organized, quiet workspace is essential for your cognitive function. Reduce visual and auditory clutter.",
-    "**Leverage the 'Why':** Connect boring facts to ethical outcomes. You learn best when you see how the knowledge protects or helps others.",
-    "**Manage Group Work Early:** Volunteer to create the project timeline and charter to ensure fairness and reliability without doing all the work.",
-    "**Use 'Draft Zero':** Overcome perfectionism by explicitly permitting yourself to write a messy first draft.",
-    "**Stick to the Rubric:** Use grading criteria as a checklist to ensure you are meeting the exact standards of the assignment.",
-    "**Prioritize Sleep:** Your conscientious brain requires high maintenance. Never pull an all-nighter; your performance drops faster than other types when sleep-deprived."
+    {
+      "title": "Structure is your superpower:",
+      "description": "You don't need motivation; you need a plan. Use the Syllabus Audit to map your entire semester immediately."
+    },
+    {
+      "title": "Create sensory safety:",
+      "description": "A clean, organized, quiet workspace is essential for your cognitive function. Reduce visual and auditory clutter."
+    },
+    {
+      "title": "Leverage the 'Why':",
+      "description": "Connect boring facts to ethical outcomes. You learn best when you see how the knowledge protects or helps others."
+    },
+    {
+      "title": "Manage Group Work Early:",
+      "description": "Volunteer to create the project timeline and charter to ensure fairness and reliability without doing all the work."
+    },
+    {
+      "title": "Use 'Draft Zero':",
+      "description": "Overcome perfectionism by explicitly permitting yourself to write a messy first draft."
+    },
+    {
+      "title": "Stick to the Rubric:",
+      "description": "Use grading criteria as a checklist to ensure you are meeting the exact standards of the assignment."
+    },
+    {
+      "title": "Prioritize Sleep:",
+      "description": "Your conscientious brain requires high maintenance. Never pull an all-nighter; your performance drops faster than other types when sleep-deprived."
+    }
   ],
   "relatedTopics": [
     "careers",

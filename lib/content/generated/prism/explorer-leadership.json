@@ -14,7 +14,10 @@
     "adaptive leadership",
     "visionary management"
   ],
-  "introduction": "Picture the traditional image of a corporate leader: seated behind a mahogany desk, staring at a five-year Gantt chart, ensuring every variable is controlled and every risk is mitigated. Now, erase that image completely. That is not you. As a leader with the Explorer personality type, your office is likely wherever the action is—a coffee shop with a potential partner, the R&D lab where a prototype just failed, or the front lines of a new market expansion. You don’t lead from a place of rigid control; you lead from the edge of what’s possible. You are the safari guide of the business world, hacking through the jungle of uncertainty with a machete in one hand and a compass in the other, shouting back to your team, \"You have to see this!\"\n\nYour leadership style is defined by a potent combination of high Openness and Extraversion, tempered by lower Conscientiousness. In the PRISM framework, this makes you a dynamic catalyst for change. While other managers might view chaos as a threat to be extinguished, you view it as raw material for innovation. You possess an innate ability to sense shifts in the cultural or market zeitgeist long before the data analysts put it into a spreadsheet. Your team doesn't follow you because you have the strictest rules; they follow you because you promise an adventure. You make the work feel significant, exciting, and perpetually fresh.\n\nHowever, leading as an Explorer comes with a distinct set of paradoxes. The same spontaneity that allows you to pivot during a crisis can look like inconsistency to a team that craves stability. The enthusiasm that launches a dozen new initiatives can leave a trail of unfinished projects if you aren't careful. Discovering your identity as **The Explorer leader** isn't about forcing yourself into a box of conventional executive behavior. It is about harnessing your natural thirst for novelty and connection while building the necessary scaffolding to ensure your brilliant visions actually reach the finish line.",
+  "introduction": {
+    "title": "Picture the traditional image of a corporate leader",
+    "description": "seated behind a mahogany desk, staring at a five-year Gantt chart, ensuring every variable is controlled and every risk is mitigated. Now, erase that image completely. That is not you. As a leader with the Explorer personality type, your office is likely wherever the action is—a coffee shop with a potential partner, the R&D lab where a prototype just failed, or the front lines of a new market expansion. You don’t lead from a place of rigid control; you lead from the edge of what’s possible. You are the safari guide of the business world, hacking through the jungle of uncertainty with a machete in one hand and a compass in the other, shouting back to your team, \"You have to see this!\"\n\nYour leadership style is defined by a potent combination of high Openness and Extraversion, tempered by lower Conscientiousness. In the PRISM framework, this makes you a dynamic catalyst for change. While other managers might view chaos as a threat to be extinguished, you view it as raw material for innovation. You possess an innate ability to sense shifts in the cultural or market zeitgeist long before the data analysts put it into a spreadsheet. Your team doesn't follow you because you have the strictest rules; they follow you because you promise an adventure. You make the work feel significant, exciting, and perpetually fresh.\n\nHowever, leading as an Explorer comes with a distinct set of paradoxes. The same spontaneity that allows you to pivot during a crisis can look like inconsistency to a team that craves stability. The enthusiasm that launches a dozen new initiatives can leave a trail of unfinished projects if you aren't careful. Discovering your identity as **The Explorer leader** isn't about forcing yourself into a box of conventional executive behavior. It is about harnessing your natural thirst for novelty and connection while building the necessary scaffolding to ensure your brilliant visions actually reach the finish line."
+  },
   "sections": [
     {
       "heading": "Natural Leadership Strengths",
@@ -81,7 +84,10 @@
         },
         {
           "heading": "The 'One In, One Out' Rule",
-          "content": "Discipline yourself: for every new initiative you add to the team's plate, you must explicitly kill or deprioritize an existing one. This protects your team's bandwidth."
+          "content": {
+            "title": "Discipline yourself",
+            "description": "for every new initiative you add to the team's plate, you must explicitly kill or deprioritize an existing one. This protects your team's bandwidth."
+          }
         }
       ]
     },
@@ -106,12 +112,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace the Pioneer Role:** Your strength lies in navigating uncertainty and inspiring others with a vision of what's possible.",
-    "**Beware the Whiplash:** Your rapid pivots can exhaust your team. Implement waiting periods before changing strategies.",
-    "**Hire for Structure:** You need a high-Conscientiousness deputy to handle logistics, closing loops, and operational details.",
-    "**Motivate via Autonomy:** Give your team the 'what' and the 'why,' but let them figure out the 'how.'",
-    "**Context Matters:** Seek roles in startups, R&D, marketing, or crisis management where adaptability is valued over consistency.",
-    "**Finish What You Start:** Discipline yourself to close open loops before opening new ones, or delegate the finishing process explicitly."
+    {
+      "title": "Embrace the Pioneer Role:",
+      "description": "Your strength lies in navigating uncertainty and inspiring others with a vision of what's possible."
+    },
+    {
+      "title": "Beware the Whiplash:",
+      "description": "Your rapid pivots can exhaust your team. Implement waiting periods before changing strategies."
+    },
+    {
+      "title": "Hire for Structure:",
+      "description": "You need a high-Conscientiousness deputy to handle logistics, closing loops, and operational details."
+    },
+    {
+      "title": "Motivate via Autonomy:",
+      "description": "Give your team the 'what' and the 'why,' but let them figure out the 'how.'"
+    },
+    {
+      "title": "Context Matters:",
+      "description": "Seek roles in startups, R&D, marketing, or crisis management where adaptability is valued over consistency."
+    },
+    {
+      "title": "Finish What You Start:",
+      "description": "Discipline yourself to close open loops before opening new ones, or delegate the finishing process explicitly."
+    }
   ],
   "relatedTopics": [
     "learning",

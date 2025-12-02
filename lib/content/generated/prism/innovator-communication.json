@@ -90,13 +90,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Think in Drafts:** You communicate thoughts in real-time; clarify to others when you are \"just thinking\" versus \"deciding.\"",
-    "**Metaphor is Your Native Tongue:** You bridge gaps using analogies; use this consciously to help structured types understand your vision.",
-    "**Beware the Details Void:** You naturally filter out logistics; partner with \"Stabilizers\" who can catch what you miss.",
-    "**Frame as Possibility:** You respond best to \"What if?\" questions and shut down under \"We can't\" statements.",
-    "**Curate Your Ideas:** Avoid the \"Boy Who Cried Wolf\" effect by filtering your ideas before sharing them with the team.",
-    "**Active Listening:** Your tendency to interrupt comes from excitement; practice writing down your thought instead of speaking it immediately.",
-    "**Structure is a Tool, Not a Cage:** Learning to use bullet points and agendas will make your wild ideas more palatable to decision-makers."
+    {
+      "title": "Think in Drafts:",
+      "description": "You communicate thoughts in real-time; clarify to others when you are \"just thinking\" versus \"deciding.\""
+    },
+    {
+      "title": "Metaphor is Your Native Tongue:",
+      "description": "You bridge gaps using analogies; use this consciously to help structured types understand your vision."
+    },
+    {
+      "title": "Beware the Details Void:",
+      "description": "You naturally filter out logistics; partner with \"Stabilizers\" who can catch what you miss."
+    },
+    {
+      "title": "Frame as Possibility:",
+      "description": "You respond best to \"What if?\" questions and shut down under \"We can't\" statements."
+    },
+    {
+      "title": "Curate Your Ideas:",
+      "description": "Avoid the \"Boy Who Cried Wolf\" effect by filtering your ideas before sharing them with the team."
+    },
+    {
+      "title": "Active Listening:",
+      "description": "Your tendency to interrupt comes from excitement; practice writing down your thought instead of speaking it immediately."
+    },
+    {
+      "title": "Structure is a Tool, Not a Cage:",
+      "description": "Learning to use bullet points and agendas will make your wild ideas more palatable to decision-makers."
+    }
   ],
   "relatedTopics": [
     "learning",

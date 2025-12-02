@@ -107,11 +107,26 @@
     }
   ],
   "keyTakeaways": [
-    "**Stability is Sexy:** Your reliability is your greatest strength; you make partners feel safe and secure.",
-    "**Beware of Rigidity:** The biggest threat to your relationships is the inability to adapt when plans change. Practice flexibility.",
-    "**Acts of Service:** You show love by doing. Ensure your partner understands this language, and try to learn theirs.",
-    "**Drop the Manager Role:** Avoid treating your partner like an employee. Collaborate, don't delegate.",
-    "**Vulnerability is Key:** Let your guard down. It is okay not to have a plan for everything. Intimacy lives in the unscripted moments."
+    {
+      "title": "Stability is Sexy:",
+      "description": "Your reliability is your greatest strength; you make partners feel safe and secure."
+    },
+    {
+      "title": "Beware of Rigidity:",
+      "description": "The biggest threat to your relationships is the inability to adapt when plans change. Practice flexibility."
+    },
+    {
+      "title": "Acts of Service:",
+      "description": "You show love by doing. Ensure your partner understands this language, and try to learn theirs."
+    },
+    {
+      "title": "Drop the Manager Role:",
+      "description": "Avoid treating your partner like an employee. Collaborate, don't delegate."
+    },
+    {
+      "title": "Vulnerability is Key:",
+      "description": "Let your guard down. It is okay not to have a plan for everything. Intimacy lives in the unscripted moments."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -42,7 +42,10 @@
       "subsections": [
         {
           "heading": "Red Flags for Threes in Dating",
-          "content": "Be cautious if you find yourself falling into these patterns:\n\n*   **The Resume Date:** Treating the date like an interview where you list accomplishments to impress them.\n*   **The Project Partner:** Dating someone who is \"fixer-upper\" because you want the validation of saving them or improving their potential.\n*   **The Trophy Hunter:** Dating someone solely because they look good on paper or impress your friends.\n*   **Mirroring:** Agreeing with everything the other person says just to secure their approval."
+          "content": {
+            "title": "Be cautious if you find yourself falling into these patterns:",
+            "description": "*   **The Resume Date:** Treating the date like an interview where you list accomplishments to impress them.\n*   **The Project Partner:** Dating someone who is \"fixer-upper\" because you want the validation of saving them or improving their potential.\n*   **The Trophy Hunter:** Dating someone solely because they look good on paper or impress your friends.\n*   **Mirroring:** Agreeing with everything the other person says just to secure their approval."
+          }
         }
       ]
     },
@@ -96,13 +99,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Authenticity over Image:** The core journey for a Three is learning that being loved for who you are is infinitely better than being admired for what you do.",
-    "**The Chameleon Trap:** Be wary of shape-shifting to please dates; it leads to relationships built on false pretenses.",
-    "**Work-Life Balance:** Your partner needs your presence more than your provision. Schedule 'unproductive' quality time.",
-    "**Vulnerability is Strength:** Admitting weakness does not repel the right partner; it invites them closer.",
-    "**Supportive Power:** At your best, you are a dynamic, encouraging partner who helps your loved ones reach their full potential.",
-    "**Conflict Resolution:** Resist the urge to 'spin' reality. Face relationship problems with honesty rather than PR tactics.",
-    "**Growth Direction:** Moving toward Type 6 qualities (loyalty, community, vulnerability) creates lasting relationship stability."
+    {
+      "title": "Authenticity over Image:",
+      "description": "The core journey for a Three is learning that being loved for who you are is infinitely better than being admired for what you do."
+    },
+    {
+      "title": "The Chameleon Trap:",
+      "description": "Be wary of shape-shifting to please dates; it leads to relationships built on false pretenses."
+    },
+    {
+      "title": "Work-Life Balance:",
+      "description": "Your partner needs your presence more than your provision. Schedule 'unproductive' quality time."
+    },
+    {
+      "title": "Vulnerability is Strength:",
+      "description": "Admitting weakness does not repel the right partner; it invites them closer."
+    },
+    {
+      "title": "Supportive Power:",
+      "description": "At your best, you are a dynamic, encouraging partner who helps your loved ones reach their full potential."
+    },
+    {
+      "title": "Conflict Resolution:",
+      "description": "Resist the urge to 'spin' reality. Face relationship problems with honesty rather than PR tactics."
+    },
+    {
+      "title": "Growth Direction:",
+      "description": "Moving toward Type 6 qualities (loyalty, community, vulnerability) creates lasting relationship stability."
+    }
   ],
   "relatedTopics": [
     "learning",

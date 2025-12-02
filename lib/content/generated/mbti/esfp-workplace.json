@@ -28,7 +28,10 @@
     },
     {
       "heading": "2. Ideal Role and Responsibilities",
-      "content": "Let’s visualize your nightmare scenario: You are seated in a windowless cubicle with gray fabric walls. Your only task for the next eight hours is to audit a spreadsheet containing data from three years ago, looking for minor numerical discrepancies. You are not allowed to speak to anyone, and your manager checks in only via email. For an ESFP, this isn't just a boring job; it is a psychological prison. Your brain, wired for sensory input and human connection, will essentially shut down in this environment. To thrive, you need a role that offers a sensory feast—movement, variety, noise, conversation, and visible results. You need to feel the pulse of the organization.\n\nYour ideal workday involves a kaleidoscope of activities. Picture a role where you start the morning brainstorming with a creative team, spend the lunch hour entertaining a prospective client, and finish the afternoon troubleshooting a hands-on issue on the production floor. You thrive in 'front-of-house' positions. You are the face of the company, the person who bridges the gap between the product and the user. Roles in event planning, sales, public relations, hospitality management, or even emergency healthcare (like EMT or ER nursing) align perfectly with your cognitive stack. These jobs offer immediate feedback loops: you do something, and you see the result instantly, whether it's a signed contract, a happy guest, or a stabilized patient.\n\nFurthermore, the **ESFP - The Entertainer at work** needs autonomy over *how* tasks are completed. You chafe under micromanagement. If a boss hands you a script and says, 'Read this word for word,' you will feel stifled and perform poorly. But if a boss says, 'Here is the goal, go make the client happy however you see fit,' you will dazzle them. You need the freedom to inject your personal flair into your work. You view your job as a performance, and every performance needs a little room for improvisation.",
+      "content": {
+        "title": "Let’s visualize your nightmare scenario",
+        "description": "You are seated in a windowless cubicle with gray fabric walls. Your only task for the next eight hours is to audit a spreadsheet containing data from three years ago, looking for minor numerical discrepancies. You are not allowed to speak to anyone, and your manager checks in only via email. For an ESFP, this isn't just a boring job; it is a psychological prison. Your brain, wired for sensory input and human connection, will essentially shut down in this environment. To thrive, you need a role that offers a sensory feast—movement, variety, noise, conversation, and visible results. You need to feel the pulse of the organization.\n\nYour ideal workday involves a kaleidoscope of activities. Picture a role where you start the morning brainstorming with a creative team, spend the lunch hour entertaining a prospective client, and finish the afternoon troubleshooting a hands-on issue on the production floor. You thrive in 'front-of-house' positions. You are the face of the company, the person who bridges the gap between the product and the user. Roles in event planning, sales, public relations, hospitality management, or even emergency healthcare (like EMT or ER nursing) align perfectly with your cognitive stack. These jobs offer immediate feedback loops: you do something, and you see the result instantly, whether it's a signed contract, a happy guest, or a stabilized patient.\n\nFurthermore, the **ESFP - The Entertainer at work** needs autonomy over *how* tasks are completed. You chafe under micromanagement. If a boss hands you a script and says, 'Read this word for word,' you will feel stifled and perform poorly. But if a boss says, 'Here is the goal, go make the client happy however you see fit,' you will dazzle them. You need the freedom to inject your personal flair into your work. You view your job as a performance, and every performance needs a little room for improvisation."
+      },
       "subsections": [
         {
           "heading": "Role Characteristics to Look For",
@@ -102,17 +105,41 @@
     },
     {
       "question": "How should I give feedback to an ESFP employee?",
-      "answer": "Use the 'sandwich method': start with genuine praise, introduce the area for improvement as a specific, actionable goal (not a character flaw), and end with encouragement. Focus on the immediate benefits of the change."
+      "answer": {
+        "title": "Use the 'sandwich method'",
+        "description": "start with genuine praise, introduce the area for improvement as a specific, actionable goal (not a character flaw), and end with encouragement. Focus on the immediate benefits of the change."
+      }
     }
   ],
   "keyTakeaways": [
-    "**The Energy Source:** You bring contagious enthusiasm and morale to the workplace, acting as the glue that holds teams together.",
-    "**Crisis Expert:** Your ability to stay present and improvise makes you exceptional at handling unexpected problems and emergencies.",
-    "**Action Over Theory:** You learn by doing and prefer tangible results over abstract theories or long-term strategic planning.",
-    "**Connection is Key:** You need a social, harmonious environment to thrive and will struggle in isolated or overly competitive roles.",
-    "**Future Fog:** You may struggle with long-term planning and should partner with detail-oriented colleagues to cover this blind spot.",
-    "**Sensitivity:** You take work personally; learning to separate professional feedback from personal worth is a critical growth step.",
-    "**Variety Seeker:** Routine is your enemy; seek roles that offer changing environments, diverse tasks, and physical movement."
+    {
+      "title": "The Energy Source:",
+      "description": "You bring contagious enthusiasm and morale to the workplace, acting as the glue that holds teams together."
+    },
+    {
+      "title": "Crisis Expert:",
+      "description": "Your ability to stay present and improvise makes you exceptional at handling unexpected problems and emergencies."
+    },
+    {
+      "title": "Action Over Theory:",
+      "description": "You learn by doing and prefer tangible results over abstract theories or long-term strategic planning."
+    },
+    {
+      "title": "Connection is Key:",
+      "description": "You need a social, harmonious environment to thrive and will struggle in isolated or overly competitive roles."
+    },
+    {
+      "title": "Future Fog:",
+      "description": "You may struggle with long-term planning and should partner with detail-oriented colleagues to cover this blind spot."
+    },
+    {
+      "title": "Sensitivity:",
+      "description": "You take work personally; learning to separate professional feedback from personal worth is a critical growth step."
+    },
+    {
+      "title": "Variety Seeker:",
+      "description": "Routine is your enemy; seek roles that offer changing environments, diverse tasks, and physical movement."
+    }
   ],
   "relatedTopics": [
     "learning",

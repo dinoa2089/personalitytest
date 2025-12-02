@@ -138,7 +138,10 @@
     "Under severe stress, Eights disintegrate to Type 5, becoming withdrawn, secretive, and cynical.",
     "Physical exertion and 'somatic discharge' are critical for processing stress energy.",
     "The 'Pause' or 'Tactical Retreat' is the most effective tool to stop the cycle of aggression.",
-    "Growth involves moving toward Type 2: using strength to protect and nurture others rather than dominate.",
+    {
+      "title": "Growth involves moving toward Type 2",
+      "description": "using strength to protect and nurture others rather than dominate."
+    },
     "Loved ones should stand their ground calmly; Eights respect strength and honesty above all.",
     "Recovery requires 'active restoration'—engaging in non-conflict activities—rather than passive rest."
   ],

@@ -14,7 +14,10 @@
     "Enneagram Type 1 growth",
     "Type 1 inner critic"
   ],
-  "introduction": "You know the feeling intimately: a low-level hum of tension that lives permanently in your jaw and shoulders. It is the weight of a world that refuses to order itself correctly, the burden of seeing every error, every ethical lapse, and every crooked picture frame when everyone else seems blissfully blind. Being a Type 1, The Reformer, means carrying a relentless sense of responsibility. You are the designated driver of life, the one who ensures standards are met and disasters are averted. But when that responsibility transforms from a noble calling into a crushing obligation, stress stops being a motivator and starts becoming a cage.\n\nFor you, stress isn't just about being busy; it is a visceral reaction to imperfection. It is the agonizing friction between the way things *are* and the way they *should be*. Your internal operating system is wired to fix, to improve, and to perfect. When you are overwhelmed, your greatest asset—that sharp, discerning mind—can turn against you, amplifying the voice of your Inner Critic until it drowns out everything else. You might feel that if you stop pushing, even for a second, the wheels will fall off the wagon, and it will be entirely your fault.\n\nThis guide is designed to help you put down that heavy load without compromising your integrity. We will explore the psychology behind **Type 1 - The Reformer stress management**, moving beyond generic advice to target the specific cognitive loops of the One. We will validate the exhaustion that comes from being the 'adult in the room' and provide you with concrete, actionable tools to find serenity amidst the chaos. You deserve the same compassion you strive to bring to the world through your hard work.",
+  "introduction": {
+    "title": "You know the feeling intimately",
+    "description": "a low-level hum of tension that lives permanently in your jaw and shoulders. It is the weight of a world that refuses to order itself correctly, the burden of seeing every error, every ethical lapse, and every crooked picture frame when everyone else seems blissfully blind. Being a Type 1, The Reformer, means carrying a relentless sense of responsibility. You are the designated driver of life, the one who ensures standards are met and disasters are averted. But when that responsibility transforms from a noble calling into a crushing obligation, stress stops being a motivator and starts becoming a cage.\n\nFor you, stress isn't just about being busy; it is a visceral reaction to imperfection. It is the agonizing friction between the way things *are* and the way they *should be*. Your internal operating system is wired to fix, to improve, and to perfect. When you are overwhelmed, your greatest asset—that sharp, discerning mind—can turn against you, amplifying the voice of your Inner Critic until it drowns out everything else. You might feel that if you stop pushing, even for a second, the wheels will fall off the wagon, and it will be entirely your fault.\n\nThis guide is designed to help you put down that heavy load without compromising your integrity. We will explore the psychology behind **Type 1 - The Reformer stress management**, moving beyond generic advice to target the specific cognitive loops of the One. We will validate the exhaustion that comes from being the 'adult in the room' and provide you with concrete, actionable tools to find serenity amidst the chaos. You deserve the same compassion you strive to bring to the world through your hard work."
+  },
   "sections": [
     {
       "heading": "1. Common Stress Triggers",
@@ -106,7 +109,10 @@
     "Physical signs of stress include jaw tension, rigidity, and a 'gut' feeling of resentment or anger.",
     "Under severe stress, Ones disintegrate to Type 4, becoming moody, withdrawn, and feeling like martyrs.",
     "Immediate coping involves physical movement and the 'STOP' technique to interrupt the perfectionist loop.",
-    "Growth involves moving toward Type 7: embracing spontaneity, play, and the concept of 'good enough.'",
+    {
+      "title": "Growth involves moving toward Type 7",
+      "description": "embracing spontaneity, play, and the concept of 'good enough.'"
+    },
     "Resilience is built by shifting from a Judge to a Wise Observer and accepting that imperfection is natural.",
     "Support a stressed One by validating their hard work and reliably taking tasks off their plate without being asked."
   ],

@@ -41,11 +41,17 @@
       "subsections": [
         {
           "heading": "The 30-Day Presence Challenge",
-          "content": "**Week 1: Somatic Awakening.** Set a timer for three times a day. When it goes off, stop and ask: 'What is my body feeling right now?' and 'What do I physically need?' (e.g., water, a stretch, to leave the room). Act on that need immediately.\n\n**Week 2: Low-Stakes Opinions.** Commit to expressing one preference per day that contradicts someone else. If a friend says, 'Let's get pizza,' say, 'Actually, I'd prefer tacos.' Even if you don't care that much, the practice of dissenting is vital.\n\n**Week 3: The 'No' Tour.** Say 'No' to three requests this week. Do not offer an excuse or an apology. Just say, 'I can't make it,' or 'That won't work for me.' Sit with the discomfort that follows without trying to fix it.\n\n**Week 4: Anger Excavation.** Journal for 10 minutes daily specifically about things that irritated you that day. Dig for the frustration you ignored in the moment. Acknowledge it on the page."
+          "content": {
+            "title": "Week 1: Somatic Awakening.",
+            "description": "Set a timer for three times a day. When it goes off, stop and ask: 'What is my body feeling right now?' and 'What do I physically need?' (e.g., water, a stretch, to leave the room). Act on that need immediately.\n\n**Week 2: Low-Stakes Opinions.** Commit to expressing one preference per day that contradicts someone else. If a friend says, 'Let's get pizza,' say, 'Actually, I'd prefer tacos.' Even if you don't care that much, the practice of dissenting is vital.\n\n**Week 3: The 'No' Tour.** Say 'No' to three requests this week. Do not offer an excuse or an apology. Just say, 'I can't make it,' or 'That won't work for me.' Sit with the discomfort that follows without trying to fix it.\n\n**Week 4: Anger Excavation.** Journal for 10 minutes daily specifically about things that irritated you that day. Dig for the frustration you ignored in the moment. Acknowledge it on the page."
+          }
         },
         {
           "heading": "Journaling for Self-Discovery",
-          "content": "Use these prompts to cut through the mental fog:\n1. *'If I knew no one would get upset, what would I change about my life today?'*\n2. *'What is a conversation I have been avoiding, and what is the worst-case scenario I am imagining?'*\n3. *'List five times in the past year I said Yes when I wanted to say No. what did that cost me?'*"
+          "content": {
+            "title": "Use these prompts to cut through the mental fog",
+            "description": "1. *'If I knew no one would get upset, what would I change about my life today?'*\n2. *'What is a conversation I have been avoiding, and what is the worst-case scenario I am imagining?'*\n3. *'List five times in the past year I said Yes when I wanted to say No. what did that cost me?'*"
+          }
         }
       ]
     },
@@ -55,7 +61,10 @@
       "subsections": [
         {
           "heading": "Recommended Resources",
-          "content": "**'The Body Keeps the Score' by Bessel van der Kolk:** Nines dissociate from their bodies. This book helps understand how physical sensation is linked to emotional truth.\n**'Boundaries' by Cloud and Townsend:** Essential reading for learning that boundaries are the prerequisite for love, not the enemy of it."
+          "content": {
+            "title": "'The Body Keeps the Score' by Bessel van der Kolk:",
+            "description": "Nines dissociate from their bodies. This book helps understand how physical sensation is linked to emotional truth.\n**'Boundaries' by Cloud and Townsend:** Essential reading for learning that boundaries are the prerequisite for love, not the enemy of it."
+          }
         }
       ]
     },
@@ -75,7 +84,10 @@
       "subsections": [
         {
           "heading": "Milestone Markers",
-          "content": "**The First Real 'No':** The first time you decline a major obligation without guilt.\n**The Anger Release:** A moment where you express anger cleanly and directly, without passive-aggression.\n**The Self-Start:** Initiating a major life change (job, move, relationship) without waiting for external pressure to force your hand."
+          "content": {
+            "title": "The First Real 'No':",
+            "description": "The first time you decline a major obligation without guilt.\n**The Anger Release:** A moment where you express anger cleanly and directly, without passive-aggression.\n**The Self-Start:** Initiating a major life change (job, move, relationship) without waiting for external pressure to force your hand."
+          }
         }
       ]
     },
@@ -109,13 +121,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Waking Up is the Goal:** The core journey is moving from psychological slumber (sloth) to full presence and engagement with life.",
-    "**Anger is Fuel:** Learning to access and express anger constructively is essential for setting boundaries and finding motivation.",
-    "**Right Action:** Replace busy work and numbing behaviors with 'Right Action'—doing the one thing that truly matters.",
-    "**Differentiation:** You must learn to distinguish your own feelings and desires from those of the people around you.",
-    "**Integration to Three:** Growth involves adopting the energy, focus, and self-value of the Type 3, becoming a productive 'doer'.",
-    "**Voice Matters:** Your perspective is necessary. Peace purchased at the cost of your silence is not real peace.",
-    "**Body Connection:** Reconnecting with physical sensations is the fastest way to ground yourself and identify what you really want."
+    {
+      "title": "Waking Up is the Goal:",
+      "description": "The core journey is moving from psychological slumber (sloth) to full presence and engagement with life."
+    },
+    {
+      "title": "Anger is Fuel:",
+      "description": "Learning to access and express anger constructively is essential for setting boundaries and finding motivation."
+    },
+    {
+      "title": "Right Action:",
+      "description": "Replace busy work and numbing behaviors with 'Right Action'—doing the one thing that truly matters."
+    },
+    {
+      "title": "Differentiation:",
+      "description": "You must learn to distinguish your own feelings and desires from those of the people around you."
+    },
+    {
+      "title": "Integration to Three:",
+      "description": "Growth involves adopting the energy, focus, and self-value of the Type 3, becoming a productive 'doer'."
+    },
+    {
+      "title": "Voice Matters:",
+      "description": "Your perspective is necessary. Peace purchased at the cost of your silence is not real peace."
+    },
+    {
+      "title": "Body Connection:",
+      "description": "Reconnecting with physical sensations is the fastest way to ground yourself and identify what you really want."
+    }
   ],
   "relatedTopics": [
     "learning",

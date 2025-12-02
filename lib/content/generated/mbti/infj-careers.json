@@ -58,7 +58,10 @@
     },
     {
       "heading": "6. Negotiating and Advancing: The Interview & The Ask",
-      "content": "Picture the scene: You are sitting in an interview. The hiring manager asks, \"Sell me on why you're the best candidate.\" Your stomach drops. Self-promotion feels arrogant, gross, and fake to you. You hate the idea of competing or bragging. However, you must reframe this interaction. You are not 'selling' yourself; you are investigating a potential partnership. You are checking to see if their mission aligns with your values. When you shift the dynamic from 'Please hire me' to 'Let's see if we can solve problems together,' you regain your power.\n\n**The Interview Scenario:**\nWhen asked, \"What is your greatest weakness?\" do not give a cliché. Use your storytelling ability. \n*   *Say:* \"I tend to be deeply invested in my work, which means I care about the outcome as if it were my own company. In the past, this led to me taking on too much. I've since learned to pause and delegate, ensuring that my high standards don't become a bottleneck, but rather a benchmark for the team.\"\n\n**Negotiation Tips for the Advocate:**\n*   **Prepare a Script:** Your Fe (Feeling) might make you cave in the moment to keep the peace. Write down your salary requirements beforehand and stick to the script.\n*   **Focus on \"We\":** Frame your request in terms of communal benefit. \"For me to deliver the strategic vision we discussed, I need X resources/salary to ensure I can focus entirely on this mission.\"\n*   **Ask About Culture:** In the interview, ask, \"How is conflict handled here?\" or \"What does a successful day look like?\" Their answers will tell you if your nervous system can survive there.",
+      "content": {
+        "title": "Picture the scene",
+        "description": "You are sitting in an interview. The hiring manager asks, \"Sell me on why you're the best candidate.\" Your stomach drops. Self-promotion feels arrogant, gross, and fake to you. You hate the idea of competing or bragging. However, you must reframe this interaction. You are not 'selling' yourself; you are investigating a potential partnership. You are checking to see if their mission aligns with your values. When you shift the dynamic from 'Please hire me' to 'Let's see if we can solve problems together,' you regain your power.\n\n**The Interview Scenario:**\nWhen asked, \"What is your greatest weakness?\" do not give a cliché. Use your storytelling ability. \n*   *Say:* \"I tend to be deeply invested in my work, which means I care about the outcome as if it were my own company. In the past, this led to me taking on too much. I've since learned to pause and delegate, ensuring that my high standards don't become a bottleneck, but rather a benchmark for the team.\"\n\n**Negotiation Tips for the Advocate:**\n*   **Prepare a Script:** Your Fe (Feeling) might make you cave in the moment to keep the peace. Write down your salary requirements beforehand and stick to the script.\n*   **Focus on \"We\":** Frame your request in terms of communal benefit. \"For me to deliver the strategic vision we discussed, I need X resources/salary to ensure I can focus entirely on this mission.\"\n*   **Ask About Culture:** In the interview, ask, \"How is conflict handled here?\" or \"What does a successful day look like?\" Their answers will tell you if your nervous system can survive there."
+      },
       "subsections": []
     },
     {
@@ -82,12 +85,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Prioritize Purpose:** You cannot sustain work that feels meaningless. Your career must align with your internal values.",
-    "**Guard Your Energy:** Your empathy is a resource. If you spend it all on toxic office politics, you will have nothing left for your actual work.",
-    "**Seek Autonomy:** You thrive when trusted to manage your own time and process. Fight for remote work or independent projects.",
-    "**Use Your Insight:** Your ability to predict human behavior and systemic outcomes is your greatest professional asset—market it.",
-    "**Write Your Way Up:** Use your superior written communication skills to influence decision-makers and clarify your vision.",
-    "**Beware of Perfectionism:** Good enough is often enough. Don't let your high standards prevent you from finishing projects."
+    {
+      "title": "Prioritize Purpose:",
+      "description": "You cannot sustain work that feels meaningless. Your career must align with your internal values."
+    },
+    {
+      "title": "Guard Your Energy:",
+      "description": "Your empathy is a resource. If you spend it all on toxic office politics, you will have nothing left for your actual work."
+    },
+    {
+      "title": "Seek Autonomy:",
+      "description": "You thrive when trusted to manage your own time and process. Fight for remote work or independent projects."
+    },
+    {
+      "title": "Use Your Insight:",
+      "description": "Your ability to predict human behavior and systemic outcomes is your greatest professional asset—market it."
+    },
+    {
+      "title": "Write Your Way Up:",
+      "description": "Use your superior written communication skills to influence decision-makers and clarify your vision."
+    },
+    {
+      "title": "Beware of Perfectionism:",
+      "description": "Good enough is often enough. Don't let your high standards prevent you from finishing projects."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -92,7 +92,10 @@
       "subsections": [
         {
           "heading": "Humanizing the Data",
-          "content": "Before every major decision, ask yourself: 'I know the logical impact, but what is the emotional impact on the team?' Factor morale into your spreadsheets as a key resource that can be depleted."
+          "content": {
+            "title": "Before every major decision, ask yourself",
+            "description": "'I know the logical impact, but what is the emotional impact on the team?' Factor morale into your spreadsheets as a key resource that can be depleted."
+          }
         },
         {
           "heading": "The 80% Rule",

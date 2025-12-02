@@ -64,12 +64,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Lead with Authenticity:** Your power comes from your integrity and willingness to work alongside your team, not from asserting dominance.",
-    "**Master of the Moment:** You excel in crises and changing situations (Se), bringing a calm, practical adaptability that reassures others.",
-    "**The Empathy Advantage:** Your ability to read emotional undercurrents allows you to build deeply loyal, cohesive teams.",
-    "**Watch the Conflict Gap:** Be wary of your tendency to avoid difficult conversations; prompt feedback is a form of kindness.",
-    "**Action Over Words:** You motivate people by creating beautiful environments and meaningful experiences, not through long speeches.",
-    "**Develop Structure:** Leaning into organization and clear communication (Te) will protect your energy and help your team succeed."
+    {
+      "title": "Lead with Authenticity:",
+      "description": "Your power comes from your integrity and willingness to work alongside your team, not from asserting dominance."
+    },
+    {
+      "title": "Master of the Moment:",
+      "description": "You excel in crises and changing situations (Se), bringing a calm, practical adaptability that reassures others."
+    },
+    {
+      "title": "The Empathy Advantage:",
+      "description": "Your ability to read emotional undercurrents allows you to build deeply loyal, cohesive teams."
+    },
+    {
+      "title": "Watch the Conflict Gap:",
+      "description": "Be wary of your tendency to avoid difficult conversations; prompt feedback is a form of kindness."
+    },
+    {
+      "title": "Action Over Words:",
+      "description": "You motivate people by creating beautiful environments and meaningful experiences, not through long speeches."
+    },
+    {
+      "title": "Develop Structure:",
+      "description": "Leaning into organization and clear communication (Te) will protect your energy and help your team succeed."
+    }
   ],
   "relatedTopics": [
     "learning",

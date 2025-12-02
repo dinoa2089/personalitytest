@@ -13,7 +13,10 @@
     "Enneagram 8 career",
     "Type 8 professional development"
   ],
-  "introduction": "You know the feeling well: you walk into a conference room where uncertainty hangs thick in the air, and almost involuntarily, you feel a surge of energy in your gut. While others might shrink away from the confusion or look around for someone else to take charge, you feel a magnetic pull toward the head of the table. It isn’t about ego or a desperate need for attention; it is a visceral, somatic instinct to bring order to chaos. As a Type 8, leadership isn’t just a role you play; it is an extension of your fundamental way of moving through the world. You are the person who steps into the vacuum when leadership is absent, the one who is willing to make the hard call when everyone else is paralyzed by analysis, and the one who will stand like a granite wall to protect your team from organizational nonsense.\n\nHowever, this natural command comes with a heavy voltage that can illuminate a path or short-circuit the entire building. You have likely experienced moments where you thought you were simply offering a clear, direct instruction, only to find out later that your team felt bulldozed or intimidated. Your volume knob is often set to a level that feels 'normal' to you but feels like 'shouting' to more sensitive types. Being a Type 8 - The Challenger leader means you possess the raw materials of greatness—courage, vision, and an indefatigable drive—but your journey involves learning how to temper that steel so it builds bridges rather than crushing them. It is about moving from being a boss who demands compliance to a magnanimous leader who inspires loyalty.\n\nIn this comprehensive guide, we are going to dismantle the mechanics of the Type 8 - The Challenger leadership style. We will look beyond the stereotypes of the 'aggressive boss' and explore the nuance of your protective instincts, your gut-based decision-making, and the hidden tenderness that actually fuels your best leadership moments. Whether you are running a scrappy startup or navigating the political waters of a massive corporation, understanding the psychology behind your drive is the key to evolving from a powerful force into a transformative one.",
+  "introduction": {
+    "title": "You know the feeling well",
+    "description": "you walk into a conference room where uncertainty hangs thick in the air, and almost involuntarily, you feel a surge of energy in your gut. While others might shrink away from the confusion or look around for someone else to take charge, you feel a magnetic pull toward the head of the table. It isn’t about ego or a desperate need for attention; it is a visceral, somatic instinct to bring order to chaos. As a Type 8, leadership isn’t just a role you play; it is an extension of your fundamental way of moving through the world. You are the person who steps into the vacuum when leadership is absent, the one who is willing to make the hard call when everyone else is paralyzed by analysis, and the one who will stand like a granite wall to protect your team from organizational nonsense.\n\nHowever, this natural command comes with a heavy voltage that can illuminate a path or short-circuit the entire building. You have likely experienced moments where you thought you were simply offering a clear, direct instruction, only to find out later that your team felt bulldozed or intimidated. Your volume knob is often set to a level that feels 'normal' to you but feels like 'shouting' to more sensitive types. Being a Type 8 - The Challenger leader means you possess the raw materials of greatness—courage, vision, and an indefatigable drive—but your journey involves learning how to temper that steel so it builds bridges rather than crushing them. It is about moving from being a boss who demands compliance to a magnanimous leader who inspires loyalty.\n\nIn this comprehensive guide, we are going to dismantle the mechanics of the Type 8 - The Challenger leadership style. We will look beyond the stereotypes of the 'aggressive boss' and explore the nuance of your protective instincts, your gut-based decision-making, and the hidden tenderness that actually fuels your best leadership moments. Whether you are running a scrappy startup or navigating the political waters of a massive corporation, understanding the psychology behind your drive is the key to evolving from a powerful force into a transformative one."
+  },
   "sections": [
     {
       "heading": "Natural Leadership Strengths",
@@ -137,13 +140,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Somatic Leadership:** Type 8s lead from the gut, offering decisiveness and energy that stabilizes teams during crises.",
-    "**The Protector:** A healthy 8 uses their strength to shield their team from external threats and organizational politics.",
-    "**Challenge as Love:** Eights motivate by challenging people to exceed their own expectations, but must be careful not to break those who need a gentler approach.",
-    "**The False Consensus:** Eights must actively solicit dissent, as their commanding presence often silences necessary feedback.",
-    "**Integration to Two:** The most effective 8 leaders learn to integrate the empathy and service-orientation of Type 2, moving from domination to empowerment.",
-    "**Context Matters:** Eights thrive in turnarounds, startups, and high-stakes environments but struggle in maintenance-mode bureaucracies.",
-    "**Action Over Analysis:** Eights prevent stagnation by making tough calls quickly, accepting the risk of error over the risk of inaction."
+    {
+      "title": "Somatic Leadership:",
+      "description": "Type 8s lead from the gut, offering decisiveness and energy that stabilizes teams during crises."
+    },
+    {
+      "title": "The Protector:",
+      "description": "A healthy 8 uses their strength to shield their team from external threats and organizational politics."
+    },
+    {
+      "title": "Challenge as Love:",
+      "description": "Eights motivate by challenging people to exceed their own expectations, but must be careful not to break those who need a gentler approach."
+    },
+    {
+      "title": "The False Consensus:",
+      "description": "Eights must actively solicit dissent, as their commanding presence often silences necessary feedback."
+    },
+    {
+      "title": "Integration to Two:",
+      "description": "The most effective 8 leaders learn to integrate the empathy and service-orientation of Type 2, moving from domination to empowerment."
+    },
+    {
+      "title": "Context Matters:",
+      "description": "Eights thrive in turnarounds, startups, and high-stakes environments but struggle in maintenance-mode bureaucracies."
+    },
+    {
+      "title": "Action Over Analysis:",
+      "description": "Eights prevent stagnation by making tough calls quickly, accepting the risk of error over the risk of inaction."
+    }
   ],
   "relatedTopics": [
     "learning",

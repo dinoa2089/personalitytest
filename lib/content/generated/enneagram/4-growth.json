@@ -67,7 +67,10 @@
       "subsections": [
         {
           "heading": "Journaling Prompt: The Negative Identity",
-          "content": "Sit with your journal and answer this: 'What do I get out of staying stuck? How does my sadness serve me?' Be brutally honest. Do you get attention? Do you get to avoid responsibility? Do you feel superior to 'happy' people? shining a light on the utility of your suffering is the only way to dismantle it."
+          "content": {
+            "title": "Sit with your journal and answer this",
+            "description": "'What do I get out of staying stuck? How does my sadness serve me?' Be brutally honest. Do you get attention? Do you get to avoid responsibility? Do you feel superior to 'happy' people? shining a light on the utility of your suffering is the only way to dismantle it."
+          }
         },
         {
           "heading": "Addressing Envy Through Abundance",
@@ -129,12 +132,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace the Ordinary:** Growth for a Four creates a paradox where accepting your ordinary humanity makes you truly unique.",
-    "**Discipline is Freedom:** Integrating Type 1 structure allows your creativity to manifest in the real world rather than just staying in your head.",
-    "**Feelings are not Facts:** Learn to observe your emotions as passing weather systems rather than identifying with them as absolute truth.",
-    "**Action over Mood:** Do not wait to 'feel like it.' Action generates the inspiration you are waiting for.",
-    "**Stop the Comparison Game:** Replace envy with admiration and curiosity. Use others' success as a roadmap, not a judgment on your worth.",
-    "**Somatic Connection:** Get out of your head and into your body. Physical movement is the fastest way to break a melancholy spiral."
+    {
+      "title": "Embrace the Ordinary:",
+      "description": "Growth for a Four creates a paradox where accepting your ordinary humanity makes you truly unique."
+    },
+    {
+      "title": "Discipline is Freedom:",
+      "description": "Integrating Type 1 structure allows your creativity to manifest in the real world rather than just staying in your head."
+    },
+    {
+      "title": "Feelings are not Facts:",
+      "description": "Learn to observe your emotions as passing weather systems rather than identifying with them as absolute truth."
+    },
+    {
+      "title": "Action over Mood:",
+      "description": "Do not wait to 'feel like it.' Action generates the inspiration you are waiting for."
+    },
+    {
+      "title": "Stop the Comparison Game:",
+      "description": "Replace envy with admiration and curiosity. Use others' success as a roadmap, not a judgment on your worth."
+    },
+    {
+      "title": "Somatic Connection:",
+      "description": "Get out of your head and into your body. Physical movement is the fastest way to break a melancholy spiral."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -88,7 +88,10 @@
     },
     {
       "heading": "6. Building Long-Term Resilience",
-      "content": "The Connector resilience is built on a paradox: to have better relationships, you must be willing to risk them. True resilience for you comes from realizing that a relationship that cannot survive a \"no\" was never a genuine relationship to begin with—it was a transaction. You must begin the slow, brave work of untangling your self-worth from your utility. You are not valuable only because you are helpful. You are valuable because you are you. This shift takes time. It involves practicing \"micro-disappointments.\" Intentionally set small boundaries—like ending a phone call after 20 minutes because you're tired—and observe that the world doesn't end and your friend still loves you.\n\nAnother pillar of resilience is developing \"Cognitive Reframing\" regarding conflict. You likely view conflict as a failure of connection. Try to reframe it as a *pathway* to deeper connection. Honest conflict means two people care enough to be real with each other. By shifting your perspective from \"conflict is dangerous\" to \"conflict is intimate,\" you reduce the catastrophic anxiety that arises when disagreements occur. You learn to stay in the pocket of discomfort, knowing that on the other side lies a stronger, more authentic bond.\n\nFinally, cultivate a passion that has nothing to do with people. Whether it's coding, long-distance running, or watercolor painting, find a domain where your success depends entirely on your own effort, not on the approval or cooperation of others. This provides a safe harbor for your ego. When the social world is stormy, you can retreat to this solo pursuit where you are the captain and the master, rebuilding your confidence independent of your social standing.",
+      "content": {
+        "title": "The Connector resilience is built on a paradox",
+        "description": "to have better relationships, you must be willing to risk them. True resilience for you comes from realizing that a relationship that cannot survive a \"no\" was never a genuine relationship to begin with—it was a transaction. You must begin the slow, brave work of untangling your self-worth from your utility. You are not valuable only because you are helpful. You are valuable because you are you. This shift takes time. It involves practicing \"micro-disappointments.\" Intentionally set small boundaries—like ending a phone call after 20 minutes because you're tired—and observe that the world doesn't end and your friend still loves you.\n\nAnother pillar of resilience is developing \"Cognitive Reframing\" regarding conflict. You likely view conflict as a failure of connection. Try to reframe it as a *pathway* to deeper connection. Honest conflict means two people care enough to be real with each other. By shifting your perspective from \"conflict is dangerous\" to \"conflict is intimate,\" you reduce the catastrophic anxiety that arises when disagreements occur. You learn to stay in the pocket of discomfort, knowing that on the other side lies a stronger, more authentic bond.\n\nFinally, cultivate a passion that has nothing to do with people. Whether it's coding, long-distance running, or watercolor painting, find a domain where your success depends entirely on your own effort, not on the approval or cooperation of others. This provides a safe harbor for your ego. When the social world is stormy, you can retreat to this solo pursuit where you are the captain and the master, rebuilding your confidence independent of your social standing."
+      },
       "subsections": [
         {
           "heading": "Boundary Training",
@@ -96,7 +99,10 @@
         },
         {
           "heading": "Separating Empathy from Responsibility",
-          "content": "Learn the mantra: 'I can feel your pain without having to fix your pain.' This allows you to remain empathetic without becoming burdened."
+          "content": {
+            "title": "Learn the mantra",
+            "description": "'I can feel your pain without having to fix your pain.' This allows you to remain empathetic without becoming burdened."
+          }
         }
       ]
     },
@@ -110,7 +116,10 @@
         },
         {
           "heading": "Avoid the 'Fix-It' Rush",
-          "content": "When they vent, they usually just want to be heard. Ask: 'Do you want advice or do you want to be heard?' Usually, it's the latter."
+          "content": {
+            "title": "When they vent, they usually just want to be heard. Ask",
+            "description": "'Do you want advice or do you want to be heard?' Usually, it's the latter."
+          }
         }
       ]
     }
@@ -130,12 +139,30 @@
     }
   ],
   "keyTakeaways": [
-    "Your stress is usually relational: disharmony and feeling undervalued are your biggest triggers.",
-    "Watch for 'fawning': trying to please people more when you are stressed will only accelerate burnout.",
-    "Implement the 'Pause Protocol': never say yes immediately; always buy time to check your capacity.",
-    "Recovery doesn't always mean isolation: 'parallel play' or low-stakes social environments can be more restorative than total solitude.",
-    "Conflict is not a catastrophe: reframe difficult conversations as a pathway to deeper, more authentic connection.",
-    "Physical grounding is essential: use nature, crafts, or sensory experiences to get out of your head and into your body.",
+    {
+      "title": "Your stress is usually relational",
+      "description": "disharmony and feeling undervalued are your biggest triggers."
+    },
+    {
+      "title": "Watch for 'fawning'",
+      "description": "trying to please people more when you are stressed will only accelerate burnout."
+    },
+    {
+      "title": "Implement the 'Pause Protocol'",
+      "description": "never say yes immediately; always buy time to check your capacity."
+    },
+    {
+      "title": "Recovery doesn't always mean isolation",
+      "description": "'parallel play' or low-stakes social environments can be more restorative than total solitude."
+    },
+    {
+      "title": "Conflict is not a catastrophe",
+      "description": "reframe difficult conversations as a pathway to deeper, more authentic connection."
+    },
+    {
+      "title": "Physical grounding is essential",
+      "description": "use nature, crafts, or sensory experiences to get out of your head and into your body."
+    },
     "You are not responsible for everyone's emotions: learn to witness others' pain without carrying it."
   ],
   "relatedTopics": [

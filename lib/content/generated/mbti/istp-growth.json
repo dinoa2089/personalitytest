@@ -94,13 +94,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Reframe Growth:** View personal development as a 'firmware update' or system optimization rather than a sentimental journey.",
-    "**The Pause Protocol:** Implement a 5-second pause before responding in emotional situations to disengage your troubleshooting reflex.",
-    "**Action Over Analysis:** When you feel stuck in a mental loop of negativity, physically move or build something to re-engage your auxiliary Se.",
-    "**Commitment is Freedom:** Realize that mastery requires depth, and depth requires staying power. Commitment isn't a trap; it's a choice of discipline.",
-    "**Fe is an Interface:** Treat social skills and empathy as a necessary User Interface for your ideas. Without them, your logic cannot be uploaded to others.",
-    "**Future Casting:** actively practice predicting the 6-month consequences of today's actions to strengthen your strategic planning (Ni).",
-    "**Shadow Work:** Accept that emotions are data points, not system failures. Ignoring them leads to the 'Fe Grip' (explosive outbursts)."
+    {
+      "title": "Reframe Growth:",
+      "description": "View personal development as a 'firmware update' or system optimization rather than a sentimental journey."
+    },
+    {
+      "title": "The Pause Protocol:",
+      "description": "Implement a 5-second pause before responding in emotional situations to disengage your troubleshooting reflex."
+    },
+    {
+      "title": "Action Over Analysis:",
+      "description": "When you feel stuck in a mental loop of negativity, physically move or build something to re-engage your auxiliary Se."
+    },
+    {
+      "title": "Commitment is Freedom:",
+      "description": "Realize that mastery requires depth, and depth requires staying power. Commitment isn't a trap; it's a choice of discipline."
+    },
+    {
+      "title": "Fe is an Interface:",
+      "description": "Treat social skills and empathy as a necessary User Interface for your ideas. Without them, your logic cannot be uploaded to others."
+    },
+    {
+      "title": "Future Casting:",
+      "description": "actively practice predicting the 6-month consequences of today's actions to strengthen your strategic planning (Ni)."
+    },
+    {
+      "title": "Shadow Work:",
+      "description": "Accept that emotions are data points, not system failures. Ignoring them leads to the 'Fe Grip' (explosive outbursts)."
+    }
   ],
   "relatedTopics": [
     "learning",

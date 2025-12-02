@@ -105,12 +105,30 @@
     }
   ],
   "keyTakeaways": [
-    "**System Builders:** ESTJs naturally create order from chaos, building the frameworks that allow teams to function efficiently.",
-    "**Fact-Based Deciders:** Decisions are made rapidly based on logic, data, and precedent, minimizing ambiguity.",
-    "**Reliability is Currency:** They lead by example; if they say they will do it, it gets done. They expect the same from others.",
-    "**Direct Communication:** Feedback is blunt and honest. They value clarity over diplomacy, which can sometimes hurt feelings.",
-    "**Growth Area:** ESTJs must work on active listening and emotional intelligence to avoid steamrolling their teams.",
-    "**Ideal Contexts:** They thrive in operations, logistics, and traditional corporate structures where clear hierarchy is valued."
+    {
+      "title": "System Builders:",
+      "description": "ESTJs naturally create order from chaos, building the frameworks that allow teams to function efficiently."
+    },
+    {
+      "title": "Fact-Based Deciders:",
+      "description": "Decisions are made rapidly based on logic, data, and precedent, minimizing ambiguity."
+    },
+    {
+      "title": "Reliability is Currency:",
+      "description": "They lead by example; if they say they will do it, it gets done. They expect the same from others."
+    },
+    {
+      "title": "Direct Communication:",
+      "description": "Feedback is blunt and honest. They value clarity over diplomacy, which can sometimes hurt feelings."
+    },
+    {
+      "title": "Growth Area:",
+      "description": "ESTJs must work on active listening and emotional intelligence to avoid steamrolling their teams."
+    },
+    {
+      "title": "Ideal Contexts:",
+      "description": "They thrive in operations, logistics, and traditional corporate structures where clear hierarchy is valued."
+    }
   ],
   "relatedTopics": [
     "learning",

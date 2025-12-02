@@ -35,7 +35,10 @@
       "subsections": [
         {
           "heading": "Mastering the 'Messy Middle'",
-          "content": "Every project has three phases: The exciting start, the grinding middle, and the satisfying finish. Sevens love the first, tolerate the third, and detest the middle. Your growth lies in falling in love with the grind. It is in the tedious editing of the book, the daily practice of the instrument, or the difficult conversations in a marriage where character is forged."
+          "content": {
+            "title": "Every project has three phases",
+            "description": "The exciting start, the grinding middle, and the satisfying finish. Sevens love the first, tolerate the third, and detest the middle. Your growth lies in falling in love with the grind. It is in the tedious editing of the book, the daily practice of the instrument, or the difficult conversations in a marriage where character is forged."
+          }
         },
         {
           "heading": "Accepting Limitations",
@@ -129,13 +132,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace Sobriety:** Move from the intoxication of future possibilities to the sobriety of the present moment.",
-    "**Value Depth over Breadth:** True freedom is found in committing to one thing deeply, rather than sampling everything superficially.",
-    "**Feel the Pain:** Stop reframing negative emotions. Allow yourself to grieve and feel sadness to fully experience joy.",
-    "**Integrate the Five:** Cultivate focus, solitude, and mastery. Learn to sit still and study the world deeply.",
-    "**Finish What You Start:** Your self-esteem grows when you push through the boring 'messy middle' of projects.",
-    "**JOMO over FOMO:** Replace the Fear Of Missing Out with the Joy Of Missing Out—finding contentment in where you are.",
-    "**Structure is Freedom:** Accept routines and discipline not as cages, but as the trellis that allows your creativity to grow upward."
+    {
+      "title": "Embrace Sobriety:",
+      "description": "Move from the intoxication of future possibilities to the sobriety of the present moment."
+    },
+    {
+      "title": "Value Depth over Breadth:",
+      "description": "True freedom is found in committing to one thing deeply, rather than sampling everything superficially."
+    },
+    {
+      "title": "Feel the Pain:",
+      "description": "Stop reframing negative emotions. Allow yourself to grieve and feel sadness to fully experience joy."
+    },
+    {
+      "title": "Integrate the Five:",
+      "description": "Cultivate focus, solitude, and mastery. Learn to sit still and study the world deeply."
+    },
+    {
+      "title": "Finish What You Start:",
+      "description": "Your self-esteem grows when you push through the boring 'messy middle' of projects."
+    },
+    {
+      "title": "JOMO over FOMO:",
+      "description": "Replace the Fear Of Missing Out with the Joy Of Missing Out—finding contentment in where you are."
+    },
+    {
+      "title": "Structure is Freedom:",
+      "description": "Accept routines and discipline not as cages, but as the trellis that allows your creativity to grow upward."
+    }
   ],
   "relatedTopics": [
     "learning",

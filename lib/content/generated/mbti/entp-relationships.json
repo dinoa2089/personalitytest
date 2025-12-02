@@ -106,13 +106,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Intellectual Connection is Mandatory:** ENTPs cannot sustain a relationship without mental stimulation and banter.",
-    "**Growth Over Comfort:** They view relationships as vehicles for self-improvement and mutual evolution, not just stability.",
-    "**Debate as Intimacy:** Arguing is a love language for ENTPs; it shows they are engaged and respect your mind.",
-    "**Struggle with Routine:** Long-term maintenance and domestic details are difficult for ENTPs; they need novelty to stay engaged.",
-    "**Direct Communication:** They value radical honesty and directness, often struggling with passive-aggression or subtle emotional cues.",
-    "**Need for Autonomy:** ENTPs require a high degree of freedom and independence within a relationship to feel happy.",
-    "**Solution-Oriented:** They show love by solving problems, which can sometimes be mistaken for a lack of empathy."
+    {
+      "title": "Intellectual Connection is Mandatory:",
+      "description": "ENTPs cannot sustain a relationship without mental stimulation and banter."
+    },
+    {
+      "title": "Growth Over Comfort:",
+      "description": "They view relationships as vehicles for self-improvement and mutual evolution, not just stability."
+    },
+    {
+      "title": "Debate as Intimacy:",
+      "description": "Arguing is a love language for ENTPs; it shows they are engaged and respect your mind."
+    },
+    {
+      "title": "Struggle with Routine:",
+      "description": "Long-term maintenance and domestic details are difficult for ENTPs; they need novelty to stay engaged."
+    },
+    {
+      "title": "Direct Communication:",
+      "description": "They value radical honesty and directness, often struggling with passive-aggression or subtle emotional cues."
+    },
+    {
+      "title": "Need for Autonomy:",
+      "description": "ENTPs require a high degree of freedom and independence within a relationship to feel happy."
+    },
+    {
+      "title": "Solution-Oriented:",
+      "description": "They show love by solving problems, which can sometimes be mistaken for a lack of empathy."
+    }
   ],
   "relatedTopics": [
     "learning",

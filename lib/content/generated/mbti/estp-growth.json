@@ -54,7 +54,10 @@
         },
         {
           "heading": "Active Listening Intervals",
-          "content": "In your next three conversations, play a game: You are not allowed to speak about yourself or offer a solution until you have asked three follow-up questions. Your goal is data collection, not problem-solving."
+          "content": {
+            "title": "In your next three conversations, play a game",
+            "description": "You are not allowed to speak about yourself or offer a solution until you have asked three follow-up questions. Your goal is data collection, not problem-solving."
+          }
         }
       ]
     },
@@ -110,7 +113,10 @@
         },
         {
           "heading": "The Legacy Question",
-          "content": "Start asking yourself: 'What do I want to leave behind?' This appeals to your desire for impact. Whether it's a business, a family culture, or a body of work, define the physical evidence of your existence that will outlast you."
+          "content": {
+            "title": "Start asking yourself",
+            "description": "'What do I want to leave behind?' This appeals to your desire for impact. Whether it's a business, a family culture, or a body of work, define the physical evidence of your existence that will outlast you."
+          }
         }
       ]
     }
@@ -134,13 +140,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Shift from Firefighter to Architect:** Move from reacting to crises to building structures that prevent them.",
-    "**Master the Pause:** Implement a mandatory waiting period before acting on strong impulses to engage your logic and foresight.",
-    "**Embrace Boredom:** Reframe quiet moments as 'strategic recovery' rather than wasted time.",
-    "**Develop Emotional Permanence:** Create systems to maintain relationships even when people aren't physically present.",
-    "**Train Your Future Vision:** regularly visualize 5-year outcomes to strengthen your Inferior Ni and reduce fear of the unknown.",
-    "**Practice Active Listening:** Challenge yourself to ask three questions before speaking about yourself or offering a solution.",
-    "**Structure for Freedom:** Build non-negotiable daily habits that create the stability needed for guilt-free spontaneity."
+    {
+      "title": "Shift from Firefighter to Architect:",
+      "description": "Move from reacting to crises to building structures that prevent them."
+    },
+    {
+      "title": "Master the Pause:",
+      "description": "Implement a mandatory waiting period before acting on strong impulses to engage your logic and foresight."
+    },
+    {
+      "title": "Embrace Boredom:",
+      "description": "Reframe quiet moments as 'strategic recovery' rather than wasted time."
+    },
+    {
+      "title": "Develop Emotional Permanence:",
+      "description": "Create systems to maintain relationships even when people aren't physically present."
+    },
+    {
+      "title": "Train Your Future Vision:",
+      "description": "regularly visualize 5-year outcomes to strengthen your Inferior Ni and reduce fear of the unknown."
+    },
+    {
+      "title": "Practice Active Listening:",
+      "description": "Challenge yourself to ask three questions before speaking about yourself or offering a solution."
+    },
+    {
+      "title": "Structure for Freedom:",
+      "description": "Build non-negotiable daily habits that create the stability needed for guilt-free spontaneity."
+    }
   ],
   "relatedTopics": [
     "learning",

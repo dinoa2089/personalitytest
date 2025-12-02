@@ -3,7 +3,10 @@
   "type": "entj",
   "framework": "mbti",
   "topic": "growth",
-  "title": "Strategic Evolution: The Ultimate ENTJ - The Commander Personal Growth Guide",
+  "title": {
+    "title": "Strategic Evolution",
+    "description": "The Ultimate ENTJ - The Commander Personal Growth Guide"
+  },
   "metaDescription": "Unlock your potential with this deep dive into ENTJ - The Commander personal growth. Master emotional intelligence, optimize leadership, and conquer burnout.",
   "keywords": [
     "ENTJ - The Commander personal growth",
@@ -40,7 +43,10 @@
         },
         {
           "heading": "Validation Before Solution",
-          "content": "Adopt the phrase: 'That sounds frustrating. I can see why you feel that way.' Use this *before* offering any advice. It lubricates the conversation and lowers the other person's defenses."
+          "content": {
+            "title": "Adopt the phrase",
+            "description": "'That sounds frustrating. I can see why you feel that way.' Use this *before* offering any advice. It lubricates the conversation and lowers the other person's defenses."
+          }
         }
       ]
     },
@@ -148,7 +154,10 @@
     "Engage in 'Shadow Work' to connect with your Introverted Feeling (Fi) and define your true values.",
     "Practice vulnerability through the 30-Day Challenge to build resilience and deeper relationships.",
     "Recognize burnout as a biological reality, not a weakness of will.",
-    "Aim for the 'Wise Sovereign' archetype: leading with wisdom and empathy, not just raw power."
+    {
+      "title": "Aim for the 'Wise Sovereign' archetype",
+      "description": "leading with wisdom and empathy, not just raw power."
+    }
   ],
   "relatedTopics": [
     "learning",

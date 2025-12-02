@@ -58,7 +58,10 @@
     },
     {
       "heading": "Meeting and Collaboration Style",
-      "content": "Let's set the scene: You are in a strategy meeting. There is an agenda on the screen, but to you, it looks more like a suggestion than a rule. Within ten minutes, you are likely the person standing up, marker in hand, drawing arrows on the whiteboard. You communicate spatially and visually. You use metaphors, stories, and analogies to bridge the gap between the abstract concept in your head and the reality of the room. Your meeting style is high-energy and interactive. You abhor meetings that could have been emails; sitting passively while someone reads slides is physically painful for you. You want engagement, debate, and friction. You believe that the best ideas survive the crucible of argument.\n\nHowever, your digital communication style can sometimes be a source of chaos. You are likely the person who sends five rapid-fire Slack messages in a row—'And another thing...', 'Wait, ignore that, try this...'—rather than one composed paragraph. This stream-of-consciousness style allows you to think out loud, but it can overwhelm colleagues who are trying to maintain focus. You might also be guilty of the 'ghosting' phenomenon: you are incredibly responsive when a project is new and exciting, but your email response time lags significantly when the conversation turns to administrative details or scheduling.\n\nIn collaborative tools like Trello, Asana, or Jira, you might struggle. You likely resist the rigidity of tickets and rigid workflows. You prefer a blank canvas like Miro or a physical notebook. To collaborate effectively, you need to compromise. Use your preferred tools for the messy ideation phase, but respect the team's need to migrate those ideas into the structured project management tools for execution. Think of it as 'cleaning up' after your creative cooking session.",
+      "content": {
+        "title": "Let's set the scene",
+        "description": "You are in a strategy meeting. There is an agenda on the screen, but to you, it looks more like a suggestion than a rule. Within ten minutes, you are likely the person standing up, marker in hand, drawing arrows on the whiteboard. You communicate spatially and visually. You use metaphors, stories, and analogies to bridge the gap between the abstract concept in your head and the reality of the room. Your meeting style is high-energy and interactive. You abhor meetings that could have been emails; sitting passively while someone reads slides is physically painful for you. You want engagement, debate, and friction. You believe that the best ideas survive the crucible of argument.\n\nHowever, your digital communication style can sometimes be a source of chaos. You are likely the person who sends five rapid-fire Slack messages in a row—'And another thing...', 'Wait, ignore that, try this...'—rather than one composed paragraph. This stream-of-consciousness style allows you to think out loud, but it can overwhelm colleagues who are trying to maintain focus. You might also be guilty of the 'ghosting' phenomenon: you are incredibly responsive when a project is new and exciting, but your email response time lags significantly when the conversation turns to administrative details or scheduling.\n\nIn collaborative tools like Trello, Asana, or Jira, you might struggle. You likely resist the rigidity of tickets and rigid workflows. You prefer a blank canvas like Miro or a physical notebook. To collaborate effectively, you need to compromise. Use your preferred tools for the messy ideation phase, but respect the team's need to migrate those ideas into the structured project management tools for execution. Think of it as 'cleaning up' after your creative cooking session."
+      },
       "subsections": [
         {
           "heading": "Communication Best Practices",
@@ -102,12 +105,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace Cognitive Flexibility:** Your ability to pivot and see connections is your superpower; don't let rigid structures dull it.",
-    "**Partner with Stabilizers:** You need detail-oriented colleagues to operationalize your visions. Respect their caution as a safety net.",
-    "**Hack Your Dopamine:** Use gamification and sprints to get through mundane tasks that don't naturally stimulate your brain.",
-    "**Communicate the 'How':** Don't just share the vision; explain the logic and risk mitigation to comfort anxious stakeholders.",
-    "**Focus on Output, Not Hours:** Seek roles that value results over face time, allowing you to work in your natural bursts of energy.",
-    "**Beware Shiny Object Syndrome:** Practice the discipline of finishing one project before starting the next to build professional credibility."
+    {
+      "title": "Embrace Cognitive Flexibility:",
+      "description": "Your ability to pivot and see connections is your superpower; don't let rigid structures dull it."
+    },
+    {
+      "title": "Partner with Stabilizers:",
+      "description": "You need detail-oriented colleagues to operationalize your visions. Respect their caution as a safety net."
+    },
+    {
+      "title": "Hack Your Dopamine:",
+      "description": "Use gamification and sprints to get through mundane tasks that don't naturally stimulate your brain."
+    },
+    {
+      "title": "Communicate the 'How':",
+      "description": "Don't just share the vision; explain the logic and risk mitigation to comfort anxious stakeholders."
+    },
+    {
+      "title": "Focus on Output, Not Hours:",
+      "description": "Seek roles that value results over face time, allowing you to work in your natural bursts of energy."
+    },
+    {
+      "title": "Beware Shiny Object Syndrome:",
+      "description": "Practice the discipline of finishing one project before starting the next to build professional credibility."
+    }
   ],
   "relatedTopics": [
     "learning",

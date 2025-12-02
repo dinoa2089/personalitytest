@@ -76,7 +76,10 @@
     "Challenging matches are often Type 5 and Type 4, due to differing needs for space and emotional processing.",
     "A core struggle in romance is the 'Covert Contract': giving with the hidden expectation of return.",
     "In the workplace, Twos are culture-builders but must guard against burnout and taking criticism personally.",
-    "Growth requires the 'Direct Ask': stating needs clearly rather than hoping others intuit them.",
+    {
+      "title": "Growth requires the 'Direct Ask'",
+      "description": "stating needs clearly rather than hoping others intuit them."
+    },
     "The most compatible partners are those who encourage the Two to be 'selfish' and prioritize self-care."
   ],
   "relatedTopics": [

@@ -105,13 +105,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Action-First:** ESTP communication is kinetic, energetic, and focused on immediate results.",
-    "**Directness:** They value raw honesty and brevity, often bypassing social pleasantries.",
-    "**Visual & Concrete:** They prefer tangible examples and metaphors over abstract theory.",
-    "**Crisis Masters:** Their communication becomes clearest and most effective in high-pressure situations.",
-    "**Avoid the Fluff:** To engage them, skip the backstory and start with the bottom line.",
-    "**Activity-Based Connection:** They bond and communicate best while moving or doing something active.",
-    "**Thick Skinned:** They separate ideas from identity and expect others to do the same during debates."
+    {
+      "title": "Action-First:",
+      "description": "ESTP communication is kinetic, energetic, and focused on immediate results."
+    },
+    {
+      "title": "Directness:",
+      "description": "They value raw honesty and brevity, often bypassing social pleasantries."
+    },
+    {
+      "title": "Visual & Concrete:",
+      "description": "They prefer tangible examples and metaphors over abstract theory."
+    },
+    {
+      "title": "Crisis Masters:",
+      "description": "Their communication becomes clearest and most effective in high-pressure situations."
+    },
+    {
+      "title": "Avoid the Fluff:",
+      "description": "To engage them, skip the backstory and start with the bottom line."
+    },
+    {
+      "title": "Activity-Based Connection:",
+      "description": "They bond and communicate best while moving or doing something active."
+    },
+    {
+      "title": "Thick Skinned:",
+      "description": "They separate ideas from identity and expect others to do the same during debates."
+    }
   ],
   "relatedTopics": [
     "learning",

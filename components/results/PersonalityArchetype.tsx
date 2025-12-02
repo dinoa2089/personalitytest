@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { calculateArchetype, type Archetype } from "@/lib/archetypes";
+import { calculateArchetype, type Archetype, type StrengthItem } from "@/lib/archetypes";
 import type { DimensionScore } from "@/types";
 import {
   Sparkles,

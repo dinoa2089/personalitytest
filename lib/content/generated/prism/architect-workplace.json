@@ -97,13 +97,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Systematic Creativity:** You combine visionary imagination with the discipline to execute, making you the ultimate bridge between idea and reality.",
-    "**Need for Deep Work:** You require blocks of uninterrupted time to function at your peak; protect your calendar aggressively.",
-    "**Quality over Quantity:** Your high standards are your brand, but beware of perfectionism delaying viable solutions.",
-    "**Written Communication:** Leverage your ability to synthesize complex information into clear, written plans to influence decision-making.",
-    "**The 'Anchor' Role:** In chaotic teams, you provide the stability and logic necessary to keep projects on track.",
-    "**Delegation is Design:** Advance your career by treating delegation as designing a system, rather than just handing off tasks.",
-    "**Political Strategy:** View workplace relationships as a necessary network for getting your ideas implemented, not just 'office politics' to avoid."
+    {
+      "title": "Systematic Creativity:",
+      "description": "You combine visionary imagination with the discipline to execute, making you the ultimate bridge between idea and reality."
+    },
+    {
+      "title": "Need for Deep Work:",
+      "description": "You require blocks of uninterrupted time to function at your peak; protect your calendar aggressively."
+    },
+    {
+      "title": "Quality over Quantity:",
+      "description": "Your high standards are your brand, but beware of perfectionism delaying viable solutions."
+    },
+    {
+      "title": "Written Communication:",
+      "description": "Leverage your ability to synthesize complex information into clear, written plans to influence decision-making."
+    },
+    {
+      "title": "The 'Anchor' Role:",
+      "description": "In chaotic teams, you provide the stability and logic necessary to keep projects on track."
+    },
+    {
+      "title": "Delegation is Design:",
+      "description": "Advance your career by treating delegation as designing a system, rather than just handing off tasks."
+    },
+    {
+      "title": "Political Strategy:",
+      "description": "View workplace relationships as a necessary network for getting your ideas implemented, not just 'office politics' to avoid."
+    }
   ],
   "relatedTopics": [
     "learning",

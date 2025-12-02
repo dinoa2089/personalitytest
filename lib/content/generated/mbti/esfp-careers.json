@@ -112,12 +112,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace the Stage:** You thrive in roles that offer visibility, social interaction, and immediate feedback. Avoid isolation.",
-    "**Trust Your Senses:** Your ability to read a room and react to physical details is a high-value skill in crisis management and sales.",
-    "**Beware the Boredom:** You are prone to job-hopping. Look for variety *within* a role rather than constantly changing roles.",
-    "**Monetize Your Authenticity:** Your 'soft skills' of empathy and charm are your hard currency. Don't undervalue them.",
-    "**Partner for Planning:** You have the vision and the energy; partner with detail-oriented types to handle the long-term logistics.",
-    "**Seek Tangible Results:** You need to see the fruit of your labor daily. Abstract, theoretical work will drain you."
+    {
+      "title": "Embrace the Stage:",
+      "description": "You thrive in roles that offer visibility, social interaction, and immediate feedback. Avoid isolation."
+    },
+    {
+      "title": "Trust Your Senses:",
+      "description": "Your ability to read a room and react to physical details is a high-value skill in crisis management and sales."
+    },
+    {
+      "title": "Beware the Boredom:",
+      "description": "You are prone to job-hopping. Look for variety *within* a role rather than constantly changing roles."
+    },
+    {
+      "title": "Monetize Your Authenticity:",
+      "description": "Your 'soft skills' of empathy and charm are your hard currency. Don't undervalue them."
+    },
+    {
+      "title": "Partner for Planning:",
+      "description": "You have the vision and the energy; partner with detail-oriented types to handle the long-term logistics."
+    },
+    {
+      "title": "Seek Tangible Results:",
+      "description": "You need to see the fruit of your labor daily. Abstract, theoretical work will drain you."
+    }
   ],
   "relatedTopics": [
     "learning",

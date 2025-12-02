@@ -118,7 +118,10 @@
         },
         {
           "heading": "Value Re-alignment",
-          "content": "Spend 15 minutes journaling on the question: 'What did I do this week that felt like *me*, and what felt like a performance?' Adjust next week's schedule accordingly."
+          "content": {
+            "title": "Spend 15 minutes journaling on the question",
+            "description": "'What did I do this week that felt like *me*, and what felt like a performance?' Adjust next week's schedule accordingly."
+          }
         }
       ]
     },

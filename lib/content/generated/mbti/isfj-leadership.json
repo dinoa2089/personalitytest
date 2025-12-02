@@ -145,12 +145,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Psychological Safety Architect:** You naturally create environments where teams feel safe, heard, and valued.",
-    "**Lead by Example:** You gain respect through your work ethic and willingness to do the unglamorous tasks.",
-    "**The Trap of Conflict Avoidance:** Your biggest growth area is learning to address issues directly before they fester.",
-    "**Data + Empathy:** Your decision-making is a powerful blend of historical data (Si) and human impact consideration (Fe).",
-    "**Delegate to Elevate:** You must stop hoarding work to protect others; true leadership involves teaching others to fish.",
-    "**Stability over Chaos:** You thrive in established structures and may struggle in highly volatile, unstructured startup environments."
+    {
+      "title": "Psychological Safety Architect:",
+      "description": "You naturally create environments where teams feel safe, heard, and valued."
+    },
+    {
+      "title": "Lead by Example:",
+      "description": "You gain respect through your work ethic and willingness to do the unglamorous tasks."
+    },
+    {
+      "title": "The Trap of Conflict Avoidance:",
+      "description": "Your biggest growth area is learning to address issues directly before they fester."
+    },
+    {
+      "title": "Data + Empathy:",
+      "description": "Your decision-making is a powerful blend of historical data (Si) and human impact consideration (Fe)."
+    },
+    {
+      "title": "Delegate to Elevate:",
+      "description": "You must stop hoarding work to protect others; true leadership involves teaching others to fish."
+    },
+    {
+      "title": "Stability over Chaos:",
+      "description": "You thrive in established structures and may struggle in highly volatile, unstructured startup environments."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -3,7 +3,10 @@
   "type": "intp",
   "framework": "mbti",
   "topic": "growth",
-  "title": "Unlocking Potential: The Ultimate INTP - The Logician Personal Growth Guide",
+  "title": {
+    "title": "Unlocking Potential",
+    "description": "The Ultimate INTP - The Logician Personal Growth Guide"
+  },
   "metaDescription": "A comprehensive guide for INTP - The Logician personal growth. Master analysis paralysis, develop emotional intelligence, and turn your theories into reality.",
   "keywords": [
     "INTP - The Logician personal growth",
@@ -62,7 +65,10 @@
       "subsections": [
         {
           "heading": "Shadow Work Prompts",
-          "content": "To explore your shadow, journal on these questions: 'When was the last time I had an emotional outburst? What specific physical need (hunger, sleep, sensory overload) was I ignoring prior to that?' and 'In what ways do I secretly crave the approval of others, even while claiming I don't care what people think?' Honesty here is brutal but necessary for INTP - The Logician personal development."
+          "content": {
+            "title": "To explore your shadow, journal on these questions",
+            "description": "'When was the last time I had an emotional outburst? What specific physical need (hunger, sleep, sensory overload) was I ignoring prior to that?' and 'In what ways do I secretly crave the approval of others, even while claiming I don't care what people think?' Honesty here is brutal but necessary for INTP - The Logician personal development."
+          }
         }
       ]
     },
@@ -72,7 +78,10 @@
       "subsections": [
         {
           "heading": "Milestone Markers",
-          "content": "Look for these markers: 1) You apologized for your tone without being prompted. 2) You completed a project that you lost interest in halfway through, simply because you said you would. 3) You made a decision in under 5 minutes that used to take you 5 days. 4) You admitted 'I don't know' without feeling intellectually inferior."
+          "content": {
+            "title": "Look for these markers",
+            "description": "1) You apologized for your tone without being prompted. 2) You completed a project that you lost interest in halfway through, simply because you said you would. 3) You made a decision in under 5 minutes that used to take you 5 days. 4) You admitted 'I don't know' without feeling intellectually inferior."
+          }
         }
       ]
     },
@@ -82,7 +91,10 @@
       "subsections": [
         {
           "heading": "Recommended Resources",
-          "content": "**Books:** 'Deep Work' by Cal Newport (appeals to your need for focus), 'Thinking, Fast and Slow' by Daniel Kahneman (explains the bugs in human reasoning), and 'Atomic Habits' by James Clear (provides a system for the Si weakness). **Daily Habit:** The 'Brain Dump.' Every morning, write three pages of stream-of-consciousness thought. This clears the cache of your Ti (Introverted Thinking) so you don't carry yesterday's unfinished loops into today's processing."
+          "content": {
+            "title": "Books:",
+            "description": "'Deep Work' by Cal Newport (appeals to your need for focus), 'Thinking, Fast and Slow' by Daniel Kahneman (explains the bugs in human reasoning), and 'Atomic Habits' by James Clear (provides a system for the Si weakness). **Daily Habit:** The 'Brain Dump.' Every morning, write three pages of stream-of-consciousness thought. This clears the cache of your Ti (Introverted Thinking) so you don't carry yesterday's unfinished loops into today's processing."
+          }
         }
       ]
     }

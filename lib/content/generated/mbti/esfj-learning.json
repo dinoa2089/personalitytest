@@ -20,7 +20,10 @@
       "subsections": [
         {
           "heading": "Core Cognitive Drivers in Learning",
-          "content": "**Extraverted Feeling (Fe):** You learn through discussion and interaction. You need external validation and feedback to know you are on the right track.\n**Introverted Sensing (Si):** You rely on repetition, memorization, and comparing new data to past experiences. You prefer established methods over experimental ones."
+          "content": {
+            "title": "Extraverted Feeling (Fe):",
+            "description": "You learn through discussion and interaction. You need external validation and feedback to know you are on the right track.\n**Introverted Sensing (Si):** You rely on repetition, memorization, and comparing new data to past experiences. You prefer established methods over experimental ones."
+          }
         },
         {
           "heading": "The Ideal Learning Loop",
@@ -34,7 +37,10 @@
       "subsections": [
         {
           "heading": "Sensory Details for Success",
-          "content": "**Visual:** Use bright, natural light and keep your workspace free of visual clutter. Invest in organizational tools like trays and binders.\n**Auditory:** Low-fidelity beats or instrumental music often work better than silence or lyrical music. The hum of a coffee shop can also be grounding."
+          "content": {
+            "title": "Visual:",
+            "description": "Use bright, natural light and keep your workspace free of visual clutter. Invest in organizational tools like trays and binders.\n**Auditory:** Low-fidelity beats or instrumental music often work better than silence or lyrical music. The hum of a coffee shop can also be grounding."
+          }
         },
         {
           "heading": "Social Setup",
@@ -48,7 +54,10 @@
       "subsections": [
         {
           "heading": "The \"Consul\" Study Toolkit",
-          "content": "**Color-Coded Mind Maps:** Use colors to represent different themes. This appeals to your visual sense and helps you see how detailed facts connect to the whole.\n**Spaced Repetition Apps:** Apps like Anki or Quizlet are perfect for your Si function, which thrives on reviewing details until they are second nature.\n**The Syllabus Audit:** At the start of a course, re-type the syllabus into a checklist. Breaking the semester down into tick-box tasks reduces anxiety."
+          "content": {
+            "title": "Color-Coded Mind Maps:",
+            "description": "Use colors to represent different themes. This appeals to your visual sense and helps you see how detailed facts connect to the whole.\n**Spaced Repetition Apps:** Apps like Anki or Quizlet are perfect for your Si function, which thrives on reviewing details until they are second nature.\n**The Syllabus Audit:** At the start of a course, re-type the syllabus into a checklist. Breaking the semester down into tick-box tasks reduces anxiety."
+          }
         },
         {
           "heading": "Sample Study Routine",
@@ -90,7 +99,10 @@
       "subsections": [
         {
           "heading": "Recommended Formats",
-          "content": "**Interactive Workshops:** Live webinars or in-person workshops are better than pre-recorded videos because of the human element.\n**Cohort-Based Courses:** Programs where you start and finish with the same group of people provide the social glue you need.\n**Step-by-Step Guides:** Look for books or blogs titled \"The Ultimate Guide to X\" or \"10 Steps to Y\" rather than theoretical explorations."
+          "content": {
+            "title": "Interactive Workshops:",
+            "description": "Live webinars or in-person workshops are better than pre-recorded videos because of the human element.\n**Cohort-Based Courses:** Programs where you start and finish with the same group of people provide the social glue you need.\n**Step-by-Step Guides:** Look for books or blogs titled \"The Ultimate Guide to X\" or \"10 Steps to Y\" rather than theoretical explorations."
+          }
         },
         {
           "heading": "Quick Study Tips for the Independent ESFJ",
@@ -114,13 +126,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Social Learners:** ESFJs retain information best when they can discuss it, teach it to others, or learn in a group setting.",
-    "**Craving Structure:** Clear expectations, detailed syllabi, and step-by-step instructions are essential for reducing ESFJ anxiety.",
-    "**Practical Application:** Abstract theory is difficult for this type unless it is connected to real-world examples or concrete utility.",
-    "**Environment Matters:** A clean, organized, and aesthetically pleasing workspace significantly improves focus and mental clarity.",
-    "**Validation is Fuel:** ESFJs work harder when they feel appreciated by their instructor; they should reframe criticism as objective data to avoid discouragement.",
-    "**Visual & Verbal:** Rewriting notes using color-coding and verbally processing information are top-tier strategies for the Consul.",
-    "**Accountability is Key:** In self-directed learning, ESFJs should create external deadlines or commitments to others to maintain motivation."
+    {
+      "title": "Social Learners:",
+      "description": "ESFJs retain information best when they can discuss it, teach it to others, or learn in a group setting."
+    },
+    {
+      "title": "Craving Structure:",
+      "description": "Clear expectations, detailed syllabi, and step-by-step instructions are essential for reducing ESFJ anxiety."
+    },
+    {
+      "title": "Practical Application:",
+      "description": "Abstract theory is difficult for this type unless it is connected to real-world examples or concrete utility."
+    },
+    {
+      "title": "Environment Matters:",
+      "description": "A clean, organized, and aesthetically pleasing workspace significantly improves focus and mental clarity."
+    },
+    {
+      "title": "Validation is Fuel:",
+      "description": "ESFJs work harder when they feel appreciated by their instructor; they should reframe criticism as objective data to avoid discouragement."
+    },
+    {
+      "title": "Visual & Verbal:",
+      "description": "Rewriting notes using color-coding and verbally processing information are top-tier strategies for the Consul."
+    },
+    {
+      "title": "Accountability is Key:",
+      "description": "In self-directed learning, ESFJs should create external deadlines or commitments to others to maintain motivation."
+    }
   ],
   "relatedTopics": [
     "careers",

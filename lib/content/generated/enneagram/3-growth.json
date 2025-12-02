@@ -33,7 +33,10 @@
     },
     {
       "heading": "3. Practical Growth Exercises: A 30-Day Authenticity Journey",
-      "content": "Let's treat your growth like a project, but with a twist: the goal is not to succeed, but to unravel. Picture yourself standing at the edge of a cliff, preparing to jump into the unknown waters of vulnerability. These exercises are designed to push you off that ledge. They will feel uncomfortable. Your skin might crawl. You will have the urge to skip the ones that feel \"inefficient.\" That resistance is exactly where the gold lies. This isn't a checklist to conquer; it's a practice to embody.\n\n**Week 1: The Fast from Validation**\nFor the first seven days, you are going to go on a \"praise diet.\" We live in an economy of likes, nods, and \"good jobs,\" and you are a heavy consumer. \n*   **The Exercise:** Do not post anything on social media. When you do something well at work, do not mention it to anyone unless asked. If you clean the house, don't point it out to your partner. \n*   **The Journaling:** At the end of each day, write down how it felt to have your efforts go unnoticed. Did you feel invisible? Resentful? Empty? Sit with that feeling. Realize that the deed still happened, and you are still valuable, even without the witness.",
+      "content": {
+        "title": "Let's treat your growth like a project, but with a twist",
+        "description": "the goal is not to succeed, but to unravel. Picture yourself standing at the edge of a cliff, preparing to jump into the unknown waters of vulnerability. These exercises are designed to push you off that ledge. They will feel uncomfortable. Your skin might crawl. You will have the urge to skip the ones that feel \"inefficient.\" That resistance is exactly where the gold lies. This isn't a checklist to conquer; it's a practice to embody.\n\n**Week 1: The Fast from Validation**\nFor the first seven days, you are going to go on a \"praise diet.\" We live in an economy of likes, nods, and \"good jobs,\" and you are a heavy consumer. \n*   **The Exercise:** Do not post anything on social media. When you do something well at work, do not mention it to anyone unless asked. If you clean the house, don't point it out to your partner. \n*   **The Journaling:** At the end of each day, write down how it felt to have your efforts go unnoticed. Did you feel invisible? Resentful? Empty? Sit with that feeling. Realize that the deed still happened, and you are still valuable, even without the witness."
+      },
       "subsections": [
         {
           "heading": "Week 2: The 'Failure Resume'",
@@ -86,12 +89,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Shift the Core Belief:** Move from 'I am what I achieve' to 'I am worthy simply because I exist.'",
-    "**Embrace the 'Failure Resume':** actively process and share your failures to neutralize the shame attached to them.",
-    "**Practice Veracity:** value emotional honesty over image management; stop 'spinning' the truth to look better.",
-    "**Integrate Type 6 Traits:** move from competitive individualism to cooperative vulnerability and community loyalty.",
-    "**Redefine Rest:** view rest not as a battery recharge for more work, but as a valid and necessary state of being.",
-    "**Identify the Chameleon:** catch yourself in the act of shape-shifting and consciously choose to show your true self, even if it feels less impressive."
+    {
+      "title": "Shift the Core Belief:",
+      "description": "Move from 'I am what I achieve' to 'I am worthy simply because I exist.'"
+    },
+    {
+      "title": "Embrace the 'Failure Resume':",
+      "description": "actively process and share your failures to neutralize the shame attached to them."
+    },
+    {
+      "title": "Practice Veracity:",
+      "description": "value emotional honesty over image management; stop 'spinning' the truth to look better."
+    },
+    {
+      "title": "Integrate Type 6 Traits:",
+      "description": "move from competitive individualism to cooperative vulnerability and community loyalty."
+    },
+    {
+      "title": "Redefine Rest:",
+      "description": "view rest not as a battery recharge for more work, but as a valid and necessary state of being."
+    },
+    {
+      "title": "Identify the Chameleon:",
+      "description": "catch yourself in the act of shape-shifting and consciously choose to show your true self, even if it feels less impressive."
+    }
   ],
   "relatedTopics": [
     "learning",

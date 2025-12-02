@@ -3,7 +3,10 @@
   "type": "explorer",
   "framework": "prism",
   "topic": "stress",
-  "title": "Taming the Restless Mind: A Comprehensive Guide to Stress Management for The Explorer",
+  "title": {
+    "title": "Taming the Restless Mind",
+    "description": "A Comprehensive Guide to Stress Management for The Explorer"
+  },
   "metaDescription": "Feeling trapped or scattered? Discover expert stress management strategies tailored for The Explorer personality type. Learn how to navigate burnout, anxiety, and routine without losing your adventurous spark.",
   "keywords": [
     "The Explorer stress management",

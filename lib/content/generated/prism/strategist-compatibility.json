@@ -34,11 +34,17 @@
       "subsections": [
         {
           "heading": "Top Match: The Executive (High C, High E)",
-          "content": "**The Dynamic:** Two captains on the same ship. \n**Why it works:** You both speak the language of efficiency. You will never fight about who forgot to pay the electric bill. The relationship runs like a well-oiled machine.\n**The Spark:** You find their ambition incredibly sexy, and they admire your unflappable composure."
+          "content": {
+            "title": "The Dynamic:",
+            "description": "Two captains on the same ship. \n**Why it works:** You both speak the language of efficiency. You will never fight about who forgot to pay the electric bill. The relationship runs like a well-oiled machine.\n**The Spark:** You find their ambition incredibly sexy, and they admire your unflappable composure."
+          }
         },
         {
           "heading": "Top Match: The Anchor (High C, Low N)",
-          "content": "**The Dynamic:** Unshakeable stability.\n**Why it works:** This partner shares your exact temperament. It is a relationship of low conflict and high comfort. You both value routine, quiet evenings, and financial prudence.\n**The Spark:** The deep relaxation of being with someone who requires zero \"management.\""
+          "content": {
+            "title": "The Dynamic:",
+            "description": "Unshakeable stability.\n**Why it works:** This partner shares your exact temperament. It is a relationship of low conflict and high comfort. You both value routine, quiet evenings, and financial prudence.\n**The Spark:** The deep relaxation of being with someone who requires zero \"management.\""
+          }
         }
       ]
     },
@@ -124,7 +130,10 @@
     },
     {
       "question": "How do I show love if I'm not naturally romantic?",
-      "answer": "Lean into your strengths: Acts of Service. You show love by changing the oil in their car, organizing the pantry, or handling a stressful phone call for them. Frame these acts explicitly: 'I did this so you wouldn't have to worry.' This helps partners recognize your planning as affection."
+      "answer": {
+        "title": "Lean into your strengths",
+        "description": "Acts of Service. You show love by changing the oil in their car, organizing the pantry, or handling a stressful phone call for them. Frame these acts explicitly: 'I did this so you wouldn't have to worry.' This helps partners recognize your planning as affection."
+      }
     },
     {
       "question": "What is the biggest deal-breaker for a Strategist?",
@@ -132,12 +141,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Seek Competence:** You are most attracted to partners who lower your cognitive load by handling their own life effectively.",
-    "**Trust = Predictability:** For you, trust is built through consistent actions and follow-through, not grand gestures.",
-    "**Best Matches:** You thrive with 'Visionaries' (who add ideas to your structure) or 'Anchors' (who share your stability).",
-    "**The Trap:** Avoid becoming the 'parent' in relationships with disorganized partners; it kills romantic attraction.",
-    "**Communication:** You must vocalize your internal planning process so partners don't mistake your quiet focus for coldness.",
-    "**Growth:** Practice 'scheduled spontaneity' to accommodate more flexible partners without triggering your own anxiety."
+    {
+      "title": "Seek Competence:",
+      "description": "You are most attracted to partners who lower your cognitive load by handling their own life effectively."
+    },
+    {
+      "title": "Trust = Predictability:",
+      "description": "For you, trust is built through consistent actions and follow-through, not grand gestures."
+    },
+    {
+      "title": "Best Matches:",
+      "description": "You thrive with 'Visionaries' (who add ideas to your structure) or 'Anchors' (who share your stability)."
+    },
+    {
+      "title": "The Trap:",
+      "description": "Avoid becoming the 'parent' in relationships with disorganized partners; it kills romantic attraction."
+    },
+    {
+      "title": "Communication:",
+      "description": "You must vocalize your internal planning process so partners don't mistake your quiet focus for coldness."
+    },
+    {
+      "title": "Growth:",
+      "description": "Practice 'scheduled spontaneity' to accommodate more flexible partners without triggering your own anxiety."
+    }
   ],
   "relatedTopics": [
     "learning",

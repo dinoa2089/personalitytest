@@ -3,7 +3,10 @@
   "type": "entp",
   "framework": "mbti",
   "topic": "growth",
-  "title": "Unlocking Potential: The Ultimate ENTP - The Debater Personal Growth Guide",
+  "title": {
+    "title": "Unlocking Potential",
+    "description": "The Ultimate ENTP - The Debater Personal Growth Guide"
+  },
   "metaDescription": "Master your mind, ENTP. Discover actionable strategies for focus, emotional intelligence, and follow-through in this deep dive into ENTP - The Debater personal growth.",
   "keywords": [
     "ENTP - The Debater personal growth",
@@ -14,7 +17,10 @@
     "ENTP emotional intelligence",
     "ENTP productivity tips"
   ],
-  "introduction": "You know the feeling intimately: that sudden, electric surge of dopamine when a new concept locks into place. It’s 2:00 AM, and your browser has thirty tabs open—ranging from obscure 17th-century economic theories to tutorials on hydroponic gardening—and for the first time, you see the invisible thread connecting them all. For the ENTP, the world is not a collection of objects, but a chaotic, beautiful web of possibilities waiting to be unraveled and rewoven. You are the ultimate catalyst, the person who walks into a stagnant meeting and throws a metaphorical hand grenade of innovation just to see where the pieces land. This mental agility is your superpower, allowing you to outmaneuver problems that leave other types paralyzed. However, this same cognitive velocity often leaves you standing in the wreckage of unfinished projects, with a trail of exhausted colleagues and half-written novels behind you.\n\nBut here lies the central paradox of your existence: you can envision the future with crystal clarity, yet you often struggle to locate your car keys in the present. You possess the brilliance to start a dozen revolutions, but perhaps lack the patience to govern the aftermath of a single one. This guide is not about dampening your spark or forcing you into a box of conventionality. That would be a tragedy. Instead, this is a blueprint for harnessing that raw, nuclear energy of your intuition. It is about moving from being a 'scattered genius' to a 'visionary architect.' We are going to explore how to hack your own psychology, leveraging your love for systems and logic to build the discipline necessary to actually manifest your wildest ideas.\n\nIn this comprehensive guide to ENTP - The Debater personal growth, we will move beyond the stereotypes of the 'argumentative troll' or the 'absent-minded professor.' We will dig into the mechanics of your cognitive stack—specifically how to nurture your neglected Introverted Sensing (Si) and Extraverted Feeling (Fe)—to round out your jagged edges. Whether you are looking to deepen your relationships, finally launch that business, or simply find a moment of mental quiet, this journey is about integrating your shadow self so that your brilliance becomes sustainable, impactful, and truly unstoppable.",
+  "introduction": {
+    "title": "You know the feeling intimately",
+    "description": "that sudden, electric surge of dopamine when a new concept locks into place. It’s 2:00 AM, and your browser has thirty tabs open—ranging from obscure 17th-century economic theories to tutorials on hydroponic gardening—and for the first time, you see the invisible thread connecting them all. For the ENTP, the world is not a collection of objects, but a chaotic, beautiful web of possibilities waiting to be unraveled and rewoven. You are the ultimate catalyst, the person who walks into a stagnant meeting and throws a metaphorical hand grenade of innovation just to see where the pieces land. This mental agility is your superpower, allowing you to outmaneuver problems that leave other types paralyzed. However, this same cognitive velocity often leaves you standing in the wreckage of unfinished projects, with a trail of exhausted colleagues and half-written novels behind you.\n\nBut here lies the central paradox of your existence: you can envision the future with crystal clarity, yet you often struggle to locate your car keys in the present. You possess the brilliance to start a dozen revolutions, but perhaps lack the patience to govern the aftermath of a single one. This guide is not about dampening your spark or forcing you into a box of conventionality. That would be a tragedy. Instead, this is a blueprint for harnessing that raw, nuclear energy of your intuition. It is about moving from being a 'scattered genius' to a 'visionary architect.' We are going to explore how to hack your own psychology, leveraging your love for systems and logic to build the discipline necessary to actually manifest your wildest ideas.\n\nIn this comprehensive guide to ENTP - The Debater personal growth, we will move beyond the stereotypes of the 'argumentative troll' or the 'absent-minded professor.' We will dig into the mechanics of your cognitive stack—specifically how to nurture your neglected Introverted Sensing (Si) and Extraverted Feeling (Fe)—to round out your jagged edges. Whether you are looking to deepen your relationships, finally launch that business, or simply find a moment of mental quiet, this journey is about integrating your shadow self so that your brilliance becomes sustainable, impactful, and truly unstoppable."
+  },
   "sections": [
     {
       "heading": "1. Growth Mindset: From Idea Generator to Idea Executor",
@@ -126,13 +132,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Shift from Generation to Incubation:** Your growth lies in finishing projects, not just starting them. Learn to love the 'middle' of the process.",
-    "**Develop Tactical Empathy:** Understand that logic doesn't heal feelings. Validate others' emotions before offering solutions.",
-    "**Master the Mundane:** Automate or delegate your logistics (Si) so they don't sabotage your big ideas. Routine is a launchpad, not a cage.",
-    "**The 40% Rule:** When you want to quit because you've 'figured it out,' push through. That is the moment real mastery begins.",
-    "**Integrate the Shadow:** Face your fear of being ordinary or boring. Sit with silence and stillness to strengthen your mind.",
-    "**Prioritize Ruthlessly:** Use the 'Kill Your Darlings' method. You can do anything, but you cannot do everything.",
-    "**Value Tradition:** Don't disrupt for the sake of disruption. Learn why the fence was built before you tear it down."
+    {
+      "title": "Shift from Generation to Incubation:",
+      "description": "Your growth lies in finishing projects, not just starting them. Learn to love the 'middle' of the process."
+    },
+    {
+      "title": "Develop Tactical Empathy:",
+      "description": "Understand that logic doesn't heal feelings. Validate others' emotions before offering solutions."
+    },
+    {
+      "title": "Master the Mundane:",
+      "description": "Automate or delegate your logistics (Si) so they don't sabotage your big ideas. Routine is a launchpad, not a cage."
+    },
+    {
+      "title": "The 40% Rule:",
+      "description": "When you want to quit because you've 'figured it out,' push through. That is the moment real mastery begins."
+    },
+    {
+      "title": "Integrate the Shadow:",
+      "description": "Face your fear of being ordinary or boring. Sit with silence and stillness to strengthen your mind."
+    },
+    {
+      "title": "Prioritize Ruthlessly:",
+      "description": "Use the 'Kill Your Darlings' method. You can do anything, but you cannot do everything."
+    },
+    {
+      "title": "Value Tradition:",
+      "description": "Don't disrupt for the sake of disruption. Learn why the fence was built before you tear it down."
+    }
   ],
   "relatedTopics": [
     "learning",

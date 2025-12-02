@@ -158,7 +158,10 @@
     },
     {
       "question": "What are the physical warning signs of Guardian burnout?",
-      "answer": "Look for 'bracing' patterns: jaw clenching, grinding teeth at night, tight shoulders, and tension headaches. You may also experience 'decision fatigue,' where even choosing what to eat for dinner feels impossible because your executive function is depleted."
+      "answer": {
+        "title": "Look for 'bracing' patterns",
+        "description": "jaw clenching, grinding teeth at night, tight shoulders, and tension headaches. You may also experience 'decision fatigue,' where even choosing what to eat for dinner feels impossible because your executive function is depleted."
+      }
     }
   ],
   "keyTakeaways": [

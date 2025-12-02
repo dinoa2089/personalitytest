@@ -3,7 +3,10 @@
   "type": "isfp",
   "framework": "mbti",
   "topic": "growth",
-  "title": "Mastering the Art of Life: A Personal Growth Guide for the ISFP - The Adventurer",
+  "title": {
+    "title": "Mastering the Art of Life",
+    "description": "A Personal Growth Guide for the ISFP - The Adventurer"
+  },
   "metaDescription": "Unlock your potential with our comprehensive guide on ISFP - The Adventurer personal growth. Learn to balance authenticity with action, master self-advocacy, and turn your artistic vision into reality.",
   "keywords": [
     "ISFP - The Adventurer personal growth",
@@ -33,7 +36,10 @@
     },
     {
       "heading": "2. Key Development Areas: Sharpening Your Tools",
-      "content": "Let's look at a specific scenario: You are in a team meeting. You have a strong feeling that the proposed direction is wrong—it feels ethically murky and aesthetically clunky. But as you open your mouth to speak, the aggressive 'Thinker' types in the room demand data, logic, and bullet points. You feel your throat tighten. You know you're right, but you can't translate your gut feeling into their language, so you withdraw, letting the bad idea pass. This is the core struggle of the ISFP development path: the gap between intuition/feeling and external articulation. Bridging this gap is the most critical development area for your type. It involves developing your Inferior function, Extraverted Thinking (Te), not to dominate others, but to defend your values effectively.\n\nAnother major development area lies in the realm of long-term forecasting. You are a master of the present moment. You can spot a slightly crooked picture frame from across the room or taste the subtle notes in a complex dish. But if asked where you see yourself in five years, you might draw a blank or feel a sudden wave of claustrophobia. This reliance on the 'here and now' (Se) can leave you unprepared for future shifts. Developing your Tertiary Introverted Intuition (Ni) allows you to spot patterns and consequences before they arrive at your doorstep. It’s about learning to pause your immediate reaction to ask, 'If I do this today, what does it mean for next year?'\n\nFinally, we must address the sensitivity to criticism. Because your work and actions are direct reflections of your soul, negative feedback feels like a rejection of your personhood. You might find yourself ghosting friends or quitting jobs abruptly when the emotional temperature gets too hot. Developing emotional resilience doesn't mean becoming numb; it means learning to separate your 'self' from your 'output.' It is understanding that a critique of your spreadsheet or your painting is not a critique of your value as a human being. Mastering this allows you to stay in the game and improve, rather than taking your ball and going home.",
+      "content": {
+        "title": "Let's look at a specific scenario",
+        "description": "You are in a team meeting. You have a strong feeling that the proposed direction is wrong—it feels ethically murky and aesthetically clunky. But as you open your mouth to speak, the aggressive 'Thinker' types in the room demand data, logic, and bullet points. You feel your throat tighten. You know you're right, but you can't translate your gut feeling into their language, so you withdraw, letting the bad idea pass. This is the core struggle of the ISFP development path: the gap between intuition/feeling and external articulation. Bridging this gap is the most critical development area for your type. It involves developing your Inferior function, Extraverted Thinking (Te), not to dominate others, but to defend your values effectively.\n\nAnother major development area lies in the realm of long-term forecasting. You are a master of the present moment. You can spot a slightly crooked picture frame from across the room or taste the subtle notes in a complex dish. But if asked where you see yourself in five years, you might draw a blank or feel a sudden wave of claustrophobia. This reliance on the 'here and now' (Se) can leave you unprepared for future shifts. Developing your Tertiary Introverted Intuition (Ni) allows you to spot patterns and consequences before they arrive at your doorstep. It’s about learning to pause your immediate reaction to ask, 'If I do this today, what does it mean for next year?'\n\nFinally, we must address the sensitivity to criticism. Because your work and actions are direct reflections of your soul, negative feedback feels like a rejection of your personhood. You might find yourself ghosting friends or quitting jobs abruptly when the emotional temperature gets too hot. Developing emotional resilience doesn't mean becoming numb; it means learning to separate your 'self' from your 'output.' It is understanding that a critique of your spreadsheet or your painting is not a critique of your value as a human being. Mastering this allows you to stay in the game and improve, rather than taking your ball and going home."
+      },
       "subsections": [
         {
           "heading": "Verbalizing the Non-Verbal",
@@ -117,13 +123,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Reframe Discipline:** View structure not as a cage, but as the trellis that allows your creativity to grow upward and bear fruit.",
-    "**Verbalize Values:** Practice translating your gut feelings into logical explanations to bridge the gap between your inner world and external reality.",
-    "**Engage the Future:** Dedicate small pockets of time to 'future-casting' to prevent the 'drift' of living solely in the moment.",
-    "**Separate Self from Work:** Learn to view criticism as data for improvement rather than an attack on your identity.",
-    "**Master the 'No':** Protect your energy by declining requests that don't align with your values, realizing that boundaries increase your capacity for love.",
-    "**Finish the Loop:** Combat the tendency to start and abandon projects by practicing the art of completion on small tasks.",
-    "**Advocate for Yourself:** Understand that sharing your achievements is necessary for survival in the modern world and allows you to make a bigger impact."
+    {
+      "title": "Reframe Discipline:",
+      "description": "View structure not as a cage, but as the trellis that allows your creativity to grow upward and bear fruit."
+    },
+    {
+      "title": "Verbalize Values:",
+      "description": "Practice translating your gut feelings into logical explanations to bridge the gap between your inner world and external reality."
+    },
+    {
+      "title": "Engage the Future:",
+      "description": "Dedicate small pockets of time to 'future-casting' to prevent the 'drift' of living solely in the moment."
+    },
+    {
+      "title": "Separate Self from Work:",
+      "description": "Learn to view criticism as data for improvement rather than an attack on your identity."
+    },
+    {
+      "title": "Master the 'No':",
+      "description": "Protect your energy by declining requests that don't align with your values, realizing that boundaries increase your capacity for love."
+    },
+    {
+      "title": "Finish the Loop:",
+      "description": "Combat the tendency to start and abandon projects by practicing the art of completion on small tasks."
+    },
+    {
+      "title": "Advocate for Yourself:",
+      "description": "Understand that sharing your achievements is necessary for survival in the modern world and allows you to make a bigger impact."
+    }
   ],
   "relatedTopics": [
     "learning",

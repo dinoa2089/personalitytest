@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "The Primary Stressors",
-          "content": "**Ethical Conflicts:** Situations demanding you compromise your integrity or witness unfairness.\n**Interpersonal Conflict:** Aggression, shouting, or unresolved tension between others.\n**Social Overstimulation:** prolonged exposure to large groups without breaks for solitude.\n**Inauthenticity:** Environments rife with office politics, manipulation, or superficiality.\n**Unspoken Expectations:** Feeling responsible for others' feelings or outcomes without clear boundaries."
+          "content": {
+            "title": "Ethical Conflicts:",
+            "description": "Situations demanding you compromise your integrity or witness unfairness.\n**Interpersonal Conflict:** Aggression, shouting, or unresolved tension between others.\n**Social Overstimulation:** prolonged exposure to large groups without breaks for solitude.\n**Inauthenticity:** Environments rife with office politics, manipulation, or superficiality.\n**Unspoken Expectations:** Feeling responsible for others' feelings or outcomes without clear boundaries."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Recognizing the Signals",
-          "content": "**The \"Fawn\" Response:** Agreeing to unreasonable requests just to escape the interaction.\n**Physical Somatization:** Unexplained headaches, stomach issues, or jaw clenching.\n**Emotional Numbness:** Feeling unable to empathize because you are \"tapped out.\"\n**Social Withdrawal:** unexpected cancellation of plans with even your closest friends.\n**Rumination Loops:** Replaying interactions to check for mistakes or perceived offenses."
+          "content": {
+            "title": "The \"Fawn\" Response:",
+            "description": "Agreeing to unreasonable requests just to escape the interaction.\n**Physical Somatization:** Unexplained headaches, stomach issues, or jaw clenching.\n**Emotional Numbness:** Feeling unable to empathize because you are \"tapped out.\"\n**Social Withdrawal:** unexpected cancellation of plans with even your closest friends.\n**Rumination Loops:** Replaying interactions to check for mistakes or perceived offenses."
+          }
         }
       ]
     },
@@ -42,7 +48,10 @@
       "subsections": [
         {
           "heading": "Traps to Avoid",
-          "content": "**The Martyr Complex:** Over-giving in hopes of receiving care in return.\n**Bottling Emotions:** Refusing to express needs until they fester into resentment.\n**Avoidance Coping:** Procrastinating on conflicts rather than addressing them.\n**Dissociation:** Using sleep or media to escape reality rather than rest."
+          "content": {
+            "title": "The Martyr Complex:",
+            "description": "Over-giving in hopes of receiving care in return.\n**Bottling Emotions:** Refusing to express needs until they fester into resentment.\n**Avoidance Coping:** Procrastinating on conflicts rather than addressing them.\n**Dissociation:** Using sleep or media to escape reality rather than rest."
+          }
         }
       ]
     },
@@ -52,7 +61,10 @@
       "subsections": [
         {
           "heading": "Actionable Techniques",
-          "content": "**The integrity Pause:** Before saying yes, pause for 5 seconds to check if you actually have capacity.\n**Sensory Gating:** Using noise-canceling headphones or low lighting to reduce input.\n**Value-Based Journaling:** Writing down which specific values are being challenged.\n**The \"Not Mine\" Mantra:** Consciously repeating \"This emotion belongs to them, not me\" when dealing with vented feelings."
+          "content": {
+            "title": "The integrity Pause:",
+            "description": "Before saying yes, pause for 5 seconds to check if you actually have capacity.\n**Sensory Gating:** Using noise-canceling headphones or low lighting to reduce input.\n**Value-Based Journaling:** Writing down which specific values are being challenged.\n**The \"Not Mine\" Mantra:** Consciously repeating \"This emotion belongs to them, not me\" when dealing with vented feelings."
+          }
         }
       ]
     },
@@ -62,7 +74,10 @@
       "subsections": [
         {
           "heading": "Elements of a Recovery Routine",
-          "content": "**Low-Sensory Mornings:** avoiding news and digital noise for the first 2 hours of the day.\n**Nature Immersion:** Time spent in green spaces to reset perspective.\n**Solo Creativity:** engaging in hobbies that have no deadline or audience.\n**Safe Socializing:** limiting interaction to 1-2 people who do not drain your battery."
+          "content": {
+            "title": "Low-Sensory Mornings:",
+            "description": "avoiding news and digital noise for the first 2 hours of the day.\n**Nature Immersion:** Time spent in green spaces to reset perspective.\n**Solo Creativity:** engaging in hobbies that have no deadline or audience.\n**Safe Socializing:** limiting interaction to 1-2 people who do not drain your battery."
+          }
         }
       ]
     },
@@ -72,7 +87,10 @@
       "subsections": [
         {
           "heading": "Strengthening the Core",
-          "content": "**Re-framing Assertiveness:** Viewing self-advocacy as a tool for justice and balance.\n**Identity Diversification:** Investing in solo hobbies to detach self-worth from helping others.\n**Defining Deal-Breakers:** establishing clear ethical lines to reduce decision fatigue.\n**Selective Vulnerability:** Learning that not everyone deserves access to your inner emotional world."
+          "content": {
+            "title": "Re-framing Assertiveness:",
+            "description": "Viewing self-advocacy as a tool for justice and balance.\n**Identity Diversification:** Investing in solo hobbies to detach self-worth from helping others.\n**Defining Deal-Breakers:** establishing clear ethical lines to reduce decision fatigue.\n**Selective Vulnerability:** Learning that not everyone deserves access to your inner emotional world."
+          }
         }
       ]
     },
@@ -82,7 +100,10 @@
       "subsections": [
         {
           "heading": "How to Help",
-          "content": "**Reduce Demands:** Remove decisions and chores from their plate temporarily.\n**Offer Presence, Not Solutions:** Sit with them without trying to \"fix\" the mood immediately.\n**Validate Feelings:** Acknowledge the fairness/ethics of their frustration.\n**Respect the Silence:** Understand that their withdrawal is a recovery tactic, not a punishment."
+          "content": {
+            "title": "Reduce Demands:",
+            "description": "Remove decisions and chores from their plate temporarily.\n**Offer Presence, Not Solutions:** Sit with them without trying to \"fix\" the mood immediately.\n**Validate Feelings:** Acknowledge the fairness/ethics of their frustration.\n**Respect the Silence:** Understand that their withdrawal is a recovery tactic, not a punishment."
+          }
         }
       ]
     }

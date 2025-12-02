@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Core Professional Assets",
-          "content": "**Meticulous Attention to Detail:** You catch errors that everyone else misses. Your work is rarely sloppy, and you have a high standard for accuracy.\n\n**Unwavering Reliability:** You view deadlines as promises. If you commit to a task, you will work late to finish it rather than let the team down.\n\n**Organizational Memory:** You effectively catalog information, remembering client preferences, specific protocols, and historical context that informs better decision-making.\n\n**Harmonious Collaboration:** You naturally seek consensus and are excellent at mediating low-level conflicts, ensuring the team atmosphere remains positive and productive."
+          "content": {
+            "title": "Meticulous Attention to Detail:",
+            "description": "You catch errors that everyone else misses. Your work is rarely sloppy, and you have a high standard for accuracy.\n\n**Unwavering Reliability:** You view deadlines as promises. If you commit to a task, you will work late to finish it rather than let the team down.\n\n**Organizational Memory:** You effectively catalog information, remembering client preferences, specific protocols, and historical context that informs better decision-making.\n\n**Harmonious Collaboration:** You naturally seek consensus and are excellent at mediating low-level conflicts, ensuring the team atmosphere remains positive and productive."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Key Environmental Factors",
-          "content": "**Clear Structure & Hierarchy:** You appreciate knowing who is in charge and what the reporting lines are. You respect authority when it is competent and fair.\n\n**Private & Quiet Workspaces:** Open-plan offices with constant noise can be overstimulating. You prefer a dedicated desk or office where you can organize your tools and focus.\n\n**Values-Driven Culture:** You need to believe in the product or service. You struggle to sell things you don't think people need or to work for companies with questionable ethics.\n\n**Low Conflict:** High-aggression sales floors or highly political corporate ladders are draining. You prefer collaborative, cooperative teams."
+          "content": {
+            "title": "Clear Structure & Hierarchy:",
+            "description": "You appreciate knowing who is in charge and what the reporting lines are. You respect authority when it is competent and fair.\n\n**Private & Quiet Workspaces:** Open-plan offices with constant noise can be overstimulating. You prefer a dedicated desk or office where you can organize your tools and focus.\n\n**Values-Driven Culture:** You need to believe in the product or service. You struggle to sell things you don't think people need or to work for companies with questionable ethics.\n\n**Low Conflict:** High-aggression sales floors or highly political corporate ladders are draining. You prefer collaborative, cooperative teams."
+          }
         }
       ]
     },
@@ -50,11 +56,17 @@
         },
         {
           "heading": "Business, Administration & Finance",
-          "content": "In the corporate world, you are the backbone of operations.\n\n**Human Resources Specialist ($55k - $80k):**\n*Day in the Life:* While others in HR might focus on high-level strategy, you are the one employees trust. When an employee has a payroll issue, they come to you because they know you won't judge them and you won't stop until it's fixed. You manage the benefits enrollment with flawless accuracy, knowing that a mistake could cost a family their coverage. You are the human face of the company policy.\n\n**Office Manager / Executive Assistant ($50k - $85k):** You anticipate your executive's needs before they do. You create the filing systems, manage the calendar, and ensure the office runs like a well-oiled machine.\n\n**Accountant / Bookkeeper ($55k - $85k):** The rules of accounting are clear and established. You find satisfaction in balancing the books and ensuring every penny is accounted for, providing security for the business.\n\n**Technical Writer ($60k - $90k):** You take complex information and organize it into clear, step-by-step manuals. Your ability to anticipate where a user might get confused makes you excellent at this."
+          "content": {
+            "title": "In the corporate world, you are the backbone of operations.",
+            "description": "**Human Resources Specialist ($55k - $80k):**\n*Day in the Life:* While others in HR might focus on high-level strategy, you are the one employees trust. When an employee has a payroll issue, they come to you because they know you won't judge them and you won't stop until it's fixed. You manage the benefits enrollment with flawless accuracy, knowing that a mistake could cost a family their coverage. You are the human face of the company policy.\n\n**Office Manager / Executive Assistant ($50k - $85k):** You anticipate your executive's needs before they do. You create the filing systems, manage the calendar, and ensure the office runs like a well-oiled machine.\n\n**Accountant / Bookkeeper ($55k - $85k):** The rules of accounting are clear and established. You find satisfaction in balancing the books and ensuring every penny is accounted for, providing security for the business.\n\n**Technical Writer ($60k - $90k):** You take complex information and organize it into clear, step-by-step manuals. Your ability to anticipate where a user might get confused makes you excellent at this."
+          }
         },
         {
           "heading": "Creative & Technical Trades",
-          "content": "**Interior Designer ($50k - $80k):** Unlike abstract artists, you design for function and comfort. You want to create spaces where families can live harmoniously.\n\n**Paralegal ($50k - $75k):** This involves intense research, organizing evidence, and preparing documents—all tasks that reward your memory and thoroughness.\n\n**Customer Success Manager ($60k - $90k):** distinct from sales, this role is about supporting existing clients, solving their problems, and maintaining the relationship."
+          "content": {
+            "title": "Interior Designer ($50k - $80k):",
+            "description": "Unlike abstract artists, you design for function and comfort. You want to create spaces where families can live harmoniously.\n\n**Paralegal ($50k - $75k):** This involves intense research, organizing evidence, and preparing documents—all tasks that reward your memory and thoroughness.\n\n**Customer Success Manager ($60k - $90k):** distinct from sales, this role is about supporting existing clients, solving their problems, and maintaining the relationship."
+          }
         }
       ]
     },
@@ -64,7 +76,10 @@
       "subsections": [
         {
           "heading": "Roles That May Cause Burnout",
-          "content": "**Outside Sales / Cold Caller:** The high rejection rate, the need to be pushy, and the lack of guaranteed income are nightmarish for most ISFJs.\n\n**Stock Broker / Day Trader:** The volatility, high risk, and abstract nature of the work—combined with the high-stress, shouting environment—are generally poor fits.\n\n**Journalism (Breaking News):** While you might enjoy the research aspect, the unpredictability of breaking news and the need to aggressively pursue sources can be overwhelming.\n\n**Executive Management (Turnaround Specialist):** Roles that require you to enter a company, slash budgets, and fire staff conflict directly with your desire for harmony and stability.\n\n**Abstract Philosopher / Theoretical Physicist:** You prefer concrete, practical applications over purely theoretical pondering."
+          "content": {
+            "title": "Outside Sales / Cold Caller:",
+            "description": "The high rejection rate, the need to be pushy, and the lack of guaranteed income are nightmarish for most ISFJs.\n\n**Stock Broker / Day Trader:** The volatility, high risk, and abstract nature of the work—combined with the high-stress, shouting environment—are generally poor fits.\n\n**Journalism (Breaking News):** While you might enjoy the research aspect, the unpredictability of breaking news and the need to aggressively pursue sources can be overwhelming.\n\n**Executive Management (Turnaround Specialist):** Roles that require you to enter a company, slash budgets, and fire staff conflict directly with your desire for harmony and stability.\n\n**Abstract Philosopher / Theoretical Physicist:** You prefer concrete, practical applications over purely theoretical pondering."
+          }
         }
       ]
     },
@@ -74,7 +89,10 @@
       "subsections": [
         {
           "heading": "Actionable Tips for Growth",
-          "content": "**The \" brag\" file:** Keep a document where you list every problem you solved and every crisis you averted. Review this before performance reviews so you have concrete facts to present.\n\n**Set Boundaries:** Do not give your personal cell phone number to clients unless absolutely necessary. establish hard stop times for your workday.\n\n**Seek Mentorship:** Find a mentor who is better at office politics than you are. They can help you navigate the unspoken rules of advancement that you might find distasteful or confusing."
+          "content": {
+            "title": "The \" brag\" file:",
+            "description": "Keep a document where you list every problem you solved and every crisis you averted. Review this before performance reviews so you have concrete facts to present.\n\n**Set Boundaries:** Do not give your personal cell phone number to clients unless absolutely necessary. establish hard stop times for your workday.\n\n**Seek Mentorship:** Find a mentor who is better at office politics than you are. They can help you navigate the unspoken rules of advancement that you might find distasteful or confusing."
+          }
         }
       ]
     },
@@ -84,7 +102,10 @@
       "subsections": [
         {
           "heading": "Interview & Negotiation Tactics",
-          "content": "**Focus on \"We\" but Highlight \"I\":** It's okay to talk about team success, but specifically mention *your* role in facilitating it. \"The team met the deadline, largely because I reorganized the filing system which saved us 10 hours a week.\"\n\n**Prepare Concrete Data:** ISFJs love facts. Bring them. \"I managed a budget of $50k with zero overages,\" or \"I maintained a 99% patient satisfaction score.\"\n\n**Practice the Salary Ask:** You will likely undervalue yourself. Research the market rate, and then practice saying the number out loud in front of a mirror until your voice doesn't shake. Remember, you are negotiating for the security of your future (and your family), which appeals to your sense of duty."
+          "content": {
+            "title": "Focus on \"We\" but Highlight \"I\":",
+            "description": "It's okay to talk about team success, but specifically mention *your* role in facilitating it. \"The team met the deadline, largely because I reorganized the filing system which saved us 10 hours a week.\"\n\n**Prepare Concrete Data:** ISFJs love facts. Bring them. \"I managed a budget of $50k with zero overages,\" or \"I maintained a 99% patient satisfaction score.\"\n\n**Practice the Salary Ask:** You will likely undervalue yourself. Research the market rate, and then practice saying the number out loud in front of a mirror until your voice doesn't shake. Remember, you are negotiating for the security of your future (and your family), which appeals to your sense of duty."
+          }
         }
       ]
     },
@@ -94,7 +115,10 @@
       "subsections": [
         {
           "heading": "ISFJ-Friendly Business Ideas",
-          "content": "**Professional Organizing:** helping hoarders or messy businesses create systems.\n**Event Planning (Weddings/Corporate):** High detail, high service, tangible results.\n**Etsy Shop Owner (Crafts):** If you have a craft (knitting, woodworking), your patience allows you to produce high-quality goods consistently.\n**Virtual Assistant Agency:** Managing schedules and details for chaotic visionaries."
+          "content": {
+            "title": "Professional Organizing:",
+            "description": "helping hoarders or messy businesses create systems.\n**Event Planning (Weddings/Corporate):** High detail, high service, tangible results.\n**Etsy Shop Owner (Crafts):** If you have a craft (knitting, woodworking), your patience allows you to produce high-quality goods consistently.\n**Virtual Assistant Agency:** Managing schedules and details for chaotic visionaries."
+          }
         }
       ]
     }
@@ -118,12 +142,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Leverage Memory & Method:** Your greatest assets are your attention to detail and your ability to follow through. Choose careers that value precision over improvisation.",
-    "**Seek Tangible Impact:** You thrive in roles where you can see the direct result of your help, such as healthcare, education, or skilled trades.",
-    "**Beware of Invisible Labor:** You naturally pick up the slack. Ensure you are documenting this work so you can leverage it for promotions and raises.",
-    "**Environment Matters:** Avoid chaotic, high-conflict, or cutthroat environments. Look for stability, clear hierarchies, and collaborative cultures.",
-    "**Growth Through Boundaries:** Your career development depends on your ability to say 'no' to ensure you don't burn out from helping everyone else.",
-    "**Quiet Leadership:** You don't have to be loud to lead. Your reliability and empathy make you a powerful manager who earns deep loyalty from teams."
+    {
+      "title": "Leverage Memory & Method:",
+      "description": "Your greatest assets are your attention to detail and your ability to follow through. Choose careers that value precision over improvisation."
+    },
+    {
+      "title": "Seek Tangible Impact:",
+      "description": "You thrive in roles where you can see the direct result of your help, such as healthcare, education, or skilled trades."
+    },
+    {
+      "title": "Beware of Invisible Labor:",
+      "description": "You naturally pick up the slack. Ensure you are documenting this work so you can leverage it for promotions and raises."
+    },
+    {
+      "title": "Environment Matters:",
+      "description": "Avoid chaotic, high-conflict, or cutthroat environments. Look for stability, clear hierarchies, and collaborative cultures."
+    },
+    {
+      "title": "Growth Through Boundaries:",
+      "description": "Your career development depends on your ability to say 'no' to ensure you don't burn out from helping everyone else."
+    },
+    {
+      "title": "Quiet Leadership:",
+      "description": "You don't have to be loud to lead. Your reliability and empathy make you a powerful manager who earns deep loyalty from teams."
+    }
   ],
   "relatedTopics": [
     "learning",

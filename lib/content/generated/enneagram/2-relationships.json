@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Superpowers in Intimacy",
-          "content": "**The Emotional Radar:** You pick up on micro-expressions and tone shifts instantly. This allows you to address conflict before it blows up and comfort distress before it becomes despair.\n\n**Unconditional Cheerleading:** You are your partner's biggest fan. Your belief in them can actually propel them to achieve things they didn't think possible.\n\n**Creating Sanctuary:** You have a knack for making physical environments feel welcoming. Your home is rarely just a house; it is a nurturing space filled with thoughtful touches designed to make guests and partners feel at ease.\n\n**Generosity of Spirit:** You are quick to forgive and eager to see the best in people. You don't hold onto petty grudges, preferring to move back toward connection and harmony."
+          "content": {
+            "title": "The Emotional Radar:",
+            "description": "You pick up on micro-expressions and tone shifts instantly. This allows you to address conflict before it blows up and comfort distress before it becomes despair.\n\n**Unconditional Cheerleading:** You are your partner's biggest fan. Your belief in them can actually propel them to achieve things they didn't think possible.\n\n**Creating Sanctuary:** You have a knack for making physical environments feel welcoming. Your home is rarely just a house; it is a nurturing space filled with thoughtful touches designed to make guests and partners feel at ease.\n\n**Generosity of Spirit:** You are quick to forgive and eager to see the best in people. You don't hold onto petty grudges, preferring to move back toward connection and harmony."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Love Languages in Action",
-          "content": "**Giving Love (Acts of Service & Gifts):** You likely express love by *doing*. You fix the broken shelf, plan the surprise party, or run errands to save your partner time. You also have a knack for the perfect, thoughtful gift that says, 'I listen to you.'\n\n**Needing Love (Words of Affirmation & Physical Touch):** While you give service, you often crave verbal reassurance. You need to hear 'I appreciate you' and 'I love you' frequently to quell the fear of being unwanted. Physical affection also serves as a tangible reminder that you are connected and safe."
+          "content": {
+            "title": "Giving Love (Acts of Service & Gifts):",
+            "description": "You likely express love by *doing*. You fix the broken shelf, plan the surprise party, or run errands to save your partner time. You also have a knack for the perfect, thoughtful gift that says, 'I listen to you.'\n\n**Needing Love (Words of Affirmation & Physical Touch):** While you give service, you often crave verbal reassurance. You need to hear 'I appreciate you' and 'I love you' frequently to quell the fear of being unwanted. Physical affection also serves as a tangible reminder that you are connected and safe."
+          }
         },
         {
           "heading": "Advice for Partners of a Type 2",
@@ -46,11 +52,17 @@
       "subsections": [
         {
           "heading": "Red Flags to Watch For",
-          "content": "**The Narcissist Trap:** Be wary of partners who love to talk about themselves and bask in your attention but never ask you questions. You are prime prey for narcissists because you feed their ego while asking for nothing in return.\n\n**The 'Project':** If you feel sorry for them on the first date, run. Pity is not a basis for passion. If you are dating someone because you want to help them get on their feet, you are hiring an employer, not finding a partner.\n\n**The Scorekeeper:** Watch out for your own tendency to keep a mental ledger. If you find yourself thinking, 'I drove to see them three times, so they owe me a weekend,' you are slipping into transactional dating."
+          "content": {
+            "title": "The Narcissist Trap:",
+            "description": "Be wary of partners who love to talk about themselves and bask in your attention but never ask you questions. You are prime prey for narcissists because you feed their ego while asking for nothing in return.\n\n**The 'Project':** If you feel sorry for them on the first date, run. Pity is not a basis for passion. If you are dating someone because you want to help them get on their feet, you are hiring an employer, not finding a partner.\n\n**The Scorekeeper:** Watch out for your own tendency to keep a mental ledger. If you find yourself thinking, 'I drove to see them three times, so they owe me a weekend,' you are slipping into transactional dating."
+          }
         },
         {
           "heading": "Date Ideas for Connection",
-          "content": "**Volunteering Together:** A shared activity where you both give back can satisfy your need to help while bonding over shared values.\n\n**Interactive Classes:** Cooking classes or pottery workshops force you to focus on a task rather than just focusing on the other person, taking the pressure off the 'performance' of conversation.\n\n**Nostalgia Trips:** Visiting places from your childhood allows you to share your story and be vulnerable, rather than just listening to theirs."
+          "content": {
+            "title": "Volunteering Together:",
+            "description": "A shared activity where you both give back can satisfy your need to help while bonding over shared values.\n\n**Interactive Classes:** Cooking classes or pottery workshops force you to focus on a task rather than just focusing on the other person, taking the pressure off the 'performance' of conversation.\n\n**Nostalgia Trips:** Visiting places from your childhood allows you to share your story and be vulnerable, rather than just listening to theirs."
+          }
         }
       ]
     },
@@ -70,7 +82,10 @@
       "subsections": [
         {
           "heading": "Balancing the Scales",
-          "content": "**The boundary test:** Try saying 'no' to a small request from a friend. If they get angry, they were using you. If they respect it, they love you.\n\n**Initiation balance:** Stop initiating every text and hangout for two weeks. See who reaches out to you. This can be painful, but it clarifies who is actually invested in the relationship."
+          "content": {
+            "title": "The boundary test:",
+            "description": "Try saying 'no' to a small request from a friend. If they get angry, they were using you. If they respect it, they love you.\n\n**Initiation balance:** Stop initiating every text and hangout for two weeks. See who reaches out to you. This can be painful, but it clarifies who is actually invested in the relationship."
+          }
         }
       ]
     },
@@ -90,7 +105,10 @@
       "subsections": [
         {
           "heading": "Actionable Growth Steps",
-          "content": "**The Direct Ask Exercise:** Once a day, ask for something directly without justification. 'I would like Chinese food for dinner.' Not 'If you want Chinese, I'm okay with that.' Just state the desire.\n\n**The 'No' Challenge:** Practice saying 'Let me check my calendar' before agreeing to any request. This buys you time to see if you actually want to do it or if you are just compulsively helping.\n\n**Identify the 'Strings':** Before doing a favor, ask yourself: 'If I get zero credit for this, and they never say thank you, do I still want to do it?' If the answer is no, don't do it."
+          "content": {
+            "title": "The Direct Ask Exercise:",
+            "description": "Once a day, ask for something directly without justification. 'I would like Chinese food for dinner.' Not 'If you want Chinese, I'm okay with that.' Just state the desire.\n\n**The 'No' Challenge:** Practice saying 'Let me check my calendar' before agreeing to any request. This buys you time to see if you actually want to do it or if you are just compulsively helping.\n\n**Identify the 'Strings':** Before doing a favor, ask yourself: 'If I get zero credit for this, and they never say thank you, do I still want to do it?' If the answer is no, don't do it."
+          }
         }
       ]
     }

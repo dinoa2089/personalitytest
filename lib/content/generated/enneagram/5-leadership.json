@@ -111,12 +111,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Lead with Expertise:** Your authority comes from competence and insight, not charisma. Embrace your role as the 'Visionary Architect.'",
-    "**Beware the Silo:** Your tendency to withdraw creates anxiety in your team. Make a conscious effort to 'broadcast your location' and share updates regularly.",
-    "**The 80% Rule:** Don't wait for 100% certainty. Avoid analysis paralysis by acting when you have enough data to be directionally correct.",
-    "**Operationalize Empathy:** You may not naturally feel the need for social connection, but view it as a necessary system requirement for a healthy team.",
-    "**Integration to 8:** In moments of growth, step into your power. Be decisive, occupy space, and trust your gut instincts alongside your data.",
-    "**Delegate Context, Not Just Tasks:** When delegating, take the time to explain the 'why' and the system, so you don't have to micromanage the result."
+    {
+      "title": "Lead with Expertise:",
+      "description": "Your authority comes from competence and insight, not charisma. Embrace your role as the 'Visionary Architect.'"
+    },
+    {
+      "title": "Beware the Silo:",
+      "description": "Your tendency to withdraw creates anxiety in your team. Make a conscious effort to 'broadcast your location' and share updates regularly."
+    },
+    {
+      "title": "The 80% Rule:",
+      "description": "Don't wait for 100% certainty. Avoid analysis paralysis by acting when you have enough data to be directionally correct."
+    },
+    {
+      "title": "Operationalize Empathy:",
+      "description": "You may not naturally feel the need for social connection, but view it as a necessary system requirement for a healthy team."
+    },
+    {
+      "title": "Integration to 8:",
+      "description": "In moments of growth, step into your power. Be decisive, occupy space, and trust your gut instincts alongside your data."
+    },
+    {
+      "title": "Delegate Context, Not Just Tasks:",
+      "description": "When delegating, take the time to explain the 'why' and the system, so you don't have to micromanage the result."
+    }
   ],
   "relatedTopics": [
     "learning",

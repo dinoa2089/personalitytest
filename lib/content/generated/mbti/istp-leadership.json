@@ -73,7 +73,10 @@
     },
     {
       "heading": "5. Potential Leadership Blind Spots: The Human Element",
-      "content": "Here is the hard truth: the very things that make you a brilliant troubleshooter can make you a difficult leader for some. Your inferior function is **Extraverted Feeling (Fe)**. This means that reading the emotional atmosphere of a room, engaging in social niceties, and managing morale are not just hard for you—they can be exhausting and confusing. You might experience a scenario like this: You give an employee feedback. In your mind, you are being helpful. You say, 'This report is inefficient. The data in column C is redundant. Fix it.' The employee leaves your office holding back tears, feeling attacked and undervalued. You are baffled. You didn't attack *them*; you attacked the *inefficiency*. You fail to separate the work from the person.\n\nFurthermore, your 'need to know' communication style can create anxiety. You keep information in your head because you don't want to bore people with details or you assume they already know. This leaves your team in the dark. They might think the company is going under because you haven't spoken to them in three days, whereas you're just happily coding in your office. You underestimate the human need for reassurance and narrative.\n\nAnother blind spot is long-term strategic planning. You live in the 'now' and the 'immediate future.' If a stakeholder asks for a 5-year roadmap, you likely roll your eyes. 'I don't even know what technology we'll be using in 5 years,' you think. This resistance to long-term vision can stall your career at the mid-management level, as executive roles require abstracting away from the tactical details you love.",
+      "content": {
+        "title": "Here is the hard truth",
+        "description": "the very things that make you a brilliant troubleshooter can make you a difficult leader for some. Your inferior function is **Extraverted Feeling (Fe)**. This means that reading the emotional atmosphere of a room, engaging in social niceties, and managing morale are not just hard for you—they can be exhausting and confusing. You might experience a scenario like this: You give an employee feedback. In your mind, you are being helpful. You say, 'This report is inefficient. The data in column C is redundant. Fix it.' The employee leaves your office holding back tears, feeling attacked and undervalued. You are baffled. You didn't attack *them*; you attacked the *inefficiency*. You fail to separate the work from the person.\n\nFurthermore, your 'need to know' communication style can create anxiety. You keep information in your head because you don't want to bore people with details or you assume they already know. This leaves your team in the dark. They might think the company is going under because you haven't spoken to them in three days, whereas you're just happily coding in your office. You underestimate the human need for reassurance and narrative.\n\nAnother blind spot is long-term strategic planning. You live in the 'now' and the 'immediate future.' If a stakeholder asks for a 5-year roadmap, you likely roll your eyes. 'I don't even know what technology we'll be using in 5 years,' you think. This resistance to long-term vision can stall your career at the mid-management level, as executive roles require abstracting away from the tactical details you love."
+      },
       "subsections": [
         {
           "heading": "The 'Ghost' Leader Syndrome",
@@ -133,13 +136,34 @@
     }
   ],
   "keyTakeaways": [
-    "**The Tactical General:** ISTPs lead best in crises or technical environments where their calm demeanor and problem-solving skills stabilize the team.",
-    "**Lead by Example:** They are 'Player-Coaches' who earn respect through technical mastery and hard work, not hierarchy.",
-    "**Efficiency First:** They detest bureaucracy and meetings, motivating teams by removing obstacles and streamlining workflows.",
-    "**The Communication Gap:** ISTPs must actively work on communicating their internal logic and providing emotional reassurance to the team.",
-    "**Meritocratic Style:** They judge solely on output, creating fair but demanding environments where competence is king.",
-    "**Crisis Ready:** Their ability to remain detached and objective allows them to make difficult decisions that paralyze other types.",
-    "**Autonomy is Key:** They lead by granting freedom, but must learn to verify and support rather than just abandon their team to the task."
+    {
+      "title": "The Tactical General:",
+      "description": "ISTPs lead best in crises or technical environments where their calm demeanor and problem-solving skills stabilize the team."
+    },
+    {
+      "title": "Lead by Example:",
+      "description": "They are 'Player-Coaches' who earn respect through technical mastery and hard work, not hierarchy."
+    },
+    {
+      "title": "Efficiency First:",
+      "description": "They detest bureaucracy and meetings, motivating teams by removing obstacles and streamlining workflows."
+    },
+    {
+      "title": "The Communication Gap:",
+      "description": "ISTPs must actively work on communicating their internal logic and providing emotional reassurance to the team."
+    },
+    {
+      "title": "Meritocratic Style:",
+      "description": "They judge solely on output, creating fair but demanding environments where competence is king."
+    },
+    {
+      "title": "Crisis Ready:",
+      "description": "Their ability to remain detached and objective allows them to make difficult decisions that paralyze other types."
+    },
+    {
+      "title": "Autonomy is Key:",
+      "description": "They lead by granting freedom, but must learn to verify and support rather than just abandon their team to the task."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Key Professional Assets",
-          "content": "**Emotional Radar:** You can sense morale dips, interpersonal conflicts, and hidden agendas long before they surface as concrete problems, allowing for preemptive damage control.\n\n**Persuasive Warmth:** You can deliver difficult news or ask for favors in a way that maintains relationships, making you excellent in client-facing or HR roles.\n\n**Anticipatory Service:** You don't wait to be asked. You identify bottlenecks and stressors for your boss or team and solve them, often working in the background.\n\n**Network Building:** You naturally create a web of allies across the company. When you need to get something done, you always \"know a guy\" in that department who owes you a favor or simply likes you enough to help."
+          "content": {
+            "title": "Emotional Radar:",
+            "description": "You can sense morale dips, interpersonal conflicts, and hidden agendas long before they surface as concrete problems, allowing for preemptive damage control.\n\n**Persuasive Warmth:** You can deliver difficult news or ask for favors in a way that maintains relationships, making you excellent in client-facing or HR roles.\n\n**Anticipatory Service:** You don't wait to be asked. You identify bottlenecks and stressors for your boss or team and solve them, often working in the background.\n\n**Network Building:** You naturally create a web of allies across the company. When you need to get something done, you always \"know a guy\" in that department who owes you a favor or simply likes you enough to help."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Roles Where Twos Thrive",
-          "content": "**Human Resources / People Operations:** You naturally understand what employees need to feel safe, valued, and productive.\n\n**Customer Success / Account Management:** Your desire to please and solve problems makes you a favorite among clients, increasing retention rates.\n\n**Executive Assistant / Chief of Staff:** These roles allow you to be the \"right hand,\" anticipating the needs of a leader and becoming indispensable to their success.\n\n**Non-Profit Program Director:** Connecting your work to a humanitarian mission provides the deep sense of purpose that fuels your energy.\n\n**Healthcare and Counseling:** Direct care roles leverage your high empathy and patience."
+          "content": {
+            "title": "Human Resources / People Operations:",
+            "description": "You naturally understand what employees need to feel safe, valued, and productive.\n\n**Customer Success / Account Management:** Your desire to please and solve problems makes you a favorite among clients, increasing retention rates.\n\n**Executive Assistant / Chief of Staff:** These roles allow you to be the \"right hand,\" anticipating the needs of a leader and becoming indispensable to their success.\n\n**Non-Profit Program Director:** Connecting your work to a humanitarian mission provides the deep sense of purpose that fuels your energy.\n\n**Healthcare and Counseling:** Direct care roles leverage your high empathy and patience."
+          }
         }
       ]
     },
@@ -42,7 +48,10 @@
       "subsections": [
         {
           "heading": "Your Impact on the Team",
-          "content": "**The Morale Booster:** You are the first to celebrate wins and the first to offer comfort during losses, keeping the team's emotional energy balanced.\n\n**The Information Hub:** Because people trust you with their feelings, you often know what's really going on in the company before management does.\n\n**The Boundary Blurrer:** You may struggle to separate professional and personal relationships, which can complicate feedback or authority dynamics.\n\n**The Rescuer:** You might step in to save struggling colleagues too often, preventing them from learning from their own mistakes."
+          "content": {
+            "title": "The Morale Booster:",
+            "description": "You are the first to celebrate wins and the first to offer comfort during losses, keeping the team's emotional energy balanced.\n\n**The Information Hub:** Because people trust you with their feelings, you often know what's really going on in the company before management does.\n\n**The Boundary Blurrer:** You may struggle to separate professional and personal relationships, which can complicate feedback or authority dynamics.\n\n**The Rescuer:** You might step in to save struggling colleagues too often, preventing them from learning from their own mistakes."
+          }
         }
       ]
     },
@@ -52,7 +61,10 @@
       "subsections": [
         {
           "heading": "Collaboration Guide",
-          "content": "**With Head Types (5, 6, 7):** They prioritize logic and strategy. Don't appeal solely to their emotions. Bring data to support your people-centric ideas. Give them space to think without taking it personally.\n\n**With Gut Types (8, 9, 1):** They prioritize autonomy and integrity. Be direct with 8s, encourage 9s to speak up (without speaking for them), and respect the 1's need for structured processes.\n\n**With Heart Types (2, 3, 4):** You will speak a common language of connection and image. Watch out for competitiveness with 3s and emotional turbulence with 4s. Ensure credit is shared equally."
+          "content": {
+            "title": "With Head Types (5, 6, 7):",
+            "description": "They prioritize logic and strategy. Don't appeal solely to their emotions. Bring data to support your people-centric ideas. Give them space to think without taking it personally.\n\n**With Gut Types (8, 9, 1):** They prioritize autonomy and integrity. Be direct with 8s, encourage 9s to speak up (without speaking for them), and respect the 1's need for structured processes.\n\n**With Heart Types (2, 3, 4):** You will speak a common language of connection and image. Watch out for competitiveness with 3s and emotional turbulence with 4s. Ensure credit is shared equally."
+          }
         }
       ]
     },
@@ -62,7 +74,10 @@
       "subsections": [
         {
           "heading": "Communication Habits",
-          "content": "**The \"Sandwich\" Technique:** You almost always wrap negative feedback in layers of praise to soften the blow. Be careful—sometimes the message gets lost in the compliments.\n\n**The Check-In:** You frequently circle back to people. \"Just wanted to see if you needed anything else on this?\" This is great for support but can feel like micromanagement to independent types.\n\n**Consensus Seeking:** In meetings, you look for the solution that makes the most people happy, which is not always the most profitable or efficient solution.\n\n**Digital Warmth:** You humanize digital workspaces, using emojis, GIFs, and personal asides to keep the team culture alive remotely."
+          "content": {
+            "title": "The \"Sandwich\" Technique:",
+            "description": "You almost always wrap negative feedback in layers of praise to soften the blow. Be careful—sometimes the message gets lost in the compliments.\n\n**The Check-In:** You frequently circle back to people. \"Just wanted to see if you needed anything else on this?\" This is great for support but can feel like micromanagement to independent types.\n\n**Consensus Seeking:** In meetings, you look for the solution that makes the most people happy, which is not always the most profitable or efficient solution.\n\n**Digital Warmth:** You humanize digital workspaces, using emojis, GIFs, and personal asides to keep the team culture alive remotely."
+          }
         }
       ]
     },
@@ -72,7 +87,10 @@
       "subsections": [
         {
           "heading": "Common Pitfalls",
-          "content": "**The \"Yes\" Trap:** Overcommitting to tasks outside your job description to be liked, leading to quality issues in your actual responsibilities.\n\n**Intrusiveness:** In your desire to help, you might step into others' lanes or give unsolicited advice, which can be perceived as controlling or condescending.\n\n**Hidden Strings:** Giving help with the unspoken expectation of return favors or alliances. When the return doesn't come, resentment builds.\n\n**Conflict Avoidance:** You may delay delivering bad news or necessary discipline to avoid hurting feelings, causing small problems to grow into disasters."
+          "content": {
+            "title": "The \"Yes\" Trap:",
+            "description": "Overcommitting to tasks outside your job description to be liked, leading to quality issues in your actual responsibilities.\n\n**Intrusiveness:** In your desire to help, you might step into others' lanes or give unsolicited advice, which can be perceived as controlling or condescending.\n\n**Hidden Strings:** Giving help with the unspoken expectation of return favors or alliances. When the return doesn't come, resentment builds.\n\n**Conflict Avoidance:** You may delay delivering bad news or necessary discipline to avoid hurting feelings, causing small problems to grow into disasters."
+          }
         }
       ]
     },
@@ -82,7 +100,10 @@
       "subsections": [
         {
           "heading": "Actionable Growth Strategies",
-          "content": "**Audit Your \"Yes\":** For one week, pause for 2 hours before agreeing to any new request. Ask yourself: \"Is this my job? Do I have time? Am I doing this just to be liked?\"\n\n**Quantify Your Soft Skills:** When negotiating raises, translate your empathy into metrics. \"My retention initiatives reduced turnover by 15%,\" or \"My client management saved the account worth $50k.\"\n\n**Delegate Without Guilt:** Realize that by doing everything yourself, you are robbing others of the chance to learn. Delegation is a form of helping others grow.\n\n**Accept Feedback clinically:** When criticized, write it down. Look at the words on paper. Strip away the emotion. Treat it as data to improve the product, not a judgment on your soul."
+          "content": {
+            "title": "Audit Your \"Yes\":",
+            "description": "For one week, pause for 2 hours before agreeing to any new request. Ask yourself: \"Is this my job? Do I have time? Am I doing this just to be liked?\"\n\n**Quantify Your Soft Skills:** When negotiating raises, translate your empathy into metrics. \"My retention initiatives reduced turnover by 15%,\" or \"My client management saved the account worth $50k.\"\n\n**Delegate Without Guilt:** Realize that by doing everything yourself, you are robbing others of the chance to learn. Delegation is a form of helping others grow.\n\n**Accept Feedback clinically:** When criticized, write it down. Look at the words on paper. Strip away the emotion. Treat it as data to improve the product, not a judgment on your soul."
+          }
         }
       ]
     }
@@ -106,12 +127,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Empathy is your Capital:** Your ability to read the room and manage morale is a rare and valuable business asset—treat it as such.",
-    "**Beware the Martyr Trap:** If you are waiting for people to guess your needs because you met theirs, you will end up resentful. Speak up.",
-    "**Professionalize Your Boundaries:** Saying 'no' is a leadership skill. It protects your time for high-priority work.",
-    "**Separate Worth from Work:** Criticism of your output is not a rejection of your personhood.",
-    "**Own Your Credit:** Document your wins. Humility is a virtue, but invisibility is a career-killer.",
-    "**Seek Reciprocity:** Thrive in environments that give back. Avoid cultures that exploit generosity without recognition."
+    {
+      "title": "Empathy is your Capital:",
+      "description": "Your ability to read the room and manage morale is a rare and valuable business asset—treat it as such."
+    },
+    {
+      "title": "Beware the Martyr Trap:",
+      "description": "If you are waiting for people to guess your needs because you met theirs, you will end up resentful. Speak up."
+    },
+    {
+      "title": "Professionalize Your Boundaries:",
+      "description": "Saying 'no' is a leadership skill. It protects your time for high-priority work."
+    },
+    {
+      "title": "Separate Worth from Work:",
+      "description": "Criticism of your output is not a rejection of your personhood."
+    },
+    {
+      "title": "Own Your Credit:",
+      "description": "Document your wins. Humility is a virtue, but invisibility is a career-killer."
+    },
+    {
+      "title": "Seek Reciprocity:",
+      "description": "Thrive in environments that give back. Avoid cultures that exploit generosity without recognition."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -14,7 +14,10 @@
     "INTJ cognitive functions",
     "Introverted Intuition learning"
   ],
-  "introduction": "You remember the moment vividly: sitting in a classroom, watching a teacher laboriously explain a concept step-by-step, while your mind had already leaped to the conclusion ten minutes ago. You weren't just bored; you were frustrated by the inefficiency of the process. For you, learning has never been about rote memorization or performing for a grade. It is about competence, mastery, and the thrill of dismantling a complex system to see how the gears turn. As an INTJ, you possess an insatiable hunger for knowledge, but that hunger is specific—you crave the underlying principles, the 'why' behind the 'what,' and the strategic application of theory. You don't just want to learn a subject; you want to conquer it.\n\nThis drive is fueled by your unique cognitive architecture. While others may be content with surface-level understanding or social learning environments, you treat education as a serious, solitary pursuit of truth. You are the architect of your own intellect, constantly renovating and expanding your mental library. However, traditional education systems—with their emphasis on repetition, group work, and rigid structures—often feel like they were designed specifically to thwart your natural learning style. You may have found yourself labeled as aloof or argumentative simply because you questioned the validity of a textbook or the logic of a lesson plan.\n\nThis guide is designed to validate your experience and provide a blueprint for leveraging your natural strengths. We will move beyond generic study advice and delve into the psychology of the INTJ - The Architect learning style. By understanding how your dominant Introverted Intuition (Ni) synthesizes patterns and your auxiliary Extraverted Thinking (Te) organizes resources, you can transform the way you absorb information. Whether you are navigating a university degree or teaching yourself a new programming language, this is your manual for turning your mind into a high-efficiency learning machine.",
+  "introduction": {
+    "title": "You remember the moment vividly",
+    "description": "sitting in a classroom, watching a teacher laboriously explain a concept step-by-step, while your mind had already leaped to the conclusion ten minutes ago. You weren't just bored; you were frustrated by the inefficiency of the process. For you, learning has never been about rote memorization or performing for a grade. It is about competence, mastery, and the thrill of dismantling a complex system to see how the gears turn. As an INTJ, you possess an insatiable hunger for knowledge, but that hunger is specific—you crave the underlying principles, the 'why' behind the 'what,' and the strategic application of theory. You don't just want to learn a subject; you want to conquer it.\n\nThis drive is fueled by your unique cognitive architecture. While others may be content with surface-level understanding or social learning environments, you treat education as a serious, solitary pursuit of truth. You are the architect of your own intellect, constantly renovating and expanding your mental library. However, traditional education systems—with their emphasis on repetition, group work, and rigid structures—often feel like they were designed specifically to thwart your natural learning style. You may have found yourself labeled as aloof or argumentative simply because you questioned the validity of a textbook or the logic of a lesson plan.\n\nThis guide is designed to validate your experience and provide a blueprint for leveraging your natural strengths. We will move beyond generic study advice and delve into the psychology of the INTJ - The Architect learning style. By understanding how your dominant Introverted Intuition (Ni) synthesizes patterns and your auxiliary Extraverted Thinking (Te) organizes resources, you can transform the way you absorb information. Whether you are navigating a university degree or teaching yourself a new programming language, this is your manual for turning your mind into a high-efficiency learning machine."
+  },
   "sections": [
     {
       "heading": "1. Overview of Learning Preferences: The Systems Thinker",
@@ -82,7 +85,10 @@
       "subsections": [
         {
           "heading": "Dos and Don'ts for Teachers",
-          "content": "**Do:** provide high-level overviews before diving into details. **Do:** allow for independent study projects. **Do:** be precise with your language and logic.\n**Don't:** use emotional appeals to motivate them. **Don't:** force them to 'show their work' on simple problems they solved mentally, unless you explain the pedagogical reason. **Don't:** put them on the spot socially without warning."
+          "content": {
+            "title": "Do:",
+            "description": "provide high-level overviews before diving into details. **Do:** allow for independent study projects. **Do:** be precise with your language and logic.\n**Don't:** use emotional appeals to motivate them. **Don't:** force them to 'show their work' on simple problems they solved mentally, unless you explain the pedagogical reason. **Don't:** put them on the spot socially without warning."
+          }
         }
       ]
     },
@@ -116,13 +122,34 @@
     }
   ],
   "keyTakeaways": [
-    "Prioritize the 'Big Picture': Understand the system and theory before diving into details.",
-    "Control Your Environment: Create a minimalist, low-sensory 'Fortress of Solitude' for deep work.",
-    "Active Interrogation: Don't just read; debate the text and challenge the logic to retain it.",
-    "Leverage Autonomy: Design your own syllabi and learning paths whenever possible.",
-    "Use Systems: Employ tools like Notion or Obsidian to map connections between disparate ideas.",
-    "Focus on Application: Always ask 'How does this work in reality?' to engage your Extraverted Thinking.",
-    "Manage Perfectionism: Recognize when research has reached diminishing returns and switch to execution."
+    {
+      "title": "Prioritize the 'Big Picture'",
+      "description": "Understand the system and theory before diving into details."
+    },
+    {
+      "title": "Control Your Environment",
+      "description": "Create a minimalist, low-sensory 'Fortress of Solitude' for deep work."
+    },
+    {
+      "title": "Active Interrogation",
+      "description": "Don't just read; debate the text and challenge the logic to retain it."
+    },
+    {
+      "title": "Leverage Autonomy",
+      "description": "Design your own syllabi and learning paths whenever possible."
+    },
+    {
+      "title": "Use Systems",
+      "description": "Employ tools like Notion or Obsidian to map connections between disparate ideas."
+    },
+    {
+      "title": "Focus on Application",
+      "description": "Always ask 'How does this work in reality?' to engage your Extraverted Thinking."
+    },
+    {
+      "title": "Manage Perfectionism",
+      "description": "Recognize when research has reached diminishing returns and switch to execution."
+    }
   ],
   "relatedTopics": [
     "careers",

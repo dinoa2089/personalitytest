@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Core Professional Strengths",
-          "content": "**Decisive Action:** You cut through ambiguity and make high-stakes decisions quickly, preventing stagnation.\n**Strategic Vision:** You see the big picture and have the energy to push long-term goals past the finish line.\n**Crisis Management:** You remain calm and effective in high-pressure situations where others might crumble.\n**Direct Communication:** You eliminate workplace toxicity caused by gossip or passive-aggression by addressing issues head-on.\n**Mentorship and Advocacy:** When healthy, you use your power to empower others, acting as a fierce champion for underdogs and high-potential employees."
+          "content": {
+            "title": "Decisive Action:",
+            "description": "You cut through ambiguity and make high-stakes decisions quickly, preventing stagnation.\n**Strategic Vision:** You see the big picture and have the energy to push long-term goals past the finish line.\n**Crisis Management:** You remain calm and effective in high-pressure situations where others might crumble.\n**Direct Communication:** You eliminate workplace toxicity caused by gossip or passive-aggression by addressing issues head-on.\n**Mentorship and Advocacy:** When healthy, you use your power to empower others, acting as a fierce champion for underdogs and high-potential employees."
+          }
         }
       ]
     },
@@ -80,12 +83,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Seek Autonomy:** Your career satisfaction is directly tied to your ability to control your environment and decisions.",
-    "**Embrace Intensity:** You thrive in high-stakes, fast-paced environments (crisis management, executive leadership, law) where your decisiveness is an asset.",
-    "**Watch the Burnout:** Your ability to push through pain is a strength, but it can lead to physical collapse if you don't schedule rest.",
-    "**Develop Soft Skills:** Your growth lies in integrating the warmth of Type 2. Learning to listen and validate others will make you a transformational leader.",
-    "**Avoid Bureaucracy:** Stay away from roles with rigid hierarchies, micromanagement, or lack of tangible results.",
-    "**Protect Your Team:** Use your natural aggression to shield your colleagues; this builds loyalty that authority alone cannot buy."
+    {
+      "title": "Seek Autonomy:",
+      "description": "Your career satisfaction is directly tied to your ability to control your environment and decisions."
+    },
+    {
+      "title": "Embrace Intensity:",
+      "description": "You thrive in high-stakes, fast-paced environments (crisis management, executive leadership, law) where your decisiveness is an asset."
+    },
+    {
+      "title": "Watch the Burnout:",
+      "description": "Your ability to push through pain is a strength, but it can lead to physical collapse if you don't schedule rest."
+    },
+    {
+      "title": "Develop Soft Skills:",
+      "description": "Your growth lies in integrating the warmth of Type 2. Learning to listen and validate others will make you a transformational leader."
+    },
+    {
+      "title": "Avoid Bureaucracy:",
+      "description": "Stay away from roles with rigid hierarchies, micromanagement, or lack of tangible results."
+    },
+    {
+      "title": "Protect Your Team:",
+      "description": "Use your natural aggression to shield your colleagues; this builds loyalty that authority alone cannot buy."
+    }
   ],
   "relatedTopics": [
     "learning",

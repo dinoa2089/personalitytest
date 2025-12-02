@@ -3,7 +3,10 @@
   "type": "innovator",
   "framework": "prism",
   "topic": "relationships",
-  "title": "The Innovator in Love: A Guide to Relationships, Dating, and Compatibility",
+  "title": {
+    "title": "The Innovator in Love",
+    "description": "A Guide to Relationships, Dating, and Compatibility"
+  },
   "metaDescription": "Explore the dynamic world of The Innovator relationships. Discover insights on The Innovator dating style, compatibility, love languages, and how to navigate long-term commitment without losing the spark.",
   "keywords": [
     "The Innovator relationships",
@@ -64,12 +67,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Novelty is a Need:** You don't just want variety; you require it for emotional health. Build 'planned instability' into your relationships to keep them fresh.",
-    "**Beware the Fixer Trap:** Learn to listen without solving. Your partner often needs empathy, not your innovative solutions.",
-    "**Communicate the Need for Space:** Explain that your withdrawal is about recharging your creativity, not rejecting your partner.",
-    "**Value Stability:** Recognize that a boring Tuesday night is not a sign of a failing relationship, but a sign of a secure attachment.",
-    "**Date for adaptability:** Look for partners who can pivot with you, rather than those who need rigid plans.",
-    "**Commitment is not a Cage:** Reframe commitment as a 'base of operations' from which you can launch your adventures, rather than an anchor holding you down."
+    {
+      "title": "Novelty is a Need:",
+      "description": "You don't just want variety; you require it for emotional health. Build 'planned instability' into your relationships to keep them fresh."
+    },
+    {
+      "title": "Beware the Fixer Trap:",
+      "description": "Learn to listen without solving. Your partner often needs empathy, not your innovative solutions."
+    },
+    {
+      "title": "Communicate the Need for Space:",
+      "description": "Explain that your withdrawal is about recharging your creativity, not rejecting your partner."
+    },
+    {
+      "title": "Value Stability:",
+      "description": "Recognize that a boring Tuesday night is not a sign of a failing relationship, but a sign of a secure attachment."
+    },
+    {
+      "title": "Date for adaptability:",
+      "description": "Look for partners who can pivot with you, rather than those who need rigid plans."
+    },
+    {
+      "title": "Commitment is not a Cage:",
+      "description": "Reframe commitment as a 'base of operations' from which you can launch your adventures, rather than an anchor holding you down."
+    }
   ],
   "relatedTopics": [
     "learning",

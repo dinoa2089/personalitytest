@@ -9,7 +9,10 @@
     "description": [
       "At the core of the Type One experience is a relentless, visceral tension between the world as it is and the world as it ought to be. Unlike types who live primarily in their heads or hearts, Ones are rooted in the Body Center (the Gut), meaning their reaction to imperfection is somatic before it is intellectual. It is a tightening of the jaw when a picture frame is crooked, a physical recoil when a rule is flouted, or a gut-level heat when injustice occurs. This is not merely a preference for tidiness; it is a psychological imperative to maintain order in a chaotic universe. For the One, reality feels inherently slippery and prone to entropy. Their psychological defense is to erect a scaffolding of standards, protocols, and ethics to hold the chaos at bay. They believe, often unconsciously, that if they relax their vigilance for even a moment, everything will fall apart.",
       "The driving engine of the One's psyche is the 'Inner Critic'—a relentlessly demanding internal voice that comments on their every action, thought, and feeling. While other types may have an inner critic, the One's is distinct in its omnipresence and moral authority. It does not merely suggest improvement; it demands perfection as the price of existence. This voice often sounds like a parent, a teacher, or a strict deity, constantly measuring the One's reality against a Platonic ideal. When a One organizes a workspace or edits a document, they are not just completing a task; they are quieting this internal judge. The tragedy of the average One is that they project this voice onto the world, assuming that others are judging them as harshly as they judge themselves, or conversely, feeling compelled to become the voice of judgment for everyone else.",
-      "This dynamic creates a profound paradox: Ones desperately seek serenity and relief from the pressure, yet their method of seeking it—striving for perfection—only increases the pressure. They harbor a secret longing to simply 'be,' to romp in the grass without worrying about grass stains, but their superego insists that pleasure must be earned through righteousness. This leads to the repression of their natural impulses and desires. In the PRISM-7 framework, this manifests as extreme Conscientiousness and high Honesty-Humility, often at the expense of Adaptability. They push down their 'animal' nature—anger, hunger, lust, laziness—because these impulses feel messy and uncontrolled. However, because they are in the Gut Center, this repressed energy does not disappear; it transmutes into resentment. They simmer with a low-grade frustration that others are 'getting away with it' while they are stuck holding up the moral universe.",
+      {
+        "title": "This dynamic creates a profound paradox",
+        "description": "Ones desperately seek serenity and relief from the pressure, yet their method of seeking it—striving for perfection—only increases the pressure. They harbor a secret longing to simply 'be,' to romp in the grass without worrying about grass stains, but their superego insists that pleasure must be earned through righteousness. This leads to the repression of their natural impulses and desires. In the PRISM-7 framework, this manifests as extreme Conscientiousness and high Honesty-Humility, often at the expense of Adaptability. They push down their 'animal' nature—anger, hunger, lust, laziness—because these impulses feel messy and uncontrolled. However, because they are in the Gut Center, this repressed energy does not disappear; it transmutes into resentment. They simmer with a low-grade frustration that others are 'getting away with it' while they are stuck holding up the moral universe."
+      },
       "The childhood origin of this pattern often involves a 'loss of childhood' where the young One felt they had to grow up too fast. They may have perceived their caregivers as inconsistent, irresponsible, or chaotic, leading the child to unconsciously decide, 'I must be the adult here.' They learned that being 'good'—defined as following rules, suppressing tears, and not making a mess—was the only way to stay safe or gain love. This created a transactional view of emotional safety: if I am perfect, I am safe from criticism. As adults, this translates into a fear that any mistake, no matter how trivial, reveals a fundamental defect in their character. A typo in an email isn't just a typo; it's a sign of sloppiness, and sloppiness is a slippery slope to moral decay.",
       "In their relationship with the Body Center, Ones are unique. Unlike Eights, who externalize anger, or Nines, who fall asleep to it, Ones repress anger, converting it into 'righteous indignation.' They are rarely 'mad'; they are 'disappointed' or 'concerned about principles.' This semantic shift allows them to express aggression while maintaining their self-image as rational and good. They use logic and morality as weapons, correcting others not just to be right, but to discharge the pent-up energy of their own repressed impulses. This can make them difficult to be around in average health, as they radiate a prickly, judgmental energy even when they say nothing. They are the person who sighs loudly when someone cuts in line—a signal of moral superiority masking visceral rage.",
       "However, the One's journey is also deeply spiritual and noble. Their sensitivity to imperfection implies a profound intuition for wholeness. They see the potential in everything—the potential for a fairer society, a more efficient system, a more loving family. When they can detach from the need to be the *source* of that perfection, they become true visionaries. The evolved One realizes that true perfection includes the cracks, the flaws, and the humanity of the process. They move from being the 'policeman of reality' to being the 'gardener of reality'—nurturing growth rather than forcing compliance.",
@@ -42,18 +45,42 @@
       "description": "Under prolonged stress, the One's structure of logic and order collapses, and they disintegrate toward Type Four. The usually objective and stoic One becomes moody, irrational, and intensely subjective. They fall into self-pity and melancholy, feeling that no one understands the burden they carry. The repressed emotions they usually keep at bay—envy, longing, sadness—flood their system. \n\nBehaviorally, this looks like withdrawal and dramatic emotional volatility. They might storm out of a room, dissolve into tears over a minor criticism, or ruminate obsessively on past failures. They begin to romanticize their suffering, viewing themselves as the Tragic Hero who fought for the good and was betrayed by a corrupt world. This movement is a warning sign that their repression mechanism has failed. However, it serves a function: it forces the One to acknowledge their emotional needs and their authentic self, breaking the robotic adherence to duty. It is a messy but necessary confrontation with the internal void they usually try to fill with 'being right.'"
     },
     "strengths": [
-      "Unshakeable Integrity: They are the person who returns the extra change the cashier gave them by mistake, even if no one is watching. Their word is iron.",
-      "Systems Thinking: They possess an innate ability to see how things *should* fit together, making them brilliant at diagnosing inefficiencies in workflows or logic.",
+      {
+        "title": "Unshakeable Integrity",
+        "description": "They are the person who returns the extra change the cashier gave them by mistake, even if no one is watching. Their word is iron."
+      },
+      {
+        "title": "Systems Thinking",
+        "description": "They possess an innate ability to see how things *should* fit together, making them brilliant at diagnosing inefficiencies in workflows or logic."
+      },
       "Self-Discipline: They can maintain focus and quality control long after others have grown bored or sloppy; they are the finishers who ensure the details are perfect.",
-      "Moral Courage: They are often the whistleblower or the lone dissenting voice in a group, willing to risk social capital to stand up for what is ethically right.",
+      {
+        "title": "Moral Courage",
+        "description": "They are often the whistleblower or the lone dissenting voice in a group, willing to risk social capital to stand up for what is ethically right."
+      },
       "Reliability: If a One says they will handle it, consider it done. They create safety for others through their predictable competence and stewardship."
     ],
     "challenges": [
-      "Analysis Paralysis: The fear of making the 'wrong' choice can lead to agonizing delays over minor decisions, like spending 20 minutes choosing the 'best' toothpaste.",
-      "Resentment Loop: They often keep score of others' laziness, letting anger boil internally until it leaks out as biting sarcasm or passive-aggressive sighs.",
-      "Impossible Standards: They can demoralize teams or families by focusing on the 2% that went wrong rather than the 98% that went right.",
-      "Binary Thinking: They struggle with ambiguity, wanting clear 'Right vs. Wrong' answers in complex situations where nuance is required (Low Adaptability).",
-      "Inability to Relax: They treat relaxation as another task to be performed efficiently ('I will now meditate perfectly for 20 minutes'), missing the point of rest."
+      {
+        "title": "Analysis Paralysis",
+        "description": "The fear of making the 'wrong' choice can lead to agonizing delays over minor decisions, like spending 20 minutes choosing the 'best' toothpaste."
+      },
+      {
+        "title": "Resentment Loop",
+        "description": "They often keep score of others' laziness, letting anger boil internally until it leaks out as biting sarcasm or passive-aggressive sighs."
+      },
+      {
+        "title": "Impossible Standards",
+        "description": "They can demoralize teams or families by focusing on the 2% that went wrong rather than the 98% that went right."
+      },
+      {
+        "title": "Binary Thinking",
+        "description": "They struggle with ambiguity, wanting clear 'Right vs. Wrong' answers in complex situations where nuance is required (Low Adaptability)."
+      },
+      {
+        "title": "Inability to Relax",
+        "description": "They treat relaxation as another task to be performed efficiently ('I will now meditate perfectly for 20 minutes'), missing the point of rest."
+      }
     ],
     "inRelationships": "In romantic relationships, Ones are often the 'anchor.' They bring stability, loyalty, and a high degree of effort to the partnership. They view a relationship as a commitment to be honored and a project to be cultivated. You can count on a One partner to remember anniversaries, to manage the household finances with precision, and to show up when things get tough. They show love through 'Acts of Service'—fixing the leaky faucet, organizing your taxes, or planning a healthy meal plan are their love letters.\n\nHowever, the core fear of being 'defective' makes intimacy perilous for them. To be intimate is to be seen, and to be seen is to risk being judged. Consequently, Ones often struggle to be vulnerable. They may hide their mistakes or weaknesses from their partner to maintain their image of competence. They desperately need a partner who can offer 'unconditional positive regard'—someone who can look at their flaws and say, 'I love you anyway.' When they receive this, they can blossom, but they rarely ask for it directly.\n\nThe primary conflict pattern is criticism. The One often unconsciously appoints themselves the 'improver' of their partner. They might critique their partner's clothing, speech, or habits, genuinely believing they are being helpful. They are baffled when this is received as rejection. They need to learn that their partner often wants empathy, not a solution or a correction. Conversely, Ones are hypersensitive to criticism themselves. A casual comment from a spouse can feel like a devastating indictment of their character. \n\nThey thrive with partners who are playful (like Sevens) or emotionally grounded (like Nines), who can help them decompress. The partner must be willing to gently push back against the One's rigidity ('The kitchen doesn't need to be cleaned right now, come sit with me') without invalidating their anxiety. When a One feels safe enough to be 'bad'—to be silly, lazy, or messy—around their partner, the relationship has reached a profound level of trust.",
     "careerPaths": [
@@ -240,18 +267,48 @@
       "description": "Under extreme stress, the Two disintegrates to Type Eight. This is a shocking transformation for those who know them only as the 'sweet helper.' When the Two feels that their love has been rejected or their sacrifices taken for granted, the pressure cooker explodes. The 'repressed' needs of the Two erupt as the 'assertive' anger of the Eight. They become blunt, demanding, and vengeful. The velvet glove comes off, revealing an iron fist.\n\nIn this state, the Two uses their intimate knowledge of others as a weapon. Because they have spent so much time listening and observing, they know exactly where to strike to cause the most pain. They may say things like, 'After all I did for you, you are nothing without me.' While this state is destructive, it serves a crucial psychological function: it forces the Two to assert boundaries and vent the rage they have swallowed for years. It is a desperate attempt to reclaim power. Recognizing this shift is vital; it signals that the Two has depleted their emotional reserves and is operating in a survival mode where 'love' has been replaced by a demand for 'respect.'"
     },
     "strengths": [
-      "**Anticipatory Empathy**: The cognitive ability to predict the needs of others before they are verbalized, creating seamless, supportive experiences for those around them.",
-      "**Emotional Triage**: An innate talent for identifying the most hurting person in a room and deploying the exact right tone and energy to soothe them.",
-      "**Network Weaving**: The capacity to act as the 'glue' in social systems, remembering birthdays, preferences, and connections that keep communities bonded.",
-      "**Generosity of Spirit**: A default assumption of benevolence in others (when healthy) and a willingness to share resources without hoarding.",
-      "**Motivational Encouragement**: The ability to see the potential in others and act as a cheerleader, often believing in people more than they believe in themselves."
+      {
+        "title": "Anticipatory Empathy",
+        "description": "The cognitive ability to predict the needs of others before they are verbalized, creating seamless, supportive experiences for those around them."
+      },
+      {
+        "title": "Emotional Triage",
+        "description": "An innate talent for identifying the most hurting person in a room and deploying the exact right tone and energy to soothe them."
+      },
+      {
+        "title": "Network Weaving",
+        "description": "The capacity to act as the 'glue' in social systems, remembering birthdays, preferences, and connections that keep communities bonded."
+      },
+      {
+        "title": "Generosity of Spirit",
+        "description": "A default assumption of benevolence in others (when healthy) and a willingness to share resources without hoarding."
+      },
+      {
+        "title": "Motivational Encouragement",
+        "description": "The ability to see the potential in others and act as a cheerleader, often believing in people more than they believe in themselves."
+      }
     ],
     "challenges": [
-      "**The Covert Contract**: Creating hidden agreements ('I did X, so you owe me Y') that lead to confusion and resentment when others fail to uphold their end.",
-      "**Identity Fusion**: Difficulty distinguishing where their own emotions end and another's begin, leading to burnout from carrying 'borrowed' stress.",
-      "**Intrusive Helpfulness**: Offering aid that disempowers the recipient, subtly suggesting the other person is incompetent or fragile.",
-      "**Prideful Martyrdom**: Using suffering as a badge of honor to induce guilt or secure a position of moral superiority.",
-      "**Conflict Avoidance**: Dodging direct confrontation in favor of triangulation (talking to a third party) or passive-aggressive signaling."
+      {
+        "title": "The Covert Contract",
+        "description": "Creating hidden agreements ('I did X, so you owe me Y') that lead to confusion and resentment when others fail to uphold their end."
+      },
+      {
+        "title": "Identity Fusion",
+        "description": "Difficulty distinguishing where their own emotions end and another's begin, leading to burnout from carrying 'borrowed' stress."
+      },
+      {
+        "title": "Intrusive Helpfulness",
+        "description": "Offering aid that disempowers the recipient, subtly suggesting the other person is incompetent or fragile."
+      },
+      {
+        "title": "Prideful Martyrdom",
+        "description": "Using suffering as a badge of honor to induce guilt or secure a position of moral superiority."
+      },
+      {
+        "title": "Conflict Avoidance",
+        "description": "Dodging direct confrontation in favor of triangulation (talking to a third party) or passive-aggressive signaling."
+      }
     ],
     "inRelationships": "In the realm of intimacy, the Two is a powerhouse of affection, but also a complex puzzle of needs. Their 'Pride' fixation creates a specific relational dynamic: the 'Seducer' (in the broad sense). The Two unconsciously studies their partner to become exactly what that partner desires—the perfect listener, the perfect homemaker, the perfect cheerleader. In the early stages, being with a Two feels like being bathed in warm sunlight; you feel seen, adored, and centered. However, this intensity is unsustainable.\n\nThe core friction arises when the Two begins to feel the imbalance of the ledger. Because they have not asked for what they need, the partner has not provided it. The Two then begins to 'test' the partner: withdrawing affection to see if it's chased, or sighing loudly to see if it's noticed. When the partner fails these telepathic tests, the Two feels unloved. This can cycle into 'clinging' behavior—texting incessantly, demanding reassurance, or becoming jealous of the partner's time away.\n\nA critical PRISM-7 insight here is the Two's struggle with 'Honesty-Humility' in conflict. They may rewrite history to cast themselves as the victimized giver ('I only wanted to help!'), making it difficult to resolve disputes factually. For a relationship with a Two to thrive, the partner must be proactive in appreciation. Small, verbal acknowledgments ('I see how hard you worked on this dinner') are oxygen to a Two. Conversely, the Two must learn the 'Language of Directness.' They must learn that stating a need ('I am tired and need you to do the dishes') is not an act of aggression, but an act of trust. It trusts that the partner loves the *real* them, not just the *helpful* them. The most successful relationships for Twos are with partners who have strong boundaries and can gently refuse the Two's 'over-helping' without rejecting the Two personally.",
     "careerPaths": [
@@ -277,11 +334,26 @@
       }
     ],
     "growthAdvice": [
-      "**The 'Three-Second Rule'**: When you feel the impulse to volunteer for something, force yourself to wait three seconds. Ask: 'Do I actually have the time/energy for this, or am I just trying to avoid the anxiety of saying no?' This engages the prefrontal cortex and interrupts the automatic people-pleasing circuit.",
-      "**Practice 'Cold' Empathy**: Try to listen to a friend's problem without offering a solution, a tissue, or a personal story. Just say, 'That sounds really hard.' This teaches you that your presence is enough, and you don't need to 'pay' for your seat at the table with utility.",
-      "**Diversify Your Portfolio**: Invest in hobbies that have zero to do with other people—gardening, solo hiking, coding. Building a sense of self that is not relational creates a buffer against rejection. If your identity is 100% 'Helper,' a breakup destroys your entire world. If you are also a 'Gardener,' that part of you remains intact.",
-      "**Audit the Ledger**: Write down the 'covert contracts' you have with people. 'I listened to Mom for 2 hours, so she should ask about my day.' Rip up these contracts. Accept that people can only give what they have, and if the exchange isn't worth it to you without the payback, stop giving so much.",
-      "**Physical Grounding**: When you feel yourself leaning forward into someone else's space (mentally or physically), physically lean back. Feel your spine against the chair. Feel your feet on the floor. This somatic cue signals to your brain: 'I am here. I am separate. I am safe in my own container.'"
+      {
+        "title": "The 'Three-Second Rule'",
+        "description": "When you feel the impulse to volunteer for something, force yourself to wait three seconds. Ask: 'Do I actually have the time/energy for this, or am I just trying to avoid the anxiety of saying no?' This engages the prefrontal cortex and interrupts the automatic people-pleasing circuit."
+      },
+      {
+        "title": "Practice 'Cold' Empathy",
+        "description": "Try to listen to a friend's problem without offering a solution, a tissue, or a personal story. Just say, 'That sounds really hard.' This teaches you that your presence is enough, and you don't need to 'pay' for your seat at the table with utility."
+      },
+      {
+        "title": "Diversify Your Portfolio",
+        "description": "Invest in hobbies that have zero to do with other people—gardening, solo hiking, coding. Building a sense of self that is not relational creates a buffer against rejection. If your identity is 100% 'Helper,' a breakup destroys your entire world. If you are also a 'Gardener,' that part of you remains intact."
+      },
+      {
+        "title": "Audit the Ledger",
+        "description": "Write down the 'covert contracts' you have with people. 'I listened to Mom for 2 hours, so she should ask about my day.' Rip up these contracts. Accept that people can only give what they have, and if the exchange isn't worth it to you without the payback, stop giving so much."
+      },
+      {
+        "title": "Physical Grounding",
+        "description": "When you feel yourself leaning forward into someone else's space (mentally or physically), physically lean back. Feel your spine against the chair. Feel your feet on the floor. This somatic cue signals to your brain: 'I am here. I am separate. I am safe in my own container.'"
+      }
     ],
     "prismCorrelation": {
       "likelyTypes": [
@@ -335,18 +407,48 @@
       "description": "When the pressure to perform becomes unsustainable, the Three disintegrates toward Nine (The Peacemaker). This is the 'burnout' release valve. The usually energetic, laser-focused Achiever suddenly becomes apathetic, disengaged, and mentally foggy. They may numb out with television, food, or substance abuse, procrastinating on the very goals they claim to cherish. It is a form of passive-aggressive rebellion against their own internal slave-driver. They lose their characteristic agency and become indecisive, waiting for problems to solve themselves. While painful, this stress move is often a body-wisdom signal, forcing the Three to stop running. It manifests as a 'graying out' of their vibrant ambition, where they simply cannot bring themselves to care about the next promotion or accolade."
     },
     "strengths": [
-      "Unparalleled Efficiency: They possess a cognitive ability to streamline complex systems instantly, seeing the fastest path from A to B while others are still reading the map.",
-      "Chameleonic Adaptability: They can code-switch seamlessly between a construction site and a gala dinner, making everyone feel understood and comfortable.",
-      "Motivational Leadership: They naturally embody the 'ideal,' inspiring teams by setting a pace of excellence that raises the collective standard.",
-      "Optimistic Problem-Solving: Where others see roadblocks, Threes see 'pivots,' maintaining high morale and forward momentum even during crises.",
-      "Presentation Mastery: They have an intuitive grasp of optics and communication, able to package ideas in ways that are irresistible."
+      {
+        "title": "Unparalleled Efficiency",
+        "description": "They possess a cognitive ability to streamline complex systems instantly, seeing the fastest path from A to B while others are still reading the map."
+      },
+      {
+        "title": "Chameleonic Adaptability",
+        "description": "They can code-switch seamlessly between a construction site and a gala dinner, making everyone feel understood and comfortable."
+      },
+      {
+        "title": "Motivational Leadership",
+        "description": "They naturally embody the 'ideal,' inspiring teams by setting a pace of excellence that raises the collective standard."
+      },
+      {
+        "title": "Optimistic Problem-Solving",
+        "description": "Where others see roadblocks, Threes see 'pivots,' maintaining high morale and forward momentum even during crises."
+      },
+      {
+        "title": "Presentation Mastery",
+        "description": "They have an intuitive grasp of optics and communication, able to package ideas in ways that are irresistible."
+      }
     ],
     "challenges": [
-      "Identity Confusion: They often struggle to answer the question 'What do I like?' without referencing what is popular or impressive.",
-      "Intimacy Avoidance: They may treat relationships as performance reviews, hiding their fears and failures to avoid appearing 'defective.'",
-      "Transactional Ethics: Under pressure, the drive to win can override their moral compass, leading to 'the ends justify the means' rationalizations.",
-      "Emotional Numbness: They automatically suppress sadness or anxiety to keep working, leading to delayed emotional crashes or somatic symptoms.",
-      "Validation Addiction: A lack of external praise can trigger disproportionate depressive episodes or identity crises."
+      {
+        "title": "Identity Confusion",
+        "description": "They often struggle to answer the question 'What do I like?' without referencing what is popular or impressive."
+      },
+      {
+        "title": "Intimacy Avoidance",
+        "description": "They may treat relationships as performance reviews, hiding their fears and failures to avoid appearing 'defective.'"
+      },
+      {
+        "title": "Transactional Ethics",
+        "description": "Under pressure, the drive to win can override their moral compass, leading to 'the ends justify the means' rationalizations."
+      },
+      {
+        "title": "Emotional Numbness",
+        "description": "They automatically suppress sadness or anxiety to keep working, leading to delayed emotional crashes or somatic symptoms."
+      },
+      {
+        "title": "Validation Addiction",
+        "description": "A lack of external praise can trigger disproportionate depressive episodes or identity crises."
+      }
     ],
     "inRelationships": "In the romantic sphere, Threes are often the 'catch'—attractive, successful, and attentive. They approach dating with the same strategic competence they apply to their careers: they want to be the best partner you've ever had. They will plan the perfect dates, remember the anniversaries, and work hard to help their partner succeed in their own endeavors. A Three partner is often a cheerleader, pushing their significant other to maximize their potential.\n\nHowever, the shadow side of this dynamic is the 'Resume Relationship.' Threes may unconsciously choose partners who look good on paper—someone who enhances their image rather than someone who challenges their soul. The core fear of worthlessness manifests as a terror of intimacy. To be truly intimate is to be seen without the mask, and for a Three, the idea that a partner might see their insecurity, their exhaustion, or their mediocrity is terrifying. Consequently, they often keep a part of themselves hidden, maintaining a polished persona even at the breakfast table.\n\nThrees need partners who can gently deconstruct their performance. They need to be told, repeatedly, 'I love you when you lose. I love you when you're lazy. I love you when you're messy.' They struggle to ask for reassurance, assuming they must earn love. A partner's greatest gift to a Three is to interrupt their work flow and demand nothing from them but their presence. The pitfall is that the Three may feel criticized when a partner asks for emotional depth, interpreting it as a sign that they are 'failing' at the relationship. This can lead to defensiveness. Growth happens when the Three learns that being loved for their flaws is far more satisfying than being admired for their strengths.",
     "careerPaths": [
@@ -372,11 +474,26 @@
       }
     ],
     "growthAdvice": [
-      "Practice 'Unproductive' Time: Deliberately schedule time where you are forbidden to achieve anything. No books, no podcasts, no organizing. Just sit or walk. This rewires the brain to accept that existence itself is valid without output.",
-      "Reveal the 'Imposter': Share a insecurity or a recent failure with a trusted friend without spinning it into a joke or a lesson. Just let it be sad or embarrassing. This breaks the shame cycle and builds the muscle of authenticity.",
-      "Define Your Own Values: Write down what you would care about if no one could ever see it. Distinguish between what you want and what you've been trained to want. This helps separate your soul from your social programming.",
-      "Body Scans for Emotion: You likely store stress in your shoulders and jaw while feeling 'fine' mentally. Check in with your body three times a day. Sensation is the gateway back to the feelings you've suppressed.",
-      "Celebrate Others' Success (Without Comparison): Practice genuinely praising a peer who is doing better than you in your field. Notice the envy that arises, name it, and choose benevolence. This dismantles the zero-sum game mindset."
+      {
+        "title": "Practice 'Unproductive' Time",
+        "description": "Deliberately schedule time where you are forbidden to achieve anything. No books, no podcasts, no organizing. Just sit or walk. This rewires the brain to accept that existence itself is valid without output."
+      },
+      {
+        "title": "Reveal the 'Imposter'",
+        "description": "Share a insecurity or a recent failure with a trusted friend without spinning it into a joke or a lesson. Just let it be sad or embarrassing. This breaks the shame cycle and builds the muscle of authenticity."
+      },
+      {
+        "title": "Define Your Own Values",
+        "description": "Write down what you would care about if no one could ever see it. Distinguish between what you want and what you've been trained to want. This helps separate your soul from your social programming."
+      },
+      {
+        "title": "Body Scans for Emotion",
+        "description": "You likely store stress in your shoulders and jaw while feeling 'fine' mentally. Check in with your body three times a day. Sensation is the gateway back to the feelings you've suppressed."
+      },
+      {
+        "title": "Celebrate Others' Success (Without Comparison)",
+        "description": "Practice genuinely praising a peer who is doing better than you in your field. Notice the envy that arises, name it, and choose benevolence. This dismantles the zero-sum game mindset."
+      }
     ],
     "prismCorrelation": {
       "likelyTypes": [
@@ -430,18 +547,48 @@
       "description": "Under extreme stress, the usually withdrawn Four disintegrates toward Type Two (The Helper). The aloof, mysterious outsider suddenly becomes the clingy, hysterical dependent. When the Four feels that their distance has resulted in actual abandonment, they panic and try to 'buy' connection through manipulation and over-involvement. They may over-give to friends or partners, but with heavy strings attached, expecting massive emotional returns for their gestures. \n\nThis manifests as testing relationships: 'I'll call you at 3 AM crying to see if you really love me.' They become possessive, jealous, and unable to soothe themselves. They lose their boundaries, projecting their needs onto others and becoming resentful when others don't telepathically meet them. This is often triggered by a breakup, a rejection, or a creative failure that shatters their self-esteem. You know a Four is stressed when they stop focusing on their own inner world and become obsessively focused on who is or isn't paying attention to them, using illness, crisis, or drama to force caretaking."
     },
     "strengths": [
-      "**Emotional Courage and Granularity**: Fours possess the rare ability to distinguish between subtle shades of emotion—melancholy, wistfulness, grief, longing—that others lump together as 'sad.' This emotional literacy allows them to navigate crises that would break other types. They are the first to run into the burning building of a friend's trauma, unafraid of the dark, providing a witnessing presence that is profoundly healing.",
-      "**Alchemical Creativity**: Fours have a unique psychological metabolism that converts pain into beauty. They do not just 'cope' with suffering; they use it as raw material. Whether through art, conversation, or simply the way they live, they demonstrate that even the most broken experiences can be redeemed through expression. They bring the unconscious into the conscious, giving voice to the shadow side of humanity.",
-      "**Authenticity and Truth-Telling**: Fours have a built-in radar for fakery. They are allergic to toxic positivity and superficial platitudes. In a corporate meeting or a family gathering, the Four is often the one who dares to name the elephant in the room. Their refusal to wear a mask (when healthy) gives others permission to drop their own acts and be real.",
-      "**Deep Empathy for the Marginalized**: Because Fours have felt like outsiders all their lives, they have an instinctive resonance with the underdog, the outcast, and the misunderstood. They are often the champions of the weird, the forgotten, and the unique. Their empathy is not just intellectual; it is somatic. They feel the exclusion of others in their own bodies.",
-      "**Aesthetic Intelligence**: Fours bring beauty into the world not just as decoration, but as a spiritual necessity. They understand how environment affects consciousness. A Four can walk into a sterile room and, with a few adjustments of light and object, transform it into a space of soulfulness. They remind the world that function without form is a type of spiritual poverty."
+      {
+        "title": "Emotional Courage and Granularity",
+        "description": "Fours possess the rare ability to distinguish between subtle shades of emotion—melancholy, wistfulness, grief, longing—that others lump together as 'sad.' This emotional literacy allows them to navigate crises that would break other types. They are the first to run into the burning building of a friend's trauma, unafraid of the dark, providing a witnessing presence that is profoundly healing."
+      },
+      {
+        "title": "Alchemical Creativity",
+        "description": "Fours have a unique psychological metabolism that converts pain into beauty. They do not just 'cope' with suffering; they use it as raw material. Whether through art, conversation, or simply the way they live, they demonstrate that even the most broken experiences can be redeemed through expression. They bring the unconscious into the conscious, giving voice to the shadow side of humanity."
+      },
+      {
+        "title": "Authenticity and Truth-Telling",
+        "description": "Fours have a built-in radar for fakery. They are allergic to toxic positivity and superficial platitudes. In a corporate meeting or a family gathering, the Four is often the one who dares to name the elephant in the room. Their refusal to wear a mask (when healthy) gives others permission to drop their own acts and be real."
+      },
+      {
+        "title": "Deep Empathy for the Marginalized",
+        "description": "Because Fours have felt like outsiders all their lives, they have an instinctive resonance with the underdog, the outcast, and the misunderstood. They are often the champions of the weird, the forgotten, and the unique. Their empathy is not just intellectual; it is somatic. They feel the exclusion of others in their own bodies."
+      },
+      {
+        "title": "Aesthetic Intelligence",
+        "description": "Fours bring beauty into the world not just as decoration, but as a spiritual necessity. They understand how environment affects consciousness. A Four can walk into a sterile room and, with a few adjustments of light and object, transform it into a space of soulfulness. They remind the world that function without form is a type of spiritual poverty."
+      }
     ],
     "challenges": [
-      "**The Addiction to Melancholy**: Fours often mistake happiness for shallowness. They can become addicted to the bittersweet taste of longing, unconsciously sabotaging moments of joy because they feel 'less real' than moments of sorrow. This can lead to a life spent mourning the past or fantasizing about the future while completely missing the present.",
-      "**Terminal Uniqueness**: The need to be seen as 'special' can become a prison. Fours may reject practical solutions, popular things, or common ground simply because 'that's what everyone else does.' This contrarianism can isolate them and prevent them from enjoying simple, shared human experiences. They may feel exempt from the rules of life (paying bills, being on time) because they are 'too sensitive' for such mundane concerns.",
-      "**Self-Referencing Loop**: Fours struggle to see things objectively. Neutral events are interpreted through the lens of their own deficiency or rejection. If a friend is quiet, the Four assumes, 'They are bored with me,' rather than 'They are tired.' This constant self-referencing exhausts them and those around them, as every interaction requires emotional reassurance.",
-      "**Envy and Comparison**: The Four's internal eye is constantly scanning others for what is missing in themselves. This is not just 'I want your car,' but 'I want your capacity for happiness.' This envy corrodes their relationships and prevents them from cultivating their own garden, as they are too busy staring at their neighbor's grass.",
-      "**The Paralysis of Perfectionism**: Unlike the One's moral perfectionism, the Four's perfectionism is aesthetic and identity-based. They may refuse to show their work or engage in a project until it perfectly matches their internal vision. Since reality rarely matches fantasy, this leads to chronic procrastination and a graveyard of unfinished projects."
+      {
+        "title": "The Addiction to Melancholy",
+        "description": "Fours often mistake happiness for shallowness. They can become addicted to the bittersweet taste of longing, unconsciously sabotaging moments of joy because they feel 'less real' than moments of sorrow. This can lead to a life spent mourning the past or fantasizing about the future while completely missing the present."
+      },
+      {
+        "title": "Terminal Uniqueness",
+        "description": "The need to be seen as 'special' can become a prison. Fours may reject practical solutions, popular things, or common ground simply because 'that's what everyone else does.' This contrarianism can isolate them and prevent them from enjoying simple, shared human experiences. They may feel exempt from the rules of life (paying bills, being on time) because they are 'too sensitive' for such mundane concerns."
+      },
+      {
+        "title": "Self-Referencing Loop",
+        "description": "Fours struggle to see things objectively. Neutral events are interpreted through the lens of their own deficiency or rejection. If a friend is quiet, the Four assumes, 'They are bored with me,' rather than 'They are tired.' This constant self-referencing exhausts them and those around them, as every interaction requires emotional reassurance."
+      },
+      {
+        "title": "Envy and Comparison",
+        "description": "The Four's internal eye is constantly scanning others for what is missing in themselves. This is not just 'I want your car,' but 'I want your capacity for happiness.' This envy corrodes their relationships and prevents them from cultivating their own garden, as they are too busy staring at their neighbor's grass."
+      },
+      {
+        "title": "The Paralysis of Perfectionism",
+        "description": "Unlike the One's moral perfectionism, the Four's perfectionism is aesthetic and identity-based. They may refuse to show their work or engage in a project until it perfectly matches their internal vision. Since reality rarely matches fantasy, this leads to chronic procrastination and a graveyard of unfinished projects."
+      }
     ],
     "inRelationships": "In the realm of intimacy, the Type Four is the archetypal Romantic. They do not want a partner; they want a Soulmate. They crave a connection that transcends the verbal, a fusion of souls that is telepathic, intense, and transformative. When a Four loves, they love with a depth and vulnerability that can be breathtaking. They will write you poetry, curate playlists that map the topography of your relationship, and sit with you in your darkest hours without judgment. They want to know your secrets, your shame, and your dreams. Shallow relationships are physically painful to them; they would rather be alone than be with someone who only wants to discuss the weather.\n\nHowever, this intensity comes with the 'Push-Pull' trap. The Four's core fear is having no identity, and often their identity is built on *longing*. When a partner is distant, the Four becomes the pursuer, desperate for connection. But when the partner becomes available, stable, and loving, the Four may suddenly feel engulfed or bored. The 'ordinariness' of stable love threatens their need for high drama. They may unconsciously pick fights or focus on a partner's minor flaws to recreate the distance, so they can go back to the familiar, safe feeling of longing. \n\nFours often struggle to ask for their needs directly. They believe that 'if you loved me, you would just *know* what I need.' When their partner fails this impossible mind-reading test, the Four feels confirmed in their narrative that they are destined to be misunderstood. They need a partner who is grounded and patient—someone who can handle their emotional storms without being swept away, someone who can say, 'I see you are in a mood, and I love you, but I'm going to go watch TV until you're ready to join me.'\n\nTo thrive, Fours need to learn that ordinary love is not a compromise. They need to accept that their partner will have bad breath, boring stories, and flaws, and that this human messiness is actually more beautiful than the idealized fantasy. The greatest gift a partner can give a Four is consistent, non-reactive mirroring—validating their feelings without necessarily agreeing with their distorted facts.",
     "careerPaths": [
@@ -467,11 +614,26 @@
       }
     ],
     "growthAdvice": [
-      "**Discipline is the Vehicle, Not the Enemy.** Fours often view schedules and routines as stifling to their authentic flow. However, the psychological reality is that waiting for inspiration is a trap. Practice the 'Do It Anyway' principle. Commit to 15 minutes of creative work or exercise regardless of your mood. You will find that the mood often follows the action, not the other way around. This builds the 'Conscientiousness' muscle in the PRISM-7 model.",
-      "**Fact-Check Your Feelings.** You have a tendency to equate the intensity of a feeling with its truth. If you feel your partner is abandoning you, you assume they *are*. Practice 'Reality Testing.' When a strong negative emotion arises, ask: 'What is the actual evidence for this? Is there an alternative explanation?' Separate the data (he didn't text back) from the story (he hates me).",
-      "**Engage the Body to Exit the Mind.** Your loop of introspection happens entirely in your head and heart. To break a melancholy spiral, you must physically move. High-intensity exercise, gardening, or dancing forces you into the present moment. It is physiologically difficult to maintain a state of existential despair while sprinting or lifting heavy weights. Use your body to ground your spirit.",
-      "**Practice 'Ordinary' Gratitude.** Your envy feeds on the idea that you are missing the 'big' things. Counteract this by focusing on the micro-joys. Keep a journal not of your deep thoughts, but of small, sensory pleasures: the smell of coffee, the feeling of clean sheets. This rewires your brain to scan for presence rather than absence, moving you from Scarcity to Sufficiency.",
-      "**Stop Telling the 'Broken' Story.** Pay attention to how you introduce yourself and tell your history. Do you emphasize the tragedies, the illnesses, and the betrayals? Try re-narrating your life with a focus on resilience and agency. You are not a victim of your biography; you are the survivor of it. Changing your language changes your identity."
+      {
+        "title": "Discipline is the Vehicle, Not the Enemy.",
+        "description": "Fours often view schedules and routines as stifling to their authentic flow. However, the psychological reality is that waiting for inspiration is a trap. Practice the 'Do It Anyway' principle. Commit to 15 minutes of creative work or exercise regardless of your mood. You will find that the mood often follows the action, not the other way around. This builds the 'Conscientiousness' muscle in the PRISM-7 model."
+      },
+      {
+        "title": "Fact-Check Your Feelings.",
+        "description": "You have a tendency to equate the intensity of a feeling with its truth. If you feel your partner is abandoning you, you assume they *are*. Practice 'Reality Testing.' When a strong negative emotion arises, ask: 'What is the actual evidence for this? Is there an alternative explanation?' Separate the data (he didn't text back) from the story (he hates me)."
+      },
+      {
+        "title": "Engage the Body to Exit the Mind.",
+        "description": "Your loop of introspection happens entirely in your head and heart. To break a melancholy spiral, you must physically move. High-intensity exercise, gardening, or dancing forces you into the present moment. It is physiologically difficult to maintain a state of existential despair while sprinting or lifting heavy weights. Use your body to ground your spirit."
+      },
+      {
+        "title": "Practice 'Ordinary' Gratitude.",
+        "description": "Your envy feeds on the idea that you are missing the 'big' things. Counteract this by focusing on the micro-joys. Keep a journal not of your deep thoughts, but of small, sensory pleasures: the smell of coffee, the feeling of clean sheets. This rewires your brain to scan for presence rather than absence, moving you from Scarcity to Sufficiency."
+      },
+      {
+        "title": "Stop Telling the 'Broken' Story.",
+        "description": "Pay attention to how you introduce yourself and tell your history. Do you emphasize the tragedies, the illnesses, and the betrayals? Try re-narrating your life with a focus on resilience and agency. You are not a victim of your biography; you are the survivor of it. Changing your language changes your identity."
+      }
     ],
     "prismCorrelation": {
       "likelyTypes": [
@@ -558,7 +720,10 @@
       }
     ],
     "growthAdvice": [
-      "Practice 'somatic entry': When you find yourself stuck in a mental loop, force a physical sensation. Splash cold water on your face, do ten pushups, or walk barefoot on grass. This short-circuits the dissociation loop.",
+      {
+        "title": "Practice 'somatic entry'",
+        "description": "When you find yourself stuck in a mental loop, force a physical sensation. Splash cold water on your face, do ten pushups, or walk barefoot on grass. This short-circuits the dissociation loop."
+      },
       "Institute a '5-minute rule' for sharing. Commit to revealing one personal feeling (not a thought) to a trusted person daily. It trains the muscle of vulnerability without overwhelming your system.",
       "Recognize 'hoarding' triggers. When you feel the urge to decline an invitation or stay silent to 'save energy,' challenge it. Often, engagement generates energy rather than depleting it.",
       "Move from preparation to practice. If you are researching a hobby, set a hard deadline to actually *do* it. Accept that doing it imperfectly is better than understanding it perfectly but never experiencing it.",
@@ -582,7 +747,10 @@
     "coreMotivation": "To create certainty in an uncertain world, to test the intentions of others to ensure safety, to defend the group against threats, and to find an authority figure or belief system they can trust implicitly.",
     "description": [
       "The internal world of the Six is a landscape of constant, low-level vigilance—a radar system that never fully powers down. Unlike types who move through the world assuming a baseline of safety, the Six operates on the subconscious premise that the world is inherently unpredictable and potentially hostile. This isn't necessarily a trembling fear; often, it manifests as a robust, intellectual skepticism or a dry, reactive wit. The core wound of the Six is a loss of faith in their own inner guidance system. Somewhere in their developmental history, they internalized the message that they did not have the capacity to handle life's challenges alone, leading to a lifelong strategy of seeking external support—alliances, authorities, belief systems—while simultaneously doubting those very sources.",
-      "This dynamic creates the Six's defining paradox: they are the 'Loyal Skeptic.' They crave authority to provide a sense of direction, yet they are instinctively suspicious of anyone in power. They want to be told what to do to relieve the burden of anxiety, but they rebel the moment they feel controlled. This ambivalence stems from a cognitive habit of 'forecasting'—the Six's mind is a sophisticated simulation engine that runs multiple worst-case scenarios for every situation. Before a meeting begins, the Six has already calculated who might undermine them, what data is missing, and how to exit the room if a fire breaks out. This is not pessimism to them; it is responsible realism.",
+      {
+        "title": "This dynamic creates the Six's defining paradox",
+        "description": "they are the 'Loyal Skeptic.' They crave authority to provide a sense of direction, yet they are instinctively suspicious of anyone in power. They want to be told what to do to relieve the burden of anxiety, but they rebel the moment they feel controlled. This ambivalence stems from a cognitive habit of 'forecasting'—the Six's mind is a sophisticated simulation engine that runs multiple worst-case scenarios for every situation. Before a meeting begins, the Six has already calculated who might undermine them, what data is missing, and how to exit the room if a fire breaks out. This is not pessimism to them; it is responsible realism."
+      },
       "In the Head Center (Thinking Center), the Six deals with fear not by withdrawing (like the Five) or distracting (like the Seven), but by actively engaging with the source of the threat. This engagement splits Sixes into two distinct presentations: the Phobic Six, who manages fear by being compliant, cautious, and conflict-averse, seeking safety in the herd; and the Counterphobic Six, who manages fear by rushing toward it, often appearing aggressive, risk-taking, or defiant. Most Sixes oscillate between these modes depending on the context, being submissive to a trusted mentor while aggressively challenging a perceived corporate injustice.",
       "The Six's relationship with time is heavily skewed toward the future, but a specific version of it: the 'what if.' This mental time travel is physically exhausting. It often results in a somatic tightness—shoulders raised, jaw clenched, eyes darting—as if the body is bracing for an impact that hasn't happened. This somatic tension is the physical manifestation of their 'scanning' mechanism. They are excellent at reading non-verbal cues, often picking up on hidden agendas or shifts in emotional atmosphere that others miss. However, their interpretation of these cues is often colored by projection, attributing their own internal feelings of aggression or fear to the people around them.",
       "Developmentally, this pattern often arises from a childhood environment where the authority figures were inconsistent, unpredictable, or untrustworthy. Perhaps a parent was loving one moment and explosive the next, or perhaps the family faced a genuine external crisis that required hyper-vigilance. The child learned that safety lay in anticipating the caregiver's moods or the environment's shifts. To survive, they developed a heightened sensitivity to danger and a habit of 'checking in' with others before acting. This severed their connection to their own inner knowing, replacing intuition with a frantic mental committee that debates every decision.",
@@ -616,18 +784,48 @@
       "description": "Under extreme stress, when their safety strategies fail, the Six disintegrates toward Type Three. They panic about their survival and standing, adopting a frenetic, image-conscious workaholism. The usual collaborative nature of the Six vanishes, replaced by a competitive drive to prove their worth and silence their critics. They may become deceitful, covering up mistakes or projecting a false image of competence to avoid being targeted. The 'Loyalist' becomes a chameleon, shape-shifting to fit whatever role will ensure their survival. They may ruthlessly cut corners or betray their own values if it guarantees security. This manifestation is often marked by a hollow busyness—doing things just to be seen doing them—and a detachment from their own emotions. They mask their anxiety with a veneer of professional arrogance or efficiency. Recognizing this slide involves noticing when you stop caring about the truth and start caring only about the *appearance* of success, or when you begin viewing your allies as competitors in a zero-sum game."
     },
     "strengths": [
-      "**Crisis Leadership:** While others freeze or panic, the Six activates. Their constant mental rehearsal of worst-case scenarios means they are the only ones in the room with a plan when the actual fire alarm rings.",
-      "**Systemic Thinking:** They possess a unique ability to see the hidden interconnectedness of systems, identifying weak points in a contract, a timeline, or a social net that everyone else missed.",
-      "**Unshakeable Loyalty:** Once you are in their inner circle, a Six is a 'ride or die' ally who will defend your reputation, keep your secrets, and show up to help you move house at 4 AM.",
-      "**Community Building:** Driven by a need for shared safety, they are natural organizers who foster cooperation, ensuring everyone feels included and that the group structure is sound.",
-      "**Courageous Advocacy:** They are the whistleblowers and guardians of integrity, willing to risk their own safety to speak truth to power if they perceive injustice or a threat to the collective."
+      {
+        "title": "Crisis Leadership:",
+        "description": "While others freeze or panic, the Six activates. Their constant mental rehearsal of worst-case scenarios means they are the only ones in the room with a plan when the actual fire alarm rings."
+      },
+      {
+        "title": "Systemic Thinking:",
+        "description": "They possess a unique ability to see the hidden interconnectedness of systems, identifying weak points in a contract, a timeline, or a social net that everyone else missed."
+      },
+      {
+        "title": "Unshakeable Loyalty:",
+        "description": "Once you are in their inner circle, a Six is a 'ride or die' ally who will defend your reputation, keep your secrets, and show up to help you move house at 4 AM."
+      },
+      {
+        "title": "Community Building:",
+        "description": "Driven by a need for shared safety, they are natural organizers who foster cooperation, ensuring everyone feels included and that the group structure is sound."
+      },
+      {
+        "title": "Courageous Advocacy:",
+        "description": "They are the whistleblowers and guardians of integrity, willing to risk their own safety to speak truth to power if they perceive injustice or a threat to the collective."
+      }
     ],
     "challenges": [
-      "**Analysis Paralysis:** The tendency to over-research and solicit too many opinions can lead to a total inability to make simple decisions, as every option carries a terrifying potential risk.",
-      "**Projection:** They often attribute their own unconscious aggression, fear, or doubt to others, accusing partners of being angry or untrustworthy when it is actually the Six who is feeling unsettled.",
-      "**Catastrophizing:** The habit of jumping to the worst possible conclusion ('He didn't text back, he must be in a car accident or leaving me') drains their energy and creates unnecessary drama.",
-      "**Testing Relationships:** The subconscious habit of provoking conflict or acting out to see if the other person will stay, effectively trying to verify loyalty by straining it.",
-      "**Defensive Reactivity:** A hair-trigger response to perceived criticism or control, leading to rebellious outbursts that can sabotage their own goals and alienate potential allies."
+      {
+        "title": "Analysis Paralysis:",
+        "description": "The tendency to over-research and solicit too many opinions can lead to a total inability to make simple decisions, as every option carries a terrifying potential risk."
+      },
+      {
+        "title": "Projection:",
+        "description": "They often attribute their own unconscious aggression, fear, or doubt to others, accusing partners of being angry or untrustworthy when it is actually the Six who is feeling unsettled."
+      },
+      {
+        "title": "Catastrophizing:",
+        "description": "The habit of jumping to the worst possible conclusion ('He didn't text back, he must be in a car accident or leaving me') drains their energy and creates unnecessary drama."
+      },
+      {
+        "title": "Testing Relationships:",
+        "description": "The subconscious habit of provoking conflict or acting out to see if the other person will stay, effectively trying to verify loyalty by straining it."
+      },
+      {
+        "title": "Defensive Reactivity:",
+        "description": "A hair-trigger response to perceived criticism or control, leading to rebellious outbursts that can sabotage their own goals and alienate potential allies."
+      }
     ],
     "inRelationships": "In romantic relationships, the Six is a complex mix of profound devotion and subtle testing. Their core fear of abandonment and betrayal drives much of their relational behavior. Initially, a Six may be guarded, scanning the potential partner for inconsistencies. They are looking for the catch. 'You seem too good to be true, so what are you hiding?' is a common internal monologue. However, once a partner passes this vetting process, the Six commits with a depth and ferocity that is rare. They view the relationship as a sanctuary and will work tirelessly to protect and nurture it.\n\nThe Six brings gifts of warmth, humor, and practical care. They are the partners who remember to get your car inspected, who nurse you when you are sick, and who stand up for you in public. They want a partnership of equals—a 'team' against the world. They thrive on predictability and transparency; knowing where they stand is more important than grand romantic gestures. A Six feels loved when a partner is consistent, follows through on promises, and provides verbal reassurance.\n\nHowever, the challenges are significant. When the Six feels insecure, they don't always ask for a hug; they may pick a fight. This is the 'fight-flight' mechanism of the counterphobic Six: 'I'll push you away to see if you come back.' They may project their own doubts onto the partner, accusing them of losing interest or being unfaithful based on flimsy evidence. They struggle to believe that they are lovable for who they are, rather than for what they do or how safe they make the partner feel. They need a partner who can remain calm in the face of their anxiety, who doesn't take their skepticism personally, and who can gently reflect their projections back to them without judgment. The most toxic dynamic for a Six is a partner who is ambiguous, secretive, or gaslights them, as this confirms their worst fears about reality.",
     "careerPaths": [
@@ -653,11 +851,26 @@
       }
     ],
     "growthAdvice": [
-      "**Practice the 'Rule of Thirds' with Worry.** When you spiral into catastrophic thinking, force yourself to imagine three outcomes: the worst case (which you already have), the best case (which you ignore), and the most likely case (usually boring and manageable). This cognitive restructuring breaks the trance of the worst-case scenario and engages your rational brain.",
-      "**Body-Based Grounding.** Your anxiety lives in your head but manifests in your body. You cannot think your way out of fear. When the 'committee' starts shouting, physically engage with your environment. Push your feet into the floor; touch a textured surface; do ten pushups. Moving from the Head Center to the Body Center short-circuits the loop of mental reactivity.",
-      "**Verify Before You Vilify.** Recognize your tendency to project. If you think your boss is mad at you or your partner is distant, simply ask: 'I'm telling myself a story that you're upset—is that true?' This vulnerability (Honesty-Humility) cuts through the fog of suspicion and often reveals that the other person was just tired or distracted.",
-      "**Develop an 'Inner Committee' of Trust.** Consciously curate the voices in your head. Instead of the critical parent or the fearful child, visualize a wise mentor or a calm version of yourself. Consult this internal figure before seeking external advice. Build the muscle of making small decisions without asking anyone else, and celebrate when the world doesn't end.",
-      "**Accept Uncertainty as a Neutral State.** Sixes equate uncertainty with danger. Practice reframing uncertainty as simply 'openness.' Try to sit with the feeling of not knowing for 5 minutes a day without reaching for a phone, a plan, or a reassurance. Slowly desensitize yourself to the void, realizing that you are resilient enough to handle things *as they happen*, not just *before* they happen."
+      {
+        "title": "Practice the 'Rule of Thirds' with Worry.",
+        "description": "When you spiral into catastrophic thinking, force yourself to imagine three outcomes: the worst case (which you already have), the best case (which you ignore), and the most likely case (usually boring and manageable). This cognitive restructuring breaks the trance of the worst-case scenario and engages your rational brain."
+      },
+      {
+        "title": "Body-Based Grounding.",
+        "description": "Your anxiety lives in your head but manifests in your body. You cannot think your way out of fear. When the 'committee' starts shouting, physically engage with your environment. Push your feet into the floor; touch a textured surface; do ten pushups. Moving from the Head Center to the Body Center short-circuits the loop of mental reactivity."
+      },
+      {
+        "title": "Verify Before You Vilify.",
+        "description": "Recognize your tendency to project. If you think your boss is mad at you or your partner is distant, simply ask: 'I'm telling myself a story that you're upset—is that true?' This vulnerability (Honesty-Humility) cuts through the fog of suspicion and often reveals that the other person was just tired or distracted."
+      },
+      {
+        "title": "Develop an 'Inner Committee' of Trust.",
+        "description": "Consciously curate the voices in your head. Instead of the critical parent or the fearful child, visualize a wise mentor or a calm version of yourself. Consult this internal figure before seeking external advice. Build the muscle of making small decisions without asking anyone else, and celebrate when the world doesn't end."
+      },
+      {
+        "title": "Accept Uncertainty as a Neutral State.",
+        "description": "Sixes equate uncertainty with danger. Practice reframing uncertainty as simply 'openness.' Try to sit with the feeling of not knowing for 5 minutes a day without reaching for a phone, a plan, or a reassurance. Slowly desensitize yourself to the void, realizing that you are resilient enough to handle things *as they happen*, not just *before* they happen."
+      }
     ],
     "famousExamples": [
       {
@@ -813,24 +1026,57 @@
       "description": "Under significant stress, the Seven disintegrates to Type One. The usual flexibility and sunny optimism vanish, replaced by a rigid, critical, and perfectionistic edge. Feeling that their loose, improvisational style is failing to keep chaos at bay, they overcorrect into strict authoritarianism. They start lecturing others on 'how things should be done,' becoming pedantic and judgmental. The internal monologue shifts from 'Let's have fun' to 'Why am I the only one who does any work around here?' They may become obsessed with details, cleaning, or organizing in a frantic attempt to impose order on their crumbling internal world. This is often a sign that the Seven has overextended themselves and is running on fumes; the One disintegration is a desperate attempt by the psyche to slam the brakes and force discipline, albeit in a punitive and angry way."
     },
     "strengths": [
-      "**Visionary Synthesis**: They possess a unique cognitive ability to connect seemingly unrelated concepts (High Openness), allowing them to invent solutions and see possibilities that remain invisible to more linear thinkers.",
-      "**Resilient Optimism**: Their 'psychological immune system' is incredibly robust; they can reframe failures as data points and tragedies as origin stories, enabling them to bounce back from setbacks with startling speed.",
-      "**High-Velocity Learning**: Sevens are 'super-learners' who can absorb the 80% of a subject that matters in 20% of the time, making them invaluable in crises or rapid-prototyping environments.",
-      "**Infectious Motivation**: Their enthusiasm is not just internal; it is a transferable energy source. They can walk into a demoralized room and, through sheer force of personality, get everyone excited about a new direction.",
-      "**Adaptive Improvisation**: When plans fail, Sevens don't freeze—they pivot. Their low attachment to 'the way things were' allows them to instantly generate Plan B, C, and D."
+      {
+        "title": "Visionary Synthesis",
+        "description": "They possess a unique cognitive ability to connect seemingly unrelated concepts (High Openness), allowing them to invent solutions and see possibilities that remain invisible to more linear thinkers."
+      },
+      {
+        "title": "Resilient Optimism",
+        "description": "Their 'psychological immune system' is incredibly robust; they can reframe failures as data points and tragedies as origin stories, enabling them to bounce back from setbacks with startling speed."
+      },
+      {
+        "title": "High-Velocity Learning",
+        "description": "Sevens are 'super-learners' who can absorb the 80% of a subject that matters in 20% of the time, making them invaluable in crises or rapid-prototyping environments."
+      },
+      {
+        "title": "Infectious Motivation",
+        "description": "Their enthusiasm is not just internal; it is a transferable energy source. They can walk into a demoralized room and, through sheer force of personality, get everyone excited about a new direction."
+      },
+      {
+        "title": "Adaptive Improvisation",
+        "description": "When plans fail, Sevens don't freeze—they pivot. Their low attachment to 'the way things were' allows them to instantly generate Plan B, C, and D."
+      }
     ],
     "challenges": [
-      "**The Commitment Phobia Loop**: Their high Openness and low Conscientiousness create a terror of closing doors. They keep options open so long that opportunities expire, leaving them with nothing.",
-      "**Escapist Rationalization**: They are prone to 'intellectualizing' feelings rather than feeling them. They can explain *why* they are sad for hours without actually shedding a tear or processing the grief.",
-      "**The 'Shiny Object' Syndrome**: Their dopamine-driven attention span leads to a graveyard of half-finished projects. This erodes their self-trust and reputation over time.",
-      "**Narcissistic oblivious**: In their pursuit of their own needs and fun, they can be shockingly unaware of how their actions impact others, viewing people as supporting characters in their movie.",
-      "**Intolerance of Boredom**: They treat boredom as an emergency rather than a natural state, leading to constant, exhausting stimulation-seeking that prevents deep work or rest."
+      {
+        "title": "The Commitment Phobia Loop",
+        "description": "Their high Openness and low Conscientiousness create a terror of closing doors. They keep options open so long that opportunities expire, leaving them with nothing."
+      },
+      {
+        "title": "Escapist Rationalization",
+        "description": "They are prone to 'intellectualizing' feelings rather than feeling them. They can explain *why* they are sad for hours without actually shedding a tear or processing the grief."
+      },
+      {
+        "title": "The 'Shiny Object' Syndrome",
+        "description": "Their dopamine-driven attention span leads to a graveyard of half-finished projects. This erodes their self-trust and reputation over time."
+      },
+      {
+        "title": "Narcissistic oblivious",
+        "description": "In their pursuit of their own needs and fun, they can be shockingly unaware of how their actions impact others, viewing people as supporting characters in their movie."
+      },
+      {
+        "title": "Intolerance of Boredom",
+        "description": "They treat boredom as an emergency rather than a natural state, leading to constant, exhausting stimulation-seeking that prevents deep work or rest."
+      }
     ],
     "inRelationships": "In romantic relationships, the Seven is a 'Fantasist.' They begin relationships with a burst of idealization, projecting a cinematic quality onto the partner. They are generous, exciting, and eager to share their world of adventures. Dates with Sevens are never boring—they are curated experiences designed to elicit maximum joy. \n\nHowever, the core fear of deprivation creates a 'Bait and Switch' dynamic. The Seven lures a partner in with the promise of intimacy, but often defines intimacy as 'shared fun' rather than 'shared vulnerability.' When the relationship hits the inevitable plateau of routine, or when the partner has needs that are 'heavy' (sickness, depression, financial stress), the Seven's flight instinct triggers. They may physically leave, or emotionally check out, burying themselves in hobbies or work to avoid the 'drag' of the partner's reality. \n\nPartners often feel they have to 'audition' to keep the Seven's attention. The Seven struggles to ask for their own deep emotional needs to be met because they fear being a burden (which would lead to rejection/deprivation). Instead, they try to charm their partner into meeting their needs. \n\n**The Pitfall**: The Seven often subconsciously picks partners who are 'anchors' (stable, predictable types) to ground them, but then resents the partner for being 'boring' or 'controlling.' \n\n**The Gift**: When a Seven commits to the work of a relationship, they bring a spirit of renewal that keeps the partnership fresh for decades. They teach their partners how to play, how to forgive quickly, and how to find wonder in the everyday. A healthy Seven partner is a champion of their loved one's dreams, using their visionary energy to help the partner see a bigger version of themselves.",
     "careerPaths": [
       {
         "title": "Serial Entrepreneur / Founder",
-        "reason": "The ideal role for a Seven involves the '0 to 1' phase: ideation, pitching, and launch. The chaotic, high-stakes environment of a startup utilizes their high risk tolerance and ability to pivot. \n*Day in the Life*: Brainstorming a new product feature in the morning, pitching to VCs at lunch, and redesigning the marketing strategy in the afternoon. The lack of routine is the routine."
+        "reason": {
+          "title": "The ideal role for a Seven involves the '0 to 1' phase",
+          "description": "ideation, pitching, and launch. The chaotic, high-stakes environment of a startup utilizes their high risk tolerance and ability to pivot. \n*Day in the Life*: Brainstorming a new product feature in the morning, pitching to VCs at lunch, and redesigning the marketing strategy in the afternoon. The lack of routine is the routine."
+        }
       },
       {
         "title": "Travel Journalist / Vlogger",
@@ -850,11 +1096,26 @@
       }
     ],
     "growthAdvice": [
-      "**Practice 'Just One Thing'**: When the impulse arises to switch tasks or check your phone, force yourself to wait 10 minutes. This builds the 'inhibition muscle' in the prefrontal cortex, strengthening the Conscientiousness dimension. Progress looks like finishing a book before buying a new one.",
-      "**The 50% Rule**: Assume you can only actually accomplish 50% of what you plan in a day. Cut your to-do list in half. This prevents the cycle of over-promising and under-delivering that damages your self-esteem and reputation.",
-      "**Somatic Grounding**: When you feel anxiety or the urge to flee, focus on the physical sensation of your feet on the floor. Get out of your head (future) and into your body (present). If you feel sad, do not reframe it. Set a timer for 5 minutes and just *feel* the sadness physically.",
-      "**Negative Visualization**: Instead of only imagining best-case scenarios, briefly practice Stoic negative visualization. Ask, 'If this goes wrong, can I handle it?' This reduces the subconscious terror of pain and makes you less flighty when difficulties actually arise.",
-      "**Define 'Freedom' Differently**: Realize that absolute freedom is absolute chaos. True freedom comes from choosing your constraints. Committing to one person or career gives you the freedom to go *deep*, which is a territory you haven't explored yet."
+      {
+        "title": "Practice 'Just One Thing'",
+        "description": "When the impulse arises to switch tasks or check your phone, force yourself to wait 10 minutes. This builds the 'inhibition muscle' in the prefrontal cortex, strengthening the Conscientiousness dimension. Progress looks like finishing a book before buying a new one."
+      },
+      {
+        "title": "The 50% Rule",
+        "description": "Assume you can only actually accomplish 50% of what you plan in a day. Cut your to-do list in half. This prevents the cycle of over-promising and under-delivering that damages your self-esteem and reputation."
+      },
+      {
+        "title": "Somatic Grounding",
+        "description": "When you feel anxiety or the urge to flee, focus on the physical sensation of your feet on the floor. Get out of your head (future) and into your body (present). If you feel sad, do not reframe it. Set a timer for 5 minutes and just *feel* the sadness physically."
+      },
+      {
+        "title": "Negative Visualization",
+        "description": "Instead of only imagining best-case scenarios, briefly practice Stoic negative visualization. Ask, 'If this goes wrong, can I handle it?' This reduces the subconscious terror of pain and makes you less flighty when difficulties actually arise."
+      },
+      {
+        "title": "Define 'Freedom' Differently",
+        "description": "Realize that absolute freedom is absolute chaos. True freedom comes from choosing your constraints. Committing to one person or career gives you the freedom to go *deep*, which is a territory you haven't explored yet."
+      }
     ],
     "prismCorrelation": {
       "likelyTypes": [
@@ -908,18 +1169,48 @@
       "description": "Under conditions of high stress, the expansive and assertive Eight disintegrates toward Type Five (The Investigator). When their usual strategy of frontal assault fails to control the environment, the Eight retreats. They pull back from the world to strategize, becoming secretive, cynical, and emotionally detached. The usually physically present Eight becomes a 'head type,' obsessing over data, hoarding information, and analyzing worst-case scenarios. They may lock themselves in their office or home, refusing to engage, brooding over perceived betrayals. This movement is driven by a fear that they lack the resources to cope, so they must conserve energy and minimize dependency. While this can temporarily provide a necessary pause for reflection, in the long term, it manifests as paranoia and isolation. A stressed Eight becomes cold and calculating, treating people like variables in a failed equation rather than human beings. They lose their characteristic boldness and become paralyzed by the need to 'figure it out' before acting."
     },
     "strengths": [
-      "**Indomitable Will**: Eights possess a reservoir of stamina that allows them to push through obstacles that would break others. Whether it's a physical marathon or a corporate turnaround, they have the grit to finish what they start.",
-      "**Decisive Crisis Management**: In emergencies, while others panic or hesitate, the Eight instinctively takes charge. They cut through the noise, identify the core problem, and issue clear directives that save time and lives.",
-      "**Radical Authenticity**: You never have to guess where you stand with an Eight. They detest manipulation and passive-aggression, offering a refreshing (if blunt) honesty that cuts to the heart of the matter.",
-      "**Protective Stewardship**: Eights are fierce champions of their 'people.' If you are in their inner circle, they will defend you against any threat, using their power to shield the vulnerable from injustice.",
-      "**Visionary Execution**: They bridge the gap between big ideas and reality. Eights don't just dream; they build. They have the pragmatic intelligence to operationalize complex visions and mobilize teams to achieve them."
+      {
+        "title": "Indomitable Will",
+        "description": "Eights possess a reservoir of stamina that allows them to push through obstacles that would break others. Whether it's a physical marathon or a corporate turnaround, they have the grit to finish what they start."
+      },
+      {
+        "title": "Decisive Crisis Management",
+        "description": "In emergencies, while others panic or hesitate, the Eight instinctively takes charge. They cut through the noise, identify the core problem, and issue clear directives that save time and lives."
+      },
+      {
+        "title": "Radical Authenticity",
+        "description": "You never have to guess where you stand with an Eight. They detest manipulation and passive-aggression, offering a refreshing (if blunt) honesty that cuts to the heart of the matter."
+      },
+      {
+        "title": "Protective Stewardship",
+        "description": "Eights are fierce champions of their 'people.' If you are in their inner circle, they will defend you against any threat, using their power to shield the vulnerable from injustice."
+      },
+      {
+        "title": "Visionary Execution",
+        "description": "They bridge the gap between big ideas and reality. Eights don't just dream; they build. They have the pragmatic intelligence to operationalize complex visions and mobilize teams to achieve them."
+      }
     ],
     "challenges": [
-      "**Emotional Armoring**: The Eight's refusal to show vulnerability can leave them emotionally isolated. By rejecting their own 'soft' feelings (sadness, fear), they lose the ability to empathize deeply with others, often seeming callous.",
-      "**Binary Thinking**: Eights tend to split the world into 'friends' and 'enemies,' or 'strong' and 'weak.' This lack of nuance causes them to write off valuable people and miss the subtle complexities of human relationships.",
-      "**Intimidation as Default**: They often do not realize how aggressive they appear. An Eight might think they are just having a 'lively debate,' while the other person feels verbally assaulted and unsafe.",
-      "**Rejection of Dependency**: Their extreme need for autonomy makes it nearly impossible for them to ask for help. This leads to burnout and prevents them from experiencing the interdependent support that sustains long-term success.",
-      "**Impulse Control**: The lust for intensity can lead to excess—working too hard, spending too much, or reacting with explosive anger before gathering the facts. This reactivity often sabotages their long-term goals."
+      {
+        "title": "Emotional Armoring",
+        "description": "The Eight's refusal to show vulnerability can leave them emotionally isolated. By rejecting their own 'soft' feelings (sadness, fear), they lose the ability to empathize deeply with others, often seeming callous."
+      },
+      {
+        "title": "Binary Thinking",
+        "description": "Eights tend to split the world into 'friends' and 'enemies,' or 'strong' and 'weak.' This lack of nuance causes them to write off valuable people and miss the subtle complexities of human relationships."
+      },
+      {
+        "title": "Intimidation as Default",
+        "description": "They often do not realize how aggressive they appear. An Eight might think they are just having a 'lively debate,' while the other person feels verbally assaulted and unsafe."
+      },
+      {
+        "title": "Rejection of Dependency",
+        "description": "Their extreme need for autonomy makes it nearly impossible for them to ask for help. This leads to burnout and prevents them from experiencing the interdependent support that sustains long-term success."
+      },
+      {
+        "title": "Impulse Control",
+        "description": "The lust for intensity can lead to excess—working too hard, spending too much, or reacting with explosive anger before gathering the facts. This reactivity often sabotages their long-term goals."
+      }
     ],
     "inRelationships": "In romantic relationships, the Eight is a complex mix of passion, loyalty, and control. Their primary love language is often protection; they show they care by taking charge of problems, fixating on their partner's safety, and fighting their battles. However, the core fear of betrayal makes the initial stages of a relationship a rigorous 'testing ground.' An Eight will subconsciously (or consciously) provoke their partner to see if they will crumble or stand firm. They are looking for an equal—someone who can handle their intensity without shrinking, yet who is honest enough not to manipulate them.\n\nOnce an Eight commits, they are fiercely loyal and possessive in the protective sense. They want to be the rock for their partner. However, intimacy requires vulnerability, which is the Eight's kryptonite. They often struggle to let their guard down, fearing that if they show their tender side, it will be used against them. This can lead to a dynamic where the Eight controls all the decision-making (finances, plans, household management) to avoid the vulnerability of dependency. They may steamroll their partner's needs, not out of malice, but out of a blindness to subtle emotional signals.\n\nFor a relationship to thrive, the partner of an Eight must be strong enough to set boundaries (which the Eight respects) but soft enough to model vulnerability. The Eight needs to learn that their partner's emotions are not problems to be 'fixed' or 'crushed,' but experiences to be shared. The most transformative moment for an Eight in love is when they allow themselves to be held, to be weak, and to admit that they need their partner. When they find a safe harbor where they can hang up their armor, they become incredibly devoted, tender, and generous lovers who will move mountains for their family.",
     "careerPaths": [
@@ -945,11 +1236,26 @@
       }
     ],
     "growthAdvice": [
-      "**Practice the 'Pause'**: The Eight's gut instinct is instant, but often reactive. Before responding to a trigger, force a five-second pause. This engages the prefrontal cortex (Head center) and allows empathy (Heart center) to catch up. It prevents the 'scorched earth' reaction that you often regret later.",
-      "**Delegate Authority, Not Just Tasks**: Eights often micromanage because they don't trust others to be strong enough. True leadership is building strength in others. Hand over a project and *leave the room*. This builds trust and frees you from the exhaustion of carrying the world on your shoulders.",
-      "**Identify 'Innocence' in Others**: consciously look for the innocence and fragility in the people you find annoying or weak. Remind yourself that their sensitivity is a valid way of being, not a defect. This exercise helps reintegrate your own projected inner child and softens your rough edges.",
-      "**Physical Decompression**: Your body stores rage and tension. Engage in non-competitive physical release like yoga, massage, or solitary hiking. Competitive sports often just rev up the adrenaline; you need practices that signal to your nervous system that the war is over and it is safe to rest.",
-      "**The vulnerability Experiment**: Once a week, share a fear, a doubt, or a sadness with a trusted person. Do not wrap it in a joke or a solution. Just state the feeling. Observe that the world does not end and that the relationship actually strengthens. This rewires the core belief that weakness equals death."
+      {
+        "title": "Practice the 'Pause'",
+        "description": "The Eight's gut instinct is instant, but often reactive. Before responding to a trigger, force a five-second pause. This engages the prefrontal cortex (Head center) and allows empathy (Heart center) to catch up. It prevents the 'scorched earth' reaction that you often regret later."
+      },
+      {
+        "title": "Delegate Authority, Not Just Tasks",
+        "description": "Eights often micromanage because they don't trust others to be strong enough. True leadership is building strength in others. Hand over a project and *leave the room*. This builds trust and frees you from the exhaustion of carrying the world on your shoulders."
+      },
+      {
+        "title": "Identify 'Innocence' in Others",
+        "description": "consciously look for the innocence and fragility in the people you find annoying or weak. Remind yourself that their sensitivity is a valid way of being, not a defect. This exercise helps reintegrate your own projected inner child and softens your rough edges."
+      },
+      {
+        "title": "Physical Decompression",
+        "description": "Your body stores rage and tension. Engage in non-competitive physical release like yoga, massage, or solitary hiking. Competitive sports often just rev up the adrenaline; you need practices that signal to your nervous system that the war is over and it is safe to rest."
+      },
+      {
+        "title": "The vulnerability Experiment",
+        "description": "Once a week, share a fear, a doubt, or a sadness with a trusted person. Do not wrap it in a joke or a solution. Just state the feeling. Observe that the world does not end and that the relationship actually strengthens. This rewires the core belief that weakness equals death."
+      }
     ],
     "famousExamples": [
       {

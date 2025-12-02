@@ -56,7 +56,7 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
       <Header />
 
       {/* Breadcrumbs */}
-      <div className="container mx-auto px-4 pt-4">
+      <div className="container mx-auto px-4 sm:px-6 pt-6 pb-2">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 

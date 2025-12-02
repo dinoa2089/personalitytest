@@ -42,7 +42,10 @@
       "subsections": [
         {
           "heading": "The Shadow Self",
-          "content": "Recognize the signs of the 'Fi Grip':\n*   **Emotional Volatility:** Sudden, intense mood swings that feel uncontrollable.\n*   **Paranoia:** Believing that others are plotting against you or secretly despise you.\n*   **Withdrawal:** Isolating yourself to wallow in feelings of failure.\n*   **Victim Mentality:** A sudden shift from \"I control my destiny\" to \"The world is against me.\""
+          "content": {
+            "title": "Recognize the signs of the 'Fi Grip'",
+            "description": "*   **Emotional Volatility:** Sudden, intense mood swings that feel uncontrollable.\n*   **Paranoia:** Believing that others are plotting against you or secretly despise you.\n*   **Withdrawal:** Isolating yourself to wallow in feelings of failure.\n*   **Victim Mentality:** A sudden shift from \"I control my destiny\" to \"The world is against me.\""
+          }
         }
       ]
     },
@@ -52,7 +55,10 @@
       "subsections": [
         {
           "heading": "Actionable Tactics",
-          "content": "Deploy these strategies immediately when pressure mounts:\n*   **The Brain Dump:** Get everything out of your head and onto a whiteboard. If it's written down, it can be managed.\n*   **Sensory Reset:** Engage your Se healthily. Take a cold shower, go for a sprint, or listen to complex music at high volume to break the mental loop.\n*   **The 10-10-10 Rule:** Ask how this will affect you in 10 minutes, 10 months, and 10 years.\n*   **Scheduled Worry:** Allocate 15 minutes a day to worry intensely, then force your brain to switch gears when the timer goes off."
+          "content": {
+            "title": "Deploy these strategies immediately when pressure mounts",
+            "description": "*   **The Brain Dump:** Get everything out of your head and onto a whiteboard. If it's written down, it can be managed.\n*   **Sensory Reset:** Engage your Se healthily. Take a cold shower, go for a sprint, or listen to complex music at high volume to break the mental loop.\n*   **The 10-10-10 Rule:** Ask how this will affect you in 10 minutes, 10 months, and 10 years.\n*   **Scheduled Worry:** Allocate 15 minutes a day to worry intensely, then force your brain to switch gears when the timer goes off."
+          }
         }
       ]
     },
@@ -62,7 +68,10 @@
       "subsections": [
         {
           "heading": "The Active Recovery Menu",
-          "content": "Choose activities that engage without draining:\n*   **Competitive Sports:** Tennis, martial arts, or CrossFit allow you to channel aggression constructively.\n*   **Intellectual Hobbies:** Chess, strategy games, or learning a language keep the mind sharp but focused elsewhere.\n*   **Nature Immersion:** Hiking or kayaking provides a sensory reset and perspective.\n*   **Socializing with Peers:** meaningful debate with intellectual equals is energizing, unlike small talk which is draining."
+          "content": {
+            "title": "Choose activities that engage without draining",
+            "description": "*   **Competitive Sports:** Tennis, martial arts, or CrossFit allow you to channel aggression constructively.\n*   **Intellectual Hobbies:** Chess, strategy games, or learning a language keep the mind sharp but focused elsewhere.\n*   **Nature Immersion:** Hiking or kayaking provides a sensory reset and perspective.\n*   **Socializing with Peers:** meaningful debate with intellectual equals is energizing, unlike small talk which is draining."
+          }
         }
       ]
     },
@@ -72,7 +81,10 @@
       "subsections": [
         {
           "heading": "Strategic Life Design",
-          "content": "Implement these habits for long-term strength:\n*   **Value Alignment:** Quarterly reviews to ensure your career matches your core values.\n*   **Emotional Literacy:** Journaling or therapy to practice articulating feelings before they explode.\n*   **Diversified Identity:** cultivating hobbies and relationships so your self-worth isn't 100% tied to professional success.\n*   **The Inner Circle:** Curating a small group of trusted advisors with whom you can be vulnerable."
+          "content": {
+            "title": "Implement these habits for long-term strength",
+            "description": "*   **Value Alignment:** Quarterly reviews to ensure your career matches your core values.\n*   **Emotional Literacy:** Journaling or therapy to practice articulating feelings before they explode.\n*   **Diversified Identity:** cultivating hobbies and relationships so your self-worth isn't 100% tied to professional success.\n*   **The Inner Circle:** Curating a small group of trusted advisors with whom you can be vulnerable."
+          }
         }
       ]
     },

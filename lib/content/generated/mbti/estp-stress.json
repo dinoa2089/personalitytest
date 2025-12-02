@@ -22,15 +22,24 @@
       "subsections": [
         {
           "heading": "The Cage of Routine",
-          "content": "**Trigger:** Repetitive, detail-oriented tasks with no variation (e.g., data entry, rigid assembly lines).\n**Why it hurts:** It starves your need for novelty and sensory engagement, leading to under-stimulation stress."
+          "content": {
+            "title": "Trigger:",
+            "description": "Repetitive, detail-oriented tasks with no variation (e.g., data entry, rigid assembly lines).\n**Why it hurts:** It starves your need for novelty and sensory engagement, leading to under-stimulation stress."
+          }
         },
         {
           "heading": "Helplessness and Inaction",
-          "content": "**Trigger:** Situations where no amount of action can change the outcome (e.g., waiting for a medical diagnosis, stuck in gridlock traffic).\n**Why it hurts:** Your primary coping mechanism is *doing*. When action is removed, anxiety spikes."
+          "content": {
+            "title": "Trigger:",
+            "description": "Situations where no amount of action can change the outcome (e.g., waiting for a medical diagnosis, stuck in gridlock traffic).\n**Why it hurts:** Your primary coping mechanism is *doing*. When action is removed, anxiety spikes."
+          }
         },
         {
           "heading": "The 'Ni' Overload",
-          "content": "**Trigger:** Being forced to interpret hidden meanings, read between the lines, or predict long-term abstract consequences without data.\n**Why it hurts:** This forces you into your inferior function, Introverted Intuition (Ni), making you feel incompetent and paranoid."
+          "content": {
+            "title": "Trigger:",
+            "description": "Being forced to interpret hidden meanings, read between the lines, or predict long-term abstract consequences without data.\n**Why it hurts:** This forces you into your inferior function, Introverted Intuition (Ni), making you feel incompetent and paranoid."
+          }
         }
       ]
     },
@@ -76,7 +85,10 @@
         },
         {
           "heading": "Sensory Grounding 5-4-3-2-1",
-          "content": "If you feel panic rising: Name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste. This forces your brain out of the 'Ni' future and back into the 'Se' present."
+          "content": {
+            "title": "If you feel panic rising",
+            "description": "Name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste. This forces your brain out of the 'Ni' future and back into the 'Se' present."
+          }
         },
         {
           "heading": "The 'Brain Dump' List",
@@ -158,12 +170,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Action is the Antidote:** You cannot think your way out of stress; you must move your way out through physical engagement.",
-    "**Beware the Grip:** Recognize when you start paranoid obsessing about the future—that is your inferior Ni taking over.",
-    "**Freedom is Essential:** The feeling of being trapped or micromanaged is your biggest trigger; seek autonomy in your work and life.",
-    "**Tactical Breathing & Movement:** Use high-intensity exercise or sensory grounding techniques to flush cortisol from your system.",
-    "**Practical Support:** You need partners who offer solutions and shared activities, not just emotional processing.",
-    "**Short-Term Focus:** When overwhelmed, stop looking 5 years ahead. Focus on the next 30 minutes and the concrete tasks in front of you."
+    {
+      "title": "Action is the Antidote:",
+      "description": "You cannot think your way out of stress; you must move your way out through physical engagement."
+    },
+    {
+      "title": "Beware the Grip:",
+      "description": "Recognize when you start paranoid obsessing about the future—that is your inferior Ni taking over."
+    },
+    {
+      "title": "Freedom is Essential:",
+      "description": "The feeling of being trapped or micromanaged is your biggest trigger; seek autonomy in your work and life."
+    },
+    {
+      "title": "Tactical Breathing & Movement:",
+      "description": "Use high-intensity exercise or sensory grounding techniques to flush cortisol from your system."
+    },
+    {
+      "title": "Practical Support:",
+      "description": "You need partners who offer solutions and shared activities, not just emotional processing."
+    },
+    {
+      "title": "Short-Term Focus:",
+      "description": "When overwhelmed, stop looking 5 years ahead. Focus on the next 30 minutes and the concrete tasks in front of you."
+    }
   ],
   "relatedTopics": [
     "learning",

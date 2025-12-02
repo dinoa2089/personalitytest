@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Core Competencies",
-          "content": "**Systematic Vision:** You don't just solve problems; you build systems that prevent problems from recurring. You view your team and your projects as interconnected engines.\n**Objective Fairness:** Because you value data over emotion, you are naturally fair. You judge people on their output and the quality of their thinking, not on their social maneuvering.\n**Crisis Stabilization:** When emotions run high, your pulse stays low. You are at your best when the problem is complex and the stakes are high."
+          "content": {
+            "title": "Systematic Vision:",
+            "description": "You don't just solve problems; you build systems that prevent problems from recurring. You view your team and your projects as interconnected engines.\n**Objective Fairness:** Because you value data over emotion, you are naturally fair. You judge people on their output and the quality of their thinking, not on their social maneuvering.\n**Crisis Stabilization:** When emotions run high, your pulse stays low. You are at your best when the problem is complex and the stakes are high."
+          }
         }
       ]
     },
@@ -42,7 +45,10 @@
       "subsections": [
         {
           "heading": "The Motivation Toolkit",
-          "content": "**The 'Why' Factor:** Always explain the strategic logic behind a decision. Your team will run through walls for you if they understand the architectural necessity of the wall.\n**Resource Provision:** You show care not by hugs, but by fighting for the budget, software, and time your team needs to do quality work.\n**Professional Growth:** Motivate by offering complex problems to solve. Frame new projects as opportunities to master new skills."
+          "content": {
+            "title": "The 'Why' Factor:",
+            "description": "Always explain the strategic logic behind a decision. Your team will run through walls for you if they understand the architectural necessity of the wall.\n**Resource Provision:** You show care not by hugs, but by fighting for the budget, software, and time your team needs to do quality work.\n**Professional Growth:** Motivate by offering complex problems to solve. Frame new projects as opportunities to master new skills."
+          }
         }
       ]
     },
@@ -52,7 +58,10 @@
       "subsections": [
         {
           "heading": "Optimizing Your Process",
-          "content": "**The 70% Rule:** Adopt the Marine Corps heuristic—if you have 70% of the information and 70% of the analysis, go. You can correct course later.\n**Time-Boxing:** Set strict deadlines for the 'research phase.' When the timer goes off, you must decide based on what you have.\n**Designated Dissenter:** Since you trust your own logic deeply, appoint someone on your team to specifically poke holes in your argument to prevent confirmation bias."
+          "content": {
+            "title": "The 70% Rule:",
+            "description": "Adopt the Marine Corps heuristic—if you have 70% of the information and 70% of the analysis, go. You can correct course later.\n**Time-Boxing:** Set strict deadlines for the 'research phase.' When the timer goes off, you must decide based on what you have.\n**Designated Dissenter:** Since you trust your own logic deeply, appoint someone on your team to specifically poke holes in your argument to prevent confirmation bias."
+          }
         }
       ]
     },
@@ -62,7 +71,10 @@
       "subsections": [
         {
           "heading": "Watch Out For",
-          "content": "**The Silo Effect:** You prefer independence, so you might inadvertently create a team of silos where people don't collaborate. You need to engineer collision points for your team.\n**Tone Deafness:** In moments of celebration or grief, logic is not the language required. Learn to switch codes to emotional language when the context demands it."
+          "content": {
+            "title": "The Silo Effect:",
+            "description": "You prefer independence, so you might inadvertently create a team of silos where people don't collaborate. You need to engineer collision points for your team.\n**Tone Deafness:** In moments of celebration or grief, logic is not the language required. Learn to switch codes to emotional language when the context demands it."
+          }
         }
       ]
     },
@@ -72,7 +84,10 @@
       "subsections": [
         {
           "heading": "Actionable Growth Strategies",
-          "content": "**The 'Sandwich' Technique (Modified):** You hate the 'compliment-criticism-compliment' sandwich because it feels fake. Instead, use the 'Standard-Gap-Belief' model: 'Here is the high standard (Standard), here is where you missed it (Gap), and here is why I know you can bridge that gap (Belief).'\n**Active Listening Drills:** In your next 1:1, try to listen for 5 minutes without offering a solution or judgment. Just paraphrase what they said. It will be excruciatingly hard, but highly valuable."
+          "content": {
+            "title": "The 'Sandwich' Technique (Modified):",
+            "description": "You hate the 'compliment-criticism-compliment' sandwich because it feels fake. Instead, use the 'Standard-Gap-Belief' model: 'Here is the high standard (Standard), here is where you missed it (Gap), and here is why I know you can bridge that gap (Belief).'\n**Active Listening Drills:** In your next 1:1, try to listen for 5 minutes without offering a solution or judgment. Just paraphrase what they said. It will be excruciatingly hard, but highly valuable."
+          }
         }
       ]
     },
@@ -82,7 +97,10 @@
       "subsections": [
         {
           "heading": "Ideal Roles",
-          "content": "**CTO / VP of Engineering:** Where systems and code matter more than politics.\n**Director of Strategy / Operations:** Where data drives the roadmap.\n**Financial Controller / CFO:** Where accuracy is the only metric that counts.\n**Head of Research:** Where curiosity and rigorous methodology are the product."
+          "content": {
+            "title": "CTO / VP of Engineering:",
+            "description": "Where systems and code matter more than politics.\n**Director of Strategy / Operations:** Where data drives the roadmap.\n**Financial Controller / CFO:** Where accuracy is the only metric that counts.\n**Head of Research:** Where curiosity and rigorous methodology are the product."
+          }
         }
       ]
     }
@@ -102,11 +120,26 @@
     }
   ],
   "keyTakeaways": [
-    "**Lead with Logic:** Your strength is your ability to remain objective and calm in chaos. Use data to anchor your team.",
-    "**Systematize Delegation:** Don't just hand off tasks; build frameworks and SOPs that allow your team to execute with your level of precision.",
-    "**Beware Analysis Paralysis:** Learn to make decisions with 70% of the information. Speed is often a quality of its own.",
-    "**Value Emotional Data:** Treat team morale and office politics as complex systems to be analyzed, not annoyances to be ignored.",
-    "**Find Your Niche:** You thrive in complex, high-stakes environments like R&D, Operations, and Turnarounds where accuracy trumps charisma."
+    {
+      "title": "Lead with Logic:",
+      "description": "Your strength is your ability to remain objective and calm in chaos. Use data to anchor your team."
+    },
+    {
+      "title": "Systematize Delegation:",
+      "description": "Don't just hand off tasks; build frameworks and SOPs that allow your team to execute with your level of precision."
+    },
+    {
+      "title": "Beware Analysis Paralysis:",
+      "description": "Learn to make decisions with 70% of the information. Speed is often a quality of its own."
+    },
+    {
+      "title": "Value Emotional Data:",
+      "description": "Treat team morale and office politics as complex systems to be analyzed, not annoyances to be ignored."
+    },
+    {
+      "title": "Find Your Niche:",
+      "description": "You thrive in complex, high-stakes environments like R&D, Operations, and Turnarounds where accuracy trumps charisma."
+    }
   ],
   "relatedTopics": [
     "learning",

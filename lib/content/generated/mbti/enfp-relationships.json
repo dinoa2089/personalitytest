@@ -98,7 +98,10 @@
     },
     {
       "question": "Why do ENFPs pull away in relationships?",
-      "answer": "An ENFP usually pulls away for two reasons: they feel their freedom is being threatened (feeling controlled or micromanaged), or they feel the emotional connection has become superficial. They may also withdraw to process their feelings (Fi) if they feel misunderstood, before re-emerging to discuss it."
+      "answer": {
+        "title": "An ENFP usually pulls away for two reasons",
+        "description": "they feel their freedom is being threatened (feeling controlled or micromanaged), or they feel the emotional connection has become superficial. They may also withdraw to process their feelings (Fi) if they feel misunderstood, before re-emerging to discuss it."
+      }
     },
     {
       "question": "Are ENFPs loyal?",

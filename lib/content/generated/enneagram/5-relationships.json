@@ -118,13 +118,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Energy is Currency:** Fives view social interaction as an energy expense; respect their need to recharge.",
-    "**Love is Loyalty:** Fives may not be effusive, but they are deeply loyal and reliable partners who offer objective support.",
-    "**Parallel Play:** Intimacy for a Five often looks like being alone together—sharing space without constant interaction.",
-    "**Intellectual Connection:** Attraction is often cerebral; Fives need a partner who can meet them mentally.",
-    "**The Fortress:** Fives have high walls; patience and low-pressure invitations are the keys to being let inside.",
-    "**Growth to Eight:** A healthy Five in a relationship becomes more embodied, decisive, and protective.",
-    "**Action over Analysis:** The main challenge for Fives is stepping out of their thoughts and fully participating in the relationship."
+    {
+      "title": "Energy is Currency:",
+      "description": "Fives view social interaction as an energy expense; respect their need to recharge."
+    },
+    {
+      "title": "Love is Loyalty:",
+      "description": "Fives may not be effusive, but they are deeply loyal and reliable partners who offer objective support."
+    },
+    {
+      "title": "Parallel Play:",
+      "description": "Intimacy for a Five often looks like being alone together—sharing space without constant interaction."
+    },
+    {
+      "title": "Intellectual Connection:",
+      "description": "Attraction is often cerebral; Fives need a partner who can meet them mentally."
+    },
+    {
+      "title": "The Fortress:",
+      "description": "Fives have high walls; patience and low-pressure invitations are the keys to being let inside."
+    },
+    {
+      "title": "Growth to Eight:",
+      "description": "A healthy Five in a relationship becomes more embodied, decisive, and protective."
+    },
+    {
+      "title": "Action over Analysis:",
+      "description": "The main challenge for Fives is stepping out of their thoughts and fully participating in the relationship."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -75,7 +75,10 @@
       "subsections": [
         {
           "heading": "Recommended Resources",
-          "content": "**Books:**\n*   *Atomic Habits* by James Clear: The ultimate manual for the systematic mind.\n*   *Meditations* by Marcus Aurelius: Ancient wisdom that validates your sense of duty while teaching acceptance.\n*   *Quiet: The Power of Introverts in a World That Can't Stop Talking* by Susan Cain: Validation for your need for solitude.\n\n**Daily Ritual:**\nThe Evening Review. Instead of just listing what you did, write down one thing that surprised you and one thing you are grateful for. This keeps your Si (memory) from only storing the struggles and ensures you archive the joys as well."
+          "content": {
+            "title": "Books:",
+            "description": "*   *Atomic Habits* by James Clear: The ultimate manual for the systematic mind.\n*   *Meditations* by Marcus Aurelius: Ancient wisdom that validates your sense of duty while teaching acceptance.\n*   *Quiet: The Power of Introverts in a World That Can't Stop Talking* by Susan Cain: Validation for your need for solitude.\n\n**Daily Ritual:**\nThe Evening Review. Instead of just listing what you did, write down one thing that surprised you and one thing you are grateful for. This keeps your Si (memory) from only storing the struggles and ensures you archive the joys as well."
+          }
         }
       ]
     }

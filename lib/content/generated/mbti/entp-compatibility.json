@@ -20,7 +20,10 @@
       "subsections": [
         {
           "heading": "The Core Needs",
-          "content": "**Intellectual Stamina:** You need a partner who doesn't tap out when the conversation gets deep, complex, or theoretical. You view conversation as an endurance sport.\n\n**Thick Skin:** Your communication style is direct and often lacks a filter. You need someone who understands that your critique of their idea isn't a critique of their worth as a human being.\n\n**Autonomy and Space:** You fear boredom and entrapment. The ideal partner understands that when you withdraw to work on a project or go out with friends, it’s not a rejection of them, but a necessary recharge of your social batteries.\n\n**Growth Orientation:** You are obsessed with self-improvement and optimization. A stagnant partner who refuses to grow or challenge themselves will eventually lose your respect."
+          "content": {
+            "title": "Intellectual Stamina:",
+            "description": "You need a partner who doesn't tap out when the conversation gets deep, complex, or theoretical. You view conversation as an endurance sport.\n\n**Thick Skin:** Your communication style is direct and often lacks a filter. You need someone who understands that your critique of their idea isn't a critique of their worth as a human being.\n\n**Autonomy and Space:** You fear boredom and entrapment. The ideal partner understands that when you withdraw to work on a project or go out with friends, it’s not a rejection of them, but a necessary recharge of your social batteries.\n\n**Growth Orientation:** You are obsessed with self-improvement and optimization. A stagnant partner who refuses to grow or challenge themselves will eventually lose your respect."
+          }
         }
       ]
     },
@@ -30,7 +33,10 @@
       "subsections": [
         {
           "heading": "Top Tier Matches",
-          "content": "**INTJ (The Architect):** The intellectual equal. This relationship is built on competence and shared vision. You challenge their rigidity; they challenge your lack of follow-through. It is a relationship of high efficiency and low drama.\n\n**INFJ (The Advocate):** The mysterious depth. They are the only type that can consistently surprise you. They offer a warm, safe emotional space that softens your rough edges without dulling your intellect.\n\n**ENTP (The Debater):** The mirror image. Dating another ENTP is pure chaos in the best way. It’s endless fun, travel, and debate, though the house might burn down because neither of you paid the insurance bill."
+          "content": {
+            "title": "INTJ (The Architect):",
+            "description": "The intellectual equal. This relationship is built on competence and shared vision. You challenge their rigidity; they challenge your lack of follow-through. It is a relationship of high efficiency and low drama.\n\n**INFJ (The Advocate):** The mysterious depth. They are the only type that can consistently surprise you. They offer a warm, safe emotional space that softens your rough edges without dulling your intellect.\n\n**ENTP (The Debater):** The mirror image. Dating another ENTP is pure chaos in the best way. It’s endless fun, travel, and debate, though the house might burn down because neither of you paid the insurance bill."
+          }
         }
       ]
     },
@@ -40,7 +46,10 @@
       "subsections": [
         {
           "heading": "Potential Friction Points",
-          "content": "**ISFJ (The Defender):** They lead with Introverted Sensing and prioritize social harmony. Your love of debate can hurt their feelings deeply, and you may find their need for routine stifling. You must learn gentleness; they must learn to assert themselves.\n\n**ISTJ (The Logistician):** The ultimate realist vs. the ultimate visionary. They will demand facts and figures while you offer possibilities and theories. Communication often hits a wall unless you can show practical application for your ideas.\n\n**ESFJ (The Consul):** They focus on community standing and social rules. You enjoy breaking social rules to see what happens. You may embarrass them in public without meaning to, creating tension."
+          "content": {
+            "title": "ISFJ (The Defender):",
+            "description": "They lead with Introverted Sensing and prioritize social harmony. Your love of debate can hurt their feelings deeply, and you may find their need for routine stifling. You must learn gentleness; they must learn to assert themselves.\n\n**ISTJ (The Logistician):** The ultimate realist vs. the ultimate visionary. They will demand facts and figures while you offer possibilities and theories. Communication often hits a wall unless you can show practical application for your ideas.\n\n**ESFJ (The Consul):** They focus on community standing and social rules. You enjoy breaking social rules to see what happens. You may embarrass them in public without meaning to, creating tension."
+          }
         }
       ]
     },
@@ -50,7 +59,10 @@
       "subsections": [
         {
           "heading": "Love Languages & Behaviors",
-          "content": "**Debate as Intimacy:** You show you care by engaging with someone's mind. If you stop arguing with your partner, it’s a red flag that you’ve checked out.\n\n**Novelty Seeking:** You express love through shared experiences—surprise trips, trying new exotic foods, or taking a class together. You need a partner willing to say \"yes\" to the unknown.\n\n**The Need for Competence:** You are rarely attracted to helplessness. You want a partner you can brag about, someone who holds their own in the world."
+          "content": {
+            "title": "Debate as Intimacy:",
+            "description": "You show you care by engaging with someone's mind. If you stop arguing with your partner, it’s a red flag that you’ve checked out.\n\n**Novelty Seeking:** You express love through shared experiences—surprise trips, trying new exotic foods, or taking a class together. You need a partner willing to say \"yes\" to the unknown.\n\n**The Need for Competence:** You are rarely attracted to helplessness. You want a partner you can brag about, someone who holds their own in the world."
+          }
         }
       ]
     },
@@ -60,7 +72,10 @@
       "subsections": [
         {
           "heading": "Friendship Dynamics",
-          "content": "**The Idea Generator:** Friends come to you when they are stuck. You are the master of brainstorming and can see solutions that are invisible to others.\n\n**Low Maintenance:** You don't need daily check-ins. You can go months without speaking to a friend and pick up right where you left off, provided the conversation is interesting.\n\n**Honesty Policy:** You are brutally honest. Friends who want the unvarnished truth know to come to you; those seeking comfortable lies will likely avoid you."
+          "content": {
+            "title": "The Idea Generator:",
+            "description": "Friends come to you when they are stuck. You are the master of brainstorming and can see solutions that are invisible to others.\n\n**Low Maintenance:** You don't need daily check-ins. You can go months without speaking to a friend and pick up right where you left off, provided the conversation is interesting.\n\n**Honesty Policy:** You are brutally honest. Friends who want the unvarnished truth know to come to you; those seeking comfortable lies will likely avoid you."
+          }
         }
       ]
     },
@@ -70,7 +85,10 @@
       "subsections": [
         {
           "heading": "Workplace Synergy",
-          "content": "**Brainstorming:** You are the MVP of idea generation. Teams value you for your ability to think outside the box and pivot quickly when things go wrong.\n\n**The 'No' Man:** While others agree with the boss to be polite, you are willing to point out why a plan will fail. Smart leaders value this; insecure leaders will fire you.\n\n**Need for Variety:** You thrive in roles like consulting, entrepreneurship, or creative direction where no two days are the same."
+          "content": {
+            "title": "Brainstorming:",
+            "description": "You are the MVP of idea generation. Teams value you for your ability to think outside the box and pivot quickly when things go wrong.\n\n**The 'No' Man:** While others agree with the boss to be polite, you are willing to point out why a plan will fail. Smart leaders value this; insecure leaders will fire you.\n\n**Need for Variety:** You thrive in roles like consulting, entrepreneurship, or creative direction where no two days are the same."
+          }
         }
       ]
     },
@@ -80,7 +98,10 @@
       "subsections": [
         {
           "heading": "Actionable Strategies",
-          "content": "**The 80/20 Rule of Debate:** Try to limit your debates to 20% of your interactions. Spend the other 80% on supportive, non-contentious connection. This prevents your partner from feeling like they are constantly on trial.\n\n**Schedule Spontaneity:** It sounds oxymoronic, but if you are with a planner (J type), agree on a block of time that is unplanned. \"Saturday from 2 PM to 8 PM is adventure time.\" This satisfies your need for freedom and their need for a schedule.\n\n**Follow-Through Rituals:** In work and love, force yourself to finish small things to build trust. Doing the dishes without being asked or finishing the spreadsheet on time proves you are reliable, buying you goodwill for when you inevitably want to chase a new shiny object."
+          "content": {
+            "title": "The 80/20 Rule of Debate:",
+            "description": "Try to limit your debates to 20% of your interactions. Spend the other 80% on supportive, non-contentious connection. This prevents your partner from feeling like they are constantly on trial.\n\n**Schedule Spontaneity:** It sounds oxymoronic, but if you are with a planner (J type), agree on a block of time that is unplanned. \"Saturday from 2 PM to 8 PM is adventure time.\" This satisfies your need for freedom and their need for a schedule.\n\n**Follow-Through Rituals:** In work and love, force yourself to finish small things to build trust. Doing the dishes without being asked or finishing the spreadsheet on time proves you are reliable, buying you goodwill for when you inevitably want to chase a new shiny object."
+          }
         }
       ]
     }

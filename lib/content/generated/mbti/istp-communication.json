@@ -49,7 +49,10 @@
       "subsections": [
         {
           "heading": "Common Phrases and Context",
-          "content": "**\"It depends.\"** (Used when someone asks for a simple answer to a complex system. You refuse to oversimplify.)\n**\"Does it work?\"** (The ultimate litmus test. You don't care how pretty or popular an idea is; you care about functionality.)\n**\"I'll handle it.\"** (Code for: 'This discussion is taking too long, and I can finish the task faster than we can talk about it.')"
+          "content": {
+            "title": "\"It depends.\"",
+            "description": "(Used when someone asks for a simple answer to a complex system. You refuse to oversimplify.)\n**\"Does it work?\"** (The ultimate litmus test. You don't care how pretty or popular an idea is; you care about functionality.)\n**\"I'll handle it.\"** (Code for: 'This discussion is taking too long, and I can finish the task faster than we can talk about it.')"
+          }
         },
         {
           "heading": "The 'ISTP Shrug'",
@@ -116,7 +119,10 @@
     "Silence is their default setting and usually indicates processing, not anger or disinterest.",
     "They show care through troubleshooting and fixing problems (Acts of Service), not through verbal praise.",
     "In conflict, ISTPs may 'stone wall' or shut down if overwhelmed by emotion; they need space to process logic before returning.",
-    "Precision is key: Avoid vague generalities and get to the point quickly to keep an ISTP engaged.",
+    {
+      "title": "Precision is key",
+      "description": "Avoid vague generalities and get to the point quickly to keep an ISTP engaged."
+    },
     "They struggle with the 'unintentional insult,' often stating blunt facts without realizing the emotional impact on others."
   ],
   "relatedTopics": [

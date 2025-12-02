@@ -37,7 +37,10 @@
       "subsections": [
         {
           "heading": "Common INTJ Phrases and What They Mean",
-          "content": "**'Does that make sense?'**\n*Translation:* 'I have just condensed a massive abstract theory into three sentences. Did I translate it effectively, or do I need to rephrase?' (Note: This is rarely a question about the listener's intelligence, but rather a check on your own explanation.)\n\n**'I need to think about that.'**\n*Translation:* 'You have introduced a new variable that disrupts my internal model. I need to retreat to my mind palace, simulate the new data, and return to you with a revised conclusion. Do not push me for an answer right now.'\n\n**'To be efficient...'**\n*Translation:* 'We are wasting time on pleasantries or circular logic. I am about to cut to the chase. Please don't be offended by my directness.'"
+          "content": {
+            "title": "'Does that make sense?'",
+            "description": "*Translation:* 'I have just condensed a massive abstract theory into three sentences. Did I translate it effectively, or do I need to rephrase?' (Note: This is rarely a question about the listener's intelligence, but rather a check on your own explanation.)\n\n**'I need to think about that.'**\n*Translation:* 'You have introduced a new variable that disrupts my internal model. I need to retreat to my mind palace, simulate the new data, and return to you with a revised conclusion. Do not push me for an answer right now.'\n\n**'To be efficient...'**\n*Translation:* 'We are wasting time on pleasantries or circular logic. I am about to cut to the chase. Please don't be offended by my directness.'"
+          }
         }
       ]
     },
@@ -52,7 +55,10 @@
       "subsections": [
         {
           "heading": "Conflict Scripts: Navigating the Storm",
-          "content": "**The Scenario:** A partner is upset because you didn't ask about their day and went straight to fixing a problem they mentioned.\n\n**The Wrong Approach (Natural Instinct):**\n*Partner:* 'You don't care about how I feel! You just want to be right!'\n*INTJ:* 'I am trying to solve the issue you complained about. Crying about it won't fix the root cause. If we implement this solution, the stress goes away.'\n*Result:* Explosion.\n\n**The Strategic Approach:**\n*INTJ:* 'I realize I jumped to problem-solving too quickly. I interpret your stress as a problem I need to help remove because I care about your well-being. But I see now that you need me to listen first. I am listening. Tell me how it felt.'"
+          "content": {
+            "title": "The Scenario:",
+            "description": "A partner is upset because you didn't ask about their day and went straight to fixing a problem they mentioned.\n\n**The Wrong Approach (Natural Instinct):**\n*Partner:* 'You don't care about how I feel! You just want to be right!'\n*INTJ:* 'I am trying to solve the issue you complained about. Crying about it won't fix the root cause. If we implement this solution, the stress goes away.'\n*Result:* Explosion.\n\n**The Strategic Approach:**\n*INTJ:* 'I realize I jumped to problem-solving too quickly. I interpret your stress as a problem I need to help remove because I care about your well-being. But I see now that you need me to listen first. I am listening. Tell me how it felt.'"
+          }
         }
       ]
     },

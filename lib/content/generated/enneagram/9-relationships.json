@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "The Power of Acceptance",
-          "content": "Your strength lies in these core behaviors:\n*   **Deep, Somatic Listening:** You listen with your whole body, making partners feel physically safe and emotionally held.\n*   **Crisis Stabilization:** When emotions run high, you remain the eye of the storm, preventing conflicts from spiraling out of control.\n*   **Genuine Inclusivity:** You ensure no one feels left out or marginalized, creating a family or social dynamic where everyone feels they belong.\n*   **Optimistic Endurance:** You have a high tolerance for life's difficulties, often carrying burdens with a shrug and a smile to protect your loved ones from stress."
+          "content": {
+            "title": "Your strength lies in these core behaviors",
+            "description": "*   **Deep, Somatic Listening:** You listen with your whole body, making partners feel physically safe and emotionally held.\n*   **Crisis Stabilization:** When emotions run high, you remain the eye of the storm, preventing conflicts from spiraling out of control.\n*   **Genuine Inclusivity:** You ensure no one feels left out or marginalized, creating a family or social dynamic where everyone feels they belong.\n*   **Optimistic Endurance:** You have a high tolerance for life's difficulties, often carrying burdens with a shrug and a smile to protect your loved ones from stress."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Love Languages and Affection",
-          "content": "**How Nines Show Love:**\n*   **Quality Time:** Just 'hanging out' is your primary expression of devotion. You offer your time and presence generously.\n*   **Acts of Service:** You often do the unglamorous chores (doing the dishes, running errands) to smooth your partner's path and ensure their comfort.\n*   **Physical Touch:** You tend to be very cuddly and affectionate, using touch as a way to ground the connection without needing words.\n\n**How Nines Receive Love:**\n*   **Words of Affirmation:** You need to hear that you matter and that your presence makes a difference. You need validation that you are not invisible.\n*   **Gentle Engagement:** You feel loved when a partner gently asks about your day and waits for the real answer, proving they value your inner world."
+          "content": {
+            "title": "How Nines Show Love:",
+            "description": "*   **Quality Time:** Just 'hanging out' is your primary expression of devotion. You offer your time and presence generously.\n*   **Acts of Service:** You often do the unglamorous chores (doing the dishes, running errands) to smooth your partner's path and ensure their comfort.\n*   **Physical Touch:** You tend to be very cuddly and affectionate, using touch as a way to ground the connection without needing words.\n\n**How Nines Receive Love:**\n*   **Words of Affirmation:** You need to hear that you matter and that your presence makes a difference. You need validation that you are not invisible.\n*   **Gentle Engagement:** You feel loved when a partner gently asks about your day and waits for the real answer, proving they value your inner world."
+          }
         }
       ]
     },
@@ -106,13 +112,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Peace is not Passivity:** True harmony requires active engagement and the courage to address conflict, not just avoid it.",
-    "**Stop the Merge:** Healthy relationships require two distinct individuals. Resist the urge to lose your identity in your partner.",
-    "**Voice Your Preferences:** Practice stating small desires (what to eat, what to watch) to build the muscle for larger needs.",
-    "**Anger is Information:** Do not suppress anger. View it as a signal that a boundary has been crossed and needs to be addressed.",
-    "**Beware of Numbing:** Recognize when you are checking out (TV, food, silence) and choose to stay present, even if it's uncomfortable.",
-    "**Action Creates Confidence:** Taking action on your own behalf makes you a more attractive and dynamic partner.",
-    "**You Matter:** Your presence is a gift. Your partners want *you*, not a reflection of themselves."
+    {
+      "title": "Peace is not Passivity:",
+      "description": "True harmony requires active engagement and the courage to address conflict, not just avoid it."
+    },
+    {
+      "title": "Stop the Merge:",
+      "description": "Healthy relationships require two distinct individuals. Resist the urge to lose your identity in your partner."
+    },
+    {
+      "title": "Voice Your Preferences:",
+      "description": "Practice stating small desires (what to eat, what to watch) to build the muscle for larger needs."
+    },
+    {
+      "title": "Anger is Information:",
+      "description": "Do not suppress anger. View it as a signal that a boundary has been crossed and needs to be addressed."
+    },
+    {
+      "title": "Beware of Numbing:",
+      "description": "Recognize when you are checking out (TV, food, silence) and choose to stay present, even if it's uncomfortable."
+    },
+    {
+      "title": "Action Creates Confidence:",
+      "description": "Taking action on your own behalf makes you a more attractive and dynamic partner."
+    },
+    {
+      "title": "You Matter:",
+      "description": "Your presence is a gift. Your partners want *you*, not a reflection of themselves."
+    }
   ],
   "relatedTopics": [
     "learning",

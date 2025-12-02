@@ -1,12 +1,15 @@
 import type { DimensionScore } from "@/types";
 
+// Support both string and structured format for strengths/growth areas
+export type StrengthItem = string | { title: string; description: string };
+
 export interface Archetype {
   id: string;
   name: string;
   tagline: string;
   description: string[];
-  strengths: string[];
-  growthAreas: string[];
+  strengths: StrengthItem[];
+  growthAreas: StrengthItem[];
   careerMatches: Array<{ title: string; explanation: string }>;
   workStyle: string;
   relationshipStyle: string;

@@ -43,7 +43,10 @@
       "subsections": [
         {
           "heading": "Marketing, Communications & PR",
-          "content": "These fields leverage your storytelling ability and need for novelty.\n\n*   **Public Relations Director ($85k - $160k):** Managing brand image, handling crises, and constantly networking with media. High stress, high social reward.\n*   **Brand Manager ($70k - $140k):** The visionary for a product's identity. Involves coordinating between creative, sales, and product teams.\n*   **Social Media Strategist ($50k - $90k):** Requires instant adaptation to trends and constant engagement with a community.\n*   **Event Planner/Coordinator ($45k - $85k):** Pure logistics and people management. The chaos of 'game day' is thrilling for you."
+          "content": {
+            "title": "These fields leverage your storytelling ability and need for novelty.",
+            "description": "*   **Public Relations Director ($85k - $160k):** Managing brand image, handling crises, and constantly networking with media. High stress, high social reward.\n*   **Brand Manager ($70k - $140k):** The visionary for a product's identity. Involves coordinating between creative, sales, and product teams.\n*   **Social Media Strategist ($50k - $90k):** Requires instant adaptation to trends and constant engagement with a community.\n*   **Event Planner/Coordinator ($45k - $85k):** Pure logistics and people management. The chaos of 'game day' is thrilling for you."
+          }
         },
         {
           "heading": "Sales & Business Development",
@@ -51,7 +54,10 @@
         },
         {
           "heading": "People & Leadership",
-          "content": "Your empathy and energy make you a natural leader of people.\n\n*   **HR Business Partner ($75k - $130k):** Moving away from payroll/admin and into strategy, culture building, and conflict resolution.\n*   **Corporate Trainer / Facilitator ($60k - $110k):** Standing in front of a room, engaging an audience, and teaching new concepts.\n*   **Chief of Staff ($90k - $180k):** Acting as the right hand to a CEO. Requires immense adaptability and the ability to handle whatever fire breaks out that day.\n*   **Non-Profit Program Director ($55k - $100k):** Rallying communities around a cause. High emotional engagement."
+          "content": {
+            "title": "Your empathy and energy make you a natural leader of people.",
+            "description": "*   **HR Business Partner ($75k - $130k):** Moving away from payroll/admin and into strategy, culture building, and conflict resolution.\n*   **Corporate Trainer / Facilitator ($60k - $110k):** Standing in front of a room, engaging an audience, and teaching new concepts.\n*   **Chief of Staff ($90k - $180k):** Acting as the right hand to a CEO. Requires immense adaptability and the ability to handle whatever fire breaks out that day.\n*   **Non-Profit Program Director ($55k - $100k):** Rallying communities around a cause. High emotional engagement."
+          }
         },
         {
           "heading": "Innovation & Strategy",

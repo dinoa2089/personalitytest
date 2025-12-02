@@ -3,7 +3,10 @@
   "type": "3",
   "framework": "enneagram",
   "topic": "learning",
-  "title": "Mastering Success: The Ultimate Type 3 - The Achiever Learning Style Guide",
+  "title": {
+    "title": "Mastering Success",
+    "description": "The Ultimate Type 3 - The Achiever Learning Style Guide"
+  },
   "metaDescription": "Unlock your potential with our Type 3 - The Achiever learning style guide. Discover study strategies, environmental hacks, and psychological insights for success.",
   "keywords": [
     "Type 3 - The Achiever learning style",
@@ -34,7 +37,10 @@
         },
         {
           "heading": "Recognition and Status",
-          "content": "Let's be honest: the prestige of the credential matters. You are more motivated to complete a course from a recognized institution or one that offers a certification badge for your LinkedIn profile."
+          "content": {
+            "title": "Let's be honest",
+            "description": "the prestige of the credential matters. You are more motivated to complete a course from a recognized institution or one that offers a certification badge for your LinkedIn profile."
+          }
         }
       ]
     },
@@ -134,13 +140,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Reframe the Goal:** Shift your focus from 'getting the grade' to 'mastering the skill' to combat imposter syndrome.",
-    "**Gamify Everything:** Use timers, progress bars, and self-competition to make studying engaging and efficient.",
-    "**Curate the Environment:** Create a professional, organized workspace that signals success and minimizes distractions.",
-    "**Teach to Learn:** Use the 'Consultant Method'—pretend you are teaching the material to a client to ensure deep understanding.",
-    "**Embrace the Beta:** View mistakes as data points for improvement, not verdicts on your self-worth.",
-    "**Visual Synthesis:** Use mind maps, flowcharts, and color-coding to satisfy your need for structure and big-picture clarity.",
-    "**Schedule Rest:** treat recovery as a performance metric; you cannot win if you burn out."
+    {
+      "title": "Reframe the Goal:",
+      "description": "Shift your focus from 'getting the grade' to 'mastering the skill' to combat imposter syndrome."
+    },
+    {
+      "title": "Gamify Everything:",
+      "description": "Use timers, progress bars, and self-competition to make studying engaging and efficient."
+    },
+    {
+      "title": "Curate the Environment:",
+      "description": "Create a professional, organized workspace that signals success and minimizes distractions."
+    },
+    {
+      "title": "Teach to Learn:",
+      "description": "Use the 'Consultant Method'—pretend you are teaching the material to a client to ensure deep understanding."
+    },
+    {
+      "title": "Embrace the Beta:",
+      "description": "View mistakes as data points for improvement, not verdicts on your self-worth."
+    },
+    {
+      "title": "Visual Synthesis:",
+      "description": "Use mind maps, flowcharts, and color-coding to satisfy your need for structure and big-picture clarity."
+    },
+    {
+      "title": "Schedule Rest:",
+      "description": "treat recovery as a performance metric; you cannot win if you burn out."
+    }
   ],
   "relatedTopics": [
     "careers",

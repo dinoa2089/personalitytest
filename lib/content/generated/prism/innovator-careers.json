@@ -23,7 +23,10 @@
       "subsections": [
         {
           "heading": "Core Professional Competencies",
-          "content": "**Rapid Prototyping & Ideation:** You can generate volume and variety in ideas faster than almost any other type. You are the person you want in the room during a brainstorm.\n**Crisis Adaptation:** When plans change last minute, you don't freeze. You pivot immediately, often finding a \"Plan B\" that is superior to the original \"Plan A.\"\n**Trend Forecasting:** Your curiosity leads you to consume vast amounts of information, giving you an intuitive sense of where industries are heading.\n** persuasive Storytelling:** You naturally communicate in metaphors and visions, making you excellent at pitching concepts and winning buy-in for novel initiatives."
+          "content": {
+            "title": "Rapid Prototyping & Ideation:",
+            "description": "You can generate volume and variety in ideas faster than almost any other type. You are the person you want in the room during a brainstorm.\n**Crisis Adaptation:** When plans change last minute, you don't freeze. You pivot immediately, often finding a \"Plan B\" that is superior to the original \"Plan A.\"\n**Trend Forecasting:** Your curiosity leads you to consume vast amounts of information, giving you an intuitive sense of where industries are heading.\n** persuasive Storytelling:** You naturally communicate in metaphors and visions, making you excellent at pitching concepts and winning buy-in for novel initiatives."
+          }
         }
       ]
     },
@@ -33,7 +36,10 @@
       "subsections": [
         {
           "heading": "Cultural Must-Haves",
-          "content": "**Psychological Safety:** A culture where wild ideas are encouraged and shooting down a concept requires a valid reason, not just skepticism.\n**Low Bureaucracy:** Minimal red tape. If you need a tool or a resource, you can access it quickly.\n**Access to Leadership:** The ability to pitch ideas directly to decision-makers without navigating a maze of middle management.\n**Variety of Challenge:** A workflow that changes. If every day looks exactly the same, you will burn out, even if the pay is high."
+          "content": {
+            "title": "Psychological Safety:",
+            "description": "A culture where wild ideas are encouraged and shooting down a concept requires a valid reason, not just skepticism.\n**Low Bureaucracy:** Minimal red tape. If you need a tool or a resource, you can access it quickly.\n**Access to Leadership:** The ability to pitch ideas directly to decision-makers without navigating a maze of middle management.\n**Variety of Challenge:** A workflow that changes. If every day looks exactly the same, you will burn out, even if the pay is high."
+          }
         }
       ]
     },
@@ -66,7 +72,10 @@
       "subsections": [
         {
           "heading": "Actionable Tips",
-          "content": "**The \"Good Enough\" Rule:** You likely suffer from perfectionism in the ideation phase but sloppiness in execution. Set a standard of \"80% perfect and shipped\" rather than \"100% perfect and never finished.\"\n**Find an Accountability Partner:** You need external pressure. Pair up with a colleague who checks in on your deliverables, not to nag, but to keep you on track.\n**Sprint Working:** Work in high-intensity bursts (Pomodoro technique) rather than trying to sustain focus for 8 hours straight. Your energy is cyclical, not linear."
+          "content": {
+            "title": "The \"Good Enough\" Rule:",
+            "description": "You likely suffer from perfectionism in the ideation phase but sloppiness in execution. Set a standard of \"80% perfect and shipped\" rather than \"100% perfect and never finished.\"\n**Find an Accountability Partner:** You need external pressure. Pair up with a colleague who checks in on your deliverables, not to nag, but to keep you on track.\n**Sprint Working:** Work in high-intensity bursts (Pomodoro technique) rather than trying to sustain focus for 8 hours straight. Your energy is cyclical, not linear."
+          }
         }
       ]
     },
@@ -76,7 +85,10 @@
       "subsections": [
         {
           "heading": "Interview Scenario Tip",
-          "content": "Imagine the interviewer asks: \"Tell me about a time you failed.\" Do not give a generic answer. Tell a story about a time you took a calculated risk on a new idea, it didn't work, but you learned something critical that led to a later success. This shows that your innovation is resilient. Example: \"I pitched a radical new marketing channel. It flopped, but the data we gathered revealed a whole new customer segment we hadn't seen, which led to our successful Q4 strategy. I learned that fast failure is the best research method.\""
+          "content": {
+            "title": "Imagine the interviewer asks",
+            "description": "\"Tell me about a time you failed.\" Do not give a generic answer. Tell a story about a time you took a calculated risk on a new idea, it didn't work, but you learned something critical that led to a later success. This shows that your innovation is resilient. Example: \"I pitched a radical new marketing channel. It flopped, but the data we gathered revealed a whole new customer segment we hadn't seen, which led to our successful Q4 strategy. I learned that fast failure is the best research method.\""
+          }
         }
       ]
     },
@@ -101,13 +113,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Embrace Divergent Thinking:** Your ability to see multiple solutions and connect unrelated dots is your superpower. Stop trying to think linearly.",
-    "**Seek Autonomy:** You wither under micromanagement. Look for results-oriented work environments (startups, tech, creative agencies).",
-    "**Partner with Finishers:** You are a starter. To succeed, ally yourself with operational types who can execute your vision and manage the details.",
-    "**Beware of Routine:** Avoid careers in strict compliance, data entry, or repetitive manufacturing. They are psychologically draining for you.",
-    "**Monetize Your Adaptability:** In a changing economy, your comfort with ambiguity is a high-value asset. Position yourself as a change agent.",
-    "**Document Everything:** Combat your scattered focus by keeping a 'Spark File' of ideas so you don't lose your insights.",
-    "**Gamify the Boring Stuff:** Use sprints and challenges to get through necessary administrative tasks without losing your mind."
+    {
+      "title": "Embrace Divergent Thinking:",
+      "description": "Your ability to see multiple solutions and connect unrelated dots is your superpower. Stop trying to think linearly."
+    },
+    {
+      "title": "Seek Autonomy:",
+      "description": "You wither under micromanagement. Look for results-oriented work environments (startups, tech, creative agencies)."
+    },
+    {
+      "title": "Partner with Finishers:",
+      "description": "You are a starter. To succeed, ally yourself with operational types who can execute your vision and manage the details."
+    },
+    {
+      "title": "Beware of Routine:",
+      "description": "Avoid careers in strict compliance, data entry, or repetitive manufacturing. They are psychologically draining for you."
+    },
+    {
+      "title": "Monetize Your Adaptability:",
+      "description": "In a changing economy, your comfort with ambiguity is a high-value asset. Position yourself as a change agent."
+    },
+    {
+      "title": "Document Everything:",
+      "description": "Combat your scattered focus by keeping a 'Spark File' of ideas so you don't lose your insights."
+    },
+    {
+      "title": "Gamify the Boring Stuff:",
+      "description": "Use sprints and challenges to get through necessary administrative tasks without losing your mind."
+    }
   ],
   "relatedTopics": [
     "learning",

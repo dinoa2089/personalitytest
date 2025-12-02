@@ -20,7 +20,10 @@
       "subsections": [
         {
           "heading": "The Core Needs",
-          "content": "**Emotional Safety:** You need to know that your sensitive core won't be trampled by harsh logic or criticism.\n**Sensory Engagement:** You bond through experiences—travel, food, music, and physical touch—rather than abstract conversation.\n**Autonomy:** You require a partner who understands that your need for alone time isn't a rejection of them, but a biological necessity for your recharge.\n**Authenticity:** You need a partner who is genuine and transparent; manipulation is an immediate deal-breaker."
+          "content": {
+            "title": "Emotional Safety:",
+            "description": "You need to know that your sensitive core won't be trampled by harsh logic or criticism.\n**Sensory Engagement:** You bond through experiences—travel, food, music, and physical touch—rather than abstract conversation.\n**Autonomy:** You require a partner who understands that your need for alone time isn't a rejection of them, but a biological necessity for your recharge.\n**Authenticity:** You need a partner who is genuine and transparent; manipulation is an immediate deal-breaker."
+          }
         }
       ]
     },
@@ -56,7 +59,10 @@
       "subsections": [
         {
           "heading": "The Friction Points",
-          "content": "**ENTJ (The Commander):** This is often the hardest match. The ENTJ's drive for efficiency and command can feel domineering to the freedom-loving ISFP. You may feel your values are being steamrolled by their ambition.\n**ENTP (The Debater):** Their love for playing devil's advocate can feel like a personal attack to you. You hold your values deeply; they hold ideas lightly and poke at them for fun. This causes significant emotional distress for the ISFP.\n**INTJ (The Architect):** While you share some functions, the INTJ's abstraction and coolness can make the ISFP feel lonely. You want to hold hands; they want to analyze the relationship dynamics."
+          "content": {
+            "title": "ENTJ (The Commander):",
+            "description": "This is often the hardest match. The ENTJ's drive for efficiency and command can feel domineering to the freedom-loving ISFP. You may feel your values are being steamrolled by their ambition.\n**ENTP (The Debater):** Their love for playing devil's advocate can feel like a personal attack to you. You hold your values deeply; they hold ideas lightly and poke at them for fun. This causes significant emotional distress for the ISFP.\n**INTJ (The Architect):** While you share some functions, the INTJ's abstraction and coolness can make the ISFP feel lonely. You want to hold hands; they want to analyze the relationship dynamics."
+          }
         }
       ]
     },
@@ -66,7 +72,10 @@
       "subsections": [
         {
           "heading": "Love Languages & Intimacy",
-          "content": "**Top Love Languages:** Acts of Service and Physical Touch. You express affection by doing things to make your partner's life beautiful and by being physically close.\n**Intimacy Style:** Sensual and present. You treat intimacy as an art form, focusing on the sensory experience and emotional connection of the moment.\n**Deal-Breaker:** Being controlled or micromanaged. If a partner tries to dictate your schedule, style, or values, you will withdraw and eventually leave without looking back."
+          "content": {
+            "title": "Top Love Languages:",
+            "description": "Acts of Service and Physical Touch. You express affection by doing things to make your partner's life beautiful and by being physically close.\n**Intimacy Style:** Sensual and present. You treat intimacy as an art form, focusing on the sensory experience and emotional connection of the moment.\n**Deal-Breaker:** Being controlled or micromanaged. If a partner tries to dictate your schedule, style, or values, you will withdraw and eventually leave without looking back."
+          }
         }
       ]
     },
@@ -76,7 +85,10 @@
       "subsections": [
         {
           "heading": "Being the ISFP's Friend",
-          "content": "**Respect the Flake:** ISFPs live in the moment. Sometimes they commit to plans but don't feel up to it when the time comes. Good friends understand this isn't malicious.\n**Don't Push for Gossip:** ISFPs rarely enjoy talking badly about others. They prefer discussing hobbies, experiences, or shared memories.\n**The 'Doer' Dynamic:** The best way to bond with an ISFP is to invite them to *do* something (go to a concert, try a new cafe) rather than just sitting and talking."
+          "content": {
+            "title": "Respect the Flake:",
+            "description": "ISFPs live in the moment. Sometimes they commit to plans but don't feel up to it when the time comes. Good friends understand this isn't malicious.\n**Don't Push for Gossip:** ISFPs rarely enjoy talking badly about others. They prefer discussing hobbies, experiences, or shared memories.\n**The 'Doer' Dynamic:** The best way to bond with an ISFP is to invite them to *do* something (go to a concert, try a new cafe) rather than just sitting and talking."
+          }
         }
       ]
     },
@@ -86,7 +98,10 @@
       "subsections": [
         {
           "heading": "Ideal Workplace Dynamics",
-          "content": "**Management Style:** You need a supportive mentor, not a dictator. You respond to praise and gentle guidance, not harsh criticism.\n**Team Role:** The Specialist. You prefer to have your own corner of the project where you can perfect your contribution without constant interference.\n**Environment:** You are highly sensitive to your physical surroundings. A beautiful, quiet, or flexible workspace significantly boosts your productivity."
+          "content": {
+            "title": "Management Style:",
+            "description": "You need a supportive mentor, not a dictator. You respond to praise and gentle guidance, not harsh criticism.\n**Team Role:** The Specialist. You prefer to have your own corner of the project where you can perfect your contribution without constant interference.\n**Environment:** You are highly sensitive to your physical surroundings. A beautiful, quiet, or flexible workspace significantly boosts your productivity."
+          }
         }
       ]
     },
@@ -96,7 +111,10 @@
       "subsections": [
         {
           "heading": "Bridging the Gap",
-          "content": "**For the ISFP:** Practice 'Narrating Your Inner World.' Force yourself to speak your feelings out loud, even if it feels clumsy. Your loved ones need the roadmap.\n**For the Partner of an ISFP:** Ask open-ended questions and wait. Don't fill the silence. Give them 30 seconds to formulate an answer. And always, always validate their feelings before offering solutions."
+          "content": {
+            "title": "For the ISFP:",
+            "description": "Practice 'Narrating Your Inner World.' Force yourself to speak your feelings out loud, even if it feels clumsy. Your loved ones need the roadmap.\n**For the Partner of an ISFP:** Ask open-ended questions and wait. Don't fill the silence. Give them 30 seconds to formulate an answer. And always, always validate their feelings before offering solutions."
+          }
         }
       ]
     }
@@ -124,13 +142,34 @@
     }
   ],
   "keyTakeaways": [
-    "ISFPs seek 'vibes' and safety: They need partners who offer emotional security and allow for comfortable silences.",
-    "Action over words: ISFPs show love through Acts of Service and Touch, and often struggle with verbal affirmation.",
-    "Golden Pairs: ESFJ and ENFJ are top matches because they provide the external warmth and structure the ISFP lacks.",
-    "Friction Points: High Te users (ENTJ/ESTJ) can be overwhelming and critical, while high Ne users (ENTP) can feel too chaotic.",
-    "Conflict Avoidance: ISFPs tend to withdraw during conflict; successful relationships require a partner who can de-escalate tension gently.",
-    "Workplace Needs: Autonomy and aesthetic harmony are non-negotiable for ISFP career satisfaction.",
-    "Growth Edge: ISFPs must learn to verbalize their needs rather than expecting partners to mind-read."
+    {
+      "title": "ISFPs seek 'vibes' and safety",
+      "description": "They need partners who offer emotional security and allow for comfortable silences."
+    },
+    {
+      "title": "Action over words",
+      "description": "ISFPs show love through Acts of Service and Touch, and often struggle with verbal affirmation."
+    },
+    {
+      "title": "Golden Pairs",
+      "description": "ESFJ and ENFJ are top matches because they provide the external warmth and structure the ISFP lacks."
+    },
+    {
+      "title": "Friction Points",
+      "description": "High Te users (ENTJ/ESTJ) can be overwhelming and critical, while high Ne users (ENTP) can feel too chaotic."
+    },
+    {
+      "title": "Conflict Avoidance",
+      "description": "ISFPs tend to withdraw during conflict; successful relationships require a partner who can de-escalate tension gently."
+    },
+    {
+      "title": "Workplace Needs",
+      "description": "Autonomy and aesthetic harmony are non-negotiable for ISFP career satisfaction."
+    },
+    {
+      "title": "Growth Edge",
+      "description": "ISFPs must learn to verbalize their needs rather than expecting partners to mind-read."
+    }
   ],
   "relatedTopics": [
     "learning",

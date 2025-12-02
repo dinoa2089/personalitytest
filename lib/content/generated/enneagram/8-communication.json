@@ -106,13 +106,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Directness is Love:** For an Eight, telling the truth—no matter how harsh—is a form of respect.",
-    "**Impact vs. Intent:** Eights often do not realize how intimidating they appear to others; they feel they are just being honest.",
-    "**Conflict is Connection:** Eights use debate and friction to test trust and establish intimacy.",
-    "**Respect Strength:** Eights communicate best with those who stand their ground and do not cower.",
-    "**Vulnerability is the Challenge:** Growth for an Eight involves learning to lower the drawbridge and express tenderness without fear of betrayal.",
-    "**Action-Oriented:** Communication is a tool for making things happen. They prefer solution-focused conversations over venting.",
-    "**The Protective Shield:** Their aggressive communication is often a defense mechanism to protect their soft inner core from harm."
+    {
+      "title": "Directness is Love:",
+      "description": "For an Eight, telling the truth—no matter how harsh—is a form of respect."
+    },
+    {
+      "title": "Impact vs. Intent:",
+      "description": "Eights often do not realize how intimidating they appear to others; they feel they are just being honest."
+    },
+    {
+      "title": "Conflict is Connection:",
+      "description": "Eights use debate and friction to test trust and establish intimacy."
+    },
+    {
+      "title": "Respect Strength:",
+      "description": "Eights communicate best with those who stand their ground and do not cower."
+    },
+    {
+      "title": "Vulnerability is the Challenge:",
+      "description": "Growth for an Eight involves learning to lower the drawbridge and express tenderness without fear of betrayal."
+    },
+    {
+      "title": "Action-Oriented:",
+      "description": "Communication is a tool for making things happen. They prefer solution-focused conversations over venting."
+    },
+    {
+      "title": "The Protective Shield:",
+      "description": "Their aggressive communication is often a defense mechanism to protect their soft inner core from harm."
+    }
   ],
   "relatedTopics": [
     "learning",

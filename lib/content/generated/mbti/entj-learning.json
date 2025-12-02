@@ -106,7 +106,10 @@
     },
     {
       "heading": "Navigating Exams and Group Projects",
-      "content": "Imagine the classic group project scenario: The teacher assigns a team, and within 30 seconds, chaos ensues. People are looking at their phones, someone asks 'What are we supposed to do?', and another person is already complaining. For an ENTJ, this is physical pain. You inevitably step in. 'Okay, you do the research, you handle the slides, I'll write the script, and we meet on Thursday.' You don't do this to be bossy; you do it to ensure survival. The challenge here is not doing the work for everyone. Your learning growth comes from delegation. Use group projects to practice management, not just execution. Force your teammates to deliver, even if it's not up to your perfectionist standard. This teaches you patience and leadership—skills more valuable than the grade itself.\n\nWhen it comes to exams, you are a strategist. You don't just study the material; you study the test. You analyze past papers to find patterns in the questions. You calculate exactly how many points you need in each section to secure an A. You manage your time during the exam with military precision, allocating minutes per mark. However, beware of the 'skim read' error on exam day. In your rush to answer, you might miss a 'not' or an 'except' in the question stem. Force yourself to slow down and read the prompt twice. Your speed is your greatest asset, but also your greatest liability in a high-stakes testing environment.",
+      "content": {
+        "title": "Imagine the classic group project scenario",
+        "description": "The teacher assigns a team, and within 30 seconds, chaos ensues. People are looking at their phones, someone asks 'What are we supposed to do?', and another person is already complaining. For an ENTJ, this is physical pain. You inevitably step in. 'Okay, you do the research, you handle the slides, I'll write the script, and we meet on Thursday.' You don't do this to be bossy; you do it to ensure survival. The challenge here is not doing the work for everyone. Your learning growth comes from delegation. Use group projects to practice management, not just execution. Force your teammates to deliver, even if it's not up to your perfectionist standard. This teaches you patience and leadership—skills more valuable than the grade itself.\n\nWhen it comes to exams, you are a strategist. You don't just study the material; you study the test. You analyze past papers to find patterns in the questions. You calculate exactly how many points you need in each section to secure an A. You manage your time during the exam with military precision, allocating minutes per mark. However, beware of the 'skim read' error on exam day. In your rush to answer, you might miss a 'not' or an 'except' in the question stem. Force yourself to slow down and read the prompt twice. Your speed is your greatest asset, but also your greatest liability in a high-stakes testing environment."
+      },
       "subsections": [
         {
           "heading": "The Triage Method",
@@ -138,13 +141,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Structure First:** Always seek the 'big picture' framework before diving into details. You need a mental shelf to place the facts on.",
-    "**Active Interrogation:** Don't just read; argue with the text. Ask questions, look for logical gaps, and synthesize the information.",
-    "**The War Room:** Create a minimalist, distraction-free environment that signals 'high performance' to your brain.",
-    "**Teach to Learn:** Use the Feynman Technique. Pretending to teach a concept to a team is the fastest way to master it.",
-    "**Application is Key:** You learn by doing. Create projects, simulations, or real-world scenarios to apply theoretical knowledge immediately.",
-    "**Beware of Arrogance:** Don't skip the basics because you think you're too smart for them. Foundational gaps will collapse your strategy later.",
-    "**Optimize Group Work:** Use group projects to practice delegation and leadership, rather than doing all the work yourself to ensure perfection."
+    {
+      "title": "Structure First:",
+      "description": "Always seek the 'big picture' framework before diving into details. You need a mental shelf to place the facts on."
+    },
+    {
+      "title": "Active Interrogation:",
+      "description": "Don't just read; argue with the text. Ask questions, look for logical gaps, and synthesize the information."
+    },
+    {
+      "title": "The War Room:",
+      "description": "Create a minimalist, distraction-free environment that signals 'high performance' to your brain."
+    },
+    {
+      "title": "Teach to Learn:",
+      "description": "Use the Feynman Technique. Pretending to teach a concept to a team is the fastest way to master it."
+    },
+    {
+      "title": "Application is Key:",
+      "description": "You learn by doing. Create projects, simulations, or real-world scenarios to apply theoretical knowledge immediately."
+    },
+    {
+      "title": "Beware of Arrogance:",
+      "description": "Don't skip the basics because you think you're too smart for them. Foundational gaps will collapse your strategy later."
+    },
+    {
+      "title": "Optimize Group Work:",
+      "description": "Use group projects to practice delegation and leadership, rather than doing all the work yourself to ensure perfection."
+    }
   ],
   "relatedTopics": [
     "careers",

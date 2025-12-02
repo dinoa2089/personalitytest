@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Core Professional Assets",
-          "content": "**The Visionary Spark:** You are excellent at the \"Zero to One\" phase of projects. While others are paralyzed by a blank page, you see it as a playground. You can generate twenty potential avenues for a project in the time it takes others to open their laptops.\n\n**Empathetic Persuasion:** You don't sell; you connect. Whether you are pitching to a client or convincing your boss to adopt a new software, you frame arguments around shared values and human benefit, which is often far more persuasive than dry statistics.\n\n**Crisis Adaptability:** When plans fall apart, you rarely panic. In fact, you often find chaos somewhat stimulating. Your improvisational nature allows you to pivot instantly, finding a \"Plan B\" that ends up being better than the original \"Plan A.\"\n\n**Cross-Pollination:** Because you are interested in *everything*, you often bring insights from completely unrelated fields into your work. You might solve a software engineering problem using a concept you learned in a pottery class or a philosophy podcast."
+          "content": {
+            "title": "The Visionary Spark:",
+            "description": "You are excellent at the \"Zero to One\" phase of projects. While others are paralyzed by a blank page, you see it as a playground. You can generate twenty potential avenues for a project in the time it takes others to open their laptops.\n\n**Empathetic Persuasion:** You don't sell; you connect. Whether you are pitching to a client or convincing your boss to adopt a new software, you frame arguments around shared values and human benefit, which is often far more persuasive than dry statistics.\n\n**Crisis Adaptability:** When plans fall apart, you rarely panic. In fact, you often find chaos somewhat stimulating. Your improvisational nature allows you to pivot instantly, finding a \"Plan B\" that ends up being better than the original \"Plan A.\"\n\n**Cross-Pollination:** Because you are interested in *everything*, you often bring insights from completely unrelated fields into your work. You might solve a software engineering problem using a concept you learned in a pottery class or a philosophy podcast."
+          }
         }
       ]
     },
@@ -32,17 +35,26 @@
       "subsections": [
         {
           "heading": "Role Characteristics to Seek",
-          "content": "**High Autonomy:** Look for managers who say, \"Here is the goal, surprise me with how you get there,\" rather than those who monitor your keystrokes.\n\n**Human-Centric Mission:** You need to believe in what you are selling or building. If the product feels predatory or meaningless, your motivation will evaporate. You excel in non-profits, education, creative arts, coaching, and ethical marketing.\n\n**Dynamic Environment:** You thrive in startups, agencies, or consultancy roles where the landscape changes weekly. The unpredictability that stresses others out is what keeps you engaged.\n\n**Collaborative Creation:** Roles that involve workshops, team strategy sessions, and client relations utilize your verbal processing and emotional intelligence."
+          "content": {
+            "title": "High Autonomy:",
+            "description": "Look for managers who say, \"Here is the goal, surprise me with how you get there,\" rather than those who monitor your keystrokes.\n\n**Human-Centric Mission:** You need to believe in what you are selling or building. If the product feels predatory or meaningless, your motivation will evaporate. You excel in non-profits, education, creative arts, coaching, and ethical marketing.\n\n**Dynamic Environment:** You thrive in startups, agencies, or consultancy roles where the landscape changes weekly. The unpredictability that stresses others out is what keeps you engaged.\n\n**Collaborative Creation:** Roles that involve workshops, team strategy sessions, and client relations utilize your verbal processing and emotional intelligence."
+          }
         }
       ]
     },
     {
       "heading": "Meeting and Collaboration Style",
-      "content": "Let's set the scene: The weekly department meeting. The agenda is dry, and the presenter is reading bullet points off a slide in a monotone voice. Most people are checking their emails under the table. You, however, are vibrating with energy. You notice a flaw in the logic on slide four, and your brain instantly connects it to a trend you read about last week. You raise your hand—or perhaps you just blurt it out—\"Wait! What if we flip this entirely?\" For you, a meeting is not a place to report status; it is a live theater of ideas. You want engagement, debate, and energy. You are the person who says, \"Yes, and...\" constantly, building on others' thoughts until the original idea has mutated into something magnificent.\n\nHowever, your collaboration style can sometimes overwhelm more introverted or structured colleagues. You think out loud. This means that in a meeting, you might verbally process five bad ideas before landing on the brilliant one. To a Judging type (J) who values precision, this can sound like you are scattering focus or derailing the agenda. You might also have a tendency to interrupt, not out of rudeness, but out of pure excitement—you want to add your puzzle piece to the picture before the moment passes. Your enthusiasm is a double-edged sword; it wakes people up, but it can also suck the air out of the room if you aren't careful to pause and let the thinkers think.\n\nIn digital spaces like Slack or Microsoft Teams, your communication style is distinctively warm and expressive. While others send \"Approved,\" you send \"This looks amazing!! 🚀 Love the direction we're taking! Quick thought—did we consider X?\" You use emojis, exclamation points, and GIFs to convey tone because text feels too cold without them. You treat digital communication as a conversation, not a telex, often checking in on colleagues personally before diving into business requests.",
+      "content": {
+        "title": "Let's set the scene",
+        "description": "The weekly department meeting. The agenda is dry, and the presenter is reading bullet points off a slide in a monotone voice. Most people are checking their emails under the table. You, however, are vibrating with energy. You notice a flaw in the logic on slide four, and your brain instantly connects it to a trend you read about last week. You raise your hand—or perhaps you just blurt it out—\"Wait! What if we flip this entirely?\" For you, a meeting is not a place to report status; it is a live theater of ideas. You want engagement, debate, and energy. You are the person who says, \"Yes, and...\" constantly, building on others' thoughts until the original idea has mutated into something magnificent.\n\nHowever, your collaboration style can sometimes overwhelm more introverted or structured colleagues. You think out loud. This means that in a meeting, you might verbally process five bad ideas before landing on the brilliant one. To a Judging type (J) who values precision, this can sound like you are scattering focus or derailing the agenda. You might also have a tendency to interrupt, not out of rudeness, but out of pure excitement—you want to add your puzzle piece to the picture before the moment passes. Your enthusiasm is a double-edged sword; it wakes people up, but it can also suck the air out of the room if you aren't careful to pause and let the thinkers think.\n\nIn digital spaces like Slack or Microsoft Teams, your communication style is distinctively warm and expressive. While others send \"Approved,\" you send \"This looks amazing!! 🚀 Love the direction we're taking! Quick thought—did we consider X?\" You use emojis, exclamation points, and GIFs to convey tone because text feels too cold without them. You treat digital communication as a conversation, not a telex, often checking in on colleagues personally before diving into business requests."
+      },
       "subsections": [
         {
           "heading": "Navigating Collaboration",
-          "content": "**The \"Brain Dump\" Warning:** Before unleashing a stream of consciousness in a meeting, preface it by saying, \"I'm just thinking out loud here...\" This signals to the group that these aren't final decisions, but raw ideas.\n\n**Active Listening:** Challenge yourself to wait three seconds after someone finishes speaking before you jump in. It feels like an eternity to you, but it ensures the other person feels truly heard.\n\n**The Follow-Up Struggle:** You are great at the meeting, but often bad at the minutes. Partner with a colleague who enjoys documentation to capture the brilliance you generated so it doesn't vanish when the meeting ends."
+          "content": {
+            "title": "The \"Brain Dump\" Warning:",
+            "description": "Before unleashing a stream of consciousness in a meeting, preface it by saying, \"I'm just thinking out loud here...\" This signals to the group that these aren't final decisions, but raw ideas.\n\n**Active Listening:** Challenge yourself to wait three seconds after someone finishes speaking before you jump in. It feels like an eternity to you, but it ensures the other person feels truly heard.\n\n**The Follow-Up Struggle:** You are great at the meeting, but often bad at the minutes. Partner with a colleague who enjoys documentation to capture the brilliance you generated so it doesn't vanish when the meeting ends."
+          }
         }
       ]
     },
@@ -52,7 +64,10 @@
       "subsections": [
         {
           "heading": "Strategies for Completion",
-          "content": "**Gamify the Middle:** When the work gets boring, turn it into a game. How many emails can you clear in 20 minutes? Can you finish this report before the playlist ends? Artificial urgency stimulates your brain.\n\n**Body Doubling:** You work better when others are working. If you are struggling to focus, go to a coffee shop or hop on a \"co-working\" video call where you stay on mute but work alongside someone else.\n\n**The \"Good Enough\" Mantra:** Your perfectionism often stops you from finishing. Remind yourself that a shipped project is better than a perfect, unfinished concept. Learn to identify the point of diminishing returns."
+          "content": {
+            "title": "Gamify the Middle:",
+            "description": "When the work gets boring, turn it into a game. How many emails can you clear in 20 minutes? Can you finish this report before the playlist ends? Artificial urgency stimulates your brain.\n\n**Body Doubling:** You work better when others are working. If you are struggling to focus, go to a coffee shop or hop on a \"co-working\" video call where you stay on mute but work alongside someone else.\n\n**The \"Good Enough\" Mantra:** Your perfectionism often stops you from finishing. Remind yourself that a shipped project is better than a perfect, unfinished concept. Learn to identify the point of diminishing returns."
+          }
         }
       ]
     },
@@ -62,7 +77,10 @@
       "subsections": [
         {
           "heading": "Overcoming the Hurdles",
-          "content": "**Separating Self from Work:** Practice viewing your work as an external object. When someone critiques the object, they are not critiquing *you*. Visualizing the work as a separate entity sitting on the table between you and your boss can help reduce emotional reactivity.\n\n**Systematize the Boring:** Do not rely on willpower for admin tasks; you will lose. Rely on automation. Use calendar blocks, automatic reminders, and AI tools to handle the logistics. If possible, negotiate for administrative support or trade tasks with a detail-oriented colleague.\n\n**The 24-Hour Rule:** When you feel the urge to quit or pivot drastically, impose a 24-hour (or even one week) waiting period. Often, the feeling is temporary burnout, not a genuine need for change."
+          "content": {
+            "title": "Separating Self from Work:",
+            "description": "Practice viewing your work as an external object. When someone critiques the object, they are not critiquing *you*. Visualizing the work as a separate entity sitting on the table between you and your boss can help reduce emotional reactivity.\n\n**Systematize the Boring:** Do not rely on willpower for admin tasks; you will lose. Rely on automation. Use calendar blocks, automatic reminders, and AI tools to handle the logistics. If possible, negotiate for administrative support or trade tasks with a detail-oriented colleague.\n\n**The 24-Hour Rule:** When you feel the urge to quit or pivot drastically, impose a 24-hour (or even one week) waiting period. Often, the feeling is temporary burnout, not a genuine need for change."
+          }
         }
       ]
     },
@@ -72,7 +90,10 @@
       "subsections": [
         {
           "heading": "Actionable Advancement Tips",
-          "content": "**Find a Counterpart:** The most successful ENFPs often pair themselves with an ISTJ, INTJ, or ESTJ counterpart. You provide the vision and morale; they provide the structure and logistics. Find your \"operational anchor\" and treat them like gold.\n\n**Document Your Wins:** You tend to forget your achievements as soon as you move to the next shiny thing. Keep a \"Hype Doc\" where you list every win, every compliment, and every completed project. This is crucial for performance reviews.\n\n**Master One Boring Skill:** Pick one \"hard\" skill—whether it's data analytics, financial modeling, or project management software—and become proficient at it. This grounds your creativity and makes you undeniably valuable to the bottom line."
+          "content": {
+            "title": "Find a Counterpart:",
+            "description": "The most successful ENFPs often pair themselves with an ISTJ, INTJ, or ESTJ counterpart. You provide the vision and morale; they provide the structure and logistics. Find your \"operational anchor\" and treat them like gold.\n\n**Document Your Wins:** You tend to forget your achievements as soon as you move to the next shiny thing. Keep a \"Hype Doc\" where you list every win, every compliment, and every completed project. This is crucial for performance reviews.\n\n**Master One Boring Skill:** Pick one \"hard\" skill—whether it's data analytics, financial modeling, or project management software—and become proficient at it. This grounds your creativity and makes you undeniably valuable to the bottom line."
+          }
         }
       ]
     }
@@ -96,13 +117,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Innovation Engine:** Your ability to connect unrelated ideas (Ne) is your greatest asset. Position yourself in roles where brainstorming and strategy are valued over rote execution.",
-    "**Authenticity Matters:** You perform best when you can bring your whole self to work. Seek cultures that value psychological safety and expression.",
-    "**Beware the Middle:** You are great at starting and finishing, but the middle slog is dangerous. Use gamification and accountability partners to push through implementation.",
-    "**Emotional Sponge:** You absorb the emotions of the office. Protect your energy by setting boundaries and taking breaks from high-drama colleagues.",
-    "**Partner with Structure:** Don't try to become a detail-obsessed robot. Instead, collaborate with J-types who can operationalize your vision.",
-    "**Translate Your Intuition:** Learn to back up your gut feelings with data to persuade the Thinkers and Sensors in leadership.",
-    "**Value-Driven Work:** If the work conflicts with your morals, you will burn out. Alignment with the company mission is non-negotiable for long-term ENFP success."
+    {
+      "title": "Innovation Engine:",
+      "description": "Your ability to connect unrelated ideas (Ne) is your greatest asset. Position yourself in roles where brainstorming and strategy are valued over rote execution."
+    },
+    {
+      "title": "Authenticity Matters:",
+      "description": "You perform best when you can bring your whole self to work. Seek cultures that value psychological safety and expression."
+    },
+    {
+      "title": "Beware the Middle:",
+      "description": "You are great at starting and finishing, but the middle slog is dangerous. Use gamification and accountability partners to push through implementation."
+    },
+    {
+      "title": "Emotional Sponge:",
+      "description": "You absorb the emotions of the office. Protect your energy by setting boundaries and taking breaks from high-drama colleagues."
+    },
+    {
+      "title": "Partner with Structure:",
+      "description": "Don't try to become a detail-obsessed robot. Instead, collaborate with J-types who can operationalize your vision."
+    },
+    {
+      "title": "Translate Your Intuition:",
+      "description": "Learn to back up your gut feelings with data to persuade the Thinkers and Sensors in leadership."
+    },
+    {
+      "title": "Value-Driven Work:",
+      "description": "If the work conflicts with your morals, you will burn out. Alignment with the company mission is non-negotiable for long-term ENFP success."
+    }
   ],
   "relatedTopics": [
     "learning",

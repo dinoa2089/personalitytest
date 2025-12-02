@@ -80,12 +80,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Precision over Passion:** The Strategist communicates with facts, logic, and structure rather than emotional appeals.",
-    "**The Power of Preparation:** They excel when given time to prepare and hate being ambushed with surprise topics.",
-    "**Documentation is Key:** They prefer written communication (email) to establish clarity and accountability.",
-    "**Restrained Emotion:** Their calm demeanor is a tool for de-escalation, though it can sometimes be misread as coldness.",
-    "**Solution-Oriented:** They listen to fix problems, often skipping emotional validation to get straight to the solution.",
-    "**Reliability as Language:** For a Strategist, following through on a commitment is the ultimate form of communication."
+    {
+      "title": "Precision over Passion:",
+      "description": "The Strategist communicates with facts, logic, and structure rather than emotional appeals."
+    },
+    {
+      "title": "The Power of Preparation:",
+      "description": "They excel when given time to prepare and hate being ambushed with surprise topics."
+    },
+    {
+      "title": "Documentation is Key:",
+      "description": "They prefer written communication (email) to establish clarity and accountability."
+    },
+    {
+      "title": "Restrained Emotion:",
+      "description": "Their calm demeanor is a tool for de-escalation, though it can sometimes be misread as coldness."
+    },
+    {
+      "title": "Solution-Oriented:",
+      "description": "They listen to fix problems, often skipping emotional validation to get straight to the solution."
+    },
+    {
+      "title": "Reliability as Language:",
+      "description": "For a Strategist, following through on a commitment is the ultimate form of communication."
+    }
   ],
   "relatedTopics": [
     "learning",

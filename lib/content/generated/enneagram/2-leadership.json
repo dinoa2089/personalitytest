@@ -137,13 +137,31 @@
     }
   ],
   "keyTakeaways": [
-    "Leverage your EQ: Your ability to read the room is your greatest strategic asset.",
-    "Beware the Martyr: If you feel resentment, you have over-given. Check your boundaries immediately.",
-    "Clarity is Kindness: Stop 'sandwiching' feedback. Give direct, clear guidance to help your team grow.",
+    {
+      "title": "Leverage your EQ",
+      "description": "Your ability to read the room is your greatest strategic asset."
+    },
+    {
+      "title": "Beware the Martyr",
+      "description": "If you feel resentment, you have over-given. Check your boundaries immediately."
+    },
+    {
+      "title": "Clarity is Kindness",
+      "description": "Stop 'sandwiching' feedback. Give direct, clear guidance to help your team grow."
+    },
     "Delegate Responsibility, Not Just Tasks: Move from being a Rescuer to being a Coach.",
-    "Manage Your 'Need to be Needed': Ensure you are creating independent leaders, not dependent followers.",
-    "Prioritize Self-Care: You cannot pour from an empty cup. Your team needs you healthy, not exhausted.",
-    "Value Your Intuition: Trust your gut on hiring and personnel issues; it is rarely wrong."
+    {
+      "title": "Manage Your 'Need to be Needed'",
+      "description": "Ensure you are creating independent leaders, not dependent followers."
+    },
+    {
+      "title": "Prioritize Self-Care",
+      "description": "You cannot pour from an empty cup. Your team needs you healthy, not exhausted."
+    },
+    {
+      "title": "Value Your Intuition",
+      "description": "Trust your gut on hiring and personnel issues; it is rarely wrong."
+    }
   ],
   "relatedTopics": [
     "learning",

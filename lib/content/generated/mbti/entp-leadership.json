@@ -112,7 +112,10 @@
       "subsections": [
         {
           "heading": "The 'Sandwich' Method",
-          "content": "Force yourself to use the feedback sandwich: Positive affirmation, constructive critique, positive affirmation. It may feel fake to you, but it is essential fuel for Feeling types."
+          "content": {
+            "title": "Force yourself to use the feedback sandwich",
+            "description": "Positive affirmation, constructive critique, positive affirmation. It may feel fake to you, but it is essential fuel for Feeling types."
+          }
         },
         {
           "heading": "Hire for Closure",
@@ -162,12 +165,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Visionary Catalyst:** You excel at spotting patterns and opportunities that others miss, making you ideal for turnarounds and startups.",
-    "**Debate as a Tool:** You use intellectual sparring to refine ideas, but must ensure your team doesn't interpret this as hostility.",
-    "**Motivation by Autonomy:** You get the best out of people by selling them the 'why' and letting them figure out the 'how'.",
-    "**The Follow-Through Trap:** Your greatest weakness is execution; you must hire 'finishers' or build systems to ensure projects cross the finish line.",
-    "**Logical Decision Maker:** You prioritize objective truth over sentiment, which is efficient but requires you to consciously manage team morale.",
-    "**Growth Area:** Developing emotional intelligence (Fe) and patience with routine details is critical for your long-term success."
+    {
+      "title": "Visionary Catalyst:",
+      "description": "You excel at spotting patterns and opportunities that others miss, making you ideal for turnarounds and startups."
+    },
+    {
+      "title": "Debate as a Tool:",
+      "description": "You use intellectual sparring to refine ideas, but must ensure your team doesn't interpret this as hostility."
+    },
+    {
+      "title": "Motivation by Autonomy:",
+      "description": "You get the best out of people by selling them the 'why' and letting them figure out the 'how'."
+    },
+    {
+      "title": "The Follow-Through Trap:",
+      "description": "Your greatest weakness is execution; you must hire 'finishers' or build systems to ensure projects cross the finish line."
+    },
+    {
+      "title": "Logical Decision Maker:",
+      "description": "You prioritize objective truth over sentiment, which is efficient but requires you to consciously manage team morale."
+    },
+    {
+      "title": "Growth Area:",
+      "description": "Developing emotional intelligence (Fe) and patience with routine details is critical for your long-term success."
+    }
   ],
   "relatedTopics": [
     "learning",

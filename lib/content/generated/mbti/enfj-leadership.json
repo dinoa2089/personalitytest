@@ -60,7 +60,10 @@
       "subsections": [
         {
           "heading": "The Feedback Drill",
-          "content": "Try this exercise: When giving feedback, write down exactly what you want to say. Then, cross out the first and last sentences, which are likely fluff meant to soften the blow. Deliver the middle part. It will feel harsh to you, but it will likely sound clear and professional to them."
+          "content": {
+            "title": "Try this exercise",
+            "description": "When giving feedback, write down exactly what you want to say. Then, cross out the first and last sentences, which are likely fluff meant to soften the blow. Deliver the middle part. It will feel harsh to you, but it will likely sound clear and professional to them."
+          }
         },
         {
           "heading": "Audit Your Alliances",
@@ -93,13 +96,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Social Alchemy:** Your greatest strength is synthesizing a group of individuals into a unified, passionate team.",
-    "**Visionary Storytelling:** You don't just give orders; you paint a picture of the future that motivates people to act.",
-    "**The Burden of Empathy:** You run a high risk of burnout by taking on the emotional weight of your team's problems.",
-    "**Conflict Avoidance:** You must actively fight the urge to smooth over issues; clarity is often kinder than false harmony.",
-    "**Development Focus:** You excel in roles where the primary goal is growing people, such as coaching, HR, or mission-driven management.",
-    "**Values-Based Decisions:** You struggle with decisions that make logical sense but violate your ethical framework or hurt people.",
-    "**Validation Trap:** Be careful not to lead solely to be liked; respect is more sustainable than popularity."
+    {
+      "title": "Social Alchemy:",
+      "description": "Your greatest strength is synthesizing a group of individuals into a unified, passionate team."
+    },
+    {
+      "title": "Visionary Storytelling:",
+      "description": "You don't just give orders; you paint a picture of the future that motivates people to act."
+    },
+    {
+      "title": "The Burden of Empathy:",
+      "description": "You run a high risk of burnout by taking on the emotional weight of your team's problems."
+    },
+    {
+      "title": "Conflict Avoidance:",
+      "description": "You must actively fight the urge to smooth over issues; clarity is often kinder than false harmony."
+    },
+    {
+      "title": "Development Focus:",
+      "description": "You excel in roles where the primary goal is growing people, such as coaching, HR, or mission-driven management."
+    },
+    {
+      "title": "Values-Based Decisions:",
+      "description": "You struggle with decisions that make logical sense but violate your ethical framework or hurt people."
+    },
+    {
+      "title": "Validation Trap:",
+      "description": "Be careful not to lead solely to be liked; respect is more sustainable than popularity."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Key Professional Assets",
-          "content": "**Rapid-Fire Problem Solving:** You diagnose root causes faster than most people realize there is a symptom. You can synthesize information from disparate fields (e.g., applying biological principles to software architecture) to find novel solutions.\n\n**Persuasive Charisma:** When you believe in an idea, your enthusiasm is infectious. You combine logic with wit, making you a formidable negotiator and an inspiring (if unconventional) leader.\n\n**Fearless Experimentation:** You treat failure as data. If an initiative flops, you don't wallow; you analyze the variables, adjust the hypothesis, and launch version 2.0 immediately.\n\n**Strategic Vision:** You naturally think in future-tense. While others are focused on Q3 goals, you are already conceptualizing where the industry will be in five years."
+          "content": {
+            "title": "Rapid-Fire Problem Solving:",
+            "description": "You diagnose root causes faster than most people realize there is a symptom. You can synthesize information from disparate fields (e.g., applying biological principles to software architecture) to find novel solutions.\n\n**Persuasive Charisma:** When you believe in an idea, your enthusiasm is infectious. You combine logic with wit, making you a formidable negotiator and an inspiring (if unconventional) leader.\n\n**Fearless Experimentation:** You treat failure as data. If an initiative flops, you don't wallow; you analyze the variables, adjust the hypothesis, and launch version 2.0 immediately.\n\n**Strategic Vision:** You naturally think in future-tense. While others are focused on Q3 goals, you are already conceptualizing where the industry will be in five years."
+          }
         }
       ]
     },
@@ -32,7 +35,10 @@
       "subsections": [
         {
           "heading": "Environments Where You Flourish",
-          "content": "**The Startup Ecosystem:** The high risk, high reward, and \"wear many hats\" culture of startups is often the perfect playground for your versatility and speed.\n\n**Consultancy:** This allows you to swoop in, diagnose complex problems, offer brilliant solutions, and then leave before the implementation phase becomes tedious.\n\n**Crisis Management:** When things are on fire, the rulebook goes out the window. This is where your ability to think on your feet and remain objective shines.\n\n**Law and Advocacy:** The adversarial nature of the legal system appeals to your love of debate and your ability to argue any side of an issue based on technicalities and logic."
+          "content": {
+            "title": "The Startup Ecosystem:",
+            "description": "The high risk, high reward, and \"wear many hats\" culture of startups is often the perfect playground for your versatility and speed.\n\n**Consultancy:** This allows you to swoop in, diagnose complex problems, offer brilliant solutions, and then leave before the implementation phase becomes tedious.\n\n**Crisis Management:** When things are on fire, the rulebook goes out the window. This is where your ability to think on your feet and remain objective shines.\n\n**Law and Advocacy:** The adversarial nature of the legal system appeals to your love of debate and your ability to argue any side of an issue based on technicalities and logic."
+          }
         }
       ]
     },
@@ -42,7 +48,10 @@
       "subsections": [
         {
           "heading": "Navigating Team Interactions",
-          "content": "**The \"Sandwich\" Method:** When tearing apart an idea, try to sandwich your critique between validation of the person's effort and a constructive suggestion. It feels inefficient to you, but it preserves relationships.\n\n**The Pause Button:** Force yourself to count to three before interrupting. That extra space allows quieter team members to finish their thoughts, which might contain data points you missed.\n\n**Clarify Intent:** Explicitly state, \"I'm playing devil's advocate here to bulletproof this plan, not because I dislike it.\" Context framing saves feelings."
+          "content": {
+            "title": "The \"Sandwich\" Method:",
+            "description": "When tearing apart an idea, try to sandwich your critique between validation of the person's effort and a constructive suggestion. It feels inefficient to you, but it preserves relationships.\n\n**The Pause Button:** Force yourself to count to three before interrupting. That extra space allows quieter team members to finish their thoughts, which might contain data points you missed.\n\n**Clarify Intent:** Explicitly state, \"I'm playing devil's advocate here to bulletproof this plan, not because I dislike it.\" Context framing saves feelings."
+          }
         }
       ]
     },
@@ -52,7 +61,10 @@
       "subsections": [
         {
           "heading": "Meeting Survival Guide",
-          "content": "**Volunteer for the Whiteboard:** If you have to be in a meeting, be the scribe at the board. It gives you a physical outlet and allows you to structure the conversation visually.\n\n**The \"Parking Lot\" Strategy:** When you have a divergent idea that acts as a tangent, write it down in a \"parking lot\" list to discuss later, rather than derailing the current agenda.\n\n**Active Listening Drills:** Challenge yourself to summarize what someone else said before you offer your counterpoint. It proves you were listening and validates their contribution."
+          "content": {
+            "title": "Volunteer for the Whiteboard:",
+            "description": "If you have to be in a meeting, be the scribe at the board. It gives you a physical outlet and allows you to structure the conversation visually.\n\n**The \"Parking Lot\" Strategy:** When you have a divergent idea that acts as a tangent, write it down in a \"parking lot\" list to discuss later, rather than derailing the current agenda.\n\n**Active Listening Drills:** Challenge yourself to summarize what someone else said before you offer your counterpoint. It proves you were listening and validates their contribution."
+          }
         }
       ]
     },
@@ -62,7 +74,10 @@
       "subsections": [
         {
           "heading": "Managing Your Workflow",
-          "content": "**The 80/20 Rule:** Acknowledge that the last 20% of the project takes 80% of the effort. Plan for this energy dip. Schedule \"sprint\" sessions to power through the details with a reward waiting at the end.\n\n**External Accountability:** You will likely break a promise to yourself, but you hate looking incompetent to others. Set artificial deadlines with a colleague to force completion.\n\n**Digital Assistants:** Automate everything you can. Use tools like Trello, Asana, or AI assistants to handle reminders and scheduling so your brain doesn't have to hold that data."
+          "content": {
+            "title": "The 80/20 Rule:",
+            "description": "Acknowledge that the last 20% of the project takes 80% of the effort. Plan for this energy dip. Schedule \"sprint\" sessions to power through the details with a reward waiting at the end.\n\n**External Accountability:** You will likely break a promise to yourself, but you hate looking incompetent to others. Set artificial deadlines with a colleague to force completion.\n\n**Digital Assistants:** Automate everything you can. Use tools like Trello, Asana, or AI assistants to handle reminders and scheduling so your brain doesn't have to hold that data."
+          }
         }
       ]
     },
@@ -72,7 +87,10 @@
       "subsections": [
         {
           "heading": "Mitigating Risks",
-          "content": "**Pick Your Battles:** Not every inefficiency needs to be challenged. Save your political capital for the issues that truly matter to the bottom line.\n\n**Develop Fe (Extraverted Feeling):** Actively work on reading the room. Ask yourself, \"How will this person feel if I say this?\" before you speak. It’s not about being fake; it’s about being effective.\n\n**The \"boring\" tax:** Accept that 20% of any job is drudgery. View it as the tax you pay to get to do the 80% of cool stuff."
+          "content": {
+            "title": "Pick Your Battles:",
+            "description": "Not every inefficiency needs to be challenged. Save your political capital for the issues that truly matter to the bottom line.\n\n**Develop Fe (Extraverted Feeling):** Actively work on reading the room. Ask yourself, \"How will this person feel if I say this?\" before you speak. It’s not about being fake; it’s about being effective.\n\n**The \"boring\" tax:** Accept that 20% of any job is drudgery. View it as the tax you pay to get to do the 80% of cool stuff."
+          }
         }
       ]
     },
@@ -82,7 +100,10 @@
       "subsections": [
         {
           "heading": "Actionable Steps for Growth",
-          "content": "**The 24-Hour Rule:** When you have a brilliant new idea that requires pivoting the team, wait 24 hours before pitching it. If it still seems brilliant after a good night's sleep, go for it. If not, you saved everyone the whiplash.\n\n**Find a Mentor with Opposite Traits:** Seek out a mentor who is an ESTJ or ISTJ. They will drive you crazy, but they will teach you the discipline and operational rigor you are missing.\n\n**Document Your Wins:** Because you move so fast, you often forget what you achieved last month. Keep a \"Brag Sheet\" of problems you solved and value you created to leverage during performance reviews."
+          "content": {
+            "title": "The 24-Hour Rule:",
+            "description": "When you have a brilliant new idea that requires pivoting the team, wait 24 hours before pitching it. If it still seems brilliant after a good night's sleep, go for it. If not, you saved everyone the whiplash.\n\n**Find a Mentor with Opposite Traits:** Seek out a mentor who is an ESTJ or ISTJ. They will drive you crazy, but they will teach you the discipline and operational rigor you are missing.\n\n**Document Your Wins:** Because you move so fast, you often forget what you achieved last month. Keep a \"Brag Sheet\" of problems you solved and value you created to leverage during performance reviews."
+          }
         }
       ]
     }
@@ -106,12 +127,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Innovation Engine:** Your primary value is your ability to see patterns, connect disparate ideas, and solve complex problems creatively.",
-    "**Start Strong, Finish Weak:** You naturally struggle with follow-through. Partner with detail-oriented colleagues or use strict systems to ensure projects get completed.",
-    "**Debate with Care:** Remember that not everyone enjoys intellectual sparring. Contextualize your critiques to avoid hurting feelings or burning bridges.",
-    "**Seek Autonomy:** You will wither under micromanagement. Fight for roles that focus on results rather than rigid processes.",
-    "**Master the Boring:** Success requires a baseline of administrative competence. Automate or delegate the drudgery, but don't ignore it.",
-    "**Read the Room:** leverage your charm and intuition to understand the emotional climate of your team, not just the logical one."
+    {
+      "title": "Innovation Engine:",
+      "description": "Your primary value is your ability to see patterns, connect disparate ideas, and solve complex problems creatively."
+    },
+    {
+      "title": "Start Strong, Finish Weak:",
+      "description": "You naturally struggle with follow-through. Partner with detail-oriented colleagues or use strict systems to ensure projects get completed."
+    },
+    {
+      "title": "Debate with Care:",
+      "description": "Remember that not everyone enjoys intellectual sparring. Contextualize your critiques to avoid hurting feelings or burning bridges."
+    },
+    {
+      "title": "Seek Autonomy:",
+      "description": "You will wither under micromanagement. Fight for roles that focus on results rather than rigid processes."
+    },
+    {
+      "title": "Master the Boring:",
+      "description": "Success requires a baseline of administrative competence. Automate or delegate the drudgery, but don't ignore it."
+    },
+    {
+      "title": "Read the Room:",
+      "description": "leverage your charm and intuition to understand the emotional climate of your team, not just the logical one."
+    }
   ],
   "relatedTopics": [
     "learning",

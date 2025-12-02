@@ -21,7 +21,10 @@
       "subsections": [
         {
           "heading": "Core Leadership Assets",
-          "content": "**Holistic Perspective-Taking:** You can suspend judgment long enough to understand the full scope of a problem, preventing rash decisions based on partial data.\n**Crisis Stabilization:** When the stakes are high, you remain grounded. Your refusal to panic prevents hysteria from spreading through the ranks.\n**Ego-Less Empowerment:** You are happy to let others shine, which attracts high-talent individuals who want autonomy rather than micromanagement.\n**Consensus Building:** You don't just mandate; you get buy-in. Decisions made under your watch tend to stick because key stakeholders feel they were part of the process."
+          "content": {
+            "title": "Holistic Perspective-Taking:",
+            "description": "You can suspend judgment long enough to understand the full scope of a problem, preventing rash decisions based on partial data.\n**Crisis Stabilization:** When the stakes are high, you remain grounded. Your refusal to panic prevents hysteria from spreading through the ranks.\n**Ego-Less Empowerment:** You are happy to let others shine, which attracts high-talent individuals who want autonomy rather than micromanagement.\n**Consensus Building:** You don't just mandate; you get buy-in. Decisions made under your watch tend to stick because key stakeholders feel they were part of the process."
+          }
         }
       ]
     },
@@ -31,7 +34,10 @@
       "subsections": [
         {
           "heading": "Navigating Different Contexts",
-          "content": "**In Startups:** You provide the necessary ballast to a rocket ship. You prevent burnout and ensure that the culture remains human-centric despite the rapid scaling.\n**In Corporate:** You are the silo-buster. You navigate bureaucracy with patience and build alliances across departments that rarely speak to each other, facilitating cross-functional success.\n**In Remote Teams:** You excel at checking in on the emotional well-being of distant employees, ensuring that isolation doesn't lead to disengagement."
+          "content": {
+            "title": "In Startups:",
+            "description": "You provide the necessary ballast to a rocket ship. You prevent burnout and ensure that the culture remains human-centric despite the rapid scaling.\n**In Corporate:** You are the silo-buster. You navigate bureaucracy with patience and build alliances across departments that rarely speak to each other, facilitating cross-functional success.\n**In Remote Teams:** You excel at checking in on the emotional well-being of distant employees, ensuring that isolation doesn't lead to disengagement."
+          }
         }
       ]
     },
@@ -41,7 +47,10 @@
       "subsections": [
         {
           "heading": "Motivational Levers",
-          "content": "**Autonomy over Control:** You trust your team to manage their own time and methods, which is highly motivating for skilled professionals.\n**Psychological Safety:** You create a 'failure-safe' environment where innovation can happen without the paralyzing fear of retribution.\n**Inclusive Recognition:** When the team wins, you ensure the praise is distributed to everyone, including the support staff who usually go unnoticed."
+          "content": {
+            "title": "Autonomy over Control:",
+            "description": "You trust your team to manage their own time and methods, which is highly motivating for skilled professionals.\n**Psychological Safety:** You create a 'failure-safe' environment where innovation can happen without the paralyzing fear of retribution.\n**Inclusive Recognition:** When the team wins, you ensure the praise is distributed to everyone, including the support staff who usually go unnoticed."
+          }
         }
       ]
     },
@@ -51,7 +60,10 @@
       "subsections": [
         {
           "heading": "Decision-Making Strategies",
-          "content": "**The 24-Hour Rule:** Give yourself a strict deadline. Gather input for a set period, then force a decision within 24 hours to prevent drift.\n**Disagree and Commit:** Teach your team that they have a right to be heard, but not a right to veto. Once you decide, the debate ends and the work begins.\n**Somatic Check:** 9s often lose touch with their gut instinct. Before deciding, check your body. Does Option A make you feel heavy and sleepy? Does Option B make you feel expansive, even if it's scary? Follow the energy, not the comfort."
+          "content": {
+            "title": "The 24-Hour Rule:",
+            "description": "Give yourself a strict deadline. Gather input for a set period, then force a decision within 24 hours to prevent drift.\n**Disagree and Commit:** Teach your team that they have a right to be heard, but not a right to veto. Once you decide, the debate ends and the work begins.\n**Somatic Check:** 9s often lose touch with their gut instinct. Before deciding, check your body. Does Option A make you feel heavy and sleepy? Does Option B make you feel expansive, even if it's scary? Follow the energy, not the comfort."
+          }
         }
       ]
     },
@@ -61,7 +73,10 @@
       "subsections": [
         {
           "heading": "Watch Out For",
-          "content": "**The Ostrich Effect:** Ignoring problems hoping they will naturally resolve. (They usually get worse).\n**Merging:** Adopting the opinion of the last person you spoke to, leading to inconsistent direction.\n**Passive-Aggression:** Agreeing to do something you don't want to do, and then procrastinating or doing it poorly as a subconscious protest."
+          "content": {
+            "title": "The Ostrich Effect:",
+            "description": "Ignoring problems hoping they will naturally resolve. (They usually get worse).\n**Merging:** Adopting the opinion of the last person you spoke to, leading to inconsistent direction.\n**Passive-Aggression:** Agreeing to do something you don't want to do, and then procrastinating or doing it poorly as a subconscious protest."
+          }
         }
       ]
     },
@@ -71,7 +86,10 @@
       "subsections": [
         {
           "heading": "Growth Strategies",
-          "content": "**Practice 'I' Statements:** In meetings, force yourself to say 'I want,' 'I need,' or 'I decided,' rather than 'We should' or 'It might be good if...'\n**Define Your Non-Negotiables:** Write down 3 behaviors you will not tolerate in your team. When they happen, act immediately. Treat it as a drill for your assertiveness.\n**Set Personal Goals:** Distinct from the team's goals, what do *you* want to achieve? A promotion? A new skill? Public speaking? Pursue it with Type 3 intensity."
+          "content": {
+            "title": "Practice 'I' Statements:",
+            "description": "In meetings, force yourself to say 'I want,' 'I need,' or 'I decided,' rather than 'We should' or 'It might be good if...'\n**Define Your Non-Negotiables:** Write down 3 behaviors you will not tolerate in your team. When they happen, act immediately. Treat it as a drill for your assertiveness.\n**Set Personal Goals:** Distinct from the team's goals, what do *you* want to achieve? A promotion? A new skill? Public speaking? Pursue it with Type 3 intensity."
+          }
         }
       ]
     },
@@ -81,7 +99,10 @@
       "subsections": [
         {
           "heading": "Ideal Environments",
-          "content": "**Diplomacy and Mediation:** Roles that require navigating complex political landscapes.\n**Healthcare and Education:** Sectors that value patience, care, and long-term development over quick profits.\n**Mature Organizations:** Companies that need stewardship and culture-building rather than chaotic rapid scaling."
+          "content": {
+            "title": "Diplomacy and Mediation:",
+            "description": "Roles that require navigating complex political landscapes.\n**Healthcare and Education:** Sectors that value patience, care, and long-term development over quick profits.\n**Mature Organizations:** Companies that need stewardship and culture-building rather than chaotic rapid scaling."
+          }
         }
       ]
     }
@@ -105,12 +126,30 @@
     }
   ],
   "keyTakeaways": [
-    "**The Diplomatic Anchor:** Your greatest strength is your ability to remain calm and grounded in chaos, providing psychological safety for your team.",
-    "**Consensus to Consent:** Move from waiting for everyone to agree (consensus) to asking if everyone can support the direction (consent) to speed up decision-making.",
-    "**Beware the False Peace:** Don't ignore toxic behavior to avoid conflict. True harmony requires addressing issues head-on.",
-    "**Wake Up to Yourself:** Your growth lies in asserting your own agenda and vision, moving toward the energy of Type 3.",
-    "**Inclusivity is Strategy:** Your natural ability to see all perspectives is a massive competitive advantage in complex, multi-stakeholder environments.",
-    "**Action Over Analysis:** Combat your tendency toward 'sloth' (inertia) by adopting the 24-hour rule for difficult decisions."
+    {
+      "title": "The Diplomatic Anchor:",
+      "description": "Your greatest strength is your ability to remain calm and grounded in chaos, providing psychological safety for your team."
+    },
+    {
+      "title": "Consensus to Consent:",
+      "description": "Move from waiting for everyone to agree (consensus) to asking if everyone can support the direction (consent) to speed up decision-making."
+    },
+    {
+      "title": "Beware the False Peace:",
+      "description": "Don't ignore toxic behavior to avoid conflict. True harmony requires addressing issues head-on."
+    },
+    {
+      "title": "Wake Up to Yourself:",
+      "description": "Your growth lies in asserting your own agenda and vision, moving toward the energy of Type 3."
+    },
+    {
+      "title": "Inclusivity is Strategy:",
+      "description": "Your natural ability to see all perspectives is a massive competitive advantage in complex, multi-stakeholder environments."
+    },
+    {
+      "title": "Action Over Analysis:",
+      "description": "Combat your tendency toward 'sloth' (inertia) by adopting the 24-hour rule for difficult decisions."
+    }
   ],
   "relatedTopics": [
     "learning",

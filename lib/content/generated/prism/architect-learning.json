@@ -86,7 +86,10 @@
         },
         {
           "heading": "Sample Study Routine (Deep Work Block)",
-          "content": "**08:00 - 08:15:** Review the \"Macro View.\" Look at the syllabus or project roadmap. Define exactly *what* system you are building today.\n**08:15 - 09:00:** Acquisition. Intense reading or data gathering. No note-taking yet, just comprehension.\n**09:00 - 09:10:** Break. Physical movement to reset.\n**09:10 - 10:00:** Synthesis. Close the source material. Open your note-taking app. Reconstruct what you just learned into a diagram, summary, or code block.\n**10:00 - 10:15:** Review. Compare your synthesis against the source material. Correct errors."
+          "content": {
+            "title": "08:00 - 08:15:",
+            "description": "Review the \"Macro View.\" Look at the syllabus or project roadmap. Define exactly *what* system you are building today.\n**08:15 - 09:00:** Acquisition. Intense reading or data gathering. No note-taking yet, just comprehension.\n**09:00 - 09:10:** Break. Physical movement to reset.\n**09:10 - 10:00:** Synthesis. Close the source material. Open your note-taking app. Reconstruct what you just learned into a diagram, summary, or code block.\n**10:00 - 10:15:** Review. Compare your synthesis against the source material. Correct errors."
+          }
         }
       ]
     },

@@ -72,13 +72,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Identify the Source:** ISFJ stress triggers usually involve disrupted routines, interpersonal conflict, or feeling unappreciated.",
-    "**Watch for the Grip:** Be aware of 'catastrophizing'—imagining worst-case scenarios is a sign your inferior function (Ne) has taken over.",
-    "**Sensory Grounding:** Use your five senses (Si) to calm anxiety. Familiar smells, textures, and activities can pull you out of a doom spiral.",
-    "**The Strategic No:** Protecting your energy is not selfish; it is essential. Learn to decline requests that drain your reserves.",
-    "**Vent to Decompress:** You process emotions externally. Find a trusted listener to help you verbalize your feelings without judgment.",
-    "**Productive Restoration:** Recovery doesn't always mean doing nothing; low-stress, familiar hobbies like gardening or baking can be more restorative than sleep.",
-    "**Accept Help:** You are the helper, but you must also allow yourself to be helped. Delegating is a form of trust."
+    {
+      "title": "Identify the Source:",
+      "description": "ISFJ stress triggers usually involve disrupted routines, interpersonal conflict, or feeling unappreciated."
+    },
+    {
+      "title": "Watch for the Grip:",
+      "description": "Be aware of 'catastrophizing'—imagining worst-case scenarios is a sign your inferior function (Ne) has taken over."
+    },
+    {
+      "title": "Sensory Grounding:",
+      "description": "Use your five senses (Si) to calm anxiety. Familiar smells, textures, and activities can pull you out of a doom spiral."
+    },
+    {
+      "title": "The Strategic No:",
+      "description": "Protecting your energy is not selfish; it is essential. Learn to decline requests that drain your reserves."
+    },
+    {
+      "title": "Vent to Decompress:",
+      "description": "You process emotions externally. Find a trusted listener to help you verbalize your feelings without judgment."
+    },
+    {
+      "title": "Productive Restoration:",
+      "description": "Recovery doesn't always mean doing nothing; low-stress, familiar hobbies like gardening or baking can be more restorative than sleep."
+    },
+    {
+      "title": "Accept Help:",
+      "description": "You are the helper, but you must also allow yourself to be helped. Delegating is a form of trust."
+    }
   ],
   "relatedTopics": [
     "learning",

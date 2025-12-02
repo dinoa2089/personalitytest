@@ -22,7 +22,10 @@
       "subsections": [
         {
           "heading": "Core Strengths in Detail",
-          "content": "**The \"Fixer\" Mentality:**\nWhile some types offer a shoulder to cry on, you offer a solution to the problem causing the tears. Whether it's fixing a leaky faucet or restructuring your partner's debt, your love language is often practical problem-solving. You show you care by making their life run smoother and more efficiently.\n\n**Low-Drama Dynamics:**\nYou have a biological aversion to unnecessary conflict and passive-aggressive behavior. You prefer to address issues directly, resolve them, and move on. This creates a relationship environment that is remarkably peaceful and free from the emotional turbulence that plagues other pairings.\n\n**Unwavering Loyalty:**\nOnce an INTJ commits, they are typically in it for the long haul. You take your vows and promises literally. You are slow to enter a relationship precisely because you take the exit costs seriously. Your partner can trust that you will defend them and the relationship against external threats with ferocity.\n\n**Intellectual Stimulation:**\nLife with an INTJ is never boring. You bring new ideas, theories, and perspectives to the dinner table every night. You challenge your partner to think deeply, ensuring that the mental spark of the relationship never flickers out."
+          "content": {
+            "title": "The \"Fixer\" Mentality:",
+            "description": "While some types offer a shoulder to cry on, you offer a solution to the problem causing the tears. Whether it's fixing a leaky faucet or restructuring your partner's debt, your love language is often practical problem-solving. You show you care by making their life run smoother and more efficiently.\n\n**Low-Drama Dynamics:**\nYou have a biological aversion to unnecessary conflict and passive-aggressive behavior. You prefer to address issues directly, resolve them, and move on. This creates a relationship environment that is remarkably peaceful and free from the emotional turbulence that plagues other pairings.\n\n**Unwavering Loyalty:**\nOnce an INTJ commits, they are typically in it for the long haul. You take your vows and promises literally. You are slow to enter a relationship precisely because you take the exit costs seriously. Your partner can trust that you will defend them and the relationship against external threats with ferocity.\n\n**Intellectual Stimulation:**\nLife with an INTJ is never boring. You bring new ideas, theories, and perspectives to the dinner table every night. You challenge your partner to think deeply, ensuring that the mental spark of the relationship never flickers out."
+          }
         }
       ]
     },
@@ -32,17 +35,26 @@
       "subsections": [
         {
           "heading": "Compatibility Factors",
-          "content": "**The Ideal Dynamic:**\nINTJs often thrive with partners who are self-sufficient and intellectually curious. You often pair well with ENFPs or ENTPs; their Ne (Extraverted Intuition) provides a fascinating stream of possibilities that your Ni (Introverted Intuition) enjoys refining and focusing. They bring the spontaneity you lack, while you provide the grounding structure they need.\n\n**The Need for Autonomy:**\nNothing suffocates an INTJ faster than a clingy partner. You need a relationship where independence is celebrated. A partner who demands constant text updates or gets offended when you need three hours of silence to work on a project will trigger your flight response. The best partners for you have their own passions and hobbies.\n\n**Direct Communication:**\n\"Hinting\" is a foreign language to you. You need a partner who says what they mean and means what they say. Relationships with passive communicators often lead to frustration, as you will take their words at face value and miss the subtext, leading to accusations of insensitivity."
+          "content": {
+            "title": "The Ideal Dynamic:",
+            "description": "INTJs often thrive with partners who are self-sufficient and intellectually curious. You often pair well with ENFPs or ENTPs; their Ne (Extraverted Intuition) provides a fascinating stream of possibilities that your Ni (Introverted Intuition) enjoys refining and focusing. They bring the spontaneity you lack, while you provide the grounding structure they need.\n\n**The Need for Autonomy:**\nNothing suffocates an INTJ faster than a clingy partner. You need a relationship where independence is celebrated. A partner who demands constant text updates or gets offended when you need three hours of silence to work on a project will trigger your flight response. The best partners for you have their own passions and hobbies.\n\n**Direct Communication:**\n\"Hinting\" is a foreign language to you. You need a partner who says what they mean and means what they say. Relationships with passive communicators often lead to frustration, as you will take their words at face value and miss the subtext, leading to accusations of insensitivity."
+          }
         }
       ]
     },
     {
       "heading": "Dating and Attraction: The Interview Process",
-      "content": "Let's be honest: the modern dating landscape is a nightmare for the **INTJ - The Architect**. The rituals of courtship—small talk, ambiguous signals, the \"three-day rule\"—seem like an elaborate, inefficient dance designed to obfuscate the truth. You have probably found yourself on a first date, sitting across from someone at a coffee shop, feeling less like a romantic prospect and more like a hiring manager conducting a stress interview. You aren't asking about their favorite color; you're asking about their five-year plan, their views on geopolitical stability, or their philosophy on financial independence. To you, this is efficiency. To them, it's intense.\n\nYou likely struggle with the concept of \"flirting.\" The standard signals of interest—giggling, touching, coy glances—often fly right over your head. Conversely, when you try to flirt, it can come across as debating. You might try to engage someone you like by challenging their opinions, thinking that a vigorous intellectual spar is the highest form of bonding. Unfortunately, many people interpret this as hostility or arrogance. You may have walked away from interactions thinking, \"We had such a great discussion about the flaws in the education system,\" while your date walked away thinking, \"They hated everything I said.\"\n\nDespite these hurdles, when attraction does hit you, it tends to be cerebral and sudden. It’s often triggered not by a look, but by a sentence—a moment of competence or insight from the other person that makes your intuition light up. Once you decide you are interested, you pursue with the same relentless determination you apply to your career. You will study them. You will learn their likes and dislikes. You will curate dates that are perfectly tailored to their interests. You may not be the most spontaneously romantic dater, but you are undoubtedly the most prepared.",
+      "content": {
+        "title": "Let's be honest",
+        "description": "the modern dating landscape is a nightmare for the **INTJ - The Architect**. The rituals of courtship—small talk, ambiguous signals, the \"three-day rule\"—seem like an elaborate, inefficient dance designed to obfuscate the truth. You have probably found yourself on a first date, sitting across from someone at a coffee shop, feeling less like a romantic prospect and more like a hiring manager conducting a stress interview. You aren't asking about their favorite color; you're asking about their five-year plan, their views on geopolitical stability, or their philosophy on financial independence. To you, this is efficiency. To them, it's intense.\n\nYou likely struggle with the concept of \"flirting.\" The standard signals of interest—giggling, touching, coy glances—often fly right over your head. Conversely, when you try to flirt, it can come across as debating. You might try to engage someone you like by challenging their opinions, thinking that a vigorous intellectual spar is the highest form of bonding. Unfortunately, many people interpret this as hostility or arrogance. You may have walked away from interactions thinking, \"We had such a great discussion about the flaws in the education system,\" while your date walked away thinking, \"They hated everything I said.\"\n\nDespite these hurdles, when attraction does hit you, it tends to be cerebral and sudden. It’s often triggered not by a look, but by a sentence—a moment of competence or insight from the other person that makes your intuition light up. Once you decide you are interested, you pursue with the same relentless determination you apply to your career. You will study them. You will learn their likes and dislikes. You will curate dates that are perfectly tailored to their interests. You may not be the most spontaneously romantic dater, but you are undoubtedly the most prepared."
+      },
       "subsections": [
         {
           "heading": "Navigating the Dating Scene",
-          "content": "**Conversation Starters:**\nSkip the weather. Try questions that engage the intuition: \"What is a book that fundamentally changed how you view the world?\" or \"If you could restructure one societal institution, which one would it be and why?\" These questions act as filters, quickly weeding out those who aren't interested in deep diving.\n\n**Date Ideas:**\nAvoid loud bars or chaotic clubs where conversation is impossible. Opt for activities that allow for conversation and observation. Museums, bookstores, escape rooms (where you can show off your problem-solving skills), or a quiet hike are ideal. These environments allow you to gather data on the other person without sensory overload.\n\n**The \"Checklist\" Trap:**\nBe wary of discarding people too quickly because they don't fit your pre-conceived archetype. Use your Extraverted Thinking (Te) to assess if their values align with yours, but allow your Introverted Feeling (Fi) to assess if you actually *feel* good around them. Sometimes, chemistry defies logic."
+          "content": {
+            "title": "Conversation Starters:",
+            "description": "Skip the weather. Try questions that engage the intuition: \"What is a book that fundamentally changed how you view the world?\" or \"If you could restructure one societal institution, which one would it be and why?\" These questions act as filters, quickly weeding out those who aren't interested in deep diving.\n\n**Date Ideas:**\nAvoid loud bars or chaotic clubs where conversation is impossible. Opt for activities that allow for conversation and observation. Museums, bookstores, escape rooms (where you can show off your problem-solving skills), or a quiet hike are ideal. These environments allow you to gather data on the other person without sensory overload.\n\n**The \"Checklist\" Trap:**\nBe wary of discarding people too quickly because they don't fit your pre-conceived archetype. Use your Extraverted Thinking (Te) to assess if their values align with yours, but allow your Introverted Feeling (Fi) to assess if you actually *feel* good around them. Sometimes, chemistry defies logic."
+          }
         }
       ]
     },
@@ -52,7 +64,10 @@
       "subsections": [
         {
           "heading": "Sustaining the Bond",
-          "content": "**Love Languages:**\nYour primary love languages are typically **Acts of Service** (doing things to help) and **Quality Time** (focused attention). You are less likely to rely on Words of Affirmation. You assume that because you are still in the relationship, you obviously love them. You need to consciously remind yourself to vocalize your affection, as your partner cannot read your mind.\n\n**Handling Conflict:**\nWhen things get heated, you may have a tendency to withdraw or \"stonewall\" to process your thoughts. This can look like abandonment to a more emotional partner. Narrate your process: \"I am feeling overwhelmed and need 20 minutes to think this through so I can give you a rational answer. I will be back.\"\n\n**Shared Goals:**\nINTJs thrive when the couple has a shared mission. Whether it's raising children, building a business, or retiring early to travel, having a common strategic objective binds you together more than just emotional sentiment."
+          "content": {
+            "title": "Love Languages:",
+            "description": "Your primary love languages are typically **Acts of Service** (doing things to help) and **Quality Time** (focused attention). You are less likely to rely on Words of Affirmation. You assume that because you are still in the relationship, you obviously love them. You need to consciously remind yourself to vocalize your affection, as your partner cannot read your mind.\n\n**Handling Conflict:**\nWhen things get heated, you may have a tendency to withdraw or \"stonewall\" to process your thoughts. This can look like abandonment to a more emotional partner. Narrate your process: \"I am feeling overwhelmed and need 20 minutes to think this through so I can give you a rational answer. I will be back.\"\n\n**Shared Goals:**\nINTJs thrive when the couple has a shared mission. Whether it's raising children, building a business, or retiring early to travel, having a common strategic objective binds you together more than just emotional sentiment."
+          }
         }
       ]
     },
@@ -62,7 +77,10 @@
       "subsections": [
         {
           "heading": "Friendship Dynamics",
-          "content": "**Intellectual Sparring:**\nYour favorite activity with friends is often debating. You feel closest to people when you can disagree with them without them taking it personally. You view an argument as a way to sharpen each other's minds.\n\n**The Activity Barrier:**\nINTJs often bond over shared activities rather than just \"hanging out.\" Gaming, coding, strategy board games, or working on a project together are great ways to facilitate INTJ friendship. It focuses the interaction on a third object, removing the pressure of pure social performance."
+          "content": {
+            "title": "Intellectual Sparring:",
+            "description": "Your favorite activity with friends is often debating. You feel closest to people when you can disagree with them without them taking it personally. You view an argument as a way to sharpen each other's minds.\n\n**The Activity Barrier:**\nINTJs often bond over shared activities rather than just \"hanging out.\" Gaming, coding, strategy board games, or working on a project together are great ways to facilitate INTJ friendship. It focuses the interaction on a third object, removing the pressure of pure social performance."
+          }
         }
       ]
     },
@@ -72,7 +90,10 @@
       "subsections": [
         {
           "heading": "Family Challenges",
-          "content": "**Tradition vs. Innovation:**\nFamily holidays can be stressful because they are often filled with rituals that you find pointless. You might be the one suggesting you order takeout instead of cooking for eight hours, which can offend traditionalist family members (like ISFJs or ESFJs).\n\n**Emotional Distance:**\nYour family may accuse you of being distant or unloving because you don't call every week. You need to explain that your love is constant and doesn't require daily reinforcement, but also be willing to compromise to meet their emotional needs."
+          "content": {
+            "title": "Tradition vs. Innovation:",
+            "description": "Family holidays can be stressful because they are often filled with rituals that you find pointless. You might be the one suggesting you order takeout instead of cooking for eight hours, which can offend traditionalist family members (like ISFJs or ESFJs).\n\n**Emotional Distance:**\nYour family may accuse you of being distant or unloving because you don't call every week. You need to explain that your love is constant and doesn't require daily reinforcement, but also be willing to compromise to meet their emotional needs."
+          }
         }
       ]
     },
@@ -82,7 +103,10 @@
       "subsections": [
         {
           "heading": "Red Flags & Cautionary Tales",
-          "content": "**The Arrogance Trap:**\nBelieving you are the only rational person in the relationship is a recipe for disaster. If you constantly dismiss your partner's feelings as \"illogical,\" you will breed resentment. Remember: emotions are data. Ignoring them is bad science.\n\n**The Project Partner:**\nBe careful not to date someone solely as a \"fixer-upper\" project. You cannot optimize a human being into the partner you want. If you don't respect who they are right now, let them go.\n\n**Advice for Partners of INTJs:**\nIf you love an INTJ, give them space, but don't let them isolate completely. Be direct—do not expect them to read your mind. If you need a hug, say \"I need a hug, not a solution.\" Value their loyalty and their mind, and understand that their criticism is often their clumsy way of showing they care enough to help you improve."
+          "content": {
+            "title": "The Arrogance Trap:",
+            "description": "Believing you are the only rational person in the relationship is a recipe for disaster. If you constantly dismiss your partner's feelings as \"illogical,\" you will breed resentment. Remember: emotions are data. Ignoring them is bad science.\n\n**The Project Partner:**\nBe careful not to date someone solely as a \"fixer-upper\" project. You cannot optimize a human being into the partner you want. If you don't respect who they are right now, let them go.\n\n**Advice for Partners of INTJs:**\nIf you love an INTJ, give them space, but don't let them isolate completely. Be direct—do not expect them to read your mind. If you need a hug, say \"I need a hug, not a solution.\" Value their loyalty and their mind, and understand that their criticism is often their clumsy way of showing they care enough to help you improve."
+          }
         }
       ]
     }
@@ -106,13 +130,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Love as a System:** INTJs approach relationships with the same strategic, improvement-oriented mindset they apply to their work.",
-    "**The Mind-Mate:** Intellectual connection is not optional for an INTJ; it is the foundation of their attraction.",
-    "**Actions Over Words:** INTJs show love through loyalty, problem-solving, and acts of service rather than effusive emotional displays.",
-    "**Honesty is Absolute:** They value direct communication and detest mind games or passive-aggressive behavior.",
-    "**Need for Autonomy:** A healthy INTJ relationship requires plenty of space for independence and solitary pursuits.",
-    "**The Logic-Emotion Gap:** The biggest challenge is learning to validate a partner's emotions without immediately trying to 'fix' them with logic.",
-    "**Loyalty:** Once committed, an INTJ is a fiercely dedicated partner who will work tirelessly to ensure the relationship's stability and success."
+    {
+      "title": "Love as a System:",
+      "description": "INTJs approach relationships with the same strategic, improvement-oriented mindset they apply to their work."
+    },
+    {
+      "title": "The Mind-Mate:",
+      "description": "Intellectual connection is not optional for an INTJ; it is the foundation of their attraction."
+    },
+    {
+      "title": "Actions Over Words:",
+      "description": "INTJs show love through loyalty, problem-solving, and acts of service rather than effusive emotional displays."
+    },
+    {
+      "title": "Honesty is Absolute:",
+      "description": "They value direct communication and detest mind games or passive-aggressive behavior."
+    },
+    {
+      "title": "Need for Autonomy:",
+      "description": "A healthy INTJ relationship requires plenty of space for independence and solitary pursuits."
+    },
+    {
+      "title": "The Logic-Emotion Gap:",
+      "description": "The biggest challenge is learning to validate a partner's emotions without immediately trying to 'fix' them with logic."
+    },
+    {
+      "title": "Loyalty:",
+      "description": "Once committed, an INTJ is a fiercely dedicated partner who will work tirelessly to ensure the relationship's stability and success."
+    }
   ],
   "relatedTopics": [
     "learning",

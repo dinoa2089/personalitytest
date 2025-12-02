@@ -21,7 +21,10 @@
       "subsections": [
         {
           "heading": "Key Characteristics",
-          "content": "**Action-Oriented Expression:** ISFPs prefer to show they care through deeds rather than declarations. They are the type to fix your broken shelf or buy your favorite snack rather than writing a long poem about friendship.\n\n**Non-Judgmental Listening:** They create a safe space for others to speak. Because they value their own freedom of expression so highly, they extend that same courtesy to others, rarely interrupting or dismissing someone's feelings.\n\n**Concrete Language:** They avoid generalizations. Instead of saying \"The atmosphere was bad,\" they might say, \" The lighting was too harsh and everyone stood with their arms crossed.\"\n\n**Reluctance to direct:** They rarely give commands. Their requests are often phrased as suggestions or open-ended questions to avoid infringing on anyone's autonomy."
+          "content": {
+            "title": "Action-Oriented Expression:",
+            "description": "ISFPs prefer to show they care through deeds rather than declarations. They are the type to fix your broken shelf or buy your favorite snack rather than writing a long poem about friendship.\n\n**Non-Judgmental Listening:** They create a safe space for others to speak. Because they value their own freedom of expression so highly, they extend that same courtesy to others, rarely interrupting or dismissing someone's feelings.\n\n**Concrete Language:** They avoid generalizations. Instead of saying \"The atmosphere was bad,\" they might say, \" The lighting was too harsh and everyone stood with their arms crossed.\"\n\n**Reluctance to direct:** They rarely give commands. Their requests are often phrased as suggestions or open-ended questions to avoid infringing on anyone's autonomy."
+          }
         }
       ]
     },
@@ -31,7 +34,10 @@
       "subsections": [
         {
           "heading": "Superpowers in Conversation",
-          "content": "**Emotional Resonance:** They can detect falseness instantly. When they validate you, you know it's genuine because they are incapable of faking interest.\n\n**Observational Humor:** Their quiet nature allows them to observe details others miss, leading to witty, dry, and often hilarious side comments that can diffuse tension.\n\n**Crisis Management:** Their focus on the present moment allows them to react quickly and practically to immediate physical needs during a crisis.\n\n**Visual Communication:** They often excel at communicating complex ideas through visual aids, design, or physical demonstration rather than written reports."
+          "content": {
+            "title": "Emotional Resonance:",
+            "description": "They can detect falseness instantly. When they validate you, you know it's genuine because they are incapable of faking interest.\n\n**Observational Humor:** Their quiet nature allows them to observe details others miss, leading to witty, dry, and often hilarious side comments that can diffuse tension.\n\n**Crisis Management:** Their focus on the present moment allows them to react quickly and practically to immediate physical needs during a crisis.\n\n**Visual Communication:** They often excel at communicating complex ideas through visual aids, design, or physical demonstration rather than written reports."
+          }
         }
       ]
     },
@@ -41,7 +47,10 @@
       "subsections": [
         {
           "heading": "Common Phrases and Context",
-          "content": "**\"I feel like...\"**\n*Context:* Used when stating an opinion. To an ISFP, an opinion is often indistinguishable from a feeling or value judgment. It signals they are sharing something personal.\n\n**\"Let's see what happens.\"**\n*Context:* Used when resisting strict planning. It signals their desire to keep options open and respond to the moment.\n\n**\"It depends.\"**\n*Context:* ISFPs hate generalizations. They see every situation as unique and nuanced, rejecting black-and-white statements.\n\n**\"Do what you think is right.\"**\n*Context:* A supreme sign of respect from an ISFP. They value autonomy and are giving you permission to follow your own compass."
+          "content": {
+            "title": "\"I feel like...\"",
+            "description": "*Context:* Used when stating an opinion. To an ISFP, an opinion is often indistinguishable from a feeling or value judgment. It signals they are sharing something personal.\n\n**\"Let's see what happens.\"**\n*Context:* Used when resisting strict planning. It signals their desire to keep options open and respond to the moment.\n\n**\"It depends.\"**\n*Context:* ISFPs hate generalizations. They see every situation as unique and nuanced, rejecting black-and-white statements.\n\n**\"Do what you think is right.\"**\n*Context:* A supreme sign of respect from an ISFP. They value autonomy and are giving you permission to follow your own compass."
+          }
         }
       ]
     },
@@ -51,7 +60,10 @@
       "subsections": [
         {
           "heading": "The Digital Difference",
-          "content": "**Texting/Messaging:** often rapid-fire, casual, and image-heavy. They may take hours to reply if they are \"in the zone\" with a hobby, but when they do, it's enthusiastic.\n\n**Email:** Tends to be concise but polite. They dislike bureaucratic language and will often soften requests with phrases like \"If you have time\" or \"No rush.\"\n\n**Social Media:** Often a curated gallery of their aesthetic. They communicate their identity through what they post (art, nature, food) rather than political rants or status updates."
+          "content": {
+            "title": "Texting/Messaging:",
+            "description": "often rapid-fire, casual, and image-heavy. They may take hours to reply if they are \"in the zone\" with a hobby, but when they do, it's enthusiastic.\n\n**Email:** Tends to be concise but polite. They dislike bureaucratic language and will often soften requests with phrases like \"If you have time\" or \"No rush.\"\n\n**Social Media:** Often a curated gallery of their aesthetic. They communicate their identity through what they post (art, nature, food) rather than political rants or status updates."
+          }
         }
       ]
     },
@@ -61,7 +73,10 @@
       "subsections": [
         {
           "heading": "Scripts for Difficult Conversations",
-          "content": "**For the ISFP (How to assert yourself):**\n*Instead of withdrawing:* \"I'm feeling overwhelmed right now and can't process this discussion. I need to take a walk alone for an hour. I promise I will come back and talk about this when I'm calm.\"\n\n**For the Partner/Colleague (How to engage conflict):**\n*Instead of demanding answers:* \"I can see that something is bothering you. I don't need you to explain it right this second. Whenever you're ready to share, I'm here to listen without judgment.\""
+          "content": {
+            "title": "For the ISFP (How to assert yourself):",
+            "description": "*Instead of withdrawing:* \"I'm feeling overwhelmed right now and can't process this discussion. I need to take a walk alone for an hour. I promise I will come back and talk about this when I'm calm.\"\n\n**For the Partner/Colleague (How to engage conflict):**\n*Instead of demanding answers:* \"I can see that something is bothering you. I don't need you to explain it right this second. Whenever you're ready to share, I'm here to listen without judgment.\""
+          }
         }
       ]
     },

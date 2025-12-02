@@ -21,7 +21,10 @@
       "subsections": [
         {
           "heading": "Core Strengths at a Glance",
-          "content": "**Visionary Reframing:** You have a psychological immunity to despair. You can spin almost any negative situation into a positive narrative, keeping team morale high during crises.\n\n**Rapid Innovation:** Your mind works in associative leaps, allowing you to innovate faster than competitors. You are excellent at the 'Zero to One' phase of business.\n\n**Network Synthesis:** You are a natural super-connector. You instinctively know who needs to meet whom to make a project happen, bridging silos within an organization.\n\n**Infectious Energy:** Your enthusiasm is bio-chemically contagious. You trigger dopaminergic responses in your team, making work feel like play and increasing engagement."
+          "content": {
+            "title": "Visionary Reframing:",
+            "description": "You have a psychological immunity to despair. You can spin almost any negative situation into a positive narrative, keeping team morale high during crises.\n\n**Rapid Innovation:** Your mind works in associative leaps, allowing you to innovate faster than competitors. You are excellent at the 'Zero to One' phase of business.\n\n**Network Synthesis:** You are a natural super-connector. You instinctively know who needs to meet whom to make a project happen, bridging silos within an organization.\n\n**Infectious Energy:** Your enthusiasm is bio-chemically contagious. You trigger dopaminergic responses in your team, making work feel like play and increasing engagement."
+          }
         }
       ]
     },
@@ -31,7 +34,10 @@
       "subsections": [
         {
           "heading": "The Startup vs. Corporate Dynamic",
-          "content": "**In Startups:** You are the Chief Evangelist. Your role is to sell the dream to investors and employees before the reality exists. Your adaptability is the company's greatest asset.\n\n**In Corporate:** You are the Intrapreneur. You struggle with 'business as usual' but excel at launching new divisions or leading turnaround efforts where the rules need to be broken."
+          "content": {
+            "title": "In Startups:",
+            "description": "You are the Chief Evangelist. Your role is to sell the dream to investors and employees before the reality exists. Your adaptability is the company's greatest asset.\n\n**In Corporate:** You are the Intrapreneur. You struggle with 'business as usual' but excel at launching new divisions or leading turnaround efforts where the rules need to be broken."
+          }
         },
         {
           "heading": "The Delegation Trap",
@@ -45,7 +51,10 @@
       "subsections": [
         {
           "heading": "Motivational Tools",
-          "content": "**Gamification:** You naturally turn KPIs into games. Leaderboards, contests, and creative challenges keep the dopamine flowing for the team.\n\n**Narrative Selling:** You don't assign tasks; you sell opportunities. 'Write this report' becomes 'Craft the narrative that will convince the board to give us the budget.'\n\n**Spontaneous Rewards:** You break the monotony of the workday with unexpected treats or outings, reinforcing the idea that work should be fun."
+          "content": {
+            "title": "Gamification:",
+            "description": "You naturally turn KPIs into games. Leaderboards, contests, and creative challenges keep the dopamine flowing for the team.\n\n**Narrative Selling:** You don't assign tasks; you sell opportunities. 'Write this report' becomes 'Craft the narrative that will convince the board to give us the budget.'\n\n**Spontaneous Rewards:** You break the monotony of the workday with unexpected treats or outings, reinforcing the idea that work should be fun."
+          }
         }
       ]
     },
@@ -55,7 +64,10 @@
       "subsections": [
         {
           "heading": "The Decision Matrix",
-          "content": "**Speed:** Extremely fast. You trust your gut and move. \n**Risk Tolerance:** High. You view risk as the cost of entry for excitement.\n**Blind Spot:** You underestimate the cost of switching contexts. You forget that every 'Yes' to a new idea is a 'No' to resources for existing projects."
+          "content": {
+            "title": "Speed:",
+            "description": "Extremely fast. You trust your gut and move. \n**Risk Tolerance:** High. You view risk as the cost of entry for excitement.\n**Blind Spot:** You underestimate the cost of switching contexts. You forget that every 'Yes' to a new idea is a 'No' to resources for existing projects."
+          }
         }
       ]
     },
@@ -79,7 +91,10 @@
       "subsections": [
         {
           "heading": "Practical Growth Strategies",
-          "content": "**The 'Sleep On It' Rule:** Institute a mandatory 24-hour waiting period for any new idea before you share it with the team. This filters out the fleeting impulses from the genuine strategic insights.\n\n**The 'No' Challenge:** Practice saying 'No' to exciting opportunities that don't align with the current quarter's goals. View 'No' as a tool for protecting your team's focus.\n\n**Hire Your Opposite:** Surround yourself with grounded types (Type 1s, 5s, or 6s) and give them veto power over your timelines. Let them be the anchor to your balloon."
+          "content": {
+            "title": "The 'Sleep On It' Rule:",
+            "description": "Institute a mandatory 24-hour waiting period for any new idea before you share it with the team. This filters out the fleeting impulses from the genuine strategic insights.\n\n**The 'No' Challenge:** Practice saying 'No' to exciting opportunities that don't align with the current quarter's goals. View 'No' as a tool for protecting your team's focus.\n\n**Hire Your Opposite:** Surround yourself with grounded types (Type 1s, 5s, or 6s) and give them veto power over your timelines. Let them be the anchor to your balloon."
+          }
         }
       ]
     },
@@ -89,7 +104,10 @@
       "subsections": [
         {
           "heading": "Ideal Roles",
-          "content": "**Startup Founder:** Where wearing many hats is a requirement.\n**Creative Director:** Where generating endless variations is the job description.\n**Venture Capitalist:** Where you can invest in 10 different exciting companies without having to run the day-to-day operations of any of them.\n**Sales Director:** Where high energy and relationship building drive results."
+          "content": {
+            "title": "Startup Founder:",
+            "description": "Where wearing many hats is a requirement.\n**Creative Director:** Where generating endless variations is the job description.\n**Venture Capitalist:** Where you can invest in 10 different exciting companies without having to run the day-to-day operations of any of them.\n**Sales Director:** Where high energy and relationship building drive results."
+          }
         }
       ]
     }
@@ -113,12 +131,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Visionary Catalyst:** Type 7 leaders excel at sparking new ideas, reframing failures as opportunities, and energizing stagnant teams.",
-    "**The Trap of Positivity:** Be wary of 'toxic positivity.' Acknowledging pain and difficulty builds more trust than constantly pointing out the silver lining.",
-    "**Finish What You Start:** Your growth edge is completion. Focus on closing loops before opening new ones to build operational credibility.",
-    "**Depth Over Breadth:** Integrate the focus of Type 5. Take time for deep work, solitude, and thorough analysis rather than relying solely on quick intuition.",
-    "**Empower, Don't just Excite:** When delegating, provide the roadmap, not just the destination. Ensure your team has the structure they need to execute your vision.",
-    "**Master the Pivot:** Your ability to change direction is a strength in startups and crises, but can be a liability in stable corporate environments. Use it wisely."
+    {
+      "title": "Visionary Catalyst:",
+      "description": "Type 7 leaders excel at sparking new ideas, reframing failures as opportunities, and energizing stagnant teams."
+    },
+    {
+      "title": "The Trap of Positivity:",
+      "description": "Be wary of 'toxic positivity.' Acknowledging pain and difficulty builds more trust than constantly pointing out the silver lining."
+    },
+    {
+      "title": "Finish What You Start:",
+      "description": "Your growth edge is completion. Focus on closing loops before opening new ones to build operational credibility."
+    },
+    {
+      "title": "Depth Over Breadth:",
+      "description": "Integrate the focus of Type 5. Take time for deep work, solitude, and thorough analysis rather than relying solely on quick intuition."
+    },
+    {
+      "title": "Empower, Don't just Excite:",
+      "description": "When delegating, provide the roadmap, not just the destination. Ensure your team has the structure they need to execute your vision."
+    },
+    {
+      "title": "Master the Pivot:",
+      "description": "Your ability to change direction is a strength in startups and crises, but can be a liability in stable corporate environments. Use it wisely."
+    }
   ],
   "relatedTopics": [
     "learning",

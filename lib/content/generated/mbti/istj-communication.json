@@ -119,13 +119,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Accuracy is Affection:** ISTJs show they care by being truthful, accurate, and reliable. They view correction as a form of help.",
-    "**Actions Over Words:** They communicate through tangible results and acts of service rather than emotional declarations.",
-    "**Need for Structure:** They thrive on clear expectations, agendas, and direct instructions. Ambiguity causes them stress.",
-    "**Chronological Processors:** They tell stories and explain problems in strict sequential order and dislike being interrupted.",
-    "**Written Preference:** They often prefer email or text for serious topics because it allows them time to edit and perfect their thoughts.",
-    "**Listening Style:** They listen to gather facts and solve problems, not necessarily to validate feelings. This can sometimes be perceived as coldness.",
-    "**Logic-Based Conflict:** They resolve arguments by analyzing the facts and finding a practical solution, often detaching from the emotional heat of the moment."
+    {
+      "title": "Accuracy is Affection:",
+      "description": "ISTJs show they care by being truthful, accurate, and reliable. They view correction as a form of help."
+    },
+    {
+      "title": "Actions Over Words:",
+      "description": "They communicate through tangible results and acts of service rather than emotional declarations."
+    },
+    {
+      "title": "Need for Structure:",
+      "description": "They thrive on clear expectations, agendas, and direct instructions. Ambiguity causes them stress."
+    },
+    {
+      "title": "Chronological Processors:",
+      "description": "They tell stories and explain problems in strict sequential order and dislike being interrupted."
+    },
+    {
+      "title": "Written Preference:",
+      "description": "They often prefer email or text for serious topics because it allows them time to edit and perfect their thoughts."
+    },
+    {
+      "title": "Listening Style:",
+      "description": "They listen to gather facts and solve problems, not necessarily to validate feelings. This can sometimes be perceived as coldness."
+    },
+    {
+      "title": "Logic-Based Conflict:",
+      "description": "They resolve arguments by analyzing the facts and finding a practical solution, often detaching from the emotional heat of the moment."
+    }
   ],
   "relatedTopics": [
     "learning",

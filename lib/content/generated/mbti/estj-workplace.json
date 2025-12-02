@@ -23,7 +23,10 @@
       "subsections": [
         {
           "heading": "Core Professional Assets",
-          "content": "**Systematic Efficiency:** You don't just work hard; you work smart by creating frameworks. You naturally build standard operating procedures (SOPs) that allow success to be repeated and scaled.\n\n**Objective Decision Making:** Driven by Extraverted Thinking (Te), you make choices based on facts, metrics, and logic rather than sentiment. This allows you to make tough calls—like budget cuts or restructuring—that others shy away from.\n\n**Resource Management:** You have an innate sense of logistics. You know exactly what resources (time, money, people) are available and how to deploy them for maximum impact without waste.\n\n**Institutional Loyalty:** You respect hierarchy and tradition. You are often the guardian of company culture and history, ensuring that the organization doesn't lose its identity in the pursuit of the 'new thing.'"
+          "content": {
+            "title": "Systematic Efficiency:",
+            "description": "You don't just work hard; you work smart by creating frameworks. You naturally build standard operating procedures (SOPs) that allow success to be repeated and scaled.\n\n**Objective Decision Making:** Driven by Extraverted Thinking (Te), you make choices based on facts, metrics, and logic rather than sentiment. This allows you to make tough calls—like budget cuts or restructuring—that others shy away from.\n\n**Resource Management:** You have an innate sense of logistics. You know exactly what resources (time, money, people) are available and how to deploy them for maximum impact without waste.\n\n**Institutional Loyalty:** You respect hierarchy and tradition. You are often the guardian of company culture and history, ensuring that the organization doesn't lose its identity in the pursuit of the 'new thing.'"
+          }
         }
       ]
     },
@@ -33,7 +36,10 @@
       "subsections": [
         {
           "heading": "Best Fit Career Paths",
-          "content": "**Operations Manager / COO:** The ultimate role for your skillset. You oversee the day-to-day functions, ensuring the business machine is oiled and running at peak capacity.\n\n**Project Manager:** Your ability to track timelines, budgets, and deliverables makes you a top-tier PM. You ensure that scope creep is crushed and deadlines are met.\n\n**Financial Auditor / Accountant:** The world of black and white numbers appeals to your desire for accuracy and truth. You excel at finding discrepancies and enforcing compliance.\n\n**Judge / Attorney:** The legal system is a massive structure of rules, precedents (Si), and logical argumentation (Te). You thrive in interpreting and applying the law."
+          "content": {
+            "title": "Operations Manager / COO:",
+            "description": "The ultimate role for your skillset. You oversee the day-to-day functions, ensuring the business machine is oiled and running at peak capacity.\n\n**Project Manager:** Your ability to track timelines, budgets, and deliverables makes you a top-tier PM. You ensure that scope creep is crushed and deadlines are met.\n\n**Financial Auditor / Accountant:** The world of black and white numbers appeals to your desire for accuracy and truth. You excel at finding discrepancies and enforcing compliance.\n\n**Judge / Attorney:** The legal system is a massive structure of rules, precedents (Si), and logical argumentation (Te). You thrive in interpreting and applying the law."
+          }
         }
       ]
     },
@@ -43,17 +49,26 @@
       "subsections": [
         {
           "heading": "Managing Your Team",
-          "content": "**Clear Delegation:** You excel at breaking large projects into bite-sized tasks and assigning them to the right people. Ensure you explain the 'why' behind the task, not just the 'what.'\n\n**Open Door Policy (with Limits):** You want to solve problems, but you dislike interruptions. Schedule 'office hours' for your team to bring issues to you so you can maintain your own deep work focus.\n\n**Constructive Feedback:** You give feedback freely. Remember to occasionally pause and ask for feedback on your own leadership style to ensure you aren't inadvertently steamrolling valuable dissenting opinions."
+          "content": {
+            "title": "Clear Delegation:",
+            "description": "You excel at breaking large projects into bite-sized tasks and assigning them to the right people. Ensure you explain the 'why' behind the task, not just the 'what.'\n\n**Open Door Policy (with Limits):** You want to solve problems, but you dislike interruptions. Schedule 'office hours' for your team to bring issues to you so you can maintain your own deep work focus.\n\n**Constructive Feedback:** You give feedback freely. Remember to occasionally pause and ask for feedback on your own leadership style to ensure you aren't inadvertently steamrolling valuable dissenting opinions."
+          }
         }
       ]
     },
     {
       "heading": "Meeting and Collaboration Style",
-      "content": "Let's set the scene: It is 1:59 PM. You are already seated in the conference room for the 2:00 PM meeting. You have your notebook open, a pen ready, and a printed copy of the agenda (which you likely distributed 24 hours prior). When the meeting starts, you want to dive straight into the first item. You struggle visibly when colleagues spend the first fifteen minutes chatting about their weekends or discussing abstract concepts that have no bearing on the decision at hand. To you, a meeting has a specific purpose: to share information, make a decision, and assign action items. anything else is a theft of company time.\n\nYour collaboration style is assertive and structured. In brainstorming sessions, you are the reality checker. While the intuitive types are throwing wild ideas at the whiteboard, you are the one asking, 'How do we manufacture that?' and 'What is the ROI?' You act as the filter that separates the viable from the impossible. You prefer collaboration tools that are organized and linear—think Asana, Jira, or Excel, rather than messy, free-form whiteboards. You want to see the progress visually tracked. You are often the person who wraps up the meeting by saying, 'Okay, so to summarize, John is doing X by Friday, and Sarah is handling Y by Monday. Correct?'\n\nThis efficiency is your superpower, but it can also be a point of friction. You might be accused of shutting down creativity too early or making meetings feel like interrogations. You tend to think out loud, and your 'thinking' sounds like definitive statements. You might say, 'That won't work,' when you really mean, 'I don't see the logic in that yet, convince me.' Learning to pause and allow the 'messy' part of collaboration to happen can be a significant growth area for the ESTJ - The Executive at work. You have to remember that sometimes the most efficient path isn't a straight line; sometimes it requires a detour through creative exploration.",
+      "content": {
+        "title": "Let's set the scene",
+        "description": "It is 1:59 PM. You are already seated in the conference room for the 2:00 PM meeting. You have your notebook open, a pen ready, and a printed copy of the agenda (which you likely distributed 24 hours prior). When the meeting starts, you want to dive straight into the first item. You struggle visibly when colleagues spend the first fifteen minutes chatting about their weekends or discussing abstract concepts that have no bearing on the decision at hand. To you, a meeting has a specific purpose: to share information, make a decision, and assign action items. anything else is a theft of company time.\n\nYour collaboration style is assertive and structured. In brainstorming sessions, you are the reality checker. While the intuitive types are throwing wild ideas at the whiteboard, you are the one asking, 'How do we manufacture that?' and 'What is the ROI?' You act as the filter that separates the viable from the impossible. You prefer collaboration tools that are organized and linear—think Asana, Jira, or Excel, rather than messy, free-form whiteboards. You want to see the progress visually tracked. You are often the person who wraps up the meeting by saying, 'Okay, so to summarize, John is doing X by Friday, and Sarah is handling Y by Monday. Correct?'\n\nThis efficiency is your superpower, but it can also be a point of friction. You might be accused of shutting down creativity too early or making meetings feel like interrogations. You tend to think out loud, and your 'thinking' sounds like definitive statements. You might say, 'That won't work,' when you really mean, 'I don't see the logic in that yet, convince me.' Learning to pause and allow the 'messy' part of collaboration to happen can be a significant growth area for the ESTJ - The Executive at work. You have to remember that sometimes the most efficient path isn't a straight line; sometimes it requires a detour through creative exploration."
+      },
       "subsections": [
         {
           "heading": "Meeting Habits",
-          "content": "**The Agenda Setter:** You should always be the one to set or request an agenda. It keeps everyone focused and prevents the meeting from running overtime.\n\n**The Timekeeper:** You have a natural internal clock. Use it to gently guide the group back to the topic when discussions veer off course.\n\n**The Scribe of Action:** You naturally track who promised what. Send a follow-up email immediately after meetings summarizing the action items. Your team will rely on this structure."
+          "content": {
+            "title": "The Agenda Setter:",
+            "description": "You should always be the one to set or request an agenda. It keeps everyone focused and prevents the meeting from running overtime.\n\n**The Timekeeper:** You have a natural internal clock. Use it to gently guide the group back to the topic when discussions veer off course.\n\n**The Scribe of Action:** You naturally track who promised what. Send a follow-up email immediately after meetings summarizing the action items. Your team will rely on this structure."
+          }
         }
       ]
     },
@@ -63,7 +78,10 @@
       "subsections": [
         {
           "heading": "Communication Tips",
-          "content": "**The 'Softener' Sentence:** Try to start emails with one human sentence (e.g., 'Hope you had a good weekend') before diving into business. It feels inefficient, but it buys you social capital.\n\n**Contextualize Brevity:** Let your team know, 'I answer emails quickly and briefly to keep things moving, not because I'm upset.' Managing expectations prevents paranoia.\n\n**Clarify Expectations:** When assigning tasks via Slack, explicitly state the deadline and the desired format. Don't assume they know your standards."
+          "content": {
+            "title": "The 'Softener' Sentence:",
+            "description": "Try to start emails with one human sentence (e.g., 'Hope you had a good weekend') before diving into business. It feels inefficient, but it buys you social capital.\n\n**Contextualize Brevity:** Let your team know, 'I answer emails quickly and briefly to keep things moving, not because I'm upset.' Managing expectations prevents paranoia.\n\n**Clarify Expectations:** When assigning tasks via Slack, explicitly state the deadline and the desired format. Don't assume they know your standards."
+          }
         }
       ]
     },
@@ -73,7 +91,10 @@
       "subsections": [
         {
           "heading": "Navigating Obstacles",
-          "content": "**Developing Emotional Intelligence:** Practice the '5-minute rule.' When a problem arises involving a person, spend the first 5 minutes listening to their perspective without offering a solution or judgment.\n\n**Embracing Innovation:** Partner with an intuitive type (like an ENTP or ENFP). Let them handle the 'what if' brainstorming, while you handle the 'how to' implementation. View change as a new system to master, not a threat to the old one.\n\n**Letting Go:** Audit your tasks. Identify things you are doing simply because you want them done 'your way.' Delegate them. Accept that 80% perfect done by someone else is better than 100% perfect done by you at midnight."
+          "content": {
+            "title": "Developing Emotional Intelligence:",
+            "description": "Practice the '5-minute rule.' When a problem arises involving a person, spend the first 5 minutes listening to their perspective without offering a solution or judgment.\n\n**Embracing Innovation:** Partner with an intuitive type (like an ENTP or ENFP). Let them handle the 'what if' brainstorming, while you handle the 'how to' implementation. View change as a new system to master, not a threat to the old one.\n\n**Letting Go:** Audit your tasks. Identify things you are doing simply because you want them done 'your way.' Delegate them. Accept that 80% perfect done by someone else is better than 100% perfect done by you at midnight."
+          }
         }
       ]
     },
@@ -83,7 +104,10 @@
       "subsections": [
         {
           "heading": "Actionable Strategies",
-          "content": "**Seek a 'Feeler' Mentor:** Find a leader who excels at people skills and ask them to mentor you on team dynamics. Learn how they handle conflict without strictly relying on policy.\n\n**Strategic Planning:** Force yourself to set aside time for long-term thinking. Don't just look at this quarter; look at three years from now. Engage your tertiary Ne (Extraverted Intuition) to imagine different future scenarios.\n\n**Visible Vulnerability:** Occasionally admitting you don't have the answer or that you made a mistake humanizes you. It makes your team more willing to approach you with bad news before it becomes a disaster."
+          "content": {
+            "title": "Seek a 'Feeler' Mentor:",
+            "description": "Find a leader who excels at people skills and ask them to mentor you on team dynamics. Learn how they handle conflict without strictly relying on policy.\n\n**Strategic Planning:** Force yourself to set aside time for long-term thinking. Don't just look at this quarter; look at three years from now. Engage your tertiary Ne (Extraverted Intuition) to imagine different future scenarios.\n\n**Visible Vulnerability:** Occasionally admitting you don't have the answer or that you made a mistake humanizes you. It makes your team more willing to approach you with bad news before it becomes a disaster."
+          }
         }
       ]
     }

@@ -72,12 +72,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Inefficiency is the Enemy:** The primary stressor for INTJs is often incompetence, chaos, or flawed systems that block their goals.",
-    "**The Se Grip:** Under extreme stress, INTJs may become impulsive, hedonistic, or obsessed with sensory details—a sign of the inferior function taking over.",
-    "**Action Over Emotion:** Coping strategies should focus on externalizing problems (writing, planning) and 'doing' rather than just 'feeling.'",
-    "**Solitude is Medicine:** Recovery requires a 'shut down' of social and sensory inputs to allow the INTJ mind to reboot.",
-    "**Pre-Emptive Maintenance:** Resilience is built by auditing energy drains and scheduling downtime before burnout occurs.",
-    "**Practical Support:** Loved ones should offer space and practical solutions (chore removal) rather than emotional pressure."
+    {
+      "title": "Inefficiency is the Enemy:",
+      "description": "The primary stressor for INTJs is often incompetence, chaos, or flawed systems that block their goals."
+    },
+    {
+      "title": "The Se Grip:",
+      "description": "Under extreme stress, INTJs may become impulsive, hedonistic, or obsessed with sensory details—a sign of the inferior function taking over."
+    },
+    {
+      "title": "Action Over Emotion:",
+      "description": "Coping strategies should focus on externalizing problems (writing, planning) and 'doing' rather than just 'feeling.'"
+    },
+    {
+      "title": "Solitude is Medicine:",
+      "description": "Recovery requires a 'shut down' of social and sensory inputs to allow the INTJ mind to reboot."
+    },
+    {
+      "title": "Pre-Emptive Maintenance:",
+      "description": "Resilience is built by auditing energy drains and scheduling downtime before burnout occurs."
+    },
+    {
+      "title": "Practical Support:",
+      "description": "Loved ones should offer space and practical solutions (chore removal) rather than emotional pressure."
+    }
   ],
   "relatedTopics": [
     "learning",

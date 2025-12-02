@@ -99,7 +99,10 @@
         },
         {
           "heading": "Validating vs. Solving",
-          "content": "You often skip the validation step. Script to fix this: Before offering a solution, say, \"That sounds really frustrating. I can see why you're upset.\" Then, and only then, pivot to the fix."
+          "content": {
+            "title": "You often skip the validation step. Script to fix this",
+            "description": "Before offering a solution, say, \"That sounds really frustrating. I can see why you're upset.\" Then, and only then, pivot to the fix."
+          }
         }
       ]
     },

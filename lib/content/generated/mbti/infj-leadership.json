@@ -162,13 +162,34 @@
     }
   ],
   "keyTakeaways": [
-    "**The Insightful Visionary:** INFJ leaders excel at seeing the long-term potential in both projects and people, often understanding root causes that others miss.",
-    "**Empathy as Strategy:** They use deep emotional intelligence not just to be 'nice,' but to align individual motivations with organizational goals.",
-    "**The Velvet Hammer:** They hold high standards but deliver them with warmth. They are quiet but determined.",
-    "**Risk of Burnout:** The tendency to absorb the team's emotions and the difficulty in setting boundaries makes self-care a professional necessity.",
-    "**Servant Leadership:** They thrive when they feel they are serving a higher purpose or mission, rather than just seeking profit or power.",
-    "**Need for Solitude:** To function at their peak, INFJ leaders require uninterrupted time to process data and synthesize their intuition.",
-    "**Conflict Avoidance:** A key growth area is learning to give direct, difficult feedback without sugarcoating it."
+    {
+      "title": "The Insightful Visionary:",
+      "description": "INFJ leaders excel at seeing the long-term potential in both projects and people, often understanding root causes that others miss."
+    },
+    {
+      "title": "Empathy as Strategy:",
+      "description": "They use deep emotional intelligence not just to be 'nice,' but to align individual motivations with organizational goals."
+    },
+    {
+      "title": "The Velvet Hammer:",
+      "description": "They hold high standards but deliver them with warmth. They are quiet but determined."
+    },
+    {
+      "title": "Risk of Burnout:",
+      "description": "The tendency to absorb the team's emotions and the difficulty in setting boundaries makes self-care a professional necessity."
+    },
+    {
+      "title": "Servant Leadership:",
+      "description": "They thrive when they feel they are serving a higher purpose or mission, rather than just seeking profit or power."
+    },
+    {
+      "title": "Need for Solitude:",
+      "description": "To function at their peak, INFJ leaders require uninterrupted time to process data and synthesize their intuition."
+    },
+    {
+      "title": "Conflict Avoidance:",
+      "description": "A key growth area is learning to give direct, difficult feedback without sugarcoating it."
+    }
   ],
   "relatedTopics": [
     "learning",

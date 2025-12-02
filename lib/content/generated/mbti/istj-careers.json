@@ -40,19 +40,31 @@
       "subsections": [
         {
           "heading": "Business & Finance",
-          "content": "**1. Certified Public Accountant (CPA)**\n*Salary Range: $70,000 - $125,000+*\nAuditing and tax preparation require a meticulous eye for detail and a deep knowledge of complex regulations. Your ability to focus on minutiae for long periods makes you exceptional here.\n\n**2. Supply Chain / Logistics Manager**\n*Salary Range: $80,000 - $140,000*\nLiterally the 'Logistician.' This role involves coordinating goods, people, and supplies with maximum efficiency. It satisfies your Te (Extraverted Thinking) desire to organize the external world.\n\n**3. Financial Analyst**\n*Salary Range: $65,000 - $110,000*\nAnalyzing historical data to predict future stability aligns perfectly with your Introverted Sensing. You trust trends and proven facts over speculation.\n\n**4. Compliance Officer**\n*Salary Range: $70,000 - $120,000*\nEnsuring a company follows laws and internal bylaws. You are the natural enforcer of standards, unafraid to point out when rules are being broken."
+          "content": {
+            "title": "1. Certified Public Accountant (CPA)",
+            "description": "*Salary Range: $70,000 - $125,000+*\nAuditing and tax preparation require a meticulous eye for detail and a deep knowledge of complex regulations. Your ability to focus on minutiae for long periods makes you exceptional here.\n\n**2. Supply Chain / Logistics Manager**\n*Salary Range: $80,000 - $140,000*\nLiterally the 'Logistician.' This role involves coordinating goods, people, and supplies with maximum efficiency. It satisfies your Te (Extraverted Thinking) desire to organize the external world.\n\n**3. Financial Analyst**\n*Salary Range: $65,000 - $110,000*\nAnalyzing historical data to predict future stability aligns perfectly with your Introverted Sensing. You trust trends and proven facts over speculation.\n\n**4. Compliance Officer**\n*Salary Range: $70,000 - $120,000*\nEnsuring a company follows laws and internal bylaws. You are the natural enforcer of standards, unafraid to point out when rules are being broken."
+          }
         },
         {
           "heading": "Technology & Engineering",
-          "content": "**5. Systems Administrator**\n*Salary Range: $60,000 - $100,000*\nA classic ISTJ role. You maintain the servers, manage user permissions, and ensure uptime. It is a role of guardianship and maintenance.\n\n**6. Database Administrator**\n*Salary Range: $80,000 - $130,000*\nData must be structured, secure, and retrievable. Your mind naturally categorizes information, making you a wizard at SQL and data architecture.\n\n**7. Civil Engineer**\n*Salary Range: $70,000 - $115,000*\nDesigning infrastructure requires adherence to physics, safety codes, and long-term durability. You build things to last."
+          "content": {
+            "title": "5. Systems Administrator",
+            "description": "*Salary Range: $60,000 - $100,000*\nA classic ISTJ role. You maintain the servers, manage user permissions, and ensure uptime. It is a role of guardianship and maintenance.\n\n**6. Database Administrator**\n*Salary Range: $80,000 - $130,000*\nData must be structured, secure, and retrievable. Your mind naturally categorizes information, making you a wizard at SQL and data architecture.\n\n**7. Civil Engineer**\n*Salary Range: $70,000 - $115,000*\nDesigning infrastructure requires adherence to physics, safety codes, and long-term durability. You build things to last."
+          }
         },
         {
           "heading": "Healthcare & Science",
-          "content": "**8. Dentist / Orthodontist**\n*Salary Range: $150,000 - $250,000+*\nA highly procedural medical field. It requires precision, routine, and technical mastery. The patient interaction is structured and brief.\n\n**9. Surgeon**\n*Salary Range: $300,000+*\nWhile high stakes, surgery is procedural. It is about knowledge, precision, and following a strict protocol to fix a physical problem.\n\n**10. Medical Lab Technician**\n*Salary Range: $50,000 - $75,000*\nWorking with samples, running tests, and recording data accurately without the emotional drain of constant patient interaction."
+          "content": {
+            "title": "8. Dentist / Orthodontist",
+            "description": "*Salary Range: $150,000 - $250,000+*\nA highly procedural medical field. It requires precision, routine, and technical mastery. The patient interaction is structured and brief.\n\n**9. Surgeon**\n*Salary Range: $300,000+*\nWhile high stakes, surgery is procedural. It is about knowledge, precision, and following a strict protocol to fix a physical problem.\n\n**10. Medical Lab Technician**\n*Salary Range: $50,000 - $75,000*\nWorking with samples, running tests, and recording data accurately without the emotional drain of constant patient interaction."
+          }
         },
         {
           "heading": "Law & Government",
-          "content": "**11. Judge / Magistrate**\n*Salary Range: $130,000 - $200,000*\nApplying the law exactly as written, without bias. Your sense of duty and objective fairness fits the bench perfectly.\n\n**12. Military Officer**\n*Salary Range: Varies by rank*\nThe ultimate hierarchy. The military values discipline, loyalty, and the ability to follow and give clear orders—all core ISTJ traits.\n\n**13. Paralegal**\n*Salary Range: $50,000 - $80,000*\nConducting research, organizing evidence, and drafting documents. The lawyer argues; you provide the bulletproof facts they stand on."
+          "content": {
+            "title": "11. Judge / Magistrate",
+            "description": "*Salary Range: $130,000 - $200,000*\nApplying the law exactly as written, without bias. Your sense of duty and objective fairness fits the bench perfectly.\n\n**12. Military Officer**\n*Salary Range: Varies by rank*\nThe ultimate hierarchy. The military values discipline, loyalty, and the ability to follow and give clear orders—all core ISTJ traits.\n\n**13. Paralegal**\n*Salary Range: $50,000 - $80,000*\nConducting research, organizing evidence, and drafting documents. The lawyer argues; you provide the bulletproof facts they stand on."
+          }
         },
         {
           "heading": "A Day in the Life: The Supply Chain Manager",
@@ -124,11 +136,26 @@
     }
   ],
   "keyTakeaways": [
-    "**Reliability is your currency:** Your career success is built on your reputation for accuracy, follow-through, and integrity.",
-    "**Seek structure:** You thrive in environments with clear hierarchies, defined roles, and measurable goals; avoid chaotic startups.",
-    "**Leverage your memory:** Your ability to recall details, regulations, and past procedures makes you invaluable in fields like Law, Finance, and Medicine.",
-    "**Advocate with data:** When seeking promotion, use your natural tendency to track facts and figures to build an irrefutable case for your value.",
-    "**Guard your focus:** Open offices and constant interruptions nurture burnout; fight for a workspace that allows deep, uninterrupted work."
+    {
+      "title": "Reliability is your currency:",
+      "description": "Your career success is built on your reputation for accuracy, follow-through, and integrity."
+    },
+    {
+      "title": "Seek structure:",
+      "description": "You thrive in environments with clear hierarchies, defined roles, and measurable goals; avoid chaotic startups."
+    },
+    {
+      "title": "Leverage your memory:",
+      "description": "Your ability to recall details, regulations, and past procedures makes you invaluable in fields like Law, Finance, and Medicine."
+    },
+    {
+      "title": "Advocate with data:",
+      "description": "When seeking promotion, use your natural tendency to track facts and figures to build an irrefutable case for your value."
+    },
+    {
+      "title": "Guard your focus:",
+      "description": "Open offices and constant interruptions nurture burnout; fight for a workspace that allows deep, uninterrupted work."
+    }
   ],
   "relatedTopics": [
     "learning",

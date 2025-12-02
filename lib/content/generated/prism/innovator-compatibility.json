@@ -77,12 +77,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Seek Psychological Safety:** You need a partner who validates your ideas, even if they don't agree with them. The 'glint' of curiosity in their eyes is your best indicator of compatibility.",
-    "**Value the Anchor:** While you may be drawn to other high-energy types, partners who offer stability and logistical support (Anchors) often provide the best long-term balance for your chaotic energy.",
-    "**Translate Your Thoughts:** Learn to distinguish between 'venting an idea' and 'making a decision.' clarifying this distinction prevents panic in more security-minded partners.",
-    "**Novelty is a Need:** In romantic relationships, you must proactively introduce new experiences. Don't wait for your partner to entertain you; take the lead in keeping the spark alive.",
-    "**Respect the Executor:** In work, your best matches are people who love details and finishing tasks. View them as essential allies, not obstacles to your creativity.",
-    "**Beware the Rut:** Your biggest challenge is boredom. Ensure your relationships allow for autonomy and growth, or you will likely feel trapped and restless."
+    {
+      "title": "Seek Psychological Safety:",
+      "description": "You need a partner who validates your ideas, even if they don't agree with them. The 'glint' of curiosity in their eyes is your best indicator of compatibility."
+    },
+    {
+      "title": "Value the Anchor:",
+      "description": "While you may be drawn to other high-energy types, partners who offer stability and logistical support (Anchors) often provide the best long-term balance for your chaotic energy."
+    },
+    {
+      "title": "Translate Your Thoughts:",
+      "description": "Learn to distinguish between 'venting an idea' and 'making a decision.' clarifying this distinction prevents panic in more security-minded partners."
+    },
+    {
+      "title": "Novelty is a Need:",
+      "description": "In romantic relationships, you must proactively introduce new experiences. Don't wait for your partner to entertain you; take the lead in keeping the spark alive."
+    },
+    {
+      "title": "Respect the Executor:",
+      "description": "In work, your best matches are people who love details and finishing tasks. View them as essential allies, not obstacles to your creativity."
+    },
+    {
+      "title": "Beware the Rut:",
+      "description": "Your biggest challenge is boredom. Ensure your relationships allow for autonomy and growth, or you will likely feel trapped and restless."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -102,7 +102,10 @@
         },
         {
           "heading": "Growth Tip for ISFPs",
-          "content": "Practice the phrase: 'I am feeling [emotion] because [situation].' Force yourself to verbalize your needs before they become resentments. Remember that conflict is not the end of a relationship; it is often the tunnel you must walk through to reach deeper intimacy."
+          "content": {
+            "title": "Practice the phrase",
+            "description": "'I am feeling [emotion] because [situation].' Force yourself to verbalize your needs before they become resentments. Remember that conflict is not the end of a relationship; it is often the tunnel you must walk through to reach deeper intimacy."
+          }
         }
       ]
     }
@@ -114,7 +117,10 @@
     },
     {
       "question": "How do I know if an ISFP likes me?",
-      "answer": "ISFPs rarely say \"I like you\" early on. Look for actions: Do they linger around you? Do they share their art, music, or favorite places with you? Do they make physical contact (brushing your arm, sitting close)? If an ISFP is spending their precious free time with you and engaging in shared activities, they are interested."
+      "answer": {
+        "title": "ISFPs rarely say \"I like you\" early on. Look for actions",
+        "description": "Do they linger around you? Do they share their art, music, or favorite places with you? Do they make physical contact (brushing your arm, sitting close)? If an ISFP is spending their precious free time with you and engaging in shared activities, they are interested."
+      }
     },
     {
       "question": "Why do ISFPs pull away in relationships?",
@@ -126,12 +132,30 @@
     }
   ],
   "keyTakeaways": [
-    "Create Safety: ISFPs need a non-judgmental space where they can be their authentic selves without pressure to perform.",
-    "Actions Over Words: Love is expressed through sensory experiences, acts of service, and physical touch, not just verbal affirmation.",
-    "Respect the Cave: When an ISFP withdraws during conflict, it is to process intense emotions. Give them space, but ensure they return.",
-    "Gentle Feedback: Criticism is taken personally. Frame requests for change positively and with reassurance of love.",
-    "Spontaneity is Vital: Rigid routines kill the ISFP's romantic spirit. Keep the relationship alive with unplanned adventures and shared activities.",
-    "Authenticity is Non-Negotiable: ISFPs cannot tolerate fakeness. Be real with them, even if the truth is messy."
+    {
+      "title": "Create Safety",
+      "description": "ISFPs need a non-judgmental space where they can be their authentic selves without pressure to perform."
+    },
+    {
+      "title": "Actions Over Words",
+      "description": "Love is expressed through sensory experiences, acts of service, and physical touch, not just verbal affirmation."
+    },
+    {
+      "title": "Respect the Cave",
+      "description": "When an ISFP withdraws during conflict, it is to process intense emotions. Give them space, but ensure they return."
+    },
+    {
+      "title": "Gentle Feedback",
+      "description": "Criticism is taken personally. Frame requests for change positively and with reassurance of love."
+    },
+    {
+      "title": "Spontaneity is Vital",
+      "description": "Rigid routines kill the ISFP's romantic spirit. Keep the relationship alive with unplanned adventures and shared activities."
+    },
+    {
+      "title": "Authenticity is Non-Negotiable",
+      "description": "ISFPs cannot tolerate fakeness. Be real with them, even if the truth is messy."
+    }
   ],
   "relatedTopics": [
     "learning",

@@ -40,7 +40,10 @@
       "subsections": [
         {
           "heading": "The \"Stabilizer Script\" for Difficult Moments",
-          "content": "**Scenario:** You need to decline a request from a pushy colleague.\n**What you want to say:** \"No, I can't do that.\"\n**What you usually say:** \"I'll see if I can fit it in, but I'm pretty swamped.\"\n**The Balanced Script:** \"I want to help, but I have to protect my time on the current project to ensure it stays stable. I cannot take this on right now.\""
+          "content": {
+            "title": "Scenario:",
+            "description": "You need to decline a request from a pushy colleague.\n**What you want to say:** \"No, I can't do that.\"\n**What you usually say:** \"I'll see if I can fit it in, but I'm pretty swamped.\"\n**The Balanced Script:** \"I want to help, but I have to protect my time on the current project to ensure it stays stable. I cannot take this on right now.\""
+          }
         }
       ]
     },
@@ -100,12 +103,30 @@
     }
   ],
   "keyTakeaways": [
-    "**The Anchor Effect:** Your greatest strength is your ability to regulate the emotional temperature of a room, creating safety and stability for others.",
-    "**The Filter:** You naturally edit your thoughts for harmony and utility, which prevents regret but can sometimes hide your true passions.",
-    "**Processing Time:** You require space to metabolize information; you communicate best when not pressured for immediate reactions.",
-    "**The Flatline Risk:** Others may mistake your calm for apathy; learning to verbally validate emotions you don't physically show is crucial.",
-    "**Synthesis:** You are a natural bridge-builder, able to combine opposing viewpoints into a coherent middle ground.",
-    "**Written Mastery:** You often prefer written communication as it allows you to perfect your message and balance your tone without social pressure."
+    {
+      "title": "The Anchor Effect:",
+      "description": "Your greatest strength is your ability to regulate the emotional temperature of a room, creating safety and stability for others."
+    },
+    {
+      "title": "The Filter:",
+      "description": "You naturally edit your thoughts for harmony and utility, which prevents regret but can sometimes hide your true passions."
+    },
+    {
+      "title": "Processing Time:",
+      "description": "You require space to metabolize information; you communicate best when not pressured for immediate reactions."
+    },
+    {
+      "title": "The Flatline Risk:",
+      "description": "Others may mistake your calm for apathy; learning to verbally validate emotions you don't physically show is crucial."
+    },
+    {
+      "title": "Synthesis:",
+      "description": "You are a natural bridge-builder, able to combine opposing viewpoints into a coherent middle ground."
+    },
+    {
+      "title": "Written Mastery:",
+      "description": "You often prefer written communication as it allows you to perfect your message and balance your tone without social pressure."
+    }
   ],
   "relatedTopics": [
     "learning",

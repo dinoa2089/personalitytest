@@ -22,17 +22,26 @@
       "subsections": [
         {
           "heading": "Core Professional Assets",
-          "content": "**Objective Analysis:** You remove personal bias from decision-making, focusing purely on facts, logic, and efficiency.\n\n**Crisis Calm:** Your tendency to detach emotionally allows you to function effectively in emergencies where others might panic.\n\n**Specialized Mastery:** You have the patience to learn niche, complex subjects that others find too dry or difficult, making you irreplaceable.\n\n**Innovative Problem Solving:** Because you spend so much time in your own head considering abstract possibilities, you often arrive at novel solutions that defy conventional wisdom.\n\n**Low Maintenance:** You rarely engage in office drama or politics, preferring to be judged solely on your output and expertise."
+          "content": {
+            "title": "Objective Analysis:",
+            "description": "You remove personal bias from decision-making, focusing purely on facts, logic, and efficiency.\n\n**Crisis Calm:** Your tendency to detach emotionally allows you to function effectively in emergencies where others might panic.\n\n**Specialized Mastery:** You have the patience to learn niche, complex subjects that others find too dry or difficult, making you irreplaceable.\n\n**Innovative Problem Solving:** Because you spend so much time in your own head considering abstract possibilities, you often arrive at novel solutions that defy conventional wisdom.\n\n**Low Maintenance:** You rarely engage in office drama or politics, preferring to be judged solely on your output and expertise."
+          }
         }
       ]
     },
     {
       "heading": "Ideal Work Environments: The Sanctuary of Focus",
-      "content": "Picture your nightmare workspace: An open-plan office with no dividers, phones ringing incessantly, a culture that demands \"mandatory fun\" team-building exercises every Friday, and a manager who hovers over your shoulder asking for status updates every hour. For a Type 5, this isn't just annoying; it is psychologically debilitating. It drains your energy battery before 10:00 AM, leading to withdrawal, cynicism, and burnout. You experience time and energy as scarce resources, and an environment that disrespects boundaries feels like a robbery. You need a physical and mental space where you can lower the drawbridge and retreat into your mind without fear of ambush.\n\nConversely, imagine a workspace where your door can close. It is quiet. The expectations are clear: \"Here is a complex problem; come back to us in a week with the solution.\" In this environment, you thrive. The ideal environment for Type 5 - The Investigator jobs is one that values autonomy over collaboration, depth over speed, and written communication over impromptu meetings. You flourish in cultures that respect the \"maker's schedule\"—long blocks of uninterrupted time—rather than the \"manager's schedule\" of 30-minute increments. You need to feel that your intellectual property is respected and that you are given the resources to do the job properly.\n\nCulturally, you fit best in organizations that value meritocracy and expertise. You struggle in hierarchies based on seniority or charisma. You want to work where the best idea wins, even if it comes from the quietest person in the room. You prefer asynchronous communication (email, Slack) because it gives you time to formulate the perfect, precise response rather than being put on the spot. An environment that allows for remote work is often a holy grail for Fives, as it allows you to control your sensory input and social dosage completely.",
+      "content": {
+        "title": "Picture your nightmare workspace",
+        "description": "An open-plan office with no dividers, phones ringing incessantly, a culture that demands \"mandatory fun\" team-building exercises every Friday, and a manager who hovers over your shoulder asking for status updates every hour. For a Type 5, this isn't just annoying; it is psychologically debilitating. It drains your energy battery before 10:00 AM, leading to withdrawal, cynicism, and burnout. You experience time and energy as scarce resources, and an environment that disrespects boundaries feels like a robbery. You need a physical and mental space where you can lower the drawbridge and retreat into your mind without fear of ambush.\n\nConversely, imagine a workspace where your door can close. It is quiet. The expectations are clear: \"Here is a complex problem; come back to us in a week with the solution.\" In this environment, you thrive. The ideal environment for Type 5 - The Investigator jobs is one that values autonomy over collaboration, depth over speed, and written communication over impromptu meetings. You flourish in cultures that respect the \"maker's schedule\"—long blocks of uninterrupted time—rather than the \"manager's schedule\" of 30-minute increments. You need to feel that your intellectual property is respected and that you are given the resources to do the job properly.\n\nCulturally, you fit best in organizations that value meritocracy and expertise. You struggle in hierarchies based on seniority or charisma. You want to work where the best idea wins, even if it comes from the quietest person in the room. You prefer asynchronous communication (email, Slack) because it gives you time to formulate the perfect, precise response rather than being put on the spot. An environment that allows for remote work is often a holy grail for Fives, as it allows you to control your sensory input and social dosage completely."
+      },
       "subsections": [
         {
           "heading": "Environmental Must-Haves",
-          "content": "**Private Workspace:** Access to a quiet area or the ability to wear noise-canceling headphones without judgment is non-negotiable.\n\n**Autonomy & Minimal Supervision:** A \"results-only\" work environment where you manage your own time and process.\n\n**Clear Boundaries:** A culture that respects the difference between work time and personal time; you dislike bringing emotional baggage home.\n\n**Access to Resources:** Unfettered access to data, tools, books, and training materials needed to achieve mastery.\n\n**Intellectual Honesty:** A leadership team that values logic and truth over ego and politeness."
+          "content": {
+            "title": "Private Workspace:",
+            "description": "Access to a quiet area or the ability to wear noise-canceling headphones without judgment is non-negotiable.\n\n**Autonomy & Minimal Supervision:** A \"results-only\" work environment where you manage your own time and process.\n\n**Clear Boundaries:** A culture that respects the difference between work time and personal time; you dislike bringing emotional baggage home.\n\n**Access to Resources:** Unfettered access to data, tools, books, and training materials needed to achieve mastery.\n\n**Intellectual Honesty:** A leadership team that values logic and truth over ego and politeness."
+          }
         }
       ]
     },
@@ -52,7 +61,10 @@
       "subsections": [
         {
           "heading": "High-Risk Roles",
-          "content": "**Sales Representative:** Requires constant aggressive social interaction and persuasion; highly draining.\n\n**Event Planner:** Chaotic, high-pressure, requires managing hundreds of people and unpredictable variables.\n\n**Early Childhood Educator:** Requires constant high-energy emotional output and patience with irrationality.\n\n**Customer Service Representative:** Being the sounding board for other people's complaints is a Five's definition of hell.\n\n**PR/Publicist:** Managing public image and \"spin\" feels inauthentic and exhausting to the objective Five."
+          "content": {
+            "title": "Sales Representative:",
+            "description": "Requires constant aggressive social interaction and persuasion; highly draining.\n\n**Event Planner:** Chaotic, high-pressure, requires managing hundreds of people and unpredictable variables.\n\n**Early Childhood Educator:** Requires constant high-energy emotional output and patience with irrationality.\n\n**Customer Service Representative:** Being the sounding board for other people's complaints is a Five's definition of hell.\n\n**PR/Publicist:** Managing public image and \"spin\" feels inauthentic and exhausting to the objective Five."
+          }
         }
       ]
     },
@@ -62,7 +74,10 @@
       "subsections": [
         {
           "heading": "Developmental Milestones",
-          "content": "**Early Career (The Sponge):** Focus on technical skill acquisition. Find a mentor who respects your intellect. Don't be afraid to ask \"stupid\" questions—your curiosity is your asset.\n\n**Mid-Career (The Specialist):** You are now the expert. Challenge yourself to mentor others. Practice translating your complex ideas into simple language for non-experts. Step out of the office and into the meeting room.\n\n**Senior Career (The Visionary):** Embrace leadership. Your detachment is now \"strategic objectivity.\" Make decisions faster than you feel comfortable with—trust your gut (accessing your Type 8 integration)."
+          "content": {
+            "title": "Early Career (The Sponge):",
+            "description": "Focus on technical skill acquisition. Find a mentor who respects your intellect. Don't be afraid to ask \"stupid\" questions—your curiosity is your asset.\n\n**Mid-Career (The Specialist):** You are now the expert. Challenge yourself to mentor others. Practice translating your complex ideas into simple language for non-experts. Step out of the office and into the meeting room.\n\n**Senior Career (The Visionary):** Embrace leadership. Your detachment is now \"strategic objectivity.\" Make decisions faster than you feel comfortable with—trust your gut (accessing your Type 8 integration)."
+          }
         }
       ]
     },
@@ -72,7 +87,10 @@
       "subsections": [
         {
           "heading": "Interview & Negotiation Tactics",
-          "content": "**The \"Consultant\" Mindset:** Treat the job interview not as an audition, but as a consultation where you are diagnosing their problems to see if you want to fix them.\n\n**Prepare the Data:** Bring a portfolio or a list of specific metrics you have achieved. Fives find comfort in props and evidence.\n\n**Ask About Culture:** explicitly ask, \"How much of the day is spent in meetings vs. deep work?\" This signals your work style immediately.\n\n**The Pause:** Use your natural silence to your advantage. After stating your salary requirement, stop talking. Let the silence do the heavy lifting."
+          "content": {
+            "title": "The \"Consultant\" Mindset:",
+            "description": "Treat the job interview not as an audition, but as a consultation where you are diagnosing their problems to see if you want to fix them.\n\n**Prepare the Data:** Bring a portfolio or a list of specific metrics you have achieved. Fives find comfort in props and evidence.\n\n**Ask About Culture:** explicitly ask, \"How much of the day is spent in meetings vs. deep work?\" This signals your work style immediately.\n\n**The Pause:** Use your natural silence to your advantage. After stating your salary requirement, stop talking. Let the silence do the heavy lifting."
+          }
         }
       ]
     },
@@ -82,7 +100,10 @@
       "subsections": [
         {
           "heading": "Business Ideas for Fives",
-          "content": "**Niche Consulting:** Specializing in a very specific problem (e.g., \"GDPR Compliance for Fintech Startups\").\n\n**Digital Products:** distinct courses, eBooks, or software where you build it once and sell it forever.\n\n**Research Firm:** Selling data analysis and market research to larger companies.\n\n**Specialized Crafts:** High-end, custom fabrication or repair where patience and precision are the selling points."
+          "content": {
+            "title": "Niche Consulting:",
+            "description": "Specializing in a very specific problem (e.g., \"GDPR Compliance for Fintech Startups\").\n\n**Digital Products:** distinct courses, eBooks, or software where you build it once and sell it forever.\n\n**Research Firm:** Selling data analysis and market research to larger companies.\n\n**Specialized Crafts:** High-end, custom fabrication or repair where patience and precision are the selling points."
+          }
         }
       ]
     }
@@ -102,12 +123,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Prioritize Autonomy:** Seek roles that allow you to control your schedule and environment.",
-    "**Leverage Deep Work:** Your ability to focus is your greatest economic asset; protect it.",
-    "**Avoid Emotional Labor:** Steer clear of jobs requiring constant social performance or sales.",
-    "**Integrate to Type 8:** Growth comes from taking action on your knowledge, not just hoarding it.",
-    "**Negotiate with Data:** Use your analytical skills to advocate for your salary and working conditions.",
-    "**Specialization is Key:** Generalist roles drain you; expert roles energize you."
+    {
+      "title": "Prioritize Autonomy:",
+      "description": "Seek roles that allow you to control your schedule and environment."
+    },
+    {
+      "title": "Leverage Deep Work:",
+      "description": "Your ability to focus is your greatest economic asset; protect it."
+    },
+    {
+      "title": "Avoid Emotional Labor:",
+      "description": "Steer clear of jobs requiring constant social performance or sales."
+    },
+    {
+      "title": "Integrate to Type 8:",
+      "description": "Growth comes from taking action on your knowledge, not just hoarding it."
+    },
+    {
+      "title": "Negotiate with Data:",
+      "description": "Use your analytical skills to advocate for your salary and working conditions."
+    },
+    {
+      "title": "Specialization is Key:",
+      "description": "Generalist roles drain you; expert roles energize you."
+    }
   ],
   "relatedTopics": [
     "learning",

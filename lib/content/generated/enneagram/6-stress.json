@@ -42,7 +42,10 @@
       "subsections": [
         {
           "heading": "The Downward Spiral",
-          "content": "Be aware of these disintegration behaviors:\n\n*   **Manic Busyness:** frenetic activity designed to numb anxiety rather than solve problems.\n*   **Deceit and Image Management:** Lying about progress or hiding mistakes to avoid judgment (borrowing from unhealthy Type 3).\n*   **Projection:** Accusing others of the very feelings or motives you are repressing.\n*   **Testing Loyalty:** Creating artificial crises to see if people will stick by you, essentially \"poking the bear.\"\n*   **Catastrophizing:** Believing the worst-case scenario is the *only* probable scenario."
+          "content": {
+            "title": "Be aware of these disintegration behaviors:",
+            "description": "*   **Manic Busyness:** frenetic activity designed to numb anxiety rather than solve problems.\n*   **Deceit and Image Management:** Lying about progress or hiding mistakes to avoid judgment (borrowing from unhealthy Type 3).\n*   **Projection:** Accusing others of the very feelings or motives you are repressing.\n*   **Testing Loyalty:** Creating artificial crises to see if people will stick by you, essentially \"poking the bear.\"\n*   **Catastrophizing:** Believing the worst-case scenario is the *only* probable scenario."
+          }
         }
       ]
     },
@@ -62,7 +65,10 @@
       "subsections": [
         {
           "heading": "Designing a Recovery Routine",
-          "content": "Create a protocol for when you hit the wall:\n\n*   **Digital Detox:** The news and social media are fear-generating machines. Cut the cord for 24 hours.\n*   **Adrenaline Discharge:** High-intensity interval training, boxing, or even screaming into a pillow to release pent-up energy.\n*   **Predictable Pleasure:** Engage with media or hobbies where the outcome is known and positive.\n*   **Sensory Soothing:** Weighted blankets, warm baths, or calming teas to sedate the nervous system.\n*   **The \"No\" List:** Explicitly list things you will NOT do today (e.g., check email, answer the door, make budget decisions)."
+          "content": {
+            "title": "Create a protocol for when you hit the wall:",
+            "description": "*   **Digital Detox:** The news and social media are fear-generating machines. Cut the cord for 24 hours.\n*   **Adrenaline Discharge:** High-intensity interval training, boxing, or even screaming into a pillow to release pent-up energy.\n*   **Predictable Pleasure:** Engage with media or hobbies where the outcome is known and positive.\n*   **Sensory Soothing:** Weighted blankets, warm baths, or calming teas to sedate the nervous system.\n*   **The \"No\" List:** Explicitly list things you will NOT do today (e.g., check email, answer the door, make budget decisions)."
+          }
         }
       ]
     },
@@ -82,7 +88,10 @@
       "subsections": [
         {
           "heading": "How to Be a Steady Ally",
-          "content": "Practical ways to support a Loyalist:\n\n*   **Be Predictable:** Do what you say you will do. Reliability builds trust faster than grand gestures.\n*   **Validate First, Logic Second:** Acknowledge the emotion (\"That sounds terrifying\") before dismantling the logic (\"However, the data shows...\").\n*   **Provide Information:** In the workplace, give Sixes context, timelines, and clear expectations. Do not hoard information.\n*   **Don't Take the Bait:** If they get reactive or testy, understand it is a stress response, not a character flaw. Stay calm and don't escalate.\n*   **Encourage Their Strengths:** Remind them of past difficulties they have successfully navigated. Be the external mirror of their competence."
+          "content": {
+            "title": "Practical ways to support a Loyalist:",
+            "description": "*   **Be Predictable:** Do what you say you will do. Reliability builds trust faster than grand gestures.\n*   **Validate First, Logic Second:** Acknowledge the emotion (\"That sounds terrifying\") before dismantling the logic (\"However, the data shows...\").\n*   **Provide Information:** In the workplace, give Sixes context, timelines, and clear expectations. Do not hoard information.\n*   **Don't Take the Bait:** If they get reactive or testy, understand it is a stress response, not a character flaw. Stay calm and don't escalate.\n*   **Encourage Their Strengths:** Remind them of past difficulties they have successfully navigated. Be the external mirror of their competence."
+          }
         }
       ]
     }
@@ -109,8 +118,14 @@
     "Type 6 stress is driven by ambiguity, isolation, and a perceived lack of safety.",
     "Physical signs include hyper-arousal, tension, GI issues, and an inability to relax.",
     "Under stress, Sixes may disintegrate to Type 3, becoming frantically busy and image-conscious.",
-    "Recovery requires a 'Sanctuary' approach: predictable environments, comfort rituals, and physical discharge of adrenaline.",
-    "Growth involves moving toward Type 9: developing Inner Authority and trusting oneself rather than seeking external reassurance.",
+    {
+      "title": "Recovery requires a 'Sanctuary' approach",
+      "description": "predictable environments, comfort rituals, and physical discharge of adrenaline."
+    },
+    {
+      "title": "Growth involves moving toward Type 9",
+      "description": "developing Inner Authority and trusting oneself rather than seeking external reassurance."
+    },
     "Supporters should provide consistency and transparency, validating the fear before trying to fix the problem."
   ],
   "relatedTopics": [

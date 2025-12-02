@@ -75,12 +75,30 @@
     }
   ],
   "keyTakeaways": [
-    "**Action-First Mentality:** ESTP leaders thrive on doing, not just planning. They lead from the front lines.",
-    "**Crisis Masters:** They remain calm and effective when chaos strikes, making them excellent turnaround agents.",
-    "**Pragmatic Logic:** Decisions are based on observable facts and immediate efficiency (Se + Ti).",
-    "**Blind Spot:** They may struggle with long-term vision and may accidentally bulldoze over team emotions.",
-    "**Motivation Style:** They motivate through gamification, removing obstacles, and high energy.",
-    "**Growth Area:** Success requires learning to pause, delegate effectively, and develop strategic foresight."
+    {
+      "title": "Action-First Mentality:",
+      "description": "ESTP leaders thrive on doing, not just planning. They lead from the front lines."
+    },
+    {
+      "title": "Crisis Masters:",
+      "description": "They remain calm and effective when chaos strikes, making them excellent turnaround agents."
+    },
+    {
+      "title": "Pragmatic Logic:",
+      "description": "Decisions are based on observable facts and immediate efficiency (Se + Ti)."
+    },
+    {
+      "title": "Blind Spot:",
+      "description": "They may struggle with long-term vision and may accidentally bulldoze over team emotions."
+    },
+    {
+      "title": "Motivation Style:",
+      "description": "They motivate through gamification, removing obstacles, and high energy."
+    },
+    {
+      "title": "Growth Area:",
+      "description": "Success requires learning to pause, delegate effectively, and develop strategic foresight."
+    }
   ],
   "relatedTopics": [
     "learning",

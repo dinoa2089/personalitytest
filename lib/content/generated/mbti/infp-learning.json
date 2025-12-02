@@ -118,13 +118,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Meaning is Mandatory:** You learn best when you understand the 'why' and connect the material to your personal values.",
-    "**Narrative over Facts:** Turn data into stories. Use metaphors and visualization to make dry information stick.",
-    "**Environment Matters:** Create a sensory-friendly sanctuary with soft lighting, comfort, and minimal distractions.",
-    "**Combat Perfectionism:** Use the 'Shitty Draft' method to overcome the paralysis of high standards.",
-    "**Follow Your Curiosity:** Embrace your non-linear learning style. Jumping between topics can lead to unique insights.",
-    "**Teach to Learn:** Explain concepts out loud to an imaginary audience to solidify your understanding.",
-    "**Protect Your Energy:** Avoid high-pressure, competitive environments. You thrive in supportive, autonomous spaces."
+    {
+      "title": "Meaning is Mandatory:",
+      "description": "You learn best when you understand the 'why' and connect the material to your personal values."
+    },
+    {
+      "title": "Narrative over Facts:",
+      "description": "Turn data into stories. Use metaphors and visualization to make dry information stick."
+    },
+    {
+      "title": "Environment Matters:",
+      "description": "Create a sensory-friendly sanctuary with soft lighting, comfort, and minimal distractions."
+    },
+    {
+      "title": "Combat Perfectionism:",
+      "description": "Use the 'Shitty Draft' method to overcome the paralysis of high standards."
+    },
+    {
+      "title": "Follow Your Curiosity:",
+      "description": "Embrace your non-linear learning style. Jumping between topics can lead to unique insights."
+    },
+    {
+      "title": "Teach to Learn:",
+      "description": "Explain concepts out loud to an imaginary audience to solidify your understanding."
+    },
+    {
+      "title": "Protect Your Energy:",
+      "description": "Avoid high-pressure, competitive environments. You thrive in supportive, autonomous spaces."
+    }
   ],
   "relatedTopics": [
     "careers",

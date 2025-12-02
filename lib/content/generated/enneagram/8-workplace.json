@@ -14,7 +14,10 @@
     "Enneagram 8 leadership style",
     "Enneagram 8 career advice"
   ],
-  "introduction": "You know the feeling well: the palpable hum of energy that sits in your gut when you walk into the office. While others might hesitate at the threshold of a high-stakes decision or shrink back when a project goes off the rails, you feel a surge of vitality. For you, the workplace isn't just a place to earn a paycheck; it is an arena where things happen, where impact is measured in concrete results, and where you can exercise your natural capacity to move mountains. You are the person who sees the elephant in the room and isn't afraid to name it, point at it, and demand a plan for moving it. This somatic, instinctive drive is the hallmark of the Type 8 - The Challenger professional.\n\nHowever, this intensity comes with a complexity that often baffles your colleagues. You likely feel a deep, protective loyalty toward your team—a desire to be the snowplow that clears the road so they can drive safely. Yet, you may be surprised to hear that some find you intimidating or abrasive. In your mind, you are simply being honest and efficient; to others, your volume is turned up to an eleven when a five would suffice. You value truth above all else, and you assume that if someone has a problem, they will tell you straight to your face, just as you would do for them. When they don't, you can feel blindsided by office politics or 'sensitive' reactions that seem to come out of nowhere.\n\nUnderstanding your operation manual at work is about more than just toning it down. It is about harnessing that immense 'lust' for life—a technical Enneagram term for your drive and energy—and channeling it into magnanimous leadership. It is about realizing that your strength is most effective when it empowers others rather than overpowering them. This guide explores how you, as a Challenger, can navigate the professional world, leveraging your natural authority while cultivating the nuance needed to lead truly high-performing, psychologically safe teams.",
+  "introduction": {
+    "title": "You know the feeling well",
+    "description": "the palpable hum of energy that sits in your gut when you walk into the office. While others might hesitate at the threshold of a high-stakes decision or shrink back when a project goes off the rails, you feel a surge of vitality. For you, the workplace isn't just a place to earn a paycheck; it is an arena where things happen, where impact is measured in concrete results, and where you can exercise your natural capacity to move mountains. You are the person who sees the elephant in the room and isn't afraid to name it, point at it, and demand a plan for moving it. This somatic, instinctive drive is the hallmark of the Type 8 - The Challenger professional.\n\nHowever, this intensity comes with a complexity that often baffles your colleagues. You likely feel a deep, protective loyalty toward your team—a desire to be the snowplow that clears the road so they can drive safely. Yet, you may be surprised to hear that some find you intimidating or abrasive. In your mind, you are simply being honest and efficient; to others, your volume is turned up to an eleven when a five would suffice. You value truth above all else, and you assume that if someone has a problem, they will tell you straight to your face, just as you would do for them. When they don't, you can feel blindsided by office politics or 'sensitive' reactions that seem to come out of nowhere.\n\nUnderstanding your operation manual at work is about more than just toning it down. It is about harnessing that immense 'lust' for life—a technical Enneagram term for your drive and energy—and channeling it into magnanimous leadership. It is about realizing that your strength is most effective when it empowers others rather than overpowering them. This guide explores how you, as a Challenger, can navigate the professional world, leveraging your natural authority while cultivating the nuance needed to lead truly high-performing, psychologically safe teams."
+  },
   "sections": [
     {
       "heading": "Workplace Strengths: The Engine of Action",
@@ -38,7 +41,10 @@
     },
     {
       "heading": "Communication and Meeting Style",
-      "content": "Let's set the scene: It's 2:00 PM on a Tuesday. You are in a strategy meeting. The agenda has five items, but the team is stuck on item one, debating the font size of the presentation deck. You can feel the heat rising in your chest—a physical sensation of impatience. You likely interrupt, perhaps louder than you intended, saying, 'The font doesn't matter if the data is garbage. Let's move to the budget issue, that's the real problem.' The room goes silent. Some look relieved; others look terrified. To you, you just saved the meeting. To a sensitive Type 2 or a conflict-avoidant Type 9, you just detonated a bomb. This is the quintessential Type 8 - The Challenger meeting experience. You communicate in headlines and bullet points, while others often communicate in paragraphs and feelings.\n\nYour digital communication follows a similar pattern. Your emails are legendary for their brevity. You might reply to a three-page proposal with a single line: 'Proceed, but cut the budget by 10%.' You don't include the 'I hope this email finds you well' pleasantries because you view them as inefficient fluff. On Slack or Teams, you are direct and expect immediate responses. If you don't get a reply, you assume the person is incompetent or hiding something, prompting you to walk over to their desk. You value 'truth-telling' and debate. You actually enjoy it when someone pushes back against you in a meeting—it shows they have a backbone. You respect the person who says, 'No, you're wrong, and here is why.' Unfortunately, you often underestimate how rare that courage is in others.\n\nIn collaboration, you operate with a 'move fast and break things' mentality. You are the catalyst. You initiate. You are often the one to say, 'We are leaving in five minutes,' metaphorically speaking. This drive is essential for momentum, but it can leave slower processors behind. You tend to dominate the airtime not because you love the sound of your own voice, but because you are thinking out loud and processing through assertion. You are asserting a reality to see if it holds up. Learning to count to ten, to ask questions before making statements, and to lower your volume are critical skills for the Type 8 - The Challenger at work.",
+      "content": {
+        "title": "Let's set the scene",
+        "description": "It's 2:00 PM on a Tuesday. You are in a strategy meeting. The agenda has five items, but the team is stuck on item one, debating the font size of the presentation deck. You can feel the heat rising in your chest—a physical sensation of impatience. You likely interrupt, perhaps louder than you intended, saying, 'The font doesn't matter if the data is garbage. Let's move to the budget issue, that's the real problem.' The room goes silent. Some look relieved; others look terrified. To you, you just saved the meeting. To a sensitive Type 2 or a conflict-avoidant Type 9, you just detonated a bomb. This is the quintessential Type 8 - The Challenger meeting experience. You communicate in headlines and bullet points, while others often communicate in paragraphs and feelings.\n\nYour digital communication follows a similar pattern. Your emails are legendary for their brevity. You might reply to a three-page proposal with a single line: 'Proceed, but cut the budget by 10%.' You don't include the 'I hope this email finds you well' pleasantries because you view them as inefficient fluff. On Slack or Teams, you are direct and expect immediate responses. If you don't get a reply, you assume the person is incompetent or hiding something, prompting you to walk over to their desk. You value 'truth-telling' and debate. You actually enjoy it when someone pushes back against you in a meeting—it shows they have a backbone. You respect the person who says, 'No, you're wrong, and here is why.' Unfortunately, you often underestimate how rare that courage is in others.\n\nIn collaboration, you operate with a 'move fast and break things' mentality. You are the catalyst. You initiate. You are often the one to say, 'We are leaving in five minutes,' metaphorically speaking. This drive is essential for momentum, but it can leave slower processors behind. You tend to dominate the airtime not because you love the sound of your own voice, but because you are thinking out loud and processing through assertion. You are asserting a reality to see if it holds up. Learning to count to ten, to ask questions before making statements, and to lower your volume are critical skills for the Type 8 - The Challenger at work."
+      },
       "subsections": [
         {
           "heading": "Communication Tips for Eights",
@@ -106,13 +112,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Leverage Your Energy:** Your ability to take action and make decisions is your greatest asset; use it to clear paths for others.",
-    "**Check Your Impact:** Recognize that your 'normal' volume is often 'loud' to others. Modulate your intensity to ensure you aren't shutting down collaboration.",
-    "**Practice Vulnerability:** Showing a softer side or admitting you don't know the answer builds trust and breaks down walls.",
-    "**Empower, Don't Overpower:** Use your strength to protect and mentor your team rather than creating dependency or fear.",
-    "**Respect the Details:** Partner with detail-oriented colleagues and listen to their warnings; they protect you from your own blind spots.",
-    "**Growth is Service:** The highest level of Type 8 leadership is becoming a servant leader who fights for the well-being of the whole.",
-    "**Rest is Strategic:** You cannot lead if you collapse. Acknowledge your physical limits to maintain long-term power."
+    {
+      "title": "Leverage Your Energy:",
+      "description": "Your ability to take action and make decisions is your greatest asset; use it to clear paths for others."
+    },
+    {
+      "title": "Check Your Impact:",
+      "description": "Recognize that your 'normal' volume is often 'loud' to others. Modulate your intensity to ensure you aren't shutting down collaboration."
+    },
+    {
+      "title": "Practice Vulnerability:",
+      "description": "Showing a softer side or admitting you don't know the answer builds trust and breaks down walls."
+    },
+    {
+      "title": "Empower, Don't Overpower:",
+      "description": "Use your strength to protect and mentor your team rather than creating dependency or fear."
+    },
+    {
+      "title": "Respect the Details:",
+      "description": "Partner with detail-oriented colleagues and listen to their warnings; they protect you from your own blind spots."
+    },
+    {
+      "title": "Growth is Service:",
+      "description": "The highest level of Type 8 leadership is becoming a servant leader who fights for the well-being of the whole."
+    },
+    {
+      "title": "Rest is Strategic:",
+      "description": "You cannot lead if you collapse. Acknowledge your physical limits to maintain long-term power."
+    }
   ],
   "relatedTopics": [
     "learning",

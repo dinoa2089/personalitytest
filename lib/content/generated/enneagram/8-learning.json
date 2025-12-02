@@ -60,13 +60,34 @@
     }
   ],
   "keyTakeaways": [
-    "**Visceral Learning:** Type 8s learn best by doing, debating, and physically engaging with the material.",
-    "**Autonomy is Key:** Seek learning environments that allow you to control your workflow and pace.",
-    "**Interrogate the Text:** Use your natural skepticism to challenge concepts, which helps you understand them deeper.",
-    "**Beware the Stress Line:** If you become withdrawn and obsessive over details, take a break and reconnect with the big picture.",
-    "**Lead to Learn:** Teaching others or leading study groups solidifies your knowledge and utilizes your natural strengths.",
-    "**Practical Application:** Connect every theory to a real-world use case to maintain motivation.",
-    "**Respectful Challenge:** Learn to question authority without being disrespectful to maintain productive educational relationships."
+    {
+      "title": "Visceral Learning:",
+      "description": "Type 8s learn best by doing, debating, and physically engaging with the material."
+    },
+    {
+      "title": "Autonomy is Key:",
+      "description": "Seek learning environments that allow you to control your workflow and pace."
+    },
+    {
+      "title": "Interrogate the Text:",
+      "description": "Use your natural skepticism to challenge concepts, which helps you understand them deeper."
+    },
+    {
+      "title": "Beware the Stress Line:",
+      "description": "If you become withdrawn and obsessive over details, take a break and reconnect with the big picture."
+    },
+    {
+      "title": "Lead to Learn:",
+      "description": "Teaching others or leading study groups solidifies your knowledge and utilizes your natural strengths."
+    },
+    {
+      "title": "Practical Application:",
+      "description": "Connect every theory to a real-world use case to maintain motivation."
+    },
+    {
+      "title": "Respectful Challenge:",
+      "description": "Learn to question authority without being disrespectful to maintain productive educational relationships."
+    }
   ],
   "relatedTopics": [
     "careers",

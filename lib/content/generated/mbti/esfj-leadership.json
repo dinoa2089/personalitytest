@@ -21,11 +21,17 @@
       "subsections": [
         {
           "heading": "The Psychological Anchor",
-          "content": "**The Psychological Anchor:** Your leadership is grounded in the psychological concept of 'Psychological Safety.' Google’s Project Aristotle found this to be the number one predictor of high-performing teams. By naturally prioritizing inclusion and respect, you create the exact environment necessary for teams to thrive."
+          "content": {
+            "title": "The Psychological Anchor:",
+            "description": "Your leadership is grounded in the psychological concept of 'Psychological Safety.' Google’s Project Aristotle found this to be the number one predictor of high-performing teams. By naturally prioritizing inclusion and respect, you create the exact environment necessary for teams to thrive."
+          }
         },
         {
           "heading": "Key Strengths Breakdown",
-          "content": "**Interpersonal Harmony:** You act as the team's immune system, detecting and resolving interpersonal friction quickly.\n**Operational Reliability:** You follow through. If you say a resource will be available, it is there. This builds massive trust capital.\n**Role Clarity:** You excel at defining who does what, ensuring no one steps on toes and everyone knows their contribution.\n**Advocacy:** You are fiercely protective of your team, often shielding them from upper management politics or unreasonable demands."
+          "content": {
+            "title": "Interpersonal Harmony:",
+            "description": "You act as the team's immune system, detecting and resolving interpersonal friction quickly.\n**Operational Reliability:** You follow through. If you say a resource will be available, it is there. This builds massive trust capital.\n**Role Clarity:** You excel at defining who does what, ensuring no one steps on toes and everyone knows their contribution.\n**Advocacy:** You are fiercely protective of your team, often shielding them from upper management politics or unreasonable demands."
+          }
         }
       ]
     },
@@ -45,7 +51,10 @@
       "subsections": [
         {
           "heading": "The Motivation Toolkit",
-          "content": "**Public Recognition:** You know exactly who loves a shout-out in the all-hands meeting and who prefers a quiet 'thank you' note.\n**Service Acts:** You motivate by serving—bringing in coffee during crunch time or taking a tedious task off a subordinate's plate.\n**Loyalty Loops:** By showing extreme loyalty to your staff, you trigger a reciprocal psychological desire in them to be loyal to you."
+          "content": {
+            "title": "Public Recognition:",
+            "description": "You know exactly who loves a shout-out in the all-hands meeting and who prefers a quiet 'thank you' note.\n**Service Acts:** You motivate by serving—bringing in coffee during crunch time or taking a tedious task off a subordinate's plate.\n**Loyalty Loops:** By showing extreme loyalty to your staff, you trigger a reciprocal psychological desire in them to be loyal to you."
+          }
         }
       ]
     },
@@ -75,7 +84,10 @@
       "subsections": [
         {
           "heading": "Actionable Growth Exercises",
-          "content": "**The 'No' Challenge:** Commit to saying 'no' to three non-essential requests this week without offering a lengthy apology or explanation. Just a polite, firm decline.\n**The 24-Hour Rule:** When you receive critical feedback, wait 24 hours before responding. This allows your initial emotional reaction to subside so your logical brain can process the utility of the feedback.\n**Process vs. Result:** When delegating, define the *result* clearly, but forbid yourself from dictating the *process*. Let them get there their own way."
+          "content": {
+            "title": "The 'No' Challenge:",
+            "description": "Commit to saying 'no' to three non-essential requests this week without offering a lengthy apology or explanation. Just a polite, firm decline.\n**The 24-Hour Rule:** When you receive critical feedback, wait 24 hours before responding. This allows your initial emotional reaction to subside so your logical brain can process the utility of the feedback.\n**Process vs. Result:** When delegating, define the *result* clearly, but forbid yourself from dictating the *process*. Let them get there their own way."
+          }
         }
       ]
     },
@@ -93,7 +105,10 @@
   "faqs": [
     {
       "question": "Can an ESFJ lead in a tech startup?",
-      "answer": "Yes, but they often take on a specific role: the 'Chief People Officer' or Head of Operations. While the INTJ or ENTP might be coding the product or pitching the vision, the ESFJ ensures the company actually functions as a business. They bring necessary structure to the chaos. However, they may struggle if the culture is too ruthless or if the product is purely theoretical with no tangible user impact."
+      "answer": {
+        "title": "Yes, but they often take on a specific role",
+        "description": "the 'Chief People Officer' or Head of Operations. While the INTJ or ENTP might be coding the product or pitching the vision, the ESFJ ensures the company actually functions as a business. They bring necessary structure to the chaos. However, they may struggle if the culture is too ruthless or if the product is purely theoretical with no tangible user impact."
+      }
     },
     {
       "question": "How does an ESFJ leader handle firing someone?",
@@ -109,12 +124,30 @@
     }
   ],
   "keyTakeaways": [
-    "**The Social Glue:** Your primary leadership asset is your ability to create psychological safety and team cohesion.",
-    "**Structure is Care:** You show love through logistics—clear expectations, organized workflows, and reliable resources.",
-    "**Beware the Martyr:** Avoid doing everyone's work to 'save' them; this leads to burnout and under-skilled teams.",
-    "**Clarity is Kindness:** You must overcome the fear of conflict to give the direct feedback your team needs to grow.",
-    "**Consensus Builder:** You excel at making decisions that everyone can live with, ensuring high buy-in and low friction.",
-    "**Tradition Matters:** You anchor teams during turbulent times by maintaining rituals, celebrations, and consistent standards."
+    {
+      "title": "The Social Glue:",
+      "description": "Your primary leadership asset is your ability to create psychological safety and team cohesion."
+    },
+    {
+      "title": "Structure is Care:",
+      "description": "You show love through logistics—clear expectations, organized workflows, and reliable resources."
+    },
+    {
+      "title": "Beware the Martyr:",
+      "description": "Avoid doing everyone's work to 'save' them; this leads to burnout and under-skilled teams."
+    },
+    {
+      "title": "Clarity is Kindness:",
+      "description": "You must overcome the fear of conflict to give the direct feedback your team needs to grow."
+    },
+    {
+      "title": "Consensus Builder:",
+      "description": "You excel at making decisions that everyone can live with, ensuring high buy-in and low friction."
+    },
+    {
+      "title": "Tradition Matters:",
+      "description": "You anchor teams during turbulent times by maintaining rituals, celebrations, and consistent standards."
+    }
   ],
   "relatedTopics": [
     "learning",
