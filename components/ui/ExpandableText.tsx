@@ -82,14 +82,14 @@ export function ExpandableText({
       <div className={cn("space-y-3", className)}>
         {splitIntoParagraphs && paragraphs.length > 1 ? (
           paragraphs.map((para, idx) => (
-            <p key={idx} className={cn("text-muted-foreground leading-relaxed", textClassName)}>
-              {para}
-            </p>
+            <div key={idx} className={textClassName}>
+              <CompactMarkdown>{para}</CompactMarkdown>
+            </div>
           ))
         ) : (
-          <p className={cn("text-muted-foreground leading-relaxed", textClassName)}>
-            {text}
-          </p>
+          <div className={textClassName}>
+            <CompactMarkdown>{text}</CompactMarkdown>
+          </div>
         )}
       </div>
     );
@@ -109,14 +109,14 @@ export function ExpandableText({
           >
             {splitIntoParagraphs ? (
               paragraphs.map((para, idx) => (
-                <p key={idx} className={cn("text-muted-foreground leading-relaxed", textClassName)}>
-                  {para}
-                </p>
+                <div key={idx} className={textClassName}>
+                  <CompactMarkdown>{para}</CompactMarkdown>
+                </div>
               ))
             ) : (
-              <p className={cn("text-muted-foreground leading-relaxed", textClassName)}>
-                {text}
-              </p>
+              <div className={textClassName}>
+                <CompactMarkdown>{text}</CompactMarkdown>
+              </div>
             )}
           </motion.div>
         ) : (
@@ -127,10 +127,10 @@ export function ExpandableText({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <p className={cn("text-muted-foreground leading-relaxed", textClassName)}>
-              {preview}
+            <div className={textClassName}>
+              <CompactMarkdown>{preview}</CompactMarkdown>
               <span className="text-muted-foreground/60">...</span>
-            </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -182,4 +182,11 @@ export function FormattedText({
   return (
     <div className={cn("space-y-3", className)}>
       {paragraphs.map((para, idx) => (
-        <p key={idx} className={cn("text-muted-foreground leading-relaxed", textClassName)}>
+        <div key={idx} className={textClassName}>
+          <CompactMarkdown>{para}</CompactMarkdown>
+        </div>
+      ))}
+    </div>
+  );
+}
+
