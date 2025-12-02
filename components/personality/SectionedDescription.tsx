@@ -11,15 +11,24 @@ import {
   Lightbulb,
   Heart,
   Zap,
-  User
+  User,
+  Shield,
+  Flame,
+  Target,
+  Compass,
+  GitBranch,
+  Activity
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MarkdownText } from "@/components/ui/markdown-text";
+
+type Framework = "prism" | "enneagram" | "mbti";
 
 interface SectionedDescriptionProps {
   paragraphs: string[];
   typeName: string;
   className?: string;
+  framework?: Framework;
 }
 
 interface DescriptionSection {
@@ -30,8 +39,8 @@ interface DescriptionSection {
   gradient: string;
 }
 
-// Keywords to detect what a paragraph is about
-const SECTION_KEYWORDS = {
+// Base keywords (PRISM / general)
+const BASE_KEYWORDS: Record<string, string[]> = {
   innerWorld: ["experience", "internal", "processing", "find that you", "likely find", "lived experience", "mental", "brain"],
   development: ["childhood", "develop", "evolution", "grew", "matured", "child", "early in life", "adulthood"],
   flow: ["flow state", "focus", "hyper-focus", "concentration", "deep work", "triggers", "distraction"],
@@ -41,12 +50,48 @@ const SECTION_KEYWORDS = {
   emotional: ["emotional", "feeling", "passion", "care deeply", "love language", "empathy"],
 };
 
-function detectSection(paragraph: string): string {
+// Enneagram-specific keywords
+const ENNEAGRAM_KEYWORDS: Record<string, string[]> = {
+  innerWorld: ["inner critic", "inner voice", "internal", "psyche", "psychological", "unconscious", "defense mechanism", "superego", "ego"],
+  bodyInstincts: ["body center", "gut", "somatic", "instinct", "visceral", "physical", "body triad", "anger", "rage", "repress"],
+  development: ["childhood", "origin", "child", "caregiver", "parent", "early", "grew up", "learned early", "transactional"],
+  spiritual: ["spiritual", "liberation", "holy", "virtue", "essence", "soul", "transcend", "awakening", "enlighten", "wisdom"],
+  identity: ["identity", "self-image", "who they are", "sense of self", "authenticity", "true self", "false self", "mask"],
+  emotional: ["feeling", "emotion", "heart center", "shame", "fear", "anxiety", "love", "passion", "empathy"],
+  relationships: ["relationship", "partner", "intimacy", "connection", "attachment", "bond", "trust"],
+  integration: ["integration", "disintegration", "growth line", "stress line", "moves toward", "healthy", "unhealthy", "average"],
+};
+
+// MBTI-specific keywords  
+const MBTI_KEYWORDS: Record<string, string[]> = {
+  cognitiveStack: ["cognitive function", "function stack", "dominant", "auxiliary", "tertiary", "inferior", "shadow"],
+  perceiving: ["perceiving", "sensing", "intuition", "information", "data", "patterns", "concrete", "abstract", "ni ", "ne ", "si ", "se "],
+  judging: ["judging", "thinking", "feeling", "decision", "logic", "values", "ti ", "te ", "fi ", "fe "],
+  innerWorld: ["introverted", "inner world", "internal", "reflection", "introspection", "solitude", "energy"],
+  outerWorld: ["extraverted", "outer world", "external", "interaction", "social", "action", "engagement"],
+  development: ["develop", "mature", "child", "adolescent", "midlife", "grip", "loop"],
+  communication: ["communicate", "expression", "language", "conversation", "discuss", "articulate"],
+};
+
+// Get keywords based on framework
+function getKeywordsForFramework(framework: Framework): Record<string, string[]> {
+  switch (framework) {
+    case "enneagram":
+      return { ...BASE_KEYWORDS, ...ENNEAGRAM_KEYWORDS };
+    case "mbti":
+      return { ...BASE_KEYWORDS, ...MBTI_KEYWORDS };
+    default:
+      return BASE_KEYWORDS;
+  }
+}
+
+function detectSection(paragraph: string, framework: Framework): string {
   const lowerPara = paragraph.toLowerCase();
+  const keywords = getKeywordsForFramework(framework);
   
   // Check each category
-  for (const [section, keywords] of Object.entries(SECTION_KEYWORDS)) {
-    for (const keyword of keywords) {
+  for (const [section, sectionKeywords] of Object.entries(keywords)) {
+    for (const keyword of sectionKeywords) {
       if (lowerPara.includes(keyword.toLowerCase())) {
         return section;
       }

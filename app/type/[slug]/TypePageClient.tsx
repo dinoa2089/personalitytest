@@ -61,7 +61,7 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
       </div>
 
       {/* Hero Section */}
-      <section className={`relative py-16 md:py-24 overflow-hidden`}>
+      <section className={`relative py-10 sm:py-16 md:py-24 overflow-hidden`}>
         <div className={`absolute inset-0 bg-gradient-to-br ${archetype.color} opacity-10`} />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -69,20 +69,21 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <span className="text-6xl">{archetype.icon}</span>
+            <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
+              <span className="text-5xl sm:text-6xl">{archetype.icon}</span>
             </div>
-            <Badge className="mb-4 bg-primary/20 text-primary border-primary/30 text-sm px-4 py-1">
+            <Badge className="mb-3 sm:mb-4 bg-primary/20 text-primary border-primary/30 text-xs sm:text-sm px-3 sm:px-4 py-1">
               {archetype.rarity}% of the population
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">{archetype.name}</h1>
-            <p className="text-2xl md:text-3xl text-muted-foreground mb-8">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-4">{archetype.name}</h1>
+            <p className="text-lg sm:text-2xl md:text-3xl text-muted-foreground mb-6 sm:mb-8 px-2">
               {archetype.tagline}
             </p>
-            <Button asChild size="lg" className="text-lg px-8 py-6">
+            <Button asChild size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6">
               <Link href="/assessment/intro">
-                Am I {archetype.name.replace("The ", "")}? Take the Free Test
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <span className="hidden sm:inline">Am I {archetype.name.replace("The ", "")}? Take the Free Test</span>
+                <span className="sm:hidden">Take the Free Test</span>
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Link>
             </Button>
           </motion.div>
@@ -90,8 +91,8 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
       </section>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-16 max-w-6xl">
-        <div className="space-y-16">
+      <main className="container mx-auto px-4 py-8 sm:py-16 max-w-6xl">
+        <div className="space-y-10 sm:space-y-16">
           {/* Description */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
@@ -99,10 +100,10 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
             viewport={{ once: true }}
           >
             <Card className="rounded-2xl border border-border/50 bg-card/80 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-3xl">Understanding {archetype.name}</CardTitle>
+              <CardHeader className="pb-3 sm:pb-6">
+                <CardTitle className="text-xl sm:text-3xl">Understanding {archetype.name}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="text-sm sm:text-base">
                 <SectionedDescription 
                   paragraphs={content.longDescription} 
                   typeName={archetype.name}

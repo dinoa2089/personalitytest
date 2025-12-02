@@ -162,26 +162,27 @@ export function CompatibilityHeatmap({
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-4 rounded-xl border border-border/50 bg-card/80"
+          className="p-3 sm:p-4 rounded-xl border border-border/50 bg-card/80"
         >
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-2xl">{archetypeMap.get(selectedCell.row)?.icon}</span>
-              <span className="font-medium">{archetypeMap.get(selectedCell.row)?.name}</span>
+              <span className="text-xl sm:text-2xl">{archetypeMap.get(selectedCell.row)?.icon}</span>
+              <span className="font-medium text-sm sm:text-base">{archetypeMap.get(selectedCell.row)?.name}</span>
             </div>
-            <span className="text-muted-foreground">+</span>
+            <span className="text-muted-foreground hidden sm:inline">+</span>
+            <span className="text-muted-foreground sm:hidden text-xs">×</span>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">{archetypeMap.get(selectedCell.col)?.icon}</span>
-              <span className="font-medium">{archetypeMap.get(selectedCell.col)?.name}</span>
+              <span className="text-xl sm:text-2xl">{archetypeMap.get(selectedCell.col)?.icon}</span>
+              <span className="font-medium text-sm sm:text-base">{archetypeMap.get(selectedCell.col)?.name}</span>
             </div>
-            <div className="ml-auto flex items-center gap-2">
+            <div className="sm:ml-auto flex items-center gap-2 mt-2 sm:mt-0">
               <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm"
                 style={{ backgroundColor: getCompatibilityColor(selectedCell.score) }}
               >
                 {selectedCell.score}
               </div>
-              <span className="text-sm font-medium">
+              <span className="text-xs sm:text-sm font-medium">
                 {getCompatibilityLabel(selectedCell.score)}
               </span>
             </div>
