@@ -47,7 +47,7 @@ export interface GeneratedContent {
   
   // Structured data
   faqs: ContentFAQ[];
-  keyTakeaways: string[];
+  keyTakeaways: (string | { title: string; description: string })[];
   
   // Related content
   relatedTopics: string[]; // Other topic pages for this type

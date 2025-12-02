@@ -240,12 +240,17 @@ export function TopicPage({
                     <span>✨</span> Key Takeaways
                   </h2>
                   <ul className="space-y-2">
-                    {content.keyTakeaways.map((takeaway, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        <span>{takeaway}</span>
-                      </li>
-                    ))}
+                    {content.keyTakeaways.map((takeaway, i) => {
+                      const text = typeof takeaway === 'string' 
+                        ? takeaway 
+                        : `${takeaway.title} ${takeaway.description}`;
+                      return (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
+                          <span>{text}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </section>
               )}

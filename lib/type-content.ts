@@ -702,17 +702,17 @@ const defaultExtendedContent = (archetype: Archetype): Partial<TypePageContent> 
     archetype.description[1] || archetype.description[0],
     archetype.description[2] || `${archetype.name}s bring unique value to every situation through their distinctive combination of traits.`,
   ],
-  detailedStrengths: archetype.strengths.slice(0, 4).map((s) => {
-    const title = typeof s === 'string' ? s : s.title;
-    const desc = typeof s === 'string' ? s : s.description;
+  detailedStrengths: archetype.strengths.slice(0, 4).map((s): { title: string; description: string } => {
+    const title: string = typeof s === 'string' ? s : s.title;
+    const desc: string = typeof s === 'string' ? s : s.description;
     return {
       title: title.split(" ").slice(0, 3).join(" "),
       description: desc,
     };
   }),
-  detailedGrowthAreas: archetype.growthAreas.slice(0, 3).map((g) => {
-    const title = typeof g === 'string' ? g : g.title;
-    const desc = typeof g === 'string' ? g : g.description;
+  detailedGrowthAreas: archetype.growthAreas.slice(0, 3).map((g): { title: string; description: string } => {
+    const title: string = typeof g === 'string' ? g : g.title;
+    const desc: string = typeof g === 'string' ? g : g.description;
     return {
       title: title.split(" ").slice(0, 3).join(" "),
       description: desc,
@@ -756,14 +756,9 @@ export function getTypePageContent(slug: string): TypePageContent | null {
     description: `Explore how ${archetype.name} maps to other personality frameworks.`
   };
 
-  // Use expanded content for detailed strengths/growth areas if available
-  const detailedStrengths = expandedData 
-    ? normalizeToObjects(expandedData.strengths)
-    : extended.detailedStrengths || [];
-    
-  const detailedGrowthAreas = expandedData 
-    ? normalizeToObjects(expandedData.growthAreas)
-    : extended.detailedGrowthAreas || [];
+  // Use extended content for detailed strengths/growth areas (disable expanded for now)
+  const detailedStrengths = extended.detailedStrengths || [];
+  const detailedGrowthAreas = extended.detailedGrowthAreas || [];
 
   // Generate default FAQs if not provided
   const firstStrengthTitle = (typeof archetype.strengths[0] === 'string' ? archetype.strengths[0] : archetype.strengths[0]?.title)?.toLowerCase() || 'unique strengths';
