@@ -7,6 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/seo/StructuredData";
+import { InternalLinks } from "@/components/personality/InternalLinks";
+import { ResearchCitations } from "@/components/personality/ResearchCitations";
+import { TypeExamplesGrid } from "@/components/personality/TypeExamplesGrid";
+import { archetypeExamples, archetypeDimensionDescriptions } from "@/lib/archetype-examples";
 import {
   Star,
   TrendingUp,
@@ -30,13 +35,26 @@ interface TypePageClientProps {
 
 export function TypePageClient({ content, relatedArchetypes }: TypePageClientProps) {
   const { archetype } = content;
+  const examples = archetypeExamples[archetype.id] || [];
+  const dimensionDescription = archetypeDimensionDescriptions[archetype.id] || "";
+
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Personality Types", url: "/type/innovator" },
+    { name: archetype.name, url: `/type/${archetype.id}` },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
       <Header />
 
+      {/* Breadcrumbs */}
+      <div className="container mx-auto px-4 pt-4">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
+
       {/* Hero Section */}
-      <section className={`relative py-20 md:py-32 overflow-hidden`}>
+      <section className={`relative py-16 md:py-24 overflow-hidden`}>
         <div className={`absolute inset-0 bg-gradient-to-br ${archetype.color} opacity-10`} />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -248,36 +266,35 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
             </Card>
           </motion.section>
 
-          {/* Famous Examples */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <Card className="rounded-2xl border border-border/50">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-500/20">
-                    <Sparkles className="h-5 w-5 text-yellow-600" />
-                  </div>
-                  <CardTitle className="text-2xl">Famous {archetype.name}s</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-3">
-                  {archetype.famousExamples.map((example, index) => (
-                    <div
-                      key={index}
-                      className="rounded-full border border-border/50 bg-muted/30 px-4 py-2"
-                    >
-                      <span className="font-medium">{example.name}</span>
-                      <span className="text-muted-foreground ml-2">• {example.role}</span>
+          {/* Type Examples - Fictional + Public Figures */}
+          {examples.length > 0 && (
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="rounded-2xl border border-border/50">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-500/20">
+                      <Sparkles className="h-5 w-5 text-yellow-600" />
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.section>
+                    <div>
+                      <CardTitle className="text-2xl">Who Shares {archetype.name} Traits?</CardTitle>
+                      <CardDescription>Characters and figures associated with this type</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <TypeExamplesGrid 
+                    examples={examples} 
+                    typeName={archetype.name.replace("The ", "")} 
+                    typeDescription={dimensionDescription}
+                  />
+                </CardContent>
+              </Card>
+            </motion.section>
+          )}
 
           {/* Common Misunderstandings */}
           {content.commonMisunderstandings.length > 0 && (
@@ -397,6 +414,28 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
               </div>
             </motion.section>
           )}
+
+          {/* Research Citations */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <ResearchCitations variant="compact" />
+          </motion.section>
+
+          {/* Internal Links */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <InternalLinks 
+              currentType={archetype.id} 
+              currentFramework="prism" 
+              variant="footer" 
+            />
+          </motion.section>
 
           {/* CTA */}
           <motion.section
