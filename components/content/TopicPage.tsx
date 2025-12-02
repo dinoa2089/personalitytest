@@ -135,11 +135,15 @@ export function TopicPage({
             </div>
             
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {content.title}
+              {typeof content.title === 'string' 
+                ? content.title 
+                : (content.title as { title?: string })?.title || 'Untitled'}
             </h1>
             
             <p className="text-xl text-muted-foreground mb-6">
-              {content.metaDescription}
+              {typeof content.metaDescription === 'string' 
+                ? content.metaDescription 
+                : `Explore ${typeName} personality insights`}
             </p>
 
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -218,16 +222,24 @@ export function TopicPage({
               {content.sections.map((section, index) => (
                 <section key={index} className="mb-10">
                   <h2 className="text-2xl font-bold mb-4 text-foreground">
-                    {section.heading}
+                    {typeof section.heading === 'string' ? section.heading : (section.heading as { title?: string })?.title || 'Section'}
                   </h2>
-                  <MarkdownText variant="full">{section.content}</MarkdownText>
+                  <MarkdownText variant="full">
+                    {typeof section.content === 'string' 
+                      ? section.content 
+                      : `**${(section.content as { title?: string })?.title || ''}**\n\n${(section.content as { description?: string })?.description || ''}`}
+                  </MarkdownText>
                   
                   {section.subsections?.map((sub, subIndex) => (
                     <div key={subIndex} className="ml-4 mt-6 border-l-2 border-primary/20 pl-4">
                       <h3 className="text-xl font-semibold mb-3 text-foreground">
-                        {sub.heading}
+                        {typeof sub.heading === 'string' ? sub.heading : (sub.heading as { title?: string })?.title || ''}
                       </h3>
-                      <MarkdownText variant="compact">{sub.content}</MarkdownText>
+                      <MarkdownText variant="compact">
+                        {typeof sub.content === 'string' 
+                          ? sub.content 
+                          : (sub.content as { description?: string })?.description || ''}
+                      </MarkdownText>
                     </div>
                   ))}
                 </section>
@@ -241,9 +253,14 @@ export function TopicPage({
                   </h2>
                   <ul className="space-y-2">
                     {content.keyTakeaways.map((takeaway, i) => {
-                      const text = typeof takeaway === 'string' 
-                        ? takeaway 
-                        : `${takeaway.title} ${takeaway.description}`;
+                      let text: string;
+                      if (typeof takeaway === 'string') {
+                        text = takeaway;
+                      } else {
+                        const title = typeof takeaway.title === 'string' ? takeaway.title : '';
+                        const desc = typeof takeaway.description === 'string' ? takeaway.description : '';
+                        text = `${title} ${desc}`.trim();
+                      }
                       return (
                         <li key={i} className="flex items-start gap-2">
                           <span className="text-primary mt-1">•</span>
@@ -447,8 +464,12 @@ export function TopicPage({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": content.title,
-            "description": content.metaDescription,
+            "headline": typeof content.title === 'string' 
+              ? content.title 
+              : (content.title as { title?: string })?.title || typeName,
+            "description": typeof content.metaDescription === 'string' 
+              ? content.metaDescription 
+              : `Learn about ${typeName}`,
             "author": {
               "@type": "Organization",
               "name": "PRISM-7"

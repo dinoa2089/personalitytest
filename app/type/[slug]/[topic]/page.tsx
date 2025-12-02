@@ -63,13 +63,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const content = getContent(slug, topic as ContentTopic);
   
   if (content) {
+    const pageTitle = typeof content.title === 'string' 
+      ? content.title 
+      : (content.title as { title?: string })?.title || `${archetype.name} - ${topic}`;
+    const pageDesc = typeof content.metaDescription === 'string'
+      ? content.metaDescription
+      : `Learn about ${archetype.name} ${topic}`;
     return {
-      title: content.title,
-      description: content.metaDescription,
+      title: pageTitle,
+      description: pageDesc,
       keywords: content.keywords.join(", "),
       openGraph: {
-        title: content.title,
-        description: content.metaDescription,
+        title: pageTitle,
+        description: pageDesc,
         type: "article"
       }
     };
