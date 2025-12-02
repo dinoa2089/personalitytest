@@ -175,7 +175,8 @@ const getWatchOutFor = (title: string, archetype: Archetype): string[] => {
   const warnings: string[] = [];
   
   archetype.growthAreas.slice(0, 2).forEach(area => {
-    warnings.push(`Your growth area of "${area.toLowerCase()}" may be challenged in this role`);
+    const areaTitle = getStrengthTitle(area);
+    warnings.push(`Your growth area of "${areaTitle.toLowerCase()}" may be challenged in this role`);
   });
   
   return warnings;
@@ -194,8 +195,9 @@ const getDayInLife = (title: string): string => {
 };
 
 const getInterviewTips = (title: string, archetype: Archetype): string[] => {
+  const firstStrength = archetype.strengths[0] ? getStrengthTitle(archetype.strengths[0]).toLowerCase() : 'problem-solving';
   const tips = [
-    `Highlight your strength in "${archetype.strengths[0]?.toLowerCase() || 'problem-solving'}"`,
+    `Highlight your strength in "${firstStrength}"`,
     `Prepare examples that show your ${archetype.tagline.toLowerCase()}`,
     "Address potential concerns about your growth areas proactively",
     `Emphasize how your communication style (${archetype.communicationStyle.split('.')[0].toLowerCase()}) benefits the team`,
