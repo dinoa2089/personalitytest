@@ -25,12 +25,18 @@ import {
 } from "lucide-react";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import type { MBTIType } from "@/lib/mbti-content";
+import { getRelatedMBTITypes, getTopicLinksForType, TOPIC_METADATA } from "@/lib/internal-links";
+import type { ContentTopic } from "@/lib/content/types";
 
 interface MBTITypePageClientProps {
   content: MBTIType;
 }
 
 export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
+  const typeSlug = content.code.toLowerCase();
+  const topicLinks = getTopicLinksForType("mbti", typeSlug);
+  const relatedTypes = getRelatedMBTITypes(typeSlug);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
       <Header />
@@ -302,6 +308,39 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
             </div>
           </motion.section>
 
+          {/* Topic Guides */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Deep Dive: {content.code} Guides
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {topicLinks.map((link) => (
+                <Link key={link.url} href={link.url} className="group">
+                  <Card className="rounded-xl border border-border/50 hover:border-primary/50 transition-all h-full">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <span className="text-2xl">{TOPIC_METADATA[link.title.toLowerCase().replace(' style', '').replace(' guide', '').replace(' & coping', '').replace('at ', '').replace('personal ', '') as ContentTopic]?.icon || '📖'}</span>
+                        <div className="flex-1">
+                          <h3 className="font-semibold group-hover:text-primary transition-colors">
+                            {content.code} {link.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground">
+                            {link.description}
+                          </p>
+                        </div>
+                        <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </motion.section>
+
           {/* Career Paths */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
@@ -505,6 +544,43 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
               </CardContent>
             </Card>
           </motion.section>
+
+          {/* Related MBTI Types */}
+          {relatedTypes.length > 0 && (
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <Card className="rounded-2xl border border-border/50">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20">
+                      <Users className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <CardTitle className="text-2xl">Related MBTI Types</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    Types that share cognitive functions or similar traits with {content.code}:
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {relatedTypes.map((link) => (
+                      <Link key={link.url} href={link.url}>
+                        <Badge 
+                          variant="outline" 
+                          className="text-base py-2 px-4 hover:bg-blue-500/10 hover:border-blue-500/50 transition-colors cursor-pointer"
+                        >
+                          {link.title}
+                        </Badge>
+                      </Link>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.section>
+          )}
 
           {/* Final CTA */}
           <motion.section

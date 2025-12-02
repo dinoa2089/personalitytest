@@ -12,10 +12,19 @@ import {
   BookOpen, 
   ChevronRight,
   Clock,
-  Share2
+  Share2,
+  Users,
+  Sparkles
 } from "lucide-react";
 import type { GeneratedContent, ContentTopic } from "@/lib/content/types";
 import ReactMarkdown from "react-markdown";
+import { 
+  getRelatedMBTITypes, 
+  getRelatedEnneagramTypes,
+  getPRISMLinksForMBTI,
+  getPRISMLinksForEnneagram,
+  TOPIC_METADATA
+} from "@/lib/internal-links";
 
 interface TopicPageProps {
   content: GeneratedContent;
@@ -65,6 +74,20 @@ export function TopicPage({
       case "enneagram": return `/type/enneagram/${typeSlug}`;
     }
   };
+
+  // Get related type links based on framework
+  const relatedTypes = framework === "mbti" 
+    ? getRelatedMBTITypes(typeSlug)
+    : framework === "enneagram"
+    ? getRelatedEnneagramTypes(typeSlug)
+    : [];
+  
+  // Get PRISM correlation links
+  const prismLinks = framework === "mbti"
+    ? getPRISMLinksForMBTI(typeSlug)
+    : framework === "enneagram"
+    ? getPRISMLinksForEnneagram(typeSlug)
+    : [];
 
   const breadcrumbs = [
     { name: "Home", url: "/" },
@@ -202,6 +225,40 @@ export function TopicPage({
                   </div>
                 </section>
               )}
+
+              {/* Related Articles - Same Topic, Different Types */}
+              {relatedTypes.length > 0 && (
+                <section className="mt-12 not-prose">
+                  <h2 className="text-2xl font-bold mb-6">
+                    {TOPIC_METADATA[content.topic]?.name || content.topic} for Related Types
+                  </h2>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {relatedTypes.slice(0, 4).map((link) => (
+                      <Link
+                        key={link.url}
+                        href={`${link.url}/${content.topic}`}
+                        className="group"
+                      >
+                        <Card className="h-full hover:border-primary/50 transition-colors">
+                          <CardContent className="pt-6">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <p className="font-semibold group-hover:text-primary transition-colors">
+                                  {link.title} {TOPIC_METADATA[content.topic]?.name}
+                                </p>
+                                <p className="text-sm text-muted-foreground">
+                                  {TOPIC_METADATA[content.topic]?.icon} Explore {content.topic} guide
+                                </p>
+                              </div>
+                              <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
             </motion.article>
 
             {/* Sidebar */}
@@ -247,6 +304,57 @@ export function TopicPage({
                     </Button>
                   </CardContent>
                 </Card>
+
+                {/* Related Types */}
+                {relatedTypes.length > 0 && (
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center gap-2">
+                        <Users className="h-4 w-4" />
+                        Related Types
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      {relatedTypes.slice(0, 4).map((link) => (
+                        <Link
+                          key={link.url}
+                          href={link.url}
+                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted transition-colors"
+                        >
+                          <span className="text-sm font-medium">{link.title}</span>
+                          <ChevronRight className="h-4 w-4 ml-auto text-muted-foreground" />
+                        </Link>
+                      ))}
+                    </CardContent>
+                  </Card>
+                )}
+
+                {/* PRISM-7 Correlation */}
+                {prismLinks.length > 0 && (
+                  <Card className="border-primary/20 bg-primary/5">
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center gap-2">
+                        <Sparkles className="h-4 w-4 text-primary" />
+                        PRISM-7 Match
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      <p className="text-xs text-muted-foreground mb-3">
+                        Discover how this type maps to PRISM-7 archetypes
+                      </p>
+                      {prismLinks.slice(0, 3).map((link) => (
+                        <Link
+                          key={link.url}
+                          href={link.url}
+                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-primary/10 transition-colors"
+                        >
+                          <span className="text-sm font-medium text-primary">{link.title}</span>
+                          <ChevronRight className="h-4 w-4 ml-auto text-primary/60" />
+                        </Link>
+                      ))}
+                    </CardContent>
+                  </Card>
+                )}
 
                 {/* Share */}
                 <Card>

@@ -2,18 +2,18 @@ import Link from "next/link";
 
 // PRISM-7 Archetypes
 const prismTypes = [
-  { id: "innovator", name: "Innovator" },
-  { id: "architect", name: "Architect" },
-  { id: "catalyst", name: "Catalyst" },
-  { id: "strategist", name: "Strategist" },
-  { id: "connector", name: "Connector" },
-  { id: "guardian", name: "Guardian" },
-  { id: "explorer", name: "Explorer" },
-  { id: "stabilizer", name: "Stabilizer" },
-  { id: "visionary", name: "Visionary" },
-  { id: "harmonizer", name: "Harmonizer" },
-  { id: "achiever", name: "Achiever" },
-  { id: "analyst", name: "Analyst" },
+  { id: "innovator", name: "Innovator", icon: "💡" },
+  { id: "architect", name: "Architect", icon: "🏛️" },
+  { id: "catalyst", name: "Catalyst", icon: "⚡" },
+  { id: "strategist", name: "Strategist", icon: "🎯" },
+  { id: "connector", name: "Connector", icon: "🤝" },
+  { id: "guardian", name: "Guardian", icon: "🛡️" },
+  { id: "explorer", name: "Explorer", icon: "🧭" },
+  { id: "stabilizer", name: "Stabilizer", icon: "⚖️" },
+  { id: "visionary", name: "Visionary", icon: "🔮" },
+  { id: "harmonizer", name: "Harmonizer", icon: "☮️" },
+  { id: "achiever", name: "Achiever", icon: "🏆" },
+  { id: "analyst", name: "Analyst", icon: "🔬" },
 ];
 
 // MBTI Types grouped by temperament
@@ -37,12 +37,22 @@ const enneagramTypes = [
   { num: "9", name: "Peacemaker" },
 ];
 
+// Topic guides for SEO
+const topicGuides = [
+  { slug: "careers", name: "Career Guides", icon: "💼" },
+  { slug: "relationships", name: "Relationship Guides", icon: "💕" },
+  { slug: "compatibility", name: "Compatibility", icon: "🤝" },
+  { slug: "growth", name: "Personal Growth", icon: "🌱" },
+  { slug: "stress", name: "Stress & Coping", icon: "🧘" },
+  { slug: "leadership", name: "Leadership", icon: "👑" },
+];
+
 export function Footer() {
   return (
     <footer className="border-t bg-background/50 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-6">
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-1 space-y-4">
             <div>
@@ -52,7 +62,7 @@ export function Footer() {
               <p className="text-xs text-muted-foreground mb-1">by Authentic Self</p>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Scientifically validated personality assessment based on modern psychology research.
+              Scientifically validated personality assessment based on the HEXACO+ model.
             </p>
           </div>
 
@@ -80,6 +90,29 @@ export function Footer() {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link href="/compare" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Compare Types
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Topic Guides */}
+          <div>
+            <h4 className="font-semibold mb-4 text-sm">Topic Guides</h4>
+            <ul className="space-y-1.5 text-xs">
+              {topicGuides.map((topic) => (
+                <li key={topic.slug}>
+                  <Link 
+                    href={`/type/mbti/intj/${topic.slug}`}
+                    className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+                  >
+                    <span>{topic.icon}</span>
+                    <span>{topic.name}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -93,7 +126,7 @@ export function Footer() {
                     href={`/type/${type.id}`} 
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {type.name}
+                    {type.icon} {type.name}
                   </Link>
                 </li>
               ))}
@@ -105,7 +138,7 @@ export function Footer() {
                     href={`/type/${type.id}`} 
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {type.name}
+                    {type.icon} {type.name}
                   </Link>
                 </li>
               ))}
@@ -138,7 +171,7 @@ export function Footer() {
                     href={`/type/enneagram/${type.num}`} 
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Type {type.num}
+                    Type {type.num}: {type.name}
                   </Link>
                 </li>
               ))}
@@ -147,7 +180,7 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm">Legal</h4>
+            <h4 className="font-semibold mb-4 text-sm">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">

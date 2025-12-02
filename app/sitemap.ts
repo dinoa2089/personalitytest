@@ -29,6 +29,19 @@ const mbtiTypes = [
 // Enneagram types
 const enneagramTypes = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
+// Content topics for each type
+const contentTopics = [
+  "learning",
+  "careers",
+  "relationships",
+  "communication",
+  "stress",
+  "leadership",
+  "growth",
+  "workplace",
+  "compatibility",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
 
@@ -116,6 +129,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // PRISM-7 topic pages (108 pages: 12 types × 9 topics)
+  const prismTopicPages: MetadataRoute.Sitemap = prismTypes.flatMap((type) =>
+    contentTopics.map((topic) => ({
+      url: `${siteUrl}/type/${type}/${topic}`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
+
   // MBTI type pages (high priority - lots of search traffic)
   const mbtiTypePages: MetadataRoute.Sitemap = mbtiTypes.map((type) => ({
     url: `${siteUrl}/type/mbti/${type}`,
@@ -123,6 +146,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
+
+  // MBTI topic pages (144 pages: 16 types × 9 topics)
+  const mbtiTopicPages: MetadataRoute.Sitemap = mbtiTypes.flatMap((type) =>
+    contentTopics.map((topic) => ({
+      url: `${siteUrl}/type/mbti/${type}/${topic}`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
 
   // Enneagram type pages (high priority - lots of search traffic)
   const enneagramTypePages: MetadataRoute.Sitemap = enneagramTypes.map((type) => ({
@@ -132,10 +165,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Enneagram topic pages (81 pages: 9 types × 9 topics)
+  const enneagramTopicPages: MetadataRoute.Sitemap = enneagramTypes.flatMap((type) =>
+    contentTopics.map((topic) => ({
+      url: `${siteUrl}/type/enneagram/${type}/${topic}`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
+
+  // Total: 12 static + 12 PRISM main + 108 PRISM topics + 16 MBTI main + 144 MBTI topics + 9 Enneagram main + 81 Enneagram topics
+  // = 12 + 12 + 108 + 16 + 144 + 9 + 81 = 382 URLs
   return [
     ...staticPages, 
-    ...prismTypePages, 
-    ...mbtiTypePages, 
-    ...enneagramTypePages
+    ...prismTypePages,
+    ...prismTopicPages,
+    ...mbtiTypePages,
+    ...mbtiTopicPages,
+    ...enneagramTypePages,
+    ...enneagramTopicPages,
   ];
 }
