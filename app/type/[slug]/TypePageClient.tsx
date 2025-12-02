@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import { ExpandableText } from "@/components/ui/ExpandableText";
+import { SectionedDescription } from "@/components/personality/SectionedDescription";
 import type { TypePageContent } from "@/lib/type-content";
 import type { Archetype } from "@/lib/archetypes";
 
@@ -100,12 +101,11 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
               <CardHeader>
                 <CardTitle className="text-3xl">Understanding {archetype.name}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                {content.longDescription.map((paragraph, index) => (
-                  <MarkdownText key={index} variant="full" className="text-lg">
-                    {paragraph}
-                  </MarkdownText>
-                ))}
+              <CardContent>
+                <SectionedDescription 
+                  paragraphs={content.longDescription} 
+                  typeName={archetype.name}
+                />
               </CardContent>
             </Card>
           </motion.section>

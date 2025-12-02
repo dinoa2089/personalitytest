@@ -165,6 +165,12 @@ export function Header() {
                     {/* Bottom Links */}
                     <div className="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
                       <Link
+                        href="/type"
+                        className="text-sm text-violet-400 hover:text-violet-300 transition-colors font-medium"
+                      >
+                        Explore All Types →
+                      </Link>
+                      <Link
                         href="/compare"
                         className="text-sm text-zinc-400 hover:text-white transition-colors"
                       >
@@ -232,6 +238,15 @@ export function Header() {
                   <ChevronDown className="h-4 w-4 group-open:rotate-180 transition-transform" />
                 </summary>
                 <div className="mt-2 pl-4 space-y-4">
+                  {/* Explore All Link */}
+                  <Link
+                    href="/type"
+                    className="block text-sm font-medium text-violet-400 hover:text-violet-300"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Explore All Types →
+                  </Link>
+                  
                   {/* PRISM */}
                   <div>
                     <p className="text-xs font-medium text-violet-400 mb-2">PRISM-7</p>
