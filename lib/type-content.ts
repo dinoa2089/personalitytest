@@ -702,26 +702,34 @@ const defaultExtendedContent = (archetype: Archetype): Partial<TypePageContent> 
     archetype.description[1] || archetype.description[0],
     archetype.description[2] || `${archetype.name}s bring unique value to every situation through their distinctive combination of traits.`,
   ],
-  detailedStrengths: archetype.strengths.slice(0, 4).map((s, i) => ({
-    title: s.split(" ").slice(0, 3).join(" "),
-    description: s,
-  })),
-  detailedGrowthAreas: archetype.growthAreas.slice(0, 3).map((g, i) => ({
-    title: g.split(" ").slice(0, 3).join(" "),
-    description: g,
-  })),
+  detailedStrengths: archetype.strengths.slice(0, 4).map((s) => {
+    const title = typeof s === 'string' ? s : s.title;
+    const desc = typeof s === 'string' ? s : s.description;
+    return {
+      title: title.split(" ").slice(0, 3).join(" "),
+      description: desc,
+    };
+  }),
+  detailedGrowthAreas: archetype.growthAreas.slice(0, 3).map((g) => {
+    const title = typeof g === 'string' ? g : g.title;
+    const desc = typeof g === 'string' ? g : g.description;
+    return {
+      title: title.split(" ").slice(0, 3).join(" "),
+      description: desc,
+    };
+  }),
   inRelationships: {
     romantic: archetype.relationshipStyle,
-    friendship: `As a friend, you bring ${archetype.strengths[0]?.toLowerCase() || 'unique value'}. You value authentic connections and ${archetype.tagline.toLowerCase()}.`,
+    friendship: `As a friend, you bring ${(typeof archetype.strengths[0] === 'string' ? archetype.strengths[0] : archetype.strengths[0]?.title)?.toLowerCase() || 'unique value'}. You value authentic connections and ${archetype.tagline.toLowerCase()}.`,
     professional: archetype.workStyle,
   },
   commonMisunderstandings: [
-    `${archetype.name}s are often misunderstood when their ${archetype.strengths[0]?.toLowerCase() || 'unique traits'} are seen out of context`,
+    `${archetype.name}s are often misunderstood when their ${(typeof archetype.strengths[0] === 'string' ? archetype.strengths[0] : archetype.strengths[0]?.title)?.toLowerCase() || 'unique traits'} are seen out of context`,
     `Your ${archetype.pattern.high[0] || 'core traits'} may be mistaken for something it's not`,
     `When you're focused on your strengths, others may not see the full picture`,
   ],
   selfCareAdvice: [
-    `Embrace your natural ${archetype.strengths[0]?.toLowerCase() || 'strengths'} while working on balance`,
+    `Embrace your natural ${(typeof archetype.strengths[0] === 'string' ? archetype.strengths[0] : archetype.strengths[0]?.title)?.toLowerCase() || 'strengths'} while working on balance`,
     archetype.atYourBest,
     `Remember: ${archetype.whenStressed} - recognize these patterns early`,
   ],
@@ -758,10 +766,11 @@ export function getTypePageContent(slug: string): TypePageContent | null {
     : extended.detailedGrowthAreas || [];
 
   // Generate default FAQs if not provided
+  const firstStrengthTitle = (typeof archetype.strengths[0] === 'string' ? archetype.strengths[0] : archetype.strengths[0]?.title)?.toLowerCase() || 'unique strengths';
   const defaultFaqs = [
     { 
       question: `What careers are best for ${archetype.name}s?`, 
-      answer: `${archetype.name}s often excel in ${archetype.careerMatches.slice(0, 3).map(c => c.title).join(", ")}—roles that leverage their ${archetype.strengths[0]?.toLowerCase() || 'unique strengths'}.` 
+      answer: `${archetype.name}s often excel in ${archetype.careerMatches.slice(0, 3).map(c => c.title).join(", ")}—roles that leverage their ${firstStrengthTitle}.` 
     },
     { 
       question: `How do ${archetype.name}s handle relationships?`, 
@@ -769,7 +778,7 @@ export function getTypePageContent(slug: string): TypePageContent | null {
     },
     { 
       question: `What are the key strengths of ${archetype.name}s?`, 
-      answer: archetype.strengths.slice(0, 4).join(". ") + "." 
+      answer: archetype.strengths.slice(0, 4).map(s => typeof s === 'string' ? s : s.title).join(". ") + "." 
     },
   ];
 

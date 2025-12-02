@@ -351,7 +351,7 @@ export function DevelopmentPlan({ archetype, scores }: DevelopmentPlanProps) {
               {archetype.growthAreas.slice(0, 3).map((area, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <TrendingUp className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>{area}</span>
+                  <span>{typeof area === 'string' ? area : area.title}</span>
                 </li>
               ))}
             </ul>

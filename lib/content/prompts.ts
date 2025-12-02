@@ -29,8 +29,8 @@ export function getTypeContext(framework: "prism" | "mbti" | "enneagram", typeId
     return {
       typeName: archetype.name,
       typeDescription: archetype.description.join(" "),
-      strengths: archetype.strengths,
-      challenges: archetype.growthAreas,
+      strengths: archetype.strengths.map(s => typeof s === 'string' ? s : s.title),
+      challenges: archetype.growthAreas.map(g => typeof g === 'string' ? g : g.title),
       workStyle: archetype.workStyle,
       relationshipStyle: archetype.relationshipStyle,
       framework: "prism",
