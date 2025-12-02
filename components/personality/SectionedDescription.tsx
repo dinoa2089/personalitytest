@@ -198,7 +198,7 @@ function CollapsibleSection({ section, defaultOpen = false }: { section: Descrip
                 <MarkdownText 
                   key={idx} 
                   variant="full" 
-                  className="text-[15px] leading-relaxed text-muted-foreground"
+                  className="text-[15px] leading-relaxed text-foreground/80"
                 >
                   {para}
                 </MarkdownText>

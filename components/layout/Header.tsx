@@ -67,12 +67,12 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="border-b border-zinc-800/50 bg-[#0a0a0f]/95 backdrop-blur supports-[backdrop-filter]:bg-[#0a0a0f]/80 sticky top-0 z-50">
+    <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <span className="text-xl font-bold bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400 bg-clip-text text-transparent group-hover:from-violet-300 group-hover:via-fuchsia-300 group-hover:to-rose-300 transition-all">
+            <span className="text-xl font-bold bg-gradient-to-r from-violet-600 via-fuchsia-600 to-rose-600 bg-clip-text text-transparent group-hover:from-violet-500 group-hover:via-fuchsia-500 group-hover:to-rose-500 transition-all">
               PRISM-7
             </span>
           </Link>
@@ -81,7 +81,7 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-6">
             <Link
               href="/assessment"
-              className="text-sm font-medium text-white transition-colors hover:text-violet-300"
+              className="text-sm font-medium text-foreground transition-colors hover:text-violet-600"
             >
               Take Assessment
             </Link>
@@ -92,7 +92,7 @@ export function Header() {
               onMouseEnter={() => setTypesOpen(true)}
               onMouseLeave={() => setTypesOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-zinc-400 hover:text-white transition-colors">
+              <button className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Personality Types
                 <ChevronDown className={`h-4 w-4 transition-transform ${typesOpen ? 'rotate-180' : ''}`} />
               </button>
@@ -100,17 +100,17 @@ export function Header() {
               {/* Mega Menu Dropdown */}
               {typesOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[800px]">
-                  <div className="bg-zinc-900 border border-zinc-800 rounded-xl shadow-xl p-6">
+                  <div className="bg-card border border-border rounded-xl shadow-xl p-6">
                     <div className="grid grid-cols-3 gap-8">
                       {/* PRISM-7 Column */}
                       <div>
-                        <h3 className="font-semibold text-sm mb-3 text-violet-400">PRISM-7 Archetypes</h3>
+                        <h3 className="font-semibold text-sm mb-3 text-violet-600">PRISM-7 Archetypes</h3>
                         <div className="grid grid-cols-2 gap-1">
                           {prismTypes.map((type) => (
                             <Link
                               key={type.id}
                               href={`/type/${type.id}`}
-                              className="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+                              className="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                             >
                               <span>{type.icon}</span>
                               <span>{type.name}</span>
@@ -121,17 +121,17 @@ export function Header() {
 
                       {/* MBTI Column */}
                       <div>
-                        <h3 className="font-semibold text-sm mb-3 text-blue-400">MBTI Types</h3>
+                        <h3 className="font-semibold text-sm mb-3 text-blue-600">MBTI Types</h3>
                         <div className="space-y-3">
                           {Object.entries(mbtiTypes).map(([group, types]) => (
                             <div key={group}>
-                              <p className="text-xs text-zinc-500 capitalize mb-1">{group}</p>
+                              <p className="text-xs text-muted-foreground capitalize mb-1">{group}</p>
                               <div className="grid grid-cols-2 gap-1">
                                 {types.map((type) => (
                                   <Link
                                     key={type.code}
                                     href={`/type/mbti/${type.code.toLowerCase()}`}
-                                    className="px-2 py-1 rounded-md text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+                                    className="px-2 py-1 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                                   >
                                     {type.code}
                                   </Link>
@@ -144,15 +144,15 @@ export function Header() {
 
                       {/* Enneagram Column */}
                       <div>
-                        <h3 className="font-semibold text-sm mb-3 text-emerald-400">Enneagram</h3>
+                        <h3 className="font-semibold text-sm mb-3 text-emerald-600">Enneagram</h3>
                         <div className="space-y-1">
                           {enneagramTypes.map((type) => (
                             <Link
                               key={type.num}
                               href={`/type/enneagram/${type.num}`}
-                              className="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+                              className="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                             >
-                              <span className="w-5 h-5 rounded-full bg-emerald-900/50 text-emerald-400 text-xs flex items-center justify-center font-medium">
+                              <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 text-xs flex items-center justify-center font-medium">
                                 {type.num}
                               </span>
                               <span>{type.name}</span>
@@ -163,22 +163,22 @@ export function Header() {
                     </div>
 
                     {/* Bottom Links */}
-                    <div className="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
+                    <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
                       <Link
                         href="/type"
-                        className="text-sm text-violet-400 hover:text-violet-300 transition-colors font-medium"
+                        className="text-sm text-violet-600 hover:text-violet-700 transition-colors font-medium"
                       >
                         Explore All Types →
                       </Link>
                       <Link
                         href="/compare"
-                        className="text-sm text-zinc-400 hover:text-white transition-colors"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       >
                         Compare Types →
                       </Link>
                       <Link
                         href="/science"
-                        className="text-sm text-zinc-400 hover:text-white transition-colors"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       >
                         Learn About Our Methodology →
                       </Link>
@@ -190,14 +190,14 @@ export function Header() {
 
             <Link
               href="/science"
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Science
             </Link>
 
             <Link
               href="/blog"
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Blog
             </Link>
@@ -207,7 +207,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-foreground"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
