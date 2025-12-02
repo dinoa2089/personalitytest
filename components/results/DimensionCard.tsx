@@ -8,8 +8,12 @@ interface DimensionCardProps {
   score: DimensionScore;
 }
 
+type DimensionColor = { light: string; dark: string; name: string };
+const defaultColor: DimensionColor = { light: '#6B7280', dark: '#9CA3AF', name: 'Default' };
+
 export function DimensionCard({ score }: DimensionCardProps) {
-  const color = dimensionColors[score.dimension as keyof typeof dimensionColors];
+  const colorKey = score.dimension as keyof typeof dimensionColors;
+  const color: DimensionColor = colorKey in dimensionColors ? dimensionColors[colorKey] : defaultColor;
   const dimensionName = score.dimension
     .replace(/([A-Z])/g, " $1")
     .trim()

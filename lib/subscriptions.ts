@@ -3,9 +3,9 @@
  */
 import { supabase } from "./supabase";
 
-export type SubscriptionPlan = "free" | "premium" | "professional" | "enterprise";
+export type SubscriptionPlan = "free" | "premium_report" | "deep_dive" | "unlimited" | "team" | "enterprise";
 export type SubscriptionStatus = "active" | "canceled" | "past_due" | "trialing";
-export type PremiumUnlockMethod = "paid" | "referral" | "trial" | "promo";
+export type PremiumUnlockMethod = "paid" | "referral" | "trial" | "promo" | "assessment_code";
 
 export interface Subscription {
   id: string;
@@ -47,7 +47,7 @@ export async function hasPremiumAccess(userId: string | null): Promise<boolean> 
       .select("*")
       .eq("user_id", user.id)
       .eq("status", "active")
-      .in("plan", ["premium", "professional", "enterprise"])
+      .in("plan", ["premium_report", "deep_dive", "unlimited", "team", "enterprise", "premium", "professional"])
       .single();
 
     if (subscription) return true;
@@ -130,30 +130,55 @@ export function isFeatureAvailable(
   feature: string,
   plan: SubscriptionPlan
 ): boolean {
+  // All premium+ plans
+  const premiumPlans: SubscriptionPlan[] = ["premium_report", "deep_dive", "unlimited", "team", "enterprise"];
+  const deepDivePlans: SubscriptionPlan[] = ["deep_dive", "unlimited", "team", "enterprise"];
+  const teamPlans: SubscriptionPlan[] = ["team", "enterprise"];
+  const allPlans: SubscriptionPlan[] = ["free", ...premiumPlans];
+
   const featurePlanMap: Record<string, SubscriptionPlan[]> = {
-    // Free features
-    basic_assessment: ["free", "premium", "professional", "enterprise"],
-    basic_results: ["free", "premium", "professional", "enterprise"],
-    share_results: ["free", "premium", "professional", "enterprise"],
+    // Free features (generous!)
+    basic_assessment: allPlans,
+    full_archetype: allPlans,
+    all_dimensions: allPlans,
+    radar_chart: allPlans,
+    strengths_growth: allPlans,
+    one_framework: allPlans,
+    top_3_careers: allPlans,
+    shareable_infographic: allPlans,
+    compatibility_teaser: allPlans,
 
-    // Premium features
-    pdf_export: ["premium", "professional", "enterprise"],
-    comparison_reports: ["premium", "professional", "enterprise"],
-    detailed_insights: ["premium", "professional", "enterprise"],
-    contextual_modules: ["premium", "professional", "enterprise"],
-    development_plans: ["premium", "professional", "enterprise"],
-    ad_free: ["premium", "professional", "enterprise"],
+    // Premium Report features ($14.99)
+    all_frameworks: premiumPlans,
+    framework_mappings: premiumPlans,
+    detailed_career_matches: premiumPlans,
+    full_compatibility: premiumPlans,
+    development_plans: premiumPlans,
+    pdf_export: premiumPlans,
+    comparison_reports: premiumPlans,
+    detailed_insights: premiumPlans,
 
-    // Professional features
-    client_management: ["professional", "enterprise"],
-    bulk_assessments: ["professional", "enterprise"],
-    white_label: ["professional", "enterprise"],
-    api_access: ["professional", "enterprise"],
+    // Deep Dive features ($29.99)
+    extended_assessment: deepDivePlans,
+    dark_triad: deepDivePlans,
+    sub_facet_scoring: deepDivePlans,
+    historical_comparison: deepDivePlans,
+    priority_support: deepDivePlans,
+
+    // Team/B2B features ($49/mo)
+    team_dashboard: teamPlans,
+    job_profile_builder: teamPlans,
+    candidate_ranking: teamPlans,
+    team_composition: teamPlans,
+    interview_questions: teamPlans,
+    bulk_assessments: teamPlans,
 
     // Enterprise features
+    white_label: ["enterprise"],
+    api_access: ["enterprise"],
+    sso: ["enterprise"],
     custom_integrations: ["enterprise"],
     dedicated_support: ["enterprise"],
-    on_premise: ["enterprise"],
   };
 
   const allowedPlans = featurePlanMap[feature] || [];

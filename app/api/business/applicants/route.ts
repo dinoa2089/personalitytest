@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
         )
       `)
       .eq("job_posting_id", jobPostingId)
-      .order("fit_score", { ascending: false, nullsLast: true });
+      .order("fit_score", { ascending: false, nullsFirst: false });
 
     if (error) {
       console.error("Error fetching applicants:", error);

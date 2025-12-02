@@ -34,9 +34,10 @@ export async function GET(request: NextRequest) {
     }
 
     // Handle Supabase nested response structure
-    const companyName = Array.isArray(jobPosting.business_accounts) 
-      ? jobPosting.business_accounts[0]?.company_name
-      : jobPosting.business_accounts?.company_name;
+    const businessAccounts = jobPosting.business_accounts as { company_name?: string } | { company_name?: string }[] | null;
+    const companyName = Array.isArray(businessAccounts) 
+      ? businessAccounts[0]?.company_name
+      : businessAccounts?.company_name;
 
     return NextResponse.json({ 
       job_posting: {

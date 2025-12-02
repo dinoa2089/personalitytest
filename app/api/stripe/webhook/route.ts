@@ -2,11 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
-  apiVersion: "2024-12-18.acacia",
-});
-
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET || "";
+function getStripe() {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) {
+    throw new Error("STRIPE_SECRET_KEY is not configured");
+  }
+  return new Stripe(key);
+}
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
@@ -14,6 +16,7 @@ const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
 export async function POST(request: NextRequest) {
   const body = await request.text();
   const signature = request.headers.get("stripe-signature");
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET || "";
 
   if (!signature || !webhookSecret) {
     return NextResponse.json(
@@ -22,6 +25,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  const stripe = getStripe();
   let event: Stripe.Event;
 
   try {
@@ -76,7 +80,8 @@ async function handleSubscriptionCreated(session: Stripe.Checkout.Session) {
 
   // Get subscription details
   const subscriptionId = session.subscription as string;
-  const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+  const stripe = getStripe();
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId) as any;
 
   // Get user's internal ID
   const { data: user } = await supabase
@@ -102,12 +107,13 @@ async function handleSubscriptionCreated(session: Stripe.Checkout.Session) {
   });
 }
 
-async function handleSubscriptionUpdated(subscription: Stripe.Subscription) {
+async function handleSubscriptionUpdated(subscriptionData: Stripe.Subscription) {
   if (!supabaseUrl || !supabaseServiceKey) {
     console.error("Supabase not configured");
     return;
   }
 
+  const subscription = subscriptionData as any;
   const supabase = createClient(supabaseUrl, supabaseServiceKey, {
     auth: {
       autoRefreshToken: false,

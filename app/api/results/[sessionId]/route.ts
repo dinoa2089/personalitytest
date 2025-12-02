@@ -3,10 +3,10 @@ import { supabase } from "@/lib/supabase";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { sessionId: string } }
+  { params }: { params: Promise<{ sessionId: string }> }
 ) {
   try {
-    const { sessionId } = params;
+    const { sessionId } = await params;
 
     // Check if Supabase is configured
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -42,13 +42,22 @@ export async function GET(
             .single();
 
           if (applicantAssessment) {
+            // Handle Supabase nested response - could be array or object
+            const jobPosting = Array.isArray(applicantAssessment.job_postings)
+              ? applicantAssessment.job_postings[0]
+              : applicantAssessment.job_postings;
+            const businessAccount = jobPosting?.business_accounts;
+            const companyName = Array.isArray(businessAccount)
+              ? businessAccount[0]?.company_name
+              : (businessAccount as { company_name?: string } | null)?.company_name;
+
             return NextResponse.json({
               ...result,
               fit_score: applicantAssessment.fit_score,
               fit_breakdown: applicantAssessment.fit_breakdown,
               job_info: {
-                title: applicantAssessment.job_postings?.title,
-                company_name: applicantAssessment.job_postings?.business_accounts?.company_name,
+                title: jobPosting?.title,
+                company_name: companyName,
               },
             });
           }

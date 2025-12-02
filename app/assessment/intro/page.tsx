@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/layout/Container";
@@ -18,7 +18,7 @@ interface JobPostingInfo {
   company_name?: string;
 }
 
-export default function AssessmentIntroPage() {
+function AssessmentIntroContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { initializeSession } = useAssessmentStore();
@@ -336,6 +336,21 @@ export default function AssessmentIntroPage() {
         </div>
       </Container>
     </div>
+  );
+}
+
+export default function AssessmentIntroPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <Container className="flex-1 flex items-center justify-center">
+          <p className="text-muted-foreground">Loading...</p>
+        </Container>
+      </div>
+    }>
+      <AssessmentIntroContent />
+    </Suspense>
   );
 }
 

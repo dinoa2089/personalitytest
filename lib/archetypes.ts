@@ -19,6 +19,8 @@ export interface Archetype {
     low: string[]; // Dimensions that should be low (percentile < 40)
   };
   color: string; // Gradient color for visual representation
+  rarity: number; // Percentage of population with this type (adds up to 100)
+  icon: string; // Emoji icon for the type
 }
 
 export const archetypes: Archetype[] = [
@@ -72,7 +74,9 @@ export const archetypes: Archetype[] = [
       high: ["openness", "adaptability"],
       low: ["conscientiousness"]
     },
-    color: "from-purple-500 to-pink-500"
+    color: "from-purple-500 to-pink-500",
+    rarity: 7.2,
+    icon: "💡"
   },
   {
     id: "architect",
@@ -124,7 +128,9 @@ export const archetypes: Archetype[] = [
       high: ["openness", "conscientiousness"],
       low: ["extraversion"]
     },
-    color: "from-blue-500 to-indigo-500"
+    color: "from-blue-500 to-indigo-500",
+    rarity: 4.8,
+    icon: "🏛️"
   },
   {
     id: "catalyst",
@@ -176,7 +182,9 @@ export const archetypes: Archetype[] = [
       high: ["extraversion", "openness", "adaptability"],
       low: []
     },
-    color: "from-orange-500 to-red-500"
+    color: "from-orange-500 to-red-500",
+    rarity: 5.6,
+    icon: "⚡"
   },
   {
     id: "strategist",
@@ -228,7 +236,9 @@ export const archetypes: Archetype[] = [
       high: ["conscientiousness", "emotionalResilience"],
       low: ["openness"]
     },
-    color: "from-green-500 to-teal-500"
+    color: "from-green-500 to-teal-500",
+    rarity: 11.3,
+    icon: "🎯"
   },
   {
     id: "connector",
@@ -280,7 +290,9 @@ export const archetypes: Archetype[] = [
       high: ["extraversion", "agreeableness"],
       low: ["openness"]
     },
-    color: "from-pink-500 to-rose-500"
+    color: "from-pink-500 to-rose-500",
+    rarity: 12.1,
+    icon: "🤝"
   },
   {
     id: "guardian",
@@ -332,7 +344,9 @@ export const archetypes: Archetype[] = [
       high: ["conscientiousness", "agreeableness", "honestyHumility"],
       low: []
     },
-    color: "from-emerald-500 to-green-500"
+    color: "from-emerald-500 to-green-500",
+    rarity: 9.4,
+    icon: "🛡️"
   },
   {
     id: "explorer",
@@ -384,7 +398,9 @@ export const archetypes: Archetype[] = [
       high: ["openness", "extraversion"],
       low: ["conscientiousness"]
     },
-    color: "from-yellow-500 to-orange-500"
+    color: "from-yellow-500 to-orange-500",
+    rarity: 6.8,
+    icon: "🧭"
   },
   {
     id: "stabilizer",
@@ -436,7 +452,9 @@ export const archetypes: Archetype[] = [
       high: ["emotionalResilience", "adaptability"],
       low: []
     },
-    color: "from-cyan-500 to-blue-500"
+    color: "from-cyan-500 to-blue-500",
+    rarity: 10.5,
+    icon: "⚖️"
   },
   {
     id: "visionary",
@@ -488,7 +506,9 @@ export const archetypes: Archetype[] = [
       high: ["openness", "conscientiousness", "adaptability"],
       low: []
     },
-    color: "from-violet-500 to-purple-500"
+    color: "from-violet-500 to-purple-500",
+    rarity: 3.9,
+    icon: "🔮"
   },
   {
     id: "harmonizer",
@@ -540,7 +560,9 @@ export const archetypes: Archetype[] = [
       high: ["agreeableness", "honestyHumility"],
       low: ["extraversion"]
     },
-    color: "from-teal-500 to-cyan-500"
+    color: "from-teal-500 to-cyan-500",
+    rarity: 8.7,
+    icon: "☮️"
   },
   {
     id: "achiever",
@@ -592,7 +614,9 @@ export const archetypes: Archetype[] = [
       high: ["conscientiousness", "extraversion", "adaptability"],
       low: []
     },
-    color: "from-amber-500 to-yellow-500"
+    color: "from-amber-500 to-yellow-500",
+    rarity: 8.2,
+    icon: "🏆"
   },
   {
     id: "analyst",
@@ -644,7 +668,9 @@ export const archetypes: Archetype[] = [
       high: ["openness", "conscientiousness"],
       low: ["extraversion", "agreeableness"]
     },
-    color: "from-slate-500 to-gray-500"
+    color: "from-slate-500 to-gray-500",
+    rarity: 11.5,
+    icon: "🔬"
   }
 ];
 
@@ -735,5 +761,6 @@ export function calculateArchetype(scores: DimensionScore[]): {
     secondary,
   };
 }
+
 
 

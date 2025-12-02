@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     // Find referral code owner
     const { data: codeData, error: codeError } = await supabase
       .from("referral_codes")
-      .select("user_id, code")
+      .select("id, user_id, code")
       .eq("code", referralCode)
       .single();
 

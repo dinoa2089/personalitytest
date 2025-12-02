@@ -4,9 +4,10 @@ import { supabase } from "@/lib/supabase";
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const { userId } = await auth();
 
     if (!userId) {
@@ -27,7 +28,7 @@ export async function PATCH(
     const { data: businessAccount, error } = await supabase
       .from("business_accounts")
       .update(updates)
-      .eq("id", params.id)
+      .eq("id", id)
       .select()
       .single();
 
@@ -48,4 +49,5 @@ export async function PATCH(
     );
   }
 }
+
 
