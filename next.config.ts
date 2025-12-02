@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
         hostname: "*.githubusercontent.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "*.supabase.co",
+        pathname: "/storage/**",
+      },
     ],
   },
   

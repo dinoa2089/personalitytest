@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Info, Sparkles, Film, User } from "lucide-react";
+import { getImageUrl } from "@/lib/image-urls";
 
 export interface TypeExample {
   name: string;
@@ -21,6 +22,76 @@ interface TypeExamplesGridProps {
   examples: TypeExample[];
   typeName: string;
   typeDescription: string; // e.g., "High Openness + Adaptability"
+}
+
+// Generate initials from name
+function getInitials(name: string): string {
+  return name
+    .split(/[\s\/]+/)
+    .filter(word => word.length > 0 && word[0] !== '(')
+    .slice(0, 2)
+    .map(word => word[0].toUpperCase())
+    .join('');
+}
+
+// Generate a consistent color based on name
+function getAvatarGradient(name: string, type: "fictional" | "public_figure"): string {
+  const hash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  
+  if (type === "fictional") {
+    const gradients = [
+      "from-purple-600 to-pink-500",
+      "from-violet-600 to-purple-500",
+      "from-fuchsia-600 to-pink-500",
+      "from-purple-700 to-violet-500",
+      "from-pink-600 to-rose-500",
+    ];
+    return gradients[hash % gradients.length];
+  }
+  
+  const gradients = [
+    "from-blue-600 to-cyan-500",
+    "from-sky-600 to-blue-500",
+    "from-indigo-600 to-blue-500",
+    "from-cyan-600 to-teal-500",
+    "from-blue-700 to-indigo-500",
+  ];
+  return gradients[hash % gradients.length];
+}
+
+// Avatar component with image or fallback
+function ExampleAvatar({ 
+  example, 
+  typeName 
+}: { 
+  example: TypeExample; 
+  typeName: string;
+}) {
+  const [imageError, setImageError] = useState(false);
+  // Use centralized image URL mapping
+  const imageUrl = getImageUrl(example.name);
+  const showFallback = imageError || !imageUrl;
+  
+  if (showFallback) {
+    return (
+      <div className={`w-full h-full flex items-center justify-center bg-gradient-to-br ${getAvatarGradient(example.name, example.type)}`}>
+        <span className="text-3xl sm:text-4xl font-bold text-white/90 drop-shadow-sm">
+          {getInitials(example.name)}
+        </span>
+      </div>
+    );
+  }
+  
+  return (
+    <Image
+      src={imageUrl}
+      alt={`${example.name} - ${typeName} ${example.type === 'fictional' ? 'character' : 'figure'} example`}
+      fill
+      className="object-cover group-hover:scale-105 transition-transform duration-300"
+      sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+      onError={() => setImageError(true)}
+    />
+  );
 }
 
 export function TypeExamplesGrid({ examples, typeName, typeDescription }: TypeExamplesGridProps) {
@@ -70,21 +141,8 @@ export function TypeExamplesGrid({ examples, typeName, typeDescription }: TypeEx
                   onClick={() => setSelectedExample(example)}
                 >
                   <CardContent className="p-0">
-                    <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20">
-                      {example.image_url ? (
-                        <Image
-                          src={example.image_url}
-                          alt={`${example.name} - ${typeName} character example`}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                          loading={index < 4 ? "eager" : "lazy"}
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <Film className="h-12 w-12 text-purple-500/50" />
-                        </div>
-                      )}
+                    <div className="relative aspect-square overflow-hidden">
+                      <ExampleAvatar example={example} typeName={typeName} />
                       <div className="absolute top-2 right-2">
                         <Badge className="bg-purple-500/90 text-white text-xs">
                           Fictional
@@ -131,21 +189,8 @@ export function TypeExamplesGrid({ examples, typeName, typeDescription }: TypeEx
                   onClick={() => setSelectedExample(example)}
                 >
                   <CardContent className="p-0">
-                    <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
-                      {example.image_url ? (
-                        <Image
-                          src={example.image_url}
-                          alt={`${example.name} - associated with ${typeName} traits`}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                          loading={index < 4 ? "eager" : "lazy"}
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <User className="h-12 w-12 text-blue-500/50" />
-                        </div>
-                      )}
+                    <div className="relative aspect-square overflow-hidden">
+                      <ExampleAvatar example={example} typeName={typeName} />
                       <div className="absolute top-2 right-2">
                         <Badge className="bg-blue-500/90 text-white text-xs">
                           Public Figure

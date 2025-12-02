@@ -1,0 +1,686 @@
+[
+  {
+    "name": "Tony Stark / Iron Man",
+    "expectedId": "tony-stark-iron-man"
+  },
+  {
+    "name": "Q",
+    "expectedId": "q"
+  },
+  {
+    "name": "Bruce Wayne / Batman",
+    "expectedId": "bruce-wayne-batman"
+  },
+  {
+    "name": "Star-Lord / Peter Quill",
+    "expectedId": "star-lord-peter-quill"
+  },
+  {
+    "name": "Captain America / Steve Rogers",
+    "expectedId": "captain-america-steve-rogers"
+  },
+  {
+    "name": "Sandra Day O",
+    "expectedId": "sandra-day-o"
+  },
+  {
+    "name": "King T",
+    "expectedId": "king-t"
+  },
+  {
+    "name": "Captain Jack Sparrow",
+    "expectedId": "captain-jack-sparrow"
+  },
+  {
+    "name": "Dora the Explorer",
+    "expectedId": "dora-the-explorer"
+  },
+  {
+    "name": "Professor X / Charles Xavier",
+    "expectedId": "professor-x-charles-xavier"
+  },
+  {
+    "name": "T",
+    "expectedId": "t"
+  },
+  {
+    "name": "Vision",
+    "expectedId": "vision"
+  },
+  {
+    "name": "Steven Universe",
+    "expectedId": "steven-universe"
+  },
+  {
+    "name": "Amélie Poulain",
+    "expectedId": "am-lie-poulain"
+  },
+  {
+    "name": "Brené Brown",
+    "expectedId": "bren-brown"
+  },
+  {
+    "name": "Beyoncé",
+    "expectedId": "beyonc"
+  },
+  {
+    "name": "Data",
+    "expectedId": "data"
+  },
+  {
+    "name": "Socrates",
+    "expectedId": "socrates"
+  },
+  {
+    "name": "Rene Descartes",
+    "expectedId": "rene-descartes"
+  },
+  {
+    "name": "Harper Lee",
+    "expectedId": "harper-lee"
+  },
+  {
+    "name": "Isaac Asimov",
+    "expectedId": "isaac-asimov"
+  },
+  {
+    "name": "Edward Snowden",
+    "expectedId": "edward-snowden"
+  },
+  {
+    "name": "Richard Dawkins",
+    "expectedId": "richard-dawkins"
+  },
+  {
+    "name": "Immanuel Kant",
+    "expectedId": "immanuel-kant"
+  },
+  {
+    "name": "Sheryl Sandberg",
+    "expectedId": "sheryl-sandberg"
+  },
+  {
+    "name": "Patrick Stewart",
+    "expectedId": "patrick-stewart"
+  },
+  {
+    "name": "George Clooney",
+    "expectedId": "george-clooney"
+  },
+  {
+    "name": "Weird Al Yankovic",
+    "expectedId": "weird-al-yankovic"
+  },
+  {
+    "name": "Ryan Reynolds",
+    "expectedId": "ryan-reynolds"
+  },
+  {
+    "name": "Neil Patrick Harris",
+    "expectedId": "neil-patrick-harris"
+  },
+  {
+    "name": "Amy Poehler",
+    "expectedId": "amy-poehler"
+  },
+  {
+    "name": "Voltaire",
+    "expectedId": "voltaire"
+  },
+  {
+    "name": "Matthew Perry",
+    "expectedId": "matthew-perry"
+  },
+  {
+    "name": "Hugh Laurie",
+    "expectedId": "hugh-laurie"
+  },
+  {
+    "name": "Federico Fellini",
+    "expectedId": "federico-fellini"
+  },
+  {
+    "name": "Cate Blanchett",
+    "expectedId": "cate-blanchett"
+  },
+  {
+    "name": "Marilyn Manson",
+    "expectedId": "marilyn-manson"
+  },
+  {
+    "name": "Al Pacino",
+    "expectedId": "al-pacino"
+  },
+  {
+    "name": "Edward Norton",
+    "expectedId": "edward-norton"
+  },
+  {
+    "name": "Daniel Day-Lewis",
+    "expectedId": "daniel-day-lewis"
+  },
+  {
+    "name": "Rooney Mara",
+    "expectedId": "rooney-mara"
+  },
+  {
+    "name": "Adolf Hitler",
+    "expectedId": "adolf-hitler"
+  },
+  {
+    "name": "Simone de Beauvoir",
+    "expectedId": "simone-de-beauvoir"
+  },
+  {
+    "name": "Florence Welch",
+    "expectedId": "florence-welch"
+  },
+  {
+    "name": "Bjork",
+    "expectedId": "bjork"
+  },
+  {
+    "name": "Heath Ledger",
+    "expectedId": "heath-ledger"
+  },
+  {
+    "name": "Emily Blunt",
+    "expectedId": "emily-blunt"
+  },
+  {
+    "name": "Louis C.K.",
+    "expectedId": "louis-c-k"
+  },
+  {
+    "name": "Helena Bonham Carter",
+    "expectedId": "helena-bonham-carter"
+  },
+  {
+    "name": "John Legend",
+    "expectedId": "john-legend"
+  },
+  {
+    "name": "Emma Thompson",
+    "expectedId": "emma-thompson"
+  },
+  {
+    "name": "Pope Francis",
+    "expectedId": "pope-francis"
+  },
+  {
+    "name": "Ralph Nader",
+    "expectedId": "ralph-nader"
+  },
+  {
+    "name": "Ben Stiller",
+    "expectedId": "ben-stiller"
+  },
+  {
+    "name": "Dakota Fanning",
+    "expectedId": "dakota-fanning"
+  },
+  {
+    "name": "Kate Winslet",
+    "expectedId": "kate-winslet"
+  },
+  {
+    "name": "Drake",
+    "expectedId": "drake"
+  },
+  {
+    "name": "Walt Disney",
+    "expectedId": "walt-disney"
+  },
+  {
+    "name": "Russell Brand",
+    "expectedId": "russell-brand"
+  },
+  {
+    "name": "Janis Joplin",
+    "expectedId": "janis-joplin"
+  },
+  {
+    "name": "Keira Knightley",
+    "expectedId": "keira-knightley"
+  },
+  {
+    "name": "Kelly Clarkson",
+    "expectedId": "kelly-clarkson"
+  },
+  {
+    "name": "Cher",
+    "expectedId": "cher"
+  },
+  {
+    "name": "Jeff Sessions",
+    "expectedId": "jeff-sessions"
+  },
+  {
+    "name": "Robert De Niro",
+    "expectedId": "robert-de-niro"
+  },
+  {
+    "name": "Matt Damon",
+    "expectedId": "matt-damon"
+  },
+  {
+    "name": "Jackie Chan",
+    "expectedId": "jackie-chan"
+  },
+  {
+    "name": "Karl Marx",
+    "expectedId": "karl-marx"
+  },
+  {
+    "name": "Sigmund Freud",
+    "expectedId": "sigmund-freud"
+  },
+  {
+    "name": "Kim Kardashian",
+    "expectedId": "kim-kardashian"
+  },
+  {
+    "name": "Jimmy Carter",
+    "expectedId": "jimmy-carter"
+  },
+  {
+    "name": "Dr. Dre",
+    "expectedId": "dr-dre"
+  },
+  {
+    "name": "50 Cent",
+    "expectedId": "50-cent"
+  },
+  {
+    "name": "Christopher Walken",
+    "expectedId": "christopher-walken"
+  },
+  {
+    "name": "Lance Armstrong",
+    "expectedId": "lance-armstrong"
+  },
+  {
+    "name": "Aretha Franklin",
+    "expectedId": "aretha-franklin"
+  },
+  {
+    "name": "David Copperfield",
+    "expectedId": "david-copperfield"
+  },
+  {
+    "name": "Michelle Pfeiffer",
+    "expectedId": "michelle-pfeiffer"
+  },
+  {
+    "name": "Vince Lombardi",
+    "expectedId": "vince-lombardi"
+  },
+  {
+    "name": "Nancy Pelosi",
+    "expectedId": "nancy-pelosi"
+  },
+  {
+    "name": "John Wayne",
+    "expectedId": "john-wayne"
+  },
+  {
+    "name": "Sam Walton",
+    "expectedId": "sam-walton"
+  },
+  {
+    "name": "Frank Sinatra",
+    "expectedId": "frank-sinatra"
+  },
+  {
+    "name": "Billy Graham",
+    "expectedId": "billy-graham"
+  },
+  {
+    "name": "Mike Pence",
+    "expectedId": "mike-pence"
+  },
+  {
+    "name": "Bernard Law Montgomery",
+    "expectedId": "bernard-law-montgomery"
+  },
+  {
+    "name": "Douglas MacArthur",
+    "expectedId": "douglas-macarthur"
+  },
+  {
+    "name": "Kamala Harris",
+    "expectedId": "kamala-harris"
+  },
+  {
+    "name": "Steve Harvey",
+    "expectedId": "steve-harvey"
+  },
+  {
+    "name": "Danny DeVito",
+    "expectedId": "danny-devito"
+  },
+  {
+    "name": "Larry King",
+    "expectedId": "larry-king"
+  },
+  {
+    "name": "Andrew Carnegie",
+    "expectedId": "andrew-carnegie"
+  },
+  {
+    "name": "Nancy Reagan",
+    "expectedId": "nancy-reagan"
+  },
+  {
+    "name": "Mary Tyler Moore",
+    "expectedId": "mary-tyler-moore"
+  },
+  {
+    "name": "Pope John Paul II",
+    "expectedId": "pope-john-paul-ii"
+  },
+  {
+    "name": "Prince William",
+    "expectedId": "prince-william"
+  },
+  {
+    "name": "Céline Dion",
+    "expectedId": "c-line-dion"
+  },
+  {
+    "name": "Amelia Earhart",
+    "expectedId": "amelia-earhart"
+  },
+  {
+    "name": "Steve McQueen",
+    "expectedId": "steve-mcqueen"
+  },
+  {
+    "name": "Chuck Yeager",
+    "expectedId": "chuck-yeager"
+  },
+  {
+    "name": "Milla Jovovich",
+    "expectedId": "milla-jovovich"
+  },
+  {
+    "name": "Simon Cowell",
+    "expectedId": "simon-cowell"
+  },
+  {
+    "name": "James Bond",
+    "expectedId": "james-bond"
+  },
+  {
+    "name": "Katharine Hepburn",
+    "expectedId": "katharine-hepburn"
+  },
+  {
+    "name": "John Travolta",
+    "expectedId": "john-travolta"
+  },
+  {
+    "name": "Billie Eilish",
+    "expectedId": "billie-eilish"
+  },
+  {
+    "name": "Jared Leto",
+    "expectedId": "jared-leto"
+  },
+  {
+    "name": "Mick Jagger",
+    "expectedId": "mick-jagger"
+  },
+  {
+    "name": "Angelina Jolie",
+    "expectedId": "angelina-jolie"
+  },
+  {
+    "name": "Nicolas Cage",
+    "expectedId": "nicolas-cage"
+  },
+  {
+    "name": "Kevin Bacon",
+    "expectedId": "kevin-bacon"
+  },
+  {
+    "name": "Eva Longoria",
+    "expectedId": "eva-longoria"
+  },
+  {
+    "name": "Theodore Roosevelt",
+    "expectedId": "theodore-roosevelt"
+  },
+  {
+    "name": "Burt Reynolds",
+    "expectedId": "burt-reynolds"
+  },
+  {
+    "name": "Sylvester Stallone",
+    "expectedId": "sylvester-stallone"
+  },
+  {
+    "name": "Adam Levine",
+    "expectedId": "adam-levine"
+  },
+  {
+    "name": "Magic Johnson",
+    "expectedId": "magic-johnson"
+  },
+  {
+    "name": "Shakira",
+    "expectedId": "shakira"
+  },
+  {
+    "name": "Chris Rock",
+    "expectedId": "chris-rock"
+  },
+  {
+    "name": "Bob Hope",
+    "expectedId": "bob-hope"
+  },
+  {
+    "name": "Zac Efron",
+    "expectedId": "zac-efron"
+  },
+  {
+    "name": "Prince Charles",
+    "expectedId": "prince-charles"
+  },
+  {
+    "name": "Captain Picard",
+    "expectedId": "captain-picard"
+  },
+  {
+    "name": "Lewis Carroll",
+    "expectedId": "lewis-carroll"
+  },
+  {
+    "name": "Bishop Fulton Sheen",
+    "expectedId": "bishop-fulton-sheen"
+  },
+  {
+    "name": "Ann Landers",
+    "expectedId": "ann-landers"
+  },
+  {
+    "name": "Florence Nightingale",
+    "expectedId": "florence-nightingale"
+  },
+  {
+    "name": "Eleanor Roosevelt",
+    "expectedId": "eleanor-roosevelt"
+  },
+  {
+    "name": "Barry Manilow",
+    "expectedId": "barry-manilow"
+  },
+  {
+    "name": "Muhammad Ali",
+    "expectedId": "muhammad-ali"
+  },
+  {
+    "name": "Ryan Seacrest",
+    "expectedId": "ryan-seacrest"
+  },
+  {
+    "name": "Kris Jenner",
+    "expectedId": "kris-jenner"
+  },
+  {
+    "name": "Mitt Romney",
+    "expectedId": "mitt-romney"
+  },
+  {
+    "name": "Werner Erhard",
+    "expectedId": "werner-erhard"
+  },
+  {
+    "name": "Kate Bush",
+    "expectedId": "kate-bush"
+  },
+  {
+    "name": "Sylvia Plath",
+    "expectedId": "sylvia-plath"
+  },
+  {
+    "name": "James Dean",
+    "expectedId": "james-dean"
+  },
+  {
+    "name": "Tchaikovsky",
+    "expectedId": "tchaikovsky"
+  },
+  {
+    "name": "Marlon Brando",
+    "expectedId": "marlon-brando"
+  },
+  {
+    "name": "Winona Ryder",
+    "expectedId": "winona-ryder"
+  },
+  {
+    "name": "Oliver Sacks",
+    "expectedId": "oliver-sacks"
+  },
+  {
+    "name": "Bobby Fischer",
+    "expectedId": "bobby-fischer"
+  },
+  {
+    "name": "Gary Larson",
+    "expectedId": "gary-larson"
+  },
+  {
+    "name": "David Byrne",
+    "expectedId": "david-byrne"
+  },
+  {
+    "name": "Ursula K. Le Guin",
+    "expectedId": "ursula-k-le-guin"
+  },
+  {
+    "name": "Tilda Swinton",
+    "expectedId": "tilda-swinton"
+  },
+  {
+    "name": "Anthony Fauci",
+    "expectedId": "anthony-fauci"
+  },
+  {
+    "name": "Spike Lee",
+    "expectedId": "spike-lee"
+  },
+  {
+    "name": "J. Edgar Hoover",
+    "expectedId": "j-edgar-hoover"
+  },
+  {
+    "name": "Mel Gibson",
+    "expectedId": "mel-gibson"
+  },
+  {
+    "name": "Richard Nixon",
+    "expectedId": "richard-nixon"
+  },
+  {
+    "name": "Robert F. Kennedy",
+    "expectedId": "robert-f-kennedy"
+  },
+  {
+    "name": "Diane Keaton",
+    "expectedId": "diane-keaton"
+  },
+  {
+    "name": "Rush Limbaugh",
+    "expectedId": "rush-limbaugh"
+  },
+  {
+    "name": "Jack Black",
+    "expectedId": "jack-black"
+  },
+  {
+    "name": "Bette Midler",
+    "expectedId": "bette-midler"
+  },
+  {
+    "name": "John F. Kennedy",
+    "expectedId": "john-f-kennedy"
+  },
+  {
+    "name": "Sarah Silverman",
+    "expectedId": "sarah-silverman"
+  },
+  {
+    "name": "Howard Stern",
+    "expectedId": "howard-stern"
+  },
+  {
+    "name": "Timothy Leary",
+    "expectedId": "timothy-leary"
+  },
+  {
+    "name": "Russell Crowe",
+    "expectedId": "russell-crowe"
+  },
+  {
+    "name": "Fidel Castro",
+    "expectedId": "fidel-castro"
+  },
+  {
+    "name": "Tommy Lee Jones",
+    "expectedId": "tommy-lee-jones"
+  },
+  {
+    "name": "John McCain",
+    "expectedId": "john-mccain"
+  },
+  {
+    "name": "Indira Gandhi",
+    "expectedId": "indira-gandhi"
+  },
+  {
+    "name": "Carl Rogers",
+    "expectedId": "carl-rogers"
+  },
+  {
+    "name": "Grace Kelly",
+    "expectedId": "grace-kelly"
+  },
+  {
+    "name": "Jeff Bridges",
+    "expectedId": "jeff-bridges"
+  },
+  {
+    "name": "Jim Henson",
+    "expectedId": "jim-henson"
+  },
+  {
+    "name": "Renee Zellweger",
+    "expectedId": "renee-zellweger"
+  },
+  {
+    "name": "Joseph Campbell",
+    "expectedId": "joseph-campbell"
+  }
+]

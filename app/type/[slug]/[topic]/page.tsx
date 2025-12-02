@@ -1,0 +1,138 @@
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import { TopicPage } from "@/components/content/TopicPage";
+import { archetypes } from "@/lib/archetypes";
+import { ALL_TOPICS, ContentTopic, GeneratedContent } from "@/lib/content/types";
+import * as fs from "fs";
+import * as path from "path";
+
+interface PageProps {
+  params: Promise<{
+    slug: string;
+    topic: string;
+  }>;
+}
+
+// Get content from generated files
+function getContent(typeId: string, topic: ContentTopic): GeneratedContent | null {
+  try {
+    const filePath = path.join(
+      process.cwd(),
+      "lib",
+      "content",
+      "generated",
+      "prism",
+      `${typeId}-${topic}.json`
+    );
+    
+    if (!fs.existsSync(filePath)) {
+      return null;
+    }
+    
+    const content = fs.readFileSync(filePath, "utf-8");
+    return JSON.parse(content) as GeneratedContent;
+  } catch (error) {
+    console.error(`Error loading content for ${typeId}/${topic}:`, error);
+    return null;
+  }
+}
+
+export async function generateStaticParams() {
+  const params: { slug: string; topic: string }[] = [];
+  
+  for (const archetype of archetypes) {
+    for (const topic of ALL_TOPICS) {
+      params.push({
+        slug: archetype.id,
+        topic: topic
+      });
+    }
+  }
+  
+  return params;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug, topic } = await params;
+  
+  const archetype = archetypes.find(a => a.id === slug);
+  if (!archetype) {
+    return { title: "Not Found" };
+  }
+  
+  const content = getContent(slug, topic as ContentTopic);
+  
+  if (content) {
+    return {
+      title: content.title,
+      description: content.metaDescription,
+      keywords: content.keywords.join(", "),
+      openGraph: {
+        title: content.title,
+        description: content.metaDescription,
+        type: "article"
+      }
+    };
+  }
+  
+  // Fallback metadata if content not generated yet
+  const topicNames: Record<string, string> = {
+    learning: "Learning Style",
+    careers: "Career Guide",
+    relationships: "Relationships",
+    communication: "Communication Style",
+    stress: "Stress & Coping",
+    leadership: "Leadership Style",
+    growth: "Personal Growth",
+    workplace: "At Work",
+    compatibility: "Compatibility"
+  };
+  
+  return {
+    title: `${archetype.name} ${topicNames[topic] || topic} | PRISM-7`,
+    description: `Discover the ${topicNames[topic]?.toLowerCase() || topic} of ${archetype.name} personality type. ${archetype.tagline}`
+  };
+}
+
+export default async function PrismTopicPage({ params }: PageProps) {
+  const { slug, topic } = await params;
+  
+  // Validate archetype exists
+  const archetype = archetypes.find(a => a.id === slug);
+  if (!archetype) {
+    notFound();
+  }
+  
+  // Validate topic exists
+  if (!ALL_TOPICS.includes(topic as ContentTopic)) {
+    notFound();
+  }
+  
+  // Get generated content
+  const content = getContent(slug, topic as ContentTopic);
+  
+  if (!content) {
+    // Content not yet generated - show placeholder
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Content Coming Soon</h1>
+          <p className="text-muted-foreground">
+            The {topic} guide for {archetype.name} is being prepared.
+          </p>
+        </div>
+      </div>
+    );
+  }
+  
+  return (
+    <TopicPage
+      content={content}
+      typeName={archetype.name}
+      typeSlug={slug}
+      typeIcon={archetype.icon}
+      framework="prism"
+    />
+  );
+}
+

@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { ChevronDown, ChevronUp, User } from "lucide-react";
+import { getImageUrl } from "@/lib/image-urls";
 
 export interface FamousExample {
   name: string;
@@ -65,6 +66,11 @@ export function FamousExamplesGrid({
   const handleImageError = (name: string) => {
     setImageErrors((prev) => new Set(prev).add(name));
   };
+  
+  // Get the best image URL for a person from our mapping
+  const getPersonImageUrl = (person: FamousExample): string | undefined => {
+    return getImageUrl(person.name);
+  };
 
   const accentColors = {
     yellow: "border-yellow-500/50 hover:border-yellow-500",
@@ -86,7 +92,8 @@ export function FamousExamplesGrid({
     <div className="space-y-4">
       <div className={gridClass}>
         {displayedExamples.map((person, index) => {
-          const hasValidImage = person.image_url && !imageErrors.has(person.name);
+          const imageUrl = getPersonImageUrl(person);
+          const hasValidImage = imageUrl && !imageErrors.has(person.name);
           const subtitle = person.known_for || person.role || "";
           
           return (
@@ -105,7 +112,7 @@ export function FamousExamplesGrid({
                   <div className="relative aspect-square overflow-hidden bg-muted">
                     {hasValidImage ? (
                       <Image
-                        src={person.image_url!}
+                        src={imageUrl!}
                         alt={`${person.name} - ${typeName}`}
                         fill
                         className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
@@ -182,9 +189,9 @@ export function FamousExamplesGrid({
               <div className="space-y-4">
                 {/* Image or Avatar */}
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                  {selectedPerson.image_url && !imageErrors.has(selectedPerson.name) ? (
+                  {getPersonImageUrl(selectedPerson) && !imageErrors.has(selectedPerson.name) ? (
                     <Image
-                      src={selectedPerson.image_url}
+                      src={getPersonImageUrl(selectedPerson)!}
                       alt={selectedPerson.name}
                       fill
                       className="object-cover object-top"
