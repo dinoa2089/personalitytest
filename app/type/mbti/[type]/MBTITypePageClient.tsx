@@ -23,6 +23,7 @@ import {
   Lightbulb,
   Zap,
 } from "lucide-react";
+import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import type { MBTIType } from "@/lib/mbti-content";
 
 interface MBTITypePageClientProps {
@@ -383,17 +384,13 @@ export function MBTITypePageClient({ content }: MBTITypePageClientProps) {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-3">
-                  {content.famousExamples.map((example, index) => (
-                    <div
-                      key={index}
-                      className="rounded-full border border-border/50 bg-muted/30 px-4 py-2"
-                    >
-                      <span className="font-medium">{example.name}</span>
-                      <span className="text-muted-foreground ml-2">• {example.known_for}</span>
-                    </div>
-                  ))}
-                </div>
+                <FamousExamplesGrid 
+                  examples={content.famousExamples}
+                  typeName={content.code}
+                  variant="full"
+                  maxVisible={8}
+                  colorAccent="blue"
+                />
               </CardContent>
             </Card>
           </motion.section>

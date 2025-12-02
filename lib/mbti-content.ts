@@ -24,7 +24,7 @@ export interface MBTIType {
   };
   careerPaths: Array<{ title: string; reason: string }>;
   growthAdvice: string[];
-  famousExamples: Array<{ name: string; known_for: string }>;
+  famousExamples: Array<{ name: string; known_for: string; image_url?: string }>;
   prismCorrelation: {
     likelyTypes: string[];
     keyDimensions: string;
@@ -93,10 +93,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Remember that being right isn't always the most important thing. Relationships sometimes matter more than accuracy."
     ],
     famousExamples: [
-      { name: "Elon Musk", known_for: "Tesla, SpaceX founder" },
-      { name: "Isaac Newton", known_for: "Physicist, mathematician" },
-      { name: "Nikola Tesla", known_for: "Inventor, electrical engineer" },
-      { name: "Michelle Obama", known_for: "Former First Lady, author" }
+      { name: "Elon Musk", known_for: "Tesla, SpaceX founder", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/440px-Elon_Musk_Royal_Society_%28crop2%29.jpg" },
+      { name: "Isaac Newton", known_for: "Physicist, mathematician", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Portrait_of_Sir_Isaac_Newton%2C_1689.jpg/440px-Portrait_of_Sir_Isaac_Newton%2C_1689.jpg" },
+      { name: "Nikola Tesla", known_for: "Inventor, electrical engineer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/N.Tesla.JPG/440px-N.Tesla.JPG" },
+      { name: "Michelle Obama", known_for: "Former First Lady, author", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Michelle_Obama_2013_official_portrait.jpg/440px-Michelle_Obama_2013_official_portrait.jpg" },
+      { name: "Arnold Schwarzenegger", known_for: "Actor, Governor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/A._Schwarzenegger.jpg/440px-A._Schwarzenegger.jpg" },
+      { name: "Jodie Foster", known_for: "Actress, director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Jodie_Foster_%28cropped%29.jpg/440px-Jodie_Foster_%28cropped%29.jpg" },
+      { name: "Christopher Nolan", known_for: "Film director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Christopher_Nolan_Cannes_2018.jpg/440px-Christopher_Nolan_Cannes_2018.jpg" },
+      { name: "Ayn Rand", known_for: "Author, philosopher", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Ayn_Rand_%281943_Talbot_portrait%29.jpg/440px-Ayn_Rand_%281943_Talbot_portrait%29.jpg" },
+      { name: "Friedrich Nietzsche", known_for: "Philosopher", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/440px-Nietzsche187a.jpg" },
+      { name: "Hillary Clinton", known_for: "Secretary of State, Senator", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg/440px-Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg" },
+      { name: "Vladimir Putin", known_for: "Russian President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Vladimir_Putin_%282020-02-20%29.jpg/440px-Vladimir_Putin_%282020-02-20%29.jpg" },
+      { name: "Mark Zuckerberg", known_for: "Meta CEO", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg/440px-Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg" },
+      { name: "Jane Austen", known_for: "Novelist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/CassandraAusten-JaneAusten%28c.1810%29_hires.jpg/440px-CassandraAusten-JaneAusten%28c.1810%29_hires.jpg" },
+      { name: "Stephen Hawking", known_for: "Theoretical physicist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Stephen_Hawking.StarChild.jpg/440px-Stephen_Hawking.StarChild.jpg" },
+      { name: "Cillian Murphy", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cillian_Murphy_Press_Conference_The_Party_Berlinale_2017_02.jpg/440px-Cillian_Murphy_Press_Conference_The_Party_Berlinale_2017_02.jpg" },
+      { name: "Jay-Z", known_for: "Rapper, entrepreneur", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Jay-Z-02-mika.jpg/440px-Jay-Z-02-mika.jpg" },
+      { name: "Stanley Kubrick", known_for: "Film director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/KubrickForLook_%28cropped%29.jpg/440px-KubrickForLook_%28cropped%29.jpg" },
+      { name: "Samantha Power", known_for: "UN Ambassador, author", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Samantha_Power_USAID_portrait.jpg/440px-Samantha_Power_USAID_portrait.jpg" },
+      { name: "Ludwig van Beethoven", known_for: "Composer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Beethoven.jpg/440px-Beethoven.jpg" },
+      { name: "Martina Navratilova", known_for: "Tennis champion", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Martina_Navratilova_at_the_2010_US_Open_01.jpg/440px-Martina_Navratilova_at_the_2010_US_Open_01.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Architect", "Visionary", "Analyst"],
@@ -165,10 +181,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Build routines that support physical health. Your body isn't just a vehicle for your brain."
     ],
     famousExamples: [
-      { name: "Albert Einstein", known_for: "Theoretical physicist" },
-      { name: "Charles Darwin", known_for: "Naturalist, evolutionary theory" },
-      { name: "Marie Curie", known_for: "Physicist, chemist" },
-      { name: "Bill Gates", known_for: "Microsoft founder, philanthropist" }
+      { name: "Albert Einstein", known_for: "Theoretical physicist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/440px-Albert_Einstein_Head.jpg" },
+      { name: "Charles Darwin", known_for: "Naturalist, evolutionary theory", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Charles_Darwin_seated_crop.jpg/440px-Charles_Darwin_seated_crop.jpg" },
+      { name: "Marie Curie", known_for: "Physicist, chemist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Marie_Curie_c._1920s.jpg/440px-Marie_Curie_c._1920s.jpg" },
+      { name: "Bill Gates", known_for: "Microsoft founder, philanthropist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Bill_Gates_2017_%28cropped%29.jpg/440px-Bill_Gates_2017_%28cropped%29.jpg" },
+      { name: "Abraham Lincoln", known_for: "16th US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/440px-Abraham_Lincoln_O-77_matte_collodion_print.jpg" },
+      { name: "Socrates", known_for: "Greek philosopher", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/440px-Socrate_du_Louvre.jpg" },
+      { name: "Tina Fey", known_for: "Comedian, writer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Tina_Fey_Muppets_Most_Wanted_Premiere_%28cropped%29.jpg/440px-Tina_Fey_Muppets_Most_Wanted_Premiere_%28cropped%29.jpg" },
+      { name: "Larry Page", known_for: "Google co-founder", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Larry_Page_in_the_European_Parliament%2C_17.06.2009_%28cropped%29.jpg/440px-Larry_Page_in_the_European_Parliament%2C_17.06.2009_%28cropped%29.jpg" },
+      { name: "Rene Descartes", known_for: "Philosopher, mathematician", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/440px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg" },
+      { name: "Blaise Pascal", known_for: "Mathematician, physicist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Blaise_Pascal_Versailles.JPG/440px-Blaise_Pascal_Versailles.JPG" },
+      { name: "Kristen Stewart", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Kristen_Stewart_Cannes_2022.jpg/440px-Kristen_Stewart_Cannes_2022.jpg" },
+      { name: "Jesse Eisenberg", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Jesse_Eisenberg_by_Gage_Skidmore.jpg/440px-Jesse_Eisenberg_by_Gage_Skidmore.jpg" },
+      { name: "Randall Munroe", known_for: "xkcd creator", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Randall_Munroe_at_the_ROFLCon_II.jpg/440px-Randall_Munroe_at_the_ROFLCon_II.jpg" },
+      { name: "Harper Lee", known_for: "Author, To Kill a Mockingbird", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Harper_Lee_medal.jpg/440px-Harper_Lee_medal.jpg" },
+      { name: "Isaac Asimov", known_for: "Science fiction author", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Isaac.Asimov01.jpg/440px-Isaac.Asimov01.jpg" },
+      { name: "Carl Jung", known_for: "Psychiatrist, psychologist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/CGJung.jpg/440px-CGJung.jpg" },
+      { name: "Edward Snowden", known_for: "Whistleblower", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Edward_Snowden-2.jpg/440px-Edward_Snowden-2.jpg" },
+      { name: "Richard Dawkins", known_for: "Evolutionary biologist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Richard_Dawkins_Stonehenge_2022_%28cropped%29.jpg/440px-Richard_Dawkins_Stonehenge_2022_%28cropped%29.jpg" },
+      { name: "Ellen Page", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ellen_Page_at_TIFF_2015_%2821165025644%29.jpg/440px-Ellen_Page_at_TIFF_2015_%2821165025644%29.jpg" },
+      { name: "Immanuel Kant", known_for: "Philosopher", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Kant_Portrait.jpg/440px-Kant_Portrait.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Analyst", "Architect", "Innovator"],
@@ -237,10 +269,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Develop comfort with uncertainty. Not everything can be controlled or optimized."
     ],
     famousExamples: [
-      { name: "Steve Jobs", known_for: "Apple co-founder" },
-      { name: "Margaret Thatcher", known_for: "Former UK Prime Minister" },
-      { name: "Franklin D. Roosevelt", known_for: "32nd US President" },
-      { name: "Sheryl Sandberg", known_for: "Former Meta COO" }
+      { name: "Steve Jobs", known_for: "Apple co-founder", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/440px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg" },
+      { name: "Margaret Thatcher", known_for: "Former UK Prime Minister", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Margaret_Thatcher_stock_portrait_%28cropped%29.jpg/440px-Margaret_Thatcher_stock_portrait_%28cropped%29.jpg" },
+      { name: "Franklin D. Roosevelt", known_for: "32nd US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/FDR_1944_Color_Portrait.jpg/440px-FDR_1944_Color_Portrait.jpg" },
+      { name: "Sheryl Sandberg", known_for: "Former Meta COO", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Sheryl_Sandberg_World_Economic_Forum_2013.jpg/440px-Sheryl_Sandberg_World_Economic_Forum_2013.jpg" },
+      { name: "Napoleon Bonaparte", known_for: "French Emperor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg/440px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg" },
+      { name: "Gordon Ramsay", known_for: "Celebrity chef", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Gordon_Ramsay.jpg/440px-Gordon_Ramsay.jpg" },
+      { name: "Adele", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Adele_-_Live_2016%2C_Glasgow_SSE_Hydro_03.jpg/440px-Adele_-_Live_2016%2C_Glasgow_SSE_Hydro_03.jpg" },
+      { name: "Jeff Bezos", known_for: "Amazon founder", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_%2839074799225%29_%28cropped3%29.jpg/440px-Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_%2839074799225%29_%28cropped3%29.jpg" },
+      { name: "Angela Merkel", known_for: "Former German Chancellor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Angela_Merkel_%282019%29_cropped.jpg/440px-Angela_Merkel_%282019%29_cropped.jpg" },
+      { name: "Dwayne Johnson", known_for: "Actor, wrestler", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg/440px-Dwayne_Johnson_2014_%28cropped%29.jpg" },
+      { name: "Condoleezza Rice", known_for: "Secretary of State", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Condoleezza_Rice_cropped.jpg/440px-Condoleezza_Rice_cropped.jpg" },
+      { name: "Julius Caesar", known_for: "Roman dictator", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Bust_of_Julius_Caesar_from_History_of_the_World_%281902%29.png/440px-Bust_of_Julius_Caesar_from_History_of_the_World_%281902%29.png" },
+      { name: "Harrison Ford", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Harrison_Ford_by_Gage_Skidmore_3.jpg/440px-Harrison_Ford_by_Gage_Skidmore_3.jpg" },
+      { name: "Patrick Stewart", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Patrick_Stewart_Photo_Call_Logan_Berlinale_2017_%28cropped%29.jpg/440px-Patrick_Stewart_Photo_Call_Logan_Berlinale_2017_%28cropped%29.jpg" },
+      { name: "Whoopi Goldberg", known_for: "Actress, TV host", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Whoopi_Goldberg_at_the_2010_Time_100.jpg/440px-Whoopi_Goldberg_at_the_2010_Time_100.jpg" },
+      { name: "David Letterman", known_for: "TV host", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/David_Letterman_2012.jpg/440px-David_Letterman_2012.jpg" },
+      { name: "Jim Carrey", known_for: "Actor, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Jim_Carrey_2008.jpg/440px-Jim_Carrey_2008.jpg" },
+      { name: "Charlize Theron", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Charlize_Theron_Cannes_2015_5.jpg/440px-Charlize_Theron_Cannes_2015_5.jpg" },
+      { name: "George Clooney", known_for: "Actor, director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/George_Clooney_2016.jpg/440px-George_Clooney_2016.jpg" },
+      { name: "Quentin Tarantino", known_for: "Film director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg/440px-Quentin_Tarantino_by_Gage_Skidmore.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Achiever", "Visionary", "Strategist"],
@@ -309,10 +357,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Develop deeper expertise in one area rather than surface knowledge in many. Depth creates opportunities breadth cannot."
     ],
     famousExamples: [
-      { name: "Mark Twain", known_for: "Author, humorist" },
-      { name: "Thomas Edison", known_for: "Inventor, businessman" },
-      { name: "Sacha Baron Cohen", known_for: "Actor, comedian" },
-      { name: "Leonardo da Vinci", known_for: "Renaissance polymath" }
+      { name: "Mark Twain", known_for: "Author, humorist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mark_Twain_by_AF_Bradley.jpg/440px-Mark_Twain_by_AF_Bradley.jpg" },
+      { name: "Thomas Edison", known_for: "Inventor, businessman", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Thomas_Edison2.jpg/440px-Thomas_Edison2.jpg" },
+      { name: "Sacha Baron Cohen", known_for: "Actor, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Sacha_Baron_Cohen_2011.jpg/440px-Sacha_Baron_Cohen_2011.jpg" },
+      { name: "Leonardo da Vinci", known_for: "Renaissance polymath", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Francesco_Melzi_-_Portrait_of_Leonardo.png/440px-Francesco_Melzi_-_Portrait_of_Leonardo.png" },
+      { name: "Benjamin Franklin", known_for: "Founding Father, inventor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/BenFranklinDupworked.jpg/440px-BenFranklinDupworked.jpg" },
+      { name: "Tom Hanks", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tom_Hanks_TIFF_2019.jpg/440px-Tom_Hanks_TIFF_2019.jpg" },
+      { name: "Celine Dion", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/C%C3%A9line_Dion_2012.jpg/440px-C%C3%A9line_Dion_2012.jpg" },
+      { name: "Weird Al Yankovic", known_for: "Musical comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Weird_Al_Yankovic_2010.jpg/440px-Weird_Al_Yankovic_2010.jpg" },
+      { name: "Adam Savage", known_for: "MythBusters host", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Adam_Savage_in_2018.jpg/440px-Adam_Savage_in_2018.jpg" },
+      { name: "Ryan Reynolds", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Ryan_Reynolds_2016.jpg/440px-Ryan_Reynolds_2016.jpg" },
+      { name: "Neil Patrick Harris", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Neil_Patrick_Harris%2C_2013.jpg/440px-Neil_Patrick_Harris%2C_2013.jpg" },
+      { name: "Amy Poehler", known_for: "Actress, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Amy_Poehler_2019.jpg/440px-Amy_Poehler_2019.jpg" },
+      { name: "Voltaire", known_for: "Philosopher, writer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/D%27apr%C3%A8s_Maurice_Quentin_de_La_Tour%2C_Portrait_de_Voltaire%2C_d%C3%A9tail_du_visage_%28ch%C3%A2teau_de_Ferney%29.jpg/440px-D%27apr%C3%A8s_Maurice_Quentin_de_La_Tour%2C_Portrait_de_Voltaire%2C_d%C3%A9tail_du_visage_%28ch%C3%A2teau_de_Ferney%29.jpg" },
+      { name: "Conan O'Brien", known_for: "TV host, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Conan_O%27Brien_2016_%28cropped%29.jpg/440px-Conan_O%27Brien_2016_%28cropped%29.jpg" },
+      { name: "Matthew Perry", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Matthew_Perry_2013.jpg/440px-Matthew_Perry_2013.jpg" },
+      { name: "Robert Downey Jr.", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg/440px-Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg" },
+      { name: "Oscar Wilde", known_for: "Writer, playwright", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Oscar_Wilde_Sarony.jpg/440px-Oscar_Wilde_Sarony.jpg" },
+      { name: "Jon Stewart", known_for: "Comedian, TV host", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Jon_Stewart_2016.jpg/440px-Jon_Stewart_2016.jpg" },
+      { name: "Hugh Laurie", known_for: "Actor, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Hugh_Laurie_2009.jpg/440px-Hugh_Laurie_2009.jpg" },
+      { name: "Federico Fellini", known_for: "Film director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Federico_Fellini_NYWTS_2.jpg/440px-Federico_Fellini_NYWTS_2.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Innovator", "Catalyst", "Explorer"],
@@ -381,10 +445,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Trust your intuitions, but verify them. Your insights are valuable but not infallible."
     ],
     famousExamples: [
-      { name: "Martin Luther King Jr.", known_for: "Civil rights leader" },
-      { name: "Nelson Mandela", known_for: "Anti-apartheid revolutionary, president" },
-      { name: "Carl Jung", known_for: "Psychiatrist, analytical psychology founder" },
-      { name: "Lady Gaga", known_for: "Singer, actress, activist" }
+      { name: "Martin Luther King Jr.", known_for: "Civil rights leader", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Martin_Luther_King%2C_Jr..jpg/440px-Martin_Luther_King%2C_Jr..jpg" },
+      { name: "Nelson Mandela", known_for: "Anti-apartheid revolutionary, president", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Nelson_Mandela_1994.jpg/440px-Nelson_Mandela_1994.jpg" },
+      { name: "Carl Jung", known_for: "Psychiatrist, analytical psychology founder", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/CGJung.jpg/440px-CGJung.jpg" },
+      { name: "Lady Gaga", known_for: "Singer, actress, activist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Lady_Gaga_at_the_2019_Venice_Film_Festival.jpg/440px-Lady_Gaga_at_the_2019_Venice_Film_Festival.jpg" },
+      { name: "Mahatma Gandhi", known_for: "Independence leader", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg/440px-Mahatma-Gandhi%2C_studio%2C_1931.jpg" },
+      { name: "Mother Teresa", known_for: "Humanitarian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mother_Teresa_1.jpg/440px-Mother_Teresa_1.jpg" },
+      { name: "Taylor Swift", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/191125_Taylor_Swift_at_the_2019_American_Music_Awards_%28cropped%29.png/440px-191125_Taylor_Swift_at_the_2019_American_Music_Awards_%28cropped%29.png" },
+      { name: "Cate Blanchett", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Cate_Blanchett_Cannes_2018_2_%28cropped%29.jpg/440px-Cate_Blanchett_Cannes_2018_2_%28cropped%29.jpg" },
+      { name: "Fyodor Dostoevsky", known_for: "Novelist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Dostoevsky_1872.jpg/440px-Dostoevsky_1872.jpg" },
+      { name: "Plato", known_for: "Greek philosopher", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Plato_Silanion_Musei_Capitolini_MC1377.jpg/440px-Plato_Silanion_Musei_Capitolini_MC1377.jpg" },
+      { name: "Agatha Christie", known_for: "Mystery novelist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Agatha_Christie.png/440px-Agatha_Christie.png" },
+      { name: "Noam Chomsky", known_for: "Linguist, philosopher", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Noam_Chomsky_portrait_2017_retouched.png/440px-Noam_Chomsky_portrait_2017_retouched.png" },
+      { name: "Marilyn Manson", known_for: "Musician", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Marilyn_Manson_-_Rock_am_Ring_2015-8717_%28cropped%29.jpg/440px-Marilyn_Manson_-_Rock_am_Ring_2015-8717_%28cropped%29.jpg" },
+      { name: "Nicole Kidman", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Nicole_Kidman_Cannes_2017_5.jpg/440px-Nicole_Kidman_Cannes_2017_5.jpg" },
+      { name: "Al Pacino", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Al_Pacino.jpg/440px-Al_Pacino.jpg" },
+      { name: "Edward Norton", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Edward_Norton_2012.jpg/440px-Edward_Norton_2012.jpg" },
+      { name: "Daniel Day-Lewis", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Daniel_Day-Lewis_in_2013.jpg/440px-Daniel_Day-Lewis_in_2013.jpg" },
+      { name: "Rooney Mara", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Rooney_Mara_at_the_Caf%C3%A9_Society_Press_Conference_in_Cannes_%28cropped%29.jpg/440px-Rooney_Mara_at_the_Caf%C3%A9_Society_Press_Conference_in_Cannes_%28cropped%29.jpg" },
+      { name: "Adolf Hitler", known_for: "Nazi dictator", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/440px-Hitler_portrait_crop.jpg" },
+      { name: "Simone de Beauvoir", known_for: "Philosopher, feminist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Simone_de_Beauvoir2.png/440px-Simone_de_Beauvoir2.png" }
     ],
     prismCorrelation: {
       likelyTypes: ["Harmonizer", "Guardian", "Visionary"],
@@ -453,10 +533,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Take action on your values, even imperfectly. Living your ideals matters more than articulating them."
     ],
     famousExamples: [
-      { name: "William Shakespeare", known_for: "Playwright, poet" },
-      { name: "J.R.R. Tolkien", known_for: "Author, Lord of the Rings" },
-      { name: "Princess Diana", known_for: "Humanitarian, Princess of Wales" },
-      { name: "John Lennon", known_for: "Musician, peace activist" }
+      { name: "William Shakespeare", known_for: "Playwright, poet", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/440px-Shakespeare.jpg" },
+      { name: "J.R.R. Tolkien", known_for: "Author, Lord of the Rings", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/J._R._R._Tolkien%2C_ca._1925.jpg/440px-J._R._R._Tolkien%2C_ca._1925.jpg" },
+      { name: "Princess Diana", known_for: "Humanitarian, Princess of Wales", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Diana%2C_Princess_of_Wales_1997_%282%29.jpg/440px-Diana%2C_Princess_of_Wales_1997_%282%29.jpg" },
+      { name: "John Lennon", known_for: "Musician, peace activist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/John_Lennon_1969_%28cropped%29.jpg/440px-John_Lennon_1969_%28cropped%29.jpg" },
+      { name: "Edgar Allan Poe", known_for: "Author, poet", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Edgar_Allan_Poe_2_retouched_and_transparent_bg.png/440px-Edgar_Allan_Poe_2_retouched_and_transparent_bg.png" },
+      { name: "Kurt Cobain", known_for: "Nirvana frontman", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Nirvana_around_1992.jpg/440px-Nirvana_around_1992.jpg" },
+      { name: "Audrey Hepburn", known_for: "Actress, humanitarian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Audrey_Hepburn_1959.jpg/440px-Audrey_Hepburn_1959.jpg" },
+      { name: "Vincent van Gogh", known_for: "Artist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/440px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg" },
+      { name: "Johnny Depp", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Johnny_Depp-2757_%28cropped%29.jpg/440px-Johnny_Depp-2757_%28cropped%29.jpg" },
+      { name: "Tim Burton", known_for: "Film director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Tim_Burton_%282012%29_3.jpg/440px-Tim_Burton_%282012%29_3.jpg" },
+      { name: "Florence Welch", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Florence_and_the_Machine_at_Coachella%2C_2015.jpg/440px-Florence_and_the_Machine_at_Coachella%2C_2015.jpg" },
+      { name: "Bjork", known_for: "Singer, actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Bj%C3%B6rk%2C_T%C3%ADvoli%2C_2003.jpg/440px-Bj%C3%B6rk%2C_T%C3%ADvoli%2C_2003.jpg" },
+      { name: "Keanu Reeves", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Keanu_Reeves_2019_%28cropped%29.jpg/440px-Keanu_Reeves_2019_%28cropped%29.jpg" },
+      { name: "Andrew Garfield", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Andrew_Garfield_by_Gage_Skidmore.jpg/440px-Andrew_Garfield_by_Gage_Skidmore.jpg" },
+      { name: "Heath Ledger", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Heath_Ledger_%282%29.jpg/440px-Heath_Ledger_%282%29.jpg" },
+      { name: "Emily Blunt", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Emily_Blunt_SAG_Awards_2019.png/440px-Emily_Blunt_SAG_Awards_2019.png" },
+      { name: "Louis C.K.", known_for: "Comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Louis_CK_2012_Shankbone.JPG/440px-Louis_CK_2012_Shankbone.JPG" },
+      { name: "Tom Hiddleston", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tom_Hiddleston_at_SDCC_2016.jpg/440px-Tom_Hiddleston_at_SDCC_2016.jpg" },
+      { name: "Helena Bonham Carter", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Helena_Bonham_Carter_%28Berlin_Film_Festival_2011%29_2.jpg/440px-Helena_Bonham_Carter_%28Berlin_Film_Festival_2011%29_2.jpg" },
+      { name: "Virginia Woolf", known_for: "Author", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg/440px-George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Harmonizer", "Innovator", "Explorer"],
@@ -525,10 +621,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Let others struggle sometimes. Growth often requires challenges you can't smooth away."
     ],
     famousExamples: [
-      { name: "Oprah Winfrey", known_for: "Media mogul, philanthropist" },
-      { name: "Barack Obama", known_for: "44th US President" },
-      { name: "Martin Luther King Jr.", known_for: "Civil rights leader" },
-      { name: "Maya Angelou", known_for: "Poet, memoirist" }
+      { name: "Oprah Winfrey", known_for: "Media mogul, philanthropist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Oprah_in_2014.jpg/440px-Oprah_in_2014.jpg" },
+      { name: "Barack Obama", known_for: "44th US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/440px-President_Barack_Obama.jpg" },
+      { name: "Martin Luther King Jr.", known_for: "Civil rights leader", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Martin_Luther_King%2C_Jr..jpg/440px-Martin_Luther_King%2C_Jr..jpg" },
+      { name: "Maya Angelou", known_for: "Poet, memoirist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Angelou_at_Clinton_inauguration_%28cropped%29.jpg/440px-Angelou_at_Clinton_inauguration_%28cropped%29.jpg" },
+      { name: "Reese Witherspoon", known_for: "Actress, producer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reese_Witherspoon_2014.jpg/440px-Reese_Witherspoon_2014.jpg" },
+      { name: "Bono", known_for: "U2 frontman, activist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Bono_at_the_2014_Dublin_Web_Summit.jpg/440px-Bono_at_the_2014_Dublin_Web_Summit.jpg" },
+      { name: "Jennifer Lawrence", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jennifer_Lawrence_SDCC_2015_X-Men.jpg/440px-Jennifer_Lawrence_SDCC_2015_X-Men.jpg" },
+      { name: "John Cusack", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/John_Cusack_2012.jpg/440px-John_Cusack_2012.jpg" },
+      { name: "Matthew McConaughey", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Matthew_McConaughey_2019.jpg/440px-Matthew_McConaughey_2019.jpg" },
+      { name: "John Legend", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/John_Legend_2014_%28cropped%29.jpg/440px-John_Legend_2014_%28cropped%29.jpg" },
+      { name: "Tony Robbins", known_for: "Motivational speaker", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Tony_Robbins.jpg/440px-Tony_Robbins.jpg" },
+      { name: "Emma Thompson", known_for: "Actress, writer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Emma_Thompson_Césars_2022.png/440px-Emma_Thompson_Césars_2022.png" },
+      { name: "Pope Francis", known_for: "Head of Catholic Church", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Pope_Francis_in_March_2013.jpg/440px-Pope_Francis_in_March_2013.jpg" },
+      { name: "Ralph Nader", known_for: "Consumer advocate", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ralph_Nader.jpg/440px-Ralph_Nader.jpg" },
+      { name: "Ben Stiller", known_for: "Actor, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Ben_Stiller_2019.jpg/440px-Ben_Stiller_2019.jpg" },
+      { name: "Dakota Fanning", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Dakota_Fanning_2018.jpg/440px-Dakota_Fanning_2018.jpg" },
+      { name: "Sean Connery", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sean_Connery_%281983%29.jpg/440px-Sean_Connery_%281983%29.jpg" },
+      { name: "Michael Jordan", known_for: "Basketball legend", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Michael_Jordan_in_2014.jpg/440px-Michael_Jordan_in_2014.jpg" },
+      { name: "Kate Winslet", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.png/440px-Kate_Winslet_at_the_2017_Toronto_International_Film_Festival_%28cropped%29.png" },
+      { name: "Drake", known_for: "Rapper, singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Drake_July_2016.jpg/440px-Drake_July_2016.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Connector", "Catalyst", "Guardian"],
@@ -597,10 +709,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Distinguish between authentic values and momentary feelings. Not every emotion requires action."
     ],
     famousExamples: [
-      { name: "Robin Williams", known_for: "Actor, comedian" },
-      { name: "Walt Disney", known_for: "Animator, entrepreneur" },
-      { name: "Ellen DeGeneres", known_for: "Comedian, talk show host" },
-      { name: "Robert Downey Jr.", known_for: "Actor" }
+      { name: "Robin Williams", known_for: "Actor, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Robin_Williams_2011a_%282%29.jpg/440px-Robin_Williams_2011a_%282%29.jpg" },
+      { name: "Walt Disney", known_for: "Animator, entrepreneur", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Walt_Disney_1946.JPG/440px-Walt_Disney_1946.JPG" },
+      { name: "Ellen DeGeneres", known_for: "Comedian, talk show host", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Ellen_DeGeneres_2011.jpg/440px-Ellen_DeGeneres_2011.jpg" },
+      { name: "Robert Downey Jr.", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg/440px-Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg" },
+      { name: "Will Smith", known_for: "Actor, rapper", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/TechCrunch_Disrupt_2019_%2848834434641%29_%28cropped%29.jpg/440px-TechCrunch_Disrupt_2019_%2848834434641%29_%28cropped%29.jpg" },
+      { name: "Sandra Bullock", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Sandra_Bullock_in_2013_by_Gage_Skidmore.jpg/440px-Sandra_Bullock_in_2013_by_Gage_Skidmore.jpg" },
+      { name: "Russell Brand", known_for: "Comedian, actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Russell_Brand_Arthur_Premiere.jpg/440px-Russell_Brand_Arthur_Premiere.jpg" },
+      { name: "Mark Twain", known_for: "Author, humorist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mark_Twain_by_AF_Bradley.jpg/440px-Mark_Twain_by_AF_Bradley.jpg" },
+      { name: "Anne Frank", known_for: "Diarist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Anne_Frank_lance_un_regard_complice_-_Anne_Frank_Fonds_BS.jpg/440px-Anne_Frank_lanceun_regard_complice_-_Anne_Frank_Fonds_BS.jpg" },
+      { name: "Drew Barrymore", known_for: "Actress, producer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Drew_Barrymore_2019.jpg/440px-Drew_Barrymore_2019.jpg" },
+      { name: "Janis Joplin", known_for: "Rock singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Janis_Joplin_1970.JPG/440px-Janis_Joplin_1970.JPG" },
+      { name: "Oscar Wilde", known_for: "Writer, playwright", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Oscar_Wilde_Sarony.jpg/440px-Oscar_Wilde_Sarony.jpg" },
+      { name: "Jerry Seinfeld", known_for: "Comedian, actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Jerry_Seinfeld_2016_-_2.jpg/440px-Jerry_Seinfeld_2016_-_2.jpg" },
+      { name: "Keira Knightley", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Keira_Knightley_at_TIFF_2018_%28cropped%29.jpg/440px-Keira_Knightley_at_TIFF_2018_%28cropped%29.jpg" },
+      { name: "Hunter S. Thompson", known_for: "Journalist, author", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Hunter_S._Thompson.jpg/440px-Hunter_S._Thompson.jpg" },
+      { name: "Quentin Tarantino", known_for: "Film director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg/440px-Quentin_Tarantino_by_Gage_Skidmore.jpg" },
+      { name: "Gwen Stefani", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Gwen_Stefani_2016.jpg/440px-Gwen_Stefani_2016.jpg" },
+      { name: "Kelly Clarkson", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Kelly_Clarkson%2C_2018.jpg/440px-Kelly_Clarkson%2C_2018.jpg" },
+      { name: "Alicia Keys", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Alicia_Keys_2020_cropped.png/440px-Alicia_Keys_2020_cropped.png" },
+      { name: "Cher", known_for: "Singer, actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Cher_in_2019_%28cropped%29.jpg/440px-Cher_in_2019_%28cropped%29.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Catalyst", "Explorer", "Innovator"],
@@ -669,10 +797,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Take time for activities that have no practical purpose. Play has value too."
     ],
     famousExamples: [
-      { name: "George Washington", known_for: "1st US President" },
-      { name: "Queen Elizabeth II", known_for: "British monarch" },
-      { name: "Warren Buffett", known_for: "Investor, businessman" },
-      { name: "Angela Merkel", known_for: "Former German Chancellor" }
+      { name: "George Washington", known_for: "1st US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg/440px-Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg" },
+      { name: "Queen Elizabeth II", known_for: "British monarch", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Queen_Elizabeth_II_in_March_2015.jpg/440px-Queen_Elizabeth_II_in_March_2015.jpg" },
+      { name: "Warren Buffett", known_for: "Investor, businessman", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Warren_Buffett_KU_Visit.jpg/440px-Warren_Buffett_KU_Visit.jpg" },
+      { name: "Angela Merkel", known_for: "Former German Chancellor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Angela_Merkel_%282019%29_cropped.jpg/440px-Angela_Merkel_%282019%29_cropped.jpg" },
+      { name: "Denzel Washington", known_for: "Actor, director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Denzel_Washington_2018.jpg/440px-Denzel_Washington_2018.jpg" },
+      { name: "Anthony Hopkins", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/AnthonyHopkins10TIFF.jpg/440px-AnthonyHopkins10TIFF.jpg" },
+      { name: "Jeff Sessions", known_for: "Former Attorney General", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Jeff_Sessions%2C_official_portrait.jpg/440px-Jeff_Sessions%2C_official_portrait.jpg" },
+      { name: "Natalie Portman", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Natalie_Portman_%2835332270293%29_%28cropped%29.jpg/440px-Natalie_Portman_%2835332270293%29_%28cropped%29.jpg" },
+      { name: "Condoleezza Rice", known_for: "Secretary of State", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Condoleezza_Rice_cropped.jpg/440px-Condoleezza_Rice_cropped.jpg" },
+      { name: "Robert De Niro", known_for: "Actor, producer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Robert_De_Niro_Cannes_2016.jpg/440px-Robert_De_Niro_Cannes_2016.jpg" },
+      { name: "Sting", known_for: "Musician", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Sting_in_2015.jpg/440px-Sting_in_2015.jpg" },
+      { name: "Julia Roberts", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Julia_Roberts_2011.jpg/440px-Julia_Roberts_2011.jpg" },
+      { name: "Matt Damon", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Matt_Damon_TIFF_2015.jpg/440px-Matt_Damon_TIFF_2015.jpg" },
+      { name: "Jackie Chan", known_for: "Actor, martial artist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Jackie_Chan_July_2016.jpg/440px-Jackie_Chan_July_2016.jpg" },
+      { name: "Karl Marx", known_for: "Philosopher, economist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Karl_Marx_001.jpg/440px-Karl_Marx_001.jpg" },
+      { name: "Henry Ford", known_for: "Ford founder", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Henry_ford_1919.jpg/440px-Henry_ford_1919.jpg" },
+      { name: "Sigmund Freud", known_for: "Psychoanalyst", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg/440px-Sigmund_Freud%2C_by_Max_Halberstadt_%28cropped%29.jpg" },
+      { name: "Hermione Granger", known_for: "Harry Potter character", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Hermione_Granger_poster.jpg/440px-Hermione_Granger_poster.jpg" },
+      { name: "Colin Powell", known_for: "General, Secretary of State", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Colin_Powell_official_Secretary_of_State_photo.jpg/440px-Colin_Powell_official_Secretary_of_State_photo.jpg" },
+      { name: "George H.W. Bush", known_for: "41st US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/George_H._W._Bush%2C_President_of_the_United_States%2C_1989_official_portrait_%28cropped%29.jpg/440px-George_H._W._Bush%2C_President_of_the_United_States%2C_1989_official_portrait_%28cropped%29.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Strategist", "Guardian", "Analyst"],
@@ -741,10 +885,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Accept appreciation gracefully. Your contributions deserve recognition."
     ],
     famousExamples: [
-      { name: "Mother Teresa", known_for: "Humanitarian, missionary" },
-      { name: "Kate Middleton", known_for: "Princess of Wales" },
-      { name: "Rosa Parks", known_for: "Civil rights activist" },
-      { name: "Dr. Watson", known_for: "Sherlock Holmes character" }
+      { name: "Mother Teresa", known_for: "Humanitarian, missionary", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mother_Teresa_1.jpg/440px-Mother_Teresa_1.jpg" },
+      { name: "Kate Middleton", known_for: "Princess of Wales", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Catherine%2C_Duchess_of_Cambridge_in_2019.jpg/440px-Catherine%2C_Duchess_of_Cambridge_in_2019.jpg" },
+      { name: "Rosa Parks", known_for: "Civil rights activist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Rosaparks.jpg/440px-Rosaparks.jpg" },
+      { name: "Beyoncé", known_for: "Singer, entertainer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Beyonc%C3%A9_at_The_Lion_King_European_Premiere_2019.png/440px-Beyonc%C3%A9_at_The_Lion_King_European_Premiere_2019.png" },
+      { name: "Anne Hathaway", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Anne_Hathaway_at_TIFF_2012_%28cropped%29.jpg/440px-Anne_Hathaway_at_TIFF_2012_%28cropped%29.jpg" },
+      { name: "Vin Diesel", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Vin_Diesel_2013_%28cropped%29.jpg/440px-Vin_Diesel_2013_%28cropped%29.jpg" },
+      { name: "Kim Kardashian", known_for: "Media personality", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Kim_Kardashian_in_2018.jpg/440px-Kim_Kardashian_in_2018.jpg" },
+      { name: "Halle Berry", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Halle_Berry_by_Gage_Skidmore_2.jpg/440px-Halle_Berry_by_Gage_Skidmore_2.jpg" },
+      { name: "Selena Gomez", known_for: "Singer, actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Selena_Gomez_-_Revival_Tour_%28cropped%29.jpg/440px-Selena_Gomez_-_Revival_Tour_%28cropped%29.jpg" },
+      { name: "Jimmy Carter", known_for: "39th US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/JimmyCarterPortrait2.jpg/440px-JimmyCarterPortrait2.jpg" },
+      { name: "Dr. Dre", known_for: "Rapper, producer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Dr._Dre_in_2020.png/440px-Dr._Dre_in_2020.png" },
+      { name: "Tiger Woods", known_for: "Professional golfer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/TigerWoodsOfficialPortrait.jpg/440px-TigerWoodsOfficialPortrait.jpg" },
+      { name: "Bruce Willis", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Bruce_Willis_by_Gage_Skidmore_2.jpg/440px-Bruce_Willis_by_Gage_Skidmore_2.jpg" },
+      { name: "50 Cent", known_for: "Rapper, entrepreneur", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/50_Cent_in_2012.jpg/440px-50_Cent_in_2012.jpg" },
+      { name: "Christopher Walken", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Christopher_Walken_Cannes_2016.jpg/440px-Christopher_Walken_Cannes_2016.jpg" },
+      { name: "Katie Holmes", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Katie_Holmes_at_the_launch_of_Mamarazzi_%28cropped%29.jpg/440px-Katie_Holmes_at_the_launch_of_Mamarazzi_%28cropped%29.jpg" },
+      { name: "Lance Armstrong", known_for: "Cyclist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Lance_Armstrong_Tour_2010_team_presentation.jpg/440px-Lance_Armstrong_Tour_2010_team_presentation.jpg" },
+      { name: "Aretha Franklin", known_for: "Queen of Soul", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Aretha_Franklin_1968.jpg/440px-Aretha_Franklin_1968.jpg" },
+      { name: "David Copperfield", known_for: "Magician", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/David_Copperfield.jpg/440px-David_Copperfield.jpg" },
+      { name: "Ed Sheeran", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ed_Sheeran_2013.jpg/440px-Ed_Sheeran_2013.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Guardian", "Harmonizer", "Connector"],
@@ -813,10 +973,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Express appreciation for who people are, not just what they accomplish."
     ],
     famousExamples: [
-      { name: "Henry Ford", known_for: "Ford Motor Company founder" },
-      { name: "John D. Rockefeller", known_for: "Industrialist, philanthropist" },
-      { name: "Judge Judy", known_for: "Television judge" },
-      { name: "Lyndon B. Johnson", known_for: "36th US President" }
+      { name: "Henry Ford", known_for: "Ford Motor Company founder", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Henry_ford_1919.jpg/440px-Henry_ford_1919.jpg" },
+      { name: "John D. Rockefeller", known_for: "Industrialist, philanthropist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/John_D._Rockefeller_1885.jpg/440px-John_D._Rockefeller_1885.jpg" },
+      { name: "Judge Judy", known_for: "Television judge", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Judge_Judy_Sheindlin_VF_2012_Shankbone.JPG/440px-Judge_Judy_Sheindlin_VF_2012_Shankbone.JPG" },
+      { name: "Lyndon B. Johnson", known_for: "36th US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/37_Lyndon_Johnson_3x4.jpg/440px-37_Lyndon_Johnson_3x4.jpg" },
+      { name: "Martha Stewart", known_for: "Business magnate", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Martha_Stewart_2011_Shankbone_2.JPG/440px-Martha_Stewart_2011_Shankbone_2.JPG" },
+      { name: "Sonia Sotomayor", known_for: "Supreme Court Justice", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Sonia_Sotomayor_in_SCOTUS_robe.jpg/440px-Sonia_Sotomayor_in_SCOTUS_robe.jpg" },
+      { name: "Dr. Phil", known_for: "TV personality", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Phil_McGraw%2C_2013_%28cropped%29.jpg/440px-Phil_McGraw%2C_2013_%28cropped%29.jpg" },
+      { name: "Michelle Pfeiffer", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Michelle_Pfeiffer_2018.png/440px-Michelle_Pfeiffer_2018.png" },
+      { name: "Vince Lombardi", known_for: "Football coach", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Vince_Lombardi.jpg/440px-Vince_Lombardi.jpg" },
+      { name: "Emma Watson", known_for: "Actress, activist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Emma_Watson_2013.jpg/440px-Emma_Watson_2013.jpg" },
+      { name: "Alec Baldwin", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Alec_Baldwin_3%2C_2010.jpg/440px-Alec_Baldwin_3%2C_2010.jpg" },
+      { name: "Nancy Pelosi", known_for: "Speaker of the House", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Nancy_Pelosi_official_photo.jpg/440px-Nancy_Pelosi_official_photo.jpg" },
+      { name: "John Wayne", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/John_Wayne_-_still_portrait.jpg/440px-John_Wayne_-_still_portrait.jpg" },
+      { name: "Sam Walton", known_for: "Walmart founder", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Walton.png/440px-Walton.png" },
+      { name: "Frank Sinatra", known_for: "Singer, actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Frank_Sinatra_%2757.jpg/440px-Frank_Sinatra_%2757.jpg" },
+      { name: "Billy Graham", known_for: "Evangelist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Billy_Graham_bw_photo%2C_April_11%2C_1966.jpg/440px-Billy_Graham_bw_photo%2C_April_11%2C_1966.jpg" },
+      { name: "Mike Pence", known_for: "48th Vice President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Mike_Pence_official_portrait.jpg/440px-Mike_Pence_official_portrait.jpg" },
+      { name: "Bernard Law Montgomery", known_for: "British Field Marshal", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bernard_Montgomery.jpg/440px-Bernard_Montgomery.jpg" },
+      { name: "Douglas MacArthur", known_for: "US General", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Douglas_MacArthur_smoking_his_corncob_pipe.jpg/440px-Douglas_MacArthur_smoking_his_corncob_pipe.jpg" },
+      { name: "Kamala Harris", known_for: "Vice President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Kamala_Harris_Vice_Presidential_Portrait.jpg/440px-Kamala_Harris_Vice_Presidential_Portrait.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Strategist", "Achiever", "Guardian"],
@@ -885,10 +1061,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Examine your 'shoulds.' Some social expectations deserve questioning."
     ],
     famousExamples: [
-      { name: "Taylor Swift", known_for: "Singer-songwriter" },
-      { name: "Bill Clinton", known_for: "42nd US President" },
-      { name: "Jennifer Garner", known_for: "Actress" },
-      { name: "Steve Harvey", known_for: "Television host, comedian" }
+      { name: "Taylor Swift", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/191125_Taylor_Swift_at_the_2019_American_Music_Awards_%28cropped%29.png/440px-191125_Taylor_Swift_at_the_2019_American_Music_Awards_%28cropped%29.png" },
+      { name: "Bill Clinton", known_for: "42nd US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Bill_Clinton.jpg/440px-Bill_Clinton.jpg" },
+      { name: "Jennifer Garner", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/JenniferGarnerAug07.jpg/440px-JenniferGarnerAug07.jpg" },
+      { name: "Steve Harvey", known_for: "Television host, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Steve_Harvey_2017.jpg/440px-Steve_Harvey_2017.jpg" },
+      { name: "Hugh Jackman", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Hugh_Jackman_by_Gage_Skidmore.jpg/440px-Hugh_Jackman_by_Gage_Skidmore.jpg" },
+      { name: "Danny DeVito", known_for: "Actor, director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Danny_DeVito_by_Gage_Skidmore.jpg/440px-Danny_DeVito_by_Gage_Skidmore.jpg" },
+      { name: "Mariah Carey", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mariah_Carey_2019_by_Glenn_Francis.jpg/440px-Mariah_Carey_2019_by_Glenn_Francis.jpg" },
+      { name: "Jennifer Lopez", known_for: "Singer, actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Jennifer_Lopez_2018_2_%28cropped%29.jpg/440px-Jennifer_Lopez_2018_2_%28cropped%29.jpg" },
+      { name: "Whitney Houston", known_for: "Singer, actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Whitney_Houston_Welcome_Home_Heroes_1_cropped.jpg/440px-Whitney_Houston_Welcome_Home_Heroes_1_cropped.jpg" },
+      { name: "Tyra Banks", known_for: "Model, TV host", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Tyra_Banks_2019_2.jpg/440px-Tyra_Banks_2019_2.jpg" },
+      { name: "Larry King", known_for: "TV host", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Larry_King.jpg/440px-Larry_King.jpg" },
+      { name: "Andrew Carnegie", known_for: "Industrialist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Andrew_Carnegie%2C_three-quarter_length_portrait%2C_seated%2C_facing_slightly_left%2C_1913.jpg/440px-Andrew_Carnegie%2C_three-quarter_length_portrait%2C_seated%2C_facing_slightly_left%2C_1913.jpg" },
+      { name: "Desmond Tutu", known_for: "Archbishop, activist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Desmond_Tutu_2013.jpg/440px-Desmond_Tutu_2013.jpg" },
+      { name: "Sally Field", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Sally_Field_cropped.jpg/440px-Sally_Field_cropped.jpg" },
+      { name: "Nancy Reagan", known_for: "Former First Lady", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Nancy_Reagan_portrait.jpg/440px-Nancy_Reagan_portrait.jpg" },
+      { name: "Mary Tyler Moore", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Mary_Tyler_Moore_1971.JPG/440px-Mary_Tyler_Moore_1971.JPG" },
+      { name: "Pope John Paul II", known_for: "Head of Catholic Church", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/John_Paul_II_Medal_of_Freedom_2004.jpg/440px-John_Paul_II_Medal_of_Freedom_2004.jpg" },
+      { name: "Elton John", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Elton_John_2017.jpg/440px-Elton_John_2017.jpg" },
+      { name: "Prince William", known_for: "Duke of Cambridge", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Prince_William_of_Wales.jpg/440px-Prince_William_of_Wales.jpg" },
+      { name: "Céline Dion", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/C%C3%A9line_Dion_2012.jpg/440px-C%C3%A9line_Dion_2012.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Connector", "Guardian", "Catalyst"],
@@ -957,10 +1149,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Recognize that emotions are data too. They're not irrational—they're information."
     ],
     famousExamples: [
-      { name: "Clint Eastwood", known_for: "Actor, director" },
-      { name: "Michael Jordan", known_for: "Basketball player" },
-      { name: "Amelia Earhart", known_for: "Aviation pioneer" },
-      { name: "Bruce Lee", known_for: "Martial artist, actor" }
+      { name: "Clint Eastwood", known_for: "Actor, director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Clint_Eastwood_at_2010_New_York_Film_Festival.jpg/440px-Clint_Eastwood_at_2010_New_York_Film_Festival.jpg" },
+      { name: "Michael Jordan", known_for: "Basketball player", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Michael_Jordan_in_2014.jpg/440px-Michael_Jordan_in_2014.jpg" },
+      { name: "Amelia Earhart", known_for: "Aviation pioneer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Amelia_Earhart_1935.jpg/440px-Amelia_Earhart_1935.jpg" },
+      { name: "Bruce Lee", known_for: "Martial artist, actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Bruce_Lee_1973.jpg/440px-Bruce_Lee_1973.jpg" },
+      { name: "Tom Cruise", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Tom_Cruise_by_Gage_Skidmore_2.jpg/440px-Tom_Cruise_by_Gage_Skidmore_2.jpg" },
+      { name: "Scarlett Johansson", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg/440px-Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg" },
+      { name: "Daniel Craig", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Daniel_Craig_in_2021.jpg/440px-Daniel_Craig_in_2021.jpg" },
+      { name: "Kristen Stewart", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Kristen_Stewart_Cannes_2022.jpg/440px-Kristen_Stewart_Cannes_2022.jpg" },
+      { name: "Steve McQueen", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Steve_McQueen_1959.jpg/440px-Steve_McQueen_1959.jpg" },
+      { name: "Vladimir Putin", known_for: "Russian President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Vladimir_Putin_%282020-02-20%29.jpg/440px-Vladimir_Putin_%282020-02-20%29.jpg" },
+      { name: "Megan Fox", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Megan_Fox_2019_by_Glenn_Francis.jpg/440px-Megan_Fox_2019_by_Glenn_Francis.jpg" },
+      { name: "Bear Grylls", known_for: "Adventurer, TV host", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Bear_Grylls%2C_bautismo_del_Parque_Scout_Grillos_-_01.jpg/440px-Bear_Grylls%2C_bautismo_del_Parque_Scout_Grillos_-_01.jpg" },
+      { name: "Keith Richards", known_for: "Rolling Stones guitarist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Keith_Richards_Photo_Jimieye.jpg/440px-Keith_Richards_Photo_Jimieye.jpg" },
+      { name: "Chuck Yeager", known_for: "Test pilot", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Chuck_Yeager_%28Oct._14%2C_1997%2C_color%29.jpg/440px-Chuck_Yeager_%28Oct._14%2C_1997%2C_color%29.jpg" },
+      { name: "Milla Jovovich", known_for: "Actress, model", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Milla_Jovovich_2010_Shankbone.jpg/440px-Milla_Jovovich_2010_Shankbone.jpg" },
+      { name: "Eminem", known_for: "Rapper", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Eminem_-_Concert_for_Valor_in_Washington%2C_D.C._Nov._11%2C_2014_%282%29_%28Cropped%29.jpg/440px-Eminem_-_Concert_for_Valor_in_Washington%2C_D.C._Nov._11%2C_2014_%282%29_%28Cropped%29.jpg" },
+      { name: "Simon Cowell", known_for: "TV producer, judge", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Simon_Cowell_2016.jpg/440px-Simon_Cowell_2016.jpg" },
+      { name: "Tiger Woods", known_for: "Professional golfer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/TigerWoodsOfficialPortrait.jpg/440px-TigerWoodsOfficialPortrait.jpg" },
+      { name: "James Bond", known_for: "Fictional spy", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/Fleming007impression.jpg/440px-Fleming007impression.jpg" },
+      { name: "Katharine Hepburn", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Katharine_Hepburn_promo_photo.jpg/440px-Katharine_Hepburn_promo_photo.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Analyst", "Explorer", "Stabilizer"],
@@ -1029,10 +1237,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Engage with conflict when necessary. Avoidance often makes things worse."
     ],
     famousExamples: [
-      { name: "Bob Dylan", known_for: "Singer-songwriter" },
-      { name: "Frida Kahlo", known_for: "Artist" },
-      { name: "Prince", known_for: "Musician" },
-      { name: "Lana Del Rey", known_for: "Singer-songwriter" }
+      { name: "Bob Dylan", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg/440px-Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg" },
+      { name: "Frida Kahlo", known_for: "Artist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg/440px-Frida_Kahlo%2C_by_Guillermo_Kahlo.jpg" },
+      { name: "Prince", known_for: "Musician", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Prince_at_Coachella_%28cropped%29.jpg/440px-Prince_at_Coachella_%28cropped%29.jpg" },
+      { name: "Lana Del Rey", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Lana_Del_Rey%40Splendour_%28cropped_2%29.jpg/440px-Lana_Del_Rey%40Splendour_%28cropped_2%29.jpg" },
+      { name: "Michael Jackson", known_for: "King of Pop", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Michael_Jackson_in_1988.jpg/440px-Michael_Jackson_in_1988.jpg" },
+      { name: "Marilyn Monroe", known_for: "Actress, icon", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Marilyn_Monroe_in_1952.jpg/440px-Marilyn_Monroe_in_1952.jpg" },
+      { name: "Rihanna", known_for: "Singer, entrepreneur", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Rihanna_Fenty_2018.png/440px-Rihanna_Fenty_2018.png" },
+      { name: "Brad Pitt", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Brad_Pitt_2019_by_Glenn_Francis.jpg/440px-Brad_Pitt_2019_by_Glenn_Francis.jpg" },
+      { name: "Jimi Hendrix", known_for: "Guitarist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Jimi_Hendrix_1967.png/440px-Jimi_Hendrix_1967.png" },
+      { name: "David Bowie", known_for: "Musician, actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg/440px-David-Bowie_Chicago_2002-08-08_photoby_Adam-Bielawski-cropped.jpg" },
+      { name: "Lady Gaga", known_for: "Singer, actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Lady_Gaga_at_the_2019_Venice_Film_Festival.jpg/440px-Lady_Gaga_at_the_2019_Venice_Film_Festival.jpg" },
+      { name: "Avril Lavigne", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Avril_Lavigne_Sydney_%28Straighten_Crop%29.jpg/440px-Avril_Lavigne_Sydney_%28Straighten_Crop%29.jpg" },
+      { name: "Pablo Picasso", known_for: "Artist", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Portrait_de_Picasso%2C_1908.jpg/440px-Portrait_de_Picasso%2C_1908.jpg" },
+      { name: "Kevin Costner", known_for: "Actor, director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Kevin_Costner_2016.jpg/440px-Kevin_Costner_2016.jpg" },
+      { name: "Britney Spears", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Britney_Spears_2013.jpg/440px-Britney_Spears_2013.jpg" },
+      { name: "Ryan Gosling", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ryan_Gosling_Cannes_2011.jpg/440px-Ryan_Gosling_Cannes_2011.jpg" },
+      { name: "John Travolta", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/John_Travolta_Deauville_2013_2.jpg/440px-John_Travolta_Deauville_2013_2.jpg" },
+      { name: "Billie Eilish", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg/440px-Billie_Eilish_2019_by_Glenn_Francis_%28cropped%29_2.jpg" },
+      { name: "Jared Leto", known_for: "Actor, musician", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Jared_Leto%2C_San_Diego_Comic_Con_2016_%282%29.jpg/440px-Jared_Leto%2C_San_Diego_Comic_Con_2016_%282%29.jpg" },
+      { name: "Amy Winehouse", known_for: "Singer-songwriter", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Amy_Winehouse_-_synth.jpg/440px-Amy_Winehouse_-_synth.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Explorer", "Harmonizer", "Innovator"],
@@ -1101,10 +1325,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Recognize that reflection has value. Not all important work is visible action."
     ],
     famousExamples: [
-      { name: "Ernest Hemingway", known_for: "Author, adventurer" },
-      { name: "Madonna", known_for: "Singer, entertainer" },
-      { name: "Donald Trump", known_for: "Businessman, 45th US President" },
-      { name: "Eddie Murphy", known_for: "Actor, comedian" }
+      { name: "Ernest Hemingway", known_for: "Author, adventurer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/ErnestHemingway.jpg/440px-ErnestHemingway.jpg" },
+      { name: "Madonna", known_for: "Singer, entertainer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Madonna_-_Rebel_Heart_Tour_2015_-_Berlin_1_%28cropped%29.jpg/440px-Madonna_-_Rebel_Heart_Tour_2015_-_Berlin_1_%28cropped%29.jpg" },
+      { name: "Donald Trump", known_for: "Businessman, 45th US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/440px-Donald_Trump_official_portrait.jpg" },
+      { name: "Eddie Murphy", known_for: "Actor, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Eddie_Murphy_by_David_Shankbone.jpg/440px-Eddie_Murphy_by_David_Shankbone.jpg" },
+      { name: "Jack Nicholson", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jack_Nicholson_2001.jpg/440px-Jack_Nicholson_2001.jpg" },
+      { name: "Mick Jagger", known_for: "Rolling Stones frontman", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Mick_Jagger_Deauville_2014.jpg/440px-Mick_Jagger_Deauville_2014.jpg" },
+      { name: "George Clooney", known_for: "Actor, director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/George_Clooney_2016.jpg/440px-George_Clooney_2016.jpg" },
+      { name: "Samuel L. Jackson", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/SamuelLJackson.jpg/440px-SamuelLJackson.jpg" },
+      { name: "Angelina Jolie", known_for: "Actress, humanitarian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Angelina_jolie_by_philipp_von_ostau.jpg/440px-Angelina_jolie_by_philipp_von_ostau.jpg" },
+      { name: "Nicolas Cage", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nicolas_Cage_2011_CC.jpg/440px-Nicolas_Cage_2011_CC.jpg" },
+      { name: "Kevin Bacon", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Kevin_Bacon_at_San_Diego_Comic-Con_2013.jpg/440px-Kevin_Bacon_at_San_Diego_Comic-Con_2013.jpg" },
+      { name: "Eva Longoria", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Eva_Longoria_Cannes_2019_%28cropped%29.jpg/440px-Eva_Longoria_Cannes_2019_%28cropped%29.jpg" },
+      { name: "Winston Churchill", known_for: "British Prime Minister", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/440px-Sir_Winston_Churchill_-_19086236948.jpg" },
+      { name: "Theodore Roosevelt", known_for: "26th US President", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/President_Roosevelt_-_Pach_Bros_%28cropped%29.jpg/440px-President_Roosevelt_-_Pach_Bros_%28cropped%29.jpg" },
+      { name: "Lucille Ball", known_for: "Comedian, actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lucille_Ball_-_1964.jpg/440px-Lucille_Ball_-_1964.jpg" },
+      { name: "Bruce Willis", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Bruce_Willis_by_Gage_Skidmore_2.jpg/440px-Bruce_Willis_by_Gage_Skidmore_2.jpg" },
+      { name: "Antonio Banderas", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Antonio_Banderas_2014_2.jpg/440px-Antonio_Banderas_2014_2.jpg" },
+      { name: "Burt Reynolds", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Burt_Reynolds_1991_cropped_portrait.jpg/440px-Burt_Reynolds_1991_cropped_portrait.jpg" },
+      { name: "Helen Mirren", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Helen_Mirren_%2821417355562%29_%28cropped%29.jpg/440px-Helen_Mirren_%2821417355562%29_%28cropped%29.jpg" },
+      { name: "Sylvester Stallone", known_for: "Actor, director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Sylvester_Stallone_by_Gage_Skidmore.jpg/440px-Sylvester_Stallone_by_Gage_Skidmore.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Achiever", "Explorer", "Catalyst"],
@@ -1173,10 +1413,26 @@ export const mbtiTypes: Record<string, MBTIType> = {
       "Recognize that depth has value too. Not every moment needs to be entertaining."
     ],
     famousExamples: [
-      { name: "Marilyn Monroe", known_for: "Actress, icon" },
-      { name: "Elvis Presley", known_for: "Singer, 'The King'" },
-      { name: "Jamie Oliver", known_for: "Chef, television personality" },
-      { name: "Miley Cyrus", known_for: "Singer, actress" }
+      { name: "Marilyn Monroe", known_for: "Actress, icon", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Marilyn_Monroe_in_1952.jpg/440px-Marilyn_Monroe_in_1952.jpg" },
+      { name: "Elvis Presley", known_for: "Singer, 'The King'", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Elvis_Presley_promoting_Jailhouse_Rock.jpg/440px-Elvis_Presley_promoting_Jailhouse_Rock.jpg" },
+      { name: "Jamie Oliver", known_for: "Chef, television personality", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Jamie_Oliver_%28cropped%29.jpg/440px-Jamie_Oliver_%28cropped%29.jpg" },
+      { name: "Miley Cyrus", known_for: "Singer, actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Miley_Cyrus_-_Wrecking_Ball_Live_-_London%2C_UK.png/440px-Miley_Cyrus_-_Wrecking_Ball_Live_-_London%2C_UK.png" },
+      { name: "Will Ferrell", known_for: "Actor, comedian", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Will_Ferrell_2012.jpg/440px-Will_Ferrell_2012.jpg" },
+      { name: "Cameron Diaz", known_for: "Actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Cameron_Diaz_2012.jpg/440px-Cameron_Diaz_2012.jpg" },
+      { name: "Justin Bieber", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Justin_Bieber_in_2015.jpg/440px-Justin_Bieber_in_2015.jpg" },
+      { name: "Adam Levine", known_for: "Maroon 5 frontman", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Adam_Levine_2013.jpg/440px-Adam_Levine_2013.jpg" },
+      { name: "Leonardo DiCaprio", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Leonardo_DiCaprio_2019_by_Glenn_Francis.jpg/440px-Leonardo_DiCaprio_2019_by_Glenn_Francis.jpg" },
+      { name: "Katy Perry", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Katy_Perry_2019_%28cropped%29.jpg/440px-Katy_Perry_2019_%28cropped%29.jpg" },
+      { name: "Pink", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Pink_2019_by_Glenn_Francis.jpg/440px-Pink_2019_by_Glenn_Francis.jpg" },
+      { name: "Steven Spielberg", known_for: "Film director", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Steven_Spielberg_Masterclass_Cin%C3%A9math%C3%A8que_Fran%C3%A7aise_2_cropped.jpg/440px-Steven_Spielberg_Masterclass_Cin%C3%A9math%C3%A8que_Fran%C3%A7aise_2_cropped.jpg" },
+      { name: "Nicki Minaj", known_for: "Rapper, singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Nicki_Minaj_2019.png/440px-Nicki_Minaj_2019.png" },
+      { name: "Magic Johnson", known_for: "Basketball legend", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Magic_Johnson_2019_%28cropped%29.jpg/440px-Magic_Johnson_2019_%28cropped%29.jpg" },
+      { name: "Richard Branson", known_for: "Virgin Group founder", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Richard_Branson_March_2015_%28cropped%29.jpg/440px-Richard_Branson_March_2015_%28cropped%29.jpg" },
+      { name: "Dolly Parton", known_for: "Singer, actress", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Dolly_Parton_2016.jpg/440px-Dolly_Parton_2016.jpg" },
+      { name: "Shakira", known_for: "Singer", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Shakira_2022.jpg/440px-Shakira_2022.jpg" },
+      { name: "Chris Rock", known_for: "Comedian, actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Chris_Rock_WE_2012_Shankbone.JPG/440px-Chris_Rock_WE_2012_Shankbone.JPG" },
+      { name: "Bob Hope", known_for: "Comedian, actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Bob_Hope_Allan_Warren.jpg/440px-Bob_Hope_Allan_Warren.jpg" },
+      { name: "Zac Efron", known_for: "Actor", image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Zac_Efron_2012.jpg/440px-Zac_Efron_2012.jpg" }
     ],
     prismCorrelation: {
       likelyTypes: ["Catalyst", "Connector", "Explorer"],

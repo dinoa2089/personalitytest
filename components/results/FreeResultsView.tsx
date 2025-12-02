@@ -24,6 +24,7 @@ import { PersonalityRadarChart } from "./RadarChart";
 import { RandomFrameworkReveal } from "./RandomFrameworkReveal";
 import { SimpleJobAnalysis } from "./SimpleJobAnalysis";
 import { ShareableInfographic } from "./ShareableInfographic";
+import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import type { DimensionScore, FrameworkMappings } from "@/types";
 import Link from "next/link";
 import { useState } from "react";
@@ -194,17 +195,13 @@ export function FreeResultsView({ scores, sessionId, frameworks }: FreeResultsVi
                 <Sparkles className="h-5 w-5 text-yellow-600" />
                 <h3 className="text-lg font-bold">Famous People Like You</h3>
               </div>
-              <div className="flex flex-wrap gap-3">
-                {primary.famousExamples.map((example, index) => (
-                  <div
-                    key={index}
-                    className="rounded-full border border-border/50 bg-muted/30 px-4 py-2 text-sm"
-                  >
-                    <span className="font-medium">{example.name}</span>
-                    <span className="text-muted-foreground ml-1">• {example.role}</span>
-                  </div>
-                ))}
-              </div>
+              <FamousExamplesGrid 
+                examples={primary.famousExamples}
+                typeName={primary.name.replace("The ", "")}
+                variant="compact"
+                maxVisible={6}
+                colorAccent="yellow"
+              />
             </motion.div>
           </CardContent>
         </Card>

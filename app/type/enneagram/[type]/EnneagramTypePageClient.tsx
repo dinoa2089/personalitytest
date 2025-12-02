@@ -25,6 +25,7 @@ import {
   Shield,
   Flame,
 } from "lucide-react";
+import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import type { EnneagramType } from "@/lib/enneagram-content";
 
 interface EnneagramTypePageClientProps {
@@ -441,14 +442,13 @@ export function EnneagramTypePageClient({ content }: EnneagramTypePageClientProp
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-3">
-                  {content.famousExamples.map((example, index) => (
-                    <div key={index} className="rounded-full border border-border/50 bg-muted/30 px-4 py-2">
-                      <span className="font-medium">{example.name}</span>
-                      <span className="text-muted-foreground ml-2">• {example.known_for}</span>
-                    </div>
-                  ))}
-                </div>
+                <FamousExamplesGrid 
+                  examples={content.famousExamples}
+                  typeName={`Type ${content.number}`}
+                  variant="full"
+                  maxVisible={8}
+                  colorAccent="purple"
+                />
               </CardContent>
             </Card>
           </motion.section>
