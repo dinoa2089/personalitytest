@@ -464,13 +464,16 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                       <div>
                         <p className="text-sm font-medium mb-2">Similar MBTI Types:</p>
                         <div className="flex flex-wrap gap-2">
-                          {content.frameworkCorrelations.mbtiTypes.map((type) => (
-                            <Link key={type} href={`/type/mbti/${type.toLowerCase()}`}>
-                              <Badge className="bg-blue-500/20 text-blue-600 border-blue-500/30 hover:bg-blue-500/30 cursor-pointer">
-                                {type}
-                              </Badge>
-                            </Link>
-                          ))}
+                          {content.frameworkCorrelations.mbtiTypes.map((type) => {
+                            const typeStr = typeof type === 'string' ? type : String(type);
+                            return (
+                              <Link key={typeStr} href={`/type/mbti/${typeStr.toLowerCase()}`}>
+                                <Badge className="bg-blue-500/20 text-blue-600 border-blue-500/30 hover:bg-blue-500/30 cursor-pointer">
+                                  {typeStr}
+                                </Badge>
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
