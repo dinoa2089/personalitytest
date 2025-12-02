@@ -55,15 +55,15 @@ const enneagramTypesList = [
 
 export default function TypeHubPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
       <Header />
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* Background effects */}
-        <div className="absolute inset-0 bg-gradient-to-b from-violet-950/30 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-fuchsia-600/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-violet-100/50 via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-300/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-fuchsia-300/20 rounded-full blur-3xl" />
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -71,20 +71,20 @@ export default function TypeHubPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <Badge className="mb-6 bg-violet-500/20 text-violet-300 border-violet-500/30 text-sm px-4 py-1.5">
+            <Badge className="mb-6 bg-violet-100 text-violet-700 border-violet-200 text-sm px-4 py-1.5">
               <Compass className="w-4 h-4 mr-2" />
               Personality Explorer
             </Badge>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-600 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
                 Explore Personality Types
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-zinc-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
               Dive deep into the world of personality psychology. Choose a framework 
               to explore types, traits, and discover what makes you unique.
             </p>
-            <Button asChild size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 border-0">
+            <Button asChild size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 border-0 text-white">
               <Link href="/assessment/intro">
                 Take the Free Assessment
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -104,7 +104,7 @@ export default function TypeHubPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-br from-violet-950/50 to-fuchsia-950/50 border-violet-500/30 rounded-3xl overflow-hidden">
+            <Card className="bg-gradient-to-br from-violet-50 to-fuchsia-50 border-violet-200 rounded-3xl overflow-hidden shadow-sm">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500">
@@ -114,10 +114,10 @@ export default function TypeHubPage() {
                     <Badge className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-0 mb-1">
                       Recommended
                     </Badge>
-                    <CardTitle className="text-3xl font-bold text-white">PRISM-7 Archetypes</CardTitle>
+                    <CardTitle className="text-3xl font-bold text-slate-900">PRISM-7 Archetypes</CardTitle>
                   </div>
                 </div>
-                <CardDescription className="text-zinc-400 text-lg">
+                <CardDescription className="text-slate-600 text-lg">
                   Our scientifically-validated dimensional approach to personality. Based on HEXACO+ research 
                   with 85-92% test-retest reliability.
                 </CardDescription>
@@ -130,12 +130,12 @@ export default function TypeHubPage() {
                       href={`/type/${archetype.id}`}
                       className="group"
                     >
-                      <div className="bg-zinc-900/50 hover:bg-zinc-800/50 border border-zinc-800 hover:border-violet-500/50 rounded-xl p-4 transition-all h-full">
+                      <div className="bg-white hover:bg-violet-50 border border-slate-200 hover:border-violet-300 rounded-xl p-4 transition-all h-full shadow-sm">
                         <div className="text-3xl mb-2">{archetype.icon}</div>
-                        <h3 className="font-semibold text-white text-sm group-hover:text-violet-300 transition-colors">
+                        <h3 className="font-semibold text-slate-900 text-sm group-hover:text-violet-600 transition-colors">
                           {archetype.name.replace("The ", "")}
                         </h3>
-                        <p className="text-xs text-zinc-500">{archetype.rarity}%</p>
+                        <p className="text-xs text-slate-500">{archetype.rarity}%</p>
                       </div>
                     </Link>
                   ))}
@@ -146,13 +146,13 @@ export default function TypeHubPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Button asChild variant="outline" className="border-violet-500/50 text-violet-300 hover:bg-violet-500/20">
+                  <Button asChild variant="outline" className="border-violet-300 text-violet-700 hover:bg-violet-100">
                     <Link href="/assessment/intro">
                       <Target className="w-4 h-4 mr-2" />
                       Discover Your Archetype
                     </Link>
                   </Button>
-                  <Button asChild variant="ghost" className="text-zinc-400 hover:text-white">
+                  <Button asChild variant="ghost" className="text-slate-600 hover:text-slate-900">
                     <Link href="/science">
                       <BookOpen className="w-4 h-4 mr-2" />
                       Learn About the Science
@@ -169,20 +169,20 @@ export default function TypeHubPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-zinc-900/50 border-zinc-800 rounded-3xl overflow-hidden">
+            <Card className="bg-white border-slate-200 rounded-3xl overflow-hidden shadow-sm">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500">
                     <Brain className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <CardTitle className="text-3xl font-bold text-white">MBTI Types</CardTitle>
-                    <CardDescription className="text-zinc-400">
+                    <CardTitle className="text-3xl font-bold text-slate-900">MBTI Types</CardTitle>
+                    <CardDescription className="text-slate-500">
                       16 Personality Types • Cognitive Functions
                     </CardDescription>
                   </div>
                 </div>
-                <p className="text-zinc-400 mt-2">
+                <p className="text-slate-600 mt-2">
                   Explore the popular Myers-Briggs framework with 16 distinct types. 
                   Understand cognitive functions, relationships, and career paths.
                 </p>
@@ -195,20 +195,20 @@ export default function TypeHubPage() {
                       href={`/type/mbti/${type.code.toLowerCase()}`}
                       className="group"
                     >
-                      <div className="bg-zinc-800/50 hover:bg-zinc-700/50 border border-zinc-700 hover:border-blue-500/50 rounded-lg p-3 transition-all text-center">
-                        <h3 className="font-bold text-white text-sm group-hover:text-blue-300 transition-colors">
+                      <div className="bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-lg p-3 transition-all text-center">
+                        <h3 className="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">
                           {type.code}
                         </h3>
-                        <p className="text-xs text-zinc-500 truncate">{type.nickname}</p>
+                        <p className="text-xs text-slate-500 truncate">{type.nickname}</p>
                       </div>
                     </Link>
                   ))}
                 </div>
-                <div className="flex items-center gap-2 text-sm text-amber-400/80 bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
+                <div className="flex items-center gap-2 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3">
                   <Star className="w-4 h-4 flex-shrink-0" />
                   <span>
                     While MBTI is popular, research shows 39-76% of people get different results on retakes. 
-                    <Link href="/science" className="underline ml-1 hover:text-amber-300">Learn why dimensional assessments are more reliable →</Link>
+                    <Link href="/science" className="underline ml-1 hover:text-amber-800">Learn why dimensional assessments are more reliable →</Link>
                   </span>
                 </div>
               </CardContent>
@@ -221,20 +221,20 @@ export default function TypeHubPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-zinc-900/50 border-zinc-800 rounded-3xl overflow-hidden">
+            <Card className="bg-white border-slate-200 rounded-3xl overflow-hidden shadow-sm">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500">
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <CardTitle className="text-3xl font-bold text-white">Enneagram Types</CardTitle>
-                    <CardDescription className="text-zinc-400">
+                    <CardTitle className="text-3xl font-bold text-slate-900">Enneagram Types</CardTitle>
+                    <CardDescription className="text-slate-500">
                       9 Core Types • Wings & Growth Paths
                     </CardDescription>
                   </div>
                 </div>
-                <p className="text-zinc-400 mt-2">
+                <p className="text-slate-600 mt-2">
                   Discover the Enneagram's nine interconnected personality types. 
                   Explore core motivations, fears, and paths to personal growth.
                 </p>
@@ -247,16 +247,16 @@ export default function TypeHubPage() {
                       href={`/type/enneagram/${type.number}`}
                       className="group"
                     >
-                      <div className="bg-zinc-800/50 hover:bg-zinc-700/50 border border-zinc-700 hover:border-emerald-500/50 rounded-lg p-3 transition-all text-center">
-                        <h3 className="font-bold text-2xl text-white group-hover:text-emerald-300 transition-colors">
+                      <div className="bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 rounded-lg p-3 transition-all text-center">
+                        <h3 className="font-bold text-2xl text-slate-900 group-hover:text-emerald-600 transition-colors">
                           {type.number}
                         </h3>
-                        <p className="text-xs text-zinc-500 truncate">{type.name.replace("The ", "")}</p>
+                        <p className="text-xs text-slate-500 truncate">{type.name.replace("The ", "")}</p>
                       </div>
                     </Link>
                   ))}
                 </div>
-                <p className="text-sm text-zinc-500">
+                <p className="text-sm text-slate-500">
                   The Enneagram focuses on core motivations and paths to growth. 
                   Each type has two "wings" and lines connecting to other types during stress and growth.
                 </p>
@@ -271,16 +271,16 @@ export default function TypeHubPage() {
             viewport={{ once: true }}
             className="text-center py-12"
           >
-            <Card className="bg-gradient-to-br from-violet-950/50 to-fuchsia-950/50 border-violet-500/20 rounded-3xl">
+            <Card className="bg-gradient-to-br from-violet-100 to-fuchsia-100 border-violet-200 rounded-3xl shadow-sm">
               <CardContent className="p-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
                   Not Sure Which Framework to Explore?
                 </h2>
-                <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+                <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
                   Take our free PRISM-7 assessment to discover your unique personality profile 
                   with scientific precision. No signup required.
                 </p>
-                <Button asChild size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 border-0">
+                <Button asChild size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 border-0 text-white">
                   <Link href="/assessment/intro">
                     Start Your Free Assessment
                     <ArrowRight className="ml-2 h-5 w-5" />
