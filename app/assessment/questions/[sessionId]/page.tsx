@@ -167,18 +167,19 @@ export default function QuestionPage() {
           });
           
           completeAssessment();
-          router.push(`/results/${sessionId}`);
+          // Redirect to auth gate - requires sign in before viewing results
+          router.push(`/assessment/complete/${sessionId}`);
         } else {
           const errorData = await completeResponse.json().catch(() => ({}));
           console.error("Failed to complete assessment:", errorData);
-          // Still try to show results if we have them
-          router.push(`/results/${sessionId}`);
+          // Still redirect to auth gate
+          router.push(`/assessment/complete/${sessionId}`);
         }
       } catch (error) {
         console.error("Error completing assessment:", error);
-        // Still redirect to results - they might be in store
+        // Still redirect to auth gate - they might be in store
         completeAssessment();
-        router.push(`/results/${sessionId}`);
+        router.push(`/assessment/complete/${sessionId}`);
       }
     }
   };

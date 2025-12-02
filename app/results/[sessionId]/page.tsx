@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
@@ -26,10 +26,11 @@ import { useAssessmentStore } from "@/store/assessment-store";
 import { hasPremiumAccess } from "@/lib/subscriptions";
 import type { AssessmentResult } from "@/types";
 
-// This page is accessible to guests - no authentication required
+// This page requires authentication - unauthenticated users are redirected to auth gate
 
 export default function ResultsPage() {
   const params = useParams();
+  const router = useRouter();
   const sessionId = params.sessionId as string;
   const { user, isLoaded: userLoaded } = useUser();
   const { result: storeResult } = useAssessmentStore();
@@ -40,6 +41,13 @@ export default function ResultsPage() {
   const [fitScore, setFitScore] = useState<number | null>(null);
   const [fitBreakdown, setFitBreakdown] = useState<any>(null);
   const [jobInfo, setJobInfo] = useState<{ title?: string; company_name?: string } | null>(null);
+
+  // Redirect to auth gate if user is not authenticated
+  useEffect(() => {
+    if (userLoaded && !user) {
+      router.push(`/assessment/complete/${sessionId}`);
+    }
+  }, [userLoaded, user, sessionId, router]);
 
   useEffect(() => {
     // Check premium access
@@ -107,6 +115,18 @@ export default function ResultsPage() {
       fetchResults();
     }
   }, [sessionId, storeResult]);
+
+  // Show loading while checking auth or while redirecting
+  if (!userLoaded || (userLoaded && !user)) {
+    return (
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <Container className="flex-1 flex items-center justify-center">
+          <p className="text-muted-foreground">Loading...</p>
+        </Container>
+      </div>
+    );
+  }
 
   if (loading || checkingPremium) {
     return (

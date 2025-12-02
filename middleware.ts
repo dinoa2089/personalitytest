@@ -9,6 +9,7 @@ const CLERK_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 const isProtectedRoute = createRouteMatcher([
   '/dashboard(.*)',
   '/settings(.*)',
+  '/results(.*)',  // Results require authentication
 ]);
 
 // Export Clerk middleware if configured, otherwise simple passthrough
@@ -16,14 +17,22 @@ export default CLERK_PUBLISHABLE_KEY && CLERK_PUBLISHABLE_KEY !== ''
   ? clerkMiddleware(async (auth, req) => {
       const url = req.nextUrl.pathname;
 
-      // Protect dashboard and settings routes
-      if (isProtectedRoute(req)) {
-        await auth.protect();
+      // For results pages, redirect to auth gate if not authenticated
+      if (url.startsWith('/results/')) {
+        const { userId } = await auth();
+        if (!userId) {
+          // Extract session ID from URL and redirect to auth gate
+          const sessionId = url.split('/results/')[1]?.split('/')[0];
+          if (sessionId) {
+            return Response.redirect(new URL(`/assessment/complete/${sessionId}`, req.url));
+          }
+        }
         return;
       }
 
-      // Allow guest access to results (for development and testing)
-      if (url.startsWith('/results')) {
+      // Protect dashboard and settings routes
+      if (isProtectedRoute(req)) {
+        await auth.protect();
         return;
       }
 
