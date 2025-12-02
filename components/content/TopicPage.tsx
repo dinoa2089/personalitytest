@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import type { GeneratedContent, ContentTopic } from "@/lib/content/types";
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
+import { SalaryRangeChart, CompatibilityMiniChart } from "@/components/visualizations";
 import { 
   getRelatedMBTITypes, 
   getRelatedEnneagramTypes,
@@ -170,6 +171,48 @@ export function TopicPage({
               <div className="mb-8 text-lg leading-relaxed">
                 <MarkdownText variant="full">{content.introduction}</MarkdownText>
               </div>
+
+              {/* Topic-Specific Visualizations */}
+              {content.topic === "careers" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="mb-10"
+                >
+                  <SalaryRangeChart
+                    careers={[
+                      { title: "Senior Role", minSalary: 80000, maxSalary: 150000, medianSalary: 110000, fitScore: 92 },
+                      { title: "Mid-Level Position", minSalary: 55000, maxSalary: 95000, medianSalary: 72000, fitScore: 85 },
+                      { title: "Entry Level", minSalary: 40000, maxSalary: 65000, medianSalary: 52000, fitScore: 78 },
+                      { title: "Leadership Track", minSalary: 120000, maxSalary: 200000, medianSalary: 155000, fitScore: 88 },
+                    ]}
+                    showTitle={true}
+                  />
+                </motion.div>
+              )}
+
+              {(content.topic === "relationships" || content.topic === "compatibility") && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="mb-10"
+                >
+                  <CompatibilityMiniChart
+                    currentType={typeName}
+                    framework={framework}
+                    compatibilities={[
+                      { type: "ENFP", typeName: "Campaigner", romantic: 92, friendship: 88, work: 75, typeUrl: "/type/mbti/enfp" },
+                      { type: "INFJ", typeName: "Advocate", romantic: 88, friendship: 90, work: 82, typeUrl: "/type/mbti/infj" },
+                      { type: "ENTP", typeName: "Debater", romantic: 78, friendship: 85, work: 88, typeUrl: "/type/mbti/entp" },
+                      { type: "INTJ", typeName: "Architect", romantic: 72, friendship: 78, work: 90, typeUrl: "/type/mbti/intj" },
+                      { type: "ISFJ", typeName: "Defender", romantic: 65, friendship: 70, work: 68, typeUrl: "/type/mbti/isfj" },
+                    ]}
+                    showTitle={true}
+                  />
+                </motion.div>
+              )}
 
               {/* Sections */}
               {content.sections.map((section, index) => (
