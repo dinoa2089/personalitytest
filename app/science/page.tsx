@@ -365,9 +365,9 @@ export default function SciencePage() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-muted-foreground leading-relaxed">
-                    PRISM-7 uses <strong>Item Response Theory (IRT)</strong> to dynamically select questions 
-                    based on your responses. This allows us to provide accurate results in <strong>40-60 questions</strong> 
-                    instead of the 280+ questions required by traditional fixed-length assessments.
+                    PRISM-7 uses <strong>Item Response Theory (IRT)</strong> principles to optimize question selection 
+                    and scoring. Our Quick assessment provides accurate results in just <strong>35 questions (~7 minutes)</strong>, 
+                    while the Full assessment offers deeper insights with <strong>125 questions (~15 minutes)</strong>.
                   </p>
                   
                   <div className="rounded-xl border border-border/50 bg-muted/30 p-6">

@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: "How long does the assessment take?",
-    answer: "The assessment typically takes 10-15 minutes. Our adaptive algorithm ensures you only answer the most informative questions, reducing test length while maintaining accuracy.",
+    answer: "The Quick assessment takes about 7 minutes (35 questions), while the Full assessment takes about 15 minutes (125 questions). Choose the version that works best for you.",
   },
   {
     question: "Do I need to create an account?",

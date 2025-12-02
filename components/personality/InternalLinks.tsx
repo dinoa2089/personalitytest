@@ -24,7 +24,7 @@ const assessmentLinks: RelatedLink[] = [
   {
     href: "/assessment/intro",
     title: "Take the Free Assessment",
-    description: "Discover your personality type in just 5 minutes",
+    description: "Discover your personality type in just 7 minutes",
     badge: "Free",
     icon: <Sparkles className="h-5 w-5" />
   },
@@ -190,7 +190,7 @@ export function InternalLinks({ currentType, currentFramework = "prism", variant
               <div className="font-semibold group-hover:text-primary transition-colors">
                 Take the Assessment
               </div>
-              <p className="text-sm text-muted-foreground">Free • 5 minutes</p>
+              <p className="text-sm text-muted-foreground">Free • 7 minutes</p>
             </div>
             <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform" />
           </Link>

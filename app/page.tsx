@@ -7,11 +7,11 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "PRISM-7 | Which of 12 Personality Types Are You?",
-  description: "Take the free 5-minute personality test that's more accurate than Myers-Briggs. Scientifically validated HEXACO+ assessment with dimensional insights, not vague categories. No signup required.",
+  description: "Take the free 7-minute personality test that's more accurate than Myers-Briggs. Scientifically validated HEXACO+ assessment with dimensional insights, not vague categories. No signup required.",
   keywords: ["personality test", "free personality test", "MBTI alternative", "personality types", "HEXACO", "scientific personality assessment"],
   openGraph: {
     title: "PRISM-7 | Which of 12 Personality Types Are You?",
-    description: "Take the free 5-minute personality test that's more accurate than Myers-Briggs. Scientifically validated with dimensional insights.",
+    description: "Take the free 7-minute personality test that's more accurate than Myers-Briggs. Scientifically validated with dimensional insights.",
   },
 };
 
@@ -37,7 +37,7 @@ export default function Home() {
                   {" "}Are You?
                 </h1>
                 <p className="mx-auto max-w-2xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">
-                  Take the <span className="text-foreground font-semibold">5-minute test</span> that's more accurate than Myers-Briggs.
+                  Take the <span className="text-foreground font-semibold">7-minute test</span> that's more accurate than Myers-Briggs.
                   <br className="hidden sm:block" />
                   <span className="text-foreground font-medium">Scientifically validated. No signup required. Free results.</span>
                 </p>
@@ -101,9 +101,9 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3">Adaptive Testing</h3>
+                  <h3 className="text-2xl font-bold mb-3">Quick & Comprehensive</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Get precise results in 40-60 questions instead of 280. Our algorithm adapts to your responses.
+                    Get precise results in just 35 questions (7 min) or go deeper with 125 questions (15 min).
                   </p>
                 </div>
               </Link>

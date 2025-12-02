@@ -158,7 +158,7 @@ function AssessmentIntroContent() {
               <p className="mx-auto max-w-2xl text-xl leading-relaxed text-muted-foreground">
                 Get scientifically validated insights into your personality across 7 core dimensions.
                 <br className="hidden sm:block" />
-                <span className="text-foreground font-medium">Quick: 5 minutes • Full: 15 minutes</span>
+                <span className="text-foreground font-medium">Quick: 7 minutes • Full: 15 minutes</span>
               </p>
             </div>
           )}
