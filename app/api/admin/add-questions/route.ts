@@ -15,22 +15,8 @@ export async function POST() {
       auth: { autoRefreshToken: false, persistSession: false },
     });
 
-    // Get current max ID to generate new IDs
-    const { data: existingQuestions } = await supabase
-      .from("questions")
-      .select("id")
-      .order("id", { ascending: false })
-      .limit(1);
-
-    // Generate new question IDs starting after the last one
-    let nextId = 400; // Start from 400 to be safe
-    if (existingQuestions && existingQuestions.length > 0) {
-      const lastId = parseInt(existingQuestions[0].id.replace(/\D/g, "") || "0");
-      nextId = Math.max(nextId, lastId + 1);
-    }
-
-    const questionsToInsert = newQuestions.questions.map((q, index) => ({
-      id: `q${nextId + index}`,
+    const questionsToInsert = newQuestions.questions.map((q) => ({
+      id: crypto.randomUUID(),
       text: q.text,
       type: q.type,
       dimension: q.dimension,
