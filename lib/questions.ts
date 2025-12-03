@@ -120,14 +120,21 @@ export function shuffleQuestions(questions: Question[]): Question[] {
  */
 export function filterQuestionsByType(
   questions: Question[],
-  assessmentType: "quick" | "full"
+  assessmentType: "quick" | "standard" | "full"
 ): Question[] {
-  if (assessmentType === "full") {
-    return questions;
+  // Map assessment types to tier configs
+  switch (assessmentType) {
+    case "quick":
+      // 35 questions - PRISM-7 only
+      return selectQuestions(questions, "quick", ["prism"]);
+    case "standard":
+      // 80 questions - PRISM-7, MBTI, and Enneagram
+      return selectQuestions(questions, "standard", ["prism", "mbti", "enneagram"]);
+    case "full":
+    default:
+      // 105 questions - comprehensive with all frameworks
+      return selectQuestions(questions, "comprehensive", ["prism", "mbti", "enneagram"]);
   }
-  
-  // Map legacy "quick" to new "quick" tier
-  return selectQuestions(questions, "quick", ["prism"]);
 }
 
 /**

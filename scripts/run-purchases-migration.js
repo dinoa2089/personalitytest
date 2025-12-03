@@ -1,109 +1,128 @@
+#!/usr/bin/env node
 /**
- * Run the purchases table migration
- * Usage: node scripts/run-purchases-migration.js
+ * Run purchases table migration directly against Supabase PostgreSQL
  */
-const { createClient } = require("@supabase/supabase-js");
-require("dotenv").config({ path: ".env.local" });
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const { Client } = require('pg');
 
-if (!supabaseUrl || !supabaseServiceKey) {
-  console.error("❌ Missing Supabase credentials in .env.local");
-  console.error("   Required: NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY");
-  process.exit(1);
-}
-
-const supabase = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
-  },
+const client = new Client({
+  host: 'db.eqkcmlxxuubibzoqliee.supabase.co',
+  port: 5432,
+  database: 'postgres',
+  user: 'postgres',
+  password: '***REMOVED***',
+  ssl: { rejectUnauthorized: false }
 });
 
-const migrationSQL = `
--- Migration: Create purchases table for micro-transactions
--- Track individual purchases per user per session
-
-CREATE TABLE IF NOT EXISTS purchases (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-  session_id UUID,
-  product_type VARCHAR(50) NOT NULL,
-  stripe_payment_intent_id VARCHAR(255),
-  stripe_checkout_session_id VARCHAR(255),
-  amount_paid DECIMAL(10,2),
-  credits_applied DECIMAL(10,2) DEFAULT 0,
-  status VARCHAR(20) DEFAULT 'completed',
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  updated_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- Index for fast lookups
-CREATE INDEX IF NOT EXISTS idx_purchases_user_session ON purchases(user_id, session_id);
-CREATE INDEX IF NOT EXISTS idx_purchases_user_product ON purchases(user_id, product_type);
-CREATE INDEX IF NOT EXISTS idx_purchases_status ON purchases(status);
-CREATE INDEX IF NOT EXISTS idx_purchases_stripe_checkout ON purchases(stripe_checkout_session_id);
-`;
+// Each statement as a separate string to avoid splitting issues
+const statements = [
+  // Create table
+  `CREATE TABLE IF NOT EXISTS purchases (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    session_id UUID,
+    product_type VARCHAR(50) NOT NULL,
+    stripe_payment_intent_id VARCHAR(255),
+    stripe_checkout_session_id VARCHAR(255),
+    amount_paid DECIMAL(10,2),
+    credits_applied DECIMAL(10,2) DEFAULT 0,
+    status VARCHAR(20) DEFAULT 'completed',
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+  )`,
+  
+  // Create indexes
+  `CREATE INDEX IF NOT EXISTS idx_purchases_user_session ON purchases(user_id, session_id)`,
+  `CREATE INDEX IF NOT EXISTS idx_purchases_user_product ON purchases(user_id, product_type)`,
+  `CREATE INDEX IF NOT EXISTS idx_purchases_status ON purchases(status)`,
+  `CREATE INDEX IF NOT EXISTS idx_purchases_stripe_checkout ON purchases(stripe_checkout_session_id)`,
+  
+  // Enable RLS
+  `ALTER TABLE purchases ENABLE ROW LEVEL SECURITY`,
+  
+  // Drop existing policies if they exist, then create new ones
+  `DROP POLICY IF EXISTS "Users can view own purchases" ON purchases`,
+  `DROP POLICY IF EXISTS "Service role can manage purchases" ON purchases`,
+  
+  // Create policies
+  `CREATE POLICY "Users can view own purchases" ON purchases
+    FOR SELECT USING (
+      user_id IN (
+        SELECT id FROM users WHERE clerk_id = auth.uid()::text
+      )
+    )`,
+  
+  `CREATE POLICY "Service role can manage purchases" ON purchases
+    FOR ALL USING (auth.role() = 'service_role')`,
+  
+  // Add comments
+  `COMMENT ON TABLE purchases IS 'Tracks individual micro-transaction purchases per user per assessment session'`,
+  `COMMENT ON COLUMN purchases.product_type IS 'Product types: compatibility, career, frameworks, growth_plan, full_unlock'`,
+  `COMMENT ON COLUMN purchases.session_id IS 'Assessment session ID - NULL means purchase applies to all sessions'`,
+];
 
 async function runMigration() {
-  console.log("🚀 Running purchases table migration...");
-  console.log(`   Project: ${supabaseUrl}`);
-
   try {
-    // Try to run the migration using rpc or direct query
-    const { data, error } = await supabase.rpc("exec_sql", {
-      sql: migrationSQL,
-    });
-
-    if (error) {
-      // If exec_sql doesn't exist, try checking if table exists
-      console.log("   Note: exec_sql not available, checking table directly...");
-      
-      // Check if purchases table already exists
-      const { data: tableCheck, error: checkError } = await supabase
-        .from("purchases")
-        .select("id")
-        .limit(1);
-
-      if (!checkError) {
-        console.log("✅ Purchases table already exists!");
-        return;
-      }
-
-      // Table doesn't exist - user needs to run SQL manually
-      console.log("\n⚠️  Cannot run SQL directly via API.");
-      console.log("   Please run the following SQL in Supabase Dashboard:\n");
-      console.log("   1. Go to: https://supabase.com/dashboard");
-      console.log("   2. Select project: eqkcmlxxuubibzoqliee");
-      console.log("   3. Go to SQL Editor");
-      console.log("   4. Run the SQL from: supabase/migrations/009_purchases_table.sql");
-      return;
-    }
-
-    console.log("✅ Migration completed successfully!");
-  } catch (err) {
-    console.error("Error:", err.message);
+    console.log('🚀 Running purchases table migration...');
+    console.log('   Connecting to Supabase PostgreSQL...\n');
     
-    // Check if purchases table exists despite the error
-    try {
-      const { error: checkError } = await supabase
-        .from("purchases")
-        .select("id")
-        .limit(1);
-
-      if (!checkError) {
-        console.log("✅ Purchases table already exists!");
-      } else {
-        console.log("\n📋 Please run the migration manually in Supabase Dashboard:");
-        console.log("   https://supabase.com/dashboard/project/eqkcmlxxuubibzoqliee/sql");
+    await client.connect();
+    console.log('✓ Connected to database\n');
+    
+    console.log(`Running ${statements.length} SQL statements...\n`);
+    
+    let success = 0;
+    let skipped = 0;
+    let errors = 0;
+    
+    for (let i = 0; i < statements.length; i++) {
+      const stmt = statements[i];
+      const firstLine = stmt.trim().split('\n')[0].substring(0, 60);
+      
+      try {
+        await client.query(stmt);
+        console.log(`✓ [${i+1}/${statements.length}] ${firstLine}...`);
+        success++;
+      } catch (err) {
+        const msg = err.message || '';
+        if (msg.includes('already exists') || msg.includes('duplicate')) {
+          console.log(`○ [${i+1}/${statements.length}] Already exists - skipped`);
+          skipped++;
+        } else {
+          console.log(`✗ [${i+1}/${statements.length}] Error: ${msg.substring(0, 100)}`);
+          errors++;
+        }
       }
-    } catch (e) {
-      console.log("\n📋 Please run the migration manually in Supabase Dashboard:");
-      console.log("   https://supabase.com/dashboard/project/eqkcmlxxuubibzoqliee/sql");
     }
+    
+    console.log('\n================================');
+    console.log('MIGRATION COMPLETE');
+    console.log('================================');
+    console.log(`✓ Successful: ${success}`);
+    console.log(`○ Skipped (already exists): ${skipped}`);
+    console.log(`✗ Errors: ${errors}`);
+    
+    // Verify table was created
+    const { rows } = await client.query(
+      "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'purchases' ORDER BY ordinal_position"
+    );
+    
+    if (rows.length > 0) {
+      console.log('\n📋 Purchases table columns:');
+      rows.forEach(r => {
+        console.log(`   - ${r.column_name} (${r.data_type})`);
+      });
+      console.log('\n✅ Migration successful! Purchases table is ready.');
+    } else {
+      console.log('\n⚠️  Could not verify purchases table.');
+    }
+    
+  } catch (err) {
+    console.error('\n❌ Migration failed:', err.message);
+    process.exit(1);
+  } finally {
+    await client.end();
   }
 }
 
 runMigration();
-

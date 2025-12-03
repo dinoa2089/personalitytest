@@ -31,7 +31,7 @@ function AssessmentIntroContent() {
   const searchParams = useSearchParams();
   const { initializeSession } = useAssessmentStore();
   const [isStarting, setIsStarting] = useState(false);
-  const [selectedType, setSelectedType] = useState<AssessmentType | null>(null);
+  const [selectedType, setSelectedType] = useState<AssessmentType | null>("standard");
   const [jobToken, setJobToken] = useState<string | null>(null);
   const [jobInfo, setJobInfo] = useState<JobPostingInfo | null>(null);
   const [linkError, setLinkError] = useState<LinkError | null>(null);
@@ -423,10 +423,11 @@ function AssessmentIntroContent() {
             <CardHeader className="pb-6">
               <CardTitle className="text-2xl">Choose Your Assessment</CardTitle>
               <CardDescription className="text-base">
-                {jobInfo ? "Select the assessment version" : "Select the version that works best for you"}
+                {jobInfo ? "Select the assessment version" : "Each option builds on the previous — stop at any checkpoint and get results"}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
+              {/* Quick Assessment - Checkpoint 1 */}
               <div 
                 className={`group relative rounded-xl border-2 p-6 cursor-pointer transition-all duration-300 ${
                   selectedType === "quick" 
@@ -441,14 +442,23 @@ function AssessmentIntroContent() {
                       <div className={`h-3 w-3 rounded-full transition-all ${
                         selectedType === "quick" ? "bg-primary ring-4 ring-primary/20" : "bg-border group-hover:bg-primary/50"
                       }`} />
-                      <h3 className="font-bold text-lg">Quick Assessment</h3>
+                      <h3 className="font-bold text-lg">Quick Start</h3>
+                      <span className="text-xs bg-muted px-2 py-0.5 rounded-full">Checkpoint 1</span>
                     </div>
                     <p className="text-sm font-medium text-muted-foreground">
-                      35 core questions • ~8 minutes • PRISM-7 results
+                      35 questions • ~8 minutes
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Get your basic personality profile quickly. Continue anytime to unlock MBTI, Enneagram, and more.
+                      Get your PRISM-7 personality profile and basic archetype. Perfect if you&apos;re short on time.
                     </p>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
+                        ✓ PRISM-7 scores
+                      </span>
+                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
+                        ✓ Personality archetype
+                      </span>
+                    </div>
                   </div>
                   {selectedType === "quick" && (
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
@@ -459,7 +469,54 @@ function AssessmentIntroContent() {
                   )}
                 </div>
               </div>
+
+              {/* Standard Assessment - Checkpoint 3 */}
+              <div 
+                className={`group relative rounded-xl border-2 p-6 cursor-pointer transition-all duration-300 ${
+                  selectedType === "standard" 
+                    ? "border-primary bg-gradient-to-br from-primary/10 to-primary/5 shadow-md" 
+                    : "border-border/50 hover:border-primary/50 hover:bg-muted/30 hover:shadow-md"
+                }`}
+                onClick={() => setSelectedType("standard")}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-center gap-3">
+                      <div className={`h-3 w-3 rounded-full transition-all ${
+                        selectedType === "standard" ? "bg-primary ring-4 ring-primary/20" : "bg-border group-hover:bg-primary/50"
+                      }`} />
+                      <h3 className="font-bold text-lg">Standard</h3>
+                      <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Recommended</span>
+                    </div>
+                    <p className="text-sm font-medium text-muted-foreground">
+                      80 questions • ~19 minutes • 3 checkpoints
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Unlock PRISM-7, MBTI type, and Enneagram. Best balance of depth and time. Stop at any checkpoint.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
+                        ✓ Everything in Quick
+                      </span>
+                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
+                        ✓ MBTI type
+                      </span>
+                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
+                        ✓ Enneagram
+                      </span>
+                    </div>
+                  </div>
+                  {selectedType === "standard" && (
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
+                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              </div>
               
+              {/* Full Assessment - Checkpoint 4 */}
               <div 
                 className={`group relative rounded-xl border-2 p-6 cursor-pointer transition-all duration-300 ${
                   selectedType === "full" 
@@ -474,14 +531,26 @@ function AssessmentIntroContent() {
                       <div className={`h-3 w-3 rounded-full transition-all ${
                         selectedType === "full" ? "bg-primary ring-4 ring-primary/20" : "bg-border group-hover:bg-primary/50"
                       }`} />
-                      <h3 className="font-bold text-lg">Full Assessment</h3>
+                      <h3 className="font-bold text-lg">Comprehensive</h3>
+                      <span className="text-xs bg-muted px-2 py-0.5 rounded-full">All 4 checkpoints</span>
                     </div>
                     <p className="text-sm font-medium text-muted-foreground">
-                      105 comprehensive questions • ~25 minutes total
+                      105 questions • ~25 minutes • 4 checkpoints
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Complete assessment with checkpoints every 5-8 minutes. Unlock PRISM-7, MBTI, Enneagram, and deep insights progressively.
+                      Complete deep dive with facet-level analysis, compatibility insights, and career guidance. Progress through all 4 checkpoints.
                     </p>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
+                        ✓ Everything in Standard
+                      </span>
+                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
+                        ✓ Facet analysis
+                      </span>
+                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
+                        ✓ Career guidance
+                      </span>
+                    </div>
                   </div>
                   {selectedType === "full" && (
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
@@ -491,6 +560,13 @@ function AssessmentIntroContent() {
                     </div>
                   )}
                 </div>
+              </div>
+
+              {/* Checkpoint info note */}
+              <div className="mt-2 p-3 bg-muted/30 rounded-lg text-center">
+                <p className="text-xs text-muted-foreground">
+                  <span className="font-medium">How checkpoints work:</span> Answer questions → reach a checkpoint → get results for that level → continue or stop anytime
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -502,7 +578,7 @@ function AssessmentIntroContent() {
               disabled={isStarting || !selectedType} 
               className="text-lg px-10 py-6 h-auto bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
-              {isStarting ? "Starting..." : `Start ${selectedType === "quick" ? "Quick" : "Full"} Assessment`}
+              {isStarting ? "Starting..." : `Start ${selectedType === "quick" ? "Quick" : selectedType === "standard" ? "Standard" : "Comprehensive"} Assessment`}
             </Button>
             <Button 
               size="lg" 

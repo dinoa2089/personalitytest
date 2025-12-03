@@ -87,6 +87,8 @@ async function handleOneTimePurchase(session: Stripe.Checkout.Session) {
   const userId = session.metadata?.userId || session.client_reference_id;
   const productType = session.metadata?.productType;
   const sessionId = session.metadata?.sessionId;
+  const creditsApplied = parseFloat(session.metadata?.creditsApplied || "0");
+  const internalUserId = session.metadata?.internalUserId;
 
   if (!userId || !productType) {
     console.error("Missing userId or productType in session metadata");
@@ -105,6 +107,21 @@ async function handleOneTimePurchase(session: Stripe.Checkout.Session) {
     return;
   }
 
+  // If credits were applied, update the user_credits balance
+  // (credits were already deducted in create-checkout, but we confirm here)
+  if (creditsApplied > 0 && internalUserId) {
+    // Update lifetime_spent for the credits used
+    await supabase
+      .from("user_credits")
+      .update({
+        lifetime_spent: supabase.rpc 
+          ? supabase.rpc("add_user_credit", {}) // fallback 
+          : creditsApplied,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("user_id", internalUserId);
+  }
+
   // Record the purchase
   const { error } = await supabase.from("purchases").insert({
     user_id: user.id,
@@ -113,13 +130,14 @@ async function handleOneTimePurchase(session: Stripe.Checkout.Session) {
     stripe_checkout_session_id: session.id,
     stripe_payment_intent_id: session.payment_intent as string,
     amount_paid: (session.amount_total || 0) / 100,
+    credits_applied: creditsApplied,
     status: "completed",
   });
 
   if (error) {
     console.error("Error recording purchase:", error);
   } else {
-    console.log(`Purchase recorded: ${productType} for user ${userId}`);
+    console.log(`Purchase recorded: ${productType} for user ${userId} (credits applied: $${creditsApplied})`);
   }
 }
 

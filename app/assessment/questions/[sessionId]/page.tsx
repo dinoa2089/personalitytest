@@ -43,7 +43,7 @@ export default function QuestionPage() {
     const fetchQuestions = async () => {
       try {
         // Get assessment type from localStorage
-        const assessmentType = (localStorage.getItem(`assessment-type-${sessionId}`) || "full") as "quick" | "full";
+        const assessmentType = (localStorage.getItem(`assessment-type-${sessionId}`) || "full") as "quick" | "standard" | "full";
         
         const allQuestions = await loadQuestions();
         // Filter questions based on assessment type

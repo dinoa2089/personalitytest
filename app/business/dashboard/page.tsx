@@ -126,6 +126,12 @@ export default function BusinessDashboardPage() {
             </div>
             <div className="flex gap-2">
               <Button variant="outline" asChild>
+                <Link href="/business/teams">
+                  <Users className="mr-2 h-4 w-4" />
+                  Teams
+                </Link>
+              </Button>
+              <Button variant="outline" asChild>
                 <Link href="/business/settings">
                   <Settings className="mr-2 h-4 w-4" />
                   Settings
