@@ -185,6 +185,102 @@ export function isFeatureAvailable(
   return allowedPlans.includes(plan);
 }
 
+// Micro-transaction product types
+export type MicroProductType = "compatibility" | "career" | "frameworks" | "growth_plan" | "full_unlock";
+
+export interface MicroPurchaseStatus {
+  compatibility: boolean;
+  career: boolean;
+  frameworks: boolean;
+  growth_plan: boolean;
+  full_unlock: boolean;
+}
+
+/**
+ * Check if user has purchased a specific micro-transaction product
+ * Works on both client and server side
+ */
+export async function hasMicroPurchase(
+  userId: string | null,
+  sessionId: string | null,
+  productType: MicroProductType
+): Promise<boolean> {
+  if (!userId) return false;
+
+  // First check if they have a legacy subscription (backwards compat)
+  const hasPremium = await hasPremiumAccess(userId);
+  if (hasPremium) return true;
+
+  // Then check micro-purchases via API
+  try {
+    const baseUrl = typeof window !== "undefined" 
+      ? "" 
+      : process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+    
+    const url = new URL(`${baseUrl}/api/purchases/check`);
+    url.searchParams.set("userId", userId);
+    if (sessionId) {
+      url.searchParams.set("sessionId", sessionId);
+    }
+
+    const response = await fetch(url.toString());
+    if (!response.ok) return false;
+    
+    const data: MicroPurchaseStatus = await response.json();
+
+    if (data.full_unlock) return true;
+    return data[productType] || false;
+  } catch (error) {
+    console.error("Error checking micro-purchase:", error);
+    return false;
+  }
+}
+
+/**
+ * Get all micro-purchase statuses for a user
+ */
+export async function getMicroPurchaseStatus(
+  userId: string | null,
+  sessionId: string | null
+): Promise<MicroPurchaseStatus> {
+  const defaultStatus: MicroPurchaseStatus = {
+    compatibility: false,
+    career: false,
+    frameworks: false,
+    growth_plan: false,
+    full_unlock: false,
+  };
+
+  if (!userId) return defaultStatus;
+
+  try {
+    const baseUrl = typeof window !== "undefined" 
+      ? "" 
+      : process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+    
+    const url = new URL(`${baseUrl}/api/purchases/check`);
+    url.searchParams.set("userId", userId);
+    if (sessionId) {
+      url.searchParams.set("sessionId", sessionId);
+    }
+
+    const response = await fetch(url.toString());
+    if (!response.ok) return defaultStatus;
+    
+    const data = await response.json();
+    return {
+      compatibility: data.compatibility || false,
+      career: data.career || false,
+      frameworks: data.frameworks || false,
+      growth_plan: data.growth_plan || false,
+      full_unlock: data.full_unlock || false,
+    };
+  } catch (error) {
+    console.error("Error getting micro-purchase status:", error);
+    return defaultStatus;
+  }
+}
+
 /**
  * Check if user has premium unlock (via referral or other method)
  */

@@ -13,15 +13,23 @@ const faqs = [
   },
   {
     question: "How long does the assessment take?",
-    answer: "The Quick assessment takes about 7 minutes (35 questions), while the Full assessment takes about 15 minutes (125 questions). Choose the version that works best for you.",
+    answer: "The assessment uses a checkpoint system: Checkpoint 1 (PRISM-7 Profile) takes ~8 minutes with 35 questions. You can stop there or continue: Checkpoint 2 adds MBTI (+5 min), Checkpoint 3 adds Enneagram (+6 min), and Checkpoint 4 provides deep insights (+6 min). Total: ~25 minutes for the complete experience, but you get results at each checkpoint.",
+  },
+  {
+    question: "Can I stop and continue later?",
+    answer: "Absolutely! Your progress is automatically saved. You'll receive results at each checkpoint, and you can continue to unlock more insights whenever you're ready. The checkpoint system is designed so you can complete the assessment at your own pace.",
+  },
+  {
+    question: "What are the checkpoints?",
+    answer: "Checkpoints are milestones in your assessment journey. At each checkpoint, you receive your results for that stage: Checkpoint 1 gives you your PRISM-7 profile and archetype, Checkpoint 2 adds your MBTI type, Checkpoint 3 reveals your Enneagram, and Checkpoint 4 provides comprehensive deep-dive insights.",
   },
   {
     question: "Do I need to create an account?",
-    answer: "No, you can take the assessment as a guest. However, creating an account allows you to save your results, track changes over time, and access additional features.",
+    answer: "No, you can take the assessment as a guest. However, creating an account allows you to save your results permanently, track changes over time, and access additional features.",
   },
   {
     question: "How is this different from Myers-Briggs?",
-    answer: "Unlike Myers-Briggs which forces personality into 16 rigid categories, we use dimensional scoring that recognizes personality traits exist on continuous scales. This provides more nuanced and accurate results.",
+    answer: "Unlike Myers-Briggs which forces personality into 16 rigid categories, we use dimensional scoring that recognizes personality traits exist on continuous scales. This provides more nuanced and accurate results. Plus, we include MBTI mapping as one of our checkpoint unlocks!",
   },
   {
     question: "Can I retake the assessment?",
@@ -42,7 +50,7 @@ export default function FAQPage() {
           <div>
             <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
             <p className="text-lg text-muted-foreground">
-              Everything you need to know about Authentic Self
+              Everything you need to know about the PRISM-7 Personality Assessment
             </p>
           </div>
 
@@ -74,4 +82,3 @@ export default function FAQPage() {
     </div>
   );
 }
-

@@ -1,11 +1,24 @@
 /**
  * Mock scoring function for development/testing when Python API is not available
  * Generates realistic dimensional scores with percentiles and confidence intervals
+ * 
+ * Uses IRT-informed weighting:
+ * - effective_weight = type_weight × discrimination
+ * - score = sum(response × effective_weight) / sum(effective_weight)
+ * - confidence_margin = base_margin / sqrt(sum(discrimination²))
  */
 import type { QuestionResponse, DimensionScore, ForcedChoiceOption, Question, Dimension } from "@/types";
 
 // Import mock questions to access forced-choice options with dimension mappings
 import { mockQuestions } from "./mock-questions";
+
+// Question type base weights
+const TYPE_WEIGHTS: Record<string, number> = {
+  likert: 1.0,
+  forced_choice: 1.2,
+  situational_judgment: 1.3,
+  behavioral_frequency: 1.5,
+};
 
 /**
  * Type guard to check if options are ForcedChoiceOption[]
@@ -62,8 +75,28 @@ function getQuestionById(questionId: string): Question | undefined {
   return mockQuestions.find((q) => q.id === questionId);
 }
 
+/**
+ * Extended response with question metadata for IRT-informed scoring
+ */
+export interface ResponseWithMetadata extends QuestionResponse {
+  discrimination?: number;
+  difficulty?: number;
+}
+
+/**
+ * Calculate effective weight using IRT discrimination parameter
+ * effective_weight = type_weight × discrimination
+ */
+function getEffectiveWeight(questionType: string, discrimination: number = 1.0): number {
+  const typeWeight = TYPE_WEIGHTS[questionType] || 1.0;
+  return typeWeight * discrimination;
+}
+
+/**
+ * Main scoring function with IRT-informed discrimination weighting
+ */
 export function mockCalculateScores(
-  responses: QuestionResponse[],
+  responses: (QuestionResponse | ResponseWithMetadata)[],
   sessionId: string
 ): { dimensional_scores: DimensionScore[]; completed: boolean } {
   // Initialize score accumulators for each dimension
@@ -77,14 +110,34 @@ export function mockCalculateScores(
     "adaptability",
   ];
 
-  const dimensionScores: Record<string, { totalScore: number; totalWeight: number; count: number }> = {};
+  // Track both weighted scores and sum of discrimination² for confidence calculation
+  const dimensionScores: Record<string, { 
+    totalScore: number; 
+    totalWeight: number; 
+    count: number;
+    sumDiscriminationSquared: number;
+  }> = {};
+  
   for (const dim of dimensions) {
-    dimensionScores[dim] = { totalScore: 0, totalWeight: 0, count: 0 };
+    dimensionScores[dim] = { totalScore: 0, totalWeight: 0, count: 0, sumDiscriminationSquared: 0 };
   }
 
   // Process each response
   for (const response of responses) {
-    const weight = getQuestionWeight(response.question_type);
+    // Get discrimination from response metadata or question lookup
+    let discrimination = 1.0;
+    if ('discrimination' in response && response.discrimination !== undefined) {
+      discrimination = response.discrimination;
+    } else {
+      // Fallback: lookup from mock questions
+      const question = getQuestionById(response.question_id);
+      if (question?.discrimination !== undefined) {
+        discrimination = question.discrimination;
+      }
+    }
+
+    // Calculate effective weight using IRT formula
+    const effectiveWeight = getEffectiveWeight(response.question_type, discrimination);
 
     if (response.question_type === "forced_choice") {
       // Get the question to access its options
@@ -98,26 +151,29 @@ export function mockCalculateScores(
           if (dimensionScores[dimension]) {
             // Normalize forced-choice score: +2 becomes 8, 0 becomes 5, -1 becomes 3
             const normalizedScore = 5 + (score * 1.5); // Maps -1->3.5, 0->5, +2->8
-            dimensionScores[dimension].totalScore += normalizedScore * weight;
-            dimensionScores[dimension].totalWeight += weight;
+            dimensionScores[dimension].totalScore += normalizedScore * effectiveWeight;
+            dimensionScores[dimension].totalWeight += effectiveWeight;
             dimensionScores[dimension].count += 1;
+            dimensionScores[dimension].sumDiscriminationSquared += discrimination * discrimination;
           }
         }
       } else {
         // Fallback: old-style string options - score to primary dimension
         const score = scoreSimpleResponse(response);
         const dim = response.dimension;
-        dimensionScores[dim].totalScore += score * weight;
-        dimensionScores[dim].totalWeight += weight;
+        dimensionScores[dim].totalScore += score * effectiveWeight;
+        dimensionScores[dim].totalWeight += effectiveWeight;
         dimensionScores[dim].count += 1;
+        dimensionScores[dim].sumDiscriminationSquared += discrimination * discrimination;
       }
     } else {
       // Non-forced-choice: score to primary dimension
       const score = scoreSimpleResponse(response);
       const dim = response.dimension;
-      dimensionScores[dim].totalScore += score * weight;
-      dimensionScores[dim].totalWeight += weight;
+      dimensionScores[dim].totalScore += score * effectiveWeight;
+      dimensionScores[dim].totalWeight += effectiveWeight;
       dimensionScores[dim].count += 1;
+      dimensionScores[dim].sumDiscriminationSquared += discrimination * discrimination;
     }
   }
 
@@ -136,10 +192,14 @@ export function mockCalculateScores(
     // Calculate percentile (with some realistic variation)
     const percentile = calculatePercentile(normalizedScore, dimension);
 
-    // Calculate confidence interval (narrower with more responses)
-    const n = data.count;
-    const se = Math.max(2, 10 / Math.sqrt(Math.max(1, n))); // Standard error
-    const margin = 1.645 * se; // 90% confidence interval
+    // Calculate confidence interval using IRT-informed margin
+    // confidence_margin = base_margin / sqrt(sum(discrimination²))
+    const sumDiscSq = data.sumDiscriminationSquared;
+    const baseMargin = 10; // Base standard error
+    const irtAdjustedSE = sumDiscSq > 0 
+      ? Math.max(2, baseMargin / Math.sqrt(sumDiscSq))
+      : Math.max(2, baseMargin / Math.sqrt(Math.max(1, data.count)));
+    const margin = 1.645 * irtAdjustedSE; // 90% confidence interval
 
     const confidence_interval: [number, number] = [
       Math.max(0, percentile - margin),
@@ -161,13 +221,7 @@ export function mockCalculateScores(
 }
 
 function getQuestionWeight(questionType: string): number {
-  const weights: Record<string, number> = {
-    likert: 1.0,
-    forced_choice: 1.2,
-    situational_judgment: 1.3,
-    behavioral_frequency: 1.5,
-  };
-  return weights[questionType] || 1.0;
+  return TYPE_WEIGHTS[questionType] || 1.0;
 }
 
 /**

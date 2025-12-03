@@ -52,3 +52,5 @@ console.log('To use in content files, reference images like:');
 console.log(`const SUPABASE_IMG = "${SUPABASE_BASE}";`);
 console.log('image_url: `${SUPABASE_IMG}/person-id.jpg`');
 
+
+

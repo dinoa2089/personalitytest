@@ -1,10 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { recordQuestionHistory, incrementQuestionResponseCount } from "@/lib/question-history";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { sessionId, questionId, response, dimension, questionType, totalQuestions, currentProgress } = body;
+    const { 
+      sessionId, 
+      questionId, 
+      response, 
+      dimension, 
+      questionType, 
+      totalQuestions, 
+      currentProgress,
+      userId,           // Clerk user ID or anonymous identifier
+      responseTimeMs,   // Time taken to answer in milliseconds
+    } = body;
 
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -45,6 +56,32 @@ export async function POST(request: NextRequest) {
         })
         .eq("id", sessionId);
     }
+
+    // Track question history for IRT calibration and variety
+    // Extract numeric response value for tracking
+    let responseValue: number | undefined;
+    if (typeof response === "number") {
+      responseValue = response;
+    } else if (typeof response === "object" && response?.value !== undefined) {
+      responseValue = typeof response.value === "number" ? response.value : undefined;
+    }
+
+    // Use userId if provided, otherwise use session-based anonymous ID
+    const trackingUserId = userId || `anon_${sessionId}`;
+
+    // Fire-and-forget: don't block response on tracking
+    Promise.all([
+      recordQuestionHistory({
+        user_id: trackingUserId,
+        question_id: questionId,
+        session_id: sessionId,
+        response_value: responseValue,
+        response_time_ms: responseTimeMs,
+      }),
+      incrementQuestionResponseCount(questionId),
+    ]).catch(err => {
+      console.error("Error tracking question history:", err);
+    });
 
     return NextResponse.json({ success: true, response: data });
   } catch (error) {

@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { supabase } from "@/lib/supabase";
-import { getAppUrl } from "@/lib/app-url";
+import { calculateJobFit, normalizeJobProfile } from "@/lib/job-fit-scoring";
+import type { DimensionScore } from "@/types";
 
 export async function GET(request: NextRequest) {
   try {
@@ -100,25 +101,17 @@ export async function POST(request: NextRequest) {
     let fitBreakdown = null;
 
     if (jobPosting?.ideal_profile && result.dimensional_scores) {
-      // Calculate fit score
+      // Calculate fit score using TypeScript algorithm
       try {
-        const fitResponse = await fetch(
-          `${getAppUrl()}/api/business/applicants/score`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              applicant_scores: result.dimensional_scores,
-              ideal_profile: jobPosting.ideal_profile,
-            }),
-          }
+        const normalizedProfile = normalizeJobProfile(
+          jobPosting.ideal_profile as Record<string, unknown>
         );
-
-        if (fitResponse.ok) {
-          const fitData = await fitResponse.json();
-          fitScore = fitData.fit_result.overall_fit_score;
-          fitBreakdown = fitData.fit_result.fit_breakdown;
-        }
+        const fitResult = calculateJobFit(
+          result.dimensional_scores as DimensionScore[],
+          normalizedProfile
+        );
+        fitScore = fitResult.overallFit;
+        fitBreakdown = fitResult;
       } catch (error) {
         console.error("Error calculating fit score:", error);
         // Continue without fit score

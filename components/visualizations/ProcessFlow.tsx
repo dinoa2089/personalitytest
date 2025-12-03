@@ -26,10 +26,10 @@ const steps: Step[] = [
   {
     icon: ClipboardList,
     title: "Answer Questions",
-    subtitle: "35-125 questions",
-    description: "Choose quick (35 questions) or comprehensive (125 questions) assessment",
+    subtitle: "35-105 questions",
+    description: "Choose quick (35 questions) or comprehensive (105 questions) assessment",
     color: "#8B5CF6", // Purple
-    highlight: "7-15 min",
+    highlight: "8-25 min",
   },
   {
     icon: Brain,
@@ -182,7 +182,7 @@ export function ProcessFlow({
     >
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <Clock className="w-4 h-4 text-primary" />
-        <span>5-10 minutes total</span>
+        <span>8-25 minutes total</span>
       </div>
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <CheckCircle2 className="w-4 h-4 text-green-500" />

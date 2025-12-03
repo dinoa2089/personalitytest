@@ -173,3 +173,5 @@ export function CompatibilityMiniChart({
 
 export default CompatibilityMiniChart;
 
+
+

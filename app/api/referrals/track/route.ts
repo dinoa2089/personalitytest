@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
 const REFERRAL_UNLOCK_THRESHOLD = 3;
+const CREDIT_AMOUNT = 1.50;
 
 export async function POST(request: NextRequest) {
   try {
@@ -59,6 +60,7 @@ export async function POST(request: NextRequest) {
         referee_session_id: sessionId,
         referral_code: referralCode,
         completed_at: new Date().toISOString(),
+        credit_amount: CREDIT_AMOUNT,
       })
       .select()
       .single();
@@ -82,6 +84,9 @@ export async function POST(request: NextRequest) {
       .from("referral_codes")
       .update({ uses: (currentCode?.uses || 0) + 1 })
       .eq("id", codeData.id);
+
+    // Credit the referrer
+    await creditReferrer(codeData.user_id, referral.id, sessionId);
 
     // Check if threshold is met
     const { data: allReferrals } = await supabase
@@ -133,13 +138,65 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    return NextResponse.json({ success: true, completedCount });
+    return NextResponse.json({ success: true, completedCount, creditAmount: CREDIT_AMOUNT });
   } catch (error) {
     console.error("Error tracking referral:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
     );
+  }
+}
+
+async function creditReferrer(
+  referrerUserId: string,
+  referralId: string,
+  sessionId?: string
+): Promise<void> {
+  try {
+    // Get or create user credits
+    const { data: existingCredits } = await supabase
+      .from("user_credits")
+      .select("*")
+      .eq("user_id", referrerUserId)
+      .single();
+
+    if (existingCredits) {
+      // Update existing balance
+      await supabase
+        .from("user_credits")
+        .update({
+          balance: Number(existingCredits.balance) + CREDIT_AMOUNT,
+          lifetime_earned: Number(existingCredits.lifetime_earned) + CREDIT_AMOUNT,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("user_id", referrerUserId);
+    } else {
+      // Create new credit record
+      await supabase.from("user_credits").insert({
+        user_id: referrerUserId,
+        balance: CREDIT_AMOUNT,
+        lifetime_earned: CREDIT_AMOUNT,
+        lifetime_spent: 0,
+      });
+    }
+
+    // Log the credit transaction
+    await supabase.from("credit_transactions").insert({
+      user_id: referrerUserId,
+      amount: CREDIT_AMOUNT,
+      type: "referral_bonus",
+      description: "Friend completed assessment",
+      reference_id: sessionId || referralId,
+    });
+
+    // Mark referral as credited
+    await supabase
+      .from("referrals")
+      .update({ credited_at: new Date().toISOString() })
+      .eq("id", referralId);
+  } catch (error) {
+    console.error("Error crediting referrer:", error);
   }
 }
 

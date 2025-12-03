@@ -29,7 +29,13 @@ export interface Question {
   reverse_scored?: boolean;
   weight?: number;
   framework_tags?: string[]; // e.g., ["mbti_ei", "enneagram_9"]
-  discrimination?: number; // IRT parameter, default 1.0
+  // IRT (Item Response Theory) parameters
+  discrimination?: number; // How well the item differentiates high/low scorers (default 1.0)
+  difficulty?: number; // Where on trait continuum item provides most info (-3 to +3, default 0)
+  // Metadata
+  is_core?: boolean; // Core questions always included, supplementary randomly sampled
+  context?: string; // Situational context: work, social, personal, stress, general
+  response_count?: number; // Times this question has been answered (for calibration)
 }
 
 export interface QuestionResponse {

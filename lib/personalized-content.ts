@@ -285,3 +285,5 @@ export function getRelatedTypes(archetypeId: string): string[] {
   return relatedArchetypes[archetypeId] || ["innovator", "architect", "catalyst"];
 }
 
+
+

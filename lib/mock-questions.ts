@@ -2,7 +2,7 @@
  * Mock question data for development/testing when Supabase is not available
  * Based on the complete question bank
  */
-import type { Question } from "@/types";
+import type { Question, ForcedChoiceOption } from "@/types";
 
 export const mockQuestions: Question[] = [
   // Openness to Experience (5 questions)
@@ -28,10 +28,10 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "openness",
     options: [
-      "I enjoy philosophical discussions",
-      "I appreciate practical solutions",
-      "I value artistic expression",
-    ],
+      { text: "I enjoy philosophical discussions and exploring abstract ideas", dimension: "openness" },
+      { text: "I prefer practical, proven approaches to solving problems", dimension: "conscientiousness" },
+      { text: "I like to engage others in collaborative brainstorming", dimension: "extraversion" },
+    ] as ForcedChoiceOption[],
     weight: 1.2,
   },
   {
@@ -77,10 +77,10 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "conscientiousness",
     options: [
-      "I keep my belongings neat and organized",
-      "I complete tasks well ahead of deadlines",
-      "I follow rules and procedures carefully",
-    ],
+      { text: "I keep my environment organized and clutter-free", dimension: "conscientiousness" },
+      { text: "I help others stay on track with their commitments", dimension: "agreeableness" },
+      { text: "I seek innovative methods to improve efficiency", dimension: "adaptability" },
+    ] as ForcedChoiceOption[],
     weight: 1.2,
   },
   {
@@ -126,10 +126,10 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "extraversion",
     options: [
-      "I enjoy being the center of attention",
-      "I prefer deep one-on-one conversations",
-      "I feel comfortable in large social gatherings",
-    ],
+      { text: "I enjoy being the center of attention at gatherings", dimension: "extraversion" },
+      { text: "I prefer meaningful connections over many acquaintances", dimension: "agreeableness" },
+      { text: "I like exploring new ideas and perspectives on my own", dimension: "openness" },
+    ] as ForcedChoiceOption[],
     weight: 1.2,
   },
   {
@@ -175,10 +175,10 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "agreeableness",
     options: [
-      "I avoid conflict at all costs",
-      "I stand firm on my principles even if it creates tension",
-      "I try to find compromise in disagreements",
-    ],
+      { text: "I avoid conflict to maintain harmony in relationships", dimension: "agreeableness" },
+      { text: "I stand firm on my principles even under pressure", dimension: "honestyHumility" },
+      { text: "I adapt my approach based on the situation at hand", dimension: "adaptability" },
+    ] as ForcedChoiceOption[],
     weight: 1.2,
   },
   {
@@ -224,10 +224,10 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "emotionalResilience",
     options: [
-      "I worry about potential problems before they happen",
-      "I recover quickly from disappointments",
-      "I maintain emotional stability regardless of circumstances",
-    ],
+      { text: "I anticipate problems and plan ahead to prevent them", dimension: "conscientiousness" },
+      { text: "I recover quickly from disappointments and setbacks", dimension: "emotionalResilience" },
+      { text: "I see challenges as opportunities to grow and learn", dimension: "adaptability" },
+    ] as ForcedChoiceOption[],
     weight: 1.2,
   },
   {
@@ -274,10 +274,10 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "honestyHumility",
     options: [
-      "I'm entitled to special treatment sometimes",
-      "I value fairness above personal gain",
-      "I'm comfortable admitting when I don't know something",
-    ],
+      { text: "I expect recognition and praise for my achievements", dimension: "extraversion" },
+      { text: "I value fairness above personal gain", dimension: "honestyHumility" },
+      { text: "I'm comfortable admitting when I don't know something", dimension: "openness" },
+    ] as ForcedChoiceOption[],
     weight: 1.2,
   },
   {
@@ -323,10 +323,10 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "adaptability",
     options: [
-      "I thrive in rapidly changing environments",
-      "I prefer stability and predictability",
-      "I enjoy learning new approaches to familiar tasks",
-    ],
+      { text: "I thrive in rapidly changing environments", dimension: "adaptability" },
+      { text: "I prefer structured routines and clear expectations", dimension: "conscientiousness" },
+      { text: "I enjoy exploring new ideas and perspectives", dimension: "openness" },
+    ] as ForcedChoiceOption[],
     weight: 1.2,
   },
   {
@@ -349,7 +349,7 @@ export const mockQuestions: Question[] = [
     weight: 1.5,
   },
 
-  // Additional questions to reach 50-70 total (adding 15-35 more questions)
+  // Additional questions for expanded coverage (mock data has 56 total)
   // Openness to Experience (additional 3 questions)
   {
     id: "mock-openness-6",
@@ -394,10 +394,10 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "conscientiousness",
     options: [
-      "I always arrive early to appointments",
-      "I complete tasks thoroughly before moving on",
-      "I maintain detailed records of important information",
-    ],
+      { text: "I always arrive early to appointments and meetings", dimension: "conscientiousness" },
+      { text: "I build rapport with people easily and naturally", dimension: "extraversion" },
+      { text: "I stay calm even when deadlines are tight", dimension: "emotionalResilience" },
+    ] as ForcedChoiceOption[],
     weight: 1.2,
   },
   {
@@ -481,10 +481,10 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "emotionalResilience",
     options: [
-      "I stay composed and optimistic under pressure",
-      "I analyze setbacks methodically to prevent future issues",
-      "I quickly pivot and find new approaches when things go wrong",
-    ],
+      { text: "I stay composed and optimistic under pressure", dimension: "emotionalResilience" },
+      { text: "I analyze setbacks methodically to prevent future issues", dimension: "conscientiousness" },
+      { text: "I quickly pivot and find new approaches when things go wrong", dimension: "adaptability" },
+    ] as ForcedChoiceOption[],
     weight: 1.2,
   },
   {
@@ -554,4 +554,3 @@ export const mockQuestions: Question[] = [
     weight: 1.2,
   },
 ];
-

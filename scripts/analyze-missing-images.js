@@ -163,3 +163,5 @@ const missingForUpload = [...new Set([...archetypeMissing, ...mbtiMissing, ...en
 fs.writeFileSync(path.join(__dirname, 'missing-images.json'), JSON.stringify(missingForUpload, null, 2));
 console.log(`✅ Wrote ${missingForUpload.length} missing images to scripts/missing-images.json`);
 
+
+

@@ -566,7 +566,7 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                 </h2>
                 <p className="text-base sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto">
                   Take our scientifically-validated personality assessment to discover 
-                  your true type. It's free and takes just 10 minutes.
+                  your true type. Free results in ~8 minutes, go deeper anytime.
                 </p>
                 <Button asChild size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6">
                   <Link href="/assessment/intro">

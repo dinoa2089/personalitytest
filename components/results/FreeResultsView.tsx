@@ -15,7 +15,10 @@ import {
   Zap,
   UserPlus,
   MessageSquare,
-  ChevronDown
+  ChevronDown,
+  Heart,
+  Layers,
+  Crown,
 } from "lucide-react";
 import { calculateArchetype } from "@/lib/archetypes";
 import { PersonalityRadarChart } from "./RadarChart";
@@ -28,9 +31,12 @@ import { JourneyNavigator } from "./JourneyNavigator";
 import { PersonalizedEmailCapture } from "./PersonalizedEmailCapture";
 import { FamousExamplesGrid } from "@/components/personality/FamousExamplesGrid";
 import { CompactMarkdown } from "@/components/ui/markdown-text";
+import { FeatureUpsell, FullUnlockBanner } from "@/components/pricing/FeatureUpsell";
 import type { DimensionScore } from "@/types";
 import Link from "next/link";
 import { useState } from "react";
+import { useUser } from "@clerk/nextjs";
+import { toast } from "react-hot-toast";
 
 interface FreeResultsViewProps {
   scores: DimensionScore[];
@@ -39,6 +45,44 @@ interface FreeResultsViewProps {
 
 export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
   const { primary } = calculateArchetype(scores);
+  const { user } = useUser();
+  const [purchaseLoading, setPurchaseLoading] = useState<string | null>(null);
+
+  const handlePurchase = async (productKey: string) => {
+    if (!user?.id) {
+      toast.error("Please sign in to purchase");
+      return;
+    }
+
+    setPurchaseLoading(productKey);
+    try {
+      const response = await fetch("/api/stripe/create-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          plan: productKey,
+          userId: user.id,
+          sessionId: sessionId,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        toast.error(data.error);
+        return;
+      }
+
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      toast.error("Failed to start checkout");
+    } finally {
+      setPurchaseLoading(null);
+    }
+  };
 
   const dimensionLabels: Record<string, string> = {
     openness: "Openness",
@@ -221,6 +265,24 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
         <SimpleJobAnalysis archetype={primary} scores={scores} />
       </motion.div>
 
+      {/* Career Deep Dive Upsell */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.65 }}
+      >
+        <FeatureUpsell
+          title="See All 15+ Career Matches"
+          description="Including salary ranges, growth trends, and personalized interview tips for each role"
+          price="$3.99"
+          productKey="career"
+          icon={Briefcase}
+          onPurchase={handlePurchase}
+          loading={purchaseLoading === "career"}
+          accentColor="blue"
+        />
+      </motion.div>
+
       {/* Work Style Summary */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -296,100 +358,149 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
         </Card>
       </motion.div>
 
+      {/* Compatibility Report Upsell */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.92 }}
+      >
+        <FeatureUpsell
+          title="Unlock Full Compatibility Details"
+          description="Get detailed relationship insights, communication tips, and conflict resolution strategies"
+          price="$2.99"
+          productKey="compatibility"
+          icon={Heart}
+          onPurchase={handlePurchase}
+          loading={purchaseLoading === "compatibility"}
+          variant="compact"
+          accentColor="pink"
+        />
+      </motion.div>
+
       {/* Personalized Email Capture */}
       <PersonalizedEmailCapture archetype={primary} />
 
-      {/* Premium Upgrade CTA */}
+      {/* Micro-Transaction Upgrade Options */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.0 }}
+        className="space-y-4"
       >
-        <Card className="rounded-2xl border-2 border-dashed border-violet-500/50 bg-gradient-to-br from-violet-950/10 to-fuchsia-950/10">
+        {/* Full Unlock Banner */}
+        <FullUnlockBanner
+          onPurchase={handlePurchase}
+          loading={purchaseLoading === "full_unlock"}
+        />
+
+        {/* Individual Options Card */}
+        <Card className="rounded-2xl border border-slate-800 bg-slate-900/50">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20">
-                <Lock className="h-6 w-6 text-violet-400" />
+                <Sparkles className="h-6 w-6 text-violet-400" />
               </div>
               <div className="flex-1">
-                <CardTitle className="text-2xl md:text-3xl font-bold">
-                  Go Even Deeper
+                <CardTitle className="text-2xl font-bold">
+                  Or Pick What You Need
                 </CardTitle>
                 <CardDescription className="text-base mt-1">
-                  Unlock detailed analysis and personalized insights
+                  Pay only for the insights you want
                 </CardDescription>
               </div>
             </div>
           </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
-                <Sparkles className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
+          <CardContent className="space-y-3">
+            {/* Framework Bundle */}
+            <div className="flex items-center justify-between p-4 rounded-xl bg-purple-950/20 border border-purple-500/20 hover:border-purple-500/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-500/20">
+                  <Layers className="h-5 w-5 text-purple-400" />
+                </div>
                 <div>
-                  <div className="font-semibold mb-1">Deep Framework Analysis</div>
-                  <div className="text-sm text-muted-foreground">
-                    Cognitive functions, wings, tritype details & more
-                  </div>
+                  <div className="font-semibold">Framework Bundle</div>
+                  <div className="text-sm text-muted-foreground">Full MBTI + Enneagram + DISC details</div>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
-                <Briefcase className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold mb-1">15+ Career Matches</div>
-                  <div className="text-sm text-muted-foreground">
-                    Detailed job fits with salary ranges
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
-                <Users className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold mb-1">Full Compatibility</div>
-                  <div className="text-sm text-muted-foreground">
-                    Work, romantic, friendship, and parenting modes
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
-                <Zap className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold mb-1">Dark Triad Analysis</div>
-                  <div className="text-sm text-muted-foreground">
-                    Understand your shadow side
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
-                <TrendingUp className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold mb-1">30-Day Growth Plan</div>
-                  <div className="text-sm text-muted-foreground">
-                    Personalized development challenges
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 p-4 rounded-lg bg-violet-500/5 border border-violet-500/10">
-                <Download className="h-5 w-5 text-violet-400 mt-0.5 flex-shrink-0" />
-                <div>
-                  <div className="font-semibold mb-1">PDF Export</div>
-                  <div className="text-sm text-muted-foreground">
-                    Professional report to share
-                  </div>
-                </div>
-              </div>
+              <Button
+                size="sm"
+                className="bg-purple-600 hover:bg-purple-700"
+                onClick={() => handlePurchase("frameworks")}
+                disabled={purchaseLoading === "frameworks"}
+              >
+                {purchaseLoading === "frameworks" ? "..." : "$2.99"}
+              </Button>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <Button asChild size="lg" className="flex-1 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 border-0">
-                <Link href="/pricing">
-                  Unlock Premium - $14.99
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+            {/* Career Deep Dive */}
+            <div className="flex items-center justify-between p-4 rounded-xl bg-blue-950/20 border border-blue-500/20 hover:border-blue-500/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/20">
+                  <Briefcase className="h-5 w-5 text-blue-400" />
+                </div>
+                <div>
+                  <div className="font-semibold">Career Deep Dive</div>
+                  <div className="text-sm text-muted-foreground">15+ careers with salaries & growth</div>
+                </div>
+              </div>
+              <Button
+                size="sm"
+                className="bg-blue-600 hover:bg-blue-700"
+                onClick={() => handlePurchase("career")}
+                disabled={purchaseLoading === "career"}
+              >
+                {purchaseLoading === "career" ? "..." : "$3.99"}
               </Button>
-              <Button asChild variant="outline" size="lg" className="flex-1 border-violet-500/30 text-violet-300 hover:bg-violet-500/10">
-                <Link href={`/referrals?session=${sessionId}`}>
-                  Unlock Free via Referrals
-                  <Users className="ml-2 h-4 w-4" />
+            </div>
+
+            {/* Growth Plan */}
+            <div className="flex items-center justify-between p-4 rounded-xl bg-green-950/20 border border-green-500/20 hover:border-green-500/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500/20">
+                  <TrendingUp className="h-5 w-5 text-green-400" />
+                </div>
+                <div>
+                  <div className="font-semibold">Growth Plan</div>
+                  <div className="text-sm text-muted-foreground">30-day personalized challenges</div>
+                </div>
+              </div>
+              <Button
+                size="sm"
+                className="bg-green-600 hover:bg-green-700"
+                onClick={() => handlePurchase("growth_plan")}
+                disabled={purchaseLoading === "growth_plan"}
+              >
+                {purchaseLoading === "growth_plan" ? "..." : "$2.99"}
+              </Button>
+            </div>
+
+            {/* Compatibility */}
+            <div className="flex items-center justify-between p-4 rounded-xl bg-pink-950/20 border border-pink-500/20 hover:border-pink-500/40 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-pink-500/20">
+                  <Heart className="h-5 w-5 text-pink-400" />
+                </div>
+                <div>
+                  <div className="font-semibold">Compatibility Report</div>
+                  <div className="text-sm text-muted-foreground">Detailed comparison with a friend</div>
+                </div>
+              </div>
+              <Button
+                size="sm"
+                className="bg-pink-600 hover:bg-pink-700"
+                onClick={() => handlePurchase("compatibility")}
+                disabled={purchaseLoading === "compatibility"}
+              >
+                {purchaseLoading === "compatibility" ? "..." : "$2.99"}
+              </Button>
+            </div>
+
+            {/* View All Pricing Link */}
+            <div className="text-center pt-4">
+              <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+                <Link href={`/pricing?session=${sessionId}`}>
+                  View All Pricing Options
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -399,3 +510,4 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
     </div>
   );
 }
+

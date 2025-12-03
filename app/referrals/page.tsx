@@ -4,8 +4,10 @@ import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/layout/Container";
 import { ReferralDashboard } from "@/components/referrals/ReferralDashboard";
 import { PremiumUnlockNotification } from "@/components/referrals/PremiumUnlockNotification";
+import { CreditBalance } from "@/components/referrals/CreditBalance";
+import { ShareForCredits } from "@/components/referrals/ShareForCredits";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Sparkles, Users, Gift, TrendingUp } from "lucide-react";
+import { Sparkles, Users, Gift, TrendingUp, Coins } from "lucide-react";
 
 export default function ReferralsPage() {
   return (
@@ -16,11 +18,17 @@ export default function ReferralsPage() {
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="text-center space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold">
-              Unlock Premium for Free
+              Referrals & Credits
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Share your assessment with friends and unlock premium features when they complete it
+              Share your assessment with friends, earn credits, and unlock premium features
             </p>
+          </div>
+
+          {/* Credit Balance Section */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <CreditBalance showTransactions />
+            <ShareForCredits />
           </div>
 
           <ReferralDashboard />
@@ -29,16 +37,16 @@ export default function ReferralsPage() {
             <Card>
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
-                  <Users className="h-5 w-5 text-primary" />
-                  <CardTitle>Share & Earn</CardTitle>
+                  <Coins className="h-5 w-5 text-amber-500" />
+                  <CardTitle>Earn Credits</CardTitle>
                 </div>
                 <CardDescription>
-                  Share your unique referral link with friends
+                  Get $1.50 for each friend who completes the assessment
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  When your friends complete the assessment using your link, it counts toward your unlock goal.
+                  Share your link, earn credits when friends complete their assessment. No limits!
                 </p>
               </CardContent>
             </Card>
@@ -50,12 +58,12 @@ export default function ReferralsPage() {
                   <CardTitle>Track Progress</CardTitle>
                 </div>
                 <CardDescription>
-                  See how many friends have completed the assessment
+                  Monitor your referrals and credit balance
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Monitor your progress toward unlocking premium features in real-time.
+                  See your credit history and track referrals in real-time.
                 </p>
               </CardContent>
             </Card>
@@ -64,15 +72,15 @@ export default function ReferralsPage() {
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Gift className="h-5 w-5 text-primary" />
-                  <CardTitle>Unlock Premium</CardTitle>
+                  <CardTitle>Free Unlocks</CardTitle>
                 </div>
                 <CardDescription>
-                  Get full access when 3 friends complete the assessment
+                  Use credits at checkout or unlock for free with 3 referrals
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Once unlocked, you'll have permanent access to all premium features including detailed insights and comparisons.
+                  Apply credits to any purchase, or get permanent premium when 3 friends complete the assessment.
                 </p>
               </CardContent>
             </Card>

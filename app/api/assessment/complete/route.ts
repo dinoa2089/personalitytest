@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { calculateScores } from "@/lib/scoring-api";
 import { getAppUrl } from "@/lib/app-url";
+import { updateQuestionStatistics } from "@/lib/question-statistics";
+import { incrementResponseCountBatch } from "@/lib/question-history";
 
 export async function POST(request: NextRequest) {
   try {
@@ -10,6 +12,16 @@ export async function POST(request: NextRequest) {
 
     // Calculate scores (will use mock if Python API unavailable)
     const scores = await calculateScores(responses, sessionId);
+
+    // Fire-and-forget: Update question statistics for IRT calibration
+    // This doesn't block the response to the user
+    const questionIds = responses.map((r: { question_id: string }) => r.question_id);
+    Promise.all([
+      updateQuestionStatistics(responses),
+      incrementResponseCountBatch(questionIds),
+    ]).catch(err => {
+      console.error("Error updating question statistics:", err);
+    });
 
     // Check if Supabase is configured
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -100,12 +112,33 @@ export async function POST(request: NextRequest) {
           const jobToken = body.jobToken;
           if (jobToken) {
             try {
-              // Find job posting by assessment_link_token
-              const { data: jobPosting } = await supabase
-                .from("job_postings")
-                .select("id, ideal_profile")
-                .eq("assessment_link_token", jobToken)
+              // First, try to increment usage in job_assessment_links table
+              await supabase.rpc("increment_link_usage", { link_token: jobToken });
+
+              // Try to find job via job_assessment_links first
+              let jobPosting = null;
+              const { data: linkData } = await supabase
+                .from("job_assessment_links")
+                .select("job_posting_id")
+                .eq("token", jobToken)
                 .single();
+
+              if (linkData) {
+                const { data: job } = await supabase
+                  .from("job_postings")
+                  .select("id, ideal_profile")
+                  .eq("id", linkData.job_posting_id)
+                  .single();
+                jobPosting = job;
+              } else {
+                // Fallback: Find job posting by legacy assessment_link_token
+                const { data: job } = await supabase
+                  .from("job_postings")
+                  .select("id, ideal_profile")
+                  .eq("assessment_link_token", jobToken)
+                  .single();
+                jobPosting = job;
+              }
 
               if (jobPosting) {
                 // Create applicant assessment (this will calculate fit score automatically)

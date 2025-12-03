@@ -8,9 +8,9 @@ import { Container } from "@/components/layout/Container";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Copy, ExternalLink, Edit, Users } from "lucide-react";
-import { toast } from "react-hot-toast";
+import { Edit, Users } from "lucide-react";
 import Link from "next/link";
+import { JobLinkManager } from "@/components/business/JobLinkManager";
 
 interface JobPosting {
   id: string;
@@ -53,24 +53,6 @@ export default function JobPostingDetailPage() {
     }
   }, [jobId]);
 
-  // For client components, use window.location or fallback
-  const getBaseUrl = () => {
-    if (typeof window !== 'undefined') {
-      return window.location.origin;
-    }
-    return process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  };
-  
-  const assessmentLink = jobPosting
-    ? `${getBaseUrl()}/assessment/intro?job=${jobPosting.assessment_link_token}`
-    : "";
-
-  const copyAssessmentLink = () => {
-    if (assessmentLink) {
-      navigator.clipboard.writeText(assessmentLink);
-      toast.success("Assessment link copied!");
-    }
-  };
 
   if (loading) {
     return (
@@ -186,32 +168,7 @@ export default function JobPostingDetailPage() {
             </Card>
           )}
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Applicant Assessment Link</CardTitle>
-              <CardDescription>
-                Share this link with applicants to take the assessment for this position
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex gap-2">
-                <div className="flex-1 flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-3 py-2 text-sm">
-                  <span className="flex-1 truncate">{assessmentLink}</span>
-                </div>
-                <Button variant="outline" size="icon" onClick={copyAssessmentLink}>
-                  <Copy className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" asChild>
-                  <a href={assessmentLink} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                When applicants complete the assessment using this link, their results will be automatically matched against this job posting's ideal profile.
-              </p>
-            </CardContent>
-          </Card>
+          <JobLinkManager jobId={jobId} />
         </div>
       </Container>
     </div>

@@ -1,10 +1,27 @@
 /**
  * Question loading and management utilities
+ * Updated to use the new question selection algorithm with coverage guarantees
  */
 import { supabase } from "./supabase";
 import { mockQuestions } from "./mock-questions";
+import {
+  selectQuestions,
+  selectQuestionsForUser,
+  validateSelection,
+  getSelectionStats,
+  type AssessmentTier,
+  type RequestedFramework,
+  TIER_CONFIGS,
+} from "./question-selection";
 import type { Question } from "@/types";
 
+// Re-export types and configs for convenience
+export type { AssessmentTier, RequestedFramework };
+export { TIER_CONFIGS, getSelectionStats, validateSelection };
+
+/**
+ * Load all questions from the database
+ */
 export async function loadQuestions(): Promise<Question[]> {
   // Check if Supabase is configured
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -42,6 +59,8 @@ export async function loadQuestions(): Promise<Question[]> {
       options: q.options ? (Array.isArray(q.options) ? q.options : []) : undefined,
       reverse_scored: q.reverse_scored || false,
       weight: q.weight || 1.0,
+      framework_tags: q.framework_tags || [],
+      discrimination: q.discrimination || 1.0,
     }));
   } catch (error) {
     console.error("Exception loading questions:", error);
@@ -50,6 +69,32 @@ export async function loadQuestions(): Promise<Question[]> {
   }
 }
 
+/**
+ * Load and select questions for an assessment based on tier and frameworks
+ */
+export async function loadQuestionsForAssessment(
+  tier: AssessmentTier = "standard",
+  frameworks: RequestedFramework[] = ["prism"]
+): Promise<Question[]> {
+  const questionBank = await loadQuestions();
+  return selectQuestions(questionBank, tier, frameworks);
+}
+
+/**
+ * Load and select questions for a specific user, optionally excluding previously seen
+ */
+export async function loadQuestionsForUser(
+  tier: AssessmentTier = "standard",
+  frameworks: RequestedFramework[] = ["prism"],
+  excludeQuestionIds: string[] = []
+): Promise<Question[]> {
+  const questionBank = await loadQuestions();
+  return selectQuestionsForUser(questionBank, tier, frameworks, excludeQuestionIds);
+}
+
+/**
+ * Get questions filtered by dimension
+ */
 export function getQuestionByDimension(
   questions: Question[],
   dimension: Question["dimension"]
@@ -57,6 +102,9 @@ export function getQuestionByDimension(
   return questions.filter((q) => q.dimension === dimension);
 }
 
+/**
+ * Fisher-Yates shuffle
+ */
 export function shuffleQuestions(questions: Question[]): Question[] {
   const shuffled = [...questions];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -67,9 +115,8 @@ export function shuffleQuestions(questions: Question[]): Question[] {
 }
 
 /**
- * Filter questions based on assessment type
- * Quick: 35 questions with at least 5 per dimension for accuracy
- * Full: All questions
+ * Legacy filter function - now uses the selection algorithm internally
+ * Kept for backward compatibility
  */
 export function filterQuestionsByType(
   questions: Question[],
@@ -79,99 +126,42 @@ export function filterQuestionsByType(
     return questions;
   }
   
-  // For quick assessment:
-  // - Target: 35 questions total
-  // - Minimum: 5 questions per dimension (7 dimensions = 35 minimum)
-  // - Prioritize: Higher weighted questions and diverse question types
-  
-  const TARGET_TOTAL = 35;
-  const MIN_PER_DIMENSION = 5;
-  
-  const dimensions = [
-    "openness",
-    "conscientiousness", 
-    "extraversion",
-    "agreeableness",
-    "emotionalResilience",
-    "honestyHumility",
-    "adaptability",
-  ];
-  
-  // Group questions by dimension
-  const questionsByDimension: Record<string, Question[]> = {};
-  for (const dim of dimensions) {
-    questionsByDimension[dim] = questions.filter(q => q.dimension === dim);
-  }
-  
-  // Sort each dimension's questions by weight and discriminating power
-  for (const dim of dimensions) {
-    questionsByDimension[dim].sort((a, b) => {
-      // Prioritize by weight first
-      const weightDiff = (b.weight || 1.0) - (a.weight || 1.0);
-      if (weightDiff !== 0) return weightDiff;
-      
-      // Then by question type (behavioral_frequency > situational_judgment > forced_choice > likert)
-      const typeOrder: Record<string, number> = {
-        behavioral_frequency: 4,
-        situational_judgment: 3,
-        forced_choice: 2,
-        likert: 1,
-      };
-      const aTypeScore = typeOrder[a.type] || 0;
-      const bTypeScore = typeOrder[b.type] || 0;
-      if (aTypeScore !== bTypeScore) return bTypeScore - aTypeScore;
-      
-      // Finally by order_index
-      const aOrder = (a as any).order_index || 999;
-      const bOrder = (b as any).order_index || 999;
-      return aOrder - bOrder;
-    });
-  }
-  
-  const selected: Question[] = [];
-  const dimensionCounts: Record<string, number> = {};
-  
-  // First pass: Ensure minimum questions per dimension
-  for (const dim of dimensions) {
-    dimensionCounts[dim] = 0;
-    const dimQuestions = questionsByDimension[dim];
-    
-    for (let i = 0; i < Math.min(MIN_PER_DIMENSION, dimQuestions.length); i++) {
-      selected.push(dimQuestions[i]);
-      dimensionCounts[dim]++;
-    }
-  }
-  
-  // Second pass: Fill remaining slots with best remaining questions
-  // Prioritize dimensions that might need more differentiation
-  if (selected.length < TARGET_TOTAL) {
-    const remaining: Question[] = [];
-    
-    for (const dim of dimensions) {
-      const dimQuestions = questionsByDimension[dim];
-      // Add questions beyond the minimum that we haven't selected yet
-      for (let i = MIN_PER_DIMENSION; i < dimQuestions.length; i++) {
-        remaining.push(dimQuestions[i]);
-      }
-    }
-    
-    // Sort remaining by weight
-    remaining.sort((a, b) => (b.weight || 1.0) - (a.weight || 1.0));
-    
-    // Add best remaining questions up to target
-    for (const q of remaining) {
-      if (selected.length >= TARGET_TOTAL) break;
-      
-      // Don't add too many from one dimension (max 7 per dimension for balance)
-      const dim = q.dimension;
-      if ((dimensionCounts[dim] || 0) < 7) {
-        selected.push(q);
-        dimensionCounts[dim] = (dimensionCounts[dim] || 0) + 1;
-      }
-    }
-  }
-  
-  // Shuffle to avoid predictable ordering while maintaining selection
-  return shuffleQuestions(selected);
+  // Map legacy "quick" to new "quick" tier
+  return selectQuestions(questions, "quick", ["prism"]);
 }
 
+/**
+ * Get assessment configuration for a tier
+ */
+export function getAssessmentConfig(tier: AssessmentTier) {
+  const config = TIER_CONFIGS[tier];
+  return {
+    tier,
+    totalQuestions: config.totalQuestions,
+    estimatedMinutes: Math.ceil(config.totalQuestions * 0.5), // ~30 seconds per question
+    minQuestionsPerDimension: config.minPerPrismDimension,
+    includesMbti: config.minPerMbtiDimension > 0,
+    includesEnneagram: config.minPerEnneagramType > 0,
+    description: getTierDescription(tier),
+  };
+}
+
+function getTierDescription(tier: AssessmentTier): string {
+  switch (tier) {
+    case "quick":
+      return "A brief assessment providing core PRISM-7 dimensional scores. Ideal for time-constrained situations.";
+    case "standard":
+      return "A balanced assessment with PRISM-7 scores and MBTI type mapping. Recommended for most users.";
+    case "comprehensive":
+      return "The most detailed assessment including PRISM-7, MBTI, and Enneagram mappings. Best for deep self-understanding.";
+  }
+}
+
+/**
+ * Get all available tiers and their configurations
+ */
+export function getAvailableTiers() {
+  return Object.keys(TIER_CONFIGS).map((tier) =>
+    getAssessmentConfig(tier as AssessmentTier)
+  );
+}

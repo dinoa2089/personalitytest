@@ -10,13 +10,20 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAssessmentStore } from "@/store/assessment-store";
 import { ProcessFlow, DimensionsWheel } from "@/components/visualizations";
+import { CHECKPOINTS } from "@/lib/checkpoint-logic";
+import { AlertCircle, Briefcase, Building2, Clock, XCircle } from "lucide-react";
 
-type AssessmentType = "quick" | "full";
+type AssessmentType = "quick" | "standard" | "full";
 
 interface JobPostingInfo {
   id: string;
   title: string;
   company_name?: string;
+}
+
+interface LinkError {
+  message: string;
+  type: "expired" | "maxed" | "invalid" | "deactivated";
 }
 
 function AssessmentIntroContent() {
@@ -27,6 +34,7 @@ function AssessmentIntroContent() {
   const [selectedType, setSelectedType] = useState<AssessmentType | null>(null);
   const [jobToken, setJobToken] = useState<string | null>(null);
   const [jobInfo, setJobInfo] = useState<JobPostingInfo | null>(null);
+  const [linkError, setLinkError] = useState<LinkError | null>(null);
   const [loadingJobInfo, setLoadingJobInfo] = useState(false);
   const [applicantEmail, setApplicantEmail] = useState("");
   const [applicantName, setApplicantName] = useState("");
@@ -53,20 +61,43 @@ function AssessmentIntroContent() {
 
   const fetchJobInfo = async (token: string) => {
     setLoadingJobInfo(true);
+    setLinkError(null);
     try {
       const response = await fetch(`/api/business/jobs/by-token?token=${token}`);
-      if (response.ok) {
-        const data = await response.json();
+      const data = await response.json();
+      
+      if (response.ok && data.valid) {
         const jobPosting = data.job_posting;
         setJobInfo({
           id: jobPosting.id,
           title: jobPosting.title,
-          company_name: jobPosting.business_accounts?.company_name,
+          company_name: jobPosting.company_name,
         });
         setShowApplicantForm(true);
+      } else if (response.status === 410) {
+        // Link expired or maxed out
+        const errorMsg = data.error || "This link is no longer valid";
+        const errorType = errorMsg.toLowerCase().includes("expired") ? "expired" 
+          : errorMsg.toLowerCase().includes("maximum") ? "maxed" 
+          : "deactivated";
+        setLinkError({ message: errorMsg, type: errorType });
+      } else if (response.status === 404) {
+        setLinkError({ 
+          message: "This assessment link is invalid or does not exist.", 
+          type: "invalid" 
+        });
+      } else {
+        setLinkError({ 
+          message: data.error || "Unable to load job information.", 
+          type: "invalid" 
+        });
       }
     } catch (error) {
       console.error("Error fetching job info:", error);
+      setLinkError({ 
+        message: "Unable to connect. Please try again later.", 
+        type: "invalid" 
+      });
     } finally {
       setLoadingJobInfo(false);
     }
@@ -126,11 +157,88 @@ function AssessmentIntroContent() {
       <Header />
       <Container className="flex-1 py-16 md:py-24">
         <div className="mx-auto max-w-3xl space-y-12">
-          {jobInfo ? (
+          {/* Link Error State */}
+          {linkError && (
+            <Card className="border-destructive/50 bg-destructive/5">
+              <CardContent className="pt-6">
+                <div className="flex flex-col items-center text-center space-y-4">
+                  {linkError.type === "expired" ? (
+                    <Clock className="h-12 w-12 text-destructive" />
+                  ) : linkError.type === "maxed" ? (
+                    <XCircle className="h-12 w-12 text-destructive" />
+                  ) : (
+                    <AlertCircle className="h-12 w-12 text-destructive" />
+                  )}
+                  <div className="space-y-2">
+                    <h2 className="text-2xl font-bold text-destructive">
+                      {linkError.type === "expired" ? "Link Expired" 
+                        : linkError.type === "maxed" ? "Link Limit Reached" 
+                        : "Invalid Link"}
+                    </h2>
+                    <p className="text-muted-foreground max-w-md">
+                      {linkError.message}
+                    </p>
+                  </div>
+                  <div className="pt-4 space-y-2">
+                    <p className="text-sm text-muted-foreground">
+                      Please contact the employer for a new assessment link, or:
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => {
+                        setLinkError(null);
+                        setJobToken(null);
+                        localStorage.removeItem("job-token");
+                        window.history.replaceState({}, "", "/assessment/intro");
+                      }}
+                    >
+                      Take a Personal Assessment Instead
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Loading Job Info */}
+          {loadingJobInfo && (
+            <div className="flex items-center justify-center py-12">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+            </div>
+          )}
+
+          {!linkError && !loadingJobInfo && jobInfo ? (
+            <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-transparent">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Briefcase className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="flex-1 space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-medium uppercase tracking-wider text-primary">
+                        Job Application Assessment
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold">{jobInfo.title}</h3>
+                    {jobInfo.company_name && (
+                      <div className="flex items-center gap-1.5 text-muted-foreground">
+                        <Building2 className="h-4 w-4" />
+                        <span>{jobInfo.company_name}</span>
+                      </div>
+                    )}
+                    <p className="text-sm text-muted-foreground pt-2">
+                      This assessment is pre-paid by the employer. Complete it to be considered for this role.
+                      Your results will be shared with {jobInfo.company_name || "the employer"}.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ) : null}
+
+          {!linkError && !loadingJobInfo && jobInfo && (
             <div className="text-center space-y-6">
-              <div className="inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary mb-4">
-                Job Application Assessment
-              </div>
               <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
                 Personality Assessment for{" "}
                 <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
@@ -148,7 +256,9 @@ function AssessmentIntroContent() {
                 <span className="text-foreground font-medium">Your results will be shared with the employer.</span>
               </p>
             </div>
-          ) : (
+          )}
+
+          {!linkError && !loadingJobInfo && !jobInfo && (
             <div className="text-center space-y-6">
               <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
                 Discover Your{" "}
@@ -159,15 +269,75 @@ function AssessmentIntroContent() {
               <p className="mx-auto max-w-2xl text-xl leading-relaxed text-muted-foreground">
                 Get scientifically validated insights into your personality across 7 core dimensions.
                 <br className="hidden sm:block" />
-                <span className="text-foreground font-medium">Quick: 7 minutes • Full: 15 minutes</span>
+                <span className="text-foreground font-medium">Start in 8 minutes, go deeper anytime</span>
               </p>
             </div>
           )}
 
+          {/* Journey Preview - hide when there's a link error */}
+          {!linkError && !loadingJobInfo && (
+          <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-2xl">Your Personality Journey</CardTitle>
+              <CardDescription className="text-base">
+                Complete at your own pace — stop anytime and continue later
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {CHECKPOINTS.map((checkpoint, i) => (
+                  <div key={checkpoint.id} className="flex items-start gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${
+                        i === 0 
+                          ? "bg-primary text-primary-foreground" 
+                          : "bg-primary/20 text-primary"
+                      }`}>
+                        {checkpoint.id}
+                      </div>
+                      {i < CHECKPOINTS.length - 1 && (
+                        <div className="w-0.5 h-8 bg-border my-2" />
+                      )}
+                    </div>
+                    <div className="flex-1 pb-4">
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <h3 className="font-semibold text-lg">{checkpoint.name}</h3>
+                        <span className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded">
+                          {checkpoint.timeEstimate}
+                        </span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-1">{checkpoint.description}</p>
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {checkpoint.unlocks.slice(0, 2).map((unlock, j) => (
+                          <span key={j} className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full border border-green-200">
+                            ✓ {unlock}
+                          </span>
+                        ))}
+                        {checkpoint.unlocks.length > 2 && (
+                          <span className="text-xs text-muted-foreground">
+                            +{checkpoint.unlocks.length - 2} more
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 p-4 bg-muted/50 rounded-xl text-center">
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-medium text-foreground">Stop anytime</span> • Your progress is saved • Continue later
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          )}
+
+          {!linkError && !loadingJobInfo && (
           <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
             <CardHeader className="pb-6">
               <CardTitle className="text-2xl">What to Expect</CardTitle>
-              <CardDescription className="text-base">What you'll learn about yourself</CardDescription>
+              <CardDescription className="text-base">What you&apos;ll learn about yourself</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
@@ -195,11 +365,15 @@ function AssessmentIntroContent() {
 
           {/* How It Works - Process Flow */}
           <ProcessFlow showTitle={true} variant="horizontal" className="mt-8" />
+          )}
+
+          {!linkError && !loadingJobInfo && (
+          <>
 
           {/* Dimensions Preview */}
           <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
             <CardHeader className="pb-4">
-              <CardTitle className="text-2xl">The 7 Dimensions You'll Discover</CardTitle>
+              <CardTitle className="text-2xl">The 7 Dimensions You&apos;ll Discover</CardTitle>
               <CardDescription className="text-base">
                 Click any dimension to learn more about what it measures
               </CardDescription>
@@ -270,10 +444,10 @@ function AssessmentIntroContent() {
                       <h3 className="font-bold text-lg">Quick Assessment</h3>
                     </div>
                     <p className="text-sm font-medium text-muted-foreground">
-                      35 core questions • ~7 minutes
+                      35 core questions • ~8 minutes • PRISM-7 results
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Get your basic personality profile quickly. Unlock additional modules for deeper insights.
+                      Get your basic personality profile quickly. Continue anytime to unlock MBTI, Enneagram, and more.
                     </p>
                   </div>
                   {selectedType === "quick" && (
@@ -303,10 +477,10 @@ function AssessmentIntroContent() {
                       <h3 className="font-bold text-lg">Full Assessment</h3>
                     </div>
                     <p className="text-sm font-medium text-muted-foreground">
-                      125 comprehensive questions • ~15 minutes
+                      105 comprehensive questions • ~25 minutes total
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Complete assessment with all modules including work context, relationships, and deep dive insights.
+                      Complete assessment with checkpoints every 5-8 minutes. Unlock PRISM-7, MBTI, Enneagram, and deep insights progressively.
                     </p>
                   </div>
                   {selectedType === "full" && (
@@ -350,6 +524,8 @@ function AssessmentIntroContent() {
             <div className="h-4 w-px bg-border" />
             <span>Free results</span>
           </div>
+          </>
+          )}
         </div>
       </Container>
     </div>
@@ -370,4 +546,3 @@ export default function AssessmentIntroPage() {
     </Suspense>
   );
 }
-

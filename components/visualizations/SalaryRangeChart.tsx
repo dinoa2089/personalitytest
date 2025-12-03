@@ -164,3 +164,5 @@ export function SalaryRangeChart({
 
 export default SalaryRangeChart;
 
+
+

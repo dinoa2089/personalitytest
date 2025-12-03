@@ -102,3 +102,5 @@ export function getTypeHeroImageUrl(typeSlug: string): string | null {
   return typeImages[typeSlug.toLowerCase()] || null;
 }
 
+
+

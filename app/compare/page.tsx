@@ -155,7 +155,7 @@ function CompareContent() {
                 </Link>
               </Button>
               <p className="text-sm text-muted-foreground">
-                Takes about 5-10 minutes • No credit card required
+                ~8 min for first results • Continue for more • No credit card required
               </p>
             </div>
           </motion.div>

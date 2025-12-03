@@ -17,12 +17,25 @@ if (!supabaseUrl || !supabaseKey) {
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// All 59 questions from mock-questions.ts
+// All 56 questions with updated forced-choice options containing dimension mappings
+// Each forced-choice question now has options as objects with {text, dimension}
 const questions = [
   // Openness to Experience (8 questions)
   { text: "I enjoy exploring new ideas and concepts.", type: "likert", dimension: "openness", options: null, reverse_scored: false, weight: 1.0, order_index: 1 },
   { text: "I prefer familiar routines over new experiences.", type: "likert", dimension: "openness", options: null, reverse_scored: true, weight: 1.0, order_index: 2 },
-  { text: "Which is MOST like you and which is LEAST like you?", type: "forced_choice", dimension: "openness", options: ["I enjoy philosophical discussions", "I appreciate practical solutions", "I value artistic expression"], reverse_scored: false, weight: 1.2, order_index: 3 },
+  { 
+    text: "Which is MOST like you and which is LEAST like you?", 
+    type: "forced_choice", 
+    dimension: "openness", 
+    options: [
+      { text: "I enjoy philosophical discussions and exploring abstract ideas", dimension: "openness" },
+      { text: "I prefer practical, proven approaches to solving problems", dimension: "conscientiousness" },
+      { text: "I like to engage others in collaborative brainstorming", dimension: "extraversion" }
+    ], 
+    reverse_scored: false, 
+    weight: 1.2, 
+    order_index: 3 
+  },
   { text: "When faced with a new technology at work, you typically:", type: "situational_judgment", dimension: "openness", options: ["Eagerly explore all its features right away", "Learn only the essential functions needed for your tasks", "Wait until others have tested it before trying it yourself"], reverse_scored: false, weight: 1.3, order_index: 4 },
   { text: "In the past month, how often have you sought out information on a topic unrelated to your work or studies?", type: "behavioral_frequency", dimension: "openness", options: null, reverse_scored: false, weight: 1.5, order_index: 5 },
   { text: "I find abstract concepts and theoretical discussions engaging.", type: "likert", dimension: "openness", options: null, reverse_scored: false, weight: 1.0, order_index: 6 },
@@ -32,17 +45,53 @@ const questions = [
   // Conscientiousness (8 questions)
   { text: "I create detailed plans before starting projects.", type: "likert", dimension: "conscientiousness", options: null, reverse_scored: false, weight: 1.0, order_index: 9 },
   { text: "I often leave tasks unfinished when I lose interest.", type: "likert", dimension: "conscientiousness", options: null, reverse_scored: true, weight: 1.0, order_index: 10 },
-  { text: "Which is MOST like you and which is LEAST like you?", type: "forced_choice", dimension: "conscientiousness", options: ["I keep my belongings neat and organized", "I complete tasks well ahead of deadlines", "I follow rules and procedures carefully"], reverse_scored: false, weight: 1.2, order_index: 11 },
+  { 
+    text: "Which is MOST like you and which is LEAST like you?", 
+    type: "forced_choice", 
+    dimension: "conscientiousness", 
+    options: [
+      { text: "I keep my environment organized and clutter-free", dimension: "conscientiousness" },
+      { text: "I help others stay on track with their commitments", dimension: "agreeableness" },
+      { text: "I seek innovative methods to improve efficiency", dimension: "adaptability" }
+    ], 
+    reverse_scored: false, 
+    weight: 1.2, 
+    order_index: 11 
+  },
   { text: "When working on a team project with a deadline next week, you would most likely:", type: "situational_judgment", dimension: "conscientiousness", options: ["Create a detailed plan with milestones for the entire team", "Focus on completing your part perfectly, regardless of what others do", "Adapt your approach based on how the project evolves"], reverse_scored: false, weight: 1.3, order_index: 12 },
   { text: "How often do you make lists to organize your tasks?", type: "behavioral_frequency", dimension: "conscientiousness", options: null, reverse_scored: false, weight: 1.5, order_index: 13 },
   { text: "I set high standards for myself and work hard to meet them.", type: "likert", dimension: "conscientiousness", options: null, reverse_scored: false, weight: 1.0, order_index: 14 },
-  { text: "Which is MOST like you and which is LEAST like you?", type: "forced_choice", dimension: "conscientiousness", options: ["I always arrive early to appointments", "I complete tasks thoroughly before moving on", "I maintain detailed records of important information"], reverse_scored: false, weight: 1.2, order_index: 15 },
+  { 
+    text: "Which is MOST like you and which is LEAST like you?", 
+    type: "forced_choice", 
+    dimension: "conscientiousness", 
+    options: [
+      { text: "I always arrive early to appointments and meetings", dimension: "conscientiousness" },
+      { text: "I build rapport with people easily and naturally", dimension: "extraversion" },
+      { text: "I stay calm even when deadlines are tight", dimension: "emotionalResilience" }
+    ], 
+    reverse_scored: false, 
+    weight: 1.2, 
+    order_index: 15 
+  },
   { text: "How often do you review and update your goals or plans?", type: "behavioral_frequency", dimension: "conscientiousness", options: null, reverse_scored: false, weight: 1.2, order_index: 16 },
 
   // Extraversion (8 questions)
   { text: "I feel energized after spending time with a large group of people.", type: "likert", dimension: "extraversion", options: null, reverse_scored: false, weight: 1.0, order_index: 17 },
   { text: "I prefer working independently rather than collaborating with others.", type: "likert", dimension: "extraversion", options: null, reverse_scored: true, weight: 1.0, order_index: 18 },
-  { text: "Which is MOST like you and which is LEAST like you?", type: "forced_choice", dimension: "extraversion", options: ["I enjoy being the center of attention", "I prefer deep one-on-one conversations", "I feel comfortable in large social gatherings"], reverse_scored: false, weight: 1.2, order_index: 19 },
+  { 
+    text: "Which is MOST like you and which is LEAST like you?", 
+    type: "forced_choice", 
+    dimension: "extraversion", 
+    options: [
+      { text: "I enjoy being the center of attention at gatherings", dimension: "extraversion" },
+      { text: "I prefer meaningful connections over many acquaintances", dimension: "agreeableness" },
+      { text: "I like exploring new ideas and perspectives on my own", dimension: "openness" }
+    ], 
+    reverse_scored: false, 
+    weight: 1.2, 
+    order_index: 19 
+  },
   { text: "At a networking event where you know few people, you would most likely:", type: "situational_judgment", dimension: "extraversion", options: ["Introduce yourself to as many new people as possible", "Find one or two interesting people for in-depth conversations", "Observe the dynamics before deciding whom to approach"], reverse_scored: false, weight: 1.3, order_index: 20 },
   { text: "In the past week, how many times have you initiated a conversation with someone you don't know well?", type: "behavioral_frequency", dimension: "extraversion", options: null, reverse_scored: false, weight: 1.5, order_index: 21 },
   { text: "I feel comfortable speaking up in group settings.", type: "likert", dimension: "extraversion", options: null, reverse_scored: false, weight: 1.0, order_index: 22 },
@@ -52,7 +101,19 @@ const questions = [
   // Agreeableness (8 questions)
   { text: "I prioritize others' needs above my own.", type: "likert", dimension: "agreeableness", options: null, reverse_scored: false, weight: 1.0, order_index: 25 },
   { text: "I'm quick to point out when I think someone is wrong.", type: "likert", dimension: "agreeableness", options: null, reverse_scored: true, weight: 1.0, order_index: 26 },
-  { text: "Which is MOST like you and which is LEAST like you?", type: "forced_choice", dimension: "agreeableness", options: ["I avoid conflict at all costs", "I stand firm on my principles even if it creates tension", "I try to find compromise in disagreements"], reverse_scored: false, weight: 1.2, order_index: 27 },
+  { 
+    text: "Which is MOST like you and which is LEAST like you?", 
+    type: "forced_choice", 
+    dimension: "agreeableness", 
+    options: [
+      { text: "I avoid conflict to maintain harmony in relationships", dimension: "agreeableness" },
+      { text: "I stand firm on my principles even under pressure", dimension: "honestyHumility" },
+      { text: "I adapt my approach based on the situation at hand", dimension: "adaptability" }
+    ], 
+    reverse_scored: false, 
+    weight: 1.2, 
+    order_index: 27 
+  },
   { text: "When a colleague takes credit for your idea in a meeting, you would most likely:", type: "situational_judgment", dimension: "agreeableness", options: ["Confront them privately after the meeting", "Politely clarify your contribution during the meeting", "Let it go to maintain workplace harmony"], reverse_scored: false, weight: 1.3, order_index: 28 },
   { text: "How often do you volunteer to help others with their tasks when you notice they're struggling?", type: "behavioral_frequency", dimension: "agreeableness", options: null, reverse_scored: false, weight: 1.5, order_index: 29 },
   { text: "I believe most people have good intentions.", type: "likert", dimension: "agreeableness", options: null, reverse_scored: false, weight: 1.0, order_index: 30 },
@@ -62,17 +123,53 @@ const questions = [
   // Emotional Resilience (8 questions)
   { text: "I remain calm under pressure.", type: "likert", dimension: "emotionalResilience", options: null, reverse_scored: false, weight: 1.0, order_index: 33 },
   { text: "Small setbacks can significantly impact my mood.", type: "likert", dimension: "emotionalResilience", options: null, reverse_scored: true, weight: 1.0, order_index: 34 },
-  { text: "Which is MOST like you and which is LEAST like you?", type: "forced_choice", dimension: "emotionalResilience", options: ["I worry about potential problems before they happen", "I recover quickly from disappointments", "I maintain emotional stability regardless of circumstances"], reverse_scored: false, weight: 1.2, order_index: 35 },
+  { 
+    text: "Which is MOST like you and which is LEAST like you?", 
+    type: "forced_choice", 
+    dimension: "emotionalResilience", 
+    options: [
+      { text: "I anticipate problems and plan ahead to prevent them", dimension: "conscientiousness" },
+      { text: "I recover quickly from disappointments and setbacks", dimension: "emotionalResilience" },
+      { text: "I see challenges as opportunities to grow and learn", dimension: "adaptability" }
+    ], 
+    reverse_scored: false, 
+    weight: 1.2, 
+    order_index: 35 
+  },
   { text: "When you receive unexpected critical feedback on an important project, you would most likely:", type: "situational_judgment", dimension: "emotionalResilience", options: ["Feel upset for days and question your abilities", "Analyze the feedback objectively and create an improvement plan", "Seek validation from others that the criticism was unfair"], reverse_scored: false, weight: 1.3, order_index: 36 },
   { text: "In the past month, how often have you felt overwhelmed by stress?", type: "behavioral_frequency", dimension: "emotionalResilience", options: null, reverse_scored: true, weight: 1.5, order_index: 37 },
   { text: "I bounce back quickly from setbacks and disappointments.", type: "likert", dimension: "emotionalResilience", options: null, reverse_scored: false, weight: 1.0, order_index: 38 },
-  { text: "Which is MOST like you and which is LEAST like you?", type: "forced_choice", dimension: "emotionalResilience", options: ["I stay composed and optimistic under pressure", "I analyze setbacks methodically to prevent future issues", "I quickly pivot and find new approaches when things go wrong"], reverse_scored: false, weight: 1.2, order_index: 39 },
+  { 
+    text: "Which is MOST like you and which is LEAST like you?", 
+    type: "forced_choice", 
+    dimension: "emotionalResilience", 
+    options: [
+      { text: "I stay composed and optimistic under pressure", dimension: "emotionalResilience" },
+      { text: "I analyze setbacks methodically to prevent future issues", dimension: "conscientiousness" },
+      { text: "I quickly pivot and find new approaches when things go wrong", dimension: "adaptability" }
+    ], 
+    reverse_scored: false, 
+    weight: 1.2, 
+    order_index: 39 
+  },
   { text: "In the past month, how often have you felt overwhelmed by your emotions?", type: "behavioral_frequency", dimension: "emotionalResilience", options: null, reverse_scored: true, weight: 1.2, order_index: 40 },
 
   // Honesty-Humility (8 questions)
   { text: "I would never accept credit for someone else's work.", type: "likert", dimension: "honestyHumility", options: null, reverse_scored: false, weight: 1.0, order_index: 41 },
   { text: "It's sometimes necessary to bend the rules to get ahead.", type: "likert", dimension: "honestyHumility", options: null, reverse_scored: true, weight: 1.0, order_index: 42 },
-  { text: "Which is MOST like you and which is LEAST like you?", type: "forced_choice", dimension: "honestyHumility", options: ["I'm entitled to special treatment sometimes", "I value fairness above personal gain", "I'm comfortable admitting when I don't know something"], reverse_scored: false, weight: 1.2, order_index: 43 },
+  { 
+    text: "Which is MOST like you and which is LEAST like you?", 
+    type: "forced_choice", 
+    dimension: "honestyHumility", 
+    options: [
+      { text: "I expect recognition and praise for my achievements", dimension: "extraversion" },
+      { text: "I value fairness above personal gain", dimension: "honestyHumility" },
+      { text: "I'm comfortable admitting when I don't know something", dimension: "openness" }
+    ], 
+    reverse_scored: false, 
+    weight: 1.2, 
+    order_index: 43 
+  },
   { text: "If you found a wallet containing $200 and identification, you would most likely:", type: "situational_judgment", dimension: "honestyHumility", options: ["Return it with all contents intact", "Return it but keep some or all of the money", "Consider your options based on your current financial needs"], reverse_scored: false, weight: 1.3, order_index: 44 },
   { text: "How often do you acknowledge your mistakes to others?", type: "behavioral_frequency", dimension: "honestyHumility", options: null, reverse_scored: false, weight: 1.5, order_index: 45 },
   { text: "I value authenticity and being true to myself.", type: "likert", dimension: "honestyHumility", options: null, reverse_scored: false, weight: 1.0, order_index: 46 },
@@ -82,7 +179,19 @@ const questions = [
   // Adaptability (8 questions)
   { text: "I easily adjust my plans when circumstances change.", type: "likert", dimension: "adaptability", options: null, reverse_scored: false, weight: 1.0, order_index: 49 },
   { text: "I find it stressful when my routine is disrupted.", type: "likert", dimension: "adaptability", options: null, reverse_scored: true, weight: 1.0, order_index: 50 },
-  { text: "Which is MOST like you and which is LEAST like you?", type: "forced_choice", dimension: "adaptability", options: ["I thrive in rapidly changing environments", "I prefer stability and predictability", "I enjoy learning new approaches to familiar tasks"], reverse_scored: false, weight: 1.2, order_index: 51 },
+  { 
+    text: "Which is MOST like you and which is LEAST like you?", 
+    type: "forced_choice", 
+    dimension: "adaptability", 
+    options: [
+      { text: "I thrive in rapidly changing environments", dimension: "adaptability" },
+      { text: "I prefer structured routines and clear expectations", dimension: "conscientiousness" },
+      { text: "I enjoy exploring new ideas and perspectives", dimension: "openness" }
+    ], 
+    reverse_scored: false, 
+    weight: 1.2, 
+    order_index: 51 
+  },
   { text: "When your organization implements a major change to processes you've mastered, you would most likely:", type: "situational_judgment", dimension: "adaptability", options: ["Embrace the change as an opportunity to learn and grow", "Compare the new and old processes to determine which is truly better", "Feel frustrated about having to relearn established procedures"], reverse_scored: false, weight: 1.3, order_index: 52 },
   { text: "In the past year, how often have you voluntarily changed your approach to a recurring task?", type: "behavioral_frequency", dimension: "adaptability", options: null, reverse_scored: false, weight: 1.5, order_index: 53 },
   { text: "I enjoy trying new approaches even when current methods work well.", type: "likert", dimension: "adaptability", options: null, reverse_scored: false, weight: 1.0, order_index: 54 },
@@ -150,4 +259,3 @@ async function seedQuestions() {
 }
 
 seedQuestions().catch(console.error);
-

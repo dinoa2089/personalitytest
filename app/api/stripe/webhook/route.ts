@@ -38,10 +38,21 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Handle subscription events
+  // Handle checkout completed
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
-    await handleSubscriptionCreated(session);
+    
+    // Check if this is a one-time payment (micro-transaction) or subscription
+    if (session.mode === "payment") {
+      // Check if it's a micro-transaction
+      const productType = session.metadata?.productType;
+      if (productType) {
+        await handleOneTimePurchase(session);
+      }
+      // Other one-time payments (legacy) are handled elsewhere
+    } else if (session.mode === "subscription") {
+      await handleSubscriptionCreated(session);
+    }
   }
 
   if (event.type === "customer.subscription.updated") {
@@ -55,6 +66,61 @@ export async function POST(request: NextRequest) {
   }
 
   return NextResponse.json({ received: true });
+}
+
+/**
+ * Handle one-time micro-transaction purchases
+ */
+async function handleOneTimePurchase(session: Stripe.Checkout.Session) {
+  if (!supabaseUrl || !supabaseServiceKey) {
+    console.error("Supabase not configured");
+    return;
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  });
+
+  const userId = session.metadata?.userId || session.client_reference_id;
+  const productType = session.metadata?.productType;
+  const sessionId = session.metadata?.sessionId;
+
+  if (!userId || !productType) {
+    console.error("Missing userId or productType in session metadata");
+    return;
+  }
+
+  // Get user's internal ID
+  const { data: user } = await supabase
+    .from("users")
+    .select("id")
+    .eq("clerk_id", userId)
+    .single();
+
+  if (!user) {
+    console.error("User not found:", userId);
+    return;
+  }
+
+  // Record the purchase
+  const { error } = await supabase.from("purchases").insert({
+    user_id: user.id,
+    session_id: sessionId || null,
+    product_type: productType,
+    stripe_checkout_session_id: session.id,
+    stripe_payment_intent_id: session.payment_intent as string,
+    amount_paid: (session.amount_total || 0) / 100,
+    status: "completed",
+  });
+
+  if (error) {
+    console.error("Error recording purchase:", error);
+  } else {
+    console.log(`Purchase recorded: ${productType} for user ${userId}`);
+  }
 }
 
 async function handleSubscriptionCreated(session: Stripe.Checkout.Session) {

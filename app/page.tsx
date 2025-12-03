@@ -73,7 +73,7 @@ export default function Home() {
           >
             <Badge className="mb-6 bg-violet-100 text-violet-700 border-violet-200 text-sm px-4 py-2">
               <Sparkles className="w-4 h-4 mr-2" />
-              Free • 7 Minutes • Science-Backed
+              Free • Start in 8 min • Go Deeper Anytime
             </Badge>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-foreground">
@@ -110,7 +110,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-violet-600" />
-                <span>Results in 7 minutes</span>
+                <span>First results in 8 minutes</span>
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="h-4 w-4 text-blue-600" />
@@ -212,9 +212,9 @@ export default function Home() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 text-violet-600 mb-4">
                   <Clock className="h-6 w-6" />
                 </div>
-                <h3 className="font-bold text-lg mb-2">Quick & Comprehensive</h3>
+                <h3 className="font-bold text-lg mb-2">Progressive Discovery</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Get precise results in just 35 questions (7 min). Go deeper with our extended 125-question assessment.
+                  Start with 35 questions (~8 min) for your PRISM-7 profile. Continue to unlock MBTI, Enneagram, and deep insights.
                 </p>
               </CardContent>
             </Card>

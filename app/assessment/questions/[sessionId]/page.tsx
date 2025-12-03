@@ -11,7 +11,11 @@ import { BehavioralFrequency } from "@/components/assessment/questions/Behaviora
 import { MilestoneCelebration } from "@/components/assessment/MilestoneCelebration";
 import { Button } from "@/components/ui/button";
 import { loadQuestions, filterQuestionsByType } from "@/lib/questions";
+import { isCheckpointReached } from "@/lib/checkpoint-logic";
 import type { Question, QuestionResponse } from "@/types";
+
+// Checkpoint thresholds
+const CHECKPOINT_THRESHOLDS = [35, 55, 80, 105];
 
 export default function QuestionPage() {
   const router = useRouter();
@@ -124,13 +128,24 @@ export default function QuestionPage() {
       // Continue anyway - don't block user
     }
 
-    // Move to next question
+    // Calculate answered count
+    const answeredCount = responses.length + 1;
     const nextIndex = currentIndex + 1;
+
+    // Check if we've reached a checkpoint
+    if (CHECKPOINT_THRESHOLDS.includes(answeredCount) && answeredCount < questions.length) {
+      // Update progress before redirecting
+      updateProgress((answeredCount / questions.length) * 100);
+      router.push(`/assessment/checkpoint/${sessionId}`);
+      return;
+    }
+
+    // Move to next question
     if (nextIndex < questions.length) {
       setCurrentIndex(nextIndex);
       setCurrentQuestion(questions[nextIndex]);
       // Update progress based on number of responses (questions answered)
-      updateProgress(((responses.length + 1) / questions.length) * 100);
+      updateProgress((answeredCount / questions.length) * 100);
     } else {
       // Complete assessment - calculate scores and save results
       try {
@@ -260,4 +275,3 @@ export default function QuestionPage() {
     </>
   );
 }
-
