@@ -131,7 +131,7 @@ function getEffectiveWeight(questionType: string, discrimination: number = 1.0):
 export function mockCalculateScores(
   responses: (QuestionResponse | ResponseWithMetadata)[],
   sessionId: string
-): { dimensional_scores: DimensionScore[]; mbti_scores?: MbtiDimensionScore[]; completed: boolean } {
+): { dimensional_scores: DimensionScore[]; mbti_scores?: MbtiDimensionScore[]; enneagram_scores?: EnneagramTypeScore[]; completed: boolean } {
   // Initialize score accumulators for each dimension
   const dimensions: Dimension[] = [
     "openness",
