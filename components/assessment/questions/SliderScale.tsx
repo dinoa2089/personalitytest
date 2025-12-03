@@ -91,22 +91,31 @@ export function SliderScale({ question, onAnswer }: SliderScaleProps) {
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
         />
 
-        {/* Tick marks */}
+        {/* Clickable tick marks */}
         <div className="flex justify-between mt-2 px-0">
           {[1, 2, 3, 4, 5, 6, 7].map((tick) => (
-            <div
+            <button
               key={tick}
-              className={`flex flex-col items-center ${
+              type="button"
+              onClick={() => {
+                setValue(tick);
+                setHasInteracted(true);
+              }}
+              className={`flex flex-col items-center cursor-pointer hover:opacity-100 transition-opacity ${
                 tick === value ? "opacity-100" : "opacity-50"
               }`}
             >
               <div
-                className={`w-1 h-3 rounded-full ${
-                  tick === value ? "bg-primary" : "bg-muted-foreground/30"
+                className={`w-3 h-3 rounded-full transition-all ${
+                  tick === value 
+                    ? "bg-primary scale-125" 
+                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
                 }`}
               />
-              <span className="text-xs mt-1 text-muted-foreground">{tick}</span>
-            </div>
+              <span className={`text-sm mt-1 font-medium ${
+                tick === value ? "text-foreground" : "text-muted-foreground"
+              }`}>{tick}</span>
+            </button>
           ))}
         </div>
       </div>

@@ -198,28 +198,36 @@ export default function QuestionPage() {
     const totalAnswered = newAdaptiveState.questionsAnswered;
     const nextIndex = currentIndex + 1;
 
-    // Check if we've reached a checkpoint
-    if (CHECKPOINT_THRESHOLDS.includes(totalAnswered) && totalAnswered < totalQuestionsTarget) {
-      // Update progress before redirecting
+    // FIRST: Check if we've reached the target (assessment complete)
+    if (totalAnswered >= totalQuestionsTarget) {
+      updateProgress(100);
+      completeAssessmentFlow(response);
+      return;
+    }
+
+    // SECOND: Check if we've reached an intermediate checkpoint
+    if (CHECKPOINT_THRESHOLDS.includes(totalAnswered)) {
       updateProgress((totalAnswered / totalQuestionsTarget) * 100);
       router.push(`/assessment/checkpoint/${sessionId}`);
       return;
     }
 
-    // Move to next question
+    // THIRD: Move to next question or load more
     if (nextIndex < questions.length) {
       setCurrentIndex(nextIndex);
       setCurrentQuestion(questions[nextIndex]);
-      // Update progress based on total questions answered
       updateProgress((totalAnswered / totalQuestionsTarget) * 100);
-    } else if (totalAnswered < totalQuestionsTarget) {
+    } else {
       // Need to load more questions for the next batch
-      // This happens when we reach the end of current batch but haven't hit checkpoint
       const nextCheckpoint = newAdaptiveState.currentCheckpoint;
-      const questionsNeeded = Math.min(
-        (CHECKPOINT_THRESHOLDS.find(t => t > totalAnswered) || totalQuestionsTarget) - totalAnswered,
-        totalQuestionsTarget - totalAnswered
-      );
+      const nextThreshold = CHECKPOINT_THRESHOLDS.find(t => t > totalAnswered) || totalQuestionsTarget;
+      const questionsNeeded = Math.min(nextThreshold - totalAnswered, totalQuestionsTarget - totalAnswered);
+      
+      if (questionsNeeded <= 0) {
+        // Safety: Should have completed already, but just in case
+        completeAssessmentFlow(response);
+        return;
+      }
       
       const newBatch = selectQuestionBatch(
         questionBank,
@@ -237,9 +245,6 @@ export default function QuestionPage() {
         // No more questions available - complete assessment
         completeAssessmentFlow(response);
       }
-    } else {
-      // Complete assessment
-      completeAssessmentFlow(response);
     }
   };
 
