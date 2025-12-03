@@ -81,18 +81,18 @@ export function SliderScale({ question, onAnswer }: SliderScaleProps) {
           />
         </div>
 
-        {/* Custom slider input */}
+        {/* Custom slider input - on the track only, not blocking tick marks */}
         <input
           type="range"
           min="1"
           max="7"
           value={value}
           onChange={handleChange}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          className="absolute top-0 left-0 right-0 h-12 opacity-0 cursor-pointer z-0"
         />
 
-        {/* Clickable tick marks */}
-        <div className="flex justify-between mt-2 px-0">
+        {/* Clickable tick marks - above the hidden input */}
+        <div className="relative z-10 flex justify-between mt-2 px-0">
           {[1, 2, 3, 4, 5, 6, 7].map((tick) => (
             <button
               key={tick}
