@@ -127,21 +127,24 @@ export function FreeResultsView({ scores, sessionId }: FreeResultsViewProps) {
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Radar Chart */}
-            <div className="h-[300px] w-full">
-              <PersonalityRadarChart scores={scores} />
+            <div className="w-full">
+              <PersonalityRadarChart scores={scores} height={320} />
             </div>
 
             {/* Basic dimension bars */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {scores.map((score, index) => (
                 <div
                   key={score.dimension}
-                  className="flex items-center justify-between p-3 bg-muted/30 rounded-lg"
+                  className="flex items-center justify-between gap-3 p-3 bg-muted/30 rounded-lg min-w-0"
                 >
-                  <span className="text-sm font-medium">
+                  <span className="text-sm font-medium truncate">
                     {dimensionLabels[score.dimension]}
                   </span>
-                  <Badge variant={score.percentile > 60 ? "default" : score.percentile < 40 ? "secondary" : "outline"}>
+                  <Badge 
+                    variant={score.percentile > 60 ? "default" : score.percentile < 40 ? "secondary" : "outline"}
+                    className="flex-shrink-0"
+                  >
                     {score.percentile}%
                   </Badge>
                 </div>
