@@ -1,0 +1,231 @@
+{
+  "questions": [
+    {
+      "text": "I need to fully understand how something works before I can use it effectively.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I prefer observing situations from a distance before getting involved.",
+      "type": "likert",
+      "dimension": "extraversion",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.3,
+      "reverse_scored": true
+    },
+    {
+      "text": "I find that too much social interaction drains my mental energy.",
+      "type": "likert",
+      "dimension": "extraversion",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    },
+    {
+      "text": "I often feel I need more time alone to process my thoughts and ideas.",
+      "type": "likert",
+      "dimension": "extraversion",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.1,
+      "reverse_scored": true
+    },
+    {
+      "text": "Knowledge and competence are more important to me than social connections.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I tend to minimize my needs and live simply to preserve my independence.",
+      "type": "likert",
+      "dimension": "adaptability",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.1
+    },
+    {
+      "text": "I feel anxious when I don't have enough information about a situation.",
+      "type": "likert",
+      "dimension": "emotionalResilience",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    },
+    {
+      "text": "I would rather master one subject deeply than have surface knowledge of many.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.3
+    },
+    {
+      "text": "I find myself detaching emotionally when situations become too intense.",
+      "type": "likert",
+      "dimension": "emotionalResilience",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I believe that understanding the world intellectually is the best way to navigate it.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["enneagram_5"],
+      "discrimination": 1.1
+    },
+    {
+      "text": "I tend to question authority and want to verify information for myself.",
+      "type": "likert",
+      "dimension": "conscientiousness",
+      "framework_tags": ["enneagram_6"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I often imagine worst-case scenarios to prepare myself for potential problems.",
+      "type": "likert",
+      "dimension": "emotionalResilience",
+      "framework_tags": ["enneagram_6"],
+      "discrimination": 1.3,
+      "reverse_scored": true
+    },
+    {
+      "text": "Loyalty to my friends and commitments is one of my strongest values.",
+      "type": "likert",
+      "dimension": "agreeableness",
+      "framework_tags": ["enneagram_6"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I feel most secure when I have a reliable support system around me.",
+      "type": "likert",
+      "dimension": "emotionalResilience",
+      "framework_tags": ["enneagram_6"],
+      "discrimination": 1.1
+    },
+    {
+      "text": "I tend to second-guess decisions even after I've made them.",
+      "type": "likert",
+      "dimension": "emotionalResilience",
+      "framework_tags": ["enneagram_6"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    },
+    {
+      "text": "I am naturally skeptical of people's motives until they prove trustworthy.",
+      "type": "likert",
+      "dimension": "agreeableness",
+      "framework_tags": ["enneagram_6"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    },
+    {
+      "text": "I value being prepared and having contingency plans for important situations.",
+      "type": "likert",
+      "dimension": "conscientiousness",
+      "framework_tags": ["enneagram_6"],
+      "discrimination": 1.1
+    },
+    {
+      "text": "I find comfort in belonging to groups or organizations that share my values.",
+      "type": "likert",
+      "dimension": "agreeableness",
+      "framework_tags": ["enneagram_6"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I take direct action when I see something that needs to be changed.",
+      "type": "likert",
+      "dimension": "extraversion",
+      "framework_tags": ["enneagram_8"],
+      "discrimination": 1.3
+    },
+    {
+      "text": "I have a strong sense of justice and will confront unfairness directly.",
+      "type": "likert",
+      "dimension": "agreeableness",
+      "framework_tags": ["enneagram_8"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I naturally take charge in situations where leadership is needed.",
+      "type": "likert",
+      "dimension": "extraversion",
+      "framework_tags": ["enneagram_8"],
+      "discrimination": 1.3
+    },
+    {
+      "text": "I respect people who are direct and honest, even if it's uncomfortable.",
+      "type": "likert",
+      "dimension": "honestyHumility",
+      "framework_tags": ["enneagram_8"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I feel a strong need to protect those who are vulnerable or being treated unfairly.",
+      "type": "likert",
+      "dimension": "agreeableness",
+      "framework_tags": ["enneagram_8"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I prefer being in control of situations rather than having others decide for me.",
+      "type": "likert",
+      "dimension": "extraversion",
+      "framework_tags": ["enneagram_8"],
+      "discrimination": 1.3
+    },
+    {
+      "text": "I am comfortable with confrontation and don't shy away from difficult conversations.",
+      "type": "likert",
+      "dimension": "emotionalResilience",
+      "framework_tags": ["enneagram_8"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "Showing vulnerability feels like weakness to me.",
+      "type": "likert",
+      "dimension": "emotionalResilience",
+      "framework_tags": ["enneagram_8"],
+      "discrimination": 1.1,
+      "reverse_scored": true
+    },
+    {
+      "text": "I feel deeply moved by art, music, or stories that express profound emotions.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["enneagram_4"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I often feel like I'm different from others in ways that are hard to explain.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["enneagram_4"],
+      "discrimination": 1.3
+    },
+    {
+      "text": "Authenticity and being true to myself are more important than fitting in.",
+      "type": "likert",
+      "dimension": "honestyHumility",
+      "framework_tags": ["enneagram_4"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I tend to dwell on past experiences and their emotional significance.",
+      "type": "likert",
+      "dimension": "emotionalResilience",
+      "framework_tags": ["enneagram_4"],
+      "discrimination": 1.1,
+      "reverse_scored": true
+    },
+    {
+      "text": "I am drawn to expressing myself creatively in some form.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["enneagram_4"],
+      "discrimination": 1.2
+    }
+  ]
+}
+
