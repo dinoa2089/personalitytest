@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useUser } from "@clerk/nextjs";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
@@ -20,7 +20,6 @@ import {
   Gift,
   ArrowRight,
   Shield,
-  Star,
   Crown,
   Brain,
   Users,
@@ -32,7 +31,6 @@ import Link from "next/link";
 
 // Simplified to just 2 products for individuals
 const FULL_RESULTS_PRICE = "$4.99";
-const FULL_RESULTS_PRICE_VALUE = 4.99;
 
 // What's included in free vs paid
 const freeFeatures = [
@@ -53,7 +51,42 @@ const paidFeatures = [
   "Shareable detailed infographic",
 ];
 
+// Main page component with Suspense wrapper
 export default function PricingPage() {
+  return (
+    <Suspense fallback={<PricingPageSkeleton />}>
+      <PricingPageContent />
+    </Suspense>
+  );
+}
+
+// Loading skeleton
+function PricingPageSkeleton() {
+  return (
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-violet-50 via-white to-fuchsia-50/30">
+      <Header />
+      <main className="flex-1">
+        <section className="container mx-auto px-4 py-16 text-center">
+          <div className="max-w-3xl mx-auto animate-pulse">
+            <div className="h-8 bg-violet-100 rounded-full w-64 mx-auto mb-6" />
+            <div className="h-12 bg-gray-200 rounded w-3/4 mx-auto mb-4" />
+            <div className="h-6 bg-gray-100 rounded w-1/2 mx-auto" />
+          </div>
+        </section>
+        <section className="container mx-auto px-4 pb-16">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="h-96 bg-white/80 rounded-xl border animate-pulse" />
+            <div className="h-96 bg-violet-50 rounded-xl border-2 border-violet-200 animate-pulse" />
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+// Actual content component
+function PricingPageContent() {
   const { user, isLoaded } = useUser();
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session") || null;
@@ -76,7 +109,6 @@ export default function PricingPage() {
         const response = await fetch(url.toString());
         if (response.ok) {
           const data = await response.json();
-          // Check if they have full unlock or any legacy premium
           setHasPurchased(data.full_unlock || data.career || data.frameworks);
         }
       } catch (error) {
@@ -136,7 +168,6 @@ export default function PricingPage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-16 text-center relative overflow-hidden">
-          {/* Background decoration */}
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-20 left-1/4 w-72 h-72 bg-violet-200/30 rounded-full blur-3xl" />
             <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-fuchsia-200/30 rounded-full blur-3xl" />
