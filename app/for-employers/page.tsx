@@ -86,21 +86,21 @@ function EmployerLandingPage() {
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
             >
-              What&apos;s Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400">Bad Hire</span> Costing You?
+              Stop Gambling <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-rose-400 to-orange-400">$24,000</span> On Every Hire
             </motion.h1>
 
             <motion.p 
               variants={fadeInUp}
               className="text-xl md:text-2xl text-slate-300 mb-4 leading-relaxed"
             >
-              The U.S. Department of Labor estimates a bad hire costs <strong className="text-white">at least 30%</strong> of their first-year salary. For a $80K role, that&apos;s $24,000+ walking out the door.
+              That&apos;s what the U.S. Department of Labor says a bad $80K hire <em>actually</em> costs you. Not including the sleepless nights, the team drama, or the 6 months you&apos;ll never get back.
             </motion.p>
 
             <motion.p 
               variants={fadeInUp}
               className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto"
             >
-              PRISM-7 helps you assess personality fit <strong className="text-white">before</strong> you extend an offer—so you can make informed hiring decisions backed by science, not just gut feelings.
+              PRISM-7 shows you which candidates will actually fit your team—<strong className="text-white">before</strong> you make an offer you&apos;ll regret. 15 minutes. No subscriptions. Science you can trust.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -111,7 +111,7 @@ function EmployerLandingPage() {
                 asChild
               >
                 <Link href="/sign-up">
-                  Try Your First Assessment Free
+                  Get Your First Assessment Free
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -122,7 +122,7 @@ function EmployerLandingPage() {
                 asChild
               >
                 <Link href="#demo">
-                  See How It Works
+                  Watch It In Action
                 </Link>
               </Button>
             </motion.div>
@@ -156,10 +156,10 @@ function EmployerLandingPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Do The Math On Your Last Bad Hire
+              Think About Your Last Bad Hire.<br />Now Multiply By Every One Before That.
             </h2>
             <p className="text-slate-400 text-lg">
-              Research shows most hiring failures aren&apos;t about skills—they&apos;re about fit. Here&apos;s what&apos;s really at stake:
+              Here&apos;s the uncomfortable truth: most hiring failures have nothing to do with skills. The candidate interviewed great. Their resume was impressive. So why are they gone in 8 months?
             </p>
           </motion.div>
 
@@ -167,22 +167,22 @@ function EmployerLandingPage() {
             {[
               {
                 stat: "30%+",
-                title: "Of First-Year Salary",
-                description: "The U.S. Department of Labor's conservative estimate for the cost of a bad hire. For senior roles, independent research suggests it can reach 50-200% of salary.",
+                title: "Gone. Poof. Vanished.",
+                description: "The U.S. Department of Labor's estimate for what a bad hire costs—minimum. For senior roles? Try 50-200% of salary. That's real money you're lighting on fire.",
                 icon: DollarSign,
                 source: "U.S. Dept. of Labor"
               },
               {
                 stat: "89%",
-                title: "Due to Attitude, Not Skill",
-                description: "Leadership IQ's 3-year study of 20,000 new hires found the vast majority of failures were due to attitude, motivation, or temperament—not technical ability.",
+                title: "Fired for Fit, Not Skills",
+                description: "Leadership IQ studied 20,000 new hires over 3 years. Nearly 9 in 10 failures had nothing to do with technical ability. They just didn't mesh with the team or the role.",
                 icon: Users,
                 source: "Leadership IQ Study"
               },
               {
                 stat: "Weeks",
-                title: "Of Lost Productivity",
-                description: "Every week spent managing a poor fit, working around them, or searching for their replacement is time your team isn't moving forward.",
+                title: "You'll Never Get Back",
+                description: "The performance reviews. The coaching sessions. The awkward conversations. The HR meetings. The search for their replacement. Time that should've gone to growing your business.",
                 icon: Clock,
                 source: ""
               }
@@ -226,13 +226,13 @@ function EmployerLandingPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm mb-6">
               <Zap className="w-4 h-4" />
-              <span>The PRISM-7 Solution</span>
+              <span>Here&apos;s What To Do Instead</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Screen for Fit <em>Before</em> You Invest Hours Interviewing
+              Know Who You&apos;re Hiring <em>Before</em> You Extend The Offer
             </h2>
             <p className="text-slate-400 text-lg">
-              PRISM-7 measures candidates across 7 personality dimensions based on the HEXACO model—the same framework used by researchers at top universities worldwide.
+              PRISM-7 uses the HEXACO personality model—the gold standard in academic research—to show you who candidates really are, not just who they appear to be in a 45-minute interview.
             </p>
           </motion.div>
 
@@ -241,26 +241,26 @@ function EmployerLandingPage() {
             {[
               {
                 step: "01",
-                title: "Paste Your Job Description",
-                description: "Our AI extracts the personality traits needed for success in the role—automatically.",
+                title: "Drop In Your Job Description",
+                description: "Takes 30 seconds. Our AI identifies exactly which personality traits predict success in this specific role.",
                 icon: Building2
               },
               {
                 step: "02",
-                title: "Share Assessment Link",
-                description: "Candidates complete a 15-minute assessment. No scheduling, no coordination headaches.",
+                title: "Send Candidates One Link",
+                description: "They finish in 15 minutes, on their own time, from any device. Zero coordination on your end.",
                 icon: Users
               },
               {
                 step: "03",
-                title: "Get Ranked Results",
-                description: "See every candidate ranked by fit score with detailed breakdowns and red flags.",
+                title: "See Who Actually Fits",
+                description: "Your candidates ranked by fit score. Red flags highlighted. No more guessing who's worth an interview.",
                 icon: BarChart3
               },
               {
                 step: "04",
-                title: "Hire With Confidence",
-                description: "Make data-driven decisions backed by personality science, not gut feelings.",
+                title: "Hire Someone Who Sticks",
+                description: "When you match personality to role requirements, new hires actually succeed. Less turnover. Less headaches. Better team.",
                 icon: UserCheck
               }
             ].map((item, index) => (
@@ -348,10 +348,10 @@ function EmployerLandingPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Why This Approach Actually Works
+              &ldquo;Personality Tests Don&apos;t Work.&rdquo;<br />Wrong Ones Don&apos;t. This One Does.
             </h2>
             <p className="text-slate-400 text-lg">
-              PRISM-7 is built on decades of peer-reviewed personality research—not Silicon Valley hype.
+              Most hiring assessments are horoscopes dressed up in corporate branding. PRISM-7 is built on the actual science—the kind published in peer-reviewed journals, not marketing decks.
             </p>
           </motion.div>
 
@@ -412,10 +412,10 @@ function EmployerLandingPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Simple, Transparent Pricing
+              $15 To Avoid a $24,000 Mistake?
             </h2>
             <p className="text-slate-400 text-lg">
-              No subscriptions. No commitments. Pay only for what you use.
+              No subscriptions. No annual contracts. Just pay when you hire—and sleep better knowing who you&apos;re bringing on.
             </p>
           </motion.div>
 
@@ -429,11 +429,12 @@ function EmployerLandingPage() {
               <Card className="bg-slate-900/50 border-slate-800 h-full">
                 <CardHeader>
                   <CardTitle className="text-white">Pay As You Go</CardTitle>
-                  <CardDescription className="text-slate-400">Perfect for occasional hiring</CardDescription>
+                  <CardDescription className="text-slate-400">Test it. No commitment.</CardDescription>
                   <div className="mt-4">
                     <span className="text-4xl font-bold text-white">$15</span>
                     <span className="text-slate-400">/assessment</span>
                   </div>
+                  <p className="text-xs text-emerald-400 mt-1">First one free</p>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <ul className="space-y-3">
@@ -451,7 +452,7 @@ function EmployerLandingPage() {
                     ))}
                   </ul>
                   <Button className="w-full mt-6" variant="outline" asChild>
-                    <Link href="/sign-up">Get Started</Link>
+                    <Link href="/sign-up">Get Your Free Assessment</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -466,16 +467,16 @@ function EmployerLandingPage() {
             >
               <Card className="bg-gradient-to-b from-violet-900/30 to-slate-900/50 border-violet-500/30 h-full relative">
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm rounded-full">
-                  Most Popular
+                  Best Value
                 </div>
                 <CardHeader className="pt-8">
                   <CardTitle className="text-white">Credit Packs</CardTitle>
-                  <CardDescription className="text-slate-400">Best value for growing teams</CardDescription>
+                  <CardDescription className="text-slate-400">Serious about hiring right</CardDescription>
                   <div className="mt-4">
                     <span className="text-4xl font-bold text-white">$10</span>
                     <span className="text-slate-400">/assessment</span>
                   </div>
-                  <p className="text-sm text-emerald-400 mt-1">Save 33%</p>
+                  <p className="text-sm text-emerald-400 mt-1">Save $5 per hire</p>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <ul className="space-y-3">
@@ -493,7 +494,7 @@ function EmployerLandingPage() {
                     ))}
                   </ul>
                   <Button className="w-full mt-6 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500" asChild>
-                    <Link href="/sign-up">Buy Credits</Link>
+                    <Link href="/sign-up">Lock In This Price</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -509,9 +510,9 @@ function EmployerLandingPage() {
               <Card className="bg-slate-900/50 border-slate-800 h-full">
                 <CardHeader>
                   <CardTitle className="text-white">Enterprise</CardTitle>
-                  <CardDescription className="text-slate-400">For high-volume hiring</CardDescription>
+                  <CardDescription className="text-slate-400">Hiring at scale</CardDescription>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-white">Custom</span>
+                    <span className="text-4xl font-bold text-white">Let&apos;s Talk</span>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -519,9 +520,9 @@ function EmployerLandingPage() {
                     {[
                       "Unlimited assessments",
                       "ATS integrations",
-                      "Custom branding",
+                      "Your branding, your experience",
                       "Dedicated account manager",
-                      "API access"
+                      "Full API access"
                     ].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-slate-300">
                         <CheckCircle2 className="w-5 h-5 text-emerald-400" />
@@ -530,7 +531,7 @@ function EmployerLandingPage() {
                     ))}
                   </ul>
                   <Button className="w-full mt-6" variant="outline" asChild>
-                    <Link href="/contact">Contact Sales</Link>
+                    <Link href="/contact">Talk to Our Team</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -538,15 +539,18 @@ function EmployerLandingPage() {
           </div>
 
           {/* Money-back guarantee */}
-          <motion.p 
+          <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center text-slate-400 mt-8"
+            className="text-center mt-8 p-6 rounded-xl bg-slate-800/30 border border-slate-700/50 max-w-2xl mx-auto"
           >
-            <Shield className="w-5 h-5 inline mr-2" />
-            30-day money-back guarantee. If you&apos;re not satisfied, we&apos;ll refund your unused credits.
-          </motion.p>
+            <Shield className="w-8 h-8 mx-auto mb-3 text-emerald-400" />
+            <p className="text-white font-semibold mb-1">Zero-Risk Guarantee</p>
+            <p className="text-slate-400">
+              30 days to decide. If PRISM-7 isn&apos;t delivering value, we refund your unused credits—no questions, no hassle.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -613,13 +617,13 @@ function EmployerLandingPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Your Next Hire Could Be Your Best—Or Your Most Expensive
+              You&apos;re Going To Hire Someone Next Month.<br />The Only Question Is Who.
             </h2>
             <p className="text-xl text-slate-400 mb-4">
-              Every week you rely on gut feelings alone is another roll of the dice.
+              You can keep doing what you&apos;ve been doing—resumes, interviews, references, and hope for the best.
             </p>
-            <p className="text-lg text-slate-500 mb-8">
-              Try PRISM-7 on your next candidate. See the difference better data makes.
+            <p className="text-lg text-slate-300 mb-8">
+              Or you can spend 5 minutes setting up PRISM-7 and actually <em>know</em> who you&apos;re bringing onto your team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -628,7 +632,7 @@ function EmployerLandingPage() {
                 asChild
               >
                 <Link href="/sign-up">
-                  Start With a Free Assessment
+                  Get Your Free Assessment Now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -639,12 +643,12 @@ function EmployerLandingPage() {
                 asChild
               >
                 <Link href="/contact">
-                  Questions? Let&apos;s Talk
+                  Have Questions? Let&apos;s Talk
                 </Link>
               </Button>
             </div>
             <p className="text-slate-500 text-sm mt-6">
-              No credit card required • Takes 5 minutes to set up • Cancel anytime
+              No credit card required • Set up in 5 minutes • Your first assessment is free
             </p>
           </motion.div>
         </div>
