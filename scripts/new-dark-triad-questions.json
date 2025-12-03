@@ -1,0 +1,101 @@
+{
+  "questions": [
+    {
+      "text": "It's wise to keep track of information that you can use against people later.",
+      "type": "likert",
+      "dimension": "honestyHumility",
+      "framework_tags": ["dark_triad_mach"],
+      "discrimination": 1.4,
+      "reverse_scored": true
+    },
+    {
+      "text": "I enjoy using clever tactics to get my way in negotiations.",
+      "type": "likert",
+      "dimension": "honestyHumility",
+      "framework_tags": ["dark_triad_mach"],
+      "discrimination": 1.3,
+      "reverse_scored": true
+    },
+    {
+      "text": "Getting the right people on your side is worth whatever it takes.",
+      "type": "likert",
+      "dimension": "honestyHumility",
+      "framework_tags": ["dark_triad_mach"],
+      "discrimination": 1.3,
+      "reverse_scored": true
+    },
+    {
+      "text": "I avoid direct conflict because those people may be useful to me later.",
+      "type": "likert",
+      "dimension": "agreeableness",
+      "framework_tags": ["dark_triad_mach"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    },
+    {
+      "text": "I naturally gravitate toward connecting with influential or important people.",
+      "type": "likert",
+      "dimension": "extraversion",
+      "framework_tags": ["dark_triad_narc"],
+      "discrimination": 1.3,
+      "reverse_scored": true
+    },
+    {
+      "text": "I feel uncomfortable when someone gives me a compliment.",
+      "type": "likert",
+      "dimension": "honestyHumility",
+      "framework_tags": ["dark_triad_narc"],
+      "discrimination": 1.2,
+      "reverse_scored": false
+    },
+    {
+      "text": "People have compared me to famous or successful individuals.",
+      "type": "likert",
+      "dimension": "extraversion",
+      "framework_tags": ["dark_triad_narc"],
+      "discrimination": 1.3,
+      "reverse_scored": true
+    },
+    {
+      "text": "I consider myself to be a fairly ordinary person.",
+      "type": "likert",
+      "dimension": "honestyHumility",
+      "framework_tags": ["dark_triad_narc"],
+      "discrimination": 1.2,
+      "reverse_scored": false
+    },
+    {
+      "text": "When someone in authority wrongs me, I feel a strong urge to get even.",
+      "type": "likert",
+      "dimension": "agreeableness",
+      "framework_tags": ["dark_triad_psych"],
+      "discrimination": 1.4,
+      "reverse_scored": true
+    },
+    {
+      "text": "If someone crosses me, I believe payback should be swift and decisive.",
+      "type": "likert",
+      "dimension": "agreeableness",
+      "framework_tags": ["dark_triad_psych"],
+      "discrimination": 1.4,
+      "reverse_scored": true
+    },
+    {
+      "text": "I tend to avoid situations that could be physically or emotionally dangerous.",
+      "type": "likert",
+      "dimension": "emotionalResilience",
+      "framework_tags": ["dark_triad_psych"],
+      "discrimination": 1.2,
+      "reverse_scored": false
+    },
+    {
+      "text": "Others have described my behavior as impulsive or out of control.",
+      "type": "likert",
+      "dimension": "conscientiousness",
+      "framework_tags": ["dark_triad_psych"],
+      "discrimination": 1.3,
+      "reverse_scored": true
+    }
+  ]
+}
+

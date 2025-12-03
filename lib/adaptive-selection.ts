@@ -42,6 +42,10 @@ const ENNEAGRAM_TYPES = ['enneagram_1', 'enneagram_2', 'enneagram_3', 'enneagram
                          'enneagram_9'] as const;
 type EnneagramType = typeof ENNEAGRAM_TYPES[number];
 
+// Dark Triad Traits (unlocked at checkpoint 4 - Deep Dive premium feature)
+const DARK_TRIAD_TRAITS = ['dark_triad_mach', 'dark_triad_narc', 'dark_triad_psych'] as const;
+type DarkTriadTrait = typeof DARK_TRIAD_TRAITS[number];
+
 // Cross-framework mappings: PRISM dimensions that inform other frameworks
 const PRISM_TO_MBTI_MAPPING: Record<Dimension, MbtiDimension[]> = {
   openness: ['mbti_sn'],           // Openness relates to Intuition vs Sensing
@@ -72,18 +76,19 @@ const CHECKPOINT_CONFIG: Record<number, {
   minPerPrismDimension: number;
   minPerMbtiDimension: number;
   minPerEnneagramType: number;
+  minPerDarkTriadTrait: number;
 }> = {
   // Checkpoint 1: Focus on PRISM-7 core dimensions (35 questions)
-  1: { frameworks: ['prism'], questionRange: [0, 35], minPerPrismDimension: 5, minPerMbtiDimension: 0, minPerEnneagramType: 0 },
+  1: { frameworks: ['prism'], questionRange: [0, 35], minPerPrismDimension: 5, minPerMbtiDimension: 0, minPerEnneagramType: 0, minPerDarkTriadTrait: 0 },
   // Checkpoint 2: Add MBTI focus - need at least 5 questions per MBTI dimension (20 total MBTI questions)
   // We have 10 questions per dimension, so 5 is achievable and gives good accuracy
-  2: { frameworks: ['prism', 'mbti'], questionRange: [35, 55], minPerPrismDimension: 0, minPerMbtiDimension: 5, minPerEnneagramType: 0 },
+  2: { frameworks: ['prism', 'mbti'], questionRange: [35, 55], minPerPrismDimension: 0, minPerMbtiDimension: 5, minPerEnneagramType: 0, minPerDarkTriadTrait: 0 },
   // Checkpoint 3: Add Enneagram focus - need at least 4 questions per type (36 total Enneagram questions)
   // We now have 9-13 questions per type, so 4 per type is achievable and improves accuracy
-  3: { frameworks: ['prism', 'mbti', 'enneagram'], questionRange: [55, 80], minPerPrismDimension: 0, minPerMbtiDimension: 0, minPerEnneagramType: 4 },
-  // Checkpoint 4: Deep dive - catch up on any missed framework questions + refine uncertain areas
-  // Increase minimums to ensure the new questions get used for better coverage
-  4: { frameworks: ['prism', 'mbti', 'enneagram', 'detailed'], questionRange: [80, 105], minPerPrismDimension: 0, minPerMbtiDimension: 2, minPerEnneagramType: 2 },
+  3: { frameworks: ['prism', 'mbti', 'enneagram'], questionRange: [55, 80], minPerPrismDimension: 0, minPerMbtiDimension: 0, minPerEnneagramType: 4, minPerDarkTriadTrait: 0 },
+  // Checkpoint 4: Deep dive - catch up on frameworks + Dark Triad premium feature
+  // Dark Triad requires at least 3 questions per trait (9 total) for accurate direct measurement
+  4: { frameworks: ['prism', 'mbti', 'enneagram', 'detailed'], questionRange: [80, 105], minPerPrismDimension: 0, minPerMbtiDimension: 2, minPerEnneagramType: 2, minPerDarkTriadTrait: 3 },
 };
 
 // Question type weights (from methodology)
@@ -116,6 +121,8 @@ export interface AdaptiveState {
   mbtiEstimates: Record<string, TraitEstimate>;
   // Enneagram estimates (unlocked at checkpoint 3)
   enneagramEstimates: Record<string, TraitEstimate>;
+  // Dark Triad estimates (unlocked at checkpoint 4 - Deep Dive premium)
+  darkTriadEstimates: Record<string, TraitEstimate>;
   // Tracking
   answeredQuestionIds: Set<string>;
   answeredQuestionTexts: Set<string>;  // Normalized texts to prevent duplicates
@@ -172,10 +179,24 @@ export function initializeAdaptiveState(): AdaptiveState {
     };
   }
   
+  // Initialize Dark Triad estimates (will be refined at checkpoint 4 - Deep Dive)
+  const darkTriadEstimates: Record<string, TraitEstimate> = {};
+  for (const trait of DARK_TRIAD_TRAITS) {
+    darkTriadEstimates[trait] = {
+      id: trait,
+      estimate: 50,
+      standardError: 25,
+      responseCount: 0,
+      sumWeights: 0,
+      inferredFrom: [],
+    };
+  }
+  
   return {
     prismEstimates: prismEstimates as Record<Dimension, TraitEstimate>,
     mbtiEstimates,
     enneagramEstimates,
+    darkTriadEstimates,
     answeredQuestionIds: new Set(),
     answeredQuestionTexts: new Set(),
     currentCheckpoint: 1,
@@ -417,6 +438,16 @@ export function getFrameworksNeedingCoverage(
     }
   }
   
+  // Check Dark Triad coverage (checkpoint 4 only - Deep Dive premium)
+  if (config.minPerDarkTriadTrait > 0) {
+    for (const trait of DARK_TRIAD_TRAITS) {
+      const count = state.darkTriadEstimates?.[trait]?.responseCount || 0;
+      if (count < config.minPerDarkTriadTrait) {
+        needsCoverage.push({ type: 'prism', id: trait, needed: config.minPerDarkTriadTrait - count });
+      }
+    }
+  }
+  
   // Sort by most needed first
   return needsCoverage.sort((a, b) => b.needed - a.needed);
 }
@@ -576,6 +607,22 @@ function calculateCheckpointRelevance(
         const estimate = state.enneagramEstimates[ennType];
         if (estimate && estimate.responseCount < 5) {
           relevance *= 2.0; // Strong boost to catch up
+        }
+      }
+    }
+    
+    // PREMIUM FEATURE: Boost Dark Triad questions (only available in Deep Dive)
+    const hasDarkTriadTag = DARK_TRIAD_TRAITS.some(trait => tags.includes(trait));
+    if (hasDarkTriadTag) {
+      // Strong boost (4x) for Dark Triad - premium Deep Dive feature
+      relevance *= 4.0;
+      
+      // Extra boost for under-sampled Dark Triad traits
+      const darkTriadTagsPresent = DARK_TRIAD_TRAITS.filter(trait => tags.includes(trait));
+      for (const dtTrait of darkTriadTagsPresent) {
+        const estimate = state.darkTriadEstimates?.[dtTrait];
+        if (estimate && estimate.responseCount < 3) {
+          relevance *= 2.0; // Prioritize under-sampled traits
         }
       }
     }
@@ -897,6 +944,38 @@ export function updateTraitEstimate(
     }
   }
   
+  // Update Dark Triad estimates if question has Dark Triad tags (Deep Dive premium)
+  const newDarkTriadEstimates = { ...state.darkTriadEstimates };
+  for (const dtTrait of DARK_TRIAD_TRAITS) {
+    if (tags.includes(dtTrait)) {
+      const dtEstimate = newDarkTriadEstimates[dtTrait] || {
+        id: dtTrait,
+        estimate: 50,
+        standardError: 25,
+        responseCount: 0,
+        sumWeights: 0,
+      };
+      const dtPriorWeight = dtEstimate.sumWeights;
+      const dtNewSumWeights = dtPriorWeight + effectiveWeight;
+      
+      const newDtValue = dtPriorWeight > 0
+        ? (dtEstimate.estimate * dtPriorWeight + adjustedResponse * effectiveWeight) / dtNewSumWeights
+        : adjustedResponse;
+      
+      const dtNewVariance = baseVariance / (1 + dtNewSumWeights);
+      const dtNewSE = Math.sqrt(dtNewVariance);
+      
+      newDarkTriadEstimates[dtTrait] = {
+        id: dtTrait,
+        estimate: Math.max(0, Math.min(100, newDtValue)),
+        standardError: Math.max(5, dtNewSE),
+        responseCount: dtEstimate.responseCount + 1,
+        sumWeights: dtNewSumWeights,
+        inferredFrom: dtEstimate.inferredFrom,
+      };
+    }
+  }
+  
   // Determine current checkpoint based on questions answered
   const newQuestionsAnswered = state.questionsAnswered + 1;
   let newCheckpoint = 1;
@@ -915,6 +994,7 @@ export function updateTraitEstimate(
     prismEstimates: newPrismEstimates,
     mbtiEstimates: newMbtiEstimates,
     enneagramEstimates: newEnneagramEstimates,
+    darkTriadEstimates: newDarkTriadEstimates,
     answeredQuestionIds: new Set([...state.answeredQuestionIds, question.id]),
     answeredQuestionTexts: new Set([...state.answeredQuestionTexts, normalizeText(question.text)]),
     currentCheckpoint: newCheckpoint,
@@ -1082,6 +1162,7 @@ export function serializeAdaptiveState(state: AdaptiveState): string {
     prismEstimates: state.prismEstimates,
     mbtiEstimates: state.mbtiEstimates,
     enneagramEstimates: state.enneagramEstimates,
+    darkTriadEstimates: state.darkTriadEstimates,
     answeredQuestionIds: Array.from(state.answeredQuestionIds),
     answeredQuestionTexts: Array.from(state.answeredQuestionTexts),
     currentCheckpoint: state.currentCheckpoint,
@@ -1095,10 +1176,28 @@ export function serializeAdaptiveState(state: AdaptiveState): string {
  */
 export function deserializeAdaptiveState(json: string): AdaptiveState {
   const data = JSON.parse(json);
+  
+  // Initialize Dark Triad estimates if not present (for backwards compatibility)
+  let darkTriadEstimates = data.darkTriadEstimates;
+  if (!darkTriadEstimates) {
+    darkTriadEstimates = {};
+    for (const trait of DARK_TRIAD_TRAITS) {
+      darkTriadEstimates[trait] = {
+        id: trait,
+        estimate: 50,
+        standardError: 25,
+        responseCount: 0,
+        sumWeights: 0,
+        inferredFrom: [],
+      };
+    }
+  }
+  
   return {
     prismEstimates: data.prismEstimates,
     mbtiEstimates: data.mbtiEstimates,
     enneagramEstimates: data.enneagramEstimates,
+    darkTriadEstimates,
     answeredQuestionIds: new Set(data.answeredQuestionIds),
     answeredQuestionTexts: new Set(data.answeredQuestionTexts),
     currentCheckpoint: data.currentCheckpoint,

@@ -576,6 +576,12 @@ function AssessmentIntroContent() {
                 }`}
                 onClick={() => setSelectedType("full")}
               >
+                {/* Premium badge */}
+                <div className="absolute -top-3 -right-2">
+                  <span className="text-xs bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full font-semibold shadow-lg">
+                    Deep Dive
+                  </span>
+                </div>
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 space-y-2">
                     <div className="flex items-center gap-3">
@@ -589,7 +595,7 @@ function AssessmentIntroContent() {
                       105 questions • ~25 minutes • 4 checkpoints
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Complete deep dive with facet-level analysis, compatibility insights, and career guidance. Progress through all 4 checkpoints.
+                      Complete deep dive with facet-level analysis, Dark Triad insights, compatibility scores, and career guidance. Progress through all 4 checkpoints.
                     </p>
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
@@ -597,6 +603,9 @@ function AssessmentIntroContent() {
                       </span>
                       <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
                         ✓ Facet analysis
+                      </span>
+                      <span className="text-xs bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200">
+                        ★ Dark Triad profile
                       </span>
                       <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
                         ✓ Career guidance

@@ -44,6 +44,7 @@ const paidFeatures = [
   "Complete dimensional breakdown with insights",
   "All 15+ career matches with fit scores",
   "Full MBTI & Enneagram mappings",
+  "Dark Triad personality profile (Deep Dive)",
   "Compatibility profile for relationships",
   "Famous examples who share your type",
   "Personalized growth recommendations",
@@ -350,6 +351,12 @@ function PricingPageContent() {
                   description: "See your MBTI type, Enneagram number, and how they connect to your PRISM-7 profile."
                 },
                 {
+                  icon: Target,
+                  title: "Dark Triad Profile",
+                  description: "Exclusive Deep Dive feature: Measure Machiavellianism, Narcissism, and Psychopathy traits for complete self-awareness.",
+                  premium: true
+                },
+                {
                   icon: Heart,
                   title: "Compatibility Profile",
                   description: "Understand how you relate to others in romance, friendship, and professional settings."
@@ -371,13 +378,26 @@ function PricingPageContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex gap-4 p-4 rounded-xl bg-white/60 border border-border/50"
+                  className={`flex gap-4 p-4 rounded-xl border ${
+                    'premium' in item && item.premium 
+                      ? "bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200" 
+                      : "bg-white/60 border-border/50"
+                  }`}
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 flex-shrink-0">
-                    <item.icon className="h-6 w-6 text-violet-600" />
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl flex-shrink-0 ${
+                    'premium' in item && item.premium ? "bg-gradient-to-br from-amber-100 to-orange-100" : "bg-violet-100"
+                  }`}>
+                    <item.icon className={`h-6 w-6 ${'premium' in item && item.premium ? "text-amber-600" : "text-violet-600"}`} />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{item.title}</h3>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-semibold">{item.title}</h3>
+                      {'premium' in item && item.premium && (
+                        <Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs px-2 py-0">
+                          Deep Dive
+                        </Badge>
+                      )}
+                    </div>
                     <p className="text-sm text-muted-foreground">{item.description}</p>
                   </div>
                 </motion.div>

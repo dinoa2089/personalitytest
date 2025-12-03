@@ -39,11 +39,11 @@ export const CHECKPOINTS: Checkpoint[] = [
   {
     id: 4,
     name: "Deep Dive",
-    description: "Complete comprehensive analysis",
+    description: "Complete comprehensive analysis with Dark Triad",
     questionsRequired: 105,
-    frameworks: ["prism", "mbti", "enneagram", "detailed"],
+    frameworks: ["prism", "mbti", "enneagram", "detailed", "dark_triad"],
     timeEstimate: "+6 minutes",
-    unlocks: ["Facet-level analysis", "Compatibility insights", "Career guidance"],
+    unlocks: ["Dark Triad profile", "Facet-level analysis", "Compatibility insights", "Career guidance"],
   },
 ];
 

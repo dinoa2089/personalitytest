@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import enneagramQuestions from "@/scripts/new-enneagram-questions.json";
 import mbtiSnQuestions from "@/scripts/new-mbti-sn-questions.json";
+import darkTriadQuestions from "@/scripts/new-dark-triad-questions.json";
 
 interface QuestionInput {
   text: string;
@@ -36,6 +37,10 @@ export async function POST(request: Request) {
       case "mbti_sn":
         questions = mbtiSnQuestions.questions;
         setName = "MBTI S/N";
+        break;
+      case "dark_triad":
+        questions = darkTriadQuestions.questions;
+        setName = "Dark Triad";
         break;
       case "enneagram":
       default:
