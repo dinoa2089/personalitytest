@@ -18,14 +18,12 @@ import {
   UserCheck,
   Zap,
   Award,
-  ChevronRight,
-  Loader2
+  ChevronRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { EmployerDashboard } from "@/components/employer/EmployerDashboard";
 
 // Animation variants
 const fadeInUp = {
@@ -39,30 +37,33 @@ const staggerChildren = {
 };
 
 export default function ForEmployersPage() {
-  const { isLoaded, isSignedIn } = useUser();
-
-  // Show loading while checking auth
-  if (!isLoaded) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-violet-50 via-white to-fuchsia-50/30 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-violet-600" />
-      </div>
-    );
-  }
-
-  // If signed in, show the dashboard
-  if (isSignedIn) {
-    return <EmployerDashboard />;
-  }
-
-  // If not signed in, show the landing page
+  // Always show the landing page - dashboard is at /business/dashboard
   return <EmployerLandingPage />;
 }
 
 function EmployerLandingPage() {
+  const { isSignedIn } = useUser();
+  
   return (
     <>
     <Header />
+    
+    {/* Signed-in user banner */}
+    {isSignedIn && (
+      <div className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white py-3 px-4">
+        <div className="container mx-auto flex items-center justify-center gap-4 text-sm">
+          <span>Already have an account?</span>
+          <Link 
+            href="/business/dashboard" 
+            className="inline-flex items-center gap-1 font-semibold hover:underline"
+          >
+            Go to Dashboard
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </div>
+    )}
+    
     <div className="min-h-screen bg-gradient-to-b from-violet-50 via-white to-fuchsia-50/30">
       {/* Hero Section - Problem Focused */}
       <section className="relative overflow-hidden py-20 lg:py-32">
