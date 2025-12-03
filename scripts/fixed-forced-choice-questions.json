@@ -1,0 +1,446 @@
+{
+  "description": "Fixed forced-choice questions with unique contextual stems and proper option format",
+  "questions": [
+    {
+      "id": "05520763-6014-4aba-9e37-5fe3893553e0",
+      "dimension": "adaptability",
+      "text": "When facing unexpected changes in your environment, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I modify my methods to fit the situation", "dimension": "adaptability"},
+        {"text": "I act with transparency in all interactions", "dimension": "honestyHumility"},
+        {"text": "I seek out complex and theoretical problems", "dimension": "openness"}
+      ]
+    },
+    {
+      "id": "0b4521f8-23c0-4243-af09-ac37d7ef9d83",
+      "dimension": "honestyHumility",
+      "text": "When considering how you interact with others, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I avoid manipulating others for personal gain", "dimension": "honestyHumility"},
+        {"text": "I remain calm during stressful situations", "dimension": "emotionalResilience"},
+        {"text": "I seek out complex theoretical problems", "dimension": "openness"}
+      ]
+    },
+    {
+      "id": "0c904ec0-656d-4d07-8875-fe94a69521d5",
+      "dimension": "honestyHumility",
+      "text": "Thinking about your sense of self and entitlement, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I sometimes feel entitled to special treatment", "dimension": "honestyHumility", "reverse_scored": true},
+        {"text": "I value fairness above personal gain", "dimension": "honestyHumility"},
+        {"text": "I'm comfortable admitting when I don't know something", "dimension": "honestyHumility"}
+      ]
+    },
+    {
+      "id": "0dedb9f6-b4b8-4f1d-ba1f-4222be574041",
+      "dimension": "emotionalResilience",
+      "text": "When dealing with challenges at work or in life, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I maintain a positive outlook during difficulties", "dimension": "emotionalResilience"},
+        {"text": "I strive for accuracy in every detail", "dimension": "conscientiousness"},
+        {"text": "I enjoy navigating through ambiguous situations", "dimension": "adaptability"}
+      ]
+    },
+    {
+      "id": "18a1a633-6ee0-4339-9690-1d92a1202c57",
+      "dimension": "honestyHumility",
+      "text": "When your principles are tested, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I value fairness more than winning", "dimension": "honestyHumility"},
+        {"text": "I initiate conversations with strangers easily", "dimension": "extraversion"},
+        {"text": "I adjust my plans when circumstances change", "dimension": "adaptability"}
+      ]
+    },
+    {
+      "id": "199dc4f2-c2ef-4340-aa37-493d4c83417e",
+      "dimension": "emotionalResilience",
+      "text": "When receiving feedback or criticism, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I handle criticism without getting discouraged", "dimension": "emotionalResilience"},
+        {"text": "I admit when I do not know the answer", "dimension": "honestyHumility"},
+        {"text": "I adjust my approach when circumstances change", "dimension": "adaptability"}
+      ]
+    },
+    {
+      "id": "2ab1b632-4d0e-47d7-9f72-1688f6f15358",
+      "dimension": "extraversion",
+      "text": "In social gatherings, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I feel energized when meeting new people", "dimension": "extraversion"},
+        {"text": "I make an effort to understand others' perspectives", "dimension": "agreeableness"},
+        {"text": "I keep my workspace clean and organized", "dimension": "conscientiousness"}
+      ]
+    },
+    {
+      "id": "2d45adeb-9a86-4e2b-a929-a75173c0c551",
+      "dimension": "extraversion",
+      "text": "Thinking about how you spend your free time, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I prefer spending time with large groups", "dimension": "extraversion"},
+        {"text": "I set ambitious goals for myself", "dimension": "conscientiousness"},
+        {"text": "I recover quickly from setbacks", "dimension": "emotionalResilience"}
+      ]
+    },
+    {
+      "id": "354e8d59-0979-4fc1-a544-59a5dbc63d23",
+      "dimension": "emotionalResilience",
+      "text": "During high-pressure moments, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I keep my emotions steady in stressful moments", "dimension": "emotionalResilience"},
+        {"text": "I value artistic expression and beauty", "dimension": "openness"},
+        {"text": "I treat others fairly regardless of status", "dimension": "honestyHumility"}
+      ]
+    },
+    {
+      "id": "3708399a-ff64-40b2-9755-073e5f62c487",
+      "dimension": "emotionalResilience",
+      "text": "When things don't go as planned, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I bounce back quickly after disappointments", "dimension": "emotionalResilience"},
+        {"text": "I prefer having a detailed plan before starting", "dimension": "conscientiousness"},
+        {"text": "I enjoy exploring unconventional ideas", "dimension": "openness"}
+      ]
+    },
+    {
+      "id": "3add5e59-5aba-4285-8dcb-62af38b9c6f0",
+      "dimension": "emotionalResilience",
+      "text": "When facing uncertainty about the future, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I stay calm even when outcomes are unclear", "dimension": "emotionalResilience"},
+        {"text": "I thrive in group discussions and debates", "dimension": "extraversion"},
+        {"text": "I prioritize helping others over my own tasks", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "41940867-e4a3-4ac7-8e5b-d7a7a5c0cbbb",
+      "dimension": "emotionalResilience",
+      "text": "After experiencing a setback or failure, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I recover quickly and move forward", "dimension": "emotionalResilience"},
+        {"text": "I analyze what went wrong in detail", "dimension": "conscientiousness"},
+        {"text": "I seek comfort from friends and family", "dimension": "extraversion"}
+      ]
+    },
+    {
+      "id": "476966d1-d5b5-4c19-bc74-f5c33ed1c11c",
+      "dimension": "conscientiousness",
+      "text": "When managing your daily responsibilities, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I plan my daily schedule carefully", "dimension": "conscientiousness"},
+        {"text": "I enjoy learning about new topics", "dimension": "openness"},
+        {"text": "I treat everyone with fairness", "dimension": "honestyHumility"}
+      ]
+    },
+    {
+      "id": "4af93c78-2496-49ea-a466-eedeb65bcc38",
+      "dimension": "extraversion",
+      "text": "At work or school events, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I naturally gravitate toward group activities", "dimension": "extraversion"},
+        {"text": "I follow through on commitments even when difficult", "dimension": "conscientiousness"},
+        {"text": "I embrace new approaches when old ones stop working", "dimension": "adaptability"}
+      ]
+    },
+    {
+      "id": "4dd5e40a-69d5-4b87-9b1b-c1c8f8d8e8f8",
+      "dimension": "agreeableness",
+      "text": "In team settings, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I prioritize group harmony over being right", "dimension": "agreeableness"},
+        {"text": "I express my opinions confidently", "dimension": "extraversion"},
+        {"text": "I maintain high standards for my work", "dimension": "conscientiousness"}
+      ]
+    },
+    {
+      "id": "583b9a22-660c-4efe-bdc6-8aff5376a435",
+      "dimension": "agreeableness",
+      "text": "When someone needs help, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I put others' needs before my own", "dimension": "agreeableness"},
+        {"text": "I stay focused on my own priorities", "dimension": "conscientiousness"},
+        {"text": "I offer creative solutions to their problems", "dimension": "openness"}
+      ]
+    },
+    {
+      "id": "6720b89a-c82c-4e18-b4fa-f4d4e4c4b4a4",
+      "dimension": "extraversion",
+      "text": "At parties or social events, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I enjoy being the center of attention", "dimension": "extraversion"},
+        {"text": "I prefer deep one-on-one conversations", "dimension": "openness"},
+        {"text": "I ensure everyone feels included", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "6eb9e4f0-a3b3-4c4d-8e8f-9a9b9c9d9e9f",
+      "dimension": "agreeableness",
+      "text": "When disagreements arise, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I seek compromise to maintain relationships", "dimension": "agreeableness"},
+        {"text": "I stand firm on what I believe is correct", "dimension": "honestyHumility"},
+        {"text": "I analyze the situation logically", "dimension": "openness"}
+      ]
+    },
+    {
+      "id": "70b6d9a6-d5e5-4f6a-9a9b-1c1d1e1f2a2b",
+      "dimension": "conscientiousness",
+      "text": "When working on important projects, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I double-check my work for errors", "dimension": "conscientiousness"},
+        {"text": "I collaborate easily with teammates", "dimension": "agreeableness"},
+        {"text": "I stay calm under tight deadlines", "dimension": "emotionalResilience"}
+      ]
+    },
+    {
+      "id": "77c401cf-e6f6-4a7b-8b8c-2d2e2f3a3b3c",
+      "dimension": "honestyHumility",
+      "text": "When you make a mistake, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I own up to my errors immediately", "dimension": "honestyHumility"},
+        {"text": "I focus on finding a solution", "dimension": "conscientiousness"},
+        {"text": "I don't let it affect my confidence", "dimension": "emotionalResilience"}
+      ]
+    },
+    {
+      "id": "8049a71b-f7a7-4b8c-9c9d-3e3f4a4b5c5d",
+      "dimension": "openness",
+      "text": "When encountering new ideas, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I enjoy exploring abstract concepts", "dimension": "openness"},
+        {"text": "I prefer practical, proven approaches", "dimension": "conscientiousness"},
+        {"text": "I share my thoughts with others enthusiastically", "dimension": "extraversion"}
+      ]
+    },
+    {
+      "id": "84923e27-a8b8-4c9d-ad9e-4f5a6b6c7d7e",
+      "dimension": "adaptability",
+      "text": "When plans change at the last minute, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I adapt quickly without frustration", "dimension": "adaptability"},
+        {"text": "I prefer sticking to the original plan", "dimension": "conscientiousness"},
+        {"text": "I help others adjust to the change", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "8b03d0ab-b9c9-4d0e-be0f-5a6b7c7d8e8f",
+      "dimension": "adaptability",
+      "text": "In rapidly changing situations, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I thrive when things are unpredictable", "dimension": "adaptability"},
+        {"text": "I maintain a systematic approach", "dimension": "conscientiousness"},
+        {"text": "I stay emotionally balanced throughout", "dimension": "emotionalResilience"}
+      ]
+    },
+    {
+      "id": "9119c63e-c0d0-4e1f-cf1a-6b7c8d8e9f0a",
+      "dimension": "extraversion",
+      "text": "When meeting someone new, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I initiate conversation easily", "dimension": "extraversion"},
+        {"text": "I listen more than I speak", "dimension": "agreeableness"},
+        {"text": "I assess their character carefully", "dimension": "conscientiousness"}
+      ]
+    },
+    {
+      "id": "926a8cf8-1772-4891-98e2-851c178b4c05",
+      "dimension": "conscientiousness",
+      "text": "When starting a new project, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I create a detailed plan before beginning", "dimension": "conscientiousness"},
+        {"text": "I dive in and figure it out as I go", "dimension": "adaptability"},
+        {"text": "I consider creative alternatives first", "dimension": "openness"}
+      ]
+    },
+    {
+      "id": "9b493618-d1e1-4f2a-db2b-7c8d9e9f0a1b",
+      "dimension": "honestyHumility",
+      "text": "When success comes your way, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I credit the team rather than myself", "dimension": "honestyHumility"},
+        {"text": "I celebrate openly with others", "dimension": "extraversion"},
+        {"text": "I set even higher goals for next time", "dimension": "conscientiousness"}
+      ]
+    },
+    {
+      "id": "9ca51cdd-e2f2-4a3b-ec3c-8d9e0f0a1b2c",
+      "dimension": "adaptability",
+      "text": "When your usual approach isn't working, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I quickly try a different method", "dimension": "adaptability"},
+        {"text": "I persist with more effort", "dimension": "conscientiousness"},
+        {"text": "I seek advice from others", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "a198f5dc-eab4-47a7-89e2-85cfb659423f",
+      "dimension": "adaptability",
+      "text": "When entering a new environment, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I adjust my behavior to fit in quickly", "dimension": "adaptability"},
+        {"text": "I stay true to my usual way of doing things", "dimension": "conscientiousness"},
+        {"text": "I observe before participating", "dimension": "openness"}
+      ]
+    },
+    {
+      "id": "a6a65238-f3a3-4b4c-fd4d-9e0f1a1b2c3d",
+      "dimension": "adaptability",
+      "text": "When facing ambiguous instructions, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I figure it out and move forward", "dimension": "adaptability"},
+        {"text": "I seek clarification before proceeding", "dimension": "conscientiousness"},
+        {"text": "I ask colleagues for their interpretation", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "afaa21d9-a4b4-4c5d-ae5e-0f1a2b2c3d4e",
+      "dimension": "openness",
+      "text": "When learning something new, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I explore the underlying theory first", "dimension": "openness"},
+        {"text": "I focus on practical applications", "dimension": "conscientiousness"},
+        {"text": "I learn best through discussion with others", "dimension": "extraversion"}
+      ]
+    },
+    {
+      "id": "b5b451b6-b5c5-4d6e-bf6f-1a2b3c3d4e5f",
+      "dimension": "openness",
+      "text": "When solving problems, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I consider unconventional approaches", "dimension": "openness"},
+        {"text": "I use proven methods", "dimension": "conscientiousness"},
+        {"text": "I brainstorm with the team", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "b6d198d9-c6d6-4e7f-c0a0-2b3c4d4e5f6a",
+      "dimension": "agreeableness",
+      "text": "When someone shares a problem with you, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I listen with empathy and support", "dimension": "agreeableness"},
+        {"text": "I offer practical solutions", "dimension": "conscientiousness"},
+        {"text": "I stay calm and objective", "dimension": "emotionalResilience"}
+      ]
+    },
+    {
+      "id": "bc8a3955-d7e7-4f8a-d1b1-3c4d5e5f6a7b",
+      "dimension": "conscientiousness",
+      "text": "When facing a deadline, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I plan ahead to finish early", "dimension": "conscientiousness"},
+        {"text": "I work best under last-minute pressure", "dimension": "adaptability"},
+        {"text": "I ask for help if needed", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "c10f083c-e8f8-4a9b-e2c2-4d5e6f6a7b8c",
+      "dimension": "extraversion",
+      "text": "During team meetings, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I speak up frequently with ideas", "dimension": "extraversion"},
+        {"text": "I take detailed notes", "dimension": "conscientiousness"},
+        {"text": "I make sure quieter voices are heard", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "c6b96b1c-f9a9-4b0c-f3d3-5e6f7a7b8c9d",
+      "dimension": "agreeableness",
+      "text": "When working with difficult people, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I try to understand their perspective", "dimension": "agreeableness"},
+        {"text": "I focus on getting the task done", "dimension": "conscientiousness"},
+        {"text": "I don't let their behavior affect me", "dimension": "emotionalResilience"}
+      ]
+    },
+    {
+      "id": "cfb400a6-a0b0-4c1d-a4e4-6f7a8b8c9d0e",
+      "dimension": "conscientiousness",
+      "text": "When organizing your work, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I maintain a detailed system", "dimension": "conscientiousness"},
+        {"text": "I prefer flexibility over structure", "dimension": "adaptability"},
+        {"text": "I collaborate to divide responsibilities", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "d0241aca-b1c1-4d2e-b5f5-7a8b9c9d0e1f",
+      "dimension": "openness",
+      "text": "When exposed to different cultures or viewpoints, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I find them fascinating to explore", "dimension": "openness"},
+        {"text": "I appreciate what I'm familiar with", "dimension": "conscientiousness"},
+        {"text": "I enjoy discussing differences with others", "dimension": "extraversion"}
+      ]
+    },
+    {
+      "id": "d1803f5b-af76-47d8-b04e-2586827e3c22",
+      "dimension": "openness",
+      "text": "When considering your interests, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I'm drawn to philosophical questions", "dimension": "openness"},
+        {"text": "I prefer hands-on practical activities", "dimension": "conscientiousness"},
+        {"text": "I enjoy activities I can share with friends", "dimension": "extraversion"}
+      ]
+    },
+    {
+      "id": "dd8accba-c2d2-4e3f-c6a6-8b9c0d0e1f2a",
+      "dimension": "openness",
+      "text": "In your creative life, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I appreciate art and aesthetic beauty", "dimension": "openness"},
+        {"text": "I prefer functional over decorative", "dimension": "conscientiousness"},
+        {"text": "I create things to share with others", "dimension": "extraversion"}
+      ]
+    },
+    {
+      "id": "e470efb2-12d4-4512-babf-b65bbd5c5f73",
+      "dimension": "conscientiousness",
+      "text": "When given a task, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I complete it thoroughly and on time", "dimension": "conscientiousness"},
+        {"text": "I explore creative ways to approach it", "dimension": "openness"},
+        {"text": "I check with others to ensure alignment", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "ea150f65-d3e3-4f4a-d7b7-9c0d1e1f2a3b",
+      "dimension": "honestyHumility",
+      "text": "When given power or authority, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I use it responsibly and fairly", "dimension": "honestyHumility"},
+        {"text": "I take charge decisively", "dimension": "extraversion"},
+        {"text": "I ensure everyone's voice is heard", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "f06876c8-e4f4-4a5b-e8c8-0d1e2f2a3b4c",
+      "dimension": "emotionalResilience",
+      "text": "When experiencing stress, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I remain composed and focused", "dimension": "emotionalResilience"},
+        {"text": "I talk through my feelings with others", "dimension": "extraversion"},
+        {"text": "I create a plan to address the source", "dimension": "conscientiousness"}
+      ]
+    },
+    {
+      "id": "f1716378-f5a5-4b6c-f9d9-1e2f3a3b4c5d",
+      "dimension": "conscientiousness",
+      "text": "When it comes to commitments, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I always follow through on promises", "dimension": "conscientiousness"},
+        {"text": "I adjust commitments when circumstances change", "dimension": "adaptability"},
+        {"text": "I prioritize others' needs when conflicts arise", "dimension": "agreeableness"}
+      ]
+    },
+    {
+      "id": "fa8c9c08-a6b6-4c7d-aa0a-2f3a4b4c5d6e",
+      "dimension": "agreeableness",
+      "text": "When someone disagrees with you, which statement is MOST like you and which is LEAST like you?",
+      "options": [
+        {"text": "I try to find common ground", "dimension": "agreeableness"},
+        {"text": "I defend my position logically", "dimension": "openness"},
+        {"text": "I don't take it personally", "dimension": "emotionalResilience"}
+      ]
+    }
+  ]
+}
+
