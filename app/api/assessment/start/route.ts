@@ -1,16 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { userId, guestSessionId, referralCode } = body;
 
-    // Check if Supabase is configured
+    // Check if Supabase is configured - use service role to bypass RLS
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-    if (!supabaseUrl || !supabaseKey) {
+    if (!supabaseUrl || !supabaseServiceKey) {
       // Supabase not configured - return success with mock session
       console.warn("Supabase not configured, creating in-memory session");
       return NextResponse.json({
@@ -23,6 +23,11 @@ export async function POST(request: NextRequest) {
         },
       });
     }
+
+    // Create supabase client with service role to bypass RLS
+    const supabase = createClient(supabaseUrl, supabaseServiceKey, {
+      auth: { autoRefreshToken: false, persistSession: false },
+    });
 
     // Create assessment session in database
     const { data: session, error } = await supabase

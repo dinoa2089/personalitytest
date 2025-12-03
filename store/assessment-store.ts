@@ -38,6 +38,7 @@ export const useAssessmentStore = create<AssessmentState>()(
 
       initializeSession: (sessionId: string, userId?: string) =>
         set({
+          // Reset ALL state when starting a new session
           session: {
             id: sessionId,
             user_id: userId,
@@ -45,6 +46,12 @@ export const useAssessmentStore = create<AssessmentState>()(
             progress: 0,
             responses: [],
           },
+          currentQuestion: null,
+          questions: [],
+          responses: [], // Clear previous responses!
+          progress: 0,
+          isComplete: false,
+          result: null,
         }),
 
       setQuestions: (questions) => set({ questions }),

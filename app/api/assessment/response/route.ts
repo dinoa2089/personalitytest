@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 import { recordQuestionHistory, incrementQuestionResponseCount } from "@/lib/question-history";
 
 export async function POST(request: NextRequest) {
@@ -18,12 +18,17 @@ export async function POST(request: NextRequest) {
     } = body;
 
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-    if (!supabaseUrl || !supabaseKey) {
+    if (!supabaseUrl || !supabaseServiceKey) {
       // Supabase not configured - return success (graceful degradation)
       return NextResponse.json({ success: true, message: "Supabase not configured" });
     }
+
+    // Create supabase client with service role to bypass RLS
+    const supabase = createClient(supabaseUrl, supabaseServiceKey, {
+      auth: { autoRefreshToken: false, persistSession: false },
+    });
 
     // Save response (response must be JSONB)
     const { data, error } = await supabase
