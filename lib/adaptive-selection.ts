@@ -78,12 +78,12 @@ const CHECKPOINT_CONFIG: Record<number, {
   // Checkpoint 2: Add MBTI focus - need at least 5 questions per MBTI dimension (20 total MBTI questions)
   // We have 10 questions per dimension, so 5 is achievable and gives good accuracy
   2: { frameworks: ['prism', 'mbti'], questionRange: [35, 55], minPerPrismDimension: 0, minPerMbtiDimension: 5, minPerEnneagramType: 0 },
-  // Checkpoint 3: Add Enneagram focus - need at least 3 questions per type (27 total Enneagram questions)
-  // We have 5 questions per type, so 3 is achievable
-  3: { frameworks: ['prism', 'mbti', 'enneagram'], questionRange: [55, 80], minPerPrismDimension: 0, minPerMbtiDimension: 0, minPerEnneagramType: 3 },
+  // Checkpoint 3: Add Enneagram focus - need at least 4 questions per type (36 total Enneagram questions)
+  // We now have 9-13 questions per type, so 4 per type is achievable and improves accuracy
+  3: { frameworks: ['prism', 'mbti', 'enneagram'], questionRange: [55, 80], minPerPrismDimension: 0, minPerMbtiDimension: 0, minPerEnneagramType: 4 },
   // Checkpoint 4: Deep dive - catch up on any missed framework questions + refine uncertain areas
-  // Add minimum 1 more per MBTI/Enneagram to ensure good coverage
-  4: { frameworks: ['prism', 'mbti', 'enneagram', 'detailed'], questionRange: [80, 105], minPerPrismDimension: 0, minPerMbtiDimension: 1, minPerEnneagramType: 1 },
+  // Increase minimums to ensure the new questions get used for better coverage
+  4: { frameworks: ['prism', 'mbti', 'enneagram', 'detailed'], questionRange: [80, 105], minPerPrismDimension: 0, minPerMbtiDimension: 2, minPerEnneagramType: 2 },
 };
 
 // Question type weights (from methodology)
@@ -502,9 +502,10 @@ function calculateCheckpointRelevance(
       relevance *= 3.0;
       
       // Extra boost for Enneagram types that have low response counts
+      // With 9-13 questions per type now available, we can be more aggressive about coverage
       for (const ennType of enneagramTagsPresent) {
         const estimate = state.enneagramEstimates[ennType];
-        if (estimate && estimate.responseCount < 3) {
+        if (estimate && estimate.responseCount < 4) {
           relevance *= 1.5; // Prioritize under-sampled types
         }
       }
@@ -536,10 +537,11 @@ function calculateCheckpointRelevance(
     }
     
     // Boost Enneagram questions if any type is under-sampled
+    // With expanded question pool (9-13 per type), aim for 5+ per type for statistical significance
     if (hasEnneagramTag) {
       for (const ennType of enneagramTagsPresent) {
         const estimate = state.enneagramEstimates[ennType];
-        if (estimate && estimate.responseCount < 4) {
+        if (estimate && estimate.responseCount < 5) {
           relevance *= 2.0; // Strong boost to catch up
         }
       }
@@ -1151,21 +1153,22 @@ export function calculateFrameworkConfidence(
   
   // Enneagram: Need checkpoint 3 (questions 56-80) - 25 questions total
   // Plus cross-framework inference from PRISM
+  // With expanded question pool (9-13 questions per type), we can achieve higher confidence
   const ennDirectQuestions = Math.max(0, Math.min(questionsAnswered - 55, 25));
   const ennWithInference = ennDirectQuestions + (prismPerDim >= 5 ? 9 : 0); // PRISM inference worth ~9 questions
   const ennPerType = ennWithInference / 9;
   const enneagramConfidence: FrameworkConfidence = {
     level: questionsAnswered < 55 ? 'none'
-      : ennPerType >= 4 ? 'high'
-      : ennPerType >= 2 ? 'moderate'
+      : ennPerType >= 5 ? 'high'  // Increased from 4 for better accuracy with more questions
+      : ennPerType >= 3 ? 'moderate'  // Increased from 2
       : ennPerType >= 1 ? 'low'
       : 'none',
-    percentage: questionsAnswered < 55 ? 0 : Math.min(100, Math.round((ennPerType / 4) * 100)),
+    percentage: questionsAnswered < 55 ? 0 : Math.min(100, Math.round((ennPerType / 5) * 100)),
     canShow: questionsAnswered >= 55 && ennPerType >= 1,
-    showWarning: questionsAnswered < 80 || ennPerType < 2,
+    showWarning: questionsAnswered < 80 || ennPerType < 3,
     message: questionsAnswered < 55
       ? 'Complete MBTI assessment first (checkpoint 2)'
-      : ennPerType >= 2
+      : ennPerType >= 3
         ? 'Your Enneagram type is determined with good confidence'
         : 'Preliminary Enneagram type - complete checkpoint 3 for higher accuracy',
     questionsAnswered: ennDirectQuestions,
