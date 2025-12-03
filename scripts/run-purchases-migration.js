@@ -5,12 +5,21 @@
 
 const { Client } = require('pg');
 
+// Load from environment variable or .env file
+require('dotenv').config({ path: '.env.local' });
+
+if (!process.env.SUPABASE_DB_PASSWORD) {
+  console.error('ERROR: SUPABASE_DB_PASSWORD environment variable not set');
+  console.error('Set it in .env.local or export it before running this script');
+  process.exit(1);
+}
+
 const client = new Client({
-  host: 'db.eqkcmlxxuubibzoqliee.supabase.co',
+  host: process.env.SUPABASE_DB_HOST || 'db.eqkcmlxxuubibzoqliee.supabase.co',
   port: 5432,
   database: 'postgres',
   user: 'postgres',
-  password: '***REMOVED***',
+  password: process.env.SUPABASE_DB_PASSWORD,
   ssl: { rejectUnauthorized: false }
 });
 
