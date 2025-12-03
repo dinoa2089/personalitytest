@@ -68,6 +68,36 @@ export async function POST(request: NextRequest) {
     if (supabase) {
       // Try to save results to database
       try {
+        // First, verify the session exists in database
+        const { data: existingSession, error: sessionError } = await supabase
+          .from("assessment_sessions")
+          .select("id")
+          .eq("id", sessionId)
+          .single();
+
+        // If session doesn't exist, create it now (handles case where start failed silently)
+        if (sessionError || !existingSession) {
+          console.log(`Session ${sessionId} not found in DB, creating it now...`);
+          const { error: createSessionError } = await supabase
+            .from("assessment_sessions")
+            .insert({
+              id: sessionId,
+              user_id: body.userId || null,
+              guest_session_id: sessionId,
+              progress: 100,
+              started_at: new Date().toISOString(),
+              completed_at: new Date().toISOString(),
+            });
+          
+          if (createSessionError) {
+            console.error("Failed to create session for results:", createSessionError);
+            return NextResponse.json(
+              { error: "Failed to save results - session could not be created", details: createSessionError.message },
+              { status: 500 }
+            );
+          }
+        }
+
         // Determine access level based on user's premium status
         let accessLevel = "free";
         if (body.userId) {
@@ -106,6 +136,22 @@ export async function POST(request: NextRequest) {
           }
         }
 
+        // Check if results already exist for this session (avoid duplicates)
+        const { data: existingResult } = await supabase
+          .from("assessment_results")
+          .select("id")
+          .eq("session_id", sessionId)
+          .single();
+
+        if (existingResult) {
+          console.log(`Results already exist for session ${sessionId}, returning existing`);
+          return NextResponse.json({ 
+            success: true, 
+            result: { session_id: sessionId, dimensional_scores: scores.dimensional_scores },
+            message: "Results already saved" 
+          });
+        }
+
         const { data: result, error } = await supabase
           .from("assessment_results")
           .insert({
@@ -118,7 +164,15 @@ export async function POST(request: NextRequest) {
           .select()
           .single();
 
-        if (!error && result) {
+        if (error) {
+          console.error("Failed to insert assessment results:", error);
+          return NextResponse.json(
+            { error: "Failed to save results", details: error.message },
+            { status: 500 }
+          );
+        }
+
+        if (result) {
           // Update session as completed
           await supabase
             .from("assessment_sessions")
@@ -225,12 +279,29 @@ export async function POST(request: NextRequest) {
 
           return NextResponse.json({ success: true, result });
         }
+
+        // If we get here, result was null but no error - unexpected
+        console.error("Insert succeeded but no result returned");
+        return NextResponse.json({ success: true, result: { session_id: sessionId } });
       } catch (dbError) {
-        console.error("Database error (continuing with in-memory result):", dbError);
+        console.error("Database error saving results:", dbError);
+        return NextResponse.json(
+          { error: "Database error saving results", details: dbError instanceof Error ? dbError.message : String(dbError) },
+          { status: 500 }
+        );
       }
     }
 
-    // Return results even if database save failed (for development/testing)
+    // Supabase not configured - return error in production, success in development
+    if (process.env.NODE_ENV === "production") {
+      return NextResponse.json(
+        { error: "Database not configured - results cannot be saved" },
+        { status: 503 }
+      );
+    }
+    
+    // Development only: return in-memory results for testing
+    console.warn("Development mode: returning in-memory results (not persisted)");
     return NextResponse.json({
       success: true,
       result: {
@@ -239,6 +310,7 @@ export async function POST(request: NextRequest) {
         dimensional_scores: scores.dimensional_scores,
         created_at: new Date().toISOString(),
       },
+      warning: "Results not persisted - database not configured",
     });
   } catch (error) {
     console.error("Error completing assessment:", error);
@@ -248,4 +320,5 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
 

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 
 /**
  * Update assessment session progress
@@ -11,11 +11,15 @@ export async function POST(request: NextRequest) {
     const { sessionId, progress } = body;
 
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-    if (!supabaseUrl || !supabaseKey) {
-      return NextResponse.json({ success: true, message: "Supabase not configured" });
+    if (!supabaseUrl || !supabaseServiceKey) {
+      return NextResponse.json({ success: false, error: "Database not configured" }, { status: 503 });
     }
+
+    const supabase = createClient(supabaseUrl, supabaseServiceKey, {
+      auth: { autoRefreshToken: false, persistSession: false },
+    });
 
     const { error } = await supabase
       .from("assessment_sessions")
@@ -53,11 +57,15 @@ export async function GET(request: NextRequest) {
     }
 
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-    if (!supabaseUrl || !supabaseKey) {
-      return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
+    if (!supabaseUrl || !supabaseServiceKey) {
+      return NextResponse.json({ error: "Database not configured" }, { status: 503 });
     }
+
+    const supabase = createClient(supabaseUrl, supabaseServiceKey, {
+      auth: { autoRefreshToken: false, persistSession: false },
+    });
 
     const { data: session, error } = await supabase
       .from("assessment_sessions")

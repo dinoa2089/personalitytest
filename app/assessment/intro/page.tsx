@@ -39,6 +39,7 @@ function AssessmentIntroContent() {
   const [applicantEmail, setApplicantEmail] = useState("");
   const [applicantName, setApplicantName] = useState("");
   const [showApplicantForm, setShowApplicantForm] = useState(false);
+  const [startError, setStartError] = useState<string | null>(null);
   
   // Check for referral code or job token in URL
   useEffect(() => {
@@ -124,8 +125,9 @@ function AssessmentIntroContent() {
       localStorage.setItem(`applicant-name-${sessionId}`, applicantName);
     }
 
-    // Try to create session in database (will fail gracefully if Supabase not configured)
+    // Create session in database
     try {
+      setStartError(null);
       const referralCode = localStorage.getItem("referral-code");
       const response = await fetch("/api/assessment/start", {
         method: "POST",
@@ -137,19 +139,26 @@ function AssessmentIntroContent() {
         }),
       });
       
-      // If session was created successfully, update localStorage with actual session ID from DB
-      if (response.ok) {
-        const data = await response.json();
-        if (data.session?.id) {
-          localStorage.setItem("current-guest-session-id", data.session.id);
-        }
+      const data = await response.json();
+      
+      if (!response.ok) {
+        console.error("Failed to create session:", data.error);
+        setStartError(data.error || "Failed to start assessment. Please try again.");
+        setIsStarting(false);
+        return;
       }
+      
+      // Update localStorage with actual session ID from DB
+      if (data.session?.id) {
+        localStorage.setItem("current-guest-session-id", data.session.id);
+      }
+      
+      router.push(`/assessment/questions/${sessionId}`);
     } catch (error) {
-      // Continue even if API call fails - we have in-memory session
-      console.warn("Could not create session in database:", error);
+      console.error("Network error starting assessment:", error);
+      setStartError("Network error. Please check your connection and try again.");
+      setIsStarting(false);
     }
-
-    router.push(`/assessment/questions/${sessionId}`);
   };
 
   return (
@@ -286,6 +295,16 @@ function AssessmentIntroContent() {
                 <br className="hidden sm:block" />
                 <span className="text-foreground font-medium">Start in 8 minutes, go deeper anytime</span>
               </p>
+              
+              {/* Error Display */}
+              {startError && (
+                <div className="mx-auto max-w-md p-4 bg-destructive/10 border border-destructive/30 rounded-lg text-destructive text-sm">
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                    <span>{startError}</span>
+                  </div>
+                </div>
+              )}
               
               {/* Primary CTA - Above the fold */}
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">

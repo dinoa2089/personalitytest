@@ -45,33 +45,35 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error("Error creating session:", error);
-      // Return success anyway with mock session - don't block user
-      return NextResponse.json({
-        session: {
-          id: guestSessionId || crypto.randomUUID(),
-          user_id: userId || null,
-          guest_session_id: guestSessionId || null,
-          progress: 0,
-          started_at: new Date().toISOString(),
-        },
-      });
+      
+      // Check if it's a duplicate key error (session already exists)
+      if (error.code === "23505") {
+        // Session already exists, fetch it instead
+        const { data: existingSession } = await supabase
+          .from("assessment_sessions")
+          .select("*")
+          .eq("id", guestSessionId)
+          .single();
+        
+        if (existingSession) {
+          return NextResponse.json({ session: existingSession });
+        }
+      }
+      
+      // Return error so caller knows session wasn't created
+      return NextResponse.json(
+        { error: "Failed to create session", details: error.message },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ session });
   } catch (error) {
     console.error("Exception creating session:", error);
-    // Return success with mock session - don't block user
-    // Note: body already parsed above, so we can't parse again
-    // Generate a new session ID if we don't have one
-    return NextResponse.json({
-      session: {
-        id: crypto.randomUUID(),
-        user_id: null,
-        guest_session_id: null,
-        progress: 0,
-        started_at: new Date().toISOString(),
-      },
-    });
+    return NextResponse.json(
+      { error: "Failed to create session", details: error instanceof Error ? error.message : String(error) },
+      { status: 500 }
+    );
   }
 }
 
