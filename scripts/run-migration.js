@@ -1,108 +1,123 @@
 #!/usr/bin/env node
 /**
- * Run database migration directly against Supabase PostgreSQL
+ * Run a SQL migration against Supabase
+ * 
+ * Usage:
+ *   node scripts/run-migration.js [migration-file]
+ * 
+ * Example:
+ *   node scripts/run-migration.js ../supabase/migrations/013_credit_system.sql
+ * 
+ * Requires:
+ *   - NEXT_PUBLIC_SUPABASE_URL in .env.local
+ *   - SUPABASE_SERVICE_ROLE_KEY in .env.local (not the anon key!)
  */
 
-const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
 
-const client = new Client({
-  host: 'db.eqkcmlxxuubibzoqliee.supabase.co',
-  port: 5432,
-  database: 'postgres',
-  user: 'postgres',
-  password: '***REMOVED***',
-  ssl: { rejectUnauthorized: false }
-});
-
-async function runMigration() {
-  try {
-    await client.connect();
-    console.log('✓ Connected to Supabase PostgreSQL\n');
-    
-    const sqlPath = path.join(__dirname, '../../supabase/migrations/007_psychometric_enhancements.sql');
-    const sql = fs.readFileSync(sqlPath, 'utf-8');
-    
-    // Split into statements, handling multi-line statements
-    const statements = [];
-    let current = '';
-    
-    for (const line of sql.split('\n')) {
-      const trimmed = line.trim();
-      
-      // Skip pure comment lines
-      if (trimmed.startsWith('--')) continue;
-      
-      current += line + '\n';
-      
-      // If line ends with semicolon, it's end of statement
-      if (trimmed.endsWith(';')) {
-        const stmt = current.trim();
-        if (stmt.length > 1) {
-          statements.push(stmt.slice(0, -1)); // Remove trailing semicolon
+// Load environment variables from .env.local
+function loadEnv() {
+  const envPath = path.join(__dirname, '..', '.env.local');
+  if (fs.existsSync(envPath)) {
+    const content = fs.readFileSync(envPath, 'utf-8');
+    content.split('\n').forEach(line => {
+      const match = line.match(/^([^=]+)=(.*)$/);
+      if (match) {
+        const key = match[1].trim();
+        let value = match[2].trim();
+        // Remove quotes
+        if ((value.startsWith('"') && value.endsWith('"')) ||
+            (value.startsWith("'") && value.endsWith("'"))) {
+          value = value.slice(1, -1);
         }
-        current = '';
+        process.env[key] = value;
       }
-    }
-    
-    console.log(`Running ${statements.length} SQL statements...\n`);
-    
-    let success = 0;
-    let skipped = 0;
-    let errors = 0;
-    
-    for (let i = 0; i < statements.length; i++) {
-      const stmt = statements[i];
-      const firstLine = stmt.split('\n')[0].substring(0, 60);
-      
-      try {
-        await client.query(stmt);
-        console.log(`✓ [${i+1}/${statements.length}] ${firstLine}...`);
-        success++;
-      } catch (err) {
-        const msg = err.message || '';
-        if (msg.includes('already exists') || msg.includes('duplicate')) {
-          console.log(`○ [${i+1}/${statements.length}] Already exists - skipped`);
-          skipped++;
-        } else {
-          console.log(`✗ [${i+1}/${statements.length}] Error: ${msg.substring(0, 100)}`);
-          errors++;
-        }
-      }
-    }
-    
-    console.log('\n================================');
-    console.log('MIGRATION COMPLETE');
-    console.log('================================');
-    console.log(`Successful: ${success}`);
-    console.log(`Skipped (already exists): ${skipped}`);
-    console.log(`Errors: ${errors}`);
-    
-    // Verify columns
-    const { rows } = await client.query(
-      "SELECT column_name FROM information_schema.columns WHERE table_name = 'questions' ORDER BY ordinal_position"
-    );
-    console.log('\n📋 Questions table columns:');
-    console.log('   ' + rows.map(r => r.column_name).join(', '));
-    
-    // Count by is_core
-    const { rows: coreCount } = await client.query(
-      "SELECT is_core, COUNT(*) as count FROM questions GROUP BY is_core"
-    );
-    console.log('\n📊 Questions by is_core status:');
-    coreCount.forEach(r => {
-      console.log(`   ${r.is_core ? 'Core' : 'Supplementary'}: ${r.count}`);
     });
-    
-  } catch (err) {
-    console.error('Migration failed:', err.message);
-    process.exit(1);
-  } finally {
-    await client.end();
   }
 }
 
-runMigration();
+async function runMigration(migrationPath) {
+  loadEnv();
+  
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  
+  if (!supabaseUrl || supabaseUrl.includes('your-project-id')) {
+    console.error('❌ NEXT_PUBLIC_SUPABASE_URL not configured in .env.local');
+    console.log('\nTo run migrations:');
+    console.log('1. Go to your Supabase dashboard');
+    console.log('2. Copy the SQL from the migration file');
+    console.log('3. Run it in the SQL Editor');
+    process.exit(1);
+  }
+  
+  if (!serviceRoleKey || serviceRoleKey.includes('your-')) {
+    console.error('❌ SUPABASE_SERVICE_ROLE_KEY not configured in .env.local');
+    console.log('\nTo get your service role key:');
+    console.log('1. Go to Supabase Dashboard > Settings > API');
+    console.log('2. Copy the "service_role" key (secret, not anon)');
+    console.log('3. Add SUPABASE_SERVICE_ROLE_KEY="your-key" to .env.local');
+    console.log('\nAlternatively, copy the migration SQL and run it in the Supabase SQL Editor.');
+    process.exit(1);
+  }
+  
+  // Read migration file
+  const fullPath = path.resolve(__dirname, '..', migrationPath);
+  if (!fs.existsSync(fullPath)) {
+    console.error(`❌ Migration file not found: ${fullPath}`);
+    process.exit(1);
+  }
+  
+  const sql = fs.readFileSync(fullPath, 'utf-8');
+  console.log(`📄 Running migration: ${path.basename(fullPath)}`);
+  console.log(`📊 SQL length: ${sql.length} characters`);
+  
+  // Execute via Supabase REST API
+  const response = await fetch(`${supabaseUrl}/rest/v1/rpc/exec_sql`, {
+    method: 'POST',
+    headers: {
+      'apikey': serviceRoleKey,
+      'Authorization': `Bearer ${serviceRoleKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ sql }),
+  });
+  
+  if (!response.ok) {
+    // Try alternative: direct SQL execution
+    const pgResponse = await fetch(`${supabaseUrl}/pg`, {
+      method: 'POST',
+      headers: {
+        'apikey': serviceRoleKey,
+        'Authorization': `Bearer ${serviceRoleKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query: sql }),
+    });
+    
+    if (!pgResponse.ok) {
+      console.error('❌ Failed to execute migration via API');
+      console.log('\n📋 Please run this migration manually:');
+      console.log('1. Go to Supabase Dashboard > SQL Editor');
+      console.log(`2. Open file: ${fullPath}`);
+      console.log('3. Copy the entire contents and run it');
+      process.exit(1);
+    }
+    
+    const result = await pgResponse.json();
+    console.log('✅ Migration completed successfully!');
+    return result;
+  }
+  
+  const result = await response.json();
+  console.log('✅ Migration completed successfully!');
+  return result;
+}
 
-
+// Main
+const migrationArg = process.argv[2] || '../supabase/migrations/013_credit_system.sql';
+runMigration(migrationArg).catch(err => {
+  console.error('Migration error:', err);
+  process.exit(1);
+});

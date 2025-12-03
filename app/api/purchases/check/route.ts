@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { clerkClient } from "@clerk/nextjs/server";
+import { isMasterAdmin } from "@/lib/admin";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
@@ -20,6 +22,15 @@ const defaultStatus: PurchaseStatus = {
   full_unlock: false,
 };
 
+const fullAccessStatus: PurchaseStatus & { _source: string } = {
+  compatibility: true,
+  career: true,
+  frameworks: true,
+  growth_plan: true,
+  full_unlock: true,
+  _source: "admin",
+};
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const userId = searchParams.get("userId");
@@ -27,6 +38,22 @@ export async function GET(request: NextRequest) {
 
   if (!userId) {
     return NextResponse.json({ error: "userId required" }, { status: 400 });
+  }
+
+  // Check if user is a master admin (bypasses all paywalls)
+  try {
+    const client = await clerkClient();
+    const clerkUser = await client.users.getUser(userId);
+    const primaryEmail = clerkUser.emailAddresses.find(
+      (e) => e.id === clerkUser.primaryEmailAddressId
+    )?.emailAddress;
+
+    if (isMasterAdmin(primaryEmail)) {
+      return NextResponse.json(fullAccessStatus);
+    }
+  } catch (error) {
+    // If Clerk lookup fails, continue with normal flow
+    console.error("Admin check failed:", error);
   }
 
   if (!supabaseUrl || !supabaseServiceKey) {

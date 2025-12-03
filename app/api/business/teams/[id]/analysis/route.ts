@@ -30,7 +30,8 @@ export async function GET(
         id,
         name,
         email,
-        role,
+        job_title,
+        team_role,
         assessment_session_id
       `
       )
@@ -86,7 +87,8 @@ export async function GET(
         id: m.id,
         name: m.name,
         email: m.email,
-        role: m.role,
+        jobTitle: m.job_title,
+        teamRole: m.team_role,
         scores: m.assessment_session_id
           ? assessmentResults[m.assessment_session_id] || []
           : [],
@@ -100,7 +102,8 @@ export async function GET(
           id: m.id,
           name: m.name,
           email: m.email,
-          role: m.role,
+          jobTitle: m.job_title,
+          teamRole: m.team_role,
           scores: [],
         })),
         analysis: {

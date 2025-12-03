@@ -1,10 +1,13 @@
 import type { DimensionScore, Dimension } from "@/types";
 
+export type TeamRole = "admin" | "member";
+
 export interface TeamMember {
   id: string;
   name: string;
-  role?: string;
+  jobTitle?: string;
   email?: string;
+  teamRole?: TeamRole;
   scores: DimensionScore[];
 }
 

@@ -2,6 +2,7 @@
  * Subscription and premium feature utilities
  */
 import { supabase } from "./supabase";
+import { isMasterAdmin } from "./admin";
 
 export type SubscriptionPlan = "free" | "premium_report" | "deep_dive" | "unlimited" | "team" | "enterprise";
 export type SubscriptionStatus = "active" | "canceled" | "past_due" | "trialing";
@@ -21,8 +22,13 @@ export interface Subscription {
 /**
  * Check if user has active premium subscription or unlock
  */
-export async function hasPremiumAccess(userId: string | null): Promise<boolean> {
+export async function hasPremiumAccess(userId: string | null, userEmail?: string | null): Promise<boolean> {
   if (!userId) return false;
+
+  // Check if master admin by email (if provided)
+  if (userEmail && isMasterAdmin(userEmail)) {
+    return true;
+  }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -35,11 +41,16 @@ export async function hasPremiumAccess(userId: string | null): Promise<boolean> 
     // Get user's internal ID from Clerk ID
     const { data: user } = await supabase
       .from("users")
-      .select("id")
+      .select("id, email")
       .eq("clerk_id", userId)
       .single();
 
     if (!user) return false;
+
+    // Check if master admin by email from database
+    if (user.email && isMasterAdmin(user.email)) {
+      return true;
+    }
 
     // Check for active subscription
     const { data: subscription } = await supabase

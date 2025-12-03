@@ -40,7 +40,8 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { TeamComposition } from "@/components/business/TeamComposition";
-import type { TeamMember, TeamAnalysis, CompatibilityPair } from "@/lib/team-analysis";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import type { TeamMember, TeamRole, TeamAnalysis, CompatibilityPair } from "@/lib/team-analysis";
 
 interface Team {
   id: string;
@@ -71,7 +72,8 @@ export default function TeamDetailPage() {
   const [newMember, setNewMember] = useState({
     name: "",
     email: "",
-    role: "",
+    job_title: "",
+    team_role: "member" as TeamRole,
     assessment_session_id: "",
   });
   const [isAddingMember, setIsAddingMember] = useState(false);
@@ -129,13 +131,14 @@ export default function TeamDetailPage() {
         body: JSON.stringify({
           name: newMember.name,
           email: newMember.email || null,
-          role: newMember.role || null,
+          job_title: newMember.job_title || null,
+          team_role: newMember.team_role,
           assessment_session_id: newMember.assessment_session_id || null,
         }),
       });
 
       if (response.ok) {
-        setNewMember({ name: "", email: "", role: "", assessment_session_id: "" });
+        setNewMember({ name: "", email: "", job_title: "", team_role: "member", assessment_session_id: "" });
         setAddMemberOpen(false);
         await fetchTeamData();
       }
@@ -143,6 +146,25 @@ export default function TeamDetailPage() {
       console.error("Error adding member:", error);
     } finally {
       setIsAddingMember(false);
+    }
+  };
+
+  const handleUpdateRole = async (memberId: string, newRole: TeamRole) => {
+    try {
+      const response = await fetch(`/api/business/teams/${teamId}/members`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          member_id: memberId,
+          team_role: newRole,
+        }),
+      });
+
+      if (response.ok) {
+        await fetchTeamData();
+      }
+    } catch (error) {
+      console.error("Error updating role:", error);
     }
   };
 
@@ -306,15 +328,35 @@ export default function TeamDetailPage() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="member-role">Role</Label>
+                      <Label htmlFor="member-job-title">Job Title</Label>
                       <Input
-                        id="member-role"
+                        id="member-job-title"
                         placeholder="Software Engineer"
-                        value={newMember.role}
+                        value={newMember.job_title}
                         onChange={(e) =>
-                          setNewMember({ ...newMember, role: e.target.value })
+                          setNewMember({ ...newMember, job_title: e.target.value })
                         }
                       />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="member-team-role">Team Role</Label>
+                      <Select
+                        value={newMember.team_role}
+                        onValueChange={(value: TeamRole) =>
+                          setNewMember({ ...newMember, team_role: value })
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select role" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="member">Member</SelectItem>
+                          <SelectItem value="admin">Admin</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <p className="text-xs text-muted-foreground">
+                        Admins can manage team members and settings
+                      </p>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="member-session">
@@ -391,6 +433,8 @@ export default function TeamDetailPage() {
               members={analysisData.members}
               onAddMember={() => setAddMemberOpen(true)}
               onRemoveMember={handleRemoveMember}
+              onUpdateRole={handleUpdateRole}
+              currentUserIsAdmin={true} // TODO: Check actual user role
             />
           ) : (
             <Card>

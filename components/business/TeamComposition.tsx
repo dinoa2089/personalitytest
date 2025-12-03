@@ -33,6 +33,7 @@ import {
   ChevronRight,
   BarChart3,
   Shuffle,
+  Settings,
 } from "lucide-react";
 import { TeamRadarChart, TeamAverageRadarChart } from "./TeamRadarChart";
 import { CompatibilityMatrix } from "./CompatibilityMatrix";
@@ -43,6 +44,7 @@ import {
   getDimensionName,
   getRecommendedArchetypes,
   type TeamMember,
+  type TeamRole,
   type TeamAnalysis,
   type CompatibilityPair,
 } from "@/lib/team-analysis";
@@ -54,6 +56,8 @@ interface TeamCompositionProps {
   members: TeamMember[];
   onAddMember?: () => void;
   onRemoveMember?: (memberId: string) => void;
+  onUpdateRole?: (memberId: string, newRole: TeamRole) => void;
+  currentUserIsAdmin?: boolean;
 }
 
 export function TeamComposition({
@@ -62,6 +66,8 @@ export function TeamComposition({
   members,
   onAddMember,
   onRemoveMember,
+  onUpdateRole,
+  currentUserIsAdmin = true,
 }: TeamCompositionProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedMemberId, setSelectedMemberId] = useState<string | null>(null);
@@ -315,7 +321,9 @@ export function TeamComposition({
                     selectedMemberId === member.id ? null : member.id
                   )
                 }
-                onRemove={onRemoveMember}
+                onRemove={currentUserIsAdmin ? onRemoveMember : undefined}
+                onUpdateRole={currentUserIsAdmin ? onUpdateRole : undefined}
+                canManageRoles={currentUserIsAdmin}
               />
             ))}
           </div>
@@ -400,6 +408,8 @@ interface MemberCardProps {
   isSelected: boolean;
   onSelect: () => void;
   onRemove?: (memberId: string) => void;
+  onUpdateRole?: (memberId: string, newRole: TeamRole) => void;
+  canManageRoles?: boolean;
 }
 
 function MemberCard({
@@ -408,11 +418,15 @@ function MemberCard({
   isSelected,
   onSelect,
   onRemove,
+  onUpdateRole,
+  canManageRoles,
 }: MemberCardProps) {
   // Find top 3 dimensions
   const topDimensions = [...member.scores]
     .sort((a, b) => b.percentile - a.percentile)
     .slice(0, 3);
+
+  const isAdmin = member.teamRole === "admin";
 
   return (
     <motion.div
@@ -426,43 +440,79 @@ function MemberCard({
       onClick={onSelect}
     >
       <div className="flex items-start justify-between mb-3">
-        <div>
-          <h4 className="font-semibold">{member.name}</h4>
-          {member.role && (
-            <p className="text-xs text-muted-foreground">{member.role}</p>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <h4 className="font-semibold truncate">{member.name}</h4>
+            {isAdmin && (
+              <Badge variant="default" className="text-xs px-1.5 py-0 bg-violet-600 hover:bg-violet-600">
+                Admin
+              </Badge>
+            )}
+          </div>
+          {member.jobTitle && (
+            <p className="text-xs text-muted-foreground truncate">{member.jobTitle}</p>
           )}
         </div>
-        {onRemove && (
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-6 w-6 p-0 hover:bg-destructive/10 hover:text-destructive"
-                onClick={(e) => e.stopPropagation()}
-              >
-                ×
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Remove Team Member</DialogTitle>
-                <DialogDescription>
-                  Are you sure you want to remove {member.name} from this team?
-                  This action cannot be undone.
-                </DialogDescription>
-              </DialogHeader>
-              <div className="flex justify-end gap-2 mt-4">
-                <Button variant="outline">Cancel</Button>
-                <Button
-                  variant="destructive"
-                  onClick={() => onRemove(member.id)}
-                >
-                  Remove
-                </Button>
-              </div>
-            </DialogContent>
-          </Dialog>
+        {canManageRoles && (
+          <div className="flex items-center gap-1">
+            {onUpdateRole && (
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-6 w-6 p-0"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Settings className="h-3 w-3" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Manage {member.name}</DialogTitle>
+                    <DialogDescription>
+                      Change role or remove this team member
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-4 mt-4">
+                    <div className="flex items-center justify-between p-3 rounded-lg border">
+                      <div>
+                        <p className="font-medium">Team Role</p>
+                        <p className="text-sm text-muted-foreground">
+                          {isAdmin ? "Can manage team members" : "View-only access"}
+                        </p>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button
+                          variant={isAdmin ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => onUpdateRole(member.id, "admin")}
+                        >
+                          Admin
+                        </Button>
+                        <Button
+                          variant={!isAdmin ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => onUpdateRole(member.id, "member")}
+                        >
+                          Member
+                        </Button>
+                      </div>
+                    </div>
+                    {onRemove && (
+                      <Button
+                        variant="destructive"
+                        className="w-full"
+                        onClick={() => onRemove(member.id)}
+                      >
+                        Remove from Team
+                      </Button>
+                    )}
+                  </div>
+                </DialogContent>
+              </Dialog>
+            )}
+          </div>
         )}
       </div>
 
@@ -478,6 +528,11 @@ function MemberCard({
             <Progress value={dim.percentile} className="h-1.5" />
           </div>
         ))}
+        {topDimensions.length === 0 && (
+          <p className="text-xs text-muted-foreground text-center py-2">
+            No assessment data
+          </p>
+        )}
       </div>
 
       {isSelected && member.email && (
