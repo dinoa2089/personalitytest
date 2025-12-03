@@ -57,7 +57,6 @@ export async function POST(request: NextRequest) {
       .from("user_credits")
       .update({
         balance: currentBalance - amount,
-        lifetime_spent: supabase.rpc ? currentBalance - amount : credits.balance, // fallback
         updated_at: new Date().toISOString(),
       })
       .eq("user_id", user.id);
@@ -70,23 +69,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Update the correct balance using raw query
-    await supabase.rpc("add_user_credit", {
-      p_user_id: user.id,
-      p_amount: -amount,
-      p_type: "purchase_applied",
-      p_description: purchaseId ? `Applied to purchase ${purchaseId}` : "Applied to purchase",
-      p_reference_id: purchaseId || null,
-    }).catch(() => {
+    // Log the credit transaction
+    try {
+      await supabase.rpc("add_user_credit", {
+        p_user_id: user.id,
+        p_amount: -amount,
+        p_type: "purchase_applied",
+        p_description: purchaseId ? `Applied to purchase ${purchaseId}` : "Applied to purchase",
+        p_reference_id: purchaseId || null,
+      });
+    } catch {
       // If RPC fails, log transaction manually
-      supabase.from("credit_transactions").insert({
+      await supabase.from("credit_transactions").insert({
         user_id: user.id,
         amount: -amount,
         type: "purchase_applied",
         description: purchaseId ? `Applied to purchase ${purchaseId}` : "Applied to purchase",
         reference_id: purchaseId || null,
       });
-    });
+    }
 
     // Get updated balance
     const { data: updatedCredits } = await supabase

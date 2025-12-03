@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ConditionalAuth } from "@/components/providers/ConditionalAuth";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Building2, Users, Target, CreditCard, BarChart3 } from "lucide-react";
 
 // MBTI Types grouped by temperament
 const mbtiTypes = {
@@ -195,6 +195,71 @@ export function Header() {
               Science
             </Link>
 
+            {/* For Employers Dropdown */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                For Employers
+                <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
+              </button>
+
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="bg-card border border-border rounded-xl shadow-xl p-4 space-y-1">
+                  <Link
+                    href="/for-employers"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  >
+                    <Building2 className="w-4 h-4 text-violet-500" />
+                    <div>
+                      <div className="font-medium text-foreground">Overview</div>
+                      <div className="text-xs text-muted-foreground">Why PRISM-7 for hiring</div>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/business/jobs/new"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  >
+                    <Target className="w-4 h-4 text-fuchsia-500" />
+                    <div>
+                      <div className="font-medium text-foreground">Create Job Profile</div>
+                      <div className="text-xs text-muted-foreground">AI-powered job analysis</div>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/business/teams"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  >
+                    <Users className="w-4 h-4 text-emerald-500" />
+                    <div>
+                      <div className="font-medium text-foreground">Team Composition</div>
+                      <div className="text-xs text-muted-foreground">Analyze team dynamics</div>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/business/dashboard"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  >
+                    <BarChart3 className="w-4 h-4 text-blue-500" />
+                    <div>
+                      <div className="font-medium text-foreground">Dashboard</div>
+                      <div className="text-xs text-muted-foreground">Manage candidates & jobs</div>
+                    </div>
+                  </Link>
+                  <div className="border-t border-border my-2" />
+                  <Link
+                    href="/pricing"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                  >
+                    <CreditCard className="w-4 h-4 text-amber-500" />
+                    <div>
+                      <div className="font-medium text-foreground">Pricing</div>
+                      <div className="text-xs text-muted-foreground">Plans & credits</div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <Link
               href="/blog"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -307,6 +372,48 @@ export function Header() {
               >
                 Science
               </Link>
+
+              {/* Mobile For Employers Accordion */}
+              <details className="group">
+                <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-muted-foreground">
+                  For Employers
+                  <ChevronDown className="h-4 w-4 group-open:rotate-180 transition-transform" />
+                </summary>
+                <div className="mt-2 pl-4 space-y-2">
+                  <Link
+                    href="/for-employers"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Building2 className="w-4 h-4 text-violet-500" />
+                    Overview
+                  </Link>
+                  <Link
+                    href="/business/jobs/new"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Target className="w-4 h-4 text-fuchsia-500" />
+                    Create Job Profile
+                  </Link>
+                  <Link
+                    href="/business/teams"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Users className="w-4 h-4 text-emerald-500" />
+                    Team Composition
+                  </Link>
+                  <Link
+                    href="/business/dashboard"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <BarChart3 className="w-4 h-4 text-blue-500" />
+                    Dashboard
+                  </Link>
+                </div>
+              </details>
 
               <Link
                 href="/blog"

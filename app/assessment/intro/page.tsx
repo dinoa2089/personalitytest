@@ -334,37 +334,39 @@ function AssessmentIntroContent() {
           )}
 
           {!linkError && !loadingJobInfo && (
-          <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
-            <CardHeader className="pb-6">
-              <CardTitle className="text-2xl">What to Expect</CardTitle>
-              <CardDescription className="text-base">What you&apos;ll learn about yourself</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
-                <h3 className="font-semibold text-lg">Your Dimensional Profile</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  See how you score across 7 core personality dimensions with percentile rankings and
-                  confidence intervals.
-                </p>
-              </div>
-              <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
-                <h3 className="font-semibold text-lg">Framework Mappings</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Understand how your results relate to familiar frameworks like Myers-Briggs, CliftonStrengths,
-                  and Enneagram.
-                </p>
-              </div>
-              <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
-                <h3 className="font-semibold text-lg">Personalized Insights</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Receive actionable insights for your career, relationships, and personal growth.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          <>
+            <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardHeader className="pb-6">
+                <CardTitle className="text-2xl">What to Expect</CardTitle>
+                <CardDescription className="text-base">What you&apos;ll learn about yourself</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
+                  <h3 className="font-semibold text-lg">Your Dimensional Profile</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    See how you score across 7 core personality dimensions with percentile rankings and
+                    confidence intervals.
+                  </p>
+                </div>
+                <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
+                  <h3 className="font-semibold text-lg">Framework Mappings</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Understand how your results relate to familiar frameworks like Myers-Briggs, CliftonStrengths,
+                    and Enneagram.
+                  </p>
+                </div>
+                <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
+                  <h3 className="font-semibold text-lg">Personalized Insights</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Receive actionable insights for your career, relationships, and personal growth.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
 
-          {/* How It Works - Process Flow */}
-          <ProcessFlow showTitle={true} variant="horizontal" className="mt-8" />
+            {/* How It Works - Process Flow */}
+            <ProcessFlow showTitle={true} variant="horizontal" className="mt-8" />
+          </>
           )}
 
           {!linkError && !loadingJobInfo && (

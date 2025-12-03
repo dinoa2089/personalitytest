@@ -195,7 +195,6 @@ export async function POST(request: NextRequest) {
         .from("user_credits")
         .update({
           balance: creditsToApply - priceInDollars,
-          lifetime_spent: supabase.rpc ? priceInDollars : 0,
           updated_at: new Date().toISOString(),
         })
         .eq("user_id", internalUserId);

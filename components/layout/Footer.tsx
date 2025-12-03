@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Building2, Users, Target, BarChart3, CreditCard, Sparkles } from "lucide-react";
 
 // PRISM-7 Archetypes
 const prismTypes = [
@@ -66,12 +67,13 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Product */}
+          {/* For Individuals */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm text-foreground">Product</h4>
+            <h4 className="font-semibold mb-4 text-sm text-foreground">For Individuals</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/assessment" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/assessment" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                  <Sparkles className="w-3.5 h-3.5 text-violet-500" />
                   Take Assessment
                 </Link>
               </li>
@@ -98,21 +100,40 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Topic Guides */}
+          {/* For Employers */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm text-foreground">Topic Guides</h4>
-            <ul className="space-y-1.5 text-xs">
-              {topicGuides.map((topic) => (
-                <li key={topic.slug}>
-                  <Link 
-                    href={`/type/mbti/intj/${topic.slug}`}
-                    className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
-                  >
-                    <span>{topic.icon}</span>
-                    <span>{topic.name}</span>
-                  </Link>
-                </li>
-              ))}
+            <h4 className="font-semibold mb-4 text-sm text-foreground">For Employers</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/for-employers" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                  <Building2 className="w-3.5 h-3.5 text-violet-500" />
+                  Hiring Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/business/jobs/new" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                  <Target className="w-3.5 h-3.5 text-fuchsia-500" />
+                  Job Analysis
+                </Link>
+              </li>
+              <li>
+                <Link href="/business/teams" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                  <Users className="w-3.5 h-3.5 text-emerald-500" />
+                  Team Composition
+                </Link>
+              </li>
+              <li>
+                <Link href="/business/dashboard" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                  <BarChart3 className="w-3.5 h-3.5 text-blue-500" />
+                  Candidate Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                  <CreditCard className="w-3.5 h-3.5 text-amber-500" />
+                  Business Pricing
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -206,15 +227,34 @@ export function Footer() {
           </div>
         </div>
 
+        {/* CTA Banner */}
+        <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-violet-600/10 via-fuchsia-600/10 to-rose-600/10 border border-violet-500/20">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">Ready to discover your authentic self?</h4>
+              <p className="text-sm text-muted-foreground">Take our free 15-minute personality assessment today.</p>
+            </div>
+            <Link 
+              href="/assessment"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-medium text-sm hover:from-violet-500 hover:to-fuchsia-500 transition-all shadow-lg shadow-violet-500/25"
+            >
+              <Sparkles className="w-4 h-4" />
+              Start Free Assessment
+            </Link>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border">
+        <div className="mt-8 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} PRISM-7 by Authentic Self. All rights reserved.
             </p>
-            <p className="text-xs text-muted-foreground">
-              Based on the HEXACO+ model of personality psychology
-            </p>
+            <div className="flex items-center gap-6 text-xs text-muted-foreground">
+              <span>Based on the HEXACO+ model of personality psychology</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="hidden sm:inline">94% Test-Retest Reliability</span>
+            </div>
           </div>
         </div>
       </div>

@@ -89,7 +89,7 @@ export function TeamComposition({
     return members.filter(
       (m) =>
         m.name.toLowerCase().includes(term) ||
-        m.role?.toLowerCase().includes(term) ||
+        m.teamRole?.toLowerCase().includes(term) ||
         m.email?.toLowerCase().includes(term)
     );
   }, [members, searchTerm]);
