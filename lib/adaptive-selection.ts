@@ -482,6 +482,10 @@ function calculateCheckpointRelevance(
         if (estimate && estimate.responseCount < 5) {
           relevance *= 1.5; // Prioritize under-sampled dimensions
         }
+        // Special boost for S/N dimension which tends to have fewer questions
+        if (mbtiDim === 'mbti_sn' && estimate && estimate.responseCount < 6) {
+          relevance *= 1.3; // Additional boost for S/N coverage
+        }
       }
     }
     // Also boost questions whose PRISM dimension maps to uncertain MBTI
@@ -532,6 +536,10 @@ function calculateCheckpointRelevance(
         const estimate = state.mbtiEstimates[mbtiDim];
         if (estimate && estimate.responseCount < 6) {
           relevance *= 2.0; // Strong boost to catch up
+        }
+        // Extra priority for S/N dimension to ensure adequate coverage
+        if (mbtiDim === 'mbti_sn' && estimate && estimate.responseCount < 7) {
+          relevance *= 1.5; // Additional boost for S/N
         }
       }
     }

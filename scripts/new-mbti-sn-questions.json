@@ -1,0 +1,96 @@
+{
+  "questions": [
+    {
+      "text": "I trust information that comes from direct experience more than theoretical possibilities.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.3,
+      "reverse_scored": true
+    },
+    {
+      "text": "When learning something new, I prefer step-by-step instructions over general concepts.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    },
+    {
+      "text": "I often notice patterns and connections that others seem to miss.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.3
+    },
+    {
+      "text": "I find it easier to remember specific facts than to grasp abstract theories.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    },
+    {
+      "text": "I am drawn to exploring 'what could be' rather than focusing on 'what is'.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.3
+    },
+    {
+      "text": "I prefer practical, hands-on activities over theoretical discussions.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    },
+    {
+      "text": "I enjoy imagining future possibilities more than reflecting on past experiences.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I tend to take things at face value rather than looking for hidden meanings.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    },
+    {
+      "text": "When solving problems, I start with the big picture before diving into details.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.3
+    },
+    {
+      "text": "I am more interested in what is real and actual than what is possible and potential.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.3,
+      "reverse_scored": true
+    },
+    {
+      "text": "I often think about the symbolic or metaphorical meaning behind events.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.2
+    },
+    {
+      "text": "I prefer established, proven methods over innovative but untested approaches.",
+      "type": "likert",
+      "dimension": "openness",
+      "framework_tags": ["mbti_sn"],
+      "discrimination": 1.2,
+      "reverse_scored": true
+    }
+  ]
+}
+

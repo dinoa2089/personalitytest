@@ -1,9 +1,22 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import newQuestions from "@/scripts/new-enneagram-questions.json";
+import enneagramQuestions from "@/scripts/new-enneagram-questions.json";
+import mbtiSnQuestions from "@/scripts/new-mbti-sn-questions.json";
 
-export async function POST() {
+interface QuestionInput {
+  text: string;
+  type: string;
+  dimension: string;
+  framework_tags: string[];
+  discrimination?: number;
+  reverse_scored?: boolean;
+}
+
+export async function POST(request: Request) {
   try {
+    const { searchParams } = new URL(request.url);
+    const questionSet = searchParams.get("set") || "enneagram";
+
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -15,7 +28,23 @@ export async function POST() {
       auth: { autoRefreshToken: false, persistSession: false },
     });
 
-    const questionsToInsert = newQuestions.questions.map((q) => ({
+    // Select which questions to add based on the set parameter
+    let questions: QuestionInput[];
+    let setName: string;
+    
+    switch (questionSet) {
+      case "mbti_sn":
+        questions = mbtiSnQuestions.questions;
+        setName = "MBTI S/N";
+        break;
+      case "enneagram":
+      default:
+        questions = enneagramQuestions.questions;
+        setName = "Enneagram";
+        break;
+    }
+
+    const questionsToInsert = questions.map((q) => ({
       id: crypto.randomUUID(),
       text: q.text,
       type: q.type,
@@ -51,7 +80,7 @@ export async function POST() {
       success: true,
       inserted: data?.length || questionsToInsert.length,
       countsByType,
-      message: `Successfully added ${questionsToInsert.length} new Enneagram questions`,
+      message: `Successfully added ${questionsToInsert.length} new ${setName} questions`,
     });
   } catch (error) {
     console.error("Exception adding questions:", error);
@@ -61,4 +90,3 @@ export async function POST() {
     );
   }
 }
-
