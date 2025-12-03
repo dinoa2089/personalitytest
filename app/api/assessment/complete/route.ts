@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 import { calculateScores } from "@/lib/scoring-api";
 import { getAppUrl } from "@/lib/app-url";
 import { updateQuestionStatistics } from "@/lib/question-statistics";
@@ -15,9 +15,16 @@ export async function POST(request: NextRequest) {
     let enrichedResponses = responses;
     
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
     
-    if (supabaseUrl && supabaseKey) {
+    // Create supabase client with service role to bypass RLS
+    const supabase = supabaseUrl && supabaseServiceKey
+      ? createClient(supabaseUrl, supabaseServiceKey, {
+          auth: { autoRefreshToken: false, persistSession: false },
+        })
+      : null;
+    
+    if (supabase) {
       try {
         const questionIds = responses.map((r: { question_id: string }) => r.question_id);
         const { data: questions } = await supabase
@@ -57,8 +64,8 @@ export async function POST(request: NextRequest) {
       console.error("Error updating question statistics:", err);
     });
 
-    // Save results to database (supabaseUrl/supabaseKey already checked above)
-    if (supabaseUrl && supabaseKey) {
+    // Save results to database
+    if (supabase) {
       // Try to save results to database
       try {
         // Determine access level based on user's premium status
