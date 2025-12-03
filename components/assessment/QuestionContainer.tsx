@@ -161,15 +161,7 @@ export function QuestionContainer({
               <div className="space-y-6">{children}</div>
             </motion.div>
 
-            {/* Question counter - shows total answered + 1 (current question number) */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-center text-sm text-muted-foreground/60"
-            >
-              Question {responses.length + 1}
-            </motion.p>
+{/* Question counter moved to parent page for accuracy */}
           </motion.div>
         </Container>
       </div>

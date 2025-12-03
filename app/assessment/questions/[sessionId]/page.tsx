@@ -400,26 +400,34 @@ export default function QuestionPage() {
       <MilestoneCelebration progress={progress} />
       <QuestionContainer question={currentQuestion} questionIndex={currentIndex}>
         {renderQuestionComponent()}
-        <div className="mt-8 flex justify-between">
-          <Button
-            variant="outline"
-            onClick={() => {
-              if (currentIndex > 0) {
-                const prevIndex = currentIndex - 1;
-                setCurrentIndex(prevIndex);
-                setCurrentQuestion(questions[prevIndex]);
-                // Update progress - going back doesn't change total answered
-                const currentAnswered = adaptiveState?.questionsAnswered || 0;
-                updateProgress(((currentAnswered - 1) / totalQuestionsTarget) * 100);
-              }
-            }}
-            disabled={currentIndex === 0}
-          >
-            Previous
-          </Button>
-          <p className="text-sm text-muted-foreground self-center">
+        {/* Navigation and question counter */}
+        <div className="mt-8 flex items-center justify-between">
+          {/* Previous button - only show if we can go back */}
+          <div className="w-24">
+            {currentIndex > 0 && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  const prevIndex = currentIndex - 1;
+                  setCurrentIndex(prevIndex);
+                  setCurrentQuestion(questions[prevIndex]);
+                }}
+              >
+                ← Back
+              </Button>
+            )}
+          </div>
+          
+          {/* Question counter - accurate count */}
+          <p className="text-sm text-muted-foreground text-center">
             Question {(adaptiveState?.questionsAnswered || 0) + 1} of {totalQuestionsTarget}
           </p>
+          
+          {/* Skip button - allows moving forward without answering (optional) */}
+          <div className="w-24 flex justify-end">
+            {/* Space reserved for symmetry - Next happens automatically on answer */}
+          </div>
         </div>
       </QuestionContainer>
     </>
