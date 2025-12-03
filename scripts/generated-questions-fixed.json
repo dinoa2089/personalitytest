@@ -268,7 +268,7 @@
     "original_text": "Which is MOST like you and which is LEAST like you?"
   },
   {
-    "text": "Regarding your intellectual curiosity particularly with organization, which is MOST like you and which is LEAST like you?",
+    "text": "Regarding your intellectual curiosity, which is MOST like you and which is LEAST like you?",
     "type": "forced_choice",
     "dimension": "openness",
     "options": [
@@ -708,7 +708,7 @@
     "original_text": "Which is MOST like you and which is LEAST like you?"
   },
   {
-    "text": "Regarding your approach to planning and goals particularly with organization, which is MOST like you and which is LEAST like you?",
+    "text": "Regarding your approach to planning and goals, which is MOST like you and which is LEAST like you?",
     "type": "forced_choice",
     "dimension": "conscientiousness",
     "options": [
@@ -1118,7 +1118,7 @@
     "is_core": false
   },
   {
-    "text": "In social situations particularly with organization, which is MOST like you and which is LEAST like you?",
+    "text": "In social situations, which is MOST like you and which is LEAST like you?",
     "type": "forced_choice",
     "dimension": "extraversion",
     "options": [
@@ -1558,7 +1558,7 @@
     "is_core": false
   },
   {
-    "text": "When working with others particularly with organization, which is MOST like you and which is LEAST like you?",
+    "text": "When working with others, which is MOST like you and which is LEAST like you?",
     "type": "forced_choice",
     "dimension": "agreeableness",
     "options": [
@@ -1998,7 +1998,7 @@
     "is_core": false
   },
   {
-    "text": "When facing challenges or setbacks particularly with organization, which is MOST like you and which is LEAST like you?",
+    "text": "When facing challenges or setbacks, which is MOST like you and which is LEAST like you?",
     "type": "forced_choice",
     "dimension": "emotionalResilience",
     "options": [
@@ -2088,7 +2088,7 @@
     "original_text": "Which is MOST like you and which is LEAST like you?"
   },
   {
-    "text": "Thinking about your response to pressure particularly with organization, which is MOST like you and which is LEAST like you?",
+    "text": "Thinking about your response to pressure, which is MOST like you and which is LEAST like you?",
     "type": "forced_choice",
     "dimension": "emotionalResilience",
     "options": [
@@ -2498,7 +2498,7 @@
     "original_text": "Which is MOST like you and which is LEAST like you?"
   },
   {
-    "text": "When balancing personal gain with ethics particularly with organization, which is MOST like you and which is LEAST like you?",
+    "text": "When balancing personal gain with ethics, which is MOST like you and which is LEAST like you?",
     "type": "forced_choice",
     "dimension": "honestyHumility",
     "options": [
@@ -2528,7 +2528,7 @@
     "original_text": "Which is MOST like you and which is LEAST like you?"
   },
   {
-    "text": "Thinking about honesty and authenticity particularly with organization, which is MOST like you and which is LEAST like you?",
+    "text": "Thinking about honesty and authenticity, which is MOST like you and which is LEAST like you?",
     "type": "forced_choice",
     "dimension": "honestyHumility",
     "options": [
@@ -2878,7 +2878,7 @@
     "is_core": false
   },
   {
-    "text": "When circumstances change unexpectedly particularly with organization, which is MOST like you and which is LEAST like you?",
+    "text": "When circumstances change unexpectedly, which is MOST like you and which is LEAST like you?",
     "type": "forced_choice",
     "dimension": "adaptability",
     "options": [

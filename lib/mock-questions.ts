@@ -189,7 +189,7 @@ export const mockQuestions: Question[] = [
   },
   {
     id: "mock-openness-18",
-    text: "Regarding your intellectual curiosity particularly with organization, which is MOST like you and which is LEAST like you?",
+    text: "Regarding your intellectual curiosity, which is MOST like you and which is LEAST like you?",
     type: "forced_choice",
     dimension: "openness",
     options: [
@@ -470,7 +470,7 @@ export const mockQuestions: Question[] = [
   },
   {
     id: "mock-conscientiousness-43",
-    text: "Regarding your approach to planning and goals particularly with organization, which is MOST like you and which is LEAST like you?",
+    text: "Regarding your approach to planning and goals, which is MOST like you and which is LEAST like you?",
     type: "forced_choice",
     dimension: "conscientiousness",
     options: [
@@ -736,7 +736,7 @@ export const mockQuestions: Question[] = [
   },
   {
     id: "mock-extraversion-67",
-    text: "In social situations particularly with organization, which is MOST like you and which is LEAST like you?",
+    text: "In social situations, which is MOST like you and which is LEAST like you?",
     type: "forced_choice",
     dimension: "extraversion",
     options: [
@@ -1017,7 +1017,7 @@ export const mockQuestions: Question[] = [
   },
   {
     id: "mock-agreeableness-92",
-    text: "When working with others particularly with organization, which is MOST like you and which is LEAST like you?",
+    text: "When working with others, which is MOST like you and which is LEAST like you?",
     type: "forced_choice",
     dimension: "agreeableness",
     options: [
@@ -1298,7 +1298,7 @@ export const mockQuestions: Question[] = [
   },
   {
     id: "mock-emotionalResilience-117",
-    text: "When facing challenges or setbacks particularly with organization, which is MOST like you and which is LEAST like you?",
+    text: "When facing challenges or setbacks, which is MOST like you and which is LEAST like you?",
     type: "forced_choice",
     dimension: "emotionalResilience",
     options: [
@@ -1343,7 +1343,7 @@ export const mockQuestions: Question[] = [
   },
   {
     id: "mock-emotionalResilience-120",
-    text: "Thinking about your response to pressure particularly with organization, which is MOST like you and which is LEAST like you?",
+    text: "Thinking about your response to pressure, which is MOST like you and which is LEAST like you?",
     type: "forced_choice",
     dimension: "emotionalResilience",
     options: [
@@ -1609,7 +1609,7 @@ export const mockQuestions: Question[] = [
   },
   {
     id: "mock-honestyHumility-144",
-    text: "When balancing personal gain with ethics particularly with organization, which is MOST like you and which is LEAST like you?",
+    text: "When balancing personal gain with ethics, which is MOST like you and which is LEAST like you?",
     type: "forced_choice",
     dimension: "honestyHumility",
     options: [
@@ -1624,7 +1624,7 @@ export const mockQuestions: Question[] = [
   },
   {
     id: "mock-honestyHumility-145",
-    text: "Thinking about honesty and authenticity particularly with organization, which is MOST like you and which is LEAST like you?",
+    text: "Thinking about honesty and authenticity, which is MOST like you and which is LEAST like you?",
     type: "forced_choice",
     dimension: "honestyHumility",
     options: [
@@ -1860,7 +1860,7 @@ export const mockQuestions: Question[] = [
   },
   {
     id: "mock-adaptability-167",
-    text: "When circumstances change unexpectedly particularly with organization, which is MOST like you and which is LEAST like you?",
+    text: "When circumstances change unexpectedly, which is MOST like you and which is LEAST like you?",
     type: "forced_choice",
     dimension: "adaptability",
     options: [
