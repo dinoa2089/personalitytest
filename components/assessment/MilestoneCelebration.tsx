@@ -9,6 +9,7 @@ interface MilestoneCelebrationProps {
   progress: number;
   currentQuestion?: number;
   totalQuestions?: number;
+  isComplete?: boolean; // Only show 100% celebration when assessment is actually submitted
 }
 
 const milestones = [
@@ -21,7 +22,8 @@ const milestones = [
 export function MilestoneCelebration({ 
   progress, 
   currentQuestion,
-  totalQuestions 
+  totalQuestions,
+  isComplete = false 
 }: MilestoneCelebrationProps) {
   const [celebrated, setCelebrated] = useState<Set<number>>(new Set());
   const [showCelebration, setShowCelebration] = useState(false);
@@ -31,6 +33,11 @@ export function MilestoneCelebration({
     const milestone = milestones.find(
       (m) => progress >= m.percent && !celebrated.has(m.percent)
     );
+
+    // Don't show 100% celebration until assessment is actually complete (submitted)
+    if (milestone && milestone.percent === 100 && !isComplete) {
+      return;
+    }
 
     if (milestone) {
       setCelebrated((prev) => new Set([...prev, milestone.percent]));
@@ -72,7 +79,7 @@ export function MilestoneCelebration({
       // Hide after 4 seconds
       setTimeout(() => setShowCelebration(false), 4000);
     }
-  }, [progress, celebrated]);
+  }, [progress, celebrated, isComplete]);
 
   if (!currentMilestone) return null;
 

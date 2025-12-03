@@ -481,9 +481,9 @@ export const mockQuestions: Question[] = [
     type: "forced_choice",
     dimension: "emotionalResilience",
     options: [
-      "I maintain a positive outlook even during difficult times",
-      "I process emotions quickly and move forward",
-      "I rarely let setbacks affect my overall mood",
+      "I stay composed and optimistic under pressure",
+      "I analyze setbacks methodically to prevent future issues",
+      "I quickly pivot and find new approaches when things go wrong",
     ],
     weight: 1.2,
   },

@@ -15,14 +15,21 @@ export type QuestionType =
   | "situational_judgment"
   | "behavioral_frequency";
 
+export interface ForcedChoiceOption {
+  text: string;
+  dimension: Dimension;
+}
+
 export interface Question {
   id: string;
   text: string;
   type: QuestionType;
   dimension: Dimension;
-  options?: string[];
+  options?: string[] | ForcedChoiceOption[]; // Support both for backward compat
   reverse_scored?: boolean;
   weight?: number;
+  framework_tags?: string[]; // e.g., ["mbti_ei", "enneagram_9"]
+  discrimination?: number; // IRT parameter, default 1.0
 }
 
 export interface QuestionResponse {

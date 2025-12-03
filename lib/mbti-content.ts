@@ -1472,6 +1472,20 @@ export function getMBTITypeContent(code: string): MBTIType | null {
         }
       }
 
+      // Normalize description - convert objects to strings if needed
+      let normalizedDescription = expanded.description;
+      if (Array.isArray(expanded.description) && expanded.description.length > 0) {
+         normalizedDescription = expanded.description.map((item: { title?: string; description?: string } | string) => {
+           if (typeof item === 'string') return item;
+           if (item && typeof item === 'object') {
+             return item.title && item.description 
+               ? `**${item.title}** ${item.description}`
+               : item.description || item.title || '';
+           }
+           return '';
+         }).filter(Boolean);
+      }
+
       // Normalize cognitive function descriptions - convert objects to strings if needed
       const normalizeCognitiveFunction = (func: { name: string; description: string | { title?: string; description?: string } }) => {
         if (!func) return func;
@@ -1502,6 +1516,7 @@ export function getMBTITypeContent(code: string): MBTIType | null {
       return {
         ...original,
         ...expanded,
+        description: normalizedDescription || original.description,
         growthAdvice: normalizedGrowthAdvice || original.growthAdvice,
         famousExamples: original.famousExamples, // Keep original with image URLs
         cognitiveFunctions: normalizedCognitiveFunctions,

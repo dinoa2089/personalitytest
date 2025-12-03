@@ -2,27 +2,72 @@
  * Mock scoring function for development/testing when Python API is not available
  * Generates realistic dimensional scores with percentiles and confidence intervals
  */
-import type { QuestionResponse, DimensionScore } from "@/types";
+import type { QuestionResponse, DimensionScore, ForcedChoiceOption, Question, Dimension } from "@/types";
+
+// Import mock questions to access forced-choice options with dimension mappings
+import { mockQuestions } from "./mock-questions";
+
+/**
+ * Type guard to check if options are ForcedChoiceOption[]
+ */
+function isForcedChoiceOptions(options: any): options is ForcedChoiceOption[] {
+  return (
+    Array.isArray(options) &&
+    options.length > 0 &&
+    typeof options[0] === "object" &&
+    "dimension" in options[0]
+  );
+}
+
+/**
+ * Score a forced-choice response across multiple dimensions
+ * Returns a Map of dimension -> score adjustment
+ */
+function scoreForcedChoice(
+  responseValue: any,
+  options: ForcedChoiceOption[]
+): Map<string, number> {
+  const scores = new Map<string, number>();
+
+  let parsed = responseValue;
+  if (typeof responseValue === "string") {
+    try {
+      parsed = JSON.parse(responseValue);
+    } catch {
+      // If parsing fails, return empty scores
+      return scores;
+    }
+  }
+
+  if (typeof parsed === "object" && parsed !== null) {
+    const mostOption = options.find((o) => o.text === parsed.most);
+    const leastOption = options.find((o) => o.text === parsed.least);
+
+    if (mostOption) {
+      scores.set(mostOption.dimension, 2); // +2 for most
+    }
+    if (leastOption) {
+      const currentScore = scores.get(leastOption.dimension) || 0;
+      scores.set(leastOption.dimension, currentScore - 1); // -1 for least
+    }
+  }
+
+  return scores;
+}
+
+/**
+ * Get the question data including options by question ID
+ */
+function getQuestionById(questionId: string): Question | undefined {
+  return mockQuestions.find((q) => q.id === questionId);
+}
 
 export function mockCalculateScores(
   responses: QuestionResponse[],
   sessionId: string
 ): { dimensional_scores: DimensionScore[]; completed: boolean } {
-  // Group responses by dimension
-  const dimensionResponses: Record<string, QuestionResponse[]> = {};
-  
-  for (const response of responses) {
-    const dim = response.dimension;
-    if (!dimensionResponses[dim]) {
-      dimensionResponses[dim] = [];
-    }
-    dimensionResponses[dim].push(response);
-  }
-
-  // Calculate scores for each dimension
-  const dimensional_scores: DimensionScore[] = [];
-  
-  const dimensions: Array<keyof typeof dimensionResponses> = [
+  // Initialize score accumulators for each dimension
+  const dimensions: Dimension[] = [
     "openness",
     "conscientiousness",
     "extraversion",
@@ -32,34 +77,70 @@ export function mockCalculateScores(
     "adaptability",
   ];
 
-  for (const dimension of dimensions) {
-    const dimResponses = dimensionResponses[dimension] || [];
-    
-    // Calculate raw score based on responses
-    let rawScore = 0;
-    let totalWeight = 0;
+  const dimensionScores: Record<string, { totalScore: number; totalWeight: number; count: number }> = {};
+  for (const dim of dimensions) {
+    dimensionScores[dim] = { totalScore: 0, totalWeight: 0, count: 0 };
+  }
 
-    for (const response of dimResponses) {
-      const weight = getQuestionWeight(response.question_type);
-      const score = scoreResponse(response);
-      
-      rawScore += score * weight;
-      totalWeight += weight;
+  // Process each response
+  for (const response of responses) {
+    const weight = getQuestionWeight(response.question_type);
+
+    if (response.question_type === "forced_choice") {
+      // Get the question to access its options
+      const question = getQuestionById(response.question_id);
+
+      if (question?.options && isForcedChoiceOptions(question.options)) {
+        // Score across multiple dimensions
+        const multiDimScores = scoreForcedChoice(response.response, question.options);
+
+        for (const [dimension, score] of multiDimScores) {
+          if (dimensionScores[dimension]) {
+            // Normalize forced-choice score: +2 becomes 8, 0 becomes 5, -1 becomes 3
+            const normalizedScore = 5 + (score * 1.5); // Maps -1->3.5, 0->5, +2->8
+            dimensionScores[dimension].totalScore += normalizedScore * weight;
+            dimensionScores[dimension].totalWeight += weight;
+            dimensionScores[dimension].count += 1;
+          }
+        }
+      } else {
+        // Fallback: old-style string options - score to primary dimension
+        const score = scoreSimpleResponse(response);
+        const dim = response.dimension;
+        dimensionScores[dim].totalScore += score * weight;
+        dimensionScores[dim].totalWeight += weight;
+        dimensionScores[dim].count += 1;
+      }
+    } else {
+      // Non-forced-choice: score to primary dimension
+      const score = scoreSimpleResponse(response);
+      const dim = response.dimension;
+      dimensionScores[dim].totalScore += score * weight;
+      dimensionScores[dim].totalWeight += weight;
+      dimensionScores[dim].count += 1;
     }
+  }
+
+  // Calculate final scores for each dimension
+  const dimensional_scores: DimensionScore[] = [];
+
+  for (const dimension of dimensions) {
+    const data = dimensionScores[dimension];
 
     // Normalize to 0-100 scale
-    const normalizedScore = totalWeight > 0 
-      ? Math.max(0, Math.min(100, (rawScore / totalWeight) * 10))
-      : 50; // Default to middle if no responses
+    const normalizedScore =
+      data.totalWeight > 0
+        ? Math.max(0, Math.min(100, (data.totalScore / data.totalWeight) * 10))
+        : 50; // Default to middle if no responses
 
     // Calculate percentile (with some realistic variation)
     const percentile = calculatePercentile(normalizedScore, dimension);
 
     // Calculate confidence interval (narrower with more responses)
-    const n = dimResponses.length;
+    const n = data.count;
     const se = Math.max(2, 10 / Math.sqrt(Math.max(1, n))); // Standard error
     const margin = 1.645 * se; // 90% confidence interval
-    
+
     const confidence_interval: [number, number] = [
       Math.max(0, percentile - margin),
       Math.min(100, percentile + margin),
@@ -89,7 +170,10 @@ function getQuestionWeight(questionType: string): number {
   return weights[questionType] || 1.0;
 }
 
-function scoreResponse(response: QuestionResponse): number {
+/**
+ * Score a simple (non-forced-choice) response
+ */
+function scoreSimpleResponse(response: QuestionResponse): number {
   const { question_type, response: responseValue } = response;
 
   if (question_type === "likert") {
@@ -106,33 +190,6 @@ function scoreResponse(response: QuestionResponse): number {
     return 5;
   }
 
-  if (question_type === "forced_choice") {
-    // Parse JSON string if needed
-    let parsed: any = responseValue;
-    if (typeof responseValue === "string") {
-      try {
-        parsed = JSON.parse(responseValue);
-      } catch {
-        // If it's a simple string selection, score based on position
-        if (responseValue === "A" || responseValue === "1") return 8;
-        if (responseValue === "B" || responseValue === "2") return 5;
-        if (responseValue === "C" || responseValue === "3") return 2;
-        return 5;
-      }
-    }
-    
-    if (typeof parsed === "object" && parsed !== null) {
-      // Most = high score, least = low score
-      if (parsed.most) return 9;
-      if (parsed.least) return 1;
-      // Handle ranked choices
-      if (parsed.rank !== undefined) {
-        return 10 - (parsed.rank * 3); // rank 1 = 7, rank 2 = 4, rank 3 = 1
-      }
-    }
-    return 5;
-  }
-
   if (question_type === "situational_judgment") {
     // Map option selection to score based on option index
     if (typeof responseValue === "string") {
@@ -140,7 +197,7 @@ function scoreResponse(response: QuestionResponse): number {
       const optionIndex = parseInt(responseValue, 10);
       if (!isNaN(optionIndex)) {
         // Assume 3-4 options, first is highest trait expression
-        return Math.max(1, 10 - (optionIndex * 2.5));
+        return Math.max(1, 10 - optionIndex * 2.5);
       }
       // Letter-based options
       if (responseValue === "A") return 9;
@@ -169,17 +226,17 @@ function scoreResponse(response: QuestionResponse): number {
     return 5;
   }
 
-  return 5; // Default to middle score instead of 0
+  return 5; // Default to middle score
 }
 
 function calculatePercentile(rawScore: number, dimension: string): number {
   // Calculate percentile based on actual response data
   // Using normative distribution assumptions for personality traits
-  
+
   // Personality traits typically follow a normal distribution
   // We map the raw score (0-100) to a percentile using a sigmoid-like transformation
   // This creates more realistic clustering around the middle with fewer extreme scores
-  
+
   // Dimension-specific calibration based on population norms
   // These offsets reflect that some traits have different population means
   const dimensionCalibration: Record<string, { mean: number; spread: number }> = {
@@ -193,11 +250,10 @@ function calculatePercentile(rawScore: number, dimension: string): number {
   };
 
   const calibration = dimensionCalibration[dimension] || { mean: 50, spread: 1.0 };
-  
+
   // Apply calibration to raw score
-  const calibratedScore = ((rawScore - 50) * calibration.spread) + calibration.mean;
-  
+  const calibratedScore = (rawScore - 50) * calibration.spread + calibration.mean;
+
   // Ensure percentile stays within valid range
   return Math.max(1, Math.min(99, Math.round(calibratedScore)));
 }
-
