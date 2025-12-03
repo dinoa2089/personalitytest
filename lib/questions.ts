@@ -1,6 +1,6 @@
 /**
  * Question loading and management utilities
- * Updated to use the new question selection algorithm with coverage guarantees
+ * Updated to use adaptive selection algorithm with checkpoint-aware framework targeting
  */
 import { supabase } from "./supabase";
 import { mockQuestions } from "./mock-questions";
@@ -13,11 +13,34 @@ import {
   type RequestedFramework,
   TIER_CONFIGS,
 } from "./question-selection";
+import {
+  initializeAdaptiveState,
+  selectQuestionBatch,
+  selectNextQuestion,
+  updateTraitEstimate,
+  normalizeResponse,
+  getAdaptiveStats,
+  serializeAdaptiveState,
+  deserializeAdaptiveState,
+  type AdaptiveState,
+} from "./adaptive-selection";
 import type { Question } from "@/types";
 
 // Re-export types and configs for convenience
-export type { AssessmentTier, RequestedFramework };
+export type { AssessmentTier, RequestedFramework, AdaptiveState };
 export { TIER_CONFIGS, getSelectionStats, validateSelection };
+
+// Re-export adaptive selection functions
+export {
+  initializeAdaptiveState,
+  selectQuestionBatch,
+  selectNextQuestion,
+  updateTraitEstimate,
+  normalizeResponse,
+  getAdaptiveStats,
+  serializeAdaptiveState,
+  deserializeAdaptiveState,
+};
 
 /**
  * Load all questions from the database
@@ -171,4 +194,52 @@ export function getAvailableTiers() {
   return Object.keys(TIER_CONFIGS).map((tier) =>
     getAssessmentConfig(tier as AssessmentTier)
   );
+}
+
+/**
+ * Load questions adaptively for a checkpoint
+ * Uses the adaptive selection algorithm to pick the best questions
+ * based on current trait estimates and the checkpoint's framework focus
+ */
+export async function loadQuestionsAdaptively(
+  adaptiveState: AdaptiveState,
+  batchSize: number,
+  options: {
+    checkpoint?: number;
+    diversifyTypes?: boolean;
+  } = {}
+): Promise<Question[]> {
+  const questionBank = await loadQuestions();
+  return selectQuestionBatch(questionBank, adaptiveState, batchSize, options);
+}
+
+/**
+ * Get or initialize adaptive state from localStorage
+ */
+export function getOrInitializeAdaptiveState(sessionId: string): AdaptiveState {
+  const storageKey = `adaptive-state-${sessionId}`;
+  
+  try {
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      return deserializeAdaptiveState(stored);
+    }
+  } catch (e) {
+    console.warn("Could not load adaptive state from localStorage:", e);
+  }
+  
+  return initializeAdaptiveState();
+}
+
+/**
+ * Save adaptive state to localStorage
+ */
+export function saveAdaptiveState(sessionId: string, state: AdaptiveState): void {
+  const storageKey = `adaptive-state-${sessionId}`;
+  
+  try {
+    localStorage.setItem(storageKey, serializeAdaptiveState(state));
+  } catch (e) {
+    console.warn("Could not save adaptive state to localStorage:", e);
+  }
 }

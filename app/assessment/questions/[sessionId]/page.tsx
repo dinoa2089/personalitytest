@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useAssessmentStore } from "@/store/assessment-store";
 import { QuestionContainer } from "@/components/assessment/QuestionContainer";
@@ -10,12 +10,28 @@ import { SituationalJudgment } from "@/components/assessment/questions/Situation
 import { BehavioralFrequency } from "@/components/assessment/questions/BehavioralFrequency";
 import { MilestoneCelebration } from "@/components/assessment/MilestoneCelebration";
 import { Button } from "@/components/ui/button";
-import { loadQuestions, filterQuestionsByType } from "@/lib/questions";
-import { isCheckpointReached } from "@/lib/checkpoint-logic";
+import { 
+  loadQuestions, 
+  getOrInitializeAdaptiveState,
+  saveAdaptiveState,
+  selectQuestionBatch,
+  updateTraitEstimate,
+  normalizeResponse,
+  type AdaptiveState,
+} from "@/lib/questions";
+import { isCheckpointReached, getCurrentCheckpoint } from "@/lib/checkpoint-logic";
 import type { Question, QuestionResponse } from "@/types";
 
 // Checkpoint thresholds
 const CHECKPOINT_THRESHOLDS = [35, 55, 80, 105];
+
+// Questions to load per batch (between checkpoints)
+const BATCH_SIZES: Record<number, number> = {
+  1: 35,  // First checkpoint: PRISM-7
+  2: 20,  // Second: MBTI (+20)
+  3: 25,  // Third: Enneagram (+25)
+  4: 25,  // Fourth: Deep dive (+25)
+};
 
 export default function QuestionPage() {
   const router = useRouter();
@@ -37,53 +53,83 @@ export default function QuestionPage() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [adaptiveState, setAdaptiveState] = useState<AdaptiveState | null>(null);
+  const [questionBank, setQuestionBank] = useState<Question[]>([]);
+  const [totalQuestionsTarget, setTotalQuestionsTarget] = useState(105);
+  
+  // Track if we've initialized to prevent double loading
+  const initialized = useRef(false);
 
   useEffect(() => {
-    // Load questions from Supabase
+    if (initialized.current) return;
+    initialized.current = true;
+    
+    // Load questions adaptively
     const fetchQuestions = async () => {
       try {
         // Get assessment type from localStorage
         const assessmentType = (localStorage.getItem(`assessment-type-${sessionId}`) || "full") as "quick" | "standard" | "full";
         
-        const allQuestions = await loadQuestions();
-        // Filter questions based on assessment type
-        const questions = filterQuestionsByType(allQuestions, assessmentType);
+        // Set target questions based on assessment type
+        const targetQuestions = assessmentType === "quick" ? 35 : assessmentType === "standard" ? 80 : 105;
+        setTotalQuestionsTarget(targetQuestions);
         
-        if (questions.length > 0) {
-          setQuestions(questions);
-          
-          // Try to resume session if it exists in database
-          try {
-            const sessionResponse = await fetch(`/api/assessment/progress?sessionId=${sessionId}`);
-            if (sessionResponse.ok) {
-              const sessionData = await sessionResponse.json();
-              if (sessionData.session && sessionData.responses) {
-                // Restore progress
-                const savedProgress = sessionData.session.progress || 0;
-                updateProgress(savedProgress);
-                
-                // If there are saved responses, resume from where we left off
-                if (sessionData.responses.length > 0 && sessionData.responses.length < questions.length) {
-                  const nextIndex = sessionData.responses.length;
-                  setCurrentIndex(nextIndex);
-                  setCurrentQuestion(questions[nextIndex]);
-                  setIsLoading(false);
-                  return;
-                } else if (sessionData.responses.length >= questions.length) {
-                  // Assessment already completed - redirect to results
-                  router.push(`/results/${sessionId}`);
-                  return;
-                }
+        // Load full question bank
+        const allQuestions = await loadQuestions();
+        setQuestionBank(allQuestions);
+        
+        // Get or initialize adaptive state
+        let state = getOrInitializeAdaptiveState(sessionId);
+        
+        // Try to resume session if it exists in database
+        try {
+          const sessionResponse = await fetch(`/api/assessment/progress?sessionId=${sessionId}`);
+          if (sessionResponse.ok) {
+            const sessionData = await sessionResponse.json();
+            if (sessionData.session && sessionData.responses && sessionData.responses.length > 0) {
+              // Restore progress
+              const savedProgress = sessionData.session.progress || 0;
+              updateProgress(savedProgress);
+              
+              // Check if already completed
+              if (sessionData.responses.length >= targetQuestions) {
+                router.push(`/results/${sessionId}`);
+                return;
+              }
+              
+              // Rebuild adaptive state from saved responses if needed
+              if (state.questionsAnswered < sessionData.responses.length) {
+                // We have more responses in DB than in adaptive state - rebuild
+                state = getOrInitializeAdaptiveState(sessionId);
               }
             }
-          } catch (error) {
-            // Continue with fresh start if resumption fails
-            console.warn("Could not resume session:", error);
           }
-          
-          // Start fresh or continue from beginning
-          setCurrentQuestion(questions[0]);
-          updateProgress((responses.length / questions.length) * 100);
+        } catch (error) {
+          console.warn("Could not resume session:", error);
+        }
+        
+        setAdaptiveState(state);
+        
+        // Determine current checkpoint and batch size
+        const currentCheckpoint = state.currentCheckpoint || 1;
+        const questionsAnswered = state.questionsAnswered || 0;
+        
+        // Calculate how many questions we need for the current batch
+        const nextCheckpointThreshold = CHECKPOINT_THRESHOLDS.find(t => t > questionsAnswered) || targetQuestions;
+        const questionsNeeded = Math.min(nextCheckpointThreshold - questionsAnswered, targetQuestions - questionsAnswered);
+        
+        // Select questions adaptively for this batch
+        const selectedQuestions = selectQuestionBatch(
+          allQuestions,
+          state,
+          questionsNeeded,
+          { checkpoint: currentCheckpoint, diversifyTypes: true }
+        );
+        
+        if (selectedQuestions.length > 0) {
+          setQuestions(selectedQuestions);
+          setCurrentQuestion(selectedQuestions[0]);
+          updateProgress((questionsAnswered / targetQuestions) * 100);
         }
       } catch (error) {
         console.error("Failed to load questions:", error);
@@ -93,7 +139,7 @@ export default function QuestionPage() {
     };
 
     fetchQuestions();
-  }, [setQuestions, setCurrentQuestion, sessionId, router]);
+  }, [sessionId, router, setQuestions, setCurrentQuestion, updateProgress]);
 
   const handleAnswer = async (answer: string | number) => {
     if (!currentQuestion) return;

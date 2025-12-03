@@ -273,7 +273,7 @@ export function getMostUncertainForCheckpoint(
 ): { type: 'prism' | 'mbti' | 'enneagram'; id: string; uncertainty: number } {
   const config = CHECKPOINT_CONFIG[checkpoint] || CHECKPOINT_CONFIG[1];
   let maxUncertainty = -1;
-  let mostUncertain = { type: 'prism' as const, id: 'openness', uncertainty: 0 };
+  let mostUncertain: { type: 'prism' | 'mbti' | 'enneagram'; id: string; uncertainty: number } = { type: 'prism', id: 'openness', uncertainty: 0 };
   
   // Always check PRISM dimensions first (they inform everything)
   for (const dim of PRISM_DIMENSIONS) {
@@ -813,84 +813,124 @@ export function normalizeResponse(
  */
 export function getAdaptiveStats(state: AdaptiveState): {
   totalAnswered: number;
-  averageUncertainty: number;
-  mostUncertainDimension: Dimension;
-  leastUncertainDimension: Dimension;
-  phase: string;
-  dimensionBreakdown: Array<{
-    dimension: Dimension;
-    estimate: number;
-    standardError: number;
-    responseCount: number;
-  }>;
+  currentCheckpoint: number;
+  prism: {
+    averageUncertainty: number;
+    mostUncertain: Dimension;
+    breakdown: Array<{ dimension: Dimension; estimate: number; se: number; count: number }>;
+  };
+  mbti: {
+    breakdown: Array<{ dimension: string; estimate: number; se: number; count: number }>;
+  };
+  enneagram: {
+    topTypes: Array<{ type: string; estimate: number; se: number }>;
+  };
 } {
-  const totalAnswered = state.answeredQuestionIds.size;
+  const totalAnswered = state.questionsAnswered;
   
-  let totalUncertainty = 0;
-  let maxUncertainty = -1;
-  let minUncertainty = Infinity;
-  let mostUncertain: Dimension = 'openness';
-  let leastUncertain: Dimension = 'openness';
-  
-  const dimensionBreakdown = [];
+  // PRISM stats
+  let prismTotalSE = 0;
+  let prismMaxSE = -1;
+  let prismMostUncertain: Dimension = 'openness';
+  const prismBreakdown: Array<{ dimension: Dimension; estimate: number; se: number; count: number }> = [];
   
   for (const dim of PRISM_DIMENSIONS) {
     const est = state.prismEstimates[dim];
-    totalUncertainty += est.standardError;
+    prismTotalSE += est.standardError;
     
-    if (est.standardError > maxUncertainty) {
-      maxUncertainty = est.standardError;
-      mostUncertain = dim;
-    }
-    if (est.standardError < minUncertainty) {
-      minUncertainty = est.standardError;
-      leastUncertain = dim;
+    if (est.standardError > prismMaxSE) {
+      prismMaxSE = est.standardError;
+      prismMostUncertain = dim;
     }
     
-    dimensionBreakdown.push({
+    prismBreakdown.push({
       dimension: dim,
       estimate: Math.round(est.estimate),
-      standardError: Math.round(est.standardError * 10) / 10,
-      responseCount: est.responseCount,
+      se: Math.round(est.standardError * 10) / 10,
+      count: est.responseCount,
     });
   }
   
+  // MBTI stats
+  const mbtiBreakdown: Array<{ dimension: string; estimate: number; se: number; count: number }> = [];
+  for (const dim of MBTI_DIMENSIONS) {
+    const est = state.mbtiEstimates[dim];
+    mbtiBreakdown.push({
+      dimension: dim,
+      estimate: Math.round(est.estimate),
+      se: Math.round(est.standardError * 10) / 10,
+      count: est.responseCount,
+    });
+  }
+  
+  // Enneagram stats - show top 3 types
+  const ennScores = ENNEAGRAM_TYPES.map(type => ({
+    type,
+    estimate: state.enneagramEstimates[type].estimate,
+    se: state.enneagramEstimates[type].standardError,
+  })).sort((a, b) => b.estimate - a.estimate);
+  
   return {
     totalAnswered,
-    averageUncertainty: Math.round((totalUncertainty / PRISM_DIMENSIONS.length) * 10) / 10,
-    mostUncertainDimension: mostUncertain,
-    leastUncertainDimension: leastUncertain,
-    phase: state.phase,
-    dimensionBreakdown,
+    currentCheckpoint: state.currentCheckpoint,
+    prism: {
+      averageUncertainty: Math.round((prismTotalSE / PRISM_DIMENSIONS.length) * 10) / 10,
+      mostUncertain: prismMostUncertain,
+      breakdown: prismBreakdown,
+    },
+    mbti: {
+      breakdown: mbtiBreakdown,
+    },
+    enneagram: {
+      topTypes: ennScores.slice(0, 3).map(e => ({
+        type: e.type,
+        estimate: Math.round(e.estimate),
+        se: Math.round(e.se * 10) / 10,
+      })),
+    },
   };
 }
 
 /**
- * Check if we have sufficient precision to stop early
+ * Check if we have sufficient precision for the current checkpoint
  */
-export function canStopEarly(
+export function hasCheckpointPrecision(
   state: AdaptiveState,
-  precisionThreshold: number = 10
+  precisionThreshold: number = 12
 ): boolean {
-  // Check if all PRISM dimensions have SE below threshold
+  const config = CHECKPOINT_CONFIG[state.currentCheckpoint] || CHECKPOINT_CONFIG[1];
+  
+  // Check PRISM precision
   for (const dim of PRISM_DIMENSIONS) {
     if (state.prismEstimates[dim].standardError > precisionThreshold) {
       return false;
     }
   }
+  
+  // Check MBTI precision if applicable
+  if (config.frameworks.includes('mbti')) {
+    for (const dim of MBTI_DIMENSIONS) {
+      if (state.mbtiEstimates[dim].standardError > precisionThreshold + 5) {
+        return false;
+      }
+    }
+  }
+  
   return true;
 }
 
 /**
- * Serialize adaptive state for storage
+ * Serialize adaptive state for storage (localStorage or database)
  */
 export function serializeAdaptiveState(state: AdaptiveState): string {
   return JSON.stringify({
-    traitEstimates: state.traitEstimates,
+    prismEstimates: state.prismEstimates,
+    mbtiEstimates: state.mbtiEstimates,
+    enneagramEstimates: state.enneagramEstimates,
     answeredQuestionIds: Array.from(state.answeredQuestionIds),
     answeredQuestionTexts: Array.from(state.answeredQuestionTexts),
-    phase: state.phase,
-    questionsInPhase: state.questionsInPhase,
+    currentCheckpoint: state.currentCheckpoint,
+    questionsAnswered: state.questionsAnswered,
   });
 }
 
@@ -900,11 +940,23 @@ export function serializeAdaptiveState(state: AdaptiveState): string {
 export function deserializeAdaptiveState(json: string): AdaptiveState {
   const data = JSON.parse(json);
   return {
-    traitEstimates: data.traitEstimates,
+    prismEstimates: data.prismEstimates,
+    mbtiEstimates: data.mbtiEstimates,
+    enneagramEstimates: data.enneagramEstimates,
     answeredQuestionIds: new Set(data.answeredQuestionIds),
     answeredQuestionTexts: new Set(data.answeredQuestionTexts),
-    phase: data.phase,
-    questionsInPhase: data.questionsInPhase,
+    currentCheckpoint: data.currentCheckpoint,
+    questionsAnswered: data.questionsAnswered,
   };
+}
+
+/**
+ * Get the current checkpoint number based on questions answered
+ */
+export function getCurrentCheckpointNumber(questionsAnswered: number): number {
+  if (questionsAnswered >= 80) return 4;
+  if (questionsAnswered >= 55) return 3;
+  if (questionsAnswered >= 35) return 2;
+  return 1;
 }
 

@@ -613,10 +613,13 @@ function EmployerLandingPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Your Next Great Hire Is Waiting
+              Your Next Hire Could Be Your Best—Or Your Most Expensive
             </h2>
-            <p className="text-xl text-slate-400 mb-8">
-              Stop gambling with gut feelings. Start hiring with data.
+            <p className="text-xl text-slate-400 mb-4">
+              Every week you rely on gut feelings alone is another roll of the dice.
+            </p>
+            <p className="text-lg text-slate-500 mb-8">
+              Try PRISM-7 on your next candidate. See the difference better data makes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -625,7 +628,7 @@ function EmployerLandingPage() {
                 asChild
               >
                 <Link href="/sign-up">
-                  Start Free Trial
+                  Start With a Free Assessment
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -636,12 +639,12 @@ function EmployerLandingPage() {
                 asChild
               >
                 <Link href="/contact">
-                  Talk to Sales
+                  Questions? Let&apos;s Talk
                 </Link>
               </Button>
             </div>
             <p className="text-slate-500 text-sm mt-6">
-              No credit card required • 3 free assessments • Setup in 5 minutes
+              No credit card required • Takes 5 minutes to set up • Cancel anytime
             </p>
           </motion.div>
         </div>
