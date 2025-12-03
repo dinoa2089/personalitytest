@@ -121,7 +121,14 @@ export interface AdaptiveState {
   answeredQuestionTexts: Set<string>;  // Normalized texts to prevent duplicates
   currentCheckpoint: number;
   questionsAnswered: number;
+  // Question type variety tracking - stores last N question types
+  recentQuestionTypes: string[];
 }
+
+// Maximum consecutive questions of the same type before applying penalty
+const MAX_CONSECUTIVE_SAME_TYPE = 2;
+// How many recent questions to track for type variety
+const RECENT_TYPES_WINDOW = 5;
 
 /**
  * Initialize adaptive state at the start of an assessment
@@ -173,6 +180,7 @@ export function initializeAdaptiveState(): AdaptiveState {
     answeredQuestionTexts: new Set(),
     currentCheckpoint: 1,
     questionsAnswered: 0,
+    recentQuestionTypes: [],
   };
 }
 
@@ -241,6 +249,49 @@ function inferEnneagramFromPrism(state: AdaptiveState): void {
  */
 function normalizeText(text: string): string {
   return text.toLowerCase().trim().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
+}
+
+/**
+ * Calculate penalty for question type based on recent history
+ * Returns a multiplier (0.1-1.0) - lower means more penalty
+ */
+function calculateTypeVarietyMultiplier(
+  questionType: string,
+  recentTypes: string[]
+): number {
+  if (recentTypes.length === 0) return 1.0;
+  
+  // Count consecutive same types from the end
+  let consecutiveCount = 0;
+  for (let i = recentTypes.length - 1; i >= 0; i--) {
+    if (recentTypes[i] === questionType) {
+      consecutiveCount++;
+    } else {
+      break;
+    }
+  }
+  
+  // If we've had MAX_CONSECUTIVE_SAME_TYPE or more of this type in a row,
+  // heavily penalize selecting another one
+  if (consecutiveCount >= MAX_CONSECUTIVE_SAME_TYPE) {
+    return 0.1; // 90% penalty
+  }
+  
+  // Lighter penalty for 1 consecutive
+  if (consecutiveCount === 1) {
+    return 0.6; // 40% penalty
+  }
+  
+  // Also check overall frequency in recent window
+  const sameTypeCount = recentTypes.filter(t => t === questionType).length;
+  const frequencyRatio = sameTypeCount / recentTypes.length;
+  
+  // If this type makes up more than 60% of recent questions, apply penalty
+  if (frequencyRatio > 0.6) {
+    return 0.5;
+  }
+  
+  return 1.0;
 }
 
 /**
@@ -591,6 +642,13 @@ export function selectNextQuestion(
     const dimUncertainty = state.prismEstimates[q.dimension]?.standardError || 25;
     infoValue *= (1 + dimUncertainty / 100);
     
+    // Apply type variety penalty to prevent too many consecutive same-type questions
+    const typeVarietyMultiplier = calculateTypeVarietyMultiplier(
+      q.type,
+      state.recentQuestionTypes || []
+    );
+    infoValue *= typeVarietyMultiplier;
+    
     return { question: q, score: infoValue };
   });
   
@@ -811,6 +869,13 @@ export function updateTraitEstimate(
   else if (newQuestionsAnswered >= 55) newCheckpoint = 3;
   else if (newQuestionsAnswered >= 35) newCheckpoint = 2;
   
+  // Update recent question types for variety tracking
+  const newRecentTypes = [...(state.recentQuestionTypes || []), question.type];
+  // Keep only the last RECENT_TYPES_WINDOW entries
+  while (newRecentTypes.length > RECENT_TYPES_WINDOW) {
+    newRecentTypes.shift();
+  }
+  
   return {
     prismEstimates: newPrismEstimates,
     mbtiEstimates: newMbtiEstimates,
@@ -819,6 +884,7 @@ export function updateTraitEstimate(
     answeredQuestionTexts: new Set([...state.answeredQuestionTexts, normalizeText(question.text)]),
     currentCheckpoint: newCheckpoint,
     questionsAnswered: newQuestionsAnswered,
+    recentQuestionTypes: newRecentTypes,
   };
 }
 
@@ -985,6 +1051,7 @@ export function serializeAdaptiveState(state: AdaptiveState): string {
     answeredQuestionTexts: Array.from(state.answeredQuestionTexts),
     currentCheckpoint: state.currentCheckpoint,
     questionsAnswered: state.questionsAnswered,
+    recentQuestionTypes: state.recentQuestionTypes || [],
   });
 }
 
@@ -1001,6 +1068,7 @@ export function deserializeAdaptiveState(json: string): AdaptiveState {
     answeredQuestionTexts: new Set(data.answeredQuestionTexts),
     currentCheckpoint: data.currentCheckpoint,
     questionsAnswered: data.questionsAnswered,
+    recentQuestionTypes: data.recentQuestionTypes || [],
   };
 }
 
