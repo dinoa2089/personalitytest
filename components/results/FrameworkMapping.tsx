@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { AlertCircle, Lock, ChevronRight } from "lucide-react";
 import type { DimensionScore, FrameworkMappings } from "@/types";
 import type { FrameworkConfidence } from "@/lib/questions";
+import type { MbtiDimensionScore } from "@/lib/mock-scoring";
 
 interface FrameworkMappingProps {
   scores: DimensionScore[];
@@ -17,6 +18,7 @@ interface FrameworkMappingProps {
     enneagram: FrameworkConfidence;
   };
   onContinueAssessment?: () => void;  // Callback to continue assessment
+  mbtiScores?: MbtiDimensionScore[];  // Direct MBTI scores from framework-tagged questions
 }
 
 // CliftonStrengths-style themes mapped to dimensions
@@ -122,6 +124,7 @@ export function FrameworkMapping({
   questionsAnswered = 105, // Default to full assessment
   confidence,
   onContinueAssessment,
+  mbtiScores,
 }: FrameworkMappingProps) {
   const scoreMap = scores.reduce((acc, score) => {
     acc[score.dimension] = score.percentile;
@@ -140,20 +143,42 @@ export function FrameworkMapping({
   const enneagramData = frameworks?.enneagram;
 
   // Calculate MBTI type from dimensional scores (fallback)
+  // Uses direct MBTI scores when available, falls back to improved PRISM mapping
   const calculateMBTI = (): string => {
+    // If we have direct MBTI scores from framework-tagged questions, use them
+    if (mbtiScores && mbtiScores.length === 4) {
+      const mbtiMap = mbtiScores.reduce((acc, s) => ({ ...acc, [s.dimension]: s }), {} as Record<string, MbtiDimensionScore>);
+      return [
+        mbtiMap['mbti_ei']?.letter || 'E',
+        mbtiMap['mbti_sn']?.letter || 'N',
+        mbtiMap['mbti_tf']?.letter || 'T',
+        mbtiMap['mbti_jp']?.letter || 'J',
+      ].join("");
+    }
+    
+    // Fallback: improved PRISM mapping
+    // E/I: Direct extraversion mapping
     const E = scoreMap.extraversion || 50;
+    
+    // S/N: Openness -> N (high openness = intuitive)
     const N = scoreMap.openness || 50;
-    const S = scoreMap.conscientiousness || 50;
-    const F = scoreMap.agreeableness || 50;
-    const T = scoreMap.emotionalResilience || 50;
-    const J = scoreMap.conscientiousness || 50;
-    const P = scoreMap.adaptability || 50;
+    
+    // T/F: IMPROVED - NOT just agreeableness!
+    // High agreeableness does NOT mean Feeling - ENTJs can be highly agreeable
+    const agreeableness = scoreMap.agreeableness || 50;
+    const resilience = scoreMap.emotionalResilience || 50;
+    const T = (100 - agreeableness) * 0.6 + resilience * 0.4;  // Higher = more Thinking
+    
+    // J/P: IMPROVED - conscientiousness + inverted adaptability
+    const conscientiousness = scoreMap.conscientiousness || 50;
+    const adaptability = scoreMap.adaptability || 50;
+    const J = conscientiousness * 0.6 + (100 - adaptability) * 0.4;  // Higher = more Judging
 
     return [
       E > 50 ? "E" : "I",
-      N > S ? "N" : "S",
-      F > T ? "F" : "T",
-      J > P ? "J" : "P",
+      N > 50 ? "N" : "S",
+      T > 50 ? "T" : "F",
+      J > 50 ? "J" : "P",
     ].join("");
   };
 

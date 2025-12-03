@@ -6,11 +6,43 @@
  * - effective_weight = type_weight × discrimination
  * - score = sum(response × effective_weight) / sum(effective_weight)
  * - confidence_margin = base_margin / sqrt(sum(discrimination²))
+ * 
+ * Also tracks MBTI dimensions directly from framework_tags for accurate T/F calculation
  */
 import type { QuestionResponse, DimensionScore, ForcedChoiceOption, Question, Dimension } from "@/types";
 
 // Import mock questions to access forced-choice options with dimension mappings
 import { mockQuestions } from "./mock-questions";
+
+// MBTI Dimension identifiers
+const MBTI_DIMENSIONS = ['mbti_ei', 'mbti_sn', 'mbti_tf', 'mbti_jp'] as const;
+type MbtiDimension = typeof MBTI_DIMENSIONS[number];
+
+// Enneagram type identifiers
+const ENNEAGRAM_TYPES = ['enneagram_1', 'enneagram_2', 'enneagram_3', 'enneagram_4', 
+                         'enneagram_5', 'enneagram_6', 'enneagram_7', 'enneagram_8', 
+                         'enneagram_9'] as const;
+type EnneagramType = typeof ENNEAGRAM_TYPES[number];
+
+/**
+ * MBTI dimension score with direct calculation from framework-tagged questions
+ */
+export interface MbtiDimensionScore {
+  dimension: MbtiDimension;
+  score: number;           // 0-100, where 50 is neutral
+  letter: string;          // The determined letter (E/I, S/N, T/F, J/P)
+  confidence: number;      // 0-100 confidence in this determination
+  responseCount: number;   // Number of questions answered for this dimension
+}
+
+/**
+ * Enneagram type score with direct calculation from framework-tagged questions
+ */
+export interface EnneagramTypeScore {
+  type: number;            // 1-9
+  score: number;           // 0-100 affinity score
+  responseCount: number;   // Number of questions answered for this type
+}
 
 // Question type base weights
 const TYPE_WEIGHTS: Record<string, number> = {
@@ -94,11 +126,12 @@ function getEffectiveWeight(questionType: string, discrimination: number = 1.0):
 
 /**
  * Main scoring function with IRT-informed discrimination weighting
+ * Now also tracks MBTI dimensions directly from framework_tags
  */
 export function mockCalculateScores(
   responses: (QuestionResponse | ResponseWithMetadata)[],
   sessionId: string
-): { dimensional_scores: DimensionScore[]; completed: boolean } {
+): { dimensional_scores: DimensionScore[]; mbti_scores?: MbtiDimensionScore[]; completed: boolean } {
   // Initialize score accumulators for each dimension
   const dimensions: Dimension[] = [
     "openness",
@@ -122,22 +155,68 @@ export function mockCalculateScores(
     dimensionScores[dim] = { totalScore: 0, totalWeight: 0, count: 0, sumDiscriminationSquared: 0 };
   }
 
+  // Initialize MBTI dimension accumulators
+  const mbtiScores: Record<string, {
+    totalScore: number;
+    totalWeight: number;
+    count: number;
+  }> = {};
+  
+  for (const mbtiDim of MBTI_DIMENSIONS) {
+    mbtiScores[mbtiDim] = { totalScore: 0, totalWeight: 0, count: 0 };
+  }
+
+  // Initialize Enneagram type accumulators
+  const enneagramScores: Record<string, {
+    totalScore: number;
+    totalWeight: number;
+    count: number;
+  }> = {};
+  
+  for (const ennType of ENNEAGRAM_TYPES) {
+    enneagramScores[ennType] = { totalScore: 0, totalWeight: 0, count: 0 };
+  }
+
   // Process each response
   for (const response of responses) {
+    // Get the question to access framework_tags and other metadata
+    const question = getQuestionById(response.question_id);
+    
     // Get discrimination from response metadata or question lookup
     let discrimination = 1.0;
     if ('discrimination' in response && response.discrimination !== undefined) {
       discrimination = response.discrimination;
-    } else {
-      // Fallback: lookup from mock questions
-      const question = getQuestionById(response.question_id);
-      if (question?.discrimination !== undefined) {
-        discrimination = question.discrimination;
-      }
+    } else if (question?.discrimination !== undefined) {
+      discrimination = question.discrimination;
     }
 
     // Calculate effective weight using IRT formula
     const effectiveWeight = getEffectiveWeight(response.question_type, discrimination);
+
+    // Check for MBTI framework tags and score them directly
+    const frameworkTags = question?.framework_tags || [];
+    for (const mbtiDim of MBTI_DIMENSIONS) {
+      if (frameworkTags.includes(mbtiDim)) {
+        // Score this response for the MBTI dimension
+        const mbtiScore = scoreSimpleResponse(response);
+        // Note: mbti_tf, mbti_sn, mbti_jp questions are designed so HIGH score = T, S, J
+        // So we DON'T invert - the question wording handles direction
+        mbtiScores[mbtiDim].totalScore += mbtiScore * effectiveWeight;
+        mbtiScores[mbtiDim].totalWeight += effectiveWeight;
+        mbtiScores[mbtiDim].count += 1;
+      }
+    }
+
+    // Check for Enneagram framework tags and score them directly
+    for (const ennType of ENNEAGRAM_TYPES) {
+      if (frameworkTags.includes(ennType)) {
+        // Score this response for the Enneagram type
+        const ennScore = scoreSimpleResponse(response);
+        enneagramScores[ennType].totalScore += ennScore * effectiveWeight;
+        enneagramScores[ennType].totalWeight += effectiveWeight;
+        enneagramScores[ennType].count += 1;
+      }
+    }
 
     if (response.question_type === "forced_choice") {
       // Get the question to access its options
@@ -214,8 +293,111 @@ export function mockCalculateScores(
     });
   }
 
+  // Calculate MBTI dimension scores
+  const mbti_dimension_scores: MbtiDimensionScore[] = [];
+  
+  // Helper to determine letter and confidence for each MBTI dimension
+  const getMbtiLetter = (dim: MbtiDimension, score: number): { letter: string; confidence: number } => {
+    // Score is 0-100 where 50 is neutral
+    // For mbti_tf: high score = Thinking, low score = Feeling
+    // For mbti_sn: high score = Sensing, low score = iNtuition  
+    // For mbti_jp: high score = Judging, low score = Perceiving
+    // For mbti_ei: high score = Extraversion, low score = Introversion
+    const distance = Math.abs(score - 50);
+    const confidence = Math.min(100, 50 + distance); // Stronger preference = higher confidence
+    
+    switch (dim) {
+      case 'mbti_ei':
+        return { letter: score >= 50 ? 'E' : 'I', confidence };
+      case 'mbti_sn':
+        return { letter: score >= 50 ? 'S' : 'N', confidence };
+      case 'mbti_tf':
+        return { letter: score >= 50 ? 'T' : 'F', confidence };
+      case 'mbti_jp':
+        return { letter: score >= 50 ? 'J' : 'P', confidence };
+      default:
+        return { letter: '?', confidence: 0 };
+    }
+  };
+
+  for (const mbtiDim of MBTI_DIMENSIONS) {
+    const data = mbtiScores[mbtiDim];
+    
+    // If we have direct responses, use them; otherwise use PRISM fallback
+    let normalizedScore = 50; // Default to neutral
+    
+    if (data.totalWeight > 0) {
+      // We have direct MBTI dimension responses
+      normalizedScore = Math.max(0, Math.min(100, (data.totalScore / data.totalWeight) * 10));
+    } else {
+      // Fallback to PRISM mapping (with improvements)
+      const prismScores = dimensional_scores.reduce(
+        (acc, s) => ({ ...acc, [s.dimension]: s.percentile }),
+        {} as Record<string, number>
+      );
+      
+      switch (mbtiDim) {
+        case 'mbti_ei':
+          normalizedScore = prismScores.extraversion || 50;
+          break;
+        case 'mbti_sn':
+          // Invert openness: high openness = N (low S), so we invert for S scale
+          normalizedScore = 100 - (prismScores.openness || 50);
+          break;
+        case 'mbti_tf':
+          // Improved T/F: invert agreeableness, factor in emotional resilience
+          // High agreeableness ≠ Feeling; low agreeableness leans toward T
+          // Emotional resilience also correlates with Thinking
+          const agreeableness = prismScores.agreeableness || 50;
+          const resilience = prismScores.emotionalResilience || 50;
+          normalizedScore = (100 - agreeableness) * 0.6 + resilience * 0.4;
+          break;
+        case 'mbti_jp':
+          // Conscientiousness for J, invert adaptability for P
+          // High conscientiousness AND low adaptability = strong J
+          const conscientiousness = prismScores.conscientiousness || 50;
+          const adaptability = prismScores.adaptability || 50;
+          normalizedScore = conscientiousness * 0.6 + (100 - adaptability) * 0.4;
+          break;
+      }
+    }
+    
+    const { letter, confidence } = getMbtiLetter(mbtiDim, normalizedScore);
+    
+    mbti_dimension_scores.push({
+      dimension: mbtiDim,
+      score: normalizedScore,
+      letter,
+      confidence,
+      responseCount: data.count,
+    });
+  }
+
+  // Calculate Enneagram type scores
+  const enneagram_type_scores: EnneagramTypeScore[] = [];
+  
+  for (const ennType of ENNEAGRAM_TYPES) {
+    const data = enneagramScores[ennType];
+    const typeNum = parseInt(ennType.replace('enneagram_', ''));
+    
+    let normalizedScore = 50; // Default to neutral
+    
+    if (data.totalWeight > 0) {
+      // We have direct Enneagram type responses
+      normalizedScore = Math.max(0, Math.min(100, (data.totalScore / data.totalWeight) * 10));
+    }
+    
+    enneagram_type_scores.push({
+      type: typeNum,
+      score: normalizedScore,
+      responseCount: data.count,
+    });
+  }
+
   return {
     dimensional_scores,
+    mbti_scores: mbti_dimension_scores,
+    enneagram_scores: enneagram_type_scores,
     completed: true,
   };
 }

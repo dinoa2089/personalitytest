@@ -10,8 +10,42 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { sessionId, responses } = body;
 
+    // Enrich responses with framework_tags and discrimination from question bank
+    // This enables the Python scoring API to do proper MBTI/Enneagram calculation
+    let enrichedResponses = responses;
+    
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    
+    if (supabaseUrl && supabaseKey) {
+      try {
+        const questionIds = responses.map((r: { question_id: string }) => r.question_id);
+        const { data: questions } = await supabase
+          .from("questions")
+          .select("id, framework_tags, discrimination")
+          .in("id", questionIds);
+
+        if (questions && questions.length > 0) {
+          const questionMap = new Map(questions.map((q) => [q.id, q]));
+          
+          enrichedResponses = responses.map((r: { question_id: string; [key: string]: unknown }) => {
+            const question = questionMap.get(r.question_id);
+            return {
+              ...r,
+              framework_tags: question?.framework_tags || [],
+              discrimination: question?.discrimination || 1.0,
+            };
+          });
+        }
+      } catch (enrichError) {
+        console.warn("Could not enrich responses with question metadata:", enrichError);
+        // Continue with original responses - scoring will still work with PRISM fallback
+      }
+    }
+
     // Calculate scores (will use mock if Python API unavailable)
-    const scores = await calculateScores(responses, sessionId);
+    // Now includes framework_tags for proper MBTI/Enneagram calculation
+    const scores = await calculateScores(enrichedResponses, sessionId);
 
     // Fire-and-forget: Update question statistics for IRT calibration
     // This doesn't block the response to the user

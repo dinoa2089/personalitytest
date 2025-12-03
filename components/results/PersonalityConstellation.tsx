@@ -19,10 +19,12 @@ import Link from "next/link";
 import type { DimensionScore } from "@/types";
 import { calculateArchetype, getStrengthTitle } from "@/lib/archetypes";
 import { DimensionsWheel } from "@/components/visualizations";
+import type { MbtiDimensionScore } from "@/lib/mock-scoring";
 
 interface PersonalityConstellationProps {
   scores: DimensionScore[];
   sessionId: string;
+  mbtiScores?: MbtiDimensionScore[];  // Direct MBTI scores from framework-tagged questions
 }
 
 // MBTI type descriptions for deep dive
@@ -166,17 +168,46 @@ const enneagramDetails: Record<string, { title: string; desc: string; core: stri
   "9": { title: "The Peacemaker", desc: "Receptive, reassuring, agreeable. You create harmony and see all viewpoints.", core: "Peace & Stability", fear: "Loss or separation from others" },
 };
 
-// Calculate types from scores
-function calculateMBTI(scores: DimensionScore[]): string {
+// Calculate MBTI type from scores
+// Uses direct MBTI scores when available, falls back to improved PRISM mapping
+function calculateMBTI(scores: DimensionScore[], mbtiScores?: MbtiDimensionScore[]): string {
+  // If we have direct MBTI scores from framework-tagged questions, use them
+  if (mbtiScores && mbtiScores.length === 4) {
+    const mbtiMap = mbtiScores.reduce((acc, s) => ({ ...acc, [s.dimension]: s }), {} as Record<string, MbtiDimensionScore>);
+    return [
+      mbtiMap['mbti_ei']?.letter || 'E',
+      mbtiMap['mbti_sn']?.letter || 'N',
+      mbtiMap['mbti_tf']?.letter || 'T',
+      mbtiMap['mbti_jp']?.letter || 'J',
+    ].join("");
+  }
+  
+  // Fallback: improved PRISM mapping
   const scoreMap = scores.reduce((acc, s) => ({ ...acc, [s.dimension]: s.percentile }), {} as Record<string, number>);
+  
+  // E/I: Direct extraversion mapping (works well)
   const E = scoreMap.extraversion || 50;
+  
+  // S/N: Openness -> N (high openness = intuitive)
   const N = scoreMap.openness || 50;
-  const F = scoreMap.agreeableness || 50;
-  const J = scoreMap.conscientiousness || 50;
+  
+  // T/F: IMPROVED - NOT just agreeableness!
+  // High agreeableness does NOT mean Feeling - ENTJs can be highly agreeable
+  // Use: inverted agreeableness * 0.6 + emotional resilience * 0.4
+  const agreeableness = scoreMap.agreeableness || 50;
+  const resilience = scoreMap.emotionalResilience || 50;
+  const T = (100 - agreeableness) * 0.6 + resilience * 0.4;  // Higher = more Thinking
+  
+  // J/P: IMPROVED - conscientiousness + inverted adaptability
+  // Someone can be organized AND adaptable
+  const conscientiousness = scoreMap.conscientiousness || 50;
+  const adaptability = scoreMap.adaptability || 50;
+  const J = conscientiousness * 0.6 + (100 - adaptability) * 0.4;  // Higher = more Judging
+  
   return [
     E > 50 ? "E" : "I",
     N > 50 ? "N" : "S",
-    F > 50 ? "F" : "T",
+    T > 50 ? "T" : "F",
     J > 50 ? "J" : "P",
   ].join("");
 }
@@ -213,12 +244,12 @@ function calculateEnneagram(scores: DimensionScore[]): string {
   return patterns.sort((a, b) => b.score - a.score)[0].type;
 }
 
-export function PersonalityConstellation({ scores, sessionId }: PersonalityConstellationProps) {
+export function PersonalityConstellation({ scores, sessionId, mbtiScores }: PersonalityConstellationProps) {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
   
   // Calculate all types
   const { primary: prismArchetype, matchPercentage } = calculateArchetype(scores);
-  const mbtiType = calculateMBTI(scores);
+  const mbtiType = calculateMBTI(scores, mbtiScores);
   const discType = calculateDISC(scores);
   const enneagramType = calculateEnneagram(scores);
   
@@ -266,8 +297,8 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
           <Card 
             className={`relative overflow-hidden cursor-pointer transition-all duration-300 border-2 ${
               expandedCard === 'prism' 
-                ? 'border-violet-500/50 bg-gradient-to-br from-violet-950/30 to-fuchsia-950/30' 
-                : 'border-violet-500/20 bg-gradient-to-br from-violet-950/20 to-fuchsia-950/20 hover:border-violet-500/40'
+                ? 'border-violet-500/50 bg-violet-50 dark:bg-gradient-to-br dark:from-violet-950/30 dark:to-fuchsia-950/30' 
+                : 'border-violet-500/20 bg-violet-50/50 dark:bg-gradient-to-br dark:from-violet-950/20 dark:to-fuchsia-950/20 hover:border-violet-500/40'
             }`}
             onClick={() => toggleExpand('prism')}
           >
@@ -283,15 +314,15 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                       <Badge className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-0 text-xs">
                         PRISM-7
                       </Badge>
-                      <Badge variant="outline" className="text-xs border-violet-500/30 text-violet-300">
+                      <Badge variant="outline" className="text-xs border-violet-500/30 text-violet-700 dark:text-violet-300">
                         {matchPercentage}% Match
                       </Badge>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white">{prismArchetype.name}</h3>
-                    <p className="text-violet-300">{prismArchetype.tagline}</p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-violet-900 dark:text-white">{prismArchetype.name}</h3>
+                    <p className="text-violet-700 dark:text-violet-300">{prismArchetype.tagline}</p>
                   </div>
                 </div>
-                <Button variant="ghost" size="icon" className="text-violet-300">
+                <Button variant="ghost" size="icon" className="text-violet-600 dark:text-violet-300">
                   {expandedCard === 'prism' ? <ChevronUp /> : <ChevronDown />}
                 </Button>
               </div>
@@ -306,32 +337,32 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                     className="overflow-hidden"
                   >
                     <div className="pt-6 border-t border-violet-500/20 mt-6 space-y-4">
-                      <p className="text-sm text-zinc-300 leading-relaxed">
+                      <p className="text-sm text-slate-700 dark:text-zinc-300 leading-relaxed">
                         {prismArchetype.description[0]}
                       </p>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="bg-green-500/10 rounded-xl p-4">
-                          <h4 className="font-semibold text-green-400 mb-2 flex items-center gap-2">
+                        <div className="bg-green-100 dark:bg-green-500/10 rounded-xl p-4">
+                          <h4 className="font-semibold text-green-700 dark:text-green-400 mb-2 flex items-center gap-2">
                             <Star className="w-4 h-4" /> Top Strengths
                           </h4>
-                          <ul className="text-sm text-zinc-300 space-y-1">
+                          <ul className="text-sm text-slate-700 dark:text-zinc-300 space-y-1">
                             {prismArchetype.strengths.slice(0, 4).map((s, i) => (
                               <li key={i} className="flex items-start gap-2">
-                                <span className="text-green-400 mt-1">•</span>
+                                <span className="text-green-600 dark:text-green-400 mt-1">•</span>
                                 <span>{getStrengthTitle(s)}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
-                        <div className="bg-amber-500/10 rounded-xl p-4">
-                          <h4 className="font-semibold text-amber-400 mb-2 flex items-center gap-2">
+                        <div className="bg-amber-100 dark:bg-amber-500/10 rounded-xl p-4">
+                          <h4 className="font-semibold text-amber-700 dark:text-amber-400 mb-2 flex items-center gap-2">
                             <Zap className="w-4 h-4" /> Growth Areas
                           </h4>
-                          <ul className="text-sm text-zinc-300 space-y-1">
+                          <ul className="text-sm text-slate-700 dark:text-zinc-300 space-y-1">
                             {prismArchetype.growthAreas.slice(0, 4).map((g, i) => (
                               <li key={i} className="flex items-start gap-2">
-                                <span className="text-amber-400 mt-1">•</span>
+                                <span className="text-amber-600 dark:text-amber-400 mt-1">•</span>
                                 <span>{getStrengthTitle(g)}</span>
                               </li>
                             ))}
@@ -364,8 +395,8 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
           <Card 
             className={`relative overflow-hidden cursor-pointer transition-all duration-300 h-full border-2 ${
               expandedCard === 'mbti' 
-                ? 'border-blue-500/50 bg-gradient-to-br from-blue-950/30 to-cyan-950/30' 
-                : 'border-blue-500/20 bg-gradient-to-br from-blue-950/20 to-cyan-950/20 hover:border-blue-500/40'
+                ? 'border-blue-500/50 bg-blue-50 dark:bg-gradient-to-br dark:from-blue-950/30 dark:to-cyan-950/30' 
+                : 'border-blue-500/20 bg-blue-50/50 dark:bg-gradient-to-br dark:from-blue-950/20 dark:to-cyan-950/20 hover:border-blue-500/40'
             }`}
             onClick={() => toggleExpand('mbti')}
           >
@@ -378,19 +409,19 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                     <Brain className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs mb-1">
+                    <Badge className="bg-blue-500/20 text-blue-700 dark:text-blue-300 border-blue-500/30 text-xs mb-1">
                       MBTI
                     </Badge>
-                    <h3 className="text-2xl font-bold text-white">{mbtiType}</h3>
+                    <h3 className="text-2xl font-bold text-blue-900 dark:text-white">{mbtiType}</h3>
                   </div>
                 </div>
-                <Button variant="ghost" size="icon" className="text-blue-300">
+                <Button variant="ghost" size="icon" className="text-blue-600 dark:text-blue-300">
                   {expandedCard === 'mbti' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                 </Button>
               </div>
               
-              <p className="text-blue-300 font-medium">{mbtiInfo.title}</p>
-              <p className="text-sm text-zinc-400 mt-1 line-clamp-2">{mbtiInfo.desc}</p>
+              <p className="text-blue-700 dark:text-blue-300 font-medium">{mbtiInfo.title}</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1 line-clamp-2">{mbtiInfo.desc}</p>
 
               <AnimatePresence>
                 {expandedCard === 'mbti' && (
@@ -402,18 +433,18 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                     className="overflow-hidden"
                   >
                     <div className="pt-4 border-t border-blue-500/20 mt-4 space-y-3">
-                      <div className="bg-blue-500/10 rounded-lg p-3">
-                        <h4 className="font-semibold text-blue-300 text-sm mb-2">Key Strengths</h4>
+                      <div className="bg-blue-100 dark:bg-blue-500/10 rounded-lg p-3">
+                        <h4 className="font-semibold text-blue-700 dark:text-blue-300 text-sm mb-2">Key Strengths</h4>
                         <div className="flex flex-wrap gap-2">
                           {mbtiInfo.strengths.map((s, i) => (
-                            <Badge key={i} variant="outline" className="border-blue-500/30 text-blue-200 text-xs">
+                            <Badge key={i} variant="outline" className="border-blue-500/30 text-blue-700 dark:text-blue-200 text-xs">
                               {s}
                             </Badge>
                           ))}
                         </div>
                       </div>
                       
-                      <Button asChild size="sm" variant="outline" className="w-full border-blue-500/30 text-blue-300 hover:bg-blue-500/10">
+                      <Button asChild size="sm" variant="outline" className="w-full border-blue-500/30 text-blue-700 dark:text-blue-300 hover:bg-blue-500/10">
                         <Link href={`/type/mbti/${mbtiType.toLowerCase()}`}>
                           Deep Dive into {mbtiType}
                           <ExternalLink className="w-3 h-3 ml-2" />
@@ -436,8 +467,8 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
           <Card 
             className={`relative overflow-hidden cursor-pointer transition-all duration-300 h-full border-2 ${
               expandedCard === 'enneagram' 
-                ? 'border-emerald-500/50 bg-gradient-to-br from-emerald-950/30 to-teal-950/30' 
-                : 'border-emerald-500/20 bg-gradient-to-br from-emerald-950/20 to-teal-950/20 hover:border-emerald-500/40'
+                ? 'border-emerald-500/50 bg-emerald-50 dark:bg-gradient-to-br dark:from-emerald-950/30 dark:to-teal-950/30' 
+                : 'border-emerald-500/20 bg-emerald-50/50 dark:bg-gradient-to-br dark:from-emerald-950/20 dark:to-teal-950/20 hover:border-emerald-500/40'
             }`}
             onClick={() => toggleExpand('enneagram')}
           >
@@ -450,19 +481,19 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                     {enneagramType}
                   </div>
                   <div>
-                    <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs mb-1">
+                    <Badge className="bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/30 text-xs mb-1">
                       Enneagram
                     </Badge>
-                    <h3 className="text-xl font-bold text-white">Type {enneagramType}</h3>
+                    <h3 className="text-xl font-bold text-emerald-900 dark:text-white">Type {enneagramType}</h3>
                   </div>
                 </div>
-                <Button variant="ghost" size="icon" className="text-emerald-300">
+                <Button variant="ghost" size="icon" className="text-emerald-600 dark:text-emerald-300">
                   {expandedCard === 'enneagram' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                 </Button>
               </div>
               
-              <p className="text-emerald-300 font-medium">{enneagramInfo.title}</p>
-              <p className="text-sm text-zinc-400 mt-1 line-clamp-2">{enneagramInfo.desc}</p>
+              <p className="text-emerald-700 dark:text-emerald-300 font-medium">{enneagramInfo.title}</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400 mt-1 line-clamp-2">{enneagramInfo.desc}</p>
 
               <AnimatePresence>
                 {expandedCard === 'enneagram' && (
@@ -475,17 +506,17 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                   >
                     <div className="pt-4 border-t border-emerald-500/20 mt-4 space-y-3">
                       <div className="grid grid-cols-2 gap-2">
-                        <div className="bg-emerald-500/10 rounded-lg p-3">
-                          <p className="text-xs text-emerald-400 mb-1">Core Drive</p>
-                          <p className="text-sm text-white font-medium">{enneagramInfo.core}</p>
+                        <div className="bg-emerald-100 dark:bg-emerald-500/10 rounded-lg p-3">
+                          <p className="text-xs text-emerald-600 dark:text-emerald-400 mb-1">Core Drive</p>
+                          <p className="text-sm text-emerald-900 dark:text-white font-medium">{enneagramInfo.core}</p>
                         </div>
-                        <div className="bg-rose-500/10 rounded-lg p-3">
-                          <p className="text-xs text-rose-400 mb-1">Core Fear</p>
-                          <p className="text-sm text-white font-medium">{enneagramInfo.fear}</p>
+                        <div className="bg-rose-100 dark:bg-rose-500/10 rounded-lg p-3">
+                          <p className="text-xs text-rose-600 dark:text-rose-400 mb-1">Core Fear</p>
+                          <p className="text-sm text-rose-900 dark:text-white font-medium">{enneagramInfo.fear}</p>
                         </div>
                       </div>
                       
-                      <Button asChild size="sm" variant="outline" className="w-full border-emerald-500/30 text-emerald-300 hover:bg-emerald-500/10">
+                      <Button asChild size="sm" variant="outline" className="w-full border-emerald-500/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/10">
                         <Link href={`/type/enneagram/${enneagramType}`}>
                           Explore Type {enneagramType}
                           <ExternalLink className="w-3 h-3 ml-2" />
@@ -509,8 +540,8 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
           <Card 
             className={`relative overflow-hidden cursor-pointer transition-all duration-300 border-2 ${
               expandedCard === 'disc' 
-                ? 'border-orange-500/50 bg-gradient-to-br from-orange-950/30 to-red-950/30' 
-                : 'border-orange-500/20 bg-gradient-to-br from-orange-950/20 to-red-950/20 hover:border-orange-500/40'
+                ? 'border-orange-500/50 bg-orange-50 dark:bg-gradient-to-br dark:from-orange-950/30 dark:to-red-950/30' 
+                : 'border-orange-500/20 bg-orange-50/50 dark:bg-gradient-to-br dark:from-orange-950/20 dark:to-red-950/20 hover:border-orange-500/40'
             }`}
             onClick={() => toggleExpand('disc')}
           >
@@ -524,20 +555,20 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <Badge className="bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs">
+                      <Badge className="bg-orange-500/20 text-orange-700 dark:text-orange-300 border-orange-500/30 text-xs">
                         DISC Profile
                       </Badge>
                     </div>
-                    <h3 className="text-2xl font-bold text-white">{discInfo.title}</h3>
-                    <p className="text-orange-300">Primary Style: <span className="font-bold text-2xl">{discType}</span></p>
+                    <h3 className="text-2xl font-bold text-orange-900 dark:text-white">{discInfo.title}</h3>
+                    <p className="text-orange-700 dark:text-orange-300">Primary Style: <span className="font-bold text-2xl">{discType}</span></p>
                   </div>
                 </div>
-                <Button variant="ghost" size="icon" className="text-orange-300">
+                <Button variant="ghost" size="icon" className="text-orange-600 dark:text-orange-300">
                   {expandedCard === 'disc' ? <ChevronUp /> : <ChevronDown />}
                 </Button>
               </div>
               
-              <p className="text-sm text-zinc-400 mt-3">{discInfo.desc}</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400 mt-3">{discInfo.desc}</p>
 
               <AnimatePresence>
                 {expandedCard === 'disc' && (
@@ -550,25 +581,25 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                   >
                     <div className="pt-4 border-t border-orange-500/20 mt-4 space-y-4">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="bg-orange-500/10 rounded-xl p-4">
-                          <h4 className="font-semibold text-orange-300 mb-2">Your Strengths</h4>
+                        <div className="bg-orange-100 dark:bg-orange-500/10 rounded-xl p-4">
+                          <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-2">Your Strengths</h4>
                           <div className="flex flex-wrap gap-2">
                             {discInfo.strengths.map((s, i) => (
-                              <Badge key={i} variant="outline" className="border-orange-500/30 text-orange-200">
+                              <Badge key={i} variant="outline" className="border-orange-500/30 text-orange-700 dark:text-orange-200">
                                 {s}
                               </Badge>
                             ))}
                           </div>
                         </div>
-                        <div className="bg-orange-500/10 rounded-xl p-4">
-                          <h4 className="font-semibold text-orange-300 mb-2">How to Communicate With You</h4>
-                          <p className="text-sm text-zinc-300">{discInfo.communication}</p>
+                        <div className="bg-orange-100 dark:bg-orange-500/10 rounded-xl p-4">
+                          <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-2">How to Communicate With You</h4>
+                          <p className="text-sm text-slate-700 dark:text-zinc-300">{discInfo.communication}</p>
                         </div>
                       </div>
                       
                       {/* DISC Visual Breakdown */}
-                      <div className="bg-zinc-900/50 rounded-xl p-4">
-                        <h4 className="font-semibold text-zinc-300 mb-3">Your DISC Breakdown</h4>
+                      <div className="bg-slate-100 dark:bg-zinc-900/50 rounded-xl p-4">
+                        <h4 className="font-semibold text-slate-700 dark:text-zinc-300 mb-3">Your DISC Breakdown</h4>
                         <div className="grid grid-cols-4 gap-2">
                           {['D', 'I', 'S', 'C'].map((type) => {
                             const isActive = type === discType;
@@ -582,13 +613,13 @@ export function PersonalityConstellation({ scores, sessionId }: PersonalityConst
                               <div 
                                 key={type} 
                                 className={`text-center p-3 rounded-lg transition-all ${
-                                  isActive ? `${colors[type]}/20 ring-2 ring-${colors[type].replace('bg-', '')}/50` : 'bg-zinc-800/50'
+                                  isActive ? `${colors[type]}/20 ring-2 ring-${colors[type].replace('bg-', '')}/50` : 'bg-slate-200/50 dark:bg-zinc-800/50'
                                 }`}
                               >
-                                <div className={`text-2xl font-bold ${isActive ? 'text-white' : 'text-zinc-500'}`}>
+                                <div className={`text-2xl font-bold ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-zinc-500'}`}>
                                   {type}
                                 </div>
-                                <div className={`text-xs ${isActive ? 'text-zinc-300' : 'text-zinc-600'}`}>
+                                <div className={`text-xs ${isActive ? 'text-slate-700 dark:text-zinc-300' : 'text-slate-500 dark:text-zinc-600'}`}>
                                   {type === 'D' && 'Dominant'}
                                   {type === 'I' && 'Influential'}
                                   {type === 'S' && 'Steady'}

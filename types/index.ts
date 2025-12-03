@@ -44,6 +44,9 @@ export interface QuestionResponse {
   response: string | number;
   dimension: Dimension;
   timestamp?: Date;
+  // Framework metadata for accurate MBTI/Enneagram scoring
+  framework_tags?: string[];  // e.g., ["mbti_tf", "prism_agreeableness"]
+  discrimination?: number;     // IRT discrimination parameter
 }
 
 export interface DimensionScore {

@@ -73,10 +73,17 @@ const CHECKPOINT_CONFIG: Record<number, {
   minPerMbtiDimension: number;
   minPerEnneagramType: number;
 }> = {
+  // Checkpoint 1: Focus on PRISM-7 core dimensions (35 questions)
   1: { frameworks: ['prism'], questionRange: [0, 35], minPerPrismDimension: 5, minPerMbtiDimension: 0, minPerEnneagramType: 0 },
-  2: { frameworks: ['prism', 'mbti'], questionRange: [35, 55], minPerPrismDimension: 0, minPerMbtiDimension: 3, minPerEnneagramType: 0 },
-  3: { frameworks: ['prism', 'mbti', 'enneagram'], questionRange: [55, 80], minPerPrismDimension: 0, minPerMbtiDimension: 0, minPerEnneagramType: 2 },
-  4: { frameworks: ['prism', 'mbti', 'enneagram', 'detailed'], questionRange: [80, 105], minPerPrismDimension: 0, minPerMbtiDimension: 0, minPerEnneagramType: 0 },
+  // Checkpoint 2: Add MBTI focus - need at least 5 questions per MBTI dimension (20 total MBTI questions)
+  // We have 10 questions per dimension, so 5 is achievable and gives good accuracy
+  2: { frameworks: ['prism', 'mbti'], questionRange: [35, 55], minPerPrismDimension: 0, minPerMbtiDimension: 5, minPerEnneagramType: 0 },
+  // Checkpoint 3: Add Enneagram focus - need at least 3 questions per type (27 total Enneagram questions)
+  // We have 5 questions per type, so 3 is achievable
+  3: { frameworks: ['prism', 'mbti', 'enneagram'], questionRange: [55, 80], minPerPrismDimension: 0, minPerMbtiDimension: 0, minPerEnneagramType: 3 },
+  // Checkpoint 4: Deep dive - catch up on any missed framework questions + refine uncertain areas
+  // Add minimum 1 more per MBTI/Enneagram to ensure good coverage
+  4: { frameworks: ['prism', 'mbti', 'enneagram', 'detailed'], questionRange: [80, 105], minPerPrismDimension: 0, minPerMbtiDimension: 1, minPerEnneagramType: 1 },
 };
 
 // Question type weights (from methodology)
@@ -387,6 +394,7 @@ function questionMatchesTarget(
 
 /**
  * Calculate question relevance for current checkpoint
+ * Prioritizes framework-tagged questions that directly measure MBTI/Enneagram
  */
 function calculateCheckpointRelevance(
   question: Question,
@@ -397,15 +405,33 @@ function calculateCheckpointRelevance(
   const tags = question.framework_tags || [];
   let relevance = 1.0;
   
+  // Check which framework tags this question has
+  const hasMbtiTag = MBTI_DIMENSIONS.some(dim => tags.includes(dim));
+  const mbtiTagsPresent = MBTI_DIMENSIONS.filter(dim => tags.includes(dim));
+  const hasEnneagramTag = ENNEAGRAM_TYPES.some(type => tags.includes(type));
+  const enneagramTagsPresent = ENNEAGRAM_TYPES.filter(type => tags.includes(type));
+  
   // Boost questions that target the checkpoint's focus frameworks
   if (checkpoint === 1) {
-    // Focus on PRISM
+    // Focus on PRISM - but also value dual-purpose questions that establish MBTI baseline
     relevance *= 1.5;
-  } else if (checkpoint === 2) {
-    // Focus on MBTI - boost questions with MBTI tags
-    const hasMbtiTag = MBTI_DIMENSIONS.some(dim => tags.includes(dim));
+    // Slight boost for questions that also contribute to MBTI (getting ahead)
     if (hasMbtiTag) {
-      relevance *= 2.0;
+      relevance *= 1.2;
+    }
+  } else if (checkpoint === 2) {
+    // Focus on MBTI - strongly boost questions with MBTI tags
+    if (hasMbtiTag) {
+      // Higher boost (3x) for direct MBTI questions
+      relevance *= 3.0;
+      
+      // Extra boost for MBTI dimensions that have low response counts
+      for (const mbtiDim of mbtiTagsPresent) {
+        const estimate = state.mbtiEstimates[mbtiDim];
+        if (estimate && estimate.responseCount < 5) {
+          relevance *= 1.5; // Prioritize under-sampled dimensions
+        }
+      }
     }
     // Also boost questions whose PRISM dimension maps to uncertain MBTI
     for (const [prismDim, mbtiDims] of Object.entries(PRISM_TO_MBTI_MAPPING)) {
@@ -419,10 +445,18 @@ function calculateCheckpointRelevance(
       }
     }
   } else if (checkpoint === 3) {
-    // Focus on Enneagram - boost questions with Enneagram tags
-    const hasEnneagramTag = ENNEAGRAM_TYPES.some(type => tags.includes(type));
+    // Focus on Enneagram - strongly boost questions with Enneagram tags
     if (hasEnneagramTag) {
-      relevance *= 2.0;
+      // Higher boost (3x) for direct Enneagram questions
+      relevance *= 3.0;
+      
+      // Extra boost for Enneagram types that have low response counts
+      for (const ennType of enneagramTagsPresent) {
+        const estimate = state.enneagramEstimates[ennType];
+        if (estimate && estimate.responseCount < 3) {
+          relevance *= 1.5; // Prioritize under-sampled types
+        }
+      }
     }
     // Also boost questions whose PRISM dimension maps to uncertain Enneagram
     for (const [prismDim, ennTypes] of Object.entries(PRISM_TO_ENNEAGRAM_MAPPING)) {
@@ -436,9 +470,29 @@ function calculateCheckpointRelevance(
       }
     }
   } else if (checkpoint === 4) {
-    // Deep dive - boost questions that target areas with highest uncertainty
+    // Deep dive - prioritize highest uncertainty AND catch up on framework gaps
     const prismSE = state.prismEstimates[question.dimension]?.standardError || 25;
     relevance *= (1 + prismSE / 50);
+    
+    // Boost MBTI questions if any dimension is under-sampled
+    if (hasMbtiTag) {
+      for (const mbtiDim of mbtiTagsPresent) {
+        const estimate = state.mbtiEstimates[mbtiDim];
+        if (estimate && estimate.responseCount < 6) {
+          relevance *= 2.0; // Strong boost to catch up
+        }
+      }
+    }
+    
+    // Boost Enneagram questions if any type is under-sampled
+    if (hasEnneagramTag) {
+      for (const ennType of enneagramTagsPresent) {
+        const estimate = state.enneagramEstimates[ennType];
+        if (estimate && estimate.responseCount < 4) {
+          relevance *= 2.0; // Strong boost to catch up
+        }
+      }
+    }
   }
   
   return relevance;
