@@ -334,14 +334,6 @@ export function Header() {
               >
                 Blog
               </Link>
-
-              <Link
-                href="/pricing"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Pricing
-              </Link>
             </nav>
           </div>
         )}

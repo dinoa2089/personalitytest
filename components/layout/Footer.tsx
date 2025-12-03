@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Building2, CreditCard, Sparkles } from "lucide-react";
+import { Building2, Sparkles } from "lucide-react";
 
 // PRISM-7 Archetypes
 const prismTypes = [
@@ -67,24 +67,42 @@ export function Footer() {
             </p>
           </div>
 
-          {/* For Individuals */}
+          {/* Get Started */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm text-foreground">For Individuals</h4>
+            <h4 className="font-semibold mb-4 text-sm text-foreground">Get Started</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/assessment" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5 text-violet-500" />
-                  Take Assessment
+                  Free Assessment
                 </Link>
               </li>
               <li>
                 <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Pricing
+                  Unlock Full Results
                 </Link>
               </li>
               <li>
+                <Link href="/for-employers" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                  <Building2 className="w-3.5 h-3.5 text-violet-500" />
+                  Hiring Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Learn */}
+          <div>
+            <h4 className="font-semibold mb-4 text-sm text-foreground">Learn</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
                 <Link href="/science" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Science
+                  Our Science
                 </Link>
               </li>
               <li>
@@ -97,33 +115,9 @@ export function Footer() {
                   Compare Types
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* For Employers */}
-          <div>
-            <h4 className="font-semibold mb-4 text-sm text-foreground">For Employers</h4>
-            <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/for-employers" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
-                  <Building2 className="w-3.5 h-3.5 text-violet-500" />
-                  Employer Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link href="/science" className="text-muted-foreground hover:text-foreground transition-colors">
-                  How It Works
-                </Link>
-              </li>
-              <li>
-                <Link href="/for-employers#pricing" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
-                  <CreditCard className="w-3.5 h-3.5 text-amber-500" />
-                  Hiring Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Contact Sales
+                <Link href="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
+                  FAQ
                 </Link>
               </li>
             </ul>
