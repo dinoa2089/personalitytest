@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 
 const SCORING_API_URL = process.env.NEXT_PUBLIC_SCORING_API_URL || "http://localhost:8000";
 
@@ -25,16 +25,34 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if Supabase is configured
+    // Check if Supabase is configured - use service role key for admin operations
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    if (!supabaseUrl || !supabaseKey) {
+    if (!supabaseUrl) {
       return NextResponse.json(
         { error: "Database not configured" },
         { status: 500 }
       );
     }
+
+    // Prefer service role key to bypass RLS, fallback to anon key
+    const supabaseKey = supabaseServiceKey || supabaseAnonKey;
+    if (!supabaseKey) {
+      return NextResponse.json(
+        { error: "Database credentials not configured" },
+        { status: 500 }
+      );
+    }
+
+    // Create admin client with service role key (bypasses RLS)
+    const supabase = createClient(supabaseUrl, supabaseKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    });
 
     // Find the session(s) to re-score
     let sessionsToRescore: string[] = [];
