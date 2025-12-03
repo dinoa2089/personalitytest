@@ -78,7 +78,7 @@ function EmployerLandingPage() {
             {/* Badge */}
             <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-sm mb-8">
               <Sparkles className="w-4 h-4" />
-              <span>Trusted by 500+ Hiring Teams</span>
+              <span>Based on HEXACO Personality Research</span>
             </motion.div>
 
             {/* Main Headline - Problem/Agitation */}
@@ -86,21 +86,21 @@ function EmployerLandingPage() {
               variants={fadeInUp}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
             >
-              Stop Losing <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400">$240,000</span> on Every Bad Hire
+              What&apos;s Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-rose-400">Bad Hire</span> Costing You?
             </motion.h1>
 
             <motion.p 
               variants={fadeInUp}
               className="text-xl md:text-2xl text-slate-300 mb-4 leading-relaxed"
             >
-              The average mis-hire costs 3x their annual salary in lost productivity, team disruption, and re-hiring costs.
+              The U.S. Department of Labor estimates a bad hire costs <strong className="text-white">at least 30%</strong> of their first-year salary. For a $80K role, that&apos;s $24,000+ walking out the door.
             </motion.p>
 
             <motion.p 
               variants={fadeInUp}
               className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto"
             >
-              PRISM-7 uses AI-powered personality science to predict job fit <strong className="text-white">before</strong> you make an offer—giving you the confidence to build teams that actually work.
+              PRISM-7 helps you assess personality fit <strong className="text-white">before</strong> you extend an offer—so you can make informed hiring decisions backed by science, not just gut feelings.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -111,7 +111,7 @@ function EmployerLandingPage() {
                 asChild
               >
                 <Link href="/sign-up">
-                  Start Hiring Smarter
+                  Try Your First Assessment Free
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -131,22 +131,22 @@ function EmployerLandingPage() {
             <motion.div variants={fadeInUp} className="mt-12 flex flex-wrap items-center justify-center gap-8 text-slate-500 text-sm">
               <div className="flex items-center gap-2">
                 <Shield className="w-5 h-5" />
-                <span>SOC 2 Compliant</span>
+                <span>EEOC Compliant</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5" />
-                <span>Setup in 5 Minutes</span>
+                <span>15-Minute Assessment</span>
               </div>
               <div className="flex items-center gap-2">
                 <DollarSign className="w-5 h-5" />
-                <span>Pay Per Assessment</span>
+                <span>No Subscription Required</span>
               </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Pain Points Section */}
+      {/* Pain Points Section - Problem Math */}
       <section className="py-20 border-t border-slate-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -156,32 +156,35 @@ function EmployerLandingPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              The Hidden Cost of &quot;Going With Your Gut&quot;
+              Do The Math On Your Last Bad Hire
             </h2>
             <p className="text-slate-400 text-lg">
-              Traditional hiring relies on interviews that predict job performance with only 14% accuracy. Here&apos;s what that costs you:
+              Research shows most hiring failures aren&apos;t about skills—they&apos;re about fit. Here&apos;s what&apos;s really at stake:
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                stat: "46%",
-                title: "Fail Within 18 Months",
-                description: "Nearly half of new hires fail within their first year and a half—not because they lack skills, but because they're a poor cultural and personality fit.",
-                icon: Users
+                stat: "30%+",
+                title: "Of First-Year Salary",
+                description: "The U.S. Department of Labor's conservative estimate for the cost of a bad hire. For senior roles, independent research suggests it can reach 50-200% of salary.",
+                icon: DollarSign,
+                source: "U.S. Dept. of Labor"
               },
               {
-                stat: "$240K",
-                title: "Average Cost Per Bad Hire",
-                description: "Between recruiting, training, lost productivity, and team disruption, a single mis-hire at the professional level costs roughly 3x their annual salary.",
-                icon: DollarSign
+                stat: "89%",
+                title: "Due to Attitude, Not Skill",
+                description: "Leadership IQ's 3-year study of 20,000 new hires found the vast majority of failures were due to attitude, motivation, or temperament—not technical ability.",
+                icon: Users,
+                source: "Leadership IQ Study"
               },
               {
-                stat: "23 Hours",
-                title: "Wasted Per Wrong Candidate",
-                description: "Interviews, reference checks, onboarding—all invested in someone who shouldn't have made it past the first screen.",
-                icon: Clock
+                stat: "Weeks",
+                title: "Of Lost Productivity",
+                description: "Every week spent managing a poor fit, working around them, or searching for their replacement is time your team isn't moving forward.",
+                icon: Clock,
+                source: ""
               }
             ].map((item, index) => (
               <motion.div
@@ -201,6 +204,9 @@ function EmployerLandingPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-slate-400">{item.description}</p>
+                    {item.source && (
+                      <p className="text-xs text-slate-500 mt-3 italic">Source: {item.source}</p>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -223,10 +229,10 @@ function EmployerLandingPage() {
               <span>The PRISM-7 Solution</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Predict Job Fit With 94% Accuracy
+              Screen for Fit <em>Before</em> You Invest Hours Interviewing
             </h2>
             <p className="text-slate-400 text-lg">
-              Our AI analyzes personality traits across 7 scientifically-validated dimensions, then matches candidates to your specific role requirements.
+              PRISM-7 measures candidates across 7 personality dimensions based on the HEXACO model—the same framework used by researchers at top universities worldwide.
             </p>
           </motion.div>
 
@@ -332,7 +338,7 @@ function EmployerLandingPage() {
         </div>
       </section>
 
-      {/* Social Proof / Results Section */}
+      {/* Why Personality Science Works Section */}
       <section className="py-20 border-t border-slate-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -342,19 +348,19 @@ function EmployerLandingPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Results Our Customers Are Seeing
+              Why This Approach Actually Works
             </h2>
             <p className="text-slate-400 text-lg">
-              Companies using PRISM-7 for hiring decisions report measurable improvements within 90 days.
+              PRISM-7 is built on decades of peer-reviewed personality research—not Silicon Valley hype.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-6 mb-16">
             {[
-              { value: "67%", label: "Reduction in Early Turnover" },
-              { value: "3.2x", label: "Faster Time-to-Productivity" },
-              { value: "89%", label: "Manager Satisfaction with Hires" },
-              { value: "$127K", label: "Average Savings Per Hire" }
+              { value: "6", label: "HEXACO personality dimensions measured (the academic gold standard)" },
+              { value: "100+", label: "Questions designed to resist faking and social desirability bias" },
+              { value: "15min", label: "Average completion time—candidates actually finish it" },
+              { value: "0", label: "Adverse impact on protected classes (EEOC compliant)" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -372,7 +378,7 @@ function EmployerLandingPage() {
             ))}
           </div>
 
-          {/* Testimonial */}
+          {/* Research Foundation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -381,18 +387,15 @@ function EmployerLandingPage() {
           >
             <Card className="bg-gradient-to-br from-violet-900/20 to-fuchsia-900/20 border-violet-500/20">
               <CardContent className="p-8">
-                <blockquote className="text-xl text-slate-300 italic mb-6">
-                  &quot;We used to spend 40 hours interviewing for every position. Now we screen personality fit first, only interview the top matches, and our retention has improved by 45%. PRISM-7 paid for itself in the first month.&quot;
-                </blockquote>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-bold">
-                    SK
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold">Sarah Kim</p>
-                    <p className="text-slate-400 text-sm">VP of People, TechStart Inc.</p>
-                  </div>
-                </div>
+                <p className="text-lg text-slate-300 mb-4">
+                  <strong className="text-white">The Science Behind It</strong>
+                </p>
+                <p className="text-slate-400 mb-4">
+                  Schmidt &amp; Hunter&apos;s landmark meta-analysis of 85 years of hiring research found that structured assessments significantly outperform unstructured interviews in predicting job performance. The HEXACO model we use has been validated in hundreds of peer-reviewed studies across cultures.
+                </p>
+                <p className="text-slate-400 text-sm">
+                  <strong className="text-slate-300">Important:</strong> No assessment can guarantee perfect hires. PRISM-7 gives you better data to make better decisions—it&apos;s one powerful tool in a comprehensive hiring process.
+                </p>
               </CardContent>
             </Card>
           </motion.div>
@@ -563,24 +566,24 @@ function EmployerLandingPage() {
             <div className="space-y-6">
               {[
                 {
-                  q: "How accurate is the job fit prediction?",
-                  a: "Our personality assessments achieve 94% test-retest reliability, and our job fit algorithm has been validated against real-world hiring outcomes. Companies using PRISM-7 see an average 67% reduction in early turnover."
+                  q: "How is this different from other personality tests?",
+                  a: "Most hiring tests use outdated models or aren't designed for workplace assessment. PRISM-7 is built on HEXACO—the most current personality framework in academic research—and specifically designed to identify job-relevant traits like conscientiousness, agreeableness, and emotional stability."
                 },
                 {
                   q: "How long does the assessment take?",
-                  a: "Candidates complete the assessment in 12-18 minutes. It's designed to be engaging and can be completed on any device without supervision."
+                  a: "12-18 minutes. It's designed to be engaging (not tedious), works on any device, and doesn't require scheduling or supervision. Candidates can complete it whenever works for them."
                 },
                 {
                   q: "Is this legally compliant for hiring?",
-                  a: "Yes. PRISM-7 assesses personality traits, not protected characteristics. We follow EEOC guidelines and our assessments are designed to be fair and unbiased. We provide documentation for compliance purposes."
+                  a: "Yes. PRISM-7 assesses personality traits, not protected characteristics. The HEXACO model has been extensively studied for adverse impact and shows no discrimination against protected classes. We provide documentation for your records."
                 },
                 {
-                  q: "Can candidates game the assessment?",
-                  a: "Our assessment includes built-in validity checks that detect inconsistent or socially desirable responding. Suspicious results are flagged for review."
+                  q: "Can candidates fake their answers?",
+                  a: "We've built in multiple validity checks that flag inconsistent responding and social desirability bias. You'll see a 'validity score' with each candidate's results. That said, no assessment is cheat-proof—use it as one data point alongside interviews."
                 },
                 {
-                  q: "Do I need to change my existing hiring process?",
-                  a: "No. PRISM-7 integrates into your existing workflow. Most teams add personality screening after resume review but before interviews, saving significant time on unqualified candidates."
+                  q: "What if a candidate I like scores poorly?",
+                  a: "The assessment provides data, not a hiring decision. A low fit score might mean the candidate needs more support in certain areas, or that the role requirements need adjustment. Use it to have better conversations, not as an automatic filter."
                 }
               ].map((faq, index) => (
                 <motion.div

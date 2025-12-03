@@ -2,21 +2,27 @@
  * Adaptive Question Selection System
  * 
  * Implements IRT-based adaptive testing that:
- * 1. Tracks current trait estimates for each PRISM-7 dimension
- * 2. Calculates uncertainty (standard error) for each dimension
- * 3. Selects questions that maximize information gain for uncertain dimensions
+ * 1. Tracks current trait estimates for PRISM-7, MBTI, and Enneagram
+ * 2. Calculates uncertainty (standard error) for each dimension/type
+ * 3. Selects questions that maximize information gain for the current checkpoint's framework
  * 4. Prevents duplicate/similar questions from being asked
+ * 5. Leverages cross-framework mappings (e.g., extraversion maps to MBTI E/I)
  * 
- * Based on the methodology in improved_personality_test_framework.md:
- * - Initial items selected to provide broad coverage of all dimensions
- * - Subsequent items selected based on information value at current trait estimate
- * - Items with highest discrimination at current trait level prioritized
+ * Checkpoint Structure:
+ * - Checkpoint 1 (Q1-35): PRISM-7 core dimensions
+ * - Checkpoint 2 (Q36-55): MBTI dimensions (with PRISM knowledge carried over)
+ * - Checkpoint 3 (Q56-80): Enneagram types (with PRISM + MBTI knowledge)
+ * - Checkpoint 4 (Q81-105): Deep dive refinement
  */
 
 import type { Question, QuestionResponse, Dimension } from '@/types';
 
-// PRISM-7 Dimensions
-const DIMENSIONS: Dimension[] = [
+// ============================================
+// FRAMEWORK DEFINITIONS
+// ============================================
+
+// PRISM-7 Dimensions (primary framework)
+const PRISM_DIMENSIONS: Dimension[] = [
   'openness',
   'conscientiousness', 
   'extraversion',
@@ -25,6 +31,53 @@ const DIMENSIONS: Dimension[] = [
   'honestyHumility',
   'adaptability',
 ];
+
+// MBTI Dimensions (unlocked at checkpoint 2)
+const MBTI_DIMENSIONS = ['mbti_ei', 'mbti_sn', 'mbti_tf', 'mbti_jp'] as const;
+type MbtiDimension = typeof MBTI_DIMENSIONS[number];
+
+// Enneagram Types (unlocked at checkpoint 3)
+const ENNEAGRAM_TYPES = ['enneagram_1', 'enneagram_2', 'enneagram_3', 'enneagram_4', 
+                         'enneagram_5', 'enneagram_6', 'enneagram_7', 'enneagram_8', 
+                         'enneagram_9'] as const;
+type EnneagramType = typeof ENNEAGRAM_TYPES[number];
+
+// Cross-framework mappings: PRISM dimensions that inform other frameworks
+const PRISM_TO_MBTI_MAPPING: Record<Dimension, MbtiDimension[]> = {
+  openness: ['mbti_sn'],           // Openness relates to Intuition vs Sensing
+  conscientiousness: ['mbti_jp'],  // Conscientiousness relates to Judging vs Perceiving
+  extraversion: ['mbti_ei'],       // Direct mapping
+  agreeableness: ['mbti_tf'],      // Agreeableness relates to Feeling vs Thinking
+  emotionalResilience: [],         // No direct MBTI mapping
+  honestyHumility: [],             // No direct MBTI mapping
+  adaptability: ['mbti_jp'],       // Adaptability relates to Perceiving
+};
+
+const PRISM_TO_ENNEAGRAM_MAPPING: Record<Dimension, EnneagramType[]> = {
+  openness: ['enneagram_4', 'enneagram_5', 'enneagram_7'],
+  conscientiousness: ['enneagram_1', 'enneagram_3', 'enneagram_6'],
+  extraversion: ['enneagram_2', 'enneagram_3', 'enneagram_7', 'enneagram_8'],
+  agreeableness: ['enneagram_2', 'enneagram_9'],
+  emotionalResilience: ['enneagram_4', 'enneagram_6'],
+  honestyHumility: ['enneagram_1', 'enneagram_2'],
+  adaptability: ['enneagram_7', 'enneagram_9'],
+};
+
+// Checkpoint framework focus
+type CheckpointFramework = 'prism' | 'mbti' | 'enneagram' | 'detailed';
+
+const CHECKPOINT_CONFIG: Record<number, {
+  frameworks: CheckpointFramework[];
+  questionRange: [number, number];
+  minPerPrismDimension: number;
+  minPerMbtiDimension: number;
+  minPerEnneagramType: number;
+}> = {
+  1: { frameworks: ['prism'], questionRange: [0, 35], minPerPrismDimension: 5, minPerMbtiDimension: 0, minPerEnneagramType: 0 },
+  2: { frameworks: ['prism', 'mbti'], questionRange: [35, 55], minPerPrismDimension: 0, minPerMbtiDimension: 3, minPerEnneagramType: 0 },
+  3: { frameworks: ['prism', 'mbti', 'enneagram'], questionRange: [55, 80], minPerPrismDimension: 0, minPerMbtiDimension: 0, minPerEnneagramType: 2 },
+  4: { frameworks: ['prism', 'mbti', 'enneagram', 'detailed'], questionRange: [80, 105], minPerPrismDimension: 0, minPerMbtiDimension: 0, minPerEnneagramType: 0 },
+};
 
 // Question type weights (from methodology)
 const TYPE_WEIGHTS: Record<string, number> = {
@@ -35,36 +88,43 @@ const TYPE_WEIGHTS: Record<string, number> = {
 };
 
 /**
- * Trait estimate for a single dimension
+ * Trait estimate for a single dimension/type
  */
 export interface TraitEstimate {
-  dimension: Dimension;
+  id: string;              // Dimension or type identifier
   estimate: number;        // Current trait estimate (0-100 scale)
   standardError: number;   // Uncertainty in the estimate
   responseCount: number;   // Number of questions answered for this dimension
   sumWeights: number;      // Sum of effective weights for precision calculation
+  inferredFrom?: string[]; // If estimated from cross-framework mapping
 }
 
 /**
- * Adaptive selection state that persists across the assessment
+ * Multi-framework adaptive state that persists across the assessment
  */
 export interface AdaptiveState {
-  traitEstimates: Record<Dimension, TraitEstimate>;
+  // PRISM-7 estimates (primary)
+  prismEstimates: Record<Dimension, TraitEstimate>;
+  // MBTI estimates (unlocked at checkpoint 2)
+  mbtiEstimates: Record<string, TraitEstimate>;
+  // Enneagram estimates (unlocked at checkpoint 3)
+  enneagramEstimates: Record<string, TraitEstimate>;
+  // Tracking
   answeredQuestionIds: Set<string>;
   answeredQuestionTexts: Set<string>;  // Normalized texts to prevent duplicates
-  phase: 'coverage' | 'adaptive';      // Initial coverage phase vs adaptive phase
-  questionsInPhase: number;
+  currentCheckpoint: number;
+  questionsAnswered: number;
 }
 
 /**
  * Initialize adaptive state at the start of an assessment
  */
 export function initializeAdaptiveState(): AdaptiveState {
-  const traitEstimates: Record<string, TraitEstimate> = {};
-  
-  for (const dim of DIMENSIONS) {
-    traitEstimates[dim] = {
-      dimension: dim,
+  // Initialize PRISM-7 estimates
+  const prismEstimates: Record<string, TraitEstimate> = {};
+  for (const dim of PRISM_DIMENSIONS) {
+    prismEstimates[dim] = {
+      id: dim,
       estimate: 50,          // Start at population mean
       standardError: 25,     // High initial uncertainty
       responseCount: 0,
@@ -72,13 +132,101 @@ export function initializeAdaptiveState(): AdaptiveState {
     };
   }
   
+  // Initialize MBTI estimates (will be refined at checkpoint 2)
+  const mbtiEstimates: Record<string, TraitEstimate> = {};
+  for (const dim of MBTI_DIMENSIONS) {
+    mbtiEstimates[dim] = {
+      id: dim,
+      estimate: 50,
+      standardError: 25,
+      responseCount: 0,
+      sumWeights: 0,
+      inferredFrom: [], // Will be populated from PRISM mappings
+    };
+  }
+  
+  // Initialize Enneagram estimates (will be refined at checkpoint 3)
+  const enneagramEstimates: Record<string, TraitEstimate> = {};
+  for (const type of ENNEAGRAM_TYPES) {
+    enneagramEstimates[type] = {
+      id: type,
+      estimate: 50,
+      standardError: 25,
+      responseCount: 0,
+      sumWeights: 0,
+      inferredFrom: [],
+    };
+  }
+  
   return {
-    traitEstimates: traitEstimates as Record<Dimension, TraitEstimate>,
+    prismEstimates: prismEstimates as Record<Dimension, TraitEstimate>,
+    mbtiEstimates,
+    enneagramEstimates,
     answeredQuestionIds: new Set(),
     answeredQuestionTexts: new Set(),
-    phase: 'coverage',
-    questionsInPhase: 0,
+    currentCheckpoint: 1,
+    questionsAnswered: 0,
   };
+}
+
+/**
+ * Update MBTI estimates based on PRISM scores (cross-framework inference)
+ */
+function inferMbtiFromPrism(state: AdaptiveState): void {
+  for (const mbtiDim of MBTI_DIMENSIONS) {
+    // Find PRISM dimensions that map to this MBTI dimension
+    const inferredFrom: string[] = [];
+    let totalEstimate = 0;
+    let totalWeight = 0;
+    
+    for (const [prismDim, mbtiDims] of Object.entries(PRISM_TO_MBTI_MAPPING)) {
+      if (mbtiDims.includes(mbtiDim)) {
+        const prismEstimate = state.prismEstimates[prismDim as Dimension];
+        if (prismEstimate && prismEstimate.responseCount > 0) {
+          // Weight by certainty (inverse of SE)
+          const weight = 1 / (prismEstimate.standardError + 1);
+          totalEstimate += prismEstimate.estimate * weight;
+          totalWeight += weight;
+          inferredFrom.push(prismDim);
+        }
+      }
+    }
+    
+    if (totalWeight > 0 && state.mbtiEstimates[mbtiDim].responseCount === 0) {
+      // Only use inference if we don't have direct responses
+      state.mbtiEstimates[mbtiDim].estimate = totalEstimate / totalWeight;
+      state.mbtiEstimates[mbtiDim].standardError = Math.max(15, 25 - inferredFrom.length * 3);
+      state.mbtiEstimates[mbtiDim].inferredFrom = inferredFrom;
+    }
+  }
+}
+
+/**
+ * Update Enneagram estimates based on PRISM scores (cross-framework inference)
+ */
+function inferEnneagramFromPrism(state: AdaptiveState): void {
+  for (const ennType of ENNEAGRAM_TYPES) {
+    const inferredFrom: string[] = [];
+    let scores: number[] = [];
+    
+    for (const [prismDim, ennTypes] of Object.entries(PRISM_TO_ENNEAGRAM_MAPPING)) {
+      if (ennTypes.includes(ennType)) {
+        const prismEstimate = state.prismEstimates[prismDim as Dimension];
+        if (prismEstimate && prismEstimate.responseCount > 0) {
+          scores.push(prismEstimate.estimate);
+          inferredFrom.push(prismDim);
+        }
+      }
+    }
+    
+    if (scores.length > 0 && state.enneagramEstimates[ennType].responseCount === 0) {
+      // Average the contributing PRISM scores
+      const avgScore = scores.reduce((a, b) => a + b, 0) / scores.length;
+      state.enneagramEstimates[ennType].estimate = avgScore;
+      state.enneagramEstimates[ennType].standardError = Math.max(15, 25 - inferredFrom.length * 2);
+      state.enneagramEstimates[ennType].inferredFrom = inferredFrom;
+    }
+  }
 }
 
 /**
@@ -117,21 +265,54 @@ function calculateInformationValue(
 }
 
 /**
- * Get the dimension with highest uncertainty (most need for more questions)
+ * Get the most uncertain dimension/type for the current checkpoint's framework
  */
-export function getMostUncertainDimension(state: AdaptiveState): Dimension {
+export function getMostUncertainForCheckpoint(
+  state: AdaptiveState,
+  checkpoint: number
+): { type: 'prism' | 'mbti' | 'enneagram'; id: string; uncertainty: number } {
+  const config = CHECKPOINT_CONFIG[checkpoint] || CHECKPOINT_CONFIG[1];
   let maxUncertainty = -1;
-  let mostUncertain: Dimension = 'openness';
+  let mostUncertain = { type: 'prism' as const, id: 'openness', uncertainty: 0 };
   
-  for (const dim of DIMENSIONS) {
-    const estimate = state.traitEstimates[dim];
-    // Uncertainty = SE adjusted by response count
-    // We want to balance between high SE and low response count
+  // Always check PRISM dimensions first (they inform everything)
+  for (const dim of PRISM_DIMENSIONS) {
+    const estimate = state.prismEstimates[dim];
     const uncertainty = estimate.standardError * (1 + 1 / (estimate.responseCount + 1));
     
     if (uncertainty > maxUncertainty) {
       maxUncertainty = uncertainty;
-      mostUncertain = dim;
+      mostUncertain = { type: 'prism', id: dim, uncertainty };
+    }
+  }
+  
+  // Check MBTI if we're at checkpoint 2+
+  if (config.frameworks.includes('mbti')) {
+    for (const dim of MBTI_DIMENSIONS) {
+      const estimate = state.mbtiEstimates[dim];
+      // Give MBTI a boost if it's the focus of this checkpoint
+      const focusBoost = checkpoint === 2 ? 1.5 : 1.0;
+      const uncertainty = estimate.standardError * (1 + 1 / (estimate.responseCount + 1)) * focusBoost;
+      
+      if (uncertainty > maxUncertainty) {
+        maxUncertainty = uncertainty;
+        mostUncertain = { type: 'mbti', id: dim, uncertainty };
+      }
+    }
+  }
+  
+  // Check Enneagram if we're at checkpoint 3+
+  if (config.frameworks.includes('enneagram')) {
+    for (const type of ENNEAGRAM_TYPES) {
+      const estimate = state.enneagramEstimates[type];
+      // Give Enneagram a boost if it's the focus of this checkpoint
+      const focusBoost = checkpoint === 3 ? 1.5 : 1.0;
+      const uncertainty = estimate.standardError * (1 + 1 / (estimate.responseCount + 1)) * focusBoost;
+      
+      if (uncertainty > maxUncertainty) {
+        maxUncertainty = uncertainty;
+        mostUncertain = { type: 'enneagram', id: type, uncertainty };
+      }
     }
   }
   
@@ -139,29 +320,148 @@ export function getMostUncertainDimension(state: AdaptiveState): Dimension {
 }
 
 /**
- * Get dimensions that still need coverage (minimum questions not met)
+ * Get dimensions/types that still need coverage for the current checkpoint
  */
-export function getDimensionsNeedingCoverage(
+export function getFrameworksNeedingCoverage(
   state: AdaptiveState,
-  minPerDimension: number
-): Dimension[] {
-  return DIMENSIONS.filter(dim => 
-    state.traitEstimates[dim].responseCount < minPerDimension
-  );
+  checkpoint: number
+): Array<{ type: 'prism' | 'mbti' | 'enneagram'; id: string; needed: number }> {
+  const config = CHECKPOINT_CONFIG[checkpoint] || CHECKPOINT_CONFIG[1];
+  const needsCoverage: Array<{ type: 'prism' | 'mbti' | 'enneagram'; id: string; needed: number }> = [];
+  
+  // Check PRISM coverage
+  if (config.minPerPrismDimension > 0) {
+    for (const dim of PRISM_DIMENSIONS) {
+      const count = state.prismEstimates[dim].responseCount;
+      if (count < config.minPerPrismDimension) {
+        needsCoverage.push({ type: 'prism', id: dim, needed: config.minPerPrismDimension - count });
+      }
+    }
+  }
+  
+  // Check MBTI coverage
+  if (config.minPerMbtiDimension > 0) {
+    for (const dim of MBTI_DIMENSIONS) {
+      const count = state.mbtiEstimates[dim].responseCount;
+      if (count < config.minPerMbtiDimension) {
+        needsCoverage.push({ type: 'mbti', id: dim, needed: config.minPerMbtiDimension - count });
+      }
+    }
+  }
+  
+  // Check Enneagram coverage
+  if (config.minPerEnneagramType > 0) {
+    for (const type of ENNEAGRAM_TYPES) {
+      const count = state.enneagramEstimates[type].responseCount;
+      if (count < config.minPerEnneagramType) {
+        needsCoverage.push({ type: 'enneagram', id: type, needed: config.minPerEnneagramType - count });
+      }
+    }
+  }
+  
+  // Sort by most needed first
+  return needsCoverage.sort((a, b) => b.needed - a.needed);
 }
 
 /**
- * Select the next best question based on current state
+ * Check if a question contributes to a specific framework target
+ */
+function questionMatchesTarget(
+  question: Question,
+  target: { type: 'prism' | 'mbti' | 'enneagram'; id: string }
+): boolean {
+  const tags = question.framework_tags || [];
+  
+  if (target.type === 'prism') {
+    // Check primary dimension or framework tags
+    return question.dimension === target.id || 
+           tags.includes(`prism_${target.id}`);
+  } else if (target.type === 'mbti') {
+    return tags.includes(target.id);
+  } else if (target.type === 'enneagram') {
+    return tags.includes(target.id);
+  }
+  
+  return false;
+}
+
+/**
+ * Calculate question relevance for current checkpoint
+ */
+function calculateCheckpointRelevance(
+  question: Question,
+  state: AdaptiveState,
+  checkpoint: number
+): number {
+  const config = CHECKPOINT_CONFIG[checkpoint] || CHECKPOINT_CONFIG[1];
+  const tags = question.framework_tags || [];
+  let relevance = 1.0;
+  
+  // Boost questions that target the checkpoint's focus frameworks
+  if (checkpoint === 1) {
+    // Focus on PRISM
+    relevance *= 1.5;
+  } else if (checkpoint === 2) {
+    // Focus on MBTI - boost questions with MBTI tags
+    const hasMbtiTag = MBTI_DIMENSIONS.some(dim => tags.includes(dim));
+    if (hasMbtiTag) {
+      relevance *= 2.0;
+    }
+    // Also boost questions whose PRISM dimension maps to uncertain MBTI
+    for (const [prismDim, mbtiDims] of Object.entries(PRISM_TO_MBTI_MAPPING)) {
+      if (question.dimension === prismDim) {
+        for (const mbtiDim of mbtiDims) {
+          const mbtiEstimate = state.mbtiEstimates[mbtiDim];
+          if (mbtiEstimate && mbtiEstimate.standardError > 15) {
+            relevance *= 1.3;
+          }
+        }
+      }
+    }
+  } else if (checkpoint === 3) {
+    // Focus on Enneagram - boost questions with Enneagram tags
+    const hasEnneagramTag = ENNEAGRAM_TYPES.some(type => tags.includes(type));
+    if (hasEnneagramTag) {
+      relevance *= 2.0;
+    }
+    // Also boost questions whose PRISM dimension maps to uncertain Enneagram
+    for (const [prismDim, ennTypes] of Object.entries(PRISM_TO_ENNEAGRAM_MAPPING)) {
+      if (question.dimension === prismDim) {
+        for (const ennType of ennTypes) {
+          const ennEstimate = state.enneagramEstimates[ennType];
+          if (ennEstimate && ennEstimate.standardError > 15) {
+            relevance *= 1.2;
+          }
+        }
+      }
+    }
+  } else if (checkpoint === 4) {
+    // Deep dive - boost questions that target areas with highest uncertainty
+    const prismSE = state.prismEstimates[question.dimension]?.standardError || 25;
+    relevance *= (1 + prismSE / 50);
+  }
+  
+  return relevance;
+}
+
+/**
+ * Select the next best question based on current state and checkpoint
  */
 export function selectNextQuestion(
   questionBank: Question[],
   state: AdaptiveState,
   options: {
-    minPerDimension?: number;      // Minimum questions per dimension before going adaptive
+    checkpoint?: number;
     preferHighDiscrimination?: boolean;
   } = {}
 ): Question | null {
-  const { minPerDimension = 3, preferHighDiscrimination = true } = options;
+  const checkpoint = options.checkpoint || state.currentCheckpoint;
+  const { preferHighDiscrimination = true } = options;
+  const config = CHECKPOINT_CONFIG[checkpoint] || CHECKPOINT_CONFIG[1];
+  
+  // Update cross-framework inferences before selection
+  inferMbtiFromPrism(state);
+  inferEnneagramFromPrism(state);
   
   // Filter out already-answered questions and duplicates
   const availableQuestions = questionBank.filter(q => {
@@ -175,51 +475,66 @@ export function selectNextQuestion(
     return null;
   }
   
-  // PHASE 1: Coverage - ensure minimum questions per dimension
-  const needsCoverage = getDimensionsNeedingCoverage(state, minPerDimension);
+  // PHASE 1: Coverage - ensure minimum questions per framework target
+  const needsCoverage = getFrameworksNeedingCoverage(state, checkpoint);
   
   if (needsCoverage.length > 0) {
-    // Find dimension with lowest coverage
-    const lowestCoverageDim = needsCoverage.reduce((lowest, dim) => {
-      const lowestCount = state.traitEstimates[lowest].responseCount;
-      const dimCount = state.traitEstimates[dim].responseCount;
-      return dimCount < lowestCount ? dim : lowest;
-    }, needsCoverage[0]);
+    // Find target with most need
+    const topTarget = needsCoverage[0];
     
-    // Get questions for this dimension
-    const dimQuestions = availableQuestions.filter(q => q.dimension === lowestCoverageDim);
+    // Get questions for this target
+    const targetQuestions = availableQuestions.filter(q => 
+      questionMatchesTarget(q, topTarget)
+    );
     
-    if (dimQuestions.length > 0) {
-      // Prefer higher discrimination questions
-      if (preferHighDiscrimination) {
-        dimQuestions.sort((a, b) => (b.discrimination || 1) - (a.discrimination || 1));
-      }
-      return dimQuestions[0];
+    if (targetQuestions.length > 0) {
+      // Sort by discrimination and checkpoint relevance
+      targetQuestions.sort((a, b) => {
+        const aScore = (a.discrimination || 1) * calculateCheckpointRelevance(a, state, checkpoint);
+        const bScore = (b.discrimination || 1) * calculateCheckpointRelevance(b, state, checkpoint);
+        return bScore - aScore;
+      });
+      
+      // Pick from top 3 to add variety
+      const topN = Math.min(3, targetQuestions.length);
+      return targetQuestions[Math.floor(Math.random() * topN)];
     }
   }
   
-  // PHASE 2: Adaptive - select based on uncertainty and information value
-  const mostUncertain = getMostUncertainDimension(state);
-  const currentEstimate = state.traitEstimates[mostUncertain].estimate;
+  // PHASE 2: Adaptive - select based on uncertainty and checkpoint relevance
+  const mostUncertain = getMostUncertainForCheckpoint(state, checkpoint);
+  
+  // Get the current estimate for the most uncertain target
+  let currentEstimate = 50;
+  if (mostUncertain.type === 'prism') {
+    currentEstimate = state.prismEstimates[mostUncertain.id as Dimension]?.estimate || 50;
+  } else if (mostUncertain.type === 'mbti') {
+    currentEstimate = state.mbtiEstimates[mostUncertain.id]?.estimate || 50;
+  } else if (mostUncertain.type === 'enneagram') {
+    currentEstimate = state.enneagramEstimates[mostUncertain.id]?.estimate || 50;
+  }
   
   // Score all available questions
   const scoredQuestions = availableQuestions.map(q => {
     const discrimination = q.discrimination || 1.0;
     const typeWeight = TYPE_WEIGHTS[q.type] || 1.0;
     
-    // Calculate information value
+    // Base information value
     let infoValue = calculateInformationValue(q, currentEstimate, discrimination);
     
-    // Boost questions for the most uncertain dimension
-    if (q.dimension === mostUncertain) {
-      infoValue *= 2.0;
+    // Boost questions that match the most uncertain target
+    if (questionMatchesTarget(q, mostUncertain)) {
+      infoValue *= 2.5;
     }
     
     // Apply type weight
     infoValue *= typeWeight;
     
-    // Slight boost for dimensions with higher uncertainty
-    const dimUncertainty = state.traitEstimates[q.dimension].standardError;
+    // Apply checkpoint relevance
+    infoValue *= calculateCheckpointRelevance(q, state, checkpoint);
+    
+    // Boost for PRISM dimension uncertainty
+    const dimUncertainty = state.prismEstimates[q.dimension]?.standardError || 25;
     infoValue *= (1 + dimUncertainty / 100);
     
     return { question: q, score: infoValue };
@@ -228,8 +543,7 @@ export function selectNextQuestion(
   // Sort by information value (descending)
   scoredQuestions.sort((a, b) => b.score - a.score);
   
-  // Add some randomization among top candidates to avoid predictability
-  // Pick randomly from top 5 candidates
+  // Pick randomly from top candidates for variety
   const topCandidates = scoredQuestions.slice(0, Math.min(5, scoredQuestions.length));
   const randomIndex = Math.floor(Math.random() * topCandidates.length);
   
@@ -237,38 +551,49 @@ export function selectNextQuestion(
 }
 
 /**
- * Select a batch of questions (for pre-loading or checkpoint)
+ * Select a batch of questions for a checkpoint
  */
 export function selectQuestionBatch(
   questionBank: Question[],
   state: AdaptiveState,
   batchSize: number,
   options: {
-    minPerDimension?: number;
+    checkpoint?: number;
     diversifyTypes?: boolean;
+    diversifyDimensions?: boolean;
   } = {}
 ): Question[] {
-  const { minPerDimension = 3, diversifyTypes = true } = options;
+  const { checkpoint = state.currentCheckpoint, diversifyTypes = true, diversifyDimensions = true } = options;
   const selected: Question[] = [];
-  const tempState = { ...state };
+  
+  // Create a temporary state for selection
+  const tempState: AdaptiveState = {
+    ...state,
+    answeredQuestionIds: new Set(state.answeredQuestionIds),
+    answeredQuestionTexts: new Set(state.answeredQuestionTexts),
+  };
   
   for (let i = 0; i < batchSize; i++) {
-    const next = selectNextQuestion(questionBank, tempState, { minPerDimension });
+    const next = selectNextQuestion(questionBank, tempState, { checkpoint });
     if (!next) break;
     
     selected.push(next);
     
     // Update temp state to avoid selecting same question
-    tempState.answeredQuestionIds = new Set([...tempState.answeredQuestionIds, next.id]);
-    tempState.answeredQuestionTexts = new Set([
-      ...tempState.answeredQuestionTexts, 
-      normalizeText(next.text)
-    ]);
+    tempState.answeredQuestionIds.add(next.id);
+    tempState.answeredQuestionTexts.add(normalizeText(next.text));
+    
+    // Simulate a response to update estimates for better diversity
+    // This helps avoid clustering on one dimension
+    tempState.prismEstimates[next.dimension] = {
+      ...tempState.prismEstimates[next.dimension],
+      responseCount: tempState.prismEstimates[next.dimension].responseCount + 1,
+      standardError: Math.max(5, tempState.prismEstimates[next.dimension].standardError - 2),
+    };
   }
   
-  // Optionally shuffle to diversify question types
+  // Diversify by interleaving question types
   if (diversifyTypes && selected.length > 1) {
-    // Group by type and interleave
     const byType: Record<string, Question[]> = {};
     for (const q of selected) {
       byType[q.type] = byType[q.type] || [];
@@ -287,11 +612,40 @@ export function selectQuestionBatch(
       }
       typeIndex++;
       
-      // Remove empty type arrays
       if (typeQuestions && typeQuestions.length === 0) {
         types.splice(types.indexOf(type), 1);
         if (types.length === 0) break;
       }
+    }
+    
+    // Further diversify by dimension if requested
+    if (diversifyDimensions && interleaved.length > 7) {
+      const final: Question[] = [];
+      const byDim: Record<string, Question[]> = {};
+      
+      for (const q of interleaved) {
+        byDim[q.dimension] = byDim[q.dimension] || [];
+        byDim[q.dimension].push(q);
+      }
+      
+      const dims = Object.keys(byDim);
+      let dimIndex = 0;
+      
+      while (final.length < interleaved.length) {
+        const dim = dims[dimIndex % dims.length];
+        const dimQuestions = byDim[dim];
+        if (dimQuestions && dimQuestions.length > 0) {
+          final.push(dimQuestions.shift()!);
+        }
+        dimIndex++;
+        
+        if (dimQuestions && dimQuestions.length === 0) {
+          dims.splice(dims.indexOf(dim), 1);
+          if (dims.length === 0) break;
+        }
+      }
+      
+      return final;
     }
     
     return interleaved;
@@ -302,7 +656,7 @@ export function selectQuestionBatch(
 
 /**
  * Update trait estimates based on a new response
- * Uses Bayesian updating with weighted evidence
+ * Updates PRISM, and propagates to MBTI/Enneagram via framework tags
  */
 export function updateTraitEstimate(
   state: AdaptiveState,
@@ -310,7 +664,7 @@ export function updateTraitEstimate(
   responseValue: number  // Normalized to 0-100 scale
 ): AdaptiveState {
   const dimension = question.dimension;
-  const estimate = state.traitEstimates[dimension];
+  const tags = question.framework_tags || [];
   
   const discrimination = question.discrimination || 1.0;
   const typeWeight = TYPE_WEIGHTS[question.type] || 1.0;
@@ -322,41 +676,95 @@ export function updateTraitEstimate(
     adjustedResponse = 100 - responseValue;
   }
   
-  // Bayesian update of estimate
-  // New estimate = weighted average of prior and new evidence
-  const priorWeight = estimate.sumWeights;
+  // Update PRISM estimate
+  const prismEstimate = state.prismEstimates[dimension];
+  const priorWeight = prismEstimate.sumWeights;
   const newSumWeights = priorWeight + effectiveWeight;
   
-  const newEstimate = priorWeight > 0
-    ? (estimate.estimate * priorWeight + adjustedResponse * effectiveWeight) / newSumWeights
+  const newPrismEstimate = priorWeight > 0
+    ? (prismEstimate.estimate * priorWeight + adjustedResponse * effectiveWeight) / newSumWeights
     : adjustedResponse;
   
-  // Update standard error
-  // SE decreases as we get more information (more high-discrimination questions)
-  const baseVariance = 625; // (25)^2 - initial variance
+  const baseVariance = 625;
   const newVariance = baseVariance / (1 + newSumWeights);
   const newSE = Math.sqrt(newVariance);
   
-  // Create updated state
-  const newTraitEstimates = { ...state.traitEstimates };
-  newTraitEstimates[dimension] = {
-    dimension,
-    estimate: Math.max(0, Math.min(100, newEstimate)),
-    standardError: Math.max(5, newSE), // Minimum SE of 5
-    responseCount: estimate.responseCount + 1,
+  const newPrismEstimates = { ...state.prismEstimates };
+  newPrismEstimates[dimension] = {
+    id: dimension,
+    estimate: Math.max(0, Math.min(100, newPrismEstimate)),
+    standardError: Math.max(5, newSE),
+    responseCount: prismEstimate.responseCount + 1,
     sumWeights: newSumWeights,
   };
   
+  // Update MBTI estimates if question has MBTI tags
+  const newMbtiEstimates = { ...state.mbtiEstimates };
+  for (const mbtiDim of MBTI_DIMENSIONS) {
+    if (tags.includes(mbtiDim)) {
+      const mbtiEstimate = newMbtiEstimates[mbtiDim];
+      const mbtiPriorWeight = mbtiEstimate.sumWeights;
+      const mbtiNewSumWeights = mbtiPriorWeight + effectiveWeight;
+      
+      const newMbtiValue = mbtiPriorWeight > 0
+        ? (mbtiEstimate.estimate * mbtiPriorWeight + adjustedResponse * effectiveWeight) / mbtiNewSumWeights
+        : adjustedResponse;
+      
+      const mbtiNewVariance = baseVariance / (1 + mbtiNewSumWeights);
+      const mbtiNewSE = Math.sqrt(mbtiNewVariance);
+      
+      newMbtiEstimates[mbtiDim] = {
+        id: mbtiDim,
+        estimate: Math.max(0, Math.min(100, newMbtiValue)),
+        standardError: Math.max(5, mbtiNewSE),
+        responseCount: mbtiEstimate.responseCount + 1,
+        sumWeights: mbtiNewSumWeights,
+        inferredFrom: mbtiEstimate.inferredFrom,
+      };
+    }
+  }
+  
+  // Update Enneagram estimates if question has Enneagram tags
+  const newEnneagramEstimates = { ...state.enneagramEstimates };
+  for (const ennType of ENNEAGRAM_TYPES) {
+    if (tags.includes(ennType)) {
+      const ennEstimate = newEnneagramEstimates[ennType];
+      const ennPriorWeight = ennEstimate.sumWeights;
+      const ennNewSumWeights = ennPriorWeight + effectiveWeight;
+      
+      const newEnnValue = ennPriorWeight > 0
+        ? (ennEstimate.estimate * ennPriorWeight + adjustedResponse * effectiveWeight) / ennNewSumWeights
+        : adjustedResponse;
+      
+      const ennNewVariance = baseVariance / (1 + ennNewSumWeights);
+      const ennNewSE = Math.sqrt(ennNewVariance);
+      
+      newEnneagramEstimates[ennType] = {
+        id: ennType,
+        estimate: Math.max(0, Math.min(100, newEnnValue)),
+        standardError: Math.max(5, ennNewSE),
+        responseCount: ennEstimate.responseCount + 1,
+        sumWeights: ennNewSumWeights,
+        inferredFrom: ennEstimate.inferredFrom,
+      };
+    }
+  }
+  
+  // Determine current checkpoint based on questions answered
+  const newQuestionsAnswered = state.questionsAnswered + 1;
+  let newCheckpoint = 1;
+  if (newQuestionsAnswered >= 80) newCheckpoint = 4;
+  else if (newQuestionsAnswered >= 55) newCheckpoint = 3;
+  else if (newQuestionsAnswered >= 35) newCheckpoint = 2;
+  
   return {
-    ...state,
-    traitEstimates: newTraitEstimates,
+    prismEstimates: newPrismEstimates,
+    mbtiEstimates: newMbtiEstimates,
+    enneagramEstimates: newEnneagramEstimates,
     answeredQuestionIds: new Set([...state.answeredQuestionIds, question.id]),
     answeredQuestionTexts: new Set([...state.answeredQuestionTexts, normalizeText(question.text)]),
-    questionsInPhase: state.questionsInPhase + 1,
-    phase: state.phase === 'coverage' && 
-           getDimensionsNeedingCoverage({ ...state, traitEstimates: newTraitEstimates }, 3).length === 0
-           ? 'adaptive' 
-           : state.phase,
+    currentCheckpoint: newCheckpoint,
+    questionsAnswered: newQuestionsAnswered,
   };
 }
 
@@ -426,8 +834,8 @@ export function getAdaptiveStats(state: AdaptiveState): {
   
   const dimensionBreakdown = [];
   
-  for (const dim of DIMENSIONS) {
-    const est = state.traitEstimates[dim];
+  for (const dim of PRISM_DIMENSIONS) {
+    const est = state.prismEstimates[dim];
     totalUncertainty += est.standardError;
     
     if (est.standardError > maxUncertainty) {
@@ -449,7 +857,7 @@ export function getAdaptiveStats(state: AdaptiveState): {
   
   return {
     totalAnswered,
-    averageUncertainty: Math.round((totalUncertainty / DIMENSIONS.length) * 10) / 10,
+    averageUncertainty: Math.round((totalUncertainty / PRISM_DIMENSIONS.length) * 10) / 10,
     mostUncertainDimension: mostUncertain,
     leastUncertainDimension: leastUncertain,
     phase: state.phase,
@@ -464,9 +872,9 @@ export function canStopEarly(
   state: AdaptiveState,
   precisionThreshold: number = 10
 ): boolean {
-  // Check if all dimensions have SE below threshold
-  for (const dim of DIMENSIONS) {
-    if (state.traitEstimates[dim].standardError > precisionThreshold) {
+  // Check if all PRISM dimensions have SE below threshold
+  for (const dim of PRISM_DIMENSIONS) {
+    if (state.prismEstimates[dim].standardError > precisionThreshold) {
       return false;
     }
   }
