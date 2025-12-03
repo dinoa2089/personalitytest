@@ -142,7 +142,7 @@ export default function QuestionPage() {
   }, [sessionId, router, setQuestions, setCurrentQuestion, updateProgress]);
 
   const handleAnswer = async (answer: string | number) => {
-    if (!currentQuestion) return;
+    if (!currentQuestion || !adaptiveState) return;
 
     const response: QuestionResponse = {
       question_id: currentQuestion.id,
@@ -153,6 +153,12 @@ export default function QuestionPage() {
     };
 
     addResponse(response);
+
+    // Update adaptive state with the new response
+    const normalizedValue = normalizeResponse(answer, currentQuestion.type);
+    const newAdaptiveState = updateTraitEstimate(adaptiveState, currentQuestion, normalizedValue);
+    setAdaptiveState(newAdaptiveState);
+    saveAdaptiveState(sessionId, newAdaptiveState);
 
     // Save to backend with progress update
     try {
@@ -165,8 +171,8 @@ export default function QuestionPage() {
           response: answer,
           dimension: currentQuestion.dimension,
           questionType: currentQuestion.type,
-          totalQuestions: questions.length,
-          currentProgress: responses.length + 1, // +1 because we just added it
+          totalQuestions: totalQuestionsTarget,
+          currentProgress: newAdaptiveState.questionsAnswered,
         }),
       });
     } catch (error) {
@@ -174,14 +180,14 @@ export default function QuestionPage() {
       // Continue anyway - don't block user
     }
 
-    // Calculate answered count
-    const answeredCount = responses.length + 1;
+    // Calculate total answered count (from adaptive state)
+    const totalAnswered = newAdaptiveState.questionsAnswered;
     const nextIndex = currentIndex + 1;
 
     // Check if we've reached a checkpoint
-    if (CHECKPOINT_THRESHOLDS.includes(answeredCount) && answeredCount < questions.length) {
+    if (CHECKPOINT_THRESHOLDS.includes(totalAnswered) && totalAnswered < totalQuestionsTarget) {
       // Update progress before redirecting
-      updateProgress((answeredCount / questions.length) * 100);
+      updateProgress((totalAnswered / totalQuestionsTarget) * 100);
       router.push(`/assessment/checkpoint/${sessionId}`);
       return;
     }
@@ -190,58 +196,90 @@ export default function QuestionPage() {
     if (nextIndex < questions.length) {
       setCurrentIndex(nextIndex);
       setCurrentQuestion(questions[nextIndex]);
-      // Update progress based on number of responses (questions answered)
-      updateProgress((answeredCount / questions.length) * 100);
+      // Update progress based on total questions answered
+      updateProgress((totalAnswered / totalQuestionsTarget) * 100);
+    } else if (totalAnswered < totalQuestionsTarget) {
+      // Need to load more questions for the next batch
+      // This happens when we reach the end of current batch but haven't hit checkpoint
+      const nextCheckpoint = newAdaptiveState.currentCheckpoint;
+      const questionsNeeded = Math.min(
+        (CHECKPOINT_THRESHOLDS.find(t => t > totalAnswered) || totalQuestionsTarget) - totalAnswered,
+        totalQuestionsTarget - totalAnswered
+      );
+      
+      const newBatch = selectQuestionBatch(
+        questionBank,
+        newAdaptiveState,
+        questionsNeeded,
+        { checkpoint: nextCheckpoint, diversifyTypes: true }
+      );
+      
+      if (newBatch.length > 0) {
+        setQuestions(newBatch);
+        setCurrentIndex(0);
+        setCurrentQuestion(newBatch[0]);
+        updateProgress((totalAnswered / totalQuestionsTarget) * 100);
+      } else {
+        // No more questions available - complete assessment
+        completeAssessmentFlow(response);
+      }
     } else {
-      // Complete assessment - calculate scores and save results
-      try {
-        // Get referral code, job token, and applicant info from localStorage if they exist
-        const referralCode = localStorage.getItem("referral-code");
-        const jobToken = localStorage.getItem("job-token");
-        const applicantEmail = localStorage.getItem(`applicant-email-${sessionId}`);
-        const applicantName = localStorage.getItem(`applicant-name-${sessionId}`);
-        
-        const completeResponse = await fetch("/api/assessment/complete", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            sessionId,
-            responses: [...responses, response],
-            userId: null, // Guest session - no user ID
-            referralCode: referralCode || null,
-            jobToken: jobToken || null,
-            applicantEmail: applicantEmail || null,
-            applicantName: applicantName || null,
-          }),
-        });
+      // Complete assessment
+      completeAssessmentFlow(response);
+    }
+  };
 
-        if (completeResponse.ok) {
-          const data = await completeResponse.json();
-          const resultData = data.result || data;
-          
-          // Store result in store for fallback access
-          setResult({
-            session_id: sessionId,
-            dimensional_scores: resultData.dimensional_scores || [],
-            completed: true,
-            created_at: new Date(),
-          });
-          
-          completeAssessment();
-          // Redirect to auth gate - requires sign in before viewing results
-          router.push(`/assessment/complete/${sessionId}`);
-        } else {
-          const errorData = await completeResponse.json().catch(() => ({}));
-          console.error("Failed to complete assessment:", errorData);
-          // Still redirect to auth gate
-          router.push(`/assessment/complete/${sessionId}`);
-        }
-      } catch (error) {
-        console.error("Error completing assessment:", error);
-        // Still redirect to auth gate - they might be in store
+  // Helper function to complete the assessment
+  const completeAssessmentFlow = async (finalResponse: QuestionResponse) => {
+    try {
+      // Get referral code, job token, and applicant info from localStorage if they exist
+      const referralCode = localStorage.getItem("referral-code");
+      const jobToken = localStorage.getItem("job-token");
+      const applicantEmail = localStorage.getItem(`applicant-email-${sessionId}`);
+      const applicantName = localStorage.getItem(`applicant-name-${sessionId}`);
+      
+      const allResponses = [...responses, finalResponse];
+      
+      const completeResponse = await fetch("/api/assessment/complete", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sessionId,
+          responses: allResponses,
+          userId: null, // Guest session - no user ID
+          referralCode: referralCode || null,
+          jobToken: jobToken || null,
+          applicantEmail: applicantEmail || null,
+          applicantName: applicantName || null,
+        }),
+      });
+
+      if (completeResponse.ok) {
+        const data = await completeResponse.json();
+        const resultData = data.result || data;
+        
+        // Store result in store for fallback access
+        setResult({
+          session_id: sessionId,
+          dimensional_scores: resultData.dimensional_scores || [],
+          completed: true,
+          created_at: new Date(),
+        });
+        
         completeAssessment();
+        // Redirect to auth gate - requires sign in before viewing results
+        router.push(`/assessment/complete/${sessionId}`);
+      } else {
+        const errorData = await completeResponse.json().catch(() => ({}));
+        console.error("Failed to complete assessment:", errorData);
+        // Still redirect to auth gate
         router.push(`/assessment/complete/${sessionId}`);
       }
+    } catch (error) {
+      console.error("Error completing assessment:", error);
+      // Still redirect to auth gate - they might be in store
+      completeAssessment();
+      router.push(`/assessment/complete/${sessionId}`);
     }
   };
 
@@ -301,12 +339,9 @@ export default function QuestionPage() {
                 const prevIndex = currentIndex - 1;
                 setCurrentIndex(prevIndex);
                 setCurrentQuestion(questions[prevIndex]);
-                // Update progress based on responses (questions answered before the previous one)
-                // Count how many responses exist for questions before the previous index
-                const responsesBeforePrev = responses.filter(
-                  (_, idx) => idx < prevIndex
-                ).length;
-                updateProgress((responsesBeforePrev / questions.length) * 100);
+                // Update progress - going back doesn't change total answered
+                const currentAnswered = adaptiveState?.questionsAnswered || 0;
+                updateProgress(((currentAnswered - 1) / totalQuestionsTarget) * 100);
               }
             }}
             disabled={currentIndex === 0}
@@ -314,7 +349,7 @@ export default function QuestionPage() {
             Previous
           </Button>
           <p className="text-sm text-muted-foreground self-center">
-            Question {currentIndex + 1} of {questions.length}
+            Question {(adaptiveState?.questionsAnswered || 0) + currentIndex + 1} of {totalQuestionsTarget}
           </p>
         </div>
       </QuestionContainer>

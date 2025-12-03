@@ -22,7 +22,11 @@ import {
   getAdaptiveStats,
   serializeAdaptiveState,
   deserializeAdaptiveState,
+  calculateFrameworkConfidence,
+  getShowableFrameworks,
   type AdaptiveState,
+  type FrameworkConfidence,
+  type ConfidenceLevel,
 } from "./adaptive-selection";
 import type { Question } from "@/types";
 
@@ -40,7 +44,12 @@ export {
   getAdaptiveStats,
   serializeAdaptiveState,
   deserializeAdaptiveState,
+  calculateFrameworkConfidence,
+  getShowableFrameworks,
 };
+
+// Re-export types
+export type { FrameworkConfidence, ConfidenceLevel };
 
 /**
  * Load all questions from the database

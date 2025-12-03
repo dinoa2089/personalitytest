@@ -960,3 +960,133 @@ export function getCurrentCheckpointNumber(questionsAnswered: number): number {
   return 1;
 }
 
+/**
+ * Framework confidence levels
+ */
+export type ConfidenceLevel = 'none' | 'low' | 'moderate' | 'high';
+
+export interface FrameworkConfidence {
+  level: ConfidenceLevel;
+  percentage: number;          // 0-100
+  canShow: boolean;            // Whether to show results at all
+  showWarning: boolean;        // Whether to show a low-confidence warning
+  message: string;             // User-facing message
+  questionsAnswered: number;   // Questions directly targeting this framework
+  questionsNeeded: number;     // Questions needed for high confidence
+}
+
+/**
+ * Calculate confidence level for each framework based on questions answered
+ * This determines what results to show and with what caveats
+ */
+export function calculateFrameworkConfidence(
+  questionsAnswered: number,
+  adaptiveState?: AdaptiveState
+): {
+  prism: FrameworkConfidence;
+  mbti: FrameworkConfidence;
+  enneagram: FrameworkConfidence;
+} {
+  // PRISM-7: Need at least 35 questions (5 per dimension)
+  const prismQuestions = Math.min(questionsAnswered, 35);
+  const prismPerDim = prismQuestions / 7;
+  const prismConfidence: FrameworkConfidence = {
+    level: prismPerDim >= 8 ? 'high' : prismPerDim >= 5 ? 'moderate' : prismPerDim >= 3 ? 'low' : 'none',
+    percentage: Math.min(100, Math.round((prismPerDim / 8) * 100)),
+    canShow: prismPerDim >= 3,
+    showWarning: prismPerDim < 5,
+    message: prismPerDim >= 5 
+      ? 'Your PRISM-7 profile is complete'
+      : prismPerDim >= 3 
+        ? 'Preliminary results - complete more questions for higher accuracy'
+        : 'Not enough data yet',
+    questionsAnswered: prismQuestions,
+    questionsNeeded: 35,
+  };
+  
+  // MBTI: Need checkpoint 2 (questions 36-55) - 20 questions total
+  // Plus cross-framework inference from PRISM
+  const mbtiDirectQuestions = Math.max(0, Math.min(questionsAnswered - 35, 20));
+  const mbtiWithInference = mbtiDirectQuestions + (prismPerDim >= 5 ? 8 : 0); // PRISM inference worth ~8 questions
+  const mbtiPerDim = mbtiWithInference / 4;
+  const mbtiConfidence: FrameworkConfidence = {
+    level: questionsAnswered < 35 ? 'none' 
+      : mbtiPerDim >= 6 ? 'high' 
+      : mbtiPerDim >= 4 ? 'moderate' 
+      : mbtiPerDim >= 2 ? 'low' 
+      : 'none',
+    percentage: questionsAnswered < 35 ? 0 : Math.min(100, Math.round((mbtiPerDim / 6) * 100)),
+    canShow: questionsAnswered >= 35 && mbtiPerDim >= 2,
+    showWarning: questionsAnswered < 55 || mbtiPerDim < 4,
+    message: questionsAnswered < 35 
+      ? 'Complete PRISM-7 assessment first (checkpoint 1)'
+      : mbtiPerDim >= 4 
+        ? 'Your MBTI type is determined with good confidence'
+        : 'Preliminary MBTI type - complete checkpoint 2 for higher accuracy',
+    questionsAnswered: mbtiDirectQuestions,
+    questionsNeeded: 20,
+  };
+  
+  // Enneagram: Need checkpoint 3 (questions 56-80) - 25 questions total
+  // Plus cross-framework inference from PRISM
+  const ennDirectQuestions = Math.max(0, Math.min(questionsAnswered - 55, 25));
+  const ennWithInference = ennDirectQuestions + (prismPerDim >= 5 ? 9 : 0); // PRISM inference worth ~9 questions
+  const ennPerType = ennWithInference / 9;
+  const enneagramConfidence: FrameworkConfidence = {
+    level: questionsAnswered < 55 ? 'none'
+      : ennPerType >= 4 ? 'high'
+      : ennPerType >= 2 ? 'moderate'
+      : ennPerType >= 1 ? 'low'
+      : 'none',
+    percentage: questionsAnswered < 55 ? 0 : Math.min(100, Math.round((ennPerType / 4) * 100)),
+    canShow: questionsAnswered >= 55 && ennPerType >= 1,
+    showWarning: questionsAnswered < 80 || ennPerType < 2,
+    message: questionsAnswered < 55
+      ? 'Complete MBTI assessment first (checkpoint 2)'
+      : ennPerType >= 2
+        ? 'Your Enneagram type is determined with good confidence'
+        : 'Preliminary Enneagram type - complete checkpoint 3 for higher accuracy',
+    questionsAnswered: ennDirectQuestions,
+    questionsNeeded: 25,
+  };
+  
+  return {
+    prism: prismConfidence,
+    mbti: mbtiConfidence,
+    enneagram: enneagramConfidence,
+  };
+}
+
+/**
+ * Get which frameworks should be shown in results based on assessment progress
+ */
+export function getShowableFrameworks(questionsAnswered: number): {
+  showPrism: boolean;
+  showMbti: boolean;
+  showEnneagram: boolean;
+  showDetailedInsights: boolean;
+  continuePrompt?: string;
+} {
+  const confidence = calculateFrameworkConfidence(questionsAnswered);
+  
+  let continuePrompt: string | undefined;
+  
+  if (questionsAnswered < 35) {
+    continuePrompt = 'Complete the assessment to see your PRISM-7 personality profile';
+  } else if (questionsAnswered < 55) {
+    continuePrompt = 'Continue to checkpoint 2 to unlock your MBTI type';
+  } else if (questionsAnswered < 80) {
+    continuePrompt = 'Continue to checkpoint 3 to discover your Enneagram type';
+  } else if (questionsAnswered < 105) {
+    continuePrompt = 'Complete the full assessment for detailed facet-level insights';
+  }
+  
+  return {
+    showPrism: confidence.prism.canShow,
+    showMbti: confidence.mbti.canShow,
+    showEnneagram: confidence.enneagram.canShow,
+    showDetailedInsights: questionsAnswered >= 105,
+    continuePrompt,
+  };
+}
+

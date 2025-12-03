@@ -3,11 +3,20 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { FeatureGate } from "@/components/premium/FeatureGate";
+import { Button } from "@/components/ui/button";
+import { AlertCircle, Lock, ChevronRight } from "lucide-react";
 import type { DimensionScore, FrameworkMappings } from "@/types";
+import type { FrameworkConfidence } from "@/lib/questions";
 
 interface FrameworkMappingProps {
   scores: DimensionScore[];
   frameworks?: FrameworkMappings;
+  questionsAnswered?: number;  // Total questions answered
+  confidence?: {
+    mbti: FrameworkConfidence;
+    enneagram: FrameworkConfidence;
+  };
+  onContinueAssessment?: () => void;  // Callback to continue assessment
 }
 
 // CliftonStrengths-style themes mapped to dimensions
@@ -107,11 +116,23 @@ const enneagramTypes = [
   },
 ];
 
-export function FrameworkMapping({ scores, frameworks }: FrameworkMappingProps) {
+export function FrameworkMapping({ 
+  scores, 
+  frameworks,
+  questionsAnswered = 105, // Default to full assessment
+  confidence,
+  onContinueAssessment,
+}: FrameworkMappingProps) {
   const scoreMap = scores.reduce((acc, score) => {
     acc[score.dimension] = score.percentile;
     return acc;
   }, {} as Record<string, number>);
+
+  // Determine what to show based on questions answered
+  const showMbti = !confidence || confidence.mbti.canShow;
+  const showEnneagram = !confidence || confidence.enneagram.canShow;
+  const mbtiWarning = confidence?.mbti.showWarning;
+  const enneagramWarning = confidence?.enneagram.showWarning;
 
   // Use API-provided frameworks if available, otherwise calculate client-side
   const mbtiData = frameworks?.mbti;
@@ -213,34 +234,56 @@ export function FrameworkMapping({ scores, frameworks }: FrameworkMappingProps) 
           {/* MBTI */}
           <div>
             <h3 className="font-semibold mb-3">Myers-Briggs Type</h3>
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="inline-block rounded-lg bg-primary/10 px-4 py-2 mb-2"
-            >
-              <span className="text-2xl font-bold text-primary">{mbtiType}</span>
-              {mbtiData?.confidence && (
-                <span className="ml-2 text-sm text-muted-foreground">
-                  ({Math.round(mbtiData.confidence)}% confidence)
-                </span>
-              )}
-            </motion.div>
-            <p className="text-sm text-muted-foreground">
-              {mbtiData?.explanation || (
-                <>
-                  Based on your dimensional profile, your closest Myers-Briggs type is <strong>{mbtiType}</strong>.
-                        This mapping connects your PRISM-7 scores to the familiar Myers-Briggs framework.
-                </>
-              )}
-            </p>
-            {mbtiData?.dimensions && (
-              <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                {Object.entries(mbtiData.dimensions).map(([dim, data]) => (
-                  <div key={dim} className="flex justify-between">
-                    <span className="text-muted-foreground">{dim}:</span>
-                    <span className="font-medium">{data.value} ({Math.round(data.confidence)}%)</span>
+            {showMbti ? (
+              <>
+                {mbtiWarning && (
+                  <div className="flex items-center gap-2 text-amber-600 text-sm mb-3 p-2 bg-amber-50 rounded-lg">
+                    <AlertCircle className="h-4 w-4" />
+                    <span>{confidence?.mbti.message || 'Preliminary result - complete more questions for higher accuracy'}</span>
                   </div>
-                ))}
+                )}
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="inline-block rounded-lg bg-primary/10 px-4 py-2 mb-2"
+                >
+                  <span className="text-2xl font-bold text-primary">{mbtiType}</span>
+                  {(mbtiData?.confidence || confidence?.mbti.percentage) && (
+                    <span className="ml-2 text-sm text-muted-foreground">
+                      ({Math.round(mbtiData?.confidence || confidence?.mbti.percentage || 0)}% confidence)
+                    </span>
+                  )}
+                </motion.div>
+                <p className="text-sm text-muted-foreground">
+                  {mbtiData?.explanation || (
+                    <>
+                      Based on your dimensional profile, your closest Myers-Briggs type is <strong>{mbtiType}</strong>.
+                      This mapping connects your PRISM-7 scores to the familiar Myers-Briggs framework.
+                    </>
+                  )}
+                </p>
+                {mbtiData?.dimensions && (
+                  <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+                    {Object.entries(mbtiData.dimensions).map(([dim, data]) => (
+                      <div key={dim} className="flex justify-between">
+                        <span className="text-muted-foreground">{dim}:</span>
+                        <span className="font-medium">{data.value} ({Math.round(data.confidence)}%)</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="rounded-lg border border-dashed p-6 text-center">
+                <Lock className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
+                <p className="text-muted-foreground mb-3">
+                  {confidence?.mbti.message || 'Complete checkpoint 2 to unlock your MBTI type'}
+                </p>
+                {onContinueAssessment && (
+                  <Button variant="outline" size="sm" onClick={onContinueAssessment}>
+                    Continue Assessment <ChevronRight className="h-4 w-4 ml-1" />
+                  </Button>
+                )}
               </div>
             )}
           </div>
@@ -289,35 +332,57 @@ export function FrameworkMapping({ scores, frameworks }: FrameworkMappingProps) 
         {/* Enneagram */}
         <div>
           <h3 className="font-semibold mb-3">Enneagram Type</h3>
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="inline-block rounded-lg bg-purple-500/10 px-4 py-2 mb-2"
-          >
-            <span className="text-xl font-bold text-purple-600">
-              Type {"primary_type" in enneagram ? enneagram.primary_type : enneagram.type}: {"primary_type" in enneagram ? enneagramTypes.find(t => t.type === enneagram.primary_type)?.name : enneagram.name}
-            </span>
-            {"primary_probability" in enneagram && (
-              <span className="ml-2 text-sm text-muted-foreground">
-                ({Math.round(enneagram.primary_probability)}% match)
-              </span>
-            )}
-          </motion.div>
-          <p className="text-sm text-muted-foreground mb-2">
-            {"primary_type" in enneagram 
-              ? enneagramTypes.find(t => t.type === enneagram.primary_type)?.description || ""
-              : enneagram.description}
-          </p>
-          {"wing" in enneagram && enneagram.wing && (
-            <p className="text-sm text-muted-foreground mb-2">
-              Wing: Type {enneagram.wing} ({Math.round(enneagram.wing_probability)}% match)
-            </p>
+          {showEnneagram ? (
+            <>
+              {enneagramWarning && (
+                <div className="flex items-center gap-2 text-amber-600 text-sm mb-3 p-2 bg-amber-50 rounded-lg">
+                  <AlertCircle className="h-4 w-4" />
+                  <span>{confidence?.enneagram.message || 'Preliminary result - complete more questions for higher accuracy'}</span>
+                </div>
+              )}
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="inline-block rounded-lg bg-purple-500/10 px-4 py-2 mb-2"
+              >
+                <span className="text-xl font-bold text-purple-600">
+                  Type {"primary_type" in enneagram ? enneagram.primary_type : enneagram.type}: {"primary_type" in enneagram ? enneagramTypes.find(t => t.type === enneagram.primary_type)?.name : enneagram.name}
+                </span>
+                {("primary_probability" in enneagram || confidence?.enneagram.percentage) && (
+                  <span className="ml-2 text-sm text-muted-foreground">
+                    ({Math.round("primary_probability" in enneagram ? enneagram.primary_probability : confidence?.enneagram.percentage || 0)}% match)
+                  </span>
+                )}
+              </motion.div>
+              <p className="text-sm text-muted-foreground mb-2">
+                {"primary_type" in enneagram 
+                  ? enneagramTypes.find(t => t.type === enneagram.primary_type)?.description || ""
+                  : enneagram.description}
+              </p>
+              {"wing" in enneagram && enneagram.wing && (
+                <p className="text-sm text-muted-foreground mb-2">
+                  Wing: Type {enneagram.wing} ({Math.round(enneagram.wing_probability)}% match)
+                </p>
+              )}
+              <p className="text-xs text-muted-foreground">
+                {"explanation" in enneagram && enneagram.explanation 
+                  ? enneagram.explanation
+                  : "This Enneagram type was determined by analyzing patterns in your dimensional scores. Your wing types (adjacent numbers) may also resonate with you."}
+              </p>
+            </>
+          ) : (
+            <div className="rounded-lg border border-dashed p-6 text-center">
+              <Lock className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
+              <p className="text-muted-foreground mb-3">
+                {confidence?.enneagram.message || 'Complete checkpoint 3 to discover your Enneagram type'}
+              </p>
+              {onContinueAssessment && (
+                <Button variant="outline" size="sm" onClick={onContinueAssessment}>
+                  Continue Assessment <ChevronRight className="h-4 w-4 ml-1" />
+                </Button>
+              )}
+            </div>
           )}
-          <p className="text-xs text-muted-foreground">
-            {"explanation" in enneagram && enneagram.explanation 
-              ? enneagram.explanation
-              : "This Enneagram type was determined by analyzing patterns in your dimensional scores. Your wing types (adjacent numbers) may also resonate with you."}
-          </p>
         </div>
       </CardContent>
     </Card>
