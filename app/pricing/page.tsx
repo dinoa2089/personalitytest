@@ -175,6 +175,10 @@ export default function PricingPage() {
   }, [isLoaded, user, sessionId]);
 
   const handleCheckout = async (planKey: string) => {
+    if (!isLoaded) {
+      toast.error("Please wait while we load your account...");
+      return;
+    }
     if (!user?.id) {
       toast.error("Please sign in to purchase");
       return;
@@ -215,21 +219,8 @@ export default function PricingPage() {
     return purchaseStatus[productId as keyof MicroPurchaseStatus] || false;
   };
 
-  // Loading state
-  if (!isLoaded) {
-    return (
-      <div className="flex min-h-screen flex-col bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-        <Header />
-        <main className="flex-1 flex items-center justify-center">
-          <div className="text-center space-y-4">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500 mx-auto" />
-            <p className="text-slate-400">Loading pricing...</p>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+  // Note: We don't block on isLoaded - page content renders immediately
+  // Purchase status will update once auth loads
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">

@@ -116,9 +116,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                <Link href="/for-employers#pricing" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
                   <CreditCard className="w-3.5 h-3.5 text-amber-500" />
-                  Business Pricing
+                  Hiring Pricing
                 </Link>
               </li>
               <li>

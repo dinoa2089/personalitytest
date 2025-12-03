@@ -403,7 +403,7 @@ function EmployerLandingPage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
+      <section id="pricing" className="py-20 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="max-w-3xl mx-auto text-center mb-16"
