@@ -57,10 +57,7 @@ export async function POST(request: NextRequest) {
       console.error("Error updating question statistics:", err);
     });
 
-    // Check if Supabase is configured
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
+    // Save results to database (supabaseUrl/supabaseKey already checked above)
     if (supabaseUrl && supabaseKey) {
       // Try to save results to database
       try {
