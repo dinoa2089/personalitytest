@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 
 export async function GET(
   request: NextRequest,
@@ -8,67 +8,77 @@ export async function GET(
   try {
     const { sessionId } = await params;
 
-    // Check if Supabase is configured
+    // Use service role key to bypass RLS
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-    if (supabaseUrl && supabaseKey) {
-      const { data: result, error } = await supabase
-        .from("assessment_results")
+    if (!supabaseUrl || !supabaseServiceKey) {
+      return NextResponse.json({ error: "Database not configured" }, { status: 500 });
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseServiceKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    });
+
+    // Fetch results by session_id
+    const { data: result, error } = await supabase
+      .from("assessment_results")
+      .select(`
+        *,
+        metadata
+      `)
+      .eq("session_id", sessionId)
+      .single();
+
+    if (error || !result) {
+      console.error("Results not found:", error?.message || "No result for session", sessionId);
+      return NextResponse.json({ error: "Results not found" }, { status: 404 });
+    }
+
+    // If this is a business assessment, fetch applicant assessment details
+    if (result.metadata?.applicant_assessment_id) {
+      const { data: applicantAssessment } = await supabase
+        .from("applicant_assessments")
         .select(`
-          *,
-          metadata
+          fit_score,
+          fit_breakdown,
+          job_postings (
+            id,
+            title,
+            business_accounts (
+              company_name
+            )
+          )
         `)
-        .eq("session_id", sessionId)
+        .eq("id", result.metadata.applicant_assessment_id)
         .single();
 
-      if (!error && result) {
-        // If this is a business assessment, fetch applicant assessment details
-        if (result.metadata?.applicant_assessment_id) {
-          const { data: applicantAssessment } = await supabase
-            .from("applicant_assessments")
-            .select(`
-              fit_score,
-              fit_breakdown,
-              job_postings (
-                id,
-                title,
-                business_accounts (
-                  company_name
-                )
-              )
-            `)
-            .eq("id", result.metadata.applicant_assessment_id)
-            .single();
+      if (applicantAssessment) {
+        // Handle Supabase nested response - could be array or object
+        const jobPosting = Array.isArray(applicantAssessment.job_postings)
+          ? applicantAssessment.job_postings[0]
+          : applicantAssessment.job_postings;
+        const businessAccount = jobPosting?.business_accounts;
+        const companyName = Array.isArray(businessAccount)
+          ? businessAccount[0]?.company_name
+          : (businessAccount as { company_name?: string } | null)?.company_name;
 
-          if (applicantAssessment) {
-            // Handle Supabase nested response - could be array or object
-            const jobPosting = Array.isArray(applicantAssessment.job_postings)
-              ? applicantAssessment.job_postings[0]
-              : applicantAssessment.job_postings;
-            const businessAccount = jobPosting?.business_accounts;
-            const companyName = Array.isArray(businessAccount)
-              ? businessAccount[0]?.company_name
-              : (businessAccount as { company_name?: string } | null)?.company_name;
-
-            return NextResponse.json({
-              ...result,
-              fit_score: applicantAssessment.fit_score,
-              fit_breakdown: applicantAssessment.fit_breakdown,
-              job_info: {
-                title: jobPosting?.title,
-                company_name: companyName,
-              },
-            });
-          }
-        }
-        return NextResponse.json(result);
+        return NextResponse.json({
+          ...result,
+          fit_score: applicantAssessment.fit_score,
+          fit_breakdown: applicantAssessment.fit_breakdown,
+          job_info: {
+            title: jobPosting?.title,
+            company_name: companyName,
+          },
+        });
       }
     }
 
-    // If Supabase not configured or result not found, return 404
-    // Frontend will handle this gracefully
-    return NextResponse.json({ error: "Results not found" }, { status: 404 });
+    return NextResponse.json(result);
   } catch (error) {
     console.error("Error fetching results:", error);
     return NextResponse.json(
@@ -77,4 +87,3 @@ export async function GET(
     );
   }
 }
-
