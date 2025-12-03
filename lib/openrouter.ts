@@ -110,15 +110,30 @@ export async function generateStructuredContent<T>(
  * Available models on OpenRouter
  */
 export const AVAILABLE_MODELS = {
-  // Text generation models
+  // High-end reasoning models (best for job fit evaluation)
   "gemini-3-pro": "google/gemini-3-pro-preview",
+  "kimi-k2": "moonshotai/kimi-k2",
+  "claude-opus": "anthropic/claude-opus-4",
+  // Standard models
   "claude-sonnet": "anthropic/claude-sonnet-4",
   "gpt-4o": "openai/gpt-4o",
-  "claude-opus": "anthropic/claude-opus-4",
   // Image generation models
   "nano-banana-pro": "nana-banana/nano-banana-pro",
   "flux-schnell": "black-forest-labs/flux-schnell",
   "stable-diffusion-xl": "stabilityai/stable-diffusion-xl-base-1.0",
+} as const;
+
+/**
+ * Recommended models for different use cases
+ */
+export const MODEL_RECOMMENDATIONS = {
+  // Job fit evaluation - needs deep reasoning
+  jobFitEvaluation: "google/gemini-3-pro-preview",
+  jobFitEvaluationFallback: "moonshotai/kimi-k2",
+  // Quick analysis
+  quickAnalysis: "anthropic/claude-sonnet-4",
+  // Content generation
+  contentGeneration: "google/gemini-3-pro-preview",
 } as const;
 
 export type ModelKey = keyof typeof AVAILABLE_MODELS;
