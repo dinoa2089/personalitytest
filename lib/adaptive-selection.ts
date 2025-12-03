@@ -466,6 +466,13 @@ function calculateCheckpointRelevance(
   if (checkpoint === 1) {
     // Focus on PRISM - but also value dual-purpose questions that establish MBTI baseline
     relevance *= 1.5;
+    
+    // Extra boost for PRISM dimensions that have low response counts
+    const prismEstimate = state.prismEstimates[question.dimension];
+    if (prismEstimate && prismEstimate.responseCount < 5) {
+      relevance *= 1.5; // Prioritize under-sampled dimensions
+    }
+    
     // Slight boost for questions that also contribute to MBTI (getting ahead)
     if (hasMbtiTag) {
       relevance *= 1.2;
@@ -499,6 +506,12 @@ function calculateCheckpointRelevance(
         }
       }
     }
+    
+    // Continue boosting under-sampled PRISM dimensions
+    const prismEstimate = state.prismEstimates[question.dimension];
+    if (prismEstimate && prismEstimate.responseCount < 6) {
+      relevance *= 1.3; // Keep building PRISM coverage
+    }
   } else if (checkpoint === 3) {
     // Focus on Enneagram - strongly boost questions with Enneagram tags
     if (hasEnneagramTag) {
@@ -525,10 +538,22 @@ function calculateCheckpointRelevance(
         }
       }
     }
+    
+    // Continue boosting under-sampled PRISM dimensions
+    const prismEstimate = state.prismEstimates[question.dimension];
+    if (prismEstimate && prismEstimate.responseCount < 7) {
+      relevance *= 1.3; // Keep building PRISM coverage
+    }
   } else if (checkpoint === 4) {
     // Deep dive - prioritize highest uncertainty AND catch up on framework gaps
     const prismSE = state.prismEstimates[question.dimension]?.standardError || 25;
     relevance *= (1 + prismSE / 50);
+    
+    // Boost PRISM dimensions that are still under-sampled
+    const prismEstimate = state.prismEstimates[question.dimension];
+    if (prismEstimate && prismEstimate.responseCount < 8) {
+      relevance *= 1.5; // Catch up on PRISM coverage
+    }
     
     // Boost MBTI questions if any dimension is under-sampled
     if (hasMbtiTag) {
