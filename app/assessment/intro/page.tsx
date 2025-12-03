@@ -255,6 +255,21 @@ function AssessmentIntroContent() {
                 <br className="hidden sm:block" />
                 <span className="text-foreground font-medium">Your results will be shared with the employer.</span>
               </p>
+              
+              {/* Primary CTA for Job Applicants - Above the fold */}
+              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button 
+                  size="lg" 
+                  onClick={() => handleStart("standard")} 
+                  disabled={isStarting}
+                  className="text-lg px-12 py-7 h-auto bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full"
+                >
+                  {isStarting ? "Starting..." : "Start Assessment →"}
+                </Button>
+                <p className="text-sm text-muted-foreground">
+                  ~19 minutes • Pre-paid by employer
+                </p>
+              </div>
             </div>
           )}
 
@@ -271,6 +286,21 @@ function AssessmentIntroContent() {
                 <br className="hidden sm:block" />
                 <span className="text-foreground font-medium">Start in 8 minutes, go deeper anytime</span>
               </p>
+              
+              {/* Primary CTA - Above the fold */}
+              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button 
+                  size="lg" 
+                  onClick={() => handleStart("standard")} 
+                  disabled={isStarting}
+                  className="text-lg px-12 py-7 h-auto bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full"
+                >
+                  {isStarting ? "Starting..." : "Take the Assessment →"}
+                </Button>
+                <p className="text-sm text-muted-foreground">
+                  Free • No signup required • 8 min
+                </p>
+              </div>
             </div>
           )}
 
