@@ -282,8 +282,7 @@ export const mockQuestions: Question[] = [
     "options": [
       {
         "text": "I sometimes feel entitled to special treatment",
-        "dimension": "honestyHumility",
-        "reverse_scored": true
+        "dimension": "honestyHumility"
       },
       {
         "text": "I value fairness above personal gain",

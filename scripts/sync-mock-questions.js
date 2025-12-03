@@ -24,8 +24,18 @@ const questions = data.questions.map(q => {
   };
   
   // Add options for forced_choice and situational_judgment
+  // Clean options to only include text and dimension (no reverse_scored in options)
   if (q.options && q.options.length > 0) {
-    base.options = q.options;
+    base.options = q.options.map(opt => {
+      if (typeof opt === 'string') {
+        return opt;
+      }
+      // Only keep text and dimension for ForcedChoiceOption
+      return {
+        text: opt.text,
+        dimension: opt.dimension
+      };
+    });
   }
   
   return base;
