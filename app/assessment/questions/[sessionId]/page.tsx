@@ -5,6 +5,8 @@ import { useRouter, useParams } from "next/navigation";
 import { useAssessmentStore } from "@/store/assessment-store";
 import { QuestionContainer } from "@/components/assessment/QuestionContainer";
 import { LikertScale } from "@/components/assessment/questions/LikertScale";
+import { SliderScale } from "@/components/assessment/questions/SliderScale";
+import { BinaryChoice } from "@/components/assessment/questions/BinaryChoice";
 import { ForcedChoiceTriad } from "@/components/assessment/questions/ForcedChoiceTriad";
 import { SituationalJudgment } from "@/components/assessment/questions/SituationalJudgment";
 import { BehavioralFrequency } from "@/components/assessment/questions/BehavioralFrequency";
@@ -303,15 +305,57 @@ export default function QuestionPage() {
     );
   }
 
+  // Determine which likert variant to show based on question characteristics
+  // This creates variety while being deterministic (same question = same style)
+  const getLikertVariant = (question: Question, index: number): "emoji" | "slider" | "binary" => {
+    // Use question ID hash to determine variant consistently
+    const hash = question.id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    
+    // Binary choice for simpler, more direct questions (every 5th likert question)
+    // These work best for clear-cut statements
+    if (index % 5 === 4 && !question.reverse_scored) {
+      return "binary";
+    }
+    
+    // Slider for every 3rd question to add variety
+    if (hash % 3 === 0) {
+      return "slider";
+    }
+    
+    // Default to emoji scale
+    return "emoji";
+  };
+
   const renderQuestionComponent = () => {
     switch (currentQuestion.type) {
-      case "likert":
+      case "likert": {
+        const variant = getLikertVariant(currentQuestion, currentIndex);
+        
+        if (variant === "binary") {
+          return (
+            <BinaryChoice
+              question={currentQuestion}
+              onAnswer={(value) => handleAnswer(value)}
+            />
+          );
+        }
+        
+        if (variant === "slider") {
+          return (
+            <SliderScale
+              question={currentQuestion}
+              onAnswer={(value) => handleAnswer(value)}
+            />
+          );
+        }
+        
         return (
           <LikertScale
             question={currentQuestion}
             onAnswer={(value) => handleAnswer(value)}
           />
         );
+      }
       case "forced_choice":
         return (
           <ForcedChoiceTriad
