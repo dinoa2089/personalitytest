@@ -267,6 +267,7 @@ export async function POST(request: NextRequest) {
       success_url: successUrl.toString(),
       cancel_url: `${appUrl}/pricing?canceled=true`,
       client_reference_id: userId,
+      allow_promotion_codes: true, // Allow testers to use promo codes like 107TYPES
       metadata: {
         userId,
         plan,

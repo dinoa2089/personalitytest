@@ -19,20 +19,28 @@ async function createCoupon() {
   try {
     console.log('🎟️  Creating 100% off coupon...\n');
 
-    // Create the coupon
-    const coupon = await stripe.coupons.create({
-      id: '107TYPES',
-      name: '107 Types - 100% Off',
-      percent_off: 100,
-      duration: 'forever',
-      max_redemptions: 100, // Limit to 100 uses for safety
-      metadata: {
-        purpose: 'testing',
-        created_by: 'script',
-      },
-    });
+    let coupon;
+    
+    // Try to get existing coupon first
+    try {
+      coupon = await stripe.coupons.retrieve('107TYPES');
+      console.log('📋 Coupon "107TYPES" already exists!\n');
+    } catch (e) {
+      // Create new coupon if it doesn't exist
+      coupon = await stripe.coupons.create({
+        id: '107TYPES',
+        name: '107 Types - 100% Off',
+        percent_off: 100,
+        duration: 'forever',
+        max_redemptions: 100,
+        metadata: {
+          purpose: 'testing',
+          created_by: 'script',
+        },
+      });
+      console.log('✅ Coupon created successfully!\n');
+    }
 
-    console.log('✅ Coupon created successfully!\n');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('📋 Coupon Details:');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
@@ -45,47 +53,48 @@ async function createCoupon() {
     console.log(`   Valid:         ${coupon.valid ? 'Yes' : 'No'}`);
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
-    // Create a promotion code that users can enter
-    const promoCode = await stripe.promotionCodes.create({
-      coupon: coupon.id,
+    // Create a promotion code that users can enter at checkout
+    let promoCode;
+    
+    // Check for existing promo code
+    const existingPromos = await stripe.promotionCodes.list({
       code: '107TYPES',
-      max_redemptions: 100,
-      metadata: {
-        purpose: 'testing',
-      },
+      limit: 1,
     });
 
-    console.log('🏷️  Promotion Code created!\n');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('📋 Share this code with testers:');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log(`   Code:          ${promoCode.code}`);
-    console.log(`   Promo ID:      ${promoCode.id}`);
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
+    if (existingPromos.data.length > 0) {
+      promoCode = existingPromos.data[0];
+      console.log('🏷️  Promotion code already exists!\n');
+    } else {
+      promoCode = await stripe.promotionCodes.create({
+        coupon: '107TYPES',
+        code: '107TYPES',
+        max_redemptions: 100,
+        metadata: {
+          purpose: 'testing',
+        },
+      });
+      console.log('🏷️  Promotion Code created!\n');
+    }
 
-    console.log('💡 Users can enter "107TYPES" at checkout to get 100% off!');
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('🎉 SHARE THIS CODE WITH TESTERS:');
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('');
+    console.log('   ╔═══════════════════════════╗');
+    console.log('   ║        107TYPES           ║');
+    console.log('   ╚═══════════════════════════╝');
+    console.log('');
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
+    console.log('💡 Users enter "107TYPES" at Stripe checkout to get 100% off!');
+    console.log('');
 
   } catch (error) {
-    if (error.code === 'resource_already_exists') {
-      console.log('⚠️  Coupon "107TYPES" already exists!\n');
-      
-      // Fetch existing coupon details
-      try {
-        const existingCoupon = await stripe.coupons.retrieve('107TYPES');
-        console.log('📋 Existing Coupon Details:');
-        console.log(`   ID:            ${existingCoupon.id}`);
-        console.log(`   Discount:      ${existingCoupon.percent_off}% off`);
-        console.log(`   Times Used:    ${existingCoupon.times_redeemed}`);
-        console.log(`   Valid:         ${existingCoupon.valid ? 'Yes' : 'No'}`);
-        console.log('\n💡 Users can enter "107TYPES" at checkout!');
-      } catch (e) {
-        console.log('Could not fetch existing coupon:', e.message);
-      }
-    } else {
-      console.error('❌ Error creating coupon:', error.message);
+    console.error('❌ Error:', error.message);
+    if (error.raw) {
+      console.error('   Details:', error.raw.message);
     }
   }
 }
 
 createCoupon();
-
