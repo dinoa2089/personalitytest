@@ -1,0 +1,943 @@
+{
+  "description": "Rewritten likert questions with unique phrasing, proper framework tags for MBTI and Enneagram",
+  "version": "2.0",
+  "questions": [
+    {
+      "id": "03033aee-d3bd-49b4-9a66-0ff166e575ca",
+      "dimension": "openness",
+      "text": "I trust tangible facts and evidence more than theoretical possibilities.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "036a497d-6268-456c-8144-aeba07c89ef1",
+      "dimension": "openness",
+      "text": "I feel uncomfortable starting a project when the objectives are vague or undefined.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "044dd035-a818-4ae1-b0bc-584e4e335d71",
+      "dimension": "openness",
+      "text": "I often feel that something essential is missing from my life that I cannot quite define.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_4"]
+    },
+    {
+      "id": "12a380fd-fc5a-4408-ad60-b0291a3bbced",
+      "dimension": "openness",
+      "text": "I enjoy analyzing my own emotional reactions to understand what they reveal about me.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_4"]
+    },
+    {
+      "id": "17322dc2-83c9-4bbe-9e60-105eb29a830d",
+      "dimension": "openness",
+      "text": "I need regular time alone to explore my thoughts and interests without interruption.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_5"]
+    },
+    {
+      "id": "23130e11-0951-497e-aac0-70c483ecf885",
+      "dimension": "openness",
+      "text": "I engage in discussions about the deeper meaning behind current events and trends.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "2c4fc461-3ced-425c-ba80-56fe2f81cea8",
+      "dimension": "openness",
+      "text": "I pay more attention to concrete physical details than to abstract atmosphere or meaning.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "39ec8371-c397-4779-b888-2fa724c17b52",
+      "dimension": "openness",
+      "text": "Living a conventional, predictable life feels stifling to me.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_4", "enneagram_7"]
+    },
+    {
+      "id": "3cf5c9fa-54e2-45bc-982d-bf7c3e499280",
+      "dimension": "openness",
+      "text": "For vacations, I choose destinations I have visited before to ensure enjoyment.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_openness"]
+    },
+    {
+      "id": "3de35668-00ef-4a73-85ea-448189177972",
+      "dimension": "openness",
+      "text": "I prefer communication that is literal and direct rather than metaphorical.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "45d4ca67-346c-49eb-8a86-1260ef703bae",
+      "dimension": "openness",
+      "text": "I value practical solutions that have worked before more than untested novel ideas.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "4698b603-9819-4c74-9e03-73734e52abef",
+      "dimension": "openness",
+      "text": "I value emotional depth and authenticity even when it involves pain or discomfort.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_4"]
+    },
+    {
+      "id": "48c4d429-8b8a-4f9d-8c0d-0f8354b65b3e",
+      "dimension": "openness",
+      "text": "I actively seek out films, music, and books from cultures very different from my own.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "56ce2c49-487a-4f0c-abc3-c572556f103b",
+      "dimension": "openness",
+      "text": "When facing complex issues, I enjoy brainstorming abstract possibilities even if impractical.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "579373b7-9e00-47d9-9328-2956ec08af18",
+      "dimension": "openness",
+      "text": "I follow a consistent daily routine to maximize efficiency.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_openness"]
+    },
+    {
+      "id": "57b02ae0-6f53-4d7e-b4d9-25cba6707050",
+      "dimension": "openness",
+      "text": "I prefer to research and understand topics deeply before forming opinions.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_5"]
+    },
+    {
+      "id": "5c17cd51-458f-443b-94f1-d136f71761f9",
+      "dimension": "openness",
+      "text": "I spend free time researching topics unrelated to my work or daily responsibilities.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_5"]
+    },
+    {
+      "id": "637b8834-57f0-49ae-9d4f-b07919c14d9d",
+      "dimension": "openness",
+      "text": "I volunteer for tasks that require learning entirely new skill sets.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_7"]
+    },
+    {
+      "id": "68f68fd8-de60-4bc7-9a55-6df6fe454d1c",
+      "dimension": "openness",
+      "text": "I find exploring new ideas and concepts genuinely exciting.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "7060c2f6-354b-45bf-b3f5-a7ead18665f0",
+      "dimension": "openness",
+      "text": "I focus on immediate realities rather than speculating about future implications.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    {
+      "id": "7ff86dac-3e68-4ecf-80a6-bb4d7db3edad",
+      "dimension": "openness",
+      "text": "I want my life to feel like an open-ended adventure rather than a predictable path.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_7"]
+    },
+    {
+      "id": "90d5c14b-4087-4139-becb-e2dd38f79c6b",
+      "dimension": "openness",
+      "text": "I feel anxious when my options are limited or I feel tied down to one path.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "enneagram_7"]
+    },
+    {
+      "id": "f5b242b5-bfe8-47af-bfb0-cf9799730d89",
+      "dimension": "openness",
+      "text": "I find abstract concepts and theoretical discussions genuinely engaging.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_openness", "mbti_sn"]
+    },
+    
+    {
+      "id": "07b2c2af-b392-4209-8566-68c06c166960",
+      "dimension": "conscientiousness",
+      "text": "I create detailed plans before starting any significant project.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "0c0160ff-bd3f-479a-b525-eb598a84fa98",
+      "dimension": "conscientiousness",
+      "text": "I complete tasks well before deadlines to avoid last-minute stress.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "159e2d02-836d-4753-84b8-7fa19bc45e8a",
+      "dimension": "conscientiousness",
+      "text": "I return items to their designated places immediately after using them.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "24947478-c409-4cd8-b8bd-5c84be24d2dc",
+      "dimension": "conscientiousness",
+      "text": "I set high standards for myself and work persistently to meet them.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "enneagram_1", "enneagram_3"]
+    },
+    {
+      "id": "3896cc47-946d-4fe9-a882-19e939fd3a20",
+      "dimension": "conscientiousness",
+      "text": "I allow my workspace to become cluttered before taking time to organize it.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "40132e24-429b-4c4c-adf8-29bdb8070bb2",
+      "dimension": "conscientiousness",
+      "text": "I prefer approaching my day without a specific schedule or plan.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "534cdaee-a3db-45bc-b750-c6fd36a485e6",
+      "dimension": "conscientiousness",
+      "text": "I hold myself to higher standards than what others typically expect of me.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "enneagram_1"]
+    },
+    {
+      "id": "54229708-2202-48e1-b047-eb9ed1456036",
+      "dimension": "conscientiousness",
+      "text": "I prefer working where expectations are clear and procedures are standardized.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp", "enneagram_6"]
+    },
+    {
+      "id": "6272db81-0566-445f-b2dd-ab759dda40ac",
+      "dimension": "conscientiousness",
+      "text": "When I make a verbal commitment, I follow through even if it becomes inconvenient.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "enneagram_1"]
+    },
+    {
+      "id": "72b395f5-f3e0-40d5-b582-3b5281febeae",
+      "dimension": "conscientiousness",
+      "text": "I often leave tasks unfinished when I lose interest in them.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "7fba0e7e-78cb-4b62-9f5e-a73a2d31d651",
+      "dimension": "conscientiousness",
+      "text": "I rely heavily on to-do lists and calendars to stay organized.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "8478638c-4f67-47cd-9b1b-31b360013ec0",
+      "dimension": "conscientiousness",
+      "text": "I feel my worth is closely tied to my tangible accomplishments.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "enneagram_3"]
+    },
+    {
+      "id": "87398a1d-44bd-4497-a655-5f532d5b644f",
+      "dimension": "conscientiousness",
+      "text": "I make decisions impulsively without analyzing potential consequences.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "896b24ea-3f34-4b73-881a-4bfa3c571d57",
+      "dimension": "conscientiousness",
+      "text": "I feel internal tension when I see a task performed below its potential quality.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "enneagram_1"]
+    },
+    {
+      "id": "8a1fe63c-8284-4e59-953d-d142065ad59b",
+      "dimension": "conscientiousness",
+      "text": "I prepare detailed checklists before starting complex activities.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "8b863f34-be6b-4e94-b62a-2078ac7ac2e0",
+      "dimension": "conscientiousness",
+      "text": "I feel most comfortable when my daily activities are planned in advance.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp", "enneagram_6"]
+    },
+    {
+      "id": "8f82d2a7-bff2-4704-952e-97a69b0fb63b",
+      "dimension": "conscientiousness",
+      "text": "I set specific, measurable goals to track my personal progress.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "enneagram_3"]
+    },
+    {
+      "id": "8fee9587-840f-4e29-a9a0-43f698379bd4",
+      "dimension": "conscientiousness",
+      "text": "The thought of being seen as average or unremarkable causes me distress.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "enneagram_3"]
+    },
+    {
+      "id": "9f2ac7d4-cfbf-4234-8bf8-7f191c2a6bdb",
+      "dimension": "conscientiousness",
+      "text": "I review my work multiple times to identify and correct errors before submitting.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "enneagram_1"]
+    },
+    {
+      "id": "bdd71cfe-65a4-462e-9b14-b6b547ec595a",
+      "dimension": "conscientiousness",
+      "text": "I prioritize being efficient and effective over dwelling on emotional experiences.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "enneagram_3"]
+    },
+    {
+      "id": "bf43f384-ace5-4826-9179-54d095c4fadb",
+      "dimension": "conscientiousness",
+      "text": "I find unexpected changes to my schedule more stressful than exciting.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    {
+      "id": "c589c7cb-ec79-4f6a-b4ad-bd69fd63a288",
+      "dimension": "conscientiousness",
+      "text": "I prefer to settle decisions quickly rather than keeping options open.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_conscientiousness", "mbti_jp"]
+    },
+    
+    {
+      "id": "0308d329-5a01-49a4-a297-611d268fab9c",
+      "dimension": "extraversion",
+      "text": "Spending time in a lively social setting recharges my energy.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "09cb9585-b41f-484e-b2b0-8c156a9a84c8",
+      "dimension": "extraversion",
+      "text": "I prefer a schedule filled with varied activities and different people.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_7"]
+    },
+    {
+      "id": "0ef7b495-45d8-42bb-b97b-9a262c5b6098",
+      "dimension": "extraversion",
+      "text": "When working on projects, I look for opportunities to collaborate with others.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_2"]
+    },
+    {
+      "id": "17b450d9-daa1-4c67-8442-fcddd08c8edf",
+      "dimension": "extraversion",
+      "text": "I actively seek out fast-paced environments full of activity.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_7", "enneagram_8"]
+    },
+    {
+      "id": "1f960deb-01e0-4696-8eff-606f6dc4d0e6",
+      "dimension": "extraversion",
+      "text": "I need to discuss my ideas verbally with others to fully understand my own thinking.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "48bc414c-20ef-4572-a048-f330ca4c5be9",
+      "dimension": "extraversion",
+      "text": "I prefer working independently rather than collaborating with others.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "4f8b0bc6-aee6-44e4-af98-c88838d45455",
+      "dimension": "extraversion",
+      "text": "I prefer spending free evenings with solitary hobbies rather than going out.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "51a1886e-de1c-4478-a7cd-481c04bc479b",
+      "dimension": "extraversion",
+      "text": "I initiate conversations with people I do not know at social events.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "53f190d5-68be-4b0e-a54c-dfa70a56b07b",
+      "dimension": "extraversion",
+      "text": "I keep my weekly schedule filled with various activities and commitments.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_3"]
+    },
+    {
+      "id": "555bfb82-5b00-410d-901e-ea71e015ba57",
+      "dimension": "extraversion",
+      "text": "When facing problems, my instinct is to act immediately rather than contemplate.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_8"]
+    },
+    {
+      "id": "5a41efed-77ae-4c55-8cae-8ea787b689b9",
+      "dimension": "extraversion",
+      "text": "I express my enthusiasm openly and visibly when I hear good news.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_7"]
+    },
+    {
+      "id": "7018a820-3291-4e6f-bc98-d2ec5922f81e",
+      "dimension": "extraversion",
+      "text": "I feel drained after spending several hours in a large group.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "7537e131-f87e-4fa3-8346-9f0cde2b068d",
+      "dimension": "extraversion",
+      "text": "In meetings, I wait for others to speak before sharing my own opinions.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "7d59cf7a-8379-40e6-8475-86674c2b4e75",
+      "dimension": "extraversion",
+      "text": "I speak up as soon as a thought occurs to me rather than formulating it first.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "84a6794b-0c0b-498f-9580-dff85d745827",
+      "dimension": "extraversion",
+      "text": "I prefer to blend into the background during large gatherings.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "8fa55afe-ed42-44ed-a274-4e622b7465a8",
+      "dimension": "extraversion",
+      "text": "Fast-paced, noisy environments feel stimulating rather than overwhelming to me.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_7"]
+    },
+    {
+      "id": "b6a2a54d-55f7-453a-92b9-217a67cb0ab1",
+      "dimension": "extraversion",
+      "text": "I feel comfortable speaking up in group settings.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "c3f1d989-b2a4-4dc4-b2d0-bdee77458eb5",
+      "dimension": "extraversion",
+      "text": "I volunteer to take charge when a group lacks clear direction.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_8", "enneagram_3"]
+    },
+    {
+      "id": "c9bb7522-0f1f-4ce2-a79e-cabc1ec8eef7",
+      "dimension": "extraversion",
+      "text": "I bring issues out into the open immediately even if it causes friction.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_8"]
+    },
+    {
+      "id": "d2031ee2-50e4-44c3-ab3b-e1b5e639eb8e",
+      "dimension": "extraversion",
+      "text": "I feel energized after spending time with a large group of people.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "dcc45ce3-efe9-48c3-877a-246509838fae",
+      "dimension": "extraversion",
+      "text": "In groups, I am usually the one who initiates conversations and introduces people.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "mbti_ei", "enneagram_2"]
+    },
+    {
+      "id": "e2e2ed5f-3c5e-4984-81fb-42b54189623e",
+      "dimension": "extraversion",
+      "text": "I need significant quiet time alone to recharge after social activities.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_extraversion", "mbti_ei"]
+    },
+    {
+      "id": "e83843bb-b3f8-406a-9ada-675594141963",
+      "dimension": "extraversion",
+      "text": "I test people's loyalty before feeling safe enough to trust them fully.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_extraversion", "enneagram_6", "enneagram_8"]
+    },
+    
+    {
+      "id": "38a6d39f-c451-4a11-802d-4c1ed97711ec",
+      "dimension": "agreeableness",
+      "text": "I express my frustration directly and immediately when someone makes a mistake.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "3c867a51-ea9a-4e78-a008-b0200e674da1",
+      "dimension": "agreeableness",
+      "text": "I minimize my own needs to avoid becoming a burden or source of conflict.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_9", "enneagram_2"]
+    },
+    {
+      "id": "41408688-aff5-4e29-a261-54d3ace18bcb",
+      "dimension": "agreeableness",
+      "text": "I worry that people might distance themselves if I stop being helpful.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_2"]
+    },
+    {
+      "id": "419955d6-c449-404d-9430-809f92ee67eb",
+      "dimension": "agreeableness",
+      "text": "Being logically consistent matters more to me than maintaining group harmony.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "48c14eef-6b94-4355-bd14-b9ee6a6db46b",
+      "dimension": "agreeableness",
+      "text": "I rely primarily on objective facts and logic rather than personal values when deciding.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "48e18781-5422-440a-8bbb-e87111416c95",
+      "dimension": "agreeableness",
+      "text": "I resume friendly relations quickly after having an argument with someone.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_9"]
+    },
+    {
+      "id": "4977dfd3-fe7d-4492-87e7-4ccfac9dcf4a",
+      "dimension": "agreeableness",
+      "text": "I am comfortable making unpopular decisions if they are the most efficient option.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "4e895e8c-c87b-435c-82a2-160f2e0b2385",
+      "dimension": "agreeableness",
+      "text": "I accept group decisions I dislike to avoid causing tension among members.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_9"]
+    },
+    {
+      "id": "5c95a280-2ffa-4459-aa4c-ef4496a76f04",
+      "dimension": "agreeableness",
+      "text": "I listen patiently to others' personal problems even when I have a busy schedule.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_2"]
+    },
+    {
+      "id": "638f627f-26c5-4bc4-aa79-0906c90d1259",
+      "dimension": "agreeableness",
+      "text": "I naturally detach emotionally from problems to analyze them objectively.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "6b63926b-dbd2-4f09-8c95-aa5bd2e1b468",
+      "dimension": "agreeableness",
+      "text": "I follow established rules even when bypassing them would benefit me personally.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "enneagram_1"]
+    },
+    {
+      "id": "7dd0ea59-14f7-4768-86de-5f5db147e2be",
+      "dimension": "agreeableness",
+      "text": "I suppress my own difficulties so I can be a source of strength for others.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_2"]
+    },
+    {
+      "id": "8707dcda-7e14-498d-92f2-d1298bbf4f82",
+      "dimension": "agreeableness",
+      "text": "I prioritize others' needs above my own in most situations.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_2", "enneagram_9"]
+    },
+    {
+      "id": "88bf0b0f-5f0c-42f3-b087-39ce172e1c26",
+      "dimension": "agreeableness",
+      "text": "Rules and principles should be applied strictly to everyone regardless of circumstances.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "a6324b7b-c090-4b4f-b87d-0893b4981ad4",
+      "dimension": "agreeableness",
+      "text": "In disagreements, I focus on proving my point rather than finding middle ground.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "af697ee4-f2fa-402a-a8d3-69bf1a2bd673",
+      "dimension": "agreeableness",
+      "text": "When tension arises in relationships, I smooth things over rather than confront issues.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_9"]
+    },
+    {
+      "id": "b22a2131-28dd-40c2-9aef-314c277e0458",
+      "dimension": "agreeableness",
+      "text": "I am quick to point out when I think someone is wrong.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "b8e1cb2d-1319-4686-94f8-6618c37c0f8c",
+      "dimension": "agreeableness",
+      "text": "I feel most secure in relationships when actively contributing to others' wellbeing.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_2"]
+    },
+    {
+      "id": "ccbd5195-a10d-437a-ba81-8193c31a73cb",
+      "dimension": "agreeableness",
+      "text": "When meeting new people, I assume their intentions are good until proven otherwise.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_9"]
+    },
+    {
+      "id": "ce6039bf-247c-4471-9eed-e3c3605b10cb",
+      "dimension": "agreeableness",
+      "text": "I sometimes feel unsure what I want because I focus so much on others' preferences.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_9"]
+    },
+    {
+      "id": "cf27901a-cd85-4757-a093-821971cb48db",
+      "dimension": "agreeableness",
+      "text": "I set aside my own tasks to help colleagues who are struggling with their workload.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "mbti_tf", "enneagram_2"]
+    },
+    {
+      "id": "d19bd882-f1f7-48ac-a4f1-c6d3b97f7318",
+      "dimension": "agreeableness",
+      "text": "In debates, arriving at factual truth matters more than ensuring everyone feels heard.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "e98ae941-eec3-4d94-8dd8-f7bbd5e381bb",
+      "dimension": "agreeableness",
+      "text": "I look for hidden motives when someone unexpectedly offers me a favor.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "eb2072a7-3de5-4a52-b673-eca304ae43e3",
+      "dimension": "agreeableness",
+      "text": "I believe most people have good intentions.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_agreeableness", "enneagram_9"]
+    },
+    {
+      "id": "ed95f2a8-2f2d-46f2-b4ed-c717c0c26bb5",
+      "dimension": "agreeableness",
+      "text": "When giving feedback, I prioritize honest critique over softening the message.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "mbti_tf"]
+    },
+    {
+      "id": "ff64efd2-3d5b-4371-9a41-d2a35eb31289",
+      "dimension": "agreeableness",
+      "text": "I ensure my individual achievements are recognized even if it shifts focus from the team.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_agreeableness", "enneagram_3"]
+    },
+    
+    {
+      "id": "1ef5fcc6-fb90-48ea-a1d8-8bd3475dd342",
+      "dimension": "emotionalResilience",
+      "text": "I find myself worrying about potential outcomes long before they happen.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_emotionalResilience", "enneagram_6"]
+    },
+    {
+      "id": "24e24df7-f185-4356-be3d-843e98d9c876",
+      "dimension": "emotionalResilience",
+      "text": "I feel overwhelmed when I have multiple urgent tasks to complete at once.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_emotionalResilience", "enneagram_6"]
+    },
+    {
+      "id": "42108959-770c-4bff-9cd3-38fe411d152c",
+      "dimension": "emotionalResilience",
+      "text": "I bounce back quickly from setbacks and disappointments.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_emotionalResilience"]
+    },
+    {
+      "id": "58686f95-6f47-4aa7-9602-6d5d77b80d33",
+      "dimension": "emotionalResilience",
+      "text": "I maintain composure even when unexpected problems arise.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_emotionalResilience"]
+    },
+    {
+      "id": "5a6bdad1-98c6-423c-994b-58e41a4da720",
+      "dimension": "emotionalResilience",
+      "text": "Small setbacks can significantly impact my mood for hours.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_emotionalResilience", "enneagram_4"]
+    },
+    {
+      "id": "5f487031-e9bd-4f7b-952f-d607a218f5e8",
+      "dimension": "emotionalResilience",
+      "text": "I feel at ease when speaking in front of unfamiliar groups.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_emotionalResilience"]
+    },
+    {
+      "id": "6653b0cd-c0e4-44c7-a191-91a695f67ccd",
+      "dimension": "emotionalResilience",
+      "text": "It takes me a long time to recover mentally after a significant failure.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_emotionalResilience", "enneagram_4"]
+    },
+    {
+      "id": "7b9de131-910a-43be-8d05-b335e189f01d",
+      "dimension": "emotionalResilience",
+      "text": "I actively look for solutions rather than focusing on the emotional impact of problems.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_emotionalResilience"]
+    },
+    {
+      "id": "7e089711-6847-4ff6-bf37-6dcce399537c",
+      "dimension": "emotionalResilience",
+      "text": "I dwell on negative feedback for days after receiving it.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_emotionalResilience", "enneagram_4"]
+    },
+    {
+      "id": "b9ee2dcf-fae7-4ce7-aaba-30c1e4088a47",
+      "dimension": "emotionalResilience",
+      "text": "I resist the urge to make impulsive decisions when under pressure.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_emotionalResilience"]
+    },
+    {
+      "id": "d61ed9fa-5e3d-4036-86ae-c3bea61f03c4",
+      "dimension": "emotionalResilience",
+      "text": "I remain patient when dealing with difficult or irrational people.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_emotionalResilience"]
+    },
+    {
+      "id": "d8db3371-43fd-4791-9367-28fc801f9f5a",
+      "dimension": "emotionalResilience",
+      "text": "My mood remains consistent throughout the day regardless of minor annoyances.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_emotionalResilience"]
+    },
+    {
+      "id": "f2daecf9-7736-47dc-baf2-1c46d721218a",
+      "dimension": "emotionalResilience",
+      "text": "I remain calm under pressure.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_emotionalResilience"]
+    },
+    
+    {
+      "id": "00cbe0a4-d05a-4f55-a74f-4c90cf98de12",
+      "dimension": "honestyHumility",
+      "text": "I would accept a personal disadvantage rather than break a rule to get ahead.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_honestyHumility", "enneagram_1"]
+    },
+    {
+      "id": "38843c91-e83c-450a-84a6-35d037350460",
+      "dimension": "honestyHumility",
+      "text": "I flatter people I dislike if I think it will help me achieve my goals.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_honestyHumility"]
+    },
+    {
+      "id": "4300941e-67d1-4633-9c2c-27658768d349",
+      "dimension": "honestyHumility",
+      "text": "I feel I deserve better treatment than average people due to my unique qualities.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_honestyHumility"]
+    },
+    {
+      "id": "7f94cdbb-4ed3-4653-b9f6-57f14f723aca",
+      "dimension": "honestyHumility",
+      "text": "I value authenticity and being true to myself over social approval.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_honestyHumility", "enneagram_1"]
+    },
+    {
+      "id": "ade7034b-b39c-463e-b8f7-577d9328d856",
+      "dimension": "honestyHumility",
+      "text": "When group projects succeed, I emphasize team contributions rather than my own role.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_honestyHumility", "enneagram_2"]
+    },
+    {
+      "id": "b22e4910-3738-4dad-831b-f039e879750f",
+      "dimension": "honestyHumility",
+      "text": "I would never accept credit for someone else's work.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_honestyHumility", "enneagram_1"]
+    },
+    {
+      "id": "cc26dfc8-efa1-4a26-96bf-912ce300c3c3",
+      "dimension": "honestyHumility",
+      "text": "It is sometimes necessary to bend rules to get ahead in life.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_honestyHumility"]
+    },
+    {
+      "id": "cf26d14a-2f3a-40a9-9867-88c88db0369a",
+      "dimension": "honestyHumility",
+      "text": "I try to change the subject when conversations focus solely on my achievements.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_honestyHumility"]
+    },
+    {
+      "id": "cfca6ab2-c6ae-48e9-838d-3e05a4a79aac",
+      "dimension": "honestyHumility",
+      "text": "I am satisfied with a standard of living that covers my needs without luxury symbols.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_honestyHumility"]
+    },
+    {
+      "id": "e1592807-9dc0-4748-b05a-eb1fcce3bcc8",
+      "dimension": "honestyHumility",
+      "text": "If a store clerk undercharges me by mistake, I correct them immediately.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_honestyHumility", "enneagram_1"]
+    },
+    {
+      "id": "eb83b68b-355b-427e-8113-0176ae162a98",
+      "dimension": "honestyHumility",
+      "text": "I express my true opinions to superiors even when I know they disagree.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_honestyHumility", "enneagram_1"]
+    },
+    {
+      "id": "ed01aecb-7000-45a4-ae7c-933e5879086f",
+      "dimension": "honestyHumility",
+      "text": "If I noticed a contract flaw that favored me unfairly, I would keep quiet about it.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_honestyHumility"]
+    },
+    {
+      "id": "fc93feed-c2ed-40f0-8b23-beebedf27d2a",
+      "dimension": "honestyHumility",
+      "text": "I maintain relationships primarily because certain people are useful to my advancement.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_honestyHumility"]
+    },
+    
+    {
+      "id": "0bb51702-0f27-40de-949e-eb5eb4ee74a4",
+      "dimension": "adaptability",
+      "text": "I work most effectively where rules and expectations stay consistent over time.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_adaptability", "mbti_jp"]
+    },
+    {
+      "id": "22b0b255-373a-4e5a-968a-30a5ea461bc6",
+      "dimension": "adaptability",
+      "text": "When project goals change unexpectedly, I immediately adjust my workflow.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_adaptability", "mbti_jp", "enneagram_7"]
+    },
+    {
+      "id": "2a03985a-63ec-4bcb-bcb7-58043624b8c1",
+      "dimension": "adaptability",
+      "text": "I enjoy situations that force me to reconsider my perspective on an issue.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_adaptability", "enneagram_7"]
+    },
+    {
+      "id": "2d5368f2-4ff0-4e69-89a9-4e1f894b43fb",
+      "dimension": "adaptability",
+      "text": "When my initial problem-solving approach fails, I quickly switch to a different strategy.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_adaptability", "mbti_jp"]
+    },
+    {
+      "id": "2faee747-d199-4a07-b45e-3c325b851848",
+      "dimension": "adaptability",
+      "text": "I prefer using proven methods rather than experimenting with untested approaches.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_adaptability", "mbti_jp"]
+    },
+    {
+      "id": "40b85e80-484c-44d7-a8ee-ee54a1052b0b",
+      "dimension": "adaptability",
+      "text": "I find it stressful when my daily routine is disrupted.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_adaptability", "mbti_jp"]
+    },
+    {
+      "id": "7422c503-9d08-4a7c-9606-b2a07604e65d",
+      "dimension": "adaptability",
+      "text": "I feel uneasy when my routine is interrupted without warning.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_adaptability", "mbti_jp"]
+    },
+    {
+      "id": "7734b13d-3240-4cc1-a5ff-4f0428147e2c",
+      "dimension": "adaptability",
+      "text": "I adjust my vocabulary and tone based on who I am speaking with.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_adaptability", "enneagram_9"]
+    },
+    {
+      "id": "7b57b3af-89bb-4447-96a6-f6a774376ce9",
+      "dimension": "adaptability",
+      "text": "I actively seek opportunities to learn systems different from what I am used to.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_adaptability", "enneagram_7"]
+    },
+    {
+      "id": "836d3c69-2fe9-480c-bcd2-b948690b46e4",
+      "dimension": "adaptability",
+      "text": "I enjoy trying new approaches even when current methods work well.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_adaptability", "mbti_jp", "enneagram_7"]
+    },
+    {
+      "id": "8f568ccb-c550-4448-a97f-a3dabf51b219",
+      "dimension": "adaptability",
+      "text": "I easily adjust my plans when circumstances change.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_adaptability", "mbti_jp"]
+    },
+    {
+      "id": "ac15707b-75c2-47e0-9d43-cd400507d8a3",
+      "dimension": "adaptability",
+      "text": "I struggle to take action when I do not have a detailed plan in place.",
+      "reverse_scored": true,
+      "framework_tags": ["prism_adaptability", "mbti_jp"]
+    },
+    {
+      "id": "bda495c8-d64e-4ac1-a3cd-3f4008f62e7d",
+      "dimension": "adaptability",
+      "text": "I reprioritize my daily tasks immediately when I receive new critical information.",
+      "reverse_scored": false,
+      "framework_tags": ["prism_adaptability", "mbti_jp"]
+    }
+  ]
+}
