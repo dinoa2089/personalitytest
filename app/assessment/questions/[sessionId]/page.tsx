@@ -61,6 +61,8 @@ export default function QuestionPage() {
   
   // Track if we've initialized to prevent double loading
   const initialized = useRef(false);
+  // Track if assessment is completing to prevent race conditions
+  const isCompleting = useRef(false);
 
   useEffect(() => {
     if (initialized.current) return;
@@ -156,6 +158,8 @@ export default function QuestionPage() {
   }, [sessionId, router, setQuestions, setCurrentQuestion, updateProgress]);
 
   const handleAnswer = async (answer: string | number) => {
+    // Prevent processing if already completing/redirecting
+    if (isCompleting.current) return;
     if (!currentQuestion || !adaptiveState) return;
 
     const response: QuestionResponse = {
@@ -200,6 +204,7 @@ export default function QuestionPage() {
 
     // FIRST: Check if we've reached the target (assessment complete)
     if (totalAnswered >= totalQuestionsTarget) {
+      isCompleting.current = true;
       updateProgress(100);
       completeAssessmentFlow(response);
       return;
@@ -207,6 +212,7 @@ export default function QuestionPage() {
 
     // SECOND: Check if we've reached an intermediate checkpoint
     if (CHECKPOINT_THRESHOLDS.includes(totalAnswered)) {
+      isCompleting.current = true;
       updateProgress((totalAnswered / totalQuestionsTarget) * 100);
       router.push(`/assessment/checkpoint/${sessionId}`);
       return;
@@ -225,6 +231,7 @@ export default function QuestionPage() {
       
       if (questionsNeeded <= 0) {
         // Safety: Should have completed already, but just in case
+        isCompleting.current = true;
         completeAssessmentFlow(response);
         return;
       }
@@ -243,6 +250,7 @@ export default function QuestionPage() {
         updateProgress((totalAnswered / totalQuestionsTarget) * 100);
       } else {
         // No more questions available - complete assessment
+        isCompleting.current = true;
         completeAssessmentFlow(response);
       }
     }
