@@ -136,7 +136,8 @@ function shuffle<T>(arr: T[]): T[] {
  * 1. Satisfy minimum coverage constraints per dimension/type
  * 2. Fill remaining slots with discrimination-weighted random selection
  * 3. Verify and adjust reverse-score ratio
- * 4. Shuffle final order
+ * 4. Deduplicate questions with same/similar text
+ * 5. Shuffle final order
  */
 export function selectQuestions(
   questionBank: Question[],
@@ -146,15 +147,27 @@ export function selectQuestions(
   const config = TIER_CONFIGS[tier];
   const selected: Question[] = [];
   const usedIds = new Set<string>();
+  const usedTexts = new Set<string>(); // Track question texts to prevent duplicates
   
-  // Helper to add a question if not already selected
+  // Normalize text for comparison (lowercase, trim, remove punctuation)
+  const normalizeText = (text: string): string => {
+    return text.toLowerCase().trim().replace(/[^\w\s]/g, '');
+  };
+  
+  // Helper to add a question if not already selected and text is unique
   const addQuestion = (q: Question): boolean => {
-    if (!usedIds.has(q.id)) {
-      selected.push(q);
-      usedIds.add(q.id);
-      return true;
+    if (usedIds.has(q.id)) return false;
+    
+    const normalizedText = normalizeText(q.text);
+    // Skip if we already have a question with the same text
+    if (usedTexts.has(normalizedText)) {
+      return false;
     }
-    return false;
+    
+    selected.push(q);
+    usedIds.add(q.id);
+    usedTexts.add(normalizedText);
+    return true;
   };
   
   // Helper to get available questions matching criteria

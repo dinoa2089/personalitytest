@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Building2, Users, Target, BarChart3, CreditCard, Sparkles } from "lucide-react";
+import { Building2, CreditCard, Sparkles } from "lucide-react";
 
 // PRISM-7 Archetypes
 const prismTypes = [
@@ -107,31 +107,23 @@ export function Footer() {
               <li>
                 <Link href="/for-employers" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
                   <Building2 className="w-3.5 h-3.5 text-violet-500" />
-                  Hiring Solutions
+                  Employer Dashboard
                 </Link>
               </li>
               <li>
-                <Link href="/business/jobs/new" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
-                  <Target className="w-3.5 h-3.5 text-fuchsia-500" />
-                  Job Analysis
-                </Link>
-              </li>
-              <li>
-                <Link href="/business/teams" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
-                  <Users className="w-3.5 h-3.5 text-emerald-500" />
-                  Team Composition
-                </Link>
-              </li>
-              <li>
-                <Link href="/business/dashboard" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
-                  <BarChart3 className="w-3.5 h-3.5 text-blue-500" />
-                  Candidate Dashboard
+                <Link href="/for-employers#demo" className="text-muted-foreground hover:text-foreground transition-colors">
+                  How It Works
                 </Link>
               </li>
               <li>
                 <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
                   <CreditCard className="w-3.5 h-3.5 text-amber-500" />
                   Business Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Contact Sales
                 </Link>
               </li>
             </ul>

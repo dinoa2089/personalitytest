@@ -97,8 +97,7 @@ export default function ForEmployersLayout({
       />
       <Header />
       <main>{children}</main>
-      <Footer />
+      {/* Footer is rendered conditionally by the page component based on auth state */}
     </>
   );
 }
-

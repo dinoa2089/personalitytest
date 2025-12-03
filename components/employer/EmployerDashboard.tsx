@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -86,7 +86,20 @@ const navItems = [
   { id: "settings", label: "Settings", icon: Settings },
 ];
 
+// Wrapper component with Suspense for useSearchParams
 export function EmployerDashboard() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-violet-500" />
+      </div>
+    }>
+      <EmployerDashboardContent />
+    </Suspense>
+  );
+}
+
+function EmployerDashboardContent() {
   const { user, isLoaded } = useUser();
   const router = useRouter();
   const searchParams = useSearchParams();
