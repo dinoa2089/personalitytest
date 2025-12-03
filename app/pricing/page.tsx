@@ -9,128 +9,48 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { PurchaseCard, type PurchaseProduct } from "@/components/pricing/PurchaseCard";
 import {
   Check,
   Sparkles,
-  Users,
   Building2,
   Briefcase,
   Heart,
   TrendingUp,
   Layers,
-  Zap,
   Gift,
   ArrowRight,
   Shield,
   Star,
   Crown,
+  Brain,
+  Users,
   Target,
+  Zap,
 } from "lucide-react";
 import { toast } from "react-hot-toast";
 import Link from "next/link";
-import type { MicroPurchaseStatus } from "@/lib/subscriptions";
 
-// Micro-transaction products
-const microProducts: PurchaseProduct[] = [
-  {
-    id: "compatibility",
-    name: "Compatibility Report",
-    price: "$2.99",
-    priceValue: 2.99,
-    description: "See how you match with ONE friend, partner, or colleague",
-    icon: Heart,
-    features: [
-      "Detailed compatibility breakdown",
-      "Communication style comparison",
-      "Potential friction points",
-      "Tips for better collaboration",
-    ],
-    planKey: "compatibility",
-  },
-  {
-    id: "career",
-    name: "Career Deep Dive",
-    price: "$3.99",
-    priceValue: 3.99,
-    description: "Unlock your full career potential",
-    icon: Briefcase,
-    features: [
-      "15+ detailed career matches",
-      "Salary ranges & growth trends",
-      "Skills gap analysis",
-      "Interview tips per role",
-    ],
-    planKey: "career",
-  },
-  {
-    id: "frameworks",
-    name: "Framework Bundle",
-    price: "$2.99",
-    priceValue: 2.99,
-    description: "Complete personality framework mappings",
-    icon: Layers,
-    features: [
-      "Full MBTI type + cognitive functions",
-      "Enneagram with wing & tritype",
-      "DISC profile breakdown",
-      "Framework comparison chart",
-    ],
-    planKey: "frameworks",
-  },
-  {
-    id: "growth_plan",
-    name: "Growth Plan",
-    price: "$2.99",
-    priceValue: 2.99,
-    description: "Personalized development roadmap",
-    icon: TrendingUp,
-    features: [
-      "30-day challenge calendar",
-      "Daily micro-habits",
-      "Progress tracking guide",
-      "Weakness-to-strength exercises",
-    ],
-    planKey: "growth_plan",
-  },
-];
+// Simplified to just 2 products for individuals
+const FULL_RESULTS_PRICE = "$4.99";
+const FULL_RESULTS_PRICE_VALUE = 4.99;
 
-// Full unlock bundle
-const fullUnlockProduct: PurchaseProduct = {
-  id: "full_unlock",
-  name: "Full Unlock",
-  price: "$7.99",
-  priceValue: 7.99,
-  description: "Everything included — save ~$5",
-  icon: Crown,
-  features: [
-    "All 4 premium features above",
-    "Unlimited compatibility comparisons",
-    "Future feature updates included",
-    "Priority support",
-  ],
-  savings: "Save ~$5 vs individual",
-  popular: true,
-  planKey: "full_unlock",
-};
-
-// Free tier features
+// What's included in free vs paid
 const freeFeatures = [
-  "Full archetype name + description",
-  "All 7 dimensions with percentiles",
-  "Interactive radar chart",
-  "ONE random framework (type only)",
-  "Top 3 careers (titles only)",
-  "Shareable infographic",
-  "Compatibility teaser",
+  "Your primary archetype name",
+  "Basic 7-dimension overview",
+  "Radar chart visualization",
+  "Share your type badge",
 ];
 
-// Competitor comparison
-const competitors = [
-  { name: "Official MBTI", price: "$59.95", ourEquivalent: "$2.99" },
-  { name: "16Personalities Premium", price: "$32.99", ourEquivalent: "$7.99" },
-  { name: "Truity Career Test", price: "$29.00", ourEquivalent: "$3.99" },
-  { name: "Enneagram Institute", price: "$12.00", ourEquivalent: "$2.99" },
+const paidFeatures = [
+  "Complete dimensional breakdown with insights",
+  "All 15+ career matches with fit scores",
+  "Full MBTI & Enneagram mappings",
+  "Compatibility profile for relationships",
+  "Famous examples who share your type",
+  "Personalized growth recommendations",
+  "Downloadable PDF report",
+  "Shareable detailed infographic",
 ];
 
 export default function PricingPage() {
@@ -138,14 +58,8 @@ export default function PricingPage() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session") || null;
   
-  const [loading, setLoading] = useState<string | null>(null);
-  const [purchaseStatus, setPurchaseStatus] = useState<MicroPurchaseStatus>({
-    compatibility: false,
-    career: false,
-    frameworks: false,
-    growth_plan: false,
-    full_unlock: false,
-  });
+  const [loading, setLoading] = useState(false);
+  const [hasPurchased, setHasPurchased] = useState(false);
 
   // Check existing purchases on mount
   useEffect(() => {
@@ -162,7 +76,8 @@ export default function PricingPage() {
         const response = await fetch(url.toString());
         if (response.ok) {
           const data = await response.json();
-          setPurchaseStatus(data);
+          // Check if they have full unlock or any legacy premium
+          setHasPurchased(data.full_unlock || data.career || data.frameworks);
         }
       } catch (error) {
         console.error("Error checking purchases:", error);
@@ -174,7 +89,7 @@ export default function PricingPage() {
     }
   }, [isLoaded, user, sessionId]);
 
-  const handleCheckout = async (planKey: string) => {
+  const handleCheckout = async () => {
     if (!isLoaded) {
       toast.error("Please wait while we load your account...");
       return;
@@ -184,13 +99,13 @@ export default function PricingPage() {
       return;
     }
 
-    setLoading(planKey);
+    setLoading(true);
     try {
       const response = await fetch("/api/stripe/create-checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          plan: planKey,
+          plan: "full_unlock",
           userId: user.id,
           sessionId: sessionId,
         }),
@@ -210,20 +125,12 @@ export default function PricingPage() {
       console.error("Checkout error:", error);
       toast.error("Failed to start checkout");
     } finally {
-      setLoading(null);
+      setLoading(false);
     }
   };
 
-  const isPurchased = (productId: string): boolean => {
-    if (purchaseStatus.full_unlock) return true;
-    return purchaseStatus[productId as keyof MicroPurchaseStatus] || false;
-  };
-
-  // Note: We don't block on isLoaded - page content renders immediately
-  // Purchase status will update once auth loads
-
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-violet-50 via-white to-fuchsia-50/30">
       <Header />
 
       <main className="flex-1">
@@ -231,8 +138,8 @@ export default function PricingPage() {
         <section className="container mx-auto px-4 py-16 text-center relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 -z-10">
-            <div className="absolute top-20 left-1/4 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+            <div className="absolute top-20 left-1/4 w-72 h-72 bg-violet-200/30 rounded-full blur-3xl" />
+            <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-fuchsia-200/30 rounded-full blur-3xl" />
           </div>
           
           <motion.div
@@ -240,270 +147,242 @@ export default function PricingPage() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl mx-auto"
           >
-            <Badge className="mb-6 bg-amber-500/20 text-amber-400 border-amber-500/30 px-4 py-1.5">
-              <Zap className="h-3.5 w-3.5 mr-1.5 inline" />
-              Pay Only For What You Want
+            <Badge className="mb-6 bg-violet-100 text-violet-700 border-violet-200 px-4 py-1.5">
+              <Sparkles className="h-3.5 w-3.5 mr-1.5 inline" />
+              One-Time Purchase, Yours Forever
             </Badge>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-              Unlock Your Full Personality Insights
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+              Unlock Your Complete{" "}
+              <span className="bg-gradient-to-r from-violet-600 via-fuchsia-600 to-rose-600 bg-clip-text text-transparent">
+                Personality Profile
+              </span>
             </h1>
             
-            <p className="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">
-              No subscriptions. No bundles you don't need. 
-              Pick exactly what interests you, starting at just <span className="text-amber-400 font-semibold">$2.99</span>.
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Go beyond the basics. Get your full career matches, framework mappings, 
+              compatibility insights, and personalized growth plan.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
-                <Shield className="h-4 w-4 text-green-500" />
+                <Shield className="h-4 w-4 text-green-600" />
                 Secure payment via Stripe
               </span>
               <span className="flex items-center gap-1.5">
-                <Star className="h-4 w-4 text-amber-500" />
-                Instant access after purchase
+                <Zap className="h-4 w-4 text-violet-600" />
+                Instant access
               </span>
               <span className="flex items-center gap-1.5">
-                <Gift className="h-4 w-4 text-purple-500" />
+                <Gift className="h-4 w-4 text-fuchsia-600" />
                 14-day money-back guarantee
               </span>
             </div>
           </motion.div>
         </section>
 
-        {/* Free Tier */}
-        <section className="container mx-auto px-4 pb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="max-w-5xl mx-auto"
-          >
-            <Card className="border-slate-800 bg-slate-900/50 backdrop-blur-sm">
-              <CardHeader className="text-center pb-4">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Gift className="h-5 w-5 text-green-500" />
-                  <CardTitle className="text-xl">Free Forever</CardTitle>
+        {/* Pricing Comparison */}
+        <section className="container mx-auto px-4 pb-16">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Free Tier */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              <Card className="border-border/50 bg-white/80 backdrop-blur-sm h-full">
+                <CardHeader className="text-center pb-4">
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <Gift className="h-5 w-5 text-green-600" />
+                    <CardTitle className="text-xl">Free Results</CardTitle>
+                  </div>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-foreground">$0</span>
+                  </div>
+                  <CardDescription className="mt-2">
+                    A taste of your personality profile
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-3">
+                    {freeFeatures.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                        <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="pt-4">
+                    <Button asChild variant="outline" className="w-full">
+                      <Link href="/assessment">
+                        Take Free Assessment
+                      </Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Full Results - Recommended */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Card className={`border-2 border-violet-500/50 bg-gradient-to-br from-violet-50 to-fuchsia-50 shadow-xl shadow-violet-500/10 h-full relative ${hasPurchased ? "border-green-500/50" : ""}`}>
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm rounded-full">
+                  Recommended
                 </div>
-                <CardDescription>
-                  Start with generous free insights — no credit card required
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {freeFeatures.map((feature, i) => (
-                    <span
-                      key={i}
-                      className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800/50 rounded-full text-sm text-slate-300"
+                
+                {hasPurchased && (
+                  <div className="absolute top-4 right-4">
+                    <Badge className="bg-green-600 text-white">✓ Purchased</Badge>
+                  </div>
+                )}
+                
+                <CardHeader className="text-center pb-4 pt-8">
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <Crown className="h-5 w-5 text-violet-600" />
+                    <CardTitle className="text-xl">Full Results</CardTitle>
+                  </div>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-foreground">{FULL_RESULTS_PRICE}</span>
+                    <span className="text-muted-foreground ml-2">one-time</span>
+                  </div>
+                  <CardDescription className="mt-2">
+                    Your complete personalized profile
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-3">
+                    {paidFeatures.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2 text-foreground">
+                        <Check className="h-5 w-5 text-violet-600 mt-0.5 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="pt-4">
+                    <Button
+                      className="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white"
+                      onClick={handleCheckout}
+                      disabled={loading || hasPurchased}
                     >
-                      <Check className="h-3.5 w-3.5 text-green-500" />
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-                <div className="text-center mt-6">
-                  <Button asChild variant="outline" className="border-slate-700 hover:bg-slate-800">
-                    <Link href="/assessment/intro">
-                      Start Free Assessment
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </section>
-
-        {/* Full Unlock (Best Value) */}
-        <section className="container mx-auto px-4 py-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="max-w-2xl mx-auto"
-          >
-            <div className="text-center mb-6">
-              <Badge className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-400 border-amber-500/30">
-                <Crown className="h-3.5 w-3.5 mr-1.5 inline" />
-                Best Value
-              </Badge>
-            </div>
-            
-            <Card className={`border-2 border-amber-500/50 bg-gradient-to-br from-amber-950/20 via-slate-900 to-orange-950/20 shadow-xl shadow-amber-500/10 relative overflow-hidden ${isPurchased("full_unlock") ? "border-green-500/50" : ""}`}>
-              {/* Glow effect */}
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-amber-500/20 rounded-full blur-3xl" />
-              
-              {isPurchased("full_unlock") && (
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-green-600 text-white">✓ Purchased</Badge>
-                </div>
-              )}
-              
-              <CardContent className="p-8 relative">
-                <div className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-1 text-center md:text-left">
-                    <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500/30 to-orange-500/30">
-                        <Crown className="h-7 w-7 text-amber-400" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-bold text-white">{fullUnlockProduct.name}</h3>
-                        <p className="text-slate-400">{fullUnlockProduct.description}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-3 mt-6 mb-6">
-                      {fullUnlockProduct.features.map((feature, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-amber-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-slate-300">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
+                      {loading ? (
+                        "Processing..."
+                      ) : hasPurchased ? (
+                        "Already Unlocked"
+                      ) : (
+                        <>
+                          Unlock Full Results
+                          <Sparkles className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
                   </div>
-                  
-                  <div className="text-center">
-                    <div className="mb-2">
-                      <span className="text-4xl font-bold text-white">{fullUnlockProduct.price}</span>
-                      <span className="text-slate-400 ml-2">one-time</span>
-                    </div>
-                    <Badge variant="outline" className="mb-4 text-green-400 border-green-500/30 bg-green-500/10">
-                      {fullUnlockProduct.savings}
-                    </Badge>
-                    <div>
-                      <Button
-                        size="lg"
-                        className="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white border-0"
-                        onClick={() => handleCheckout(fullUnlockProduct.planKey)}
-                        disabled={loading === fullUnlockProduct.planKey || isPurchased("full_unlock")}
-                      >
-                        {loading === fullUnlockProduct.planKey ? (
-                          "Processing..."
-                        ) : isPurchased("full_unlock") ? (
-                          "Already Unlocked"
-                        ) : (
-                          <>
-                            Unlock Everything
-                            <Sparkles className="ml-2 h-4 w-4" />
-                          </>
-                        )}
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </section>
-
-        {/* Individual Products */}
-        <section className="container mx-auto px-4 py-12">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold mb-2">Or Pick What You Need</h2>
-            <p className="text-slate-400">
-              Just want one feature? No problem — buy only what interests you.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {microProducts.map((product, index) => (
-              <PurchaseCard
-                key={product.id}
-                product={product}
-                onPurchase={handleCheckout}
-                loading={loading === product.planKey}
-                disabled={!!loading}
-                alreadyPurchased={isPurchased(product.id)}
-                index={index}
-              />
-            ))}
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </section>
 
-        {/* Comparison Section */}
-        <section className="container mx-auto px-4 py-16">
+        {/* What You Get Section */}
+        <section className="container mx-auto px-4 py-16 border-t border-border/50">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <div className="text-center mb-10">
-              <Badge className="mb-4 bg-green-500/20 text-green-400 border-green-500/30">
-                Compare & Save
-              </Badge>
-              <h2 className="text-3xl font-bold mb-2">Why Pay More?</h2>
-              <p className="text-slate-400">
-                Get professional-grade personality insights at a fraction of the cost
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">What's In Your Full Report?</h2>
+              <p className="text-muted-foreground">
+                Everything you need to understand yourself and leverage your strengths
               </p>
             </div>
 
-            <Card className="border-slate-800 bg-slate-900/50 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="bg-slate-800/50">
-                      <th className="text-left p-4 font-semibold text-slate-300">Assessment</th>
-                      <th className="text-center p-4 font-semibold text-slate-300">They Charge</th>
-                      <th className="text-center p-4 font-semibold text-slate-300">We Charge</th>
-                      <th className="text-center p-4 font-semibold text-slate-300">You Save</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {competitors.map((comp, index) => {
-                      const theirPrice = parseFloat(comp.price.replace("$", ""));
-                      const ourPrice = parseFloat(comp.ourEquivalent.replace("$", ""));
-                      const savings = Math.round(((theirPrice - ourPrice) / theirPrice) * 100);
-                      
-                      return (
-                        <tr key={index} className="border-t border-slate-800">
-                          <td className="p-4 font-medium text-slate-200">{comp.name}</td>
-                          <td className="text-center p-4 text-slate-500 line-through">
-                            {comp.price}
-                          </td>
-                          <td className="text-center p-4 font-bold text-amber-400">
-                            {comp.ourEquivalent}
-                          </td>
-                          <td className="text-center p-4">
-                            <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
-                              {savings}% less
-                            </Badge>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </Card>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: Brain,
+                  title: "Deep Personality Insights",
+                  description: "Detailed breakdown of all 7 HEXACO+ dimensions with what each means for you specifically."
+                },
+                {
+                  icon: Briefcase,
+                  title: "Career Matches",
+                  description: "15+ career paths that align with your personality, with fit scores and growth potential."
+                },
+                {
+                  icon: Layers,
+                  title: "Framework Mappings",
+                  description: "See your MBTI type, Enneagram number, and how they connect to your PRISM-7 profile."
+                },
+                {
+                  icon: Heart,
+                  title: "Compatibility Profile",
+                  description: "Understand how you relate to others in romance, friendship, and professional settings."
+                },
+                {
+                  icon: Users,
+                  title: "Famous Examples",
+                  description: "Discover well-known people who share your personality profile and what you can learn from them."
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Growth Recommendations",
+                  description: "Personalized suggestions for leveraging your strengths and developing growth areas."
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex gap-4 p-4 rounded-xl bg-white/60 border border-border/50"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 flex-shrink-0">
+                    <item.icon className="h-6 w-6 text-violet-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </section>
 
         {/* B2B Section */}
-        <section className="container mx-auto px-4 py-16 bg-slate-900/50">
+        <section className="container mx-auto px-4 py-16 border-t border-border/50">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-            <Badge className="mb-4">For Teams & Organizations</Badge>
-            <h2 className="text-3xl font-bold mb-4">Need Bulk Assessments?</h2>
-            <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
-              Get volume discounts on assessment codes for your team, candidates, or clients.
-              Includes team dashboard and analytics.
+            <Badge className="mb-4 bg-slate-100 text-slate-700 border-slate-200">
+              <Building2 className="h-3.5 w-3.5 mr-1.5 inline" />
+              For Teams & Hiring
+            </Badge>
+            <h2 className="text-3xl font-bold mb-4">Need Assessments for Your Team?</h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Screen candidates for job fit, build better teams, and make data-driven hiring decisions.
+              Volume pricing available.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="outline" className="border-slate-700">
-                <Link href="/contact">
-                  <Building2 className="mr-2 h-4 w-4" />
-                  Contact Sales
+              <Button asChild size="lg" variant="outline">
+                <Link href="/for-employers">
+                  <Target className="mr-2 h-4 w-4" />
+                  Learn About Employer Plans
                 </Link>
               </Button>
               <Button asChild size="lg" variant="ghost">
-                <Link href="/enterprise">
-                  Learn About Enterprise
+                <Link href="/contact">
+                  Contact Sales
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -512,42 +391,68 @@ export default function PricingPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="container mx-auto px-4 py-16">
+        <section className="container mx-auto px-4 py-16 border-t border-border/50">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-center mb-10">Common Questions</h2>
             
             <div className="space-y-4">
               {[
                 {
-                  q: "How do one-time purchases work?",
-                  a: "Each purchase unlocks that specific feature for your current assessment results. If you take the assessment again, you'll have access to the same features for your new results too.",
+                  q: "What do I get for free?",
+                  a: "The free assessment gives you your primary archetype, a basic overview of your 7 personality dimensions, and a simple shareable badge. It's enough to understand your core type."
                 },
                 {
-                  q: "What's included in the Full Unlock?",
-                  a: "The Full Unlock ($7.99) includes all four premium features: Compatibility Reports, Career Deep Dive, Framework Bundle, and Growth Plan. It's the best value if you want everything.",
+                  q: "What's included in the Full Results?",
+                  a: "Full Results unlocks your complete profile: detailed dimension breakdowns, all 15+ career matches with fit scores, full MBTI & Enneagram mappings, compatibility insights, famous examples, growth recommendations, and a downloadable PDF."
                 },
                 {
-                  q: "Can I buy features later?",
-                  a: "Absolutely! Your free results are saved forever. You can come back anytime and unlock additional features when you're ready.",
+                  q: "Is this a subscription?",
+                  a: "No. It's a one-time purchase of $4.99. You pay once and own your full results forever. No recurring charges."
+                },
+                {
+                  q: "Can I upgrade later?",
+                  a: "Yes! You can take the free assessment first and upgrade to Full Results anytime. Your scores are saved."
                 },
                 {
                   q: "Is there a refund policy?",
-                  a: "Yes! We offer a 14-day money-back guarantee. If you're not satisfied with your purchase, contact us for a full refund.",
-                },
-                {
-                  q: "Do you offer subscriptions?",
-                  a: "We focus on one-time purchases so you only pay for what you need. No recurring charges or cancellation hassles.",
+                  a: "Yes. We offer a 14-day money-back guarantee. If you're not satisfied, contact us for a full refund."
                 },
               ].map((faq, index) => (
-                <Card key={index} className="border-slate-800 bg-slate-900/50">
+                <Card key={index} className="border-border/50 bg-white/60">
                   <CardContent className="p-6">
-                    <h3 className="font-semibold mb-2 text-slate-200">{faq.q}</h3>
-                    <p className="text-sm text-slate-400">{faq.a}</p>
+                    <h3 className="font-semibold mb-2">{faq.q}</h3>
+                    <p className="text-sm text-muted-foreground">{faq.a}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="container mx-auto px-4 py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto text-center"
+          >
+            <Card className="border-2 border-violet-200 bg-gradient-to-br from-violet-50 to-fuchsia-50">
+              <CardContent className="p-8">
+                <Sparkles className="h-10 w-10 text-violet-600 mx-auto mb-4" />
+                <h2 className="text-2xl font-bold mb-2">Ready to Discover Your Full Profile?</h2>
+                <p className="text-muted-foreground mb-6">
+                  Start with the free assessment. Upgrade when you're ready.
+                </p>
+                <Button asChild size="lg" className="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white">
+                  <Link href="/assessment">
+                    Start Free Assessment
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </motion.div>
         </section>
       </main>
 

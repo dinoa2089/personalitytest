@@ -78,29 +78,19 @@ export default function QuestionPage() {
         const allQuestions = await loadQuestions();
         setQuestionBank(allQuestions);
         
-        // Get or initialize adaptive state
-        let state = getOrInitializeAdaptiveState(sessionId);
-        
         // Try to resume session if it exists in database
+        let dbResponseCount = 0;
         try {
           const sessionResponse = await fetch(`/api/assessment/progress?sessionId=${sessionId}`);
           if (sessionResponse.ok) {
             const sessionData = await sessionResponse.json();
-            if (sessionData.session && sessionData.responses && sessionData.responses.length > 0) {
-              // Restore progress
-              const savedProgress = sessionData.session.progress || 0;
-              updateProgress(savedProgress);
+            if (sessionData.session && sessionData.responses) {
+              dbResponseCount = sessionData.responses.length;
               
               // Check if already completed
-              if (sessionData.responses.length >= targetQuestions) {
+              if (dbResponseCount >= targetQuestions) {
                 router.push(`/results/${sessionId}`);
                 return;
-              }
-              
-              // Rebuild adaptive state from saved responses if needed
-              if (state.questionsAnswered < sessionData.responses.length) {
-                // We have more responses in DB than in adaptive state - rebuild
-                state = getOrInitializeAdaptiveState(sessionId);
               }
             }
           }
@@ -108,7 +98,29 @@ export default function QuestionPage() {
           console.warn("Could not resume session:", error);
         }
         
+        // Get or initialize adaptive state
+        let state = getOrInitializeAdaptiveState(sessionId);
+        
+        // IMPORTANT: Sync adaptive state with database
+        // If localStorage has more questions than DB, reset the adaptive state
+        // This handles cases where DB was cleared but localStorage wasn't
+        if (state.questionsAnswered > dbResponseCount) {
+          console.log(`Resetting adaptive state: localStorage has ${state.questionsAnswered} but DB has ${dbResponseCount}`);
+          localStorage.removeItem(`adaptive-state-${sessionId}`);
+          state = getOrInitializeAdaptiveState(sessionId);
+        }
+        
+        // If DB has responses but state doesn't match, update progress
+        if (dbResponseCount > 0 && state.questionsAnswered < dbResponseCount) {
+          // DB has more - we need to resume from DB position
+          // For now, just update the count (full state rebuild would need response data)
+          state = { ...state, questionsAnswered: dbResponseCount };
+        }
+        
         setAdaptiveState(state);
+        
+        // Update progress based on actual DB response count
+        updateProgress((dbResponseCount / targetQuestions) * 100);
         
         // Determine current checkpoint and batch size
         const currentCheckpoint = state.currentCheckpoint || 1;
@@ -129,7 +141,7 @@ export default function QuestionPage() {
         if (selectedQuestions.length > 0) {
           setQuestions(selectedQuestions);
           setCurrentQuestion(selectedQuestions[0]);
-          updateProgress((questionsAnswered / targetQuestions) * 100);
+          // Progress already set above based on dbResponseCount
         }
       } catch (error) {
         console.error("Failed to load questions:", error);
@@ -349,7 +361,7 @@ export default function QuestionPage() {
             Previous
           </Button>
           <p className="text-sm text-muted-foreground self-center">
-            Question {(adaptiveState?.questionsAnswered || 0) + currentIndex + 1} of {totalQuestionsTarget}
+            Question {currentIndex + 1} of {questions.length}
           </p>
         </div>
       </QuestionContainer>

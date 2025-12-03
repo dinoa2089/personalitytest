@@ -5,7 +5,7 @@ import { useUser } from "@clerk/nextjs";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, X, Gift } from "lucide-react";
+import { Sparkles, X, Crown } from "lucide-react";
 import Link from "next/link";
 import { hasPremiumUnlock } from "@/lib/subscriptions";
 
@@ -57,26 +57,27 @@ export function PremiumUnlockNotification() {
         exit={{ opacity: 0, y: -20 }}
         className="fixed top-4 right-4 z-50 max-w-md"
       >
-        <Card className="border-2 border-primary/50 bg-gradient-to-br from-primary/10 to-purple-500/10 shadow-xl">
+        <Card className="border-2 border-green-300 bg-gradient-to-br from-green-50 to-emerald-50 shadow-xl">
           <CardContent className="p-6">
             <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 flex-shrink-0">
-                <Gift className="h-6 w-6 text-primary" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 flex-shrink-0">
+                <Crown className="h-6 w-6 text-green-600" />
               </div>
               <div className="flex-1 space-y-3">
                 <div>
                   <h3 className="font-bold text-lg mb-1 flex items-center gap-2">
-                    <Sparkles className="h-5 w-5 text-primary" />
-                    Premium Unlocked!
+                    <Sparkles className="h-5 w-5 text-green-600" />
+                    Full Results Unlocked!
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Congratulations! You've unlocked premium features by sharing with friends. 
-                    You now have full access to detailed insights, comparisons, and more!
+                    Congratulations! Your friends completed the assessment, so you now have 
+                    full access to your complete personality profile, all career matches, 
+                    framework mappings, and more!
                   </p>
                 </div>
                 <div className="flex gap-2">
-                  <Button asChild size="sm" className="flex-1">
-                    <Link href="/dashboard">View Dashboard</Link>
+                  <Button asChild size="sm" className="flex-1 bg-green-600 hover:bg-green-700">
+                    <Link href="/dashboard">View My Results</Link>
                   </Button>
                   <Button
                     variant="outline"
@@ -94,4 +95,3 @@ export function PremiumUnlockNotification() {
     </AnimatePresence>
   );
 }
-

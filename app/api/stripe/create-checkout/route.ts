@@ -11,117 +11,103 @@ function getStripe() {
   return new Stripe(key);
 }
 
-// Plan configurations
+// Simplified plan configurations
+// Consumer: Just "full_unlock" for $4.99
+// Employer: Per-assessment pricing and credit packs
 const planConfig: Record<string, {
   priceEnvKey: string;
   mode: "payment" | "subscription";
   planType: string;
-  productType?: string; // For micro-transactions
+  productType?: string;
 }> = {
-  // === MICRO-TRANSACTION PRODUCTS (NEW) ===
-  compatibility: {
-    priceEnvKey: "STRIPE_COMPATIBILITY_REPORT_PRICE_ID",
+  // === CONSUMER PRODUCT (SIMPLIFIED) ===
+  full_unlock: {
+    priceEnvKey: "STRIPE_FULL_UNLOCK_PRICE_ID", // $4.99 one-time
     mode: "payment",
     planType: "micro",
-    productType: "compatibility",
+    productType: "full_unlock",
+  },
+  
+  // === LEGACY MICRO-PRODUCTS (backwards compat - all map to full_unlock) ===
+  compatibility: {
+    priceEnvKey: "STRIPE_FULL_UNLOCK_PRICE_ID",
+    mode: "payment",
+    planType: "micro",
+    productType: "full_unlock", // Maps to full unlock
   },
   career: {
-    priceEnvKey: "STRIPE_CAREER_DEEP_DIVE_PRICE_ID",
+    priceEnvKey: "STRIPE_FULL_UNLOCK_PRICE_ID",
     mode: "payment",
     planType: "micro",
-    productType: "career",
+    productType: "full_unlock",
   },
   frameworks: {
-    priceEnvKey: "STRIPE_FRAMEWORK_BUNDLE_PRICE_ID",
+    priceEnvKey: "STRIPE_FULL_UNLOCK_PRICE_ID",
     mode: "payment",
     planType: "micro",
-    productType: "frameworks",
+    productType: "full_unlock",
   },
   growth_plan: {
-    priceEnvKey: "STRIPE_GROWTH_PLAN_PRICE_ID",
-    mode: "payment",
-    planType: "micro",
-    productType: "growth_plan",
-  },
-  full_unlock: {
     priceEnvKey: "STRIPE_FULL_UNLOCK_PRICE_ID",
     mode: "payment",
     planType: "micro",
     productType: "full_unlock",
   },
   
-  // === LEGACY ONE-TIME PURCHASES ===
-  premium_report: {
-    priceEnvKey: "STRIPE_PREMIUM_REPORT_PRICE_ID",
+  // === B2B: EMPLOYER SINGLE ASSESSMENTS ===
+  employer_assessment: {
+    priceEnvKey: "STRIPE_EMPLOYER_ASSESSMENT_PRICE_ID", // $15 per assessment
     mode: "payment",
-    planType: "premium_report",
-  },
-  deep_dive: {
-    priceEnvKey: "STRIPE_DEEP_DIVE_PRICE_ID",
-    mode: "payment",
-    planType: "deep_dive",
+    planType: "employer",
+    productType: "employer_assessment",
   },
   
-  // === SUBSCRIPTIONS ===
-  unlimited_monthly: {
-    priceEnvKey: "STRIPE_UNLIMITED_MONTHLY_PRICE_ID",
-    mode: "subscription",
-    planType: "unlimited",
-  },
-  unlimited_yearly: {
-    priceEnvKey: "STRIPE_UNLIMITED_YEARLY_PRICE_ID",
-    mode: "subscription",
-    planType: "unlimited",
-  },
-  // Legacy plans (for backwards compatibility)
-  premium_monthly: {
-    priceEnvKey: "STRIPE_PREMIUM_MONTHLY_PRICE_ID",
-    mode: "subscription",
-    planType: "premium",
-  },
-  premium_yearly: {
-    priceEnvKey: "STRIPE_PREMIUM_YEARLY_PRICE_ID",
-    mode: "subscription",
-    planType: "premium",
-  },
-  professional_monthly: {
-    priceEnvKey: "STRIPE_PROFESSIONAL_MONTHLY_PRICE_ID",
-    mode: "subscription",
-    planType: "professional",
-  },
-  professional_yearly: {
-    priceEnvKey: "STRIPE_PROFESSIONAL_YEARLY_PRICE_ID",
-    mode: "subscription",
-    planType: "professional",
-  },
-  
-  // === B2B CODE PACKS ===
+  // === B2B: CREDIT PACKS ===
   codes_10: {
-    priceEnvKey: "STRIPE_CODES_10_PRICE_ID",
+    priceEnvKey: "STRIPE_CODES_10_PRICE_ID", // 10 assessments @ $12 each = $120
     mode: "payment",
     planType: "codes",
+    productType: "codes_10",
   },
   codes_25: {
-    priceEnvKey: "STRIPE_CODES_25_PRICE_ID",
+    priceEnvKey: "STRIPE_CODES_25_PRICE_ID", // 25 assessments @ $10 each = $250
     mode: "payment",
     planType: "codes",
+    productType: "codes_25",
   },
   codes_50: {
-    priceEnvKey: "STRIPE_CODES_50_PRICE_ID",
+    priceEnvKey: "STRIPE_CODES_50_PRICE_ID", // 50 assessments @ $10 each = $500
     mode: "payment",
     planType: "codes",
+    productType: "codes_50",
   },
   codes_100: {
-    priceEnvKey: "STRIPE_CODES_100_PRICE_ID",
+    priceEnvKey: "STRIPE_CODES_100_PRICE_ID", // 100 assessments @ $10 each = $1000
     mode: "payment",
     planType: "codes",
+    productType: "codes_100",
   },
   
-  // === TEAM ===
-  team_dashboard: {
-    priceEnvKey: "STRIPE_TEAM_DASHBOARD_PRICE_ID",
+  // === B2B: TEAM SUBSCRIPTION ===
+  team_monthly: {
+    priceEnvKey: "STRIPE_TEAM_MONTHLY_PRICE_ID",
     mode: "subscription",
-    planType: "team_dashboard",
+    planType: "team",
+    productType: "team",
+  },
+  
+  // === LEGACY (backwards compatibility) ===
+  premium_report: {
+    priceEnvKey: "STRIPE_FULL_UNLOCK_PRICE_ID",
+    mode: "payment",
+    planType: "micro",
+    productType: "full_unlock",
+  },
+  deep_dive: {
+    priceEnvKey: "STRIPE_FULL_UNLOCK_PRICE_ID",
+    mode: "payment",
+    planType: "micro",
+    productType: "full_unlock",
   },
 };
 
@@ -226,15 +212,13 @@ export async function POST(request: NextRequest) {
         status: "completed",
       });
 
-      // Create premium unlock for relevant plan types
-      if (["micro", "premium_report", "deep_dive", "premium", "unlimited"].includes(config.planType)) {
-        await supabase.from("premium_unlocks").insert({
-          user_id: internalUserId,
-          unlock_method: "paid",
-          unlock_source: `credits_${plan}`,
-          expires_at: null, // Permanent
-        });
-      }
+      // Create premium unlock
+      await supabase.from("premium_unlocks").insert({
+        user_id: internalUserId,
+        unlock_method: "paid",
+        unlock_source: `credits_${plan}`,
+        expires_at: null, // Permanent
+      });
 
       return NextResponse.json({
         success: true,
@@ -266,7 +250,7 @@ export async function POST(request: NextRequest) {
       success_url: successUrl.toString(),
       cancel_url: `${appUrl}/pricing?canceled=true`,
       client_reference_id: userId,
-      allow_promotion_codes: true, // Allow testers to use promo codes like 107TYPES
+      allow_promotion_codes: true,
       metadata: {
         userId,
         plan,

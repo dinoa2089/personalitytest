@@ -14,7 +14,9 @@ import {
   Sparkles, 
   Gift,
   TrendingUp,
-  Link as LinkIcon
+  Link as LinkIcon,
+  Crown,
+  CheckCircle2,
 } from "lucide-react";
 import { toast } from "react-hot-toast";
 import Link from "next/link";
@@ -57,7 +59,6 @@ export function ReferralDashboard() {
           
           // If just unlocked, show celebration
           if (data.unlocked && !data.hasShownUnlockNotification) {
-            // Trigger notification component
             window.dispatchEvent(new CustomEvent('premium-unlocked'));
           }
         }
@@ -109,7 +110,7 @@ export function ReferralDashboard() {
     if (stats?.referralLink) {
       if (navigator.share) {
         navigator.share({
-          title: "Take the Authentic Self Personality Assessment",
+          title: "Take the PRISM-7 Personality Assessment",
           text: "Discover your authentic self with this scientifically validated personality assessment!",
           url: stats.referralLink,
         });
@@ -136,7 +137,7 @@ export function ReferralDashboard() {
         <CardHeader>
           <CardTitle>Referral Program</CardTitle>
           <CardDescription>
-            Sign in to unlock premium features by sharing with friends
+            Sign in to unlock your Full Results for free by sharing with friends
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -154,32 +155,56 @@ export function ReferralDashboard() {
 
   if (!stats.hasCode) {
     return (
-      <Card>
+      <Card className="border-violet-200 bg-gradient-to-br from-violet-50 to-fuchsia-50">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <Gift className="h-5 w-5 text-primary" />
-            <CardTitle>Unlock Premium for Free</CardTitle>
+            <Gift className="h-5 w-5 text-violet-600" />
+            <CardTitle>Get Full Results Free</CardTitle>
           </div>
           <CardDescription>
-            Share your assessment with {stats.threshold} friends to unlock premium features
+            Share your assessment with {stats.threshold} friends to unlock your complete personality profile
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+          <div className="rounded-lg border border-violet-200 bg-white/80 p-4">
             <div className="flex items-start gap-3">
-              <Sparkles className="h-5 w-5 text-primary mt-0.5" />
+              <Crown className="h-5 w-5 text-violet-600 mt-0.5" />
               <div className="flex-1">
-                <h4 className="font-semibold mb-1">How it works</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
+                <h4 className="font-semibold mb-2">How it works</h4>
+                <ol className="text-sm text-muted-foreground space-y-1">
                   <li>1. Create your unique referral link</li>
-                  <li>2. Share it with friends</li>
-                  <li>3. When {stats.threshold} friends complete the assessment, you get premium unlocked!</li>
-                </ul>
+                  <li>2. Share it with {stats.threshold} friends</li>
+                  <li>3. When they complete the assessment, you unlock Full Results!</li>
+                </ol>
               </div>
             </div>
           </div>
-          <Button onClick={createReferralCode} className="w-full">
-            Create Referral Link
+          
+          {/* What you'll get */}
+          <div className="rounded-lg border border-violet-200 bg-white/80 p-4">
+            <h4 className="font-semibold mb-2 flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-violet-600" />
+              What you'll unlock ($4.99 value):
+            </h4>
+            <div className="grid grid-cols-2 gap-2 text-sm">
+              {[
+                "Complete dimensional breakdown",
+                "All 15+ career matches",
+                "MBTI & Enneagram mappings",
+                "Compatibility profile",
+                "Famous examples like you",
+                "Growth recommendations",
+              ].map((feature, i) => (
+                <div key={i} className="flex items-center gap-1.5 text-muted-foreground">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-violet-600 flex-shrink-0" />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <Button onClick={createReferralCode} className="w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700">
+            Create My Referral Link
           </Button>
         </CardContent>
       </Card>
@@ -189,21 +214,21 @@ export function ReferralDashboard() {
   const remaining = Math.max(0, stats.threshold - stats.completedReferrals);
 
   return (
-    <Card>
+    <Card className={stats.unlocked ? "border-green-200 bg-gradient-to-br from-green-50 to-emerald-50" : "border-violet-200 bg-gradient-to-br from-violet-50 to-fuchsia-50"}>
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Gift className="h-5 w-5 text-primary" />
+            <Gift className={`h-5 w-5 ${stats.unlocked ? "text-green-600" : "text-violet-600"}`} />
             <CardTitle>Referral Program</CardTitle>
           </div>
           {stats.unlocked && (
-            <Badge className="bg-green-500 animate-pulse">Premium Unlocked! 🎉</Badge>
+            <Badge className="bg-green-600 text-white">Full Results Unlocked! 🎉</Badge>
           )}
         </div>
         <CardDescription>
           {stats.unlocked
-            ? "You've unlocked premium features! Share with more friends to help them discover their authentic self."
-            : `${remaining} more ${remaining === 1 ? "friend" : "friends"} needed to unlock premium`}
+            ? "You've unlocked Full Results! Keep sharing to help friends discover their authentic self."
+            : `${remaining} more ${remaining === 1 ? "friend" : "friends"} needed to unlock Full Results`}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -224,7 +249,7 @@ export function ReferralDashboard() {
         <div className="space-y-2">
           <label className="text-sm font-medium">Your Referral Link</label>
           <div className="flex gap-2">
-            <div className="flex-1 flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-3 py-2 text-sm">
+            <div className="flex-1 flex items-center gap-2 rounded-lg border border-border bg-white px-3 py-2 text-sm">
               <LinkIcon className="h-4 w-4 text-muted-foreground" />
               <span className="flex-1 truncate">{stats.referralLink}</span>
             </div>
@@ -253,47 +278,61 @@ export function ReferralDashboard() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="rounded-lg border border-border bg-muted/30 p-4">
+          <div className="rounded-lg border border-border bg-white p-4">
             <div className="flex items-center gap-2 mb-1">
-              <Users className="h-4 w-4 text-primary" />
+              <Users className={`h-4 w-4 ${stats.unlocked ? "text-green-600" : "text-violet-600"}`} />
               <span className="text-sm text-muted-foreground">Completed</span>
             </div>
             <div className="text-2xl font-bold">{stats.completedReferrals}</div>
           </div>
-          <div className="rounded-lg border border-border bg-muted/30 p-4">
+          <div className="rounded-lg border border-border bg-white p-4">
             <div className="flex items-center gap-2 mb-1">
-              <TrendingUp className="h-4 w-4 text-primary" />
-              <span className="text-sm text-muted-foreground">Remaining</span>
+              <TrendingUp className={`h-4 w-4 ${stats.unlocked ? "text-green-600" : "text-violet-600"}`} />
+              <span className="text-sm text-muted-foreground">
+                {stats.unlocked ? "Total" : "Remaining"}
+              </span>
             </div>
-            <div className="text-2xl font-bold">{remaining}</div>
+            <div className="text-2xl font-bold">
+              {stats.unlocked ? stats.completedReferrals : remaining}
+            </div>
           </div>
         </div>
 
-        {/* Benefits */}
+        {/* What you'll unlock (only if not unlocked) */}
         {!stats.unlocked && (
-          <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+          <div className="rounded-lg border border-violet-200 bg-white/80 p-4">
             <h4 className="font-semibold mb-2 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-primary" />
+              <Crown className="h-4 w-4 text-violet-600" />
               What you'll unlock:
             </h4>
-            <ul className="text-sm text-muted-foreground space-y-1">
-              <li>• Complete 7-dimension profile with confidence intervals</li>
-              <li>• Detailed insights for career, relationships, and growth</li>
-              <li>• Framework mappings (MBTI, CliftonStrengths, Enneagram)</li>
-              <li>• Comparison reports and PDF export</li>
-            </ul>
+            <div className="grid grid-cols-2 gap-2 text-sm">
+              {[
+                "Complete dimensional breakdown",
+                "All 15+ career matches",
+                "MBTI & Enneagram mappings",
+                "Compatibility profile",
+                "Famous examples like you",
+                "Downloadable PDF report",
+              ].map((feature, i) => (
+                <div key={i} className="flex items-center gap-1.5 text-muted-foreground">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-violet-600 flex-shrink-0" />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
         {/* CTA */}
-        {!stats.unlocked && (
-          <Button onClick={shareReferralLink} className="w-full" size="lg">
-            <Share2 className="mr-2 h-4 w-4" />
-            Share with Friends
-          </Button>
-        )}
+        <Button 
+          onClick={shareReferralLink} 
+          className={`w-full ${stats.unlocked ? "bg-green-600 hover:bg-green-700" : "bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700"}`}
+          size="lg"
+        >
+          <Share2 className="mr-2 h-4 w-4" />
+          {stats.unlocked ? "Share With More Friends" : "Share to Unlock Full Results"}
+        </Button>
       </CardContent>
     </Card>
   );
 }
-
