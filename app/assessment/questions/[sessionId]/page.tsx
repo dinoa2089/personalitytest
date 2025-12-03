@@ -405,7 +405,7 @@ export default function QuestionPage() {
             Previous
           </Button>
           <p className="text-sm text-muted-foreground self-center">
-            Question {currentIndex + 1} of {questions.length}
+            Question {(adaptiveState?.questionsAnswered || 0) + 1} of {totalQuestionsTarget}
           </p>
         </div>
       </QuestionContainer>
