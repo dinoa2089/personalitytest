@@ -5,53 +5,27 @@ import type { NextRequest } from 'next/server';
 // Check if Clerk is configured
 const CLERK_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
-// Define protected routes (require authentication)
+// Define protected routes (require authentication) - NOT including results
+// Results pages handle their own auth redirect in the page component
 const isProtectedRoute = createRouteMatcher([
   '/dashboard(.*)',
   '/settings(.*)',
-  '/results(.*)',  // Results require authentication
 ]);
 
 // Export Clerk middleware if configured, otherwise simple passthrough
 export default CLERK_PUBLISHABLE_KEY && CLERK_PUBLISHABLE_KEY !== ''
   ? clerkMiddleware(async (auth, req) => {
       try {
-        const url = req.nextUrl.pathname;
-
-        // For results pages, redirect to auth gate if not authenticated
-        if (url.startsWith('/results/')) {
-          try {
-            const { userId } = await auth();
-            if (!userId) {
-              // Extract session ID from URL and redirect to auth gate
-              const sessionId = url.split('/results/')[1]?.split('/')[0];
-              if (sessionId) {
-                return Response.redirect(new URL(`/assessment/complete/${sessionId}`, req.url));
-              }
-            }
-          } catch {
-            // Auth check failed - redirect to auth gate
-            const sessionId = url.split('/results/')[1]?.split('/')[0];
-            if (sessionId) {
-              return Response.redirect(new URL(`/assessment/complete/${sessionId}`, req.url));
-            }
-          }
-          return;
-        }
-
-        // Protect dashboard and settings routes
+        // Protect dashboard and settings routes only
         if (isProtectedRoute(req)) {
           try {
             await auth.protect();
           } catch {
-            // Protection failed - let Clerk handle the redirect
             return Response.redirect(new URL('/sign-in', req.url));
           }
-          return;
         }
-
-        // All other routes are public
-        return;
+        // All other routes (including /results/*) are handled by page components
+        return NextResponse.next();
       } catch (error) {
         console.error('Middleware error:', error);
         return NextResponse.next();
