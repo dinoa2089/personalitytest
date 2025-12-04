@@ -22,11 +22,60 @@ import { FeatureGate } from "@/components/premium/FeatureGate";
 import { FreeResultsView } from "@/components/results/FreeResultsView";
 import { PremiumUnlockNotification } from "@/components/referrals/PremiumUnlockNotification";
 import { JobFitScore } from "@/components/results/JobFitScore";
+import { PersonalizedMBTIReport } from "@/components/results/PersonalizedMBTIReport";
+import { PersonalizedEnneagramReport } from "@/components/results/PersonalizedEnneagramReport";
 import { useAssessmentStore } from "@/store/assessment-store";
 // Premium access is now checked via API at /api/user/premium-status
 import type { AssessmentResult } from "@/types";
 
 // This page requires authentication - unauthenticated users are redirected to auth gate
+
+// Helper function to calculate MBTI type from dimensional scores
+function calculateMBTIFromScores(scores: { dimension: string; percentile: number }[]): string {
+  const scoreMap = scores.reduce((acc, s) => ({ ...acc, [s.dimension]: s.percentile }), {} as Record<string, number>);
+  
+  const E = scoreMap.extraversion || 50;
+  const N = scoreMap.openness || 50;
+  const agreeableness = scoreMap.agreeableness || 50;
+  const resilience = scoreMap.emotionalResilience || 50;
+  const T = (100 - agreeableness) * 0.6 + resilience * 0.4;
+  const conscientiousness = scoreMap.conscientiousness || 50;
+  const adaptability = scoreMap.adaptability || 50;
+  const J = conscientiousness * 0.6 + (100 - adaptability) * 0.4;
+
+  return [
+    E > 50 ? "E" : "I",
+    N > 50 ? "N" : "S",
+    T > 50 ? "T" : "F",
+    J > 50 ? "J" : "P",
+  ].join("");
+}
+
+// Helper function to calculate Enneagram type from dimensional scores
+function calculateEnneagramFromScores(scores: { dimension: string; percentile: number }[]): number {
+  const scoreMap = scores.reduce((acc, s) => ({ ...acc, [s.dimension]: s.percentile }), {} as Record<string, number>);
+  
+  const getLevel = (p: number): string => p >= 70 ? "high" : p >= 40 ? "moderate" : "low";
+  
+  const profile = {
+    openness: getLevel(scoreMap.openness || 50),
+    conscientiousness: getLevel(scoreMap.conscientiousness || 50),
+    extraversion: getLevel(scoreMap.extraversion || 50),
+    agreeableness: getLevel(scoreMap.agreeableness || 50),
+    emotionalResilience: getLevel(scoreMap.emotionalResilience || 50),
+  };
+
+  // Simplified pattern matching
+  if (profile.conscientiousness === "high" && profile.agreeableness === "high") return 1;
+  if (profile.agreeableness === "high" && profile.extraversion === "high") return 2;
+  if (profile.conscientiousness === "high" && profile.extraversion === "high") return 3;
+  if (profile.openness === "high" && profile.emotionalResilience === "low") return 4;
+  if (profile.openness === "high" && profile.extraversion === "low") return 5;
+  if (profile.conscientiousness === "high" && profile.emotionalResilience === "moderate") return 6;
+  if (profile.extraversion === "high" && profile.openness === "high") return 7;
+  if (profile.extraversion === "high" && profile.emotionalResilience === "high") return 8;
+  return 9; // Default to Peacemaker
+}
 
 export default function ResultsPage() {
   const params = useParams();
@@ -337,13 +386,42 @@ export default function ResultsPage() {
             <PersonalityStory scores={result.dimensional_scores} />
           </motion.div>
 
-          {/* Framework Mappings */}
+          {/* Framework Mappings Overview */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <FrameworkMapping scores={result.dimensional_scores} frameworks={result.frameworks} />
+          </motion.div>
+
+          {/* Detailed MBTI Report */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.62 }}
+          >
+            <FeatureGate feature="all_frameworks">
+              <PersonalizedMBTIReport 
+                mbtiType={result.frameworks?.mbti?.type || calculateMBTIFromScores(result.dimensional_scores)} 
+                confidence={result.frameworks?.mbti?.confidence}
+              />
+            </FeatureGate>
+          </motion.div>
+
+          {/* Detailed Enneagram Report */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.64 }}
+          >
+            <FeatureGate feature="all_frameworks">
+              <PersonalizedEnneagramReport 
+                enneagramType={result.frameworks?.enneagram?.primary_type || calculateEnneagramFromScores(result.dimensional_scores)}
+                wing={result.frameworks?.enneagram?.wing}
+                confidence={result.frameworks?.enneagram?.primary_probability}
+              />
+            </FeatureGate>
           </motion.div>
 
           {/* Work & Career Insights - B2B Focus */}
