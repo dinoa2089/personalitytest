@@ -49,6 +49,38 @@ export default function ResultsPage() {
     }
   }, [userLoaded, user, sessionId, router]);
 
+  // Claim the session for the authenticated user (links guest session to account)
+  useEffect(() => {
+    const claimSession = async () => {
+      if (!userLoaded || !user?.id || !sessionId) return;
+      
+      try {
+        const response = await fetch("/api/assessment/claim", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ sessionId }),
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          if (!data.alreadyClaimed) {
+            console.log("Session claimed successfully:", data.message);
+          }
+        } else {
+          const error = await response.json();
+          // Only log if it's not a "belongs to another user" error
+          if (response.status !== 403) {
+            console.warn("Could not claim session:", error.error);
+          }
+        }
+      } catch (error) {
+        console.warn("Error claiming session:", error);
+      }
+    };
+
+    claimSession();
+  }, [userLoaded, user?.id, sessionId]);
+
   useEffect(() => {
     // Check premium access
     const checkPremium = async () => {
