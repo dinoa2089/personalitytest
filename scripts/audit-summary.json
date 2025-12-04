@@ -1,0 +1,104 @@
+{
+  "totalQuestions": 316,
+  "byDimension": {
+    "honestyHumility": 33,
+    "openness": 58,
+    "extraversion": 48,
+    "conscientiousness": 58,
+    "adaptability": 33,
+    "agreeableness": 53,
+    "emotionalResilience": 33
+  },
+  "byType": {
+    "likert": 146,
+    "behavioral_frequency": 60,
+    "forced_choice": 44,
+    "situational_judgment": 66
+  },
+  "mbtiCoverage": {
+    "mbti_ei": 0,
+    "mbti_sn": 0,
+    "mbti_tf": 0,
+    "mbti_jp": 0
+  },
+  "enneagramCoverage": {
+    "enneagram_1": 0,
+    "enneagram_2": 0,
+    "enneagram_3": 0,
+    "enneagram_4": 0,
+    "enneagram_5": 0,
+    "enneagram_6": 0,
+    "enneagram_7": 0,
+    "enneagram_8": 0,
+    "enneagram_9": 0
+  },
+  "mbtiIssues": [
+    {
+      "dimension": "E/I (Extraversion/Introversion)",
+      "count": 0,
+      "needed": 10
+    },
+    {
+      "dimension": "S/N (Sensing/Intuition)",
+      "count": 0,
+      "needed": 10
+    },
+    {
+      "dimension": "T/F (Thinking/Feeling)",
+      "count": 0,
+      "needed": 10
+    },
+    {
+      "dimension": "J/P (Judging/Perceiving)",
+      "count": 0,
+      "needed": 10
+    }
+  ],
+  "enneagramIssues": [
+    {
+      "type": "Type 1 (Reformer)",
+      "count": 0,
+      "needed": 8
+    },
+    {
+      "type": "Type 2 (Helper)",
+      "count": 0,
+      "needed": 8
+    },
+    {
+      "type": "Type 3 (Achiever)",
+      "count": 0,
+      "needed": 8
+    },
+    {
+      "type": "Type 4 (Individualist)",
+      "count": 0,
+      "needed": 8
+    },
+    {
+      "type": "Type 5 (Investigator)",
+      "count": 0,
+      "needed": 8
+    },
+    {
+      "type": "Type 6 (Loyalist)",
+      "count": 0,
+      "needed": 8
+    },
+    {
+      "type": "Type 7 (Enthusiast)",
+      "count": 0,
+      "needed": 8
+    },
+    {
+      "type": "Type 8 (Challenger)",
+      "count": 0,
+      "needed": 8
+    },
+    {
+      "type": "Type 9 (Peacemaker)",
+      "count": 0,
+      "needed": 8
+    }
+  ]
+}
