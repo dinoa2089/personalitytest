@@ -100,10 +100,12 @@ export default function ResultsPage() {
 
   // Claim the session for the authenticated user (links guest session to account)
   useEffect(() => {
-    const claimSession = async () => {
+    const claimSession = async (retryCount = 0): Promise<void> => {
       if (!userLoaded || !user?.id || !sessionId) return;
       
       try {
+        console.log(`Attempting to claim session ${sessionId} for user ${user.id} (attempt ${retryCount + 1})`);
+        
         const response = await fetch("/api/assessment/claim", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -113,21 +115,35 @@ export default function ResultsPage() {
         if (response.ok) {
           const data = await response.json();
           if (!data.alreadyClaimed) {
-            console.log("Session claimed successfully:", data.message);
+            console.log("✓ Session claimed successfully:", data.message);
+          } else {
+            console.log("✓ Session already belongs to this user");
           }
         } else {
           const error = await response.json();
           // Only log if it's not a "belongs to another user" error
+          if (response.status === 404 && retryCount < 2) {
+            // Session might not be in DB yet, retry after a delay
+            console.log("Session not found, retrying in 2 seconds...");
+            setTimeout(() => claimSession(retryCount + 1), 2000);
+            return;
+          }
           if (response.status !== 403) {
-            console.warn("Could not claim session:", error.error);
+            console.warn("Could not claim session:", error.error, error.details);
           }
         }
       } catch (error) {
         console.warn("Error claiming session:", error);
+        // Retry on network errors
+        if (retryCount < 2) {
+          setTimeout(() => claimSession(retryCount + 1), 2000);
+        }
       }
     };
 
-    claimSession();
+    // Small delay to ensure user is fully synced
+    const timer = setTimeout(() => claimSession(), 500);
+    return () => clearTimeout(timer);
   }, [userLoaded, user?.id, sessionId]);
 
   useEffect(() => {

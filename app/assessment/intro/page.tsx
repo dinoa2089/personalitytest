@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
@@ -29,9 +30,8 @@ interface LinkError {
 function AssessmentIntroContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { user } = useUser(); // Get signed-in user if available
   const { initializeSession } = useAssessmentStore();
-  // User ID will be captured later via auth gate after assessment completion
-  // This allows guests to take the assessment without requiring Clerk to be configured
   const [isStarting, setIsStarting] = useState(false);
   const [selectedType, setSelectedType] = useState<AssessmentType | null>("standard");
   const [jobToken, setJobToken] = useState<string | null>(null);
@@ -136,7 +136,7 @@ function AssessmentIntroContent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           guestSessionId: sessionId,
-          userId: null, // User ID captured after assessment via auth gate
+          userId: user?.id || null, // Pass Clerk user ID if signed in, otherwise guest
           assessmentType: type, // Pass assessment type to API
           referralCode: referralCode || null,
         }),
