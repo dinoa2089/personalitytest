@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
@@ -29,6 +30,7 @@ interface LinkError {
 function AssessmentIntroContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { user } = useUser(); // Get Clerk user if logged in
   const { initializeSession } = useAssessmentStore();
   const [isStarting, setIsStarting] = useState(false);
   const [selectedType, setSelectedType] = useState<AssessmentType | null>("standard");
@@ -134,6 +136,7 @@ function AssessmentIntroContent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           guestSessionId: sessionId,
+          userId: user?.id || null, // Pass Clerk user ID if logged in
           assessmentType: type, // Pass assessment type to API
           referralCode: referralCode || null,
         }),

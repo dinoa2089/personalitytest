@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { userId, guestSessionId, referralCode } = body;
+    const { userId: clerkUserId, guestSessionId, referralCode } = body;
 
     // Check if Supabase is configured - use service role to bypass RLS
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         session: {
           id: guestSessionId || crypto.randomUUID(),
-          user_id: userId || null,
+          user_id: null,
           guest_session_id: guestSessionId || null,
           progress: 0,
           started_at: new Date().toISOString(),
@@ -29,12 +29,29 @@ export async function POST(request: NextRequest) {
       auth: { autoRefreshToken: false, persistSession: false },
     });
 
+    // If we have a Clerk user ID, look up the internal Supabase user ID
+    let internalUserId: string | null = null;
+    if (clerkUserId) {
+      const { data: user } = await supabase
+        .from("users")
+        .select("id")
+        .eq("clerk_id", clerkUserId)
+        .single();
+      
+      if (user) {
+        internalUserId = user.id;
+        console.log(`Linking session to user: Clerk ${clerkUserId} -> Supabase ${internalUserId}`);
+      } else {
+        console.warn(`User not found for Clerk ID: ${clerkUserId} - session will be guest`);
+      }
+    }
+
     // Create assessment session in database
     const { data: session, error } = await supabase
       .from("assessment_sessions")
       .insert({
         id: guestSessionId || undefined, // Use provided UUID if available
-        user_id: userId || null,
+        user_id: internalUserId, // Use internal Supabase user ID, not Clerk ID
         guest_session_id: guestSessionId || null,
         referral_code: referralCode || null,
         progress: 0,
