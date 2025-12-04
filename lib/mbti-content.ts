@@ -1464,10 +1464,18 @@ export function getMBTITypeContent(code: string): MBTIType | null {
       let normalizedGrowthAdvice = expanded.growthAdvice;
       if (Array.isArray(expanded.growthAdvice) && expanded.growthAdvice.length > 0) {
         if (typeof expanded.growthAdvice[0] === 'object' && expanded.growthAdvice[0] !== null) {
-          // Convert objects with advice/context to strings
-          normalizedGrowthAdvice = expanded.growthAdvice.map((item: { advice?: string; context?: string } | string) => {
+          // Convert objects with advice/context OR title/description to strings
+          normalizedGrowthAdvice = expanded.growthAdvice.map((item: { advice?: string; context?: string; title?: string; description?: string } | string) => {
             if (typeof item === 'string') return item;
-            return item.advice ? `${item.advice}${item.context ? ' ' + item.context : ''}` : '';
+            // Handle {advice, context} format
+            if (item.advice) {
+              return `${item.advice}${item.context ? ' ' + item.context : ''}`;
+            }
+            // Handle {title, description} format
+            if (item.title && item.description) {
+              return `**${item.title}:** ${item.description}`;
+            }
+            return item.description || item.title || '';
           }).filter(Boolean);
         }
       }
@@ -1512,10 +1520,20 @@ export function getMBTITypeContent(code: string): MBTIType | null {
         inferior: normalizeCognitiveFunction(expanded.cognitiveFunctions.inferior),
       } : original.cognitiveFunctions;
 
+      // Normalize tagline - convert object to string if needed
+      let normalizedTagline = expanded.tagline;
+      if (expanded.tagline && typeof expanded.tagline === 'object') {
+        const taglineObj = expanded.tagline as { title?: string; description?: string };
+        normalizedTagline = taglineObj.title && taglineObj.description 
+          ? `${taglineObj.title}: ${taglineObj.description}`
+          : taglineObj.description || taglineObj.title || original.tagline;
+      }
+
       // Merge expanded content with original, keeping original famousExamples with images
       return {
         ...original,
         ...expanded,
+        tagline: normalizedTagline || original.tagline,
         description: normalizedDescription || original.description,
         growthAdvice: normalizedGrowthAdvice || original.growthAdvice,
         famousExamples: original.famousExamples, // Keep original with image URLs
