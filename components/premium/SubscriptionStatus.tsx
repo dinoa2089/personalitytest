@@ -5,7 +5,7 @@ import { useUser } from "@clerk/nextjs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, CreditCard, ExternalLink } from "lucide-react";
+import { Calendar, CreditCard, ExternalLink, Shield } from "lucide-react";
 import { getUserSubscription, type Subscription } from "@/lib/subscriptions";
 import Link from "next/link";
 
@@ -13,6 +13,7 @@ export function SubscriptionStatus() {
   const { user, isLoaded } = useUser();
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const fetchSubscription = async () => {
@@ -22,8 +23,25 @@ export function SubscriptionStatus() {
       }
 
       try {
-        const sub = await getUserSubscription(user.id);
-        setSubscription(sub);
+        // Check premium/admin status via API
+        const userEmail = user.primaryEmailAddress?.emailAddress || "";
+        const params = new URLSearchParams({
+          userId: user.id,
+          email: userEmail,
+        });
+        
+        const statusResponse = await fetch(`/api/user/premium-status?${params}`);
+        const statusData = await statusResponse.json();
+        
+        if (statusData.isAdmin) {
+          setIsAdmin(true);
+        }
+        
+        // Only fetch subscription if not admin (admins have full access anyway)
+        if (!statusData.isAdmin) {
+          const sub = await getUserSubscription(user.id);
+          setSubscription(sub);
+        }
       } catch (error) {
         console.error("Error fetching subscription:", error);
       } finally {
@@ -32,7 +50,7 @@ export function SubscriptionStatus() {
     };
 
     fetchSubscription();
-  }, [user?.id, isLoaded]);
+  }, [user?.id, isLoaded, user?.primaryEmailAddress?.emailAddress]);
 
   if (!isLoaded || loading) {
     return (
@@ -42,6 +60,29 @@ export function SubscriptionStatus() {
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">Loading...</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  // Admin users get full access
+  if (isAdmin) {
+    return (
+      <Card className="border-purple-200 bg-purple-50/50 dark:border-purple-800 dark:bg-purple-900/20">
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle className="flex items-center gap-2">
+              <Shield className="h-5 w-5 text-purple-600" />
+              Subscription
+            </CardTitle>
+            <Badge className="bg-purple-600 hover:bg-purple-700">Admin</Badge>
+          </div>
+          <CardDescription>Full access to all features</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-purple-700 dark:text-purple-300">
+            As an admin, you have unlimited access to all premium features and insights.
+          </p>
         </CardContent>
       </Card>
     );

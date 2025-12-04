@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { Lock, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { hasPremiumAccess, isFeatureAvailable, getUserSubscription, type SubscriptionPlan } from "@/lib/subscriptions";
+import { isFeatureAvailable, type SubscriptionPlan } from "@/lib/subscriptions";
 import Link from "next/link";
 
 interface FeatureGateProps {
@@ -20,7 +20,7 @@ export function FeatureGate({ feature, children, fallback, showUpgrade = true }:
   const { user, isLoaded } = useUser();
   const [hasAccess, setHasAccess] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [subscription, setSubscription] = useState<{ plan: SubscriptionPlan } | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const checkAccess = async () => {
@@ -33,16 +33,30 @@ export function FeatureGate({ feature, children, fallback, showUpgrade = true }:
       }
 
       try {
-        const userSubscription = await getUserSubscription(user.id);
-        const plan = userSubscription?.plan || "free";
-        setSubscription({ plan });
-
-        // Pass email for master admin check
-        const userEmail = user.primaryEmailAddress?.emailAddress;
-        const access = await hasPremiumAccess(user.id, userEmail);
-        const featureAvailable = isFeatureAvailable(feature, plan);
-
-        setHasAccess(access && featureAvailable);
+        // Check premium/admin status via API (works correctly with server-side env vars)
+        const userEmail = user.primaryEmailAddress?.emailAddress || "";
+        const params = new URLSearchParams({
+          userId: user.id,
+          email: userEmail,
+        });
+        
+        const response = await fetch(`/api/user/premium-status?${params}`);
+        const data = await response.json();
+        
+        // Admins get access to ALL features
+        if (data.isAdmin) {
+          setIsAdmin(true);
+          setHasAccess(true);
+        } else if (data.hasPremium) {
+          // Premium users - check if specific feature is available for their plan
+          const plan = data.plan || "premium_report";
+          const featureAvailable = isFeatureAvailable(feature, plan as SubscriptionPlan);
+          setHasAccess(featureAvailable);
+        } else {
+          // Free users - check if feature is available on free plan
+          const featureAvailable = isFeatureAvailable(feature, "free");
+          setHasAccess(featureAvailable);
+        }
       } catch (error) {
         console.error("Error checking feature access:", error);
         setHasAccess(false);
@@ -52,7 +66,7 @@ export function FeatureGate({ feature, children, fallback, showUpgrade = true }:
     };
 
     checkAccess();
-  }, [user?.id, isLoaded, feature]);
+  }, [user?.id, isLoaded, feature, user?.primaryEmailAddress?.emailAddress]);
 
   if (loading) {
     return <div className="animate-pulse">{children}</div>;

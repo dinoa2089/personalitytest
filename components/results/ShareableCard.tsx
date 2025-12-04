@@ -47,8 +47,29 @@ export function ShareableCard({ result, sessionId }: ShareableCardProps) {
   };
 
   useEffect(() => {
-    // Generate image on mount
-    generateImage();
+    // Generate image after a delay to ensure DOM is fully rendered
+    if (!cardRef) return;
+    
+    const timer = setTimeout(async () => {
+      try {
+        // Dynamic import to reduce bundle size
+        const html2canvas = (await import("html2canvas")).default;
+        const canvas = await html2canvas(cardRef, {
+          backgroundColor: "#ffffff",
+          scale: 2,
+          useCORS: true,
+          logging: false, // Disable console logging
+        });
+        const dataUrl = canvas.toDataURL("image/png");
+        setImageUrl(dataUrl);
+      } catch (error) {
+        console.warn("Could not generate shareable image:", error);
+        // Don't show error toast on initial load - only on user action
+      }
+    }, 1500); // Wait 1.5 seconds for styles to apply
+    
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardRef]);
 
   const downloadImage = async () => {
