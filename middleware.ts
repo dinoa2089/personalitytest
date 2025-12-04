@@ -58,7 +58,7 @@ async function validateApiKeyInMiddleware(request: NextRequest): Promise<{
 
   const apiKey = authHeader.substring(7);
 
-  if (!apiKey || !apiKey.startsWith('sk_')) {
+  if (!apiKey || !apiKey.startsWith('pi_')) {
     return { valid: false, error: 'Invalid API key format', statusCode: 401 };
   }
 

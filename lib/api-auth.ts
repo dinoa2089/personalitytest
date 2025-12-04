@@ -63,9 +63,9 @@ export async function generateApiKey(
   const randomBytes = crypto.randomBytes(32);
   const keyBody = randomBytes.toString("base64url");
   
-  // Format: sk_live_<base64url_random>
-  const fullKey = `sk_live_${keyBody}`;
-  const keyPrefix = fullKey.substring(0, 12); // "sk_live_XXXX"
+  // Format: pi_live_<base64url_random>
+  const fullKey = `pi_live_${keyBody}`;
+  const keyPrefix = fullKey.substring(0, 12); // "pi_live_XXXX"
   
   // Hash the full key for storage (SHA-256)
   const keyHash = crypto.createHash("sha256").update(fullKey).digest("hex");
@@ -119,7 +119,7 @@ export async function validateApiKey(request: NextRequest): Promise<ApiKeyData> 
 
   const apiKey = authHeader.substring(7); // Remove "Bearer " prefix
 
-  if (!apiKey || !apiKey.startsWith("sk_")) {
+  if (!apiKey || !apiKey.startsWith("pi_")) {
     throw new ApiAuthError("Invalid API key format", 401);
   }
 
