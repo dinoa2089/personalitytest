@@ -12,6 +12,8 @@ import { InternalLinks } from "@/components/personality/InternalLinks";
 import { ResearchCitations } from "@/components/personality/ResearchCitations";
 import { TypeExamplesGrid } from "@/components/personality/TypeExamplesGrid";
 import { archetypeExamples, archetypeDimensionDescriptions } from "@/lib/archetype-examples";
+import { getTopicLinksForType, TOPIC_METADATA } from "@/lib/internal-links";
+import type { ContentTopic } from "@/lib/content/types";
 import {
   Star,
   TrendingUp,
@@ -27,6 +29,7 @@ import {
   Lock,
   DollarSign,
   Zap,
+  BookOpen,
 } from "lucide-react";
 import { MarkdownText, CompactMarkdown } from "@/components/ui/markdown-text";
 import { ExpandableText } from "@/components/ui/ExpandableText";
@@ -44,6 +47,7 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
   const { archetype } = content;
   const examples = archetypeExamples[archetype.id] || [];
   const dimensionDescription = archetypeDimensionDescriptions[archetype.id] || "";
+  const topicLinks = getTopicLinksForType("prism", archetype.id);
 
   const breadcrumbItems = [
     { name: "Home", url: "/" },
@@ -301,6 +305,55 @@ export function TypePageClient({ content, relatedArchetypes }: TypePageClientPro
                 </CardContent>
               </Card>
             </motion.div>
+          </motion.section>
+
+          {/* Deep Dive Topic Guides */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Card className="rounded-2xl border border-border/50">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20">
+                    <BookOpen className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl">Deep Dive: {archetype.name} Guides</CardTitle>
+                    <CardDescription>
+                      Explore detailed guides on specific aspects of {archetype.name}
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {topicLinks.map((link) => {
+                    const topicKey = link.url.split('/').pop() as ContentTopic;
+                    const meta = TOPIC_METADATA[topicKey];
+                    return (
+                      <Link key={link.url} href={link.url} className="group">
+                        <div className="rounded-xl border border-border/50 hover:border-primary/50 transition-all p-4 h-full">
+                          <div className="flex items-start gap-3">
+                            <span className="text-2xl">{meta?.icon || '📖'}</span>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-semibold group-hover:text-primary transition-colors text-sm">
+                                {archetype.name.replace("The ", "")} {link.title}
+                              </h3>
+                              <p className="text-xs text-muted-foreground mt-1">
+                                {link.description}
+                              </p>
+                            </div>
+                            <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors mt-1 flex-shrink-0" />
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
           </motion.section>
 
           {/* Career Matches */}
