@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
         const questionIds = responses.map((r: { question_id: string }) => r.question_id);
         const { data: questions } = await supabase
           .from("questions")
-          .select("id, framework_tags, discrimination")
+          .select("id, framework_tags, discrimination, reverse_scored")
           .in("id", questionIds);
 
         if (questions && questions.length > 0) {
@@ -41,6 +41,7 @@ export async function POST(request: NextRequest) {
               ...r,
               framework_tags: question?.framework_tags || [],
               discrimination: question?.discrimination || 1.0,
+              reverse_scored: question?.reverse_scored || false,
             };
           });
         }

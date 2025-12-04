@@ -194,13 +194,24 @@ export function mockCalculateScores(
     const effectiveWeight = getEffectiveWeight(response.question_type, discrimination);
 
     // Check for MBTI framework tags and score them directly
-    const frameworkTags = question?.framework_tags || [];
+    const frameworkTags = question?.framework_tags || (response as any).framework_tags || [];
+    
+    // Get reverse_scored from response (enriched) or question
+    const isReversed = (response as any).reverse_scored ?? question?.reverse_scored ?? false;
+    
     for (const mbtiDim of MBTI_DIMENSIONS) {
       if (frameworkTags.includes(mbtiDim)) {
         // Score this response for the MBTI dimension
-        const mbtiScore = scoreSimpleResponse(response);
-        // Note: mbti_tf, mbti_sn, mbti_jp questions are designed so HIGH score = T, S, J
-        // So we DON'T invert - the question wording handles direction
+        let mbtiScore = scoreSimpleResponse(response);
+        
+        // CRITICAL: Apply reverse scoring for MBTI dimensions
+        // If a question is reverse-scored, LOW answer should mean HIGH on the target scale
+        // e.g., "I find it stressful when routine is disrupted" reverse=true + answer 3 (low)
+        //       should contribute HIGH to Judging (low stress = organized/structured)
+        if (isReversed) {
+          mbtiScore = 10 - mbtiScore; // Invert the 0-10 scale
+        }
+        
         mbtiScores[mbtiDim].totalScore += mbtiScore * effectiveWeight;
         mbtiScores[mbtiDim].totalWeight += effectiveWeight;
         mbtiScores[mbtiDim].count += 1;
@@ -211,7 +222,13 @@ export function mockCalculateScores(
     for (const ennType of ENNEAGRAM_TYPES) {
       if (frameworkTags.includes(ennType)) {
         // Score this response for the Enneagram type
-        const ennScore = scoreSimpleResponse(response);
+        let ennScore = scoreSimpleResponse(response);
+        
+        // Apply reverse scoring for Enneagram dimensions too
+        if (isReversed) {
+          ennScore = 10 - ennScore;
+        }
+        
         enneagramScores[ennType].totalScore += ennScore * effectiveWeight;
         enneagramScores[ennType].totalWeight += effectiveWeight;
         enneagramScores[ennType].count += 1;
