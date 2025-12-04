@@ -2,7 +2,6 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useUser } from "@clerk/nextjs";
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
@@ -30,8 +29,9 @@ interface LinkError {
 function AssessmentIntroContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { user } = useUser(); // Get Clerk user if logged in
   const { initializeSession } = useAssessmentStore();
+  // User ID will be captured later via auth gate after assessment completion
+  // This allows guests to take the assessment without requiring Clerk to be configured
   const [isStarting, setIsStarting] = useState(false);
   const [selectedType, setSelectedType] = useState<AssessmentType | null>("standard");
   const [jobToken, setJobToken] = useState<string | null>(null);
@@ -136,7 +136,7 @@ function AssessmentIntroContent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           guestSessionId: sessionId,
-          userId: user?.id || null, // Pass Clerk user ID if logged in
+          userId: null, // User ID captured after assessment via auth gate
           assessmentType: type, // Pass assessment type to API
           referralCode: referralCode || null,
         }),
@@ -309,18 +309,21 @@ function AssessmentIntroContent() {
                 </div>
               )}
               
-              {/* Primary CTA - Above the fold */}
+              {/* Primary CTA - Above the fold - scrolls to assessment options */}
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button 
                   size="lg" 
-                  onClick={() => handleStart("standard")} 
+                  onClick={() => {
+                    // Scroll to assessment options section
+                    document.getElementById('assessment-options')?.scrollIntoView({ behavior: 'smooth' });
+                  }} 
                   disabled={isStarting}
                   className="text-lg px-12 py-7 h-auto bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full"
                 >
                   {isStarting ? "Starting..." : "Take the Assessment →"}
                 </Button>
                 <p className="text-sm text-muted-foreground">
-                  Free • No signup required • 8 min
+                  Free • No signup required • Choose your depth
                 </p>
               </div>
             </div>
@@ -473,7 +476,7 @@ function AssessmentIntroContent() {
             </Card>
           )}
 
-          <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
+          <Card id="assessment-options" className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg scroll-mt-24">
             <CardHeader className="pb-6">
               <CardTitle className="text-2xl">Choose Your Assessment</CardTitle>
               <CardDescription className="text-base">

@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { LayoutDashboard } from "lucide-react";
+import { WithClerk } from "@/components/providers/ClerkProviderWrapper";
 
-export function DashboardLink({ mobile, onClose }: { mobile?: boolean; onClose?: () => void }) {
+function DashboardLinkContent({ mobile, onClose }: { mobile?: boolean; onClose?: () => void }) {
   const { isSignedIn } = useUser();
 
   if (!isSignedIn) return null;
@@ -30,6 +31,15 @@ export function DashboardLink({ mobile, onClose }: { mobile?: boolean; onClose?:
       <LayoutDashboard className="h-4 w-4" />
       Dashboard
     </Link>
+  );
+}
+
+// Export wrapped component that safely handles missing Clerk
+export function DashboardLink(props: { mobile?: boolean; onClose?: () => void }) {
+  return (
+    <WithClerk>
+      <DashboardLinkContent {...props} />
+    </WithClerk>
   );
 }
 

@@ -58,8 +58,6 @@ export default function QuestionPage() {
   const [adaptiveState, setAdaptiveState] = useState<AdaptiveState | null>(null);
   const [questionBank, setQuestionBank] = useState<Question[]>([]);
   const [totalQuestionsTarget, setTotalQuestionsTarget] = useState(105);
-  // Track the questionsAnswered count when the current batch was loaded
-  const [batchStartCount, setBatchStartCount] = useState(0);
   
   // Track if we've initialized to prevent double loading
   const initialized = useRef(false);
@@ -147,8 +145,6 @@ export default function QuestionPage() {
         if (selectedQuestions.length > 0) {
           setQuestions(selectedQuestions);
           setCurrentQuestion(selectedQuestions[0]);
-          // Track the starting count for this batch
-          setBatchStartCount(state.questionsAnswered || 0);
           // Progress already set above based on dbResponseCount
         }
       } catch (error) {
@@ -251,8 +247,6 @@ export default function QuestionPage() {
         setQuestions(newBatch);
         setCurrentIndex(0);
         setCurrentQuestion(newBatch[0]);
-        // Track the starting count for this new batch
-        setBatchStartCount(totalAnswered);
         updateProgress((totalAnswered / totalQuestionsTarget) * 100);
       } else {
         // No more questions available - complete assessment
@@ -425,9 +419,9 @@ export default function QuestionPage() {
             )}
           </div>
           
-          {/* Question counter - accurate count based on batch position */}
+          {/* Question counter - uses adaptive state as source of truth */}
           <p className="text-sm text-muted-foreground text-center">
-            Question {batchStartCount + currentIndex + 1} of {totalQuestionsTarget}
+            Question {(adaptiveState?.questionsAnswered ?? 0) + 1} of {totalQuestionsTarget}
           </p>
           
           {/* Skip button - allows moving forward without answering (optional) */}

@@ -1,18 +1,9 @@
 "use client";
 
 import { UserButton, SignInButton, useUser } from "@clerk/nextjs";
+import { WithClerk } from "@/components/providers/ClerkProviderWrapper";
 
-export function ConditionalAuth() {
-  // Check if Clerk is configured
-  const clerkKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-  
-  // If Clerk not configured, don't show auth buttons
-  if (!clerkKey || clerkKey === "") {
-    return null;
-  }
-  
-  // Clerk is configured - useUser hook must be called unconditionally
-  // It will return safe defaults if ClerkProvider is not present
+function ConditionalAuthContent() {
   const { isSignedIn, isLoaded } = useUser();
   
   // Don't render until Clerk is loaded (prevents hydration issues)
@@ -30,6 +21,14 @@ export function ConditionalAuth() {
         Sign In
       </button>
     </SignInButton>
+  );
+}
+
+export function ConditionalAuth() {
+  return (
+    <WithClerk>
+      <ConditionalAuthContent />
+    </WithClerk>
   );
 }
 

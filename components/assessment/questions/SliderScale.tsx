@@ -20,12 +20,12 @@ const scaleLabels = [
 ];
 
 export function SliderScale({ question, onAnswer }: SliderScaleProps) {
-  const [value, setValue] = useState<number>(4); // Start neutral
+  const [value, setValue] = useState<number | null>(null); // Start with no selection
   const [hasInteracted, setHasInteracted] = useState(false);
 
   // Reset when question changes
   useEffect(() => {
-    setValue(4);
+    setValue(null);
     setHasInteracted(false);
   }, [question.id]);
 
@@ -33,16 +33,20 @@ export function SliderScale({ question, onAnswer }: SliderScaleProps) {
     const newValue = parseInt(e.target.value);
     setValue(newValue);
     setHasInteracted(true);
+    // Auto-submit after a brief delay to show the selection
+    setTimeout(() => onAnswer(newValue), 150);
   };
 
-  const handleSubmit = () => {
-    if (hasInteracted) {
-      onAnswer(value);
-    }
+  const handleTickClick = (tick: number) => {
+    setValue(tick);
+    setHasInteracted(true);
+    // Auto-submit after a brief delay to show the selection
+    setTimeout(() => onAnswer(tick), 150);
   };
 
   // Calculate gradient color based on value
   const getGradientColor = () => {
+    if (value === null) return "from-slate-400 to-slate-400";
     if (value <= 2) return "from-red-500 to-orange-400";
     if (value <= 3) return "from-orange-400 to-yellow-400";
     if (value === 4) return "from-yellow-400 to-yellow-400";
@@ -50,35 +54,40 @@ export function SliderScale({ question, onAnswer }: SliderScaleProps) {
     return "from-lime-400 to-emerald-500";
   };
 
-  // Calculate thumb position percentage
-  const thumbPosition = ((value - 1) / 6) * 100;
+  // Calculate thumb position percentage (default to center if no value)
+  const displayValue = value ?? 4;
+  const thumbPosition = ((displayValue - 1) / 6) * 100;
 
   return (
     <div className="space-y-8">
       {/* Slider container */}
       <div className="relative pt-8 pb-4">
-        {/* Value indicator bubble */}
-        <motion.div
-          className="absolute -top-2 transform -translate-x-1/2 z-10"
-          style={{ left: `${thumbPosition}%` }}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: hasInteracted ? 1 : 0.8, opacity: hasInteracted ? 1 : 0.5 }}
-        >
-          <div className={`px-4 py-2 rounded-full bg-gradient-to-r ${getGradientColor()} text-white font-bold shadow-lg`}>
-            {value}
-          </div>
-          <div className={`w-3 h-3 mx-auto -mt-1.5 rotate-45 bg-gradient-to-r ${getGradientColor()}`} />
-        </motion.div>
+        {/* Value indicator bubble - only show when value selected */}
+        {hasInteracted && value !== null && (
+          <motion.div
+            className="absolute -top-2 transform -translate-x-1/2 z-10"
+            style={{ left: `${thumbPosition}%` }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+          >
+            <div className={`px-4 py-2 rounded-full bg-gradient-to-r ${getGradientColor()} text-white font-bold shadow-lg`}>
+              {value}
+            </div>
+            <div className={`w-3 h-3 mx-auto -mt-1.5 rotate-45 bg-gradient-to-r ${getGradientColor()}`} />
+          </motion.div>
+        )}
 
         {/* Track background */}
         <div className="relative h-3 bg-muted rounded-full overflow-hidden">
-          {/* Filled track */}
-          <motion.div
-            className={`absolute h-full bg-gradient-to-r ${getGradientColor()} rounded-full`}
-            initial={{ width: "50%" }}
-            animate={{ width: `${thumbPosition}%` }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          />
+          {/* Filled track - only show when value selected */}
+          {hasInteracted && value !== null && (
+            <motion.div
+              className={`absolute h-full bg-gradient-to-r ${getGradientColor()} rounded-full`}
+              initial={{ width: 0 }}
+              animate={{ width: `${thumbPosition}%` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            />
+          )}
         </div>
 
         {/* Custom slider input - on the track only, not blocking tick marks */}
@@ -86,7 +95,7 @@ export function SliderScale({ question, onAnswer }: SliderScaleProps) {
           type="range"
           min="1"
           max="7"
-          value={value}
+          value={displayValue}
           onChange={handleChange}
           className="absolute top-0 left-0 right-0 h-12 opacity-0 cursor-pointer z-0"
         />
@@ -97,19 +106,16 @@ export function SliderScale({ question, onAnswer }: SliderScaleProps) {
             <button
               key={tick}
               type="button"
-              onClick={() => {
-                setValue(tick);
-                setHasInteracted(true);
-              }}
+              onClick={() => handleTickClick(tick)}
               className={`flex flex-col items-center cursor-pointer hover:opacity-100 transition-opacity ${
-                tick === value ? "opacity-100" : "opacity-50"
+                tick === value ? "opacity-100" : "opacity-60 hover:opacity-80"
               }`}
             >
               <div
-                className={`w-3 h-3 rounded-full transition-all ${
+                className={`w-4 h-4 rounded-full transition-all ${
                   tick === value 
-                    ? "bg-primary scale-125" 
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                    ? "bg-primary scale-125 ring-2 ring-primary/30" 
+                    : "bg-muted-foreground/40 hover:bg-muted-foreground/60 hover:scale-110"
                 }`}
               />
               <span className={`text-sm mt-1 font-medium ${
@@ -123,31 +129,16 @@ export function SliderScale({ question, onAnswer }: SliderScaleProps) {
       {/* Label display */}
       <motion.div
         className="text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: hasInteracted ? 1 : 0.5 }}
+        initial={{ opacity: 0.5 }}
+        animate={{ opacity: hasInteracted && value !== null ? 1 : 0.5 }}
       >
         <p className="text-lg font-medium text-foreground">
-          {scaleLabels[value - 1]}
+          {value !== null ? scaleLabels[value - 1] : "Tap a point to answer"}
         </p>
         <p className="text-sm text-muted-foreground mt-1">
-          Drag the slider or tap a point to select
+          {value !== null ? "Great choice!" : "Select 1-7 on the scale above"}
         </p>
       </motion.div>
-
-      {/* Submit button */}
-      <motion.button
-        onClick={handleSubmit}
-        disabled={!hasInteracted}
-        whileHover={{ scale: hasInteracted ? 1.02 : 1 }}
-        whileTap={{ scale: hasInteracted ? 0.98 : 1 }}
-        className={`w-full py-4 rounded-xl font-semibold transition-all ${
-          hasInteracted
-            ? "bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer"
-            : "bg-muted text-muted-foreground cursor-not-allowed"
-        }`}
-      >
-        {hasInteracted ? "Confirm Answer" : "Move the slider to answer"}
-      </motion.button>
     </div>
   );
 }
