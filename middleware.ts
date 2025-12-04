@@ -6,8 +6,8 @@ import type { NextRequest } from 'next/server';
 const CLERK_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
 // Define protected routes (require Clerk authentication)
+// NOTE: Dashboard protection moved to page-level to avoid middleware issues
 const isProtectedRoute = createRouteMatcher([
-  '/dashboard(.*)',
   '/settings(.*)',
 ]);
 

@@ -38,6 +38,13 @@ export default function DashboardPage() {
     lastAssessmentDate: null as string | null,
   });
 
+  // Redirect to sign-in if not authenticated (page-level protection)
+  useEffect(() => {
+    if (userLoaded && !user) {
+      router.push('/sign-in?redirect_url=/dashboard');
+    }
+  }, [userLoaded, user, router]);
+
   useEffect(() => {
     if (!userLoaded) return;
 
