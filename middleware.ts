@@ -25,6 +25,12 @@ const isApiKeyManagementRoute = createRouteMatcher([
   '/api/v1/keys(.*)',
 ]);
 
+// Sign-in related routes (should always pass through)
+const isSignInRoute = createRouteMatcher([
+  '/sign-in(.*)',
+  '/sign-up(.*)',
+]);
+
 // ============================================================================
 // Web Crypto API hash function (Edge Runtime compatible)
 // ============================================================================
@@ -149,47 +155,39 @@ async function combinedMiddleware(request: NextRequest): Promise<NextResponse> {
 // Export middleware based on Clerk configuration
 export default CLERK_PUBLISHABLE_KEY && CLERK_PUBLISHABLE_KEY !== ''
   ? clerkMiddleware(async (auth, req) => {
-      try {
-        // API key management routes use Clerk auth
-        if (isApiKeyManagementRoute(req)) {
-          try {
-            await auth.protect();
-            return NextResponse.next();
-          } catch {
-            return NextResponse.json(
-              { error: 'Authentication required' },
-              { status: 401 }
-            );
-          }
-        }
-
-        // API v1 routes use API key auth
-        if (isApiV1Route(req)) {
-          return handleApiV1Route(req);
-        }
-
-        // Protect dashboard and settings routes with Clerk
-        if (isProtectedRoute(req)) {
-          try {
-            await auth.protect();
-          } catch {
-            return NextResponse.redirect(new URL('/sign-in', req.url));
-          }
-        }
-
-        return NextResponse.next();
-      } catch (error) {
-        // Log the error for debugging
-        console.error('Middleware error:', error);
-        
-        // For protected routes, redirect to sign-in instead of crashing
-        if (isProtectedRoute(req)) {
-          return NextResponse.redirect(new URL('/sign-in', req.url));
-        }
-        
-        // For other routes, pass through
+      // Sign-in routes should always pass through
+      if (isSignInRoute(req)) {
         return NextResponse.next();
       }
+
+      // API v1 routes use API key auth (before Clerk protection)
+      if (isApiV1Route(req)) {
+        return handleApiV1Route(req);
+      }
+
+      // API key management routes use Clerk auth
+      if (isApiKeyManagementRoute(req)) {
+        const { userId } = await auth();
+        if (!userId) {
+          return NextResponse.json(
+            { error: 'Authentication required' },
+            { status: 401 }
+          );
+        }
+        return NextResponse.next();
+      }
+
+      // Protect dashboard and settings routes with Clerk
+      if (isProtectedRoute(req)) {
+        const { userId } = await auth();
+        if (!userId) {
+          const signInUrl = new URL('/sign-in', req.url);
+          signInUrl.searchParams.set('redirect_url', req.url);
+          return NextResponse.redirect(signInUrl);
+        }
+      }
+
+      return NextResponse.next();
     })
   : combinedMiddleware;
 
