@@ -23,7 +23,7 @@ import { FreeResultsView } from "@/components/results/FreeResultsView";
 import { PremiumUnlockNotification } from "@/components/referrals/PremiumUnlockNotification";
 import { JobFitScore } from "@/components/results/JobFitScore";
 import { useAssessmentStore } from "@/store/assessment-store";
-import { hasPremiumAccess } from "@/lib/subscriptions";
+// Premium access is now checked via API at /api/user/premium-status
 import type { AssessmentResult } from "@/types";
 
 // This page requires authentication - unauthenticated users are redirected to auth gate
@@ -82,15 +82,30 @@ export default function ResultsPage() {
   }, [userLoaded, user?.id, sessionId]);
 
   useEffect(() => {
-    // Check premium access
+    // Check premium access via API (works correctly with server-side env vars)
     const checkPremium = async () => {
       if (!userLoaded) return;
       
       if (user?.id) {
-        // Pass email for master admin check
-        const userEmail = user.primaryEmailAddress?.emailAddress;
-        const premium = await hasPremiumAccess(user.id, userEmail);
-        setHasPremium(premium);
+        try {
+          const userEmail = user.primaryEmailAddress?.emailAddress || "";
+          const params = new URLSearchParams({
+            userId: user.id,
+            email: userEmail,
+          });
+          
+          const response = await fetch(`/api/user/premium-status?${params}`);
+          const data = await response.json();
+          
+          setHasPremium(data.hasPremium === true);
+          
+          if (data.isAdmin) {
+            console.log("Admin access detected - full premium enabled");
+          }
+        } catch (error) {
+          console.error("Error checking premium status:", error);
+          setHasPremium(false);
+        }
       } else {
         // Guest users don't have premium
         setHasPremium(false);
@@ -99,7 +114,7 @@ export default function ResultsPage() {
     };
 
     checkPremium();
-  }, [user?.id, userLoaded]);
+  }, [user?.id, userLoaded, user?.primaryEmailAddress?.emailAddress]);
 
   useEffect(() => {
     // First check if we have results in store (from recent completion)
