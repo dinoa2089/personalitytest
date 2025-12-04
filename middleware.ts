@@ -155,39 +155,66 @@ async function combinedMiddleware(request: NextRequest): Promise<NextResponse> {
 // Export middleware based on Clerk configuration
 export default CLERK_PUBLISHABLE_KEY && CLERK_PUBLISHABLE_KEY !== ''
   ? clerkMiddleware(async (auth, req) => {
-      // Sign-in routes should always pass through
-      if (isSignInRoute(req)) {
-        return NextResponse.next();
-      }
-
-      // API v1 routes use API key auth (before Clerk protection)
-      if (isApiV1Route(req)) {
-        return handleApiV1Route(req);
-      }
-
-      // API key management routes use Clerk auth
-      if (isApiKeyManagementRoute(req)) {
-        const { userId } = await auth();
-        if (!userId) {
-          return NextResponse.json(
-            { error: 'Authentication required' },
-            { status: 401 }
-          );
+      try {
+        // Sign-in routes should always pass through
+        if (isSignInRoute(req)) {
+          return NextResponse.next();
         }
-        return NextResponse.next();
-      }
 
-      // Protect dashboard and settings routes with Clerk
-      if (isProtectedRoute(req)) {
-        const { userId } = await auth();
-        if (!userId) {
+        // API v1 routes use API key auth (before Clerk protection)
+        if (isApiV1Route(req)) {
+          return handleApiV1Route(req);
+        }
+
+        // API key management routes use Clerk auth
+        if (isApiKeyManagementRoute(req)) {
+          try {
+            const { userId } = await auth();
+            if (!userId) {
+              return NextResponse.json(
+                { error: 'Authentication required' },
+                { status: 401 }
+              );
+            }
+          } catch (authError) {
+            console.error('Auth error in API key management:', authError);
+            return NextResponse.json(
+              { error: 'Authentication failed' },
+              { status: 401 }
+            );
+          }
+          return NextResponse.next();
+        }
+
+        // Protect dashboard and settings routes with Clerk
+        if (isProtectedRoute(req)) {
+          try {
+            const { userId } = await auth();
+            if (!userId) {
+              const signInUrl = new URL('/sign-in', req.url);
+              signInUrl.searchParams.set('redirect_url', req.url);
+              return NextResponse.redirect(signInUrl);
+            }
+          } catch (authError) {
+            console.error('Auth error for protected route:', authError);
+            // On auth failure, redirect to sign-in
+            const signInUrl = new URL('/sign-in', req.url);
+            signInUrl.searchParams.set('redirect_url', req.url);
+            return NextResponse.redirect(signInUrl);
+          }
+        }
+
+        return NextResponse.next();
+      } catch (error) {
+        console.error('Middleware error:', error);
+        // For protected routes, redirect to sign-in
+        if (isProtectedRoute(req)) {
           const signInUrl = new URL('/sign-in', req.url);
-          signInUrl.searchParams.set('redirect_url', req.url);
           return NextResponse.redirect(signInUrl);
         }
+        // For other routes, pass through
+        return NextResponse.next();
       }
-
-      return NextResponse.next();
     })
   : combinedMiddleware;
 

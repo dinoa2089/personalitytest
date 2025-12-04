@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 import { dimensionColors } from "@/lib/design-tokens";
 import type { DimensionScore } from "@/types";
 
+// Helper function to get ordinal suffix (1st, 2nd, 3rd, 4th, etc.)
+function getOrdinalSuffix(n: number): string {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return s[(v - 20) % 10] || s[v] || s[0];
+}
+
 interface DimensionCardProps {
   score: DimensionScore;
 }

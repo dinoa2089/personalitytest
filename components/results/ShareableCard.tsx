@@ -9,6 +9,13 @@ import { toast } from "react-hot-toast";
 // Dynamic import for html2canvas to reduce bundle size
 import type { AssessmentResult } from "@/types";
 
+// Helper function to get ordinal suffix (1st, 2nd, 3rd, 4th, etc.)
+function getOrdinalSuffix(n: number): string {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return s[(v - 20) % 10] || s[v] || s[0];
+}
+
 interface ShareableCardProps {
   result: AssessmentResult;
   sessionId: string;
@@ -145,7 +152,7 @@ export function ShareableCard({ result, sessionId }: ShareableCardProps) {
                     {dimensionNames[dim.dimension] || dim.dimension}
                   </span>
                   <span className="text-primary font-bold">
-                    {Math.round(dim.percentile)}th percentile
+                    {Math.round(dim.percentile)}{getOrdinalSuffix(Math.round(dim.percentile))} percentile
                   </span>
                 </div>
                 <div className="h-3 bg-muted rounded-full overflow-hidden">
