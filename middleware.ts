@@ -149,39 +149,34 @@ async function combinedMiddleware(request: NextRequest): Promise<NextResponse> {
 // Export middleware based on Clerk configuration
 export default CLERK_PUBLISHABLE_KEY && CLERK_PUBLISHABLE_KEY !== ''
   ? clerkMiddleware(async (auth, req) => {
-      try {
-        // API key management routes use Clerk auth
-        if (isApiKeyManagementRoute(req)) {
-          try {
-            await auth.protect();
-            return NextResponse.next();
-          } catch {
-            return NextResponse.json(
-              { error: 'Authentication required' },
-              { status: 401 }
-            );
-          }
+      // API key management routes use Clerk auth
+      if (isApiKeyManagementRoute(req)) {
+        try {
+          await auth.protect();
+          return NextResponse.next();
+        } catch {
+          return NextResponse.json(
+            { error: 'Authentication required' },
+            { status: 401 }
+          );
         }
-
-        // API v1 routes use API key auth
-        if (isApiV1Route(req)) {
-          return handleApiV1Route(req);
-        }
-
-        // Protect dashboard and settings routes with Clerk
-        if (isProtectedRoute(req)) {
-          try {
-            await auth.protect();
-          } catch {
-            return Response.redirect(new URL('/sign-in', req.url));
-          }
-        }
-
-        return NextResponse.next();
-      } catch (error) {
-        console.error('Middleware error:', error);
-        return NextResponse.next();
       }
+
+      // API v1 routes use API key auth
+      if (isApiV1Route(req)) {
+        return handleApiV1Route(req);
+      }
+
+      // Protect dashboard and settings routes with Clerk
+      if (isProtectedRoute(req)) {
+        try {
+          await auth.protect();
+        } catch {
+          return NextResponse.redirect(new URL('/sign-in', req.url));
+        }
+      }
+
+      return NextResponse.next();
     })
   : combinedMiddleware;
 

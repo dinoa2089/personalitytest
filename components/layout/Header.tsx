@@ -2,9 +2,19 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { useUser } from "@clerk/nextjs";
-import { ConditionalAuth } from "@/components/providers/ConditionalAuth";
-import { ChevronDown, Menu, X, Building2, LayoutDashboard } from "lucide-react";
+import dynamic from "next/dynamic";
+import { ChevronDown, Menu, X, Building2 } from "lucide-react";
+
+// Dynamically import auth components to avoid SSG issues with Clerk
+const ConditionalAuth = dynamic(
+  () => import("@/components/providers/ConditionalAuth").then(mod => mod.ConditionalAuth),
+  { ssr: false }
+);
+
+const DashboardLink = dynamic(
+  () => import("./DashboardLink").then(mod => mod.DashboardLink),
+  { ssr: false }
+);
 
 // MBTI Types grouped by temperament
 const mbtiTypes = {
@@ -66,7 +76,6 @@ const prismTypes = [
 export function Header() {
   const [typesOpen, setTypesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isSignedIn } = useUser();
 
   return (
     <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50">
@@ -213,16 +222,7 @@ export function Header() {
               Blog
             </Link>
 
-            {isSignedIn && (
-              <Link
-                href="/dashboard"
-                className="flex items-center gap-1.5 text-sm font-medium text-violet-600 hover:text-violet-700 transition-colors"
-              >
-                <LayoutDashboard className="h-4 w-4" />
-                Dashboard
-              </Link>
-            )}
-
+            <DashboardLink />
             <ConditionalAuth />
           </nav>
 
@@ -347,16 +347,7 @@ export function Header() {
                 Blog
               </Link>
 
-              {isSignedIn && (
-                <Link
-                  href="/dashboard"
-                  className="flex items-center gap-2 text-sm font-medium text-violet-600 hover:text-violet-700"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <LayoutDashboard className="h-4 w-4" />
-                  Dashboard
-                </Link>
-              )}
+              <DashboardLink mobile onClose={() => setMobileMenuOpen(false)} />
             </nav>
           </div>
         )}

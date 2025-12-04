@@ -1,5 +1,8 @@
 "use client";
 
+// Prevent static generation - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { Header } from "@/components/layout/Header";

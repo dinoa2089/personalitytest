@@ -255,7 +255,11 @@ export function mockCalculateScores(
         }
       } else {
         // Fallback: old-style string options - score to primary dimension
-        const score = scoreSimpleResponse(response);
+        let score = scoreSimpleResponse(response);
+        // CRITICAL: Apply reverse scoring for PRISM dimensions
+        if (isReversed) {
+          score = 10 - score;
+        }
         const dim = response.dimension;
         dimensionScores[dim].totalScore += score * effectiveWeight;
         dimensionScores[dim].totalWeight += effectiveWeight;
@@ -264,7 +268,11 @@ export function mockCalculateScores(
       }
     } else {
       // Non-forced-choice: score to primary dimension
-      const score = scoreSimpleResponse(response);
+      let score = scoreSimpleResponse(response);
+      // CRITICAL: Apply reverse scoring for PRISM dimensions
+      if (isReversed) {
+        score = 10 - score;
+      }
       const dim = response.dimension;
       dimensionScores[dim].totalScore += score * effectiveWeight;
       dimensionScores[dim].totalWeight += effectiveWeight;
@@ -614,18 +622,36 @@ function getQuestionWeight(questionType: string): number {
 
 /**
  * Score a simple (non-forced-choice) response
+ * Handles both raw values and {value: X} object format
  */
 function scoreSimpleResponse(response: QuestionResponse): number {
   const { question_type, response: responseValue } = response;
 
+  // Extract the actual value - responses can be raw values OR {value: X} objects
+  let actualValue: any = responseValue;
+  if (typeof responseValue === "object" && responseValue !== null && "value" in responseValue) {
+    actualValue = (responseValue as any).value;
+    // Handle nested JSON strings (e.g., {value: "{\"most\":\"...\",\"least\":\"...\"}"})
+    if (typeof actualValue === "string") {
+      try {
+        const parsed = JSON.parse(actualValue);
+        if (typeof parsed === "object" && parsed !== null) {
+          actualValue = parsed;
+        }
+      } catch {
+        // Not JSON, keep as string
+      }
+    }
+  }
+
   if (question_type === "likert") {
     // Likert scale: 1-7, normalize to 0-10 for consistent scoring
-    if (typeof responseValue === "number") {
+    if (typeof actualValue === "number") {
       // Convert 1-7 scale to 0-10
-      return ((responseValue - 1) / 6) * 10;
+      return ((actualValue - 1) / 6) * 10;
     }
-    if (typeof responseValue === "string") {
-      const num = parseFloat(responseValue);
+    if (typeof actualValue === "string") {
+      const num = parseFloat(actualValue);
       if (isNaN(num)) return 5; // Default to middle
       return ((num - 1) / 6) * 10;
     }
@@ -633,37 +659,49 @@ function scoreSimpleResponse(response: QuestionResponse): number {
   }
 
   if (question_type === "situational_judgment") {
-    // Map option selection to score based on option index
-    if (typeof responseValue === "string") {
+    // Situational judgment: typically string options describing actions
+    // Score based on which option was selected
+    if (typeof actualValue === "string") {
       // Options typically ordered from most to least aligned with the trait
-      const optionIndex = parseInt(responseValue, 10);
+      const optionIndex = parseInt(actualValue, 10);
       if (!isNaN(optionIndex)) {
         // Assume 3-4 options, first is highest trait expression
         return Math.max(1, 10 - optionIndex * 2.5);
       }
       // Letter-based options
-      if (responseValue === "A") return 9;
-      if (responseValue === "B") return 7;
-      if (responseValue === "C") return 4;
-      if (responseValue === "D") return 2;
+      if (actualValue === "A" || actualValue.toLowerCase().includes("immediately") || actualValue.toLowerCase().includes("eagerly")) return 9;
+      if (actualValue === "B" || actualValue.toLowerCase().includes("carefully") || actualValue.toLowerCase().includes("analyze")) return 7;
+      if (actualValue === "C" || actualValue.toLowerCase().includes("wait") || actualValue.toLowerCase().includes("observe")) return 4;
+      if (actualValue === "D" || actualValue.toLowerCase().includes("avoid") || actualValue.toLowerCase().includes("nothing")) return 2;
+      // Generic string - try to infer from position if it matches option text
       return 5;
     }
-    if (typeof responseValue === "number") {
+    if (typeof actualValue === "number") {
       // Normalize to 0-10 scale
-      return Math.max(0, Math.min(10, responseValue * 2));
+      return Math.max(0, Math.min(10, actualValue * 2));
     }
     return 5;
   }
 
   if (question_type === "behavioral_frequency") {
     // Behavioral frequency: 1-5 scale, normalize to 0-10
-    if (typeof responseValue === "number") {
-      return ((responseValue - 1) / 4) * 10;
+    if (typeof actualValue === "number") {
+      // Check if it's 1-5 scale or 1-7 scale based on value range
+      if (actualValue <= 5) {
+        return ((actualValue - 1) / 4) * 10;
+      } else {
+        // Assume 1-7 scale
+        return ((actualValue - 1) / 6) * 10;
+      }
     }
-    if (typeof responseValue === "string") {
-      const num = parseFloat(responseValue);
+    if (typeof actualValue === "string") {
+      const num = parseFloat(actualValue);
       if (isNaN(num)) return 5;
-      return ((num - 1) / 4) * 10;
+      if (num <= 5) {
+        return ((num - 1) / 4) * 10;
+      } else {
+        return ((num - 1) / 6) * 10;
+      }
     }
     return 5;
   }
