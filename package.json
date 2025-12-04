@@ -7,11 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "qa:mobile": "npx tsx scripts/mobile-qa.ts"
+    "qa:mobile": "npx tsx scripts/mobile-qa.ts",
+    "test:api-auth": "npx tsx lib/__tests__/api-auth.test.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.35.1",
     "@radix-ui/react-checkbox": "^1.1.3",
+    "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
     "@radix-ui/react-label": "^2.1.8",

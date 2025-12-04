@@ -158,6 +158,7 @@ export async function POST(request: NextRequest) {
             session_id: sessionId,
             user_id: body.userId || null,
             dimensional_scores: scores.dimensional_scores,
+            framework_mappings: scores.frameworks || null, // Save MBTI, Enneagram, CliftonStrengths
             results_access_level: accessLevel,
             metadata: {},
           })

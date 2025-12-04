@@ -182,3 +182,4 @@ export function FamousPeopleGrid({ people, typeName, showAll = false }: FamousPe
 
 
 
+

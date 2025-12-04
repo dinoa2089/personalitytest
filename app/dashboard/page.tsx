@@ -13,6 +13,7 @@ import { Calendar, CheckCircle2, Clock, TrendingUp } from "lucide-react";
 import { SubscriptionStatus } from "@/components/premium/SubscriptionStatus";
 import { ReferralDashboard } from "@/components/referrals/ReferralDashboard";
 import { PremiumUnlockNotification } from "@/components/referrals/PremiumUnlockNotification";
+import { ApiKeysManager } from "@/components/api/ApiKeysManager";
 
 interface Assessment {
   id: string;
@@ -174,6 +175,9 @@ export default function DashboardPage() {
 
                 {/* Referral Dashboard */}
                 <ReferralDashboard />
+
+                {/* API Keys Manager */}
+                <ApiKeysManager />
 
                 {/* Quick Actions */}
                 <Card>

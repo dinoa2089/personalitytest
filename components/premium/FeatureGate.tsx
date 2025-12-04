@@ -37,7 +37,9 @@ export function FeatureGate({ feature, children, fallback, showUpgrade = true }:
         const plan = userSubscription?.plan || "free";
         setSubscription({ plan });
 
-        const access = await hasPremiumAccess(user.id);
+        // Pass email for master admin check
+        const userEmail = user.primaryEmailAddress?.emailAddress;
+        const access = await hasPremiumAccess(user.id, userEmail);
         const featureAvailable = isFeatureAvailable(feature, plan);
 
         setHasAccess(access && featureAvailable);

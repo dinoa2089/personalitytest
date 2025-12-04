@@ -305,3 +305,4 @@ export function CandidateDetailModal({ candidate, jobId, onClose, onUpdate }: Pr
   );
 }
 
+

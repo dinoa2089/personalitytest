@@ -101,3 +101,4 @@ Object.entries(byType).sort().forEach(([type, count]) => {
 console.log('\n🎉 Done! Mock questions are now updated.');
 console.log('   Run: npm run dev to test the assessment');
 
+

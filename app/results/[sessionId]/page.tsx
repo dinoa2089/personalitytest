@@ -55,7 +55,9 @@ export default function ResultsPage() {
       if (!userLoaded) return;
       
       if (user?.id) {
-        const premium = await hasPremiumAccess(user.id);
+        // Pass email for master admin check
+        const userEmail = user.primaryEmailAddress?.emailAddress;
+        const premium = await hasPremiumAccess(user.id, userEmail);
         setHasPremium(premium);
       } else {
         // Guest users don't have premium
@@ -88,6 +90,7 @@ export default function ResultsPage() {
           const finalResult: AssessmentResult = {
             session_id: resultData?.session_id || sessionId,
             dimensional_scores: resultData?.dimensional_scores || data.dimensional_scores || [],
+            frameworks: data.frameworks || resultData?.framework_mappings || resultData?.frameworks || undefined,
             completed: resultData?.completed ?? data.completed ?? true,
             created_at: new Date(resultData?.created_at || data.created_at || Date.now()),
           };

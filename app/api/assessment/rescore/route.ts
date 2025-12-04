@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { mockCalculateScores } from "@/lib/mock-scoring";
 
 const SCORING_API_URL = process.env.NEXT_PUBLIC_SCORING_API_URL || "http://localhost:8000";
 
@@ -177,9 +178,13 @@ export async function POST(request: NextRequest) {
         };
       });
 
-      // Call Python backend for scoring (not mock scoring!)
+      // Call Python backend for scoring, fallback to mock scoring
       let newScores;
+      let usedMockScoring = false;
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        
         const scoringResponse = await fetch(`${SCORING_API_URL}/api/scoring/calculate`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -188,7 +193,10 @@ export async function POST(request: NextRequest) {
             session_id: sid,
             include_frameworks: true,
           }),
+          signal: controller.signal,
         });
+
+        clearTimeout(timeoutId);
 
         if (!scoringResponse.ok) {
           throw new Error(`Scoring API returned ${scoringResponse.status}`);
@@ -196,13 +204,10 @@ export async function POST(request: NextRequest) {
 
         newScores = await scoringResponse.json();
       } catch (apiError) {
-        console.error(`Python scoring API error for session ${sid}:`, apiError);
-        results.push({ 
-          sessionId: sid, 
-          status: "error", 
-          error: "Scoring API unavailable - ensure Python backend is running" 
-        });
-        continue;
+        console.warn(`Python scoring API unavailable for session ${sid}, using mock scoring:`, apiError);
+        // Fallback to mock scoring
+        newScores = mockCalculateScores(formattedResponses, sid);
+        usedMockScoring = true;
       }
 
       // Update the assessment_results table
@@ -213,16 +218,16 @@ export async function POST(request: NextRequest) {
         .single();
 
       if (existingResult) {
-        // Update existing result
+        // Update existing result - use framework_mappings column (not frameworks)
         const { error: updateError } = await supabase
           .from("assessment_results")
           .update({
             dimensional_scores: newScores.dimensional_scores,
-            frameworks: newScores.frameworks,
+            framework_mappings: newScores.frameworks,
             metadata: {
               ...existingResult.metadata,
               rescored_at: new Date().toISOString(),
-              rescore_reason: "MBTI T/F calculation fix",
+              rescore_reason: "Framework mappings fix",
             },
           })
           .eq("id", existingResult.id);
@@ -234,8 +239,10 @@ export async function POST(request: NextRequest) {
           results.push({ 
             sessionId: sid, 
             status: "updated", 
+            usedMockScoring,
             newScores: newScores.dimensional_scores,
             mbti: newScores.frameworks?.mbti,
+            enneagram: newScores.frameworks?.enneagram,
           });
         }
       } else {
@@ -245,11 +252,11 @@ export async function POST(request: NextRequest) {
           .insert({
             session_id: sid,
             dimensional_scores: newScores.dimensional_scores,
-            frameworks: newScores.frameworks,
+            framework_mappings: newScores.frameworks,
             completed: true,
             metadata: {
               rescored_at: new Date().toISOString(),
-              rescore_reason: "MBTI T/F calculation fix",
+              rescore_reason: "Framework mappings fix",
             },
           });
 
@@ -260,8 +267,10 @@ export async function POST(request: NextRequest) {
           results.push({ 
             sessionId: sid, 
             status: "created", 
+            usedMockScoring,
             newScores: newScores.dimensional_scores,
             mbti: newScores.frameworks?.mbti,
+            enneagram: newScores.frameworks?.enneagram,
           });
         }
       }

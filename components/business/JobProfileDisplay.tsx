@@ -326,3 +326,4 @@ export function JobProfileDisplay({ analysis, editable = false, onUpdate }: Prop
   );
 }
 
+

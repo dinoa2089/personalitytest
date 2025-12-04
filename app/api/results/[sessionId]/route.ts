@@ -23,12 +23,13 @@ export async function GET(
       },
     });
 
-    // Fetch results by session_id
+    // Fetch results by session_id including framework_mappings
     const { data: result, error } = await supabase
       .from("assessment_results")
       .select(`
         *,
-        metadata
+        metadata,
+        framework_mappings
       `)
       .eq("session_id", sessionId)
       .single();
@@ -68,6 +69,7 @@ export async function GET(
 
         return NextResponse.json({
           ...result,
+          frameworks: result.framework_mappings || null, // Include frameworks
           fit_score: applicantAssessment.fit_score,
           fit_breakdown: applicantAssessment.fit_breakdown,
           job_info: {
@@ -78,7 +80,12 @@ export async function GET(
       }
     }
 
-    return NextResponse.json(result);
+    // Map framework_mappings to frameworks for frontend compatibility
+    const responseData = {
+      ...result,
+      frameworks: result.framework_mappings || null,
+    };
+    return NextResponse.json(responseData);
   } catch (error) {
     console.error("Error fetching results:", error);
     return NextResponse.json(

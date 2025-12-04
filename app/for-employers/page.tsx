@@ -23,7 +23,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
 
 // Animation variants
 const fadeInUp = {
@@ -46,8 +45,6 @@ function EmployerLandingPage() {
   
   return (
     <>
-    <Header />
-    
     {/* Signed-in user banner */}
     {isSignedIn && (
       <div className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white py-3 px-4">

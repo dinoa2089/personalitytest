@@ -104,3 +104,4 @@ export function getTypeHeroImageUrl(typeSlug: string): string | null {
 
 
 
+

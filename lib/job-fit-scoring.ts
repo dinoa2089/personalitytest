@@ -291,3 +291,4 @@ export function normalizeJobProfile(profile: Record<string, unknown>): JobProfil
   return normalized;
 }
 
+

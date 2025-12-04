@@ -410,3 +410,4 @@ function extractGeneric(html: string): { title: string; description: string } {
   return { title, description };
 }
 
+

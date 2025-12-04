@@ -326,3 +326,4 @@ function getCellColor(score: number): string {
   return "bg-red-500/60 text-red-50";
 }
 
+

@@ -202,3 +202,4 @@ async function createProducts() {
 // Run the script
 createProducts().catch(console.error);
 
+

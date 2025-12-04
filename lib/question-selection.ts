@@ -6,10 +6,12 @@
  * 1. Satisfy minimum constraints (greedy)
  * 2. Fill remaining slots with weighted random selection
  * 3. Verify and adjust reverse-score ratio
- * 4. Shuffle final order
+ * 4. Deduplicate questions with same/similar text
+ * 5. Prevent duplicate forced-choice option texts
+ * 6. Shuffle final order
  */
 
-import type { Question, Dimension, QuestionType } from '@/types';
+import type { Question, Dimension, QuestionType, ForcedChoiceOption } from '@/types';
 
 export interface SelectionConstraints {
   totalQuestions: number;
@@ -70,6 +72,45 @@ const QUESTION_TYPES: QuestionType[] = [
 ];
 
 const MBTI_DIMENSIONS = ['mbti_ei', 'mbti_sn', 'mbti_tf', 'mbti_jp'];
+
+/**
+ * Extract option text from a forced choice option (handles both string and object formats)
+ */
+function getOptionText(option: string | ForcedChoiceOption): string {
+  return typeof option === 'string' ? option : option.text;
+}
+
+/**
+ * Normalize text for comparison (lowercase, trim, remove extra whitespace)
+ */
+function normalizeText(text: string): string {
+  return text.toLowerCase().trim().replace(/\s+/g, ' ').replace(/[^\w\s]/g, '');
+}
+
+/**
+ * Extract all option texts from a question (for forced_choice deduplication)
+ */
+function extractOptionTexts(question: Question): string[] {
+  if (!question.options || question.options.length === 0) {
+    return [];
+  }
+  return question.options.map(opt => normalizeText(getOptionText(opt)));
+}
+
+/**
+ * Check if a question has any options that conflict with already-seen options
+ */
+function hasConflictingOptions(
+  question: Question,
+  seenOptionTexts: Set<string>
+): boolean {
+  if (question.type !== 'forced_choice' || !question.options) {
+    return false;
+  }
+  
+  const optionTexts = extractOptionTexts(question);
+  return optionTexts.some(text => seenOptionTexts.has(text));
+}
 
 /**
  * Select a random subset of n items from an array
@@ -137,7 +178,8 @@ function shuffle<T>(arr: T[]): T[] {
  * 2. Fill remaining slots with discrimination-weighted random selection
  * 3. Verify and adjust reverse-score ratio
  * 4. Deduplicate questions with same/similar text
- * 5. Shuffle final order
+ * 5. Prevent duplicate forced-choice option texts
+ * 6. Shuffle final order
  */
 export function selectQuestions(
   questionBank: Question[],
@@ -148,31 +190,52 @@ export function selectQuestions(
   const selected: Question[] = [];
   const usedIds = new Set<string>();
   const usedTexts = new Set<string>(); // Track question texts to prevent duplicates
+  const usedOptionTexts = new Set<string>(); // Track forced-choice option texts
   
-  // Normalize text for comparison (lowercase, trim, remove punctuation)
-  const normalizeText = (text: string): string => {
-    return text.toLowerCase().trim().replace(/[^\w\s]/g, '');
-  };
-  
-  // Helper to add a question if not already selected and text is unique
+  // Helper to add a question if not already selected, text is unique, and options don't conflict
   const addQuestion = (q: Question): boolean => {
     if (usedIds.has(q.id)) return false;
     
     const normalizedText = normalizeText(q.text);
+    
     // Skip if we already have a question with the same text
     if (usedTexts.has(normalizedText)) {
       return false;
     }
     
+    // For forced_choice questions, check for conflicting option texts
+    if (q.type === 'forced_choice' && hasConflictingOptions(q, usedOptionTexts)) {
+      return false;
+    }
+    
+    // Add the question
     selected.push(q);
     usedIds.add(q.id);
     usedTexts.add(normalizedText);
+    
+    // Track option texts for forced_choice questions
+    if (q.type === 'forced_choice' && q.options) {
+      for (const opt of q.options) {
+        usedOptionTexts.add(normalizeText(getOptionText(opt)));
+      }
+    }
+    
     return true;
   };
   
   // Helper to get available questions matching criteria
   const getAvailable = (filter: (q: Question) => boolean): Question[] => {
-    return questionBank.filter(q => !usedIds.has(q.id) && filter(q));
+    return questionBank.filter(q => {
+      if (usedIds.has(q.id)) return false;
+      if (!filter(q)) return false;
+      
+      // For forced_choice, also check option conflicts
+      if (q.type === 'forced_choice' && hasConflictingOptions(q, usedOptionTexts)) {
+        return false;
+      }
+      
+      return true;
+    });
   };
   
   // =========================================
@@ -301,6 +364,15 @@ export function selectQuestions(
             if (idx > -1) {
               selected.splice(idx, 1);
               usedIds.delete(toRemove.id);
+              usedTexts.delete(normalizeText(toRemove.text));
+              
+              // Remove option texts if it was forced_choice
+              if (toRemove.type === 'forced_choice' && toRemove.options) {
+                for (const opt of toRemove.options) {
+                  usedOptionTexts.delete(normalizeText(getOptionText(opt)));
+                }
+              }
+              
               addQuestion(toAdd);
             }
           }
@@ -326,10 +398,12 @@ export function getSelectionStats(questions: Question[]): {
   avgWeight: number;
   avgDiscrimination: number;
   frameworkCoverage: Record<string, number>;
+  uniqueOptionTexts: number;
 } {
   const byDimension: Record<string, number> = {};
   const byType: Record<string, number> = {};
   const frameworkCoverage: Record<string, number> = {};
+  const allOptionTexts = new Set<string>();
   
   let reverseCount = 0;
   let totalWeight = 0;
@@ -355,6 +429,13 @@ export function getSelectionStats(questions: Question[]): {
         frameworkCoverage[tag] = (frameworkCoverage[tag] || 0) + 1;
       }
     }
+    
+    // Track option texts for uniqueness count
+    if (q.type === 'forced_choice' && q.options) {
+      for (const opt of q.options) {
+        allOptionTexts.add(normalizeText(getOptionText(opt)));
+      }
+    }
   }
   
   return {
@@ -365,6 +446,7 @@ export function getSelectionStats(questions: Question[]): {
     avgWeight: questions.length > 0 ? totalWeight / questions.length : 0,
     avgDiscrimination: questions.length > 0 ? totalDiscrimination / questions.length : 0,
     frameworkCoverage,
+    uniqueOptionTexts: allOptionTexts.size,
   };
 }
 
@@ -409,6 +491,27 @@ export function validateSelection(
     issues.push(`Reverse score ratio ${(stats.reverseScoreRatio * 100).toFixed(1)}% exceeds maximum ${(maxRatio * 100).toFixed(1)}%`);
   }
   
+  // Check for duplicate option texts in forced_choice questions
+  const forcedChoiceQuestions = questions.filter(q => q.type === 'forced_choice');
+  const seenOptions = new Set<string>();
+  const duplicateOptions: string[] = [];
+  
+  for (const q of forcedChoiceQuestions) {
+    if (q.options) {
+      for (const opt of q.options) {
+        const normalized = normalizeText(getOptionText(opt));
+        if (seenOptions.has(normalized)) {
+          duplicateOptions.push(getOptionText(opt));
+        }
+        seenOptions.add(normalized);
+      }
+    }
+  }
+  
+  if (duplicateOptions.length > 0) {
+    issues.push(`Found ${duplicateOptions.length} duplicate forced-choice option(s): "${duplicateOptions.slice(0, 3).join('", "')}${duplicateOptions.length > 3 ? '...' : ''}"`);
+  }
+  
   return {
     valid: issues.length === 0,
     issues,
@@ -441,5 +544,3 @@ export function selectQuestionsForUser(
   
   return selectQuestions(availableQuestions, tier, requestedFrameworks);
 }
-
-

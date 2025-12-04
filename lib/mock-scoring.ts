@@ -9,7 +9,7 @@
  * 
  * Also tracks MBTI dimensions directly from framework_tags for accurate T/F calculation
  */
-import type { QuestionResponse, DimensionScore, ForcedChoiceOption, Question, Dimension } from "@/types";
+import type { QuestionResponse, DimensionScore, ForcedChoiceOption, Question, Dimension, FrameworkMappings } from "@/types";
 
 // Import mock questions to access forced-choice options with dimension mappings
 import { mockQuestions } from "./mock-questions";
@@ -131,7 +131,7 @@ function getEffectiveWeight(questionType: string, discrimination: number = 1.0):
 export function mockCalculateScores(
   responses: (QuestionResponse | ResponseWithMetadata)[],
   sessionId: string
-): { dimensional_scores: DimensionScore[]; mbti_scores?: MbtiDimensionScore[]; enneagram_scores?: EnneagramTypeScore[]; completed: boolean } {
+): { dimensional_scores: DimensionScore[]; mbti_scores?: MbtiDimensionScore[]; enneagram_scores?: EnneagramTypeScore[]; frameworks?: FrameworkMappings; completed: boolean } {
   // Initialize score accumulators for each dimension
   const dimensions: Dimension[] = [
     "openness",
@@ -394,11 +394,200 @@ export function mockCalculateScores(
     });
   }
 
+  // Build the frameworks object in the format expected by frontend
+  const mbtiType = mbti_dimension_scores.map(s => s.letter).join('');
+  const avgMbtiConfidence = mbti_dimension_scores.reduce((sum, s) => sum + s.confidence, 0) / 4;
+  const borderlineCount = mbti_dimension_scores.filter(s => Math.abs(s.score - 50) < 5).length;
+  const directCount = mbti_dimension_scores.filter(s => s.responseCount > 0).length;
+
+  const frameworks = {
+    mbti: {
+      type: mbtiType,
+      confidence: Math.round(avgMbtiConfidence),
+      borderline_count: borderlineCount,
+      direct_question_count: directCount,
+      dimensions: {
+        "E/I": {
+          value: mbti_dimension_scores.find(s => s.dimension === 'mbti_ei')?.letter || 'E',
+          confidence: Math.round(mbti_dimension_scores.find(s => s.dimension === 'mbti_ei')?.confidence || 50),
+          score: Math.round(mbti_dimension_scores.find(s => s.dimension === 'mbti_ei')?.score || 50),
+          is_direct: (mbti_dimension_scores.find(s => s.dimension === 'mbti_ei')?.responseCount || 0) > 0,
+          borderline: Math.abs((mbti_dimension_scores.find(s => s.dimension === 'mbti_ei')?.score || 50) - 50) < 5,
+        },
+        "S/N": {
+          value: mbti_dimension_scores.find(s => s.dimension === 'mbti_sn')?.letter || 'N',
+          confidence: Math.round(mbti_dimension_scores.find(s => s.dimension === 'mbti_sn')?.confidence || 50),
+          score: Math.round(mbti_dimension_scores.find(s => s.dimension === 'mbti_sn')?.score || 50),
+          is_direct: (mbti_dimension_scores.find(s => s.dimension === 'mbti_sn')?.responseCount || 0) > 0,
+          borderline: Math.abs((mbti_dimension_scores.find(s => s.dimension === 'mbti_sn')?.score || 50) - 50) < 5,
+        },
+        "T/F": {
+          value: mbti_dimension_scores.find(s => s.dimension === 'mbti_tf')?.letter || 'T',
+          confidence: Math.round(mbti_dimension_scores.find(s => s.dimension === 'mbti_tf')?.confidence || 50),
+          score: Math.round(mbti_dimension_scores.find(s => s.dimension === 'mbti_tf')?.score || 50),
+          is_direct: (mbti_dimension_scores.find(s => s.dimension === 'mbti_tf')?.responseCount || 0) > 0,
+          borderline: Math.abs((mbti_dimension_scores.find(s => s.dimension === 'mbti_tf')?.score || 50) - 50) < 5,
+        },
+        "J/P": {
+          value: mbti_dimension_scores.find(s => s.dimension === 'mbti_jp')?.letter || 'J',
+          confidence: Math.round(mbti_dimension_scores.find(s => s.dimension === 'mbti_jp')?.confidence || 50),
+          score: Math.round(mbti_dimension_scores.find(s => s.dimension === 'mbti_jp')?.score || 50),
+          is_direct: (mbti_dimension_scores.find(s => s.dimension === 'mbti_jp')?.responseCount || 0) > 0,
+          borderline: Math.abs((mbti_dimension_scores.find(s => s.dimension === 'mbti_jp')?.score || 50) - 50) < 5,
+        },
+      },
+      explanation: directCount >= 3
+        ? `Your responses to MBTI-specific questions indicate an ${mbtiType} type with high confidence.`
+        : `Your PRISM-7 dimensional scores suggest an ${mbtiType} type.${borderlineCount > 0 ? ` You have ${borderlineCount} dimension(s) near the middle.` : ''}`,
+    },
+    cliftonstrengths: buildCliftonStrengths(dimensional_scores),
+    enneagram: buildEnneagramResult(enneagram_type_scores, dimensional_scores),
+  };
+
   return {
     dimensional_scores,
     mbti_scores: mbti_dimension_scores,
     enneagram_scores: enneagram_type_scores,
+    frameworks,
     completed: true,
+  };
+}
+
+/**
+ * Build CliftonStrengths from dimensional scores
+ */
+function buildCliftonStrengths(dimensional_scores: DimensionScore[]) {
+  const scores: Record<string, number> = {};
+  for (const s of dimensional_scores) {
+    scores[s.dimension] = s.percentile;
+  }
+
+  const strategicThinking = (scores.openness || 50) * 0.6 + (scores.adaptability || 50) * 0.4;
+  const executing = scores.conscientiousness || 50;
+  const influencing = scores.extraversion || 50;
+  const relationshipBuilding = scores.agreeableness || 50;
+
+  const themes: Array<{ name: string; domain: string; score: number }> = [];
+
+  if (strategicThinking > 60) {
+    themes.push({ name: "Strategic", domain: "Strategic Thinking", score: strategicThinking });
+    if (strategicThinking > 70) themes.push({ name: "Ideation", domain: "Strategic Thinking", score: strategicThinking * 0.9 });
+    themes.push({ name: "Learner", domain: "Strategic Thinking", score: strategicThinking * 0.85 });
+  }
+  if (executing > 60) {
+    themes.push({ name: "Achiever", domain: "Executing", score: executing });
+    if (executing > 70) themes.push({ name: "Focus", domain: "Executing", score: executing * 0.9 });
+    themes.push({ name: "Discipline", domain: "Executing", score: executing * 0.85 });
+  }
+  if (influencing > 60) {
+    themes.push({ name: "Communication", domain: "Influencing", score: influencing });
+    if (influencing > 70) themes.push({ name: "Woo", domain: "Influencing", score: influencing * 0.9 });
+    themes.push({ name: "Activator", domain: "Influencing", score: influencing * 0.85 });
+  }
+  if (relationshipBuilding > 60) {
+    themes.push({ name: "Empathy", domain: "Relationship Building", score: relationshipBuilding });
+    if (relationshipBuilding > 70) themes.push({ name: "Harmony", domain: "Relationship Building", score: relationshipBuilding * 0.9 });
+    themes.push({ name: "Developer", domain: "Relationship Building", score: relationshipBuilding * 0.85 });
+  }
+
+  themes.sort((a, b) => b.score - a.score);
+
+  return {
+    top_themes: themes.slice(0, 5),
+    domains: {
+      "Strategic Thinking": Math.round(strategicThinking),
+      "Executing": Math.round(executing),
+      "Influencing": Math.round(influencing),
+      "Relationship Building": Math.round(relationshipBuilding),
+    },
+    explanation: "Based on your dimensional scores, these themes represent your natural talents.",
+  };
+}
+
+/**
+ * Build Enneagram result from type scores
+ */
+function buildEnneagramResult(enneagram_type_scores: EnneagramTypeScore[], dimensional_scores: DimensionScore[]) {
+  const typeNames: Record<number, string> = {
+    1: "Perfectionist", 2: "Helper", 3: "Achiever", 4: "Individualist",
+    5: "Investigator", 6: "Loyalist", 7: "Enthusiast", 8: "Challenger", 9: "Peacemaker"
+  };
+
+  const scores: Record<string, number> = {};
+  for (const s of dimensional_scores) {
+    scores[s.dimension] = s.percentile;
+  }
+
+  // Calculate type probabilities using PRISM mapping (since mock may not have direct enneagram questions)
+  const typeScores: Record<number, number> = {};
+  
+  // Type 1: Perfectionist
+  typeScores[1] = ((scores.conscientiousness || 50) * 0.4 + (scores.honestyHumility || 50) * 0.4 + (100 - (scores.emotionalResilience || 50)) * 0.2);
+  // Type 2: Helper
+  typeScores[2] = ((scores.agreeableness || 50) * 0.5 + (scores.extraversion || 50) * 0.3 + (scores.honestyHumility || 50) * 0.2);
+  // Type 3: Achiever
+  typeScores[3] = ((scores.conscientiousness || 50) * 0.4 + (scores.extraversion || 50) * 0.3 + (scores.adaptability || 50) * 0.3);
+  // Type 4: Individualist
+  typeScores[4] = ((scores.openness || 50) * 0.5 + (100 - (scores.emotionalResilience || 50)) * 0.3 + (100 - (scores.extraversion || 50)) * 0.2);
+  // Type 5: Investigator
+  typeScores[5] = ((scores.openness || 50) * 0.5 + (100 - (scores.extraversion || 50)) * 0.3 + (scores.conscientiousness || 50) * 0.2);
+  // Type 6: Loyalist
+  typeScores[6] = ((scores.conscientiousness || 50) * 0.4 + (100 - (scores.emotionalResilience || 50)) * 0.3 + (scores.agreeableness || 50) * 0.3);
+  // Type 7: Enthusiast
+  typeScores[7] = ((scores.openness || 50) * 0.4 + (scores.extraversion || 50) * 0.4 + (scores.adaptability || 50) * 0.2);
+  // Type 8: Challenger
+  typeScores[8] = ((scores.extraversion || 50) * 0.4 + (scores.emotionalResilience || 50) * 0.3 + (100 - (scores.agreeableness || 50)) * 0.3);
+  // Type 9: Peacemaker
+  typeScores[9] = ((scores.agreeableness || 50) * 0.5 + (scores.adaptability || 50) * 0.3 + (100 - (scores.extraversion || 50)) * 0.2);
+
+  // Blend with direct scores if available
+  for (const es of enneagram_type_scores) {
+    if (es.responseCount > 0) {
+      typeScores[es.type] = (typeScores[es.type] * 0.3 + es.score * 0.7);
+    }
+  }
+
+  const total = Object.values(typeScores).reduce((a, b) => a + b, 0);
+  const all_probabilities: Record<number, number> = {};
+  for (const [type, score] of Object.entries(typeScores)) {
+    all_probabilities[parseInt(type)] = Math.round((score / total) * 100 * 10) / 10;
+  }
+
+  const sortedTypes = Object.entries(all_probabilities).sort((a, b) => b[1] - a[1]);
+  const primary_type = parseInt(sortedTypes[0][0]);
+  const primary_probability = sortedTypes[0][1];
+  const second_type = parseInt(sortedTypes[1][0]);
+  const second_probability = sortedTypes[1][1];
+
+  // Determine wing
+  const wing_candidates = [
+    primary_type > 1 ? primary_type - 1 : 9,
+    primary_type < 9 ? primary_type + 1 : 1
+  ];
+  const wing = all_probabilities[wing_candidates[0]] >= all_probabilities[wing_candidates[1]] 
+    ? wing_candidates[0] : wing_candidates[1];
+
+  const confidence_gap = primary_probability - second_probability;
+  const directTypesScored = enneagram_type_scores.filter(s => s.responseCount > 0).length;
+  const is_confident = confidence_gap > 5 || directTypesScored >= 5;
+
+  return {
+    primary_type,
+    primary_probability,
+    wing,
+    wing_probability: all_probabilities[wing],
+    all_probabilities,
+    direct_types_scored: directTypesScored,
+    confidence: {
+      is_confident,
+      gap_from_second: Math.round(confidence_gap * 10) / 10,
+      second_type,
+      second_probability,
+      note: is_confident ? null : `Your scores suggest Type ${second_type} is also a strong possibility`,
+    },
+    explanation: directTypesScored >= 5
+      ? `Your responses to Enneagram-specific questions indicate Type ${primary_type} (${typeNames[primary_type]}) with wing ${wing}.`
+      : `Your dimensional pattern suggests Enneagram Type ${primary_type} (${typeNames[primary_type]}) with a ${typeNames[wing]} wing (w${wing}).`,
   };
 }
 

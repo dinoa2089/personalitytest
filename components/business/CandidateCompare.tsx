@@ -234,3 +234,4 @@ export function CandidateCompare({ candidates, onClose }: Props) {
   );
 }
 
+

@@ -103,3 +103,4 @@ export function JobFitScore({ fitScore, fitBreakdown, jobTitle, companyName }: J
 
 
 
+

@@ -33,3 +33,4 @@ SELECT
         SELECT id FROM assessment_sessions WHERE user_id = 'USER_ID_HERE'
     )) as results;
 
+

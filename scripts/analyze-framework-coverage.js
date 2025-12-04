@@ -140,3 +140,4 @@ if (!mbtiOk || !ennOk) {
   console.log('3. Use the cross-framework inference (PRISM -> MBTI/Enneagram mapping)');
 }
 
+

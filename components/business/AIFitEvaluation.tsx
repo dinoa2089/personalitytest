@@ -500,3 +500,4 @@ export function AIFitEvaluation({ evaluation, candidateName, compact = false }: 
 
 export default AIFitEvaluation;
 
+
