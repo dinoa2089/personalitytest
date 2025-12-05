@@ -52,6 +52,26 @@ export default function StageCompletePage() {
   const [loading, setLoading] = useState(true);
   const [authMode, setAuthMode] = useState<"results" | "sign-in" | "sign-up">("results");
   const [confettiTriggered, setConfettiTriggered] = useState(false);
+  const [hasPurchased, setHasPurchased] = useState(false);
+
+  // Check premium status for admins
+  useEffect(() => {
+    const checkPremium = async () => {
+      if (!user) return;
+      try {
+        const res = await fetch("/api/user/premium-status");
+        if (res.ok) {
+          const data = await res.json();
+          if (data.hasPremium || data.isAdmin) {
+            setHasPurchased(true);
+          }
+        }
+      } catch (error) {
+        console.error("Error checking premium status:", error);
+      }
+    };
+    checkPremium();
+  }, [user]);
 
   // Determine which stage was completed based on responses
   useEffect(() => {
