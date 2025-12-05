@@ -252,9 +252,13 @@ export default function QuestionPage() {
       const applicantEmail = localStorage.getItem(`applicant-email-${sessionId}`);
       const applicantName = localStorage.getItem(`applicant-name-${sessionId}`);
       
-      const allResponses = [...responses, finalResponse];
+      // Get fresh responses from store state (not the potentially stale 'responses' variable)
+      const freshResponses = useAssessmentStore.getState().responses;
+      const allResponses = [...freshResponses, finalResponse];
       
-      await fetch("/api/assessment/complete", {
+      console.log(`[SaveStageResults] Saving ${allResponses.length} responses for session ${sessionId}`);
+      
+      const response = await fetch("/api/assessment/complete", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -268,6 +272,13 @@ export default function QuestionPage() {
           stageComplete: true, // Flag to indicate partial completion
         }),
       });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("[SaveStageResults] API error:", errorData);
+      } else {
+        console.log("[SaveStageResults] Results saved successfully");
+      }
     } catch (error) {
       console.error("Error saving stage results:", error);
     }

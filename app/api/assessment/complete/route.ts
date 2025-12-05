@@ -10,6 +10,17 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { sessionId, responses } = body;
 
+    // Log incoming request for debugging
+    console.log(`[Complete API] Session: ${sessionId}, Responses: ${responses?.length || 0}`);
+    
+    if (!responses || responses.length === 0) {
+      console.error(`[Complete API] ERROR: No responses provided for session ${sessionId}`);
+      return NextResponse.json(
+        { error: "No responses provided", sessionId },
+        { status: 400 }
+      );
+    }
+
     // Enrich responses with framework_tags and discrimination from question bank
     // This enables the Python scoring API to do proper MBTI/Enneagram calculation
     let enrichedResponses = responses;
