@@ -283,11 +283,55 @@ export function selectQuestions(
   // 1c. Ensure MBTI coverage if requested
   if (requestedFrameworks.includes('mbti') && config.minPerMbtiDimension > 0) {
     for (const mbtiDim of MBTI_DIMENSIONS) {
-      const mbtiQuestions = getAvailable(
-        q => q.framework_tags?.includes(mbtiDim) ?? false
-      );
-      const toSelect = selectRandomN(mbtiQuestions, config.minPerMbtiDimension);
-      toSelect.forEach(addQuestion);
+      // For J/P dimension, ensure balanced selection across different "styles"
+      // to capture both ISTJ-style (methodical) and ENTJ-style (decisive) Judging
+      if (mbtiDim === 'mbti_jp') {
+        const needed = config.minPerMbtiDimension;
+        
+        // Split selection between conscientiousness-based (ISTJ-style) and 
+        // adaptability-based questions (captures flexibility/decisiveness)
+        const halfNeeded = Math.ceil(needed / 2);
+        
+        // Get conscientiousness-based J/P questions (ISTJ-style: planning, organizing)
+        const conscQuestions = getAvailable(
+          q => q.framework_tags?.includes(mbtiDim) && q.dimension === 'conscientiousness'
+        );
+        const conscToSelect = selectRandomN(conscQuestions, halfNeeded);
+        conscToSelect.forEach(addQuestion);
+        
+        // Get adaptability-based J/P questions (flexibility, decisiveness, command)
+        const adaptQuestions = getAvailable(
+          q => q.framework_tags?.includes(mbtiDim) && q.dimension === 'adaptability'
+        );
+        const adaptToSelect = selectRandomN(adaptQuestions, halfNeeded);
+        adaptToSelect.forEach(addQuestion);
+        
+        // Get any extraversion-based J/P questions (command/leadership)
+        const extraversionJP = getAvailable(
+          q => q.framework_tags?.includes(mbtiDim) && q.dimension === 'extraversion'
+        );
+        if (extraversionJP.length > 0) {
+          const extToSelect = selectRandomN(extraversionJP, 1);
+          extToSelect.forEach(addQuestion);
+        }
+        
+        // Fill remaining if we didn't get enough from the split
+        const currentJP = selected.filter(q => q.framework_tags?.includes('mbti_jp')).length;
+        if (currentJP < needed) {
+          const remainingJP = getAvailable(
+            q => q.framework_tags?.includes(mbtiDim) ?? false
+          );
+          const toFill = selectRandomN(remainingJP, needed - currentJP);
+          toFill.forEach(addQuestion);
+        }
+      } else {
+        // For other MBTI dimensions, use standard random selection
+        const mbtiQuestions = getAvailable(
+          q => q.framework_tags?.includes(mbtiDim) ?? false
+        );
+        const toSelect = selectRandomN(mbtiQuestions, config.minPerMbtiDimension);
+        toSelect.forEach(addQuestion);
+      }
     }
   }
   

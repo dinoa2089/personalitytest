@@ -4892,5 +4892,87 @@ export const mockQuestions: Question[] = [
       "prism_agreeableness",
       "enneagram_3"
     ]
+  },
+  {
+    "id": "a1b2c3d4-0001-4000-8000-000000000001",
+    "text": "Once I make a decision, I commit fully rather than second-guessing myself.",
+    "type": "likert",
+    "dimension": "conscientiousness",
+    "reverse_scored": false,
+    "weight": 1,
+    "discrimination": 1.0,
+    "framework_tags": [
+      "prism_conscientiousness",
+      "mbti_jp"
+    ]
+  },
+  {
+    "id": "a1b2c3d4-0002-4000-8000-000000000002",
+    "text": "I take charge and direct the group when no clear leader emerges.",
+    "type": "likert",
+    "dimension": "extraversion",
+    "reverse_scored": false,
+    "weight": 1,
+    "discrimination": 1.0,
+    "framework_tags": [
+      "prism_extraversion",
+      "mbti_jp",
+      "mbti_ei",
+      "enneagram_8"
+    ]
+  },
+  {
+    "id": "a1b2c3d4-0003-4000-8000-000000000003",
+    "text": "I prefer reaching a final conclusion over keeping possibilities open indefinitely.",
+    "type": "likert",
+    "dimension": "conscientiousness",
+    "reverse_scored": false,
+    "weight": 1,
+    "discrimination": 1.0,
+    "framework_tags": [
+      "prism_conscientiousness",
+      "mbti_jp"
+    ]
+  },
+  {
+    "id": "a1b2c3d4-0004-4000-8000-000000000004",
+    "text": "I focus on achieving the end result rather than perfecting each step along the way.",
+    "type": "likert",
+    "dimension": "conscientiousness",
+    "reverse_scored": false,
+    "weight": 1,
+    "discrimination": 1.0,
+    "framework_tags": [
+      "prism_conscientiousness",
+      "mbti_jp",
+      "enneagram_3"
+    ]
+  },
+  {
+    "id": "a1b2c3d4-0005-4000-8000-000000000005",
+    "text": "I become frustrated when discussions continue without reaching a clear decision.",
+    "type": "likert",
+    "dimension": "conscientiousness",
+    "reverse_scored": false,
+    "weight": 1,
+    "discrimination": 1.0,
+    "framework_tags": [
+      "prism_conscientiousness",
+      "mbti_jp"
+    ]
+  },
+  {
+    "id": "a1b2c3d4-0006-4000-8000-000000000006",
+    "text": "I naturally assume responsibility for ensuring goals are met on time.",
+    "type": "likert",
+    "dimension": "conscientiousness",
+    "reverse_scored": false,
+    "weight": 1,
+    "discrimination": 1.0,
+    "framework_tags": [
+      "prism_conscientiousness",
+      "mbti_jp",
+      "enneagram_3"
+    ]
   }
 ];

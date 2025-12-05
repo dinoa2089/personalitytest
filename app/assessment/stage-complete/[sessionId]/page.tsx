@@ -487,8 +487,7 @@ export default function StageCompletePage() {
                       </div>
                     </CardContent>
                   </Card>
-                )
-              )}
+                )}
             </motion.div>
           )}
 
