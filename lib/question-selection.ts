@@ -294,21 +294,21 @@ export function selectQuestions(
         
         // Get conscientiousness-based J/P questions (ISTJ-style: planning, organizing)
         const conscQuestions = getAvailable(
-          q => q.framework_tags?.includes(mbtiDim) && q.dimension === 'conscientiousness'
+          q => Boolean(q.framework_tags?.includes(mbtiDim)) && q.dimension === 'conscientiousness'
         );
         const conscToSelect = selectRandomN(conscQuestions, halfNeeded);
         conscToSelect.forEach(addQuestion);
         
         // Get adaptability-based J/P questions (flexibility, decisiveness, command)
         const adaptQuestions = getAvailable(
-          q => q.framework_tags?.includes(mbtiDim) && q.dimension === 'adaptability'
+          q => Boolean(q.framework_tags?.includes(mbtiDim)) && q.dimension === 'adaptability'
         );
         const adaptToSelect = selectRandomN(adaptQuestions, halfNeeded);
         adaptToSelect.forEach(addQuestion);
         
         // Get any extraversion-based J/P questions (command/leadership)
         const extraversionJP = getAvailable(
-          q => q.framework_tags?.includes(mbtiDim) && q.dimension === 'extraversion'
+          q => Boolean(q.framework_tags?.includes(mbtiDim)) && q.dimension === 'extraversion'
         );
         if (extraversionJP.length > 0) {
           const extToSelect = selectRandomN(extraversionJP, 1);
