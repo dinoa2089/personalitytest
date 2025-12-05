@@ -7,6 +7,8 @@ export async function GET(
 ) {
   try {
     const { sessionId } = await params;
+    const { searchParams } = new URL(request.url);
+    const checkpoint = searchParams.get("checkpoint");
 
     // Use service role key to bypass RLS
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -39,6 +41,25 @@ export async function GET(
       return NextResponse.json({ error: "Results not found" }, { status: 404 });
     }
 
+    // For checkpoint-specific requests, filter frameworks based on stage
+    let frameworks = result.framework_mappings || null;
+    if (checkpoint) {
+      const checkpointNum = parseInt(checkpoint);
+      // Filter frameworks based on what's available at this checkpoint
+      if (frameworks) {
+        // Checkpoint 1: Only PRISM (base dimensions), no MBTI/Enneagram yet
+        // Checkpoint 2+: MBTI available
+        // Checkpoint 3+: Enneagram available
+        // Checkpoint 4: Everything including detailed facets
+        frameworks = {
+          ...frameworks,
+          mbti: checkpointNum >= 2 ? frameworks.mbti : undefined,
+          enneagram: checkpointNum >= 3 ? frameworks.enneagram : undefined,
+          dark_triad: checkpointNum >= 4 ? frameworks.dark_triad : undefined,
+        };
+      }
+    }
+
     // If this is a business assessment, fetch applicant assessment details
     if (result.metadata?.applicant_assessment_id) {
       const { data: applicantAssessment } = await supabase
@@ -69,7 +90,9 @@ export async function GET(
 
         return NextResponse.json({
           ...result,
-          frameworks: result.framework_mappings || null, // Include frameworks
+          frameworks,
+          mbti: frameworks?.mbti,
+          enneagram: frameworks?.enneagram,
           fit_score: applicantAssessment.fit_score,
           fit_breakdown: applicantAssessment.fit_breakdown,
           job_info: {
@@ -83,7 +106,9 @@ export async function GET(
     // Map framework_mappings to frameworks for frontend compatibility
     const responseData = {
       ...result,
-      frameworks: result.framework_mappings || null,
+      frameworks,
+      mbti: frameworks?.mbti,
+      enneagram: frameworks?.enneagram,
     };
     return NextResponse.json(responseData);
   } catch (error) {

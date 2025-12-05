@@ -8,6 +8,15 @@ import { CheckCircle2, Sparkles, ArrowRight, UserPlus, LogIn } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 
+/**
+ * Auth gate page for viewing results
+ * This page is shown when:
+ * 1. User completed the full assessment but isn't logged in
+ * 2. User was redirected here from old flow
+ * 
+ * With the new progressive flow, users hit the auth gate after PRISM stage
+ * at /assessment/stage-complete/[sessionId] instead.
+ */
 export default function AssessmentCompletePage() {
   const params = useParams();
   const router = useRouter();
@@ -261,4 +270,3 @@ export default function AssessmentCompletePage() {
     </div>
   );
 }
-

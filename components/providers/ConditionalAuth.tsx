@@ -1,34 +1,24 @@
 "use client";
 
-import { UserButton, SignInButton, useUser } from "@clerk/nextjs";
-import { WithClerk } from "@/components/providers/ClerkProviderWrapper";
+import { useClerkWrapper } from "@/components/providers/ClerkProviderWrapper";
+import dynamic from "next/dynamic";
 
-function ConditionalAuthContent() {
-  const { isSignedIn, isLoaded } = useUser();
+// Dynamically import the Clerk-dependent component
+const ClerkAuthContent = dynamic(
+  () => import("./ClerkAuthContent").then(mod => mod.ClerkAuthContent),
+  { 
+    ssr: false,
+    loading: () => null // Show nothing while loading
+  }
+);
+
+export function ConditionalAuth() {
+  const { isConfigured } = useClerkWrapper();
   
-  // Don't render until Clerk is loaded (prevents hydration issues)
-  if (!isLoaded) {
+  // Only render Clerk components when Clerk is actually configured
+  if (!isConfigured) {
     return null;
   }
   
-  if (isSignedIn) {
-    return <UserButton afterSignOutUrl="/" />;
-  }
-  
-  return (
-    <SignInButton mode="modal">
-      <button className="text-sm font-medium transition-colors hover:text-primary">
-        Sign In
-      </button>
-    </SignInButton>
-  );
+  return <ClerkAuthContent />;
 }
-
-export function ConditionalAuth() {
-  return (
-    <WithClerk>
-      <ConditionalAuthContent />
-    </WithClerk>
-  );
-}
-

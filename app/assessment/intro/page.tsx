@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useUser } from "@clerk/nextjs";
+import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
@@ -10,11 +10,23 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAssessmentStore } from "@/store/assessment-store";
-import { ProcessFlow, DimensionsWheel } from "@/components/visualizations";
-import { CHECKPOINTS } from "@/lib/checkpoint-logic";
-import { AlertCircle, Briefcase, Building2, Clock, XCircle } from "lucide-react";
-
-type AssessmentType = "quick" | "standard" | "full";
+import { DimensionsWheel } from "@/components/visualizations";
+import { ASSESSMENT_STAGES } from "@/lib/assessment-stages";
+import { 
+  AlertCircle, 
+  Briefcase, 
+  Building2, 
+  Clock, 
+  XCircle,
+  ChevronRight,
+  Sparkles,
+  Lock,
+  CheckCircle2,
+  ArrowRight,
+  Zap,
+  Shield,
+  Gift
+} from "lucide-react";
 
 interface JobPostingInfo {
   id: string;
@@ -30,10 +42,8 @@ interface LinkError {
 function AssessmentIntroContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { user } = useUser(); // Get signed-in user if available
   const { initializeSession } = useAssessmentStore();
   const [isStarting, setIsStarting] = useState(false);
-  const [selectedType, setSelectedType] = useState<AssessmentType | null>("standard");
   const [jobToken, setJobToken] = useState<string | null>(null);
   const [jobInfo, setJobInfo] = useState<JobPostingInfo | null>(null);
   const [linkError, setLinkError] = useState<LinkError | null>(null);
@@ -49,15 +59,12 @@ function AssessmentIntroContent() {
     const token = searchParams.get("job");
     
     if (refCode) {
-      // Store referral code for later tracking
       localStorage.setItem("referral-code", refCode);
     }
     
     if (token) {
       setJobToken(token);
-      // Store job token for applicant assessment tracking
       localStorage.setItem("job-token", token);
-      // Fetch job posting info
       fetchJobInfo(token);
     }
   }, [searchParams]);
@@ -78,7 +85,6 @@ function AssessmentIntroContent() {
         });
         setShowApplicantForm(true);
       } else if (response.status === 410) {
-        // Link expired or maxed out
         const errorMsg = data.error || "This link is no longer valid";
         const errorType = errorMsg.toLowerCase().includes("expired") ? "expired" 
           : errorMsg.toLowerCase().includes("maximum") ? "maxed" 
@@ -106,20 +112,17 @@ function AssessmentIntroContent() {
     }
   };
 
-  const handleStart = async (type: AssessmentType = "full") => {
+  // Start assessment - always begins with PRISM stage (no choice needed)
+  const handleStart = async () => {
     setIsStarting(true);
     const sessionId = crypto.randomUUID();
     
-    // Initialize session in store with assessment type
     initializeSession(sessionId);
     
-    // Store assessment type in session metadata
-    localStorage.setItem(`assessment-type-${sessionId}`, type);
-
-    // Store guest session ID in localStorage for dashboard lookup
+    // Store assessment stage (always starts with prism)
+    localStorage.setItem(`assessment-stage-${sessionId}`, "prism");
     localStorage.setItem("current-guest-session-id", sessionId);
 
-    // Store applicant info if provided
     if (applicantEmail) {
       localStorage.setItem(`applicant-email-${sessionId}`, applicantEmail);
     }
@@ -127,7 +130,6 @@ function AssessmentIntroContent() {
       localStorage.setItem(`applicant-name-${sessionId}`, applicantName);
     }
 
-    // Create session in database
     try {
       setStartError(null);
       const referralCode = localStorage.getItem("referral-code");
@@ -136,8 +138,8 @@ function AssessmentIntroContent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           guestSessionId: sessionId,
-          userId: user?.id || null, // Pass Clerk user ID if signed in, otherwise guest
-          assessmentType: type, // Pass assessment type to API
+          userId: null, // Guest session - user claims it after auth
+          assessmentType: "progressive", // New type - starts with PRISM
           referralCode: referralCode || null,
         }),
       });
@@ -151,7 +153,6 @@ function AssessmentIntroContent() {
         return;
       }
       
-      // Update localStorage with actual session ID from DB
       if (data.session?.id) {
         localStorage.setItem("current-guest-session-id", data.session.id);
       }
@@ -164,10 +165,39 @@ function AssessmentIntroContent() {
     }
   };
 
+  // Define stages for the visual journey preview
+  const journeyStages = [
+    {
+      stage: ASSESSMENT_STAGES[0],
+      icon: "🎯",
+      color: "from-violet-500 to-purple-600",
+      bgColor: "bg-violet-500/10",
+      borderColor: "border-violet-500/30",
+      free: true,
+    },
+    {
+      stage: ASSESSMENT_STAGES[1],
+      icon: "🔮",
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "bg-blue-500/10",
+      borderColor: "border-blue-500/30",
+      free: true,
+      requiresAuth: true,
+    },
+    {
+      stage: ASSESSMENT_STAGES[2],
+      icon: "✨",
+      color: "from-amber-500 to-orange-600",
+      bgColor: "bg-amber-500/10",
+      borderColor: "border-amber-500/30",
+      premium: true,
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-background via-background to-muted/20">
       <Header />
-      <Container className="flex-1 py-16 md:py-24">
+      <Container className="flex-1 py-12 md:py-20">
         <div className="mx-auto max-w-3xl space-y-12">
           {/* Link Error State */}
           {linkError && (
@@ -219,7 +249,8 @@ function AssessmentIntroContent() {
             </div>
           )}
 
-          {!linkError && !loadingJobInfo && jobInfo ? (
+          {/* Job Application Header - for B2B flow */}
+          {!linkError && !loadingJobInfo && jobInfo && (
             <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-transparent">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
@@ -240,433 +271,292 @@ function AssessmentIntroContent() {
                       </div>
                     )}
                     <p className="text-sm text-muted-foreground pt-2">
-                      This assessment is pre-paid by the employer. Complete it to be considered for this role.
-                      Your results will be shared with {jobInfo.company_name || "the employer"}.
+                      This assessment is pre-paid by the employer. Your results will be shared with {jobInfo.company_name || "the employer"}.
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-          ) : null}
-
-          {!linkError && !loadingJobInfo && jobInfo && (
-            <div className="text-center space-y-6">
-              <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-                Personality Assessment for{" "}
-                <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
-                  {jobInfo.title}
-                </span>
-              </h1>
-              {jobInfo.company_name && (
-                <p className="text-2xl font-semibold text-muted-foreground">
-                  {jobInfo.company_name}
-                </p>
-              )}
-              <p className="mx-auto max-w-2xl text-xl leading-relaxed text-muted-foreground">
-                Complete this assessment to help {jobInfo.company_name || "the employer"} understand your personality fit for this role.
-                <br className="hidden sm:block" />
-                <span className="text-foreground font-medium">Your results will be shared with the employer.</span>
-              </p>
-              
-              {/* Primary CTA for Job Applicants - Above the fold */}
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button 
-                  size="lg" 
-                  onClick={() => handleStart("standard")} 
-                  disabled={isStarting}
-                  className="text-lg px-12 py-7 h-auto bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full"
-                >
-                  {isStarting ? "Starting..." : "Start Assessment →"}
-                </Button>
-                <p className="text-sm text-muted-foreground">
-                  ~19 minutes • Pre-paid by employer
-                </p>
-              </div>
-            </div>
           )}
 
+          {/* Main Hero - Consumer Flow */}
           {!linkError && !loadingJobInfo && !jobInfo && (
-            <div className="text-center space-y-6">
-              <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center space-y-6"
+            >
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
                 Discover Your{" "}
-                <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
-                  True Personality Type
+                <span className="bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 bg-clip-text text-transparent">
+                  True Personality
                 </span>
               </h1>
-              <p className="mx-auto max-w-2xl text-xl leading-relaxed text-muted-foreground">
-                Get scientifically validated insights into your personality across 7 core dimensions.
-                <br className="hidden sm:block" />
-                <span className="text-foreground font-medium">Start in 8 minutes, go deeper anytime</span>
+              <p className="mx-auto max-w-2xl text-lg md:text-xl leading-relaxed text-muted-foreground">
+                Get scientifically-validated insights into your authentic self.
+                Start free, go as deep as you want.
               </p>
               
               {/* Error Display */}
               {startError && (
-                <div className="mx-auto max-w-md p-4 bg-destructive/10 border border-destructive/30 rounded-lg text-destructive text-sm">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="mx-auto max-w-md p-4 bg-destructive/10 border border-destructive/30 rounded-lg text-destructive text-sm"
+                >
                   <div className="flex items-center gap-2">
                     <AlertCircle className="h-4 w-4 flex-shrink-0" />
                     <span>{startError}</span>
                   </div>
-                </div>
+                </motion.div>
               )}
               
-              {/* Primary CTA - Above the fold - scrolls to assessment options */}
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              {/* Primary CTA - Single button, starts immediately */}
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="pt-4 flex flex-col items-center gap-4"
+              >
                 <Button 
                   size="lg" 
-                  onClick={() => {
-                    // Scroll to assessment options section
-                    document.getElementById('assessment-options')?.scrollIntoView({ behavior: 'smooth' });
-                  }} 
+                  onClick={handleStart} 
                   disabled={isStarting}
-                  className="text-lg px-12 py-7 h-auto bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:via-pink-700 hover:to-orange-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full"
+                  className="text-lg px-10 py-7 h-auto bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 hover:from-violet-700 hover:via-fuchsia-700 hover:to-orange-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full"
                 >
-                  {isStarting ? "Starting..." : "Take the Assessment →"}
+                  {isStarting ? (
+                    <>
+                      <span className="animate-spin mr-2">⏳</span>
+                      Starting...
+                    </>
+                  ) : (
+                    <>
+                      Start Your Journey
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </>
+                  )}
                 </Button>
-                <p className="text-sm text-muted-foreground">
-                  Free • No signup required • Choose your depth
-                </p>
-              </div>
-            </div>
-          )}
-
-          {/* Journey Preview - hide when there's a link error */}
-          {!linkError && !loadingJobInfo && (
-          <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-2xl">Your Personality Journey</CardTitle>
-              <CardDescription className="text-base">
-                Complete at your own pace — stop anytime and continue later
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-6">
-                {CHECKPOINTS.map((checkpoint, i) => (
-                  <div key={checkpoint.id} className="flex items-start gap-4">
-                    <div className="flex flex-col items-center">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${
-                        i === 0 
-                          ? "bg-primary text-primary-foreground" 
-                          : "bg-primary/20 text-primary"
-                      }`}>
-                        {checkpoint.id}
-                      </div>
-                      {i < CHECKPOINTS.length - 1 && (
-                        <div className="w-0.5 h-8 bg-border my-2" />
-                      )}
-                    </div>
-                    <div className="flex-1 pb-4">
-                      <div className="flex items-center justify-between flex-wrap gap-2">
-                        <h3 className="font-semibold text-lg">{checkpoint.name}</h3>
-                        <span className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded">
-                          {checkpoint.timeEstimate}
-                        </span>
-                      </div>
-                      <p className="text-sm text-muted-foreground mt-1">{checkpoint.description}</p>
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        {checkpoint.unlocks.slice(0, 2).map((unlock, j) => (
-                          <span key={j} className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full border border-green-200">
-                            ✓ {unlock}
-                          </span>
-                        ))}
-                        {checkpoint.unlocks.length > 2 && (
-                          <span className="text-xs text-muted-foreground">
-                            +{checkpoint.unlocks.length - 2} more
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 p-4 bg-muted/50 rounded-xl text-center">
-                <p className="text-sm text-muted-foreground">
-                  <span className="font-medium text-foreground">Stop anytime</span> • Your progress is saved • Continue later
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-          )}
-
-          {!linkError && !loadingJobInfo && (
-          <>
-            <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader className="pb-6">
-                <CardTitle className="text-2xl">What to Expect</CardTitle>
-                <CardDescription className="text-base">What you&apos;ll learn about yourself</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
-                  <h3 className="font-semibold text-lg">Your Dimensional Profile</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    See how you score across 7 core personality dimensions with percentile rankings and
-                    confidence intervals.
-                  </p>
-                </div>
-                <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
-                  <h3 className="font-semibold text-lg">Framework Mappings</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Understand how your results relate to familiar frameworks like Myers-Briggs, CliftonStrengths,
-                    and Enneagram.
-                  </p>
-                </div>
-                <div className="space-y-3 rounded-xl border border-border/50 bg-muted/30 p-5 hover:bg-muted/50 transition-colors">
-                  <h3 className="font-semibold text-lg">Personalized Insights</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Receive actionable insights for your career, relationships, and personal growth.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* How It Works - Process Flow */}
-            <ProcessFlow showTitle={true} variant="horizontal" className="mt-8" />
-          </>
-          )}
-
-          {!linkError && !loadingJobInfo && (
-          <>
-
-          {/* Dimensions Preview */}
-          <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-2xl">The 7 Dimensions You&apos;ll Discover</CardTitle>
-              <CardDescription className="text-base">
-                Click any dimension to learn more about what it measures
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <DimensionsWheel showTitle={false} />
-            </CardContent>
-          </Card>
-
-          {showApplicantForm && (
-            <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
-              <CardHeader className="pb-6">
-                <CardTitle className="text-2xl">Applicant Information</CardTitle>
-                <CardDescription className="text-base">
-                  Optional: Provide your contact information to help the employer identify your assessment
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="applicant-name">Full Name (Optional)</Label>
-                  <Input
-                    id="applicant-name"
-                    type="text"
-                    placeholder="John Doe"
-                    value={applicantName}
-                    onChange={(e) => setApplicantName(e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="applicant-email">Email Address (Optional)</Label>
-                  <Input
-                    id="applicant-email"
-                    type="email"
-                    placeholder="john.doe@example.com"
-                    value={applicantEmail}
-                    onChange={(e) => setApplicantEmail(e.target.value)}
-                  />
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  You can skip this step and proceed directly to the assessment if you prefer.
-                </p>
-              </CardContent>
-            </Card>
-          )}
-
-          <Card id="assessment-options" className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg scroll-mt-24">
-            <CardHeader className="pb-6">
-              <CardTitle className="text-2xl">Choose Your Assessment</CardTitle>
-              <CardDescription className="text-base">
-                {jobInfo ? "Select the assessment version" : "Each option builds on the previous — stop at any checkpoint and get results"}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {/* Quick Assessment - Checkpoint 1 */}
-              <div 
-                className={`group relative rounded-xl border-2 p-6 cursor-pointer transition-all duration-300 ${
-                  selectedType === "quick" 
-                    ? "border-primary bg-gradient-to-br from-primary/10 to-primary/5 shadow-md" 
-                    : "border-border/50 hover:border-primary/50 hover:bg-muted/30 hover:shadow-md"
-                }`}
-                onClick={() => setSelectedType("quick")}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1 space-y-2">
-                    <div className="flex items-center gap-3">
-                      <div className={`h-3 w-3 rounded-full transition-all ${
-                        selectedType === "quick" ? "bg-primary ring-4 ring-primary/20" : "bg-border group-hover:bg-primary/50"
-                      }`} />
-                      <h3 className="font-bold text-lg">Quick Start</h3>
-                      <span className="text-xs bg-muted px-2 py-0.5 rounded-full">Checkpoint 1</span>
-                    </div>
-                    <p className="text-sm font-medium text-muted-foreground">
-                      35 questions • ~8 minutes
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Get your PRISM-7 personality profile and basic archetype. Perfect if you&apos;re short on time.
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
-                        ✓ PRISM-7 scores
-                      </span>
-                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
-                        ✓ Personality archetype
-                      </span>
-                    </div>
-                  </div>
-                  {selectedType === "quick" && (
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
-                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Standard Assessment - Checkpoint 3 */}
-              <div 
-                className={`group relative rounded-xl border-2 p-6 cursor-pointer transition-all duration-300 ${
-                  selectedType === "standard" 
-                    ? "border-primary bg-gradient-to-br from-primary/10 to-primary/5 shadow-md" 
-                    : "border-border/50 hover:border-primary/50 hover:bg-muted/30 hover:shadow-md"
-                }`}
-                onClick={() => setSelectedType("standard")}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1 space-y-2">
-                    <div className="flex items-center gap-3">
-                      <div className={`h-3 w-3 rounded-full transition-all ${
-                        selectedType === "standard" ? "bg-primary ring-4 ring-primary/20" : "bg-border group-hover:bg-primary/50"
-                      }`} />
-                      <h3 className="font-bold text-lg">Standard</h3>
-                      <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">Recommended</span>
-                    </div>
-                    <p className="text-sm font-medium text-muted-foreground">
-                      80 questions • ~19 minutes • 3 checkpoints
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Unlock PRISM-7, MBTI type, and Enneagram. Best balance of depth and time. Stop at any checkpoint.
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
-                        ✓ Everything in Quick
-                      </span>
-                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
-                        ✓ MBTI type
-                      </span>
-                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
-                        ✓ Enneagram
-                      </span>
-                    </div>
-                  </div>
-                  {selectedType === "standard" && (
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
-                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              </div>
-              
-              {/* Full Assessment - Checkpoint 4 */}
-              <div 
-                className={`group relative rounded-xl border-2 p-6 cursor-pointer transition-all duration-300 ${
-                  selectedType === "full" 
-                    ? "border-primary bg-gradient-to-br from-primary/10 to-primary/5 shadow-md" 
-                    : "border-border/50 hover:border-primary/50 hover:bg-muted/30 hover:shadow-md"
-                }`}
-                onClick={() => setSelectedType("full")}
-              >
-                {/* Premium badge */}
-                <div className="absolute -top-3 -right-2">
-                  <span className="text-xs bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full font-semibold shadow-lg">
-                    Deep Dive
+                <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1.5">
+                    <Gift className="h-4 w-4 text-green-600" />
+                    Free to start
+                  </span>
+                  <span className="hidden sm:block">•</span>
+                  <span className="flex items-center gap-1.5">
+                    <Clock className="h-4 w-4 text-blue-600" />
+                    ~8 minutes
+                  </span>
+                  <span className="hidden sm:block">•</span>
+                  <span className="flex items-center gap-1.5">
+                    <Shield className="h-4 w-4 text-violet-600" />
+                    No signup required
                   </span>
                 </div>
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1 space-y-2">
-                    <div className="flex items-center gap-3">
-                      <div className={`h-3 w-3 rounded-full transition-all ${
-                        selectedType === "full" ? "bg-primary ring-4 ring-primary/20" : "bg-border group-hover:bg-primary/50"
-                      }`} />
-                      <h3 className="font-bold text-lg">Comprehensive</h3>
-                      <span className="text-xs bg-muted px-2 py-0.5 rounded-full">All 4 checkpoints</span>
-                    </div>
-                    <p className="text-sm font-medium text-muted-foreground">
-                      105 questions • ~25 minutes • 4 checkpoints
-                    </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Complete deep dive with facet-level analysis, Dark Triad insights, compatibility scores, and career guidance. Progress through all 4 checkpoints.
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
-                        ✓ Everything in Standard
-                      </span>
-                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
-                        ✓ Facet analysis
-                      </span>
-                      <span className="text-xs bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200">
-                        ★ Dark Triad profile
-                      </span>
-                      <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full border border-green-200">
-                        ✓ Career guidance
-                      </span>
-                    </div>
-                  </div>
-                  {selectedType === "full" && (
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
-                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              </div>
+              </motion.div>
+            </motion.div>
+          )}
 
-              {/* Checkpoint info note */}
-              <div className="mt-2 p-3 bg-muted/30 rounded-lg text-center">
-                <p className="text-xs text-muted-foreground">
-                  <span className="font-medium">How checkpoints work:</span> Answer questions → reach a checkpoint → get results for that level → continue or stop anytime
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button 
-              size="lg" 
-              onClick={() => handleStart(selectedType || "full")} 
-              disabled={isStarting || !selectedType} 
-              className="text-lg px-10 py-6 h-auto bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-            >
-              {isStarting ? "Starting..." : `Start ${selectedType === "quick" ? "Quick" : selectedType === "standard" ? "Standard" : "Comprehensive"} Assessment`}
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              onClick={() => router.push("/science")} 
-              className="text-lg px-10 py-6 h-auto border-2 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
-            >
-              Learn About the Science
-            </Button>
-          </div>
-
-          <div className="flex items-center justify-center gap-6 pt-6 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-green-500" />
-              <span>No signup required</span>
+          {/* B2B Job Application Flow */}
+          {!linkError && !loadingJobInfo && jobInfo && (
+            <div className="text-center space-y-6">
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+                Your Assessment for{" "}
+                <span className="bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 bg-clip-text text-transparent">
+                  {jobInfo.title}
+                </span>
+              </h1>
+              
+              {showApplicantForm && (
+                <Card className="text-left max-w-md mx-auto">
+                  <CardHeader className="pb-4">
+                    <CardTitle className="text-lg">Your Information (Optional)</CardTitle>
+                    <CardDescription>
+                      Help the employer identify your assessment
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="applicant-name">Full Name</Label>
+                      <Input
+                        id="applicant-name"
+                        type="text"
+                        placeholder="John Doe"
+                        value={applicantName}
+                        onChange={(e) => setApplicantName(e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="applicant-email">Email Address</Label>
+                      <Input
+                        id="applicant-email"
+                        type="email"
+                        placeholder="john.doe@example.com"
+                        value={applicantEmail}
+                        onChange={(e) => setApplicantEmail(e.target.value)}
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+              
+              <Button 
+                size="lg" 
+                onClick={handleStart} 
+                disabled={isStarting}
+                className="text-lg px-10 py-7 h-auto bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 hover:from-violet-700 hover:via-fuchsia-700 hover:to-orange-600 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full"
+              >
+                {isStarting ? "Starting..." : "Start Assessment →"}
+              </Button>
+              <p className="text-sm text-muted-foreground">
+                ~19 minutes • Pre-paid by employer
+              </p>
             </div>
-            <div className="h-4 w-px bg-border" />
-            <span>Auto-saved responses</span>
-            <div className="h-4 w-px bg-border" />
-            <span>Free results</span>
-          </div>
-          </>
+          )}
+
+          {/* Progressive Journey Preview - Consumer Flow */}
+          {!linkError && !loadingJobInfo && !jobInfo && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg overflow-hidden">
+                <CardHeader className="pb-4 bg-gradient-to-r from-violet-500/5 via-fuchsia-500/5 to-orange-500/5">
+                  <CardTitle className="text-xl md:text-2xl">Your Progressive Journey</CardTitle>
+                  <CardDescription className="text-base">
+                    Unlock deeper insights at each stage — go as far as you like
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="pt-6">
+                  <div className="space-y-4">
+                    {journeyStages.map((item, i) => (
+                      <motion.div
+                        key={item.stage.id}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 + i * 0.1 }}
+                        className={`relative rounded-xl border p-5 ${item.borderColor} ${item.bgColor} transition-all hover:shadow-md`}
+                      >
+                        <div className="flex items-start gap-4">
+                          {/* Stage Number & Icon */}
+                          <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-2xl shadow-lg`}>
+                            {item.icon}
+                          </div>
+                          
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap mb-1">
+                              <h3 className="font-bold text-lg">{item.stage.name}</h3>
+                              {item.free && !item.requiresAuth && (
+                                <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">
+                                  Free • No signup
+                                </span>
+                              )}
+                              {item.free && item.requiresAuth && (
+                                <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+                                  <Lock className="h-3 w-3" />
+                                  Free with account
+                                </span>
+                              )}
+                              {item.premium && (
+                                <span className="text-xs bg-gradient-to-r from-amber-100 to-orange-100 text-amber-700 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+                                  <Sparkles className="h-3 w-3" />
+                                  Premium
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-sm text-muted-foreground mb-3">
+                              {item.stage.questionCount} questions • {item.stage.timeEstimate}
+                            </p>
+                            <div className="flex flex-wrap gap-1.5">
+                              {item.stage.unlocks.slice(0, 3).map((unlock, j) => (
+                                <span 
+                                  key={j} 
+                                  className="text-xs bg-background/80 text-muted-foreground px-2 py-1 rounded-full border border-border/50"
+                                >
+                                  <CheckCircle2 className="h-3 w-3 inline mr-1 text-green-600" />
+                                  {unlock}
+                                </span>
+                              ))}
+                              {item.stage.unlocks.length > 3 && (
+                                <span className="text-xs text-muted-foreground px-2 py-1">
+                                  +{item.stage.unlocks.length - 3} more
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          
+                          {/* Connector */}
+                          {i < journeyStages.length - 1 && (
+                            <div className="absolute left-[2.25rem] -bottom-4 w-0.5 h-4 bg-border z-10" />
+                          )}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  {/* Bottom note */}
+                  <div className="mt-6 p-4 bg-muted/30 rounded-xl text-center">
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-medium text-foreground">Results at every stage</span> — 
+                      get instant insights, then decide if you want to go deeper
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
+
+          {/* What You'll Discover - Consumer Flow */}
+          {!linkError && !loadingJobInfo && !jobInfo && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <Card className="rounded-2xl border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl md:text-2xl">The 7 Dimensions You'll Discover</CardTitle>
+                  <CardDescription className="text-base">
+                    Scientifically-validated personality traits
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <DimensionsWheel showTitle={false} />
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
+
+          {/* Secondary CTA at bottom */}
+          {!linkError && !loadingJobInfo && !jobInfo && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="text-center space-y-4 pt-4"
+            >
+              <Button 
+                size="lg" 
+                onClick={handleStart} 
+                disabled={isStarting}
+                className="text-lg px-10 py-6 h-auto bg-gradient-to-r from-violet-600 via-fuchsia-600 to-orange-500 hover:from-violet-700 hover:via-fuchsia-700 hover:to-orange-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-full"
+              >
+                {isStarting ? "Starting..." : "Begin Your Discovery →"}
+              </Button>
+              
+              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-2">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={() => router.push("/science")} 
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Learn about the science
+                  <ChevronRight className="h-4 w-4 ml-1" />
+                </Button>
+              </div>
+            </motion.div>
           )}
         </div>
       </Container>
@@ -680,7 +570,7 @@ export default function AssessmentIntroPage() {
       <div className="flex min-h-screen flex-col">
         <Header />
         <Container className="flex-1 flex items-center justify-center">
-          <p className="text-muted-foreground">Loading...</p>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
         </Container>
       </div>
     }>

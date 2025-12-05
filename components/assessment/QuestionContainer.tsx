@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ProgressBar } from "./ProgressBar";
+import { StageProgressBar } from "./StageProgressBar";
 import { Container } from "@/components/layout/Container";
 import { DimensionProgress } from "./DimensionProgress";
 import { useAssessmentStore } from "@/store/assessment-store";
@@ -162,7 +162,7 @@ export function QuestionContainer({
     >
       <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 sticky top-0 z-40 shadow-sm">
         <Container className="py-4">
-          <ProgressBar />
+          <StageProgressBar questionsAnswered={responses.length} showStageIndicators={true} />
         </Container>
       </div>
       <div className="flex-1">

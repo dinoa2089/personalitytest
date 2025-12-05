@@ -20,9 +20,10 @@ type ClerkWrapperContextValue = MockClerkContextValue | ClerkContextValue;
 
 const ClerkWrapperContext = createContext<ClerkWrapperContextValue>({ isConfigured: false });
 
-export function useClerkWrapper() {
+// Hook to access Clerk configuration state
+export const useClerkWrapper = () => {
   return useContext(ClerkWrapperContext);
-}
+};
 
 /**
  * A wrapper component that only renders children when Clerk is configured.

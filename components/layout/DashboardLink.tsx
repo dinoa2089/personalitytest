@@ -1,45 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { useUser } from "@clerk/nextjs";
 import { LayoutDashboard } from "lucide-react";
-import { WithClerk } from "@/components/providers/ClerkProviderWrapper";
+import { useClerkWrapper } from "@/components/providers/ClerkProviderWrapper";
+import dynamic from "next/dynamic";
 
-function DashboardLinkContent({ mobile, onClose }: { mobile?: boolean; onClose?: () => void }) {
-  const { isSignedIn } = useUser();
+interface DashboardLinkProps {
+  mobile?: boolean;
+  onClose?: () => void;
+}
 
-  if (!isSignedIn) return null;
-
-  if (mobile) {
-    return (
-      <Link
-        href="/dashboard"
-        className="flex items-center gap-2 text-sm font-medium text-violet-600 hover:text-violet-700"
-        onClick={onClose}
-      >
-        <LayoutDashboard className="h-4 w-4" />
-        Dashboard
-      </Link>
-    );
+// Dynamically import the Clerk-dependent component
+const DashboardLinkClerkContent = dynamic(
+  () => import("./DashboardLinkClerkContent").then(mod => mod.DashboardLinkClerkContent),
+  { 
+    ssr: false,
+    loading: () => null
   }
+);
 
-  return (
-    <Link
-      href="/dashboard"
-      className="flex items-center gap-1.5 text-sm font-medium text-violet-600 hover:text-violet-700 transition-colors"
-    >
-      <LayoutDashboard className="h-4 w-4" />
-      Dashboard
-    </Link>
-  );
+export function DashboardLink(props: DashboardLinkProps) {
+  const { isConfigured } = useClerkWrapper();
+  
+  // Only render when Clerk is configured
+  if (!isConfigured) {
+    return null;
+  }
+  
+  return <DashboardLinkClerkContent {...props} />;
 }
-
-// Export wrapped component that safely handles missing Clerk
-export function DashboardLink(props: { mobile?: boolean; onClose?: () => void }) {
-  return (
-    <WithClerk>
-      <DashboardLinkContent {...props} />
-    </WithClerk>
-  );
-}
-

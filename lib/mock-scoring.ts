@@ -199,6 +199,9 @@ export function mockCalculateScores(
     // Get reverse_scored from response (enriched) or question
     const isReversed = (response as any).reverse_scored ?? question?.reverse_scored ?? false;
     
+    // Get the PRISM dimension for this question
+    const prismDimension = question?.dimension || '';
+    
     for (const mbtiDim of MBTI_DIMENSIONS) {
       if (frameworkTags.includes(mbtiDim)) {
         // Score this response for the MBTI dimension
@@ -210,6 +213,31 @@ export function mockCalculateScores(
         //       should contribute HIGH to Judging (low stress = organized/structured)
         if (isReversed) {
           mbtiScore = 10 - mbtiScore; // Invert the 0-10 scale
+        }
+        
+        // DIMENSION-AWARE CORRECTION: Some PRISM dimensions have inverted relationships with MBTI
+        // After applying isReversed above, mbtiScore is normalized to represent the PRISM dimension
+        // (high score = high trait level). Now we need to map to MBTI where some dimensions are inverted.
+        //
+        // Key insight: The isReversed flag normalizes the response to match the PRISM dimension.
+        // Then we ALWAYS need to apply the PRISM→MBTI mapping, regardless of reverse_scored.
+        
+        // T/F dimension correction: agreeableness inversely maps to Thinking
+        // High agreeableness = Feeling (F), so for T scale: T = 10 - agreeableness
+        if (mbtiDim === 'mbti_tf' && prismDimension === 'agreeableness') {
+          mbtiScore = 10 - mbtiScore;
+        }
+        
+        // S/N dimension correction: openness inversely maps to Sensing  
+        // High openness = Intuition (N), so for S scale: S = 10 - openness
+        if (mbtiDim === 'mbti_sn' && prismDimension === 'openness') {
+          mbtiScore = 10 - mbtiScore;
+        }
+        
+        // J/P dimension correction: adaptability inversely maps to Judging
+        // High adaptability = Perceiving (P), so for J scale: J = 10 - adaptability
+        if (mbtiDim === 'mbti_jp' && prismDimension === 'adaptability') {
+          mbtiScore = 10 - mbtiScore;
         }
         
         mbtiScores[mbtiDim].totalScore += mbtiScore * effectiveWeight;
@@ -224,8 +252,30 @@ export function mockCalculateScores(
         // Score this response for the Enneagram type
         let ennScore = scoreSimpleResponse(response);
         
-        // Apply reverse scoring for Enneagram dimensions too
-        if (isReversed) {
+        // IMPORTANT: For Enneagram, we need to consider what the question measures.
+        // Enneagram tags are applied to questions that describe that type's behaviors.
+        // High agreement with the question should generally indicate high score for that type.
+        // 
+        // However, reverse_scored affects whether high agreement means high or low trait.
+        // For questions like "I ensure my achievements are recognized" (low agreeableness, E3):
+        //   - reverse_scored=true (high agreement = low agreeableness)
+        //   - But for E3, high agreement should = high E3 score!
+        //
+        // The key insight: if a question has reverse_scored=true AND measures a trait that
+        // INVERSELY correlates with the Enneagram type, we should NOT reverse.
+        //
+        // For simplicity, check if the dimension inversely maps to the Enneagram type:
+        // - Low agreeableness → E3, E8 (competitive, assertive types)
+        // - Low agreeableness questions have reverse_scored=true, but should give HIGH E3/E8
+        
+        const lowAgreeablenessTypes = ['enneagram_3', 'enneagram_8'];
+        const isLowAgreeablenessType = lowAgreeablenessTypes.includes(ennType);
+        const isAgreeablenessDim = prismDimension === 'agreeableness';
+        
+        // Only apply reverse for Enneagram if:
+        // 1. The question IS reverse-scored AND
+        // 2. The Enneagram type doesn't have an inverse correlation with the PRISM dimension
+        if (isReversed && !(isAgreeablenessDim && isLowAgreeablenessType)) {
           ennScore = 10 - ennScore;
         }
         

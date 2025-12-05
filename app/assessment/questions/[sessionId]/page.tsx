@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRouter, useParams } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 import { useAssessmentStore } from "@/store/assessment-store";
 import { QuestionContainer } from "@/components/assessment/QuestionContainer";
 import { LikertScale } from "@/components/assessment/questions/LikertScale";
@@ -21,24 +22,19 @@ import {
   normalizeResponse,
   type AdaptiveState,
 } from "@/lib/questions";
-import { isCheckpointReached, getCurrentCheckpoint } from "@/lib/checkpoint-logic";
+import { 
+  getCurrentStage, 
+  isStageComplete, 
+  getStageProgress,
+  ASSESSMENT_STAGES 
+} from "@/lib/assessment-stages";
 import type { Question, QuestionResponse } from "@/types";
-
-// Checkpoint thresholds
-const CHECKPOINT_THRESHOLDS = [35, 55, 80, 105];
-
-// Questions to load per batch (between checkpoints)
-const BATCH_SIZES: Record<number, number> = {
-  1: 35,  // First checkpoint: PRISM-7
-  2: 20,  // Second: MBTI (+20)
-  3: 25,  // Third: Enneagram (+25)
-  4: 25,  // Fourth: Deep dive (+25)
-};
 
 export default function QuestionPage() {
   const router = useRouter();
   const params = useParams();
   const sessionId = params.sessionId as string;
+  const { user } = useUser(); // Get signed-in user if available
   
   const {
     currentQuestion,
@@ -57,7 +53,6 @@ export default function QuestionPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [adaptiveState, setAdaptiveState] = useState<AdaptiveState | null>(null);
   const [questionBank, setQuestionBank] = useState<Question[]>([]);
-  const [totalQuestionsTarget, setTotalQuestionsTarget] = useState(105);
   
   // Track if we've initialized to prevent double loading
   const initialized = useRef(false);
@@ -68,16 +63,8 @@ export default function QuestionPage() {
     if (initialized.current) return;
     initialized.current = true;
     
-    // Load questions adaptively
     const fetchQuestions = async () => {
       try {
-        // Get assessment type from localStorage
-        const assessmentType = (localStorage.getItem(`assessment-type-${sessionId}`) || "full") as "quick" | "standard" | "full";
-        
-        // Set target questions based on assessment type
-        const targetQuestions = assessmentType === "quick" ? 35 : assessmentType === "standard" ? 80 : 105;
-        setTotalQuestionsTarget(targetQuestions);
-        
         // Load full question bank
         const allQuestions = await loadQuestions();
         setQuestionBank(allQuestions);
@@ -91,9 +78,16 @@ export default function QuestionPage() {
             if (sessionData.session && sessionData.responses) {
               dbResponseCount = sessionData.responses.length;
               
-              // Check if already completed
-              if (dbResponseCount >= targetQuestions) {
+              // Check if we've completed the entire assessment
+              const maxQuestions = ASSESSMENT_STAGES[ASSESSMENT_STAGES.length - 1].cumulativeQuestions;
+              if (dbResponseCount >= maxQuestions) {
                 router.push(`/results/${sessionId}`);
+                return;
+              }
+              
+              // Check if we just completed a stage - redirect to stage completion
+              if (isStageComplete(dbResponseCount)) {
+                router.push(`/assessment/stage-complete/${sessionId}`);
                 return;
               }
             }
@@ -105,47 +99,41 @@ export default function QuestionPage() {
         // Get or initialize adaptive state
         let state = getOrInitializeAdaptiveState(sessionId);
         
-        // IMPORTANT: Sync adaptive state with database
-        // If localStorage has more questions than DB, reset the adaptive state
-        // This handles cases where DB was cleared but localStorage wasn't
+        // Sync adaptive state with database
         if (state.questionsAnswered > dbResponseCount) {
           console.log(`Resetting adaptive state: localStorage has ${state.questionsAnswered} but DB has ${dbResponseCount}`);
           localStorage.removeItem(`adaptive-state-${sessionId}`);
           state = getOrInitializeAdaptiveState(sessionId);
         }
         
-        // If DB has responses but state doesn't match, update progress
         if (dbResponseCount > 0 && state.questionsAnswered < dbResponseCount) {
-          // DB has more - we need to resume from DB position
-          // For now, just update the count (full state rebuild would need response data)
           state = { ...state, questionsAnswered: dbResponseCount };
         }
         
         setAdaptiveState(state);
         
-        // Update progress based on actual DB response count
-        updateProgress((dbResponseCount / targetQuestions) * 100);
+        // Get current stage and calculate questions needed
+        const currentStage = getCurrentStage(dbResponseCount);
+        const questionsNeeded = currentStage.cumulativeQuestions - dbResponseCount;
         
-        // Determine current checkpoint and batch size
-        const currentCheckpoint = state.currentCheckpoint || 1;
-        const questionsAnswered = state.questionsAnswered || 0;
+        // Update progress for current stage
+        const stageProgress = getStageProgress(dbResponseCount);
+        updateProgress(stageProgress.progressPercent);
         
-        // Calculate how many questions we need for the current batch
-        const nextCheckpointThreshold = CHECKPOINT_THRESHOLDS.find(t => t > questionsAnswered) || targetQuestions;
-        const questionsNeeded = Math.min(nextCheckpointThreshold - questionsAnswered, targetQuestions - questionsAnswered);
-        
-        // Select questions adaptively for this batch
+        // Select questions for current stage
         const selectedQuestions = selectQuestionBatch(
           allQuestions,
           state,
           questionsNeeded,
-          { checkpoint: currentCheckpoint, diversifyTypes: true }
+          { 
+            checkpoint: ASSESSMENT_STAGES.findIndex(s => s.id === currentStage.id) + 1, 
+            diversifyTypes: true 
+          }
         );
         
         if (selectedQuestions.length > 0) {
           setQuestions(selectedQuestions);
           setCurrentQuestion(selectedQuestions[0]);
-          // Progress already set above based on dbResponseCount
         }
       } catch (error) {
         console.error("Failed to load questions:", error);
@@ -158,7 +146,6 @@ export default function QuestionPage() {
   }, [sessionId, router, setQuestions, setCurrentQuestion, updateProgress]);
 
   const handleAnswer = async (answer: string | number) => {
-    // Prevent processing if already completing/redirecting
     if (isCompleting.current) return;
     if (!currentQuestion || !adaptiveState) return;
 
@@ -172,14 +159,15 @@ export default function QuestionPage() {
 
     addResponse(response);
 
-    // Update adaptive state with the new response
+    // Update adaptive state
     const normalizedValue = normalizeResponse(answer, currentQuestion.type);
     const newAdaptiveState = updateTraitEstimate(adaptiveState, currentQuestion, normalizedValue);
     setAdaptiveState(newAdaptiveState);
     saveAdaptiveState(sessionId, newAdaptiveState);
 
-    // Save to backend with progress update
+    // Save to backend
     try {
+      const currentStage = getCurrentStage(newAdaptiveState.questionsAnswered);
       await fetch("/api/assessment/response", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -189,50 +177,47 @@ export default function QuestionPage() {
           response: answer,
           dimension: currentQuestion.dimension,
           questionType: currentQuestion.type,
-          totalQuestions: totalQuestionsTarget,
+          totalQuestions: currentStage.cumulativeQuestions,
           currentProgress: newAdaptiveState.questionsAnswered,
         }),
       });
     } catch (error) {
       console.error("Failed to save response:", error);
-      // Continue anyway - don't block user
     }
 
-    // Calculate total answered count (from adaptive state)
     const totalAnswered = newAdaptiveState.questionsAnswered;
     const nextIndex = currentIndex + 1;
 
-    // FIRST: Check if we've reached the target (assessment complete)
-    if (totalAnswered >= totalQuestionsTarget) {
+    // Update progress for current stage
+    const stageProgress = getStageProgress(totalAnswered);
+    updateProgress(stageProgress.progressPercent);
+
+    // Check if we've completed a stage (reached a stage boundary)
+    if (isStageComplete(totalAnswered)) {
       isCompleting.current = true;
-      updateProgress(100);
-      completeAssessmentFlow(response);
+      
+      // Save partial results for this stage
+      await saveStageResults(response);
+      
+      // Redirect to stage completion page (shows results + prompts to continue)
+      router.push(`/assessment/stage-complete/${sessionId}`);
       return;
     }
 
-    // SECOND: Check if we've reached an intermediate checkpoint
-    if (CHECKPOINT_THRESHOLDS.includes(totalAnswered)) {
-      isCompleting.current = true;
-      updateProgress((totalAnswered / totalQuestionsTarget) * 100);
-      router.push(`/assessment/checkpoint/${sessionId}`);
-      return;
-    }
-
-    // THIRD: Move to next question or load more
+    // Move to next question or load more
     if (nextIndex < questions.length) {
       setCurrentIndex(nextIndex);
       setCurrentQuestion(questions[nextIndex]);
-      updateProgress((totalAnswered / totalQuestionsTarget) * 100);
     } else {
-      // Need to load more questions for the next batch
-      const nextCheckpoint = newAdaptiveState.currentCheckpoint;
-      const nextThreshold = CHECKPOINT_THRESHOLDS.find(t => t > totalAnswered) || totalQuestionsTarget;
-      const questionsNeeded = Math.min(nextThreshold - totalAnswered, totalQuestionsTarget - totalAnswered);
+      // Load more questions for this stage
+      const currentStage = getCurrentStage(totalAnswered);
+      const questionsNeeded = currentStage.cumulativeQuestions - totalAnswered;
       
       if (questionsNeeded <= 0) {
-        // Safety: Should have completed already, but just in case
+        // Shouldn't happen, but safety check
         isCompleting.current = true;
-        completeAssessmentFlow(response);
+        await saveStageResults(response);
+        router.push(`/assessment/stage-complete/${sessionId}`);
         return;
       }
       
@@ -240,26 +225,28 @@ export default function QuestionPage() {
         questionBank,
         newAdaptiveState,
         questionsNeeded,
-        { checkpoint: nextCheckpoint, diversifyTypes: true }
+        { 
+          checkpoint: ASSESSMENT_STAGES.findIndex(s => s.id === currentStage.id) + 1, 
+          diversifyTypes: true 
+        }
       );
       
       if (newBatch.length > 0) {
         setQuestions(newBatch);
         setCurrentIndex(0);
         setCurrentQuestion(newBatch[0]);
-        updateProgress((totalAnswered / totalQuestionsTarget) * 100);
       } else {
-        // No more questions available - complete assessment
+        // No more questions - complete this stage
         isCompleting.current = true;
-        completeAssessmentFlow(response);
+        await saveStageResults(response);
+        router.push(`/assessment/stage-complete/${sessionId}`);
       }
     }
   };
 
-  // Helper function to complete the assessment
-  const completeAssessmentFlow = async (finalResponse: QuestionResponse) => {
+  // Save results for the current stage
+  const saveStageResults = async (finalResponse: QuestionResponse) => {
     try {
-      // Get referral code, job token, and applicant info from localStorage if they exist
       const referralCode = localStorage.getItem("referral-code");
       const jobToken = localStorage.getItem("job-token");
       const applicantEmail = localStorage.getItem(`applicant-email-${sessionId}`);
@@ -267,75 +254,48 @@ export default function QuestionPage() {
       
       const allResponses = [...responses, finalResponse];
       
-      const completeResponse = await fetch("/api/assessment/complete", {
+      await fetch("/api/assessment/complete", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           sessionId,
           responses: allResponses,
-          userId: null, // Guest session - no user ID
+          userId: user?.id || null, // Pass Clerk user ID if signed in
           referralCode: referralCode || null,
           jobToken: jobToken || null,
           applicantEmail: applicantEmail || null,
           applicantName: applicantName || null,
+          stageComplete: true, // Flag to indicate partial completion
         }),
       });
-
-      if (completeResponse.ok) {
-        const data = await completeResponse.json();
-        const resultData = data.result || data;
-        
-        // Store result in store for fallback access
-        setResult({
-          session_id: sessionId,
-          dimensional_scores: resultData.dimensional_scores || [],
-          completed: true,
-          created_at: new Date(),
-        });
-        
-        completeAssessment();
-        // Redirect to auth gate - requires sign in before viewing results
-        router.push(`/assessment/complete/${sessionId}`);
-      } else {
-        const errorData = await completeResponse.json().catch(() => ({}));
-        console.error("Failed to complete assessment:", errorData);
-        // Still redirect to auth gate
-        router.push(`/assessment/complete/${sessionId}`);
-      }
     } catch (error) {
-      console.error("Error completing assessment:", error);
-      // Still redirect to auth gate - they might be in store
-      completeAssessment();
-      router.push(`/assessment/complete/${sessionId}`);
+      console.error("Error saving stage results:", error);
     }
   };
 
   if (isLoading || !currentQuestion) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <p className="text-muted-foreground">Loading question...</p>
+        <div className="text-center space-y-4">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto" />
+          <p className="text-muted-foreground">Loading your questions...</p>
+        </div>
       </div>
     );
   }
 
-  // Determine which likert variant to show based on question characteristics
-  // This creates variety while being deterministic (same question = same style)
+  // Determine question variant for visual variety
   const getLikertVariant = (question: Question, index: number): "emoji" | "slider" | "binary" => {
-    // Use question ID hash to determine variant consistently
     const hash = question.id.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
     
-    // Binary choice for simpler, more direct questions (every 5th likert question)
-    // These work best for clear-cut statements
     if (index % 5 === 4 && !question.reverse_scored) {
       return "binary";
     }
     
-    // Slider for every 3rd question to add variety
     if (hash % 3 === 0) {
       return "slider";
     }
     
-    // Default to emoji scale
     return "emoji";
   };
 
@@ -395,6 +355,9 @@ export default function QuestionPage() {
     }
   };
 
+  // Get current stage info for display
+  const stageProgress = getStageProgress(adaptiveState?.questionsAnswered || 0);
+
   return (
     <>
       <MilestoneCelebration progress={progress} />
@@ -402,7 +365,6 @@ export default function QuestionPage() {
         {renderQuestionComponent()}
         {/* Navigation and question counter */}
         <div className="mt-8 flex items-center justify-between">
-          {/* Previous button - only show if we can go back */}
           <div className="w-24">
             {currentIndex > 0 && (
               <Button
@@ -419,15 +381,12 @@ export default function QuestionPage() {
             )}
           </div>
           
-          {/* Question counter - uses adaptive state as source of truth */}
+          {/* Question counter - shows progress within current stage */}
           <p className="text-sm text-muted-foreground text-center">
-            Question {(adaptiveState?.questionsAnswered ?? 0) + 1} of {totalQuestionsTarget}
+            {stageProgress.questionsInStage + 1} of {stageProgress.stage.questionCount}
           </p>
           
-          {/* Skip button - allows moving forward without answering (optional) */}
-          <div className="w-24 flex justify-end">
-            {/* Space reserved for symmetry - Next happens automatically on answer */}
-          </div>
+          <div className="w-24" />
         </div>
       </QuestionContainer>
     </>

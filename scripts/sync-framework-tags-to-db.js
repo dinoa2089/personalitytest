@@ -9,6 +9,8 @@
 
 require('dotenv').config({ path: '.env.local' });
 const { createClient } = require('@supabase/supabase-js');
+const fs = require('fs');
+const path = require('path');
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -20,8 +22,29 @@ if (!supabaseUrl || !supabaseServiceKey) {
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-// Load mock questions with framework tags
-const mockQuestions = require('../lib/mock-questions.ts');
+// Load mock questions by parsing the TypeScript file
+const mockQuestionsPath = path.join(__dirname, '../lib/mock-questions.ts');
+const mockQuestionsContent = fs.readFileSync(mockQuestionsPath, 'utf8');
+
+// Find the array start (after "= [") and extract to the final "];"
+const arrayMatch = mockQuestionsContent.match(/export const mockQuestions[^=]*=\s*(\[[\s\S]*\]);?\s*$/);
+
+let mockQuestions;
+if (arrayMatch) {
+  try {
+    // The array is valid JSON, just need to handle trailing semicolon
+    let jsonStr = arrayMatch[1].trim();
+    if (jsonStr.endsWith(';')) jsonStr = jsonStr.slice(0, -1);
+    mockQuestions = JSON.parse(jsonStr);
+    console.log(`Parsed ${mockQuestions.length} questions from mock-questions.ts`);
+  } catch (e) {
+    console.error('Failed to parse JSON array:', e.message);
+    process.exit(1);
+  }
+} else {
+  console.error('Could not find mockQuestions array in file');
+  process.exit(1);
+}
 
 async function syncFrameworkTags() {
   console.log('\n' + '='.repeat(60));
